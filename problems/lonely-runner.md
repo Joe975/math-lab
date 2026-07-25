@@ -4,10 +4,15 @@
 pairwise distinct constant speeds. The conjecture: each runner is at some
 time "lonely" — at distance ≥ 1/k from every other runner.
 
-**Status.** Open for k ≥ 8 (proved up to k = 7, the k = 7 case by Barajas
-and Serra). Standard reduction: speeds may be assumed integers, and one
+**Status.** Proved up to k = 7 (k = 7 by Barajas–Serra); a Sept 2025
+preprint by Rosenfeld (arXiv:2509.14111) claims a proof of k = 8 —
+treat k = 8 as likely settled pending peer review, and k ≥ 9 as the open
+frontier. Standard reduction: speeds may be assumed integers, and one
 runner stationary. Tao proved it suffices to check speeds up to roughly
-k^{O(k^2)}, making each k a (huge) finite problem.
+k^{O(k^2)}, making each k a (huge) finite problem. NOTE (corrected
+2026-07-25): the conjectured "tight ⇔ speeds {1,...,k-1}" rigidity is
+FALSE as stated — Goddyn–Wong constructed additional tight instances
+(accelerations and sporadics); our attempt 001 recovered them at k = 8.
 
 **Attack surface.**
 - Computational: verify k = 8 for structured/small speed sets; look for

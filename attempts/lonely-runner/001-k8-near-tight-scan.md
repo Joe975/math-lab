@@ -64,7 +64,9 @@ consistency check, since every scaled copy must reproduce the primitive's ML.
 
 3. **Auxiliary spectrum scan** — all 18,643,560 7-subsets of {1..40} with
    threshold 1/7, to map the ML spectrum in the band (1/8, 1/7) just above
-   the conjectured bound (15 s).
+   the conjectured bound (15 s); plus a sharper **band test**: all
+   73,629,072 7-subsets of {1..48} with threshold 3/23 (102 s), see
+   `data/k8_band_V48_thr3-23.json`.
 
 4. **Independent re-verification** (`lonely_runner_analyze.py`): every
    primitive hit recomputed three ways (sums-only exact, paranoid exact,
@@ -92,7 +94,8 @@ with ML = 1/8 exactly — no counterexamples, and an empty open band.**
 - **No tuple with ML < 1/8** among all 1.47·10⁹ tuples: consistent with the
   conjecture (and with Rosenfeld's 2025 preprint proof of k = 8, see Leads).
 - **No tuple with 1/8 < ML < 13/100**: the spectrum has an empirical gap
-  above 1/8, for all speeds ≤ 72.
+  above 1/8, for all speeds ≤ 72. The sharper band test extends this: for
+  all speeds ≤ 48, **no ML lies in the open interval (1/8, 3/23)** at all.
 - The GW acceleration criterion (replace r by mr in (1..7); tight iff
   gcd(r,x) > 1 for all x in [8−r, m(8−r)−1]) admits **only** r=6, m=2 with
   max speed ≤ 72, matching the scan exactly. So up to speed 72, tight = the
@@ -145,12 +148,14 @@ can and cannot say:
 ## Leads generated
 
 1. **Spectrum-gap conjecture at n = 7, concrete and falsifiable:** the data
-   suggests spectrum ∩ (1/8, 1/7) = {s/(7s+1) : s ≥ 2} ∪ {s/(7s+2) : s ≥ 3 odd}
-   and in particular an empty band (1/8, 3/23). A targeted scan with
-   threshold 3/23 (~0.1304, barely above 13/100) at V = 72 would cost the
-   same as the main scan and directly test whether 3/23 is the true second
-   spectrum point in this range. Proving the gap (1/8, 3/23) for k = 8 even
-   restricted to bounded speeds would be a publishable-style partial result.
+   suggests spectrum ∩ (1/8, 1/7) = {s/(7s+1) : s ≥ 2} ∪ {s/(7s+2) : s ≥ 3 odd},
+   with an empty band (1/8, 3/23). The band test **confirmed the sharper gap
+   directly: for all speeds ≤ 48, no ML lies in (1/8, 3/23)** — the only
+   values below 3/23 are the three tight instances at exactly 1/8, so 3/23
+   (attained by (1,2,3,4,5,7,18)) is the true second spectrum point in this
+   range. Extending the band test to V = 72 costs ~35 min; proving the gap
+   (1/8, 3/23) for k = 8 even restricted to bounded speeds would be a
+   publishable-style partial result.
 2. **Acceleration calculus:** the exact ladders ML((1,2,3,4,5,6,7m)) =
    m/(7m+1) and the GW-criterion match suggest a clean general formula for
    ML of "one accelerated runner" tuples; worth proving directly (finite

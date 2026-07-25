@@ -1,36 +1,39 @@
 # Ledger
 
-## TL;DR (updated 2026-07-25, cycle 3 = recovery cycle)
+## TL;DR (updated 2026-07-25, cycle 3 wrap-up)
 
-A second container restart (22:38Z) silently killed all three in-flight
-agents (Erdős–Gyárfás n=22, Singmaster collisions, lonely-runner V=72);
-all three resumed from checkpoints — no banked compute lost. No new lines
-launched this cycle. Standing results: Erdős–Straus coverage map + Mordell
-confirmation done (class-601 anomaly queued); union-closed idea B dead with
-generalized no-go; lonely-runner validation recovered both Goddyn–Wong
-tight instances at V≤40 (good tool signal). Next fresh launches: union-
-closed idea C, Erdős–Straus 601-at-10^6, graceful-trees SAT.
+Big harvest. Singmaster: multiplicity census PROVABLY COMPLETE to
+2.5×10^29 — 3003 still the unique mult-8 value; mult 5 and 7 empty in
+range. Erdős–Gyárfás: n=22 exhausted (all 90,938 girth≥5 cubics contain
+C8); n=24 running (64 slices). Lonely runner: V=72 full scan at k=8 —
+exactly 3 tight tuples (= the Goddyn–Wong classification, recovered from
+scratch), nothing below 1/8, spectrum matches Fan–Sun's amended
+conjecture at n=7 (new data point). IMPORTANT: Rosenfeld preprint
+(arXiv:2509.14111) claims k=8 proof — problem file corrected; k=9 is the
+open frontier. Next: union-closed idea C, Erdős–Straus 601-check,
+graceful-trees SAT, lonely-runner k=9.
 
 ## Problem status
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
-| Erdős–Gyárfás | active (run in flight) | high | girth≥5 exhaustion n=22 (→24); spectrum census next |
+| Erdős–Gyárfás | n=24 run in flight | high | girth≥5 exhaustion n=24; spectrum census next |
 | Union-closed (Frankl) | active | high | ideas A/C/D remain (probability-charging constraints, dependent couplings); idea B closed |
 | Erdős–Straus | active | medium | mine low-f(p) prime structure; explain class-601 anomaly |
-| Singmaster | active | medium | multiplicity collision search (agent running) |
-| Lonely runner | active | medium | k=8 near-tight scan (agent running) |
+| Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
+| Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | queued | low | SAT encoding; labeling-count statistics n ≤ 18 |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [erdos-gyarfas] If attempt 002 record still missing: check/resume the n=22 search agent (slice checkpoints in attempts/erdos-gyarfas/data/ are reusable — never re-run completed slices).
-2. [union-closed] Idea C (dependent/family-adaptive couplings): formalize the smallest nontrivial coupling class beyond Liu's conditionally-iid rung and test it against Sawin's family with the uc_weighted_kl.py machinery (adversarial test FIRST, per 002's protocol).
-3. [erdos-straus] Class-601 anomaly: compute f(p) for primes to 10^6 in classes {1,49,73,97 mod 120} ∪ {601 mod 840}; is 601-enrichment real at scale or small-sample noise? (es_coverage.py has the C kernel.)
-4. [graceful-trees] SAT encoding for graceful labeling; count labelings for all trees n ≤ 18.
-5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20 data (which length-sets occur?) — standalone interest.
-6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
+1. [union-closed] Idea C (dependent/family-adaptive couplings): formalize the smallest nontrivial coupling class beyond Liu's conditionally-iid rung and test it against Sawin's family with the uc_weighted_kl.py machinery (adversarial test FIRST, per 002's protocol).
+2. [erdos-straus] Class-601 anomaly: compute f(p) for primes to 10^6 in classes {1,49,73,97 mod 120} ∪ {601 mod 840}; is 601-enrichment real at scale or small-sample noise? (es_coverage.py has the C kernel.)
+3. [graceful-trees] SAT encoding for graceful labeling; count labelings for all trees n ≤ 18.
+4. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
+5. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
+6. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20 data (which length-sets occur?) — standalone interest.
+7. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
 
 ## Verified results
 
@@ -58,6 +61,24 @@ closed idea C, Erdős–Straus 601-at-10^6, graceful-trees SAT.
   in {1,49,73,97} mod 120; QR-mod-840 classes ~15× enriched but not
   characterizing (non-residue class 601 mod 840 holds 6 of bottom 50 —
   unexplained, queued).
+- **[singmaster] Complete multiplicity census to 2.5×10^29** (2026-07-25,
+  attempt 001): 3003 is the unique multiplicity-8 value; exactly seven
+  mult-6 values (120, 210, 1540, 7140, 11628, 24310, C(104,39)=C(103,40));
+  mult 5 and 7 provably empty in range. Self-test + independent brute
+  force to 10^7 + double re-verification of every hit + agreement with
+  de Weger's coincidence list.
+- **[erdos-gyarfas] n=22 exhausted** (2026-07-25, attempt 002): all 90,938
+  girth-≥5 connected cubic graphs on 22 vertices contain C8 (count matches
+  OEIS A014372 exactly; C kernel re-validated bit-for-bit vs the Python
+  spectrum tool on 4,569 graphs). Conjecture verified for all cubic graphs
+  through 22 vertices with our own reproducible tooling.
+- **[lonely-runner] k=8 tightness census to V=72** (2026-07-25, attempt
+  001): among all 1,473,109,704 speed 7-tuples with max speed ≤ 72,
+  exactly 3 primitives have ML < 13/100, all with ML = 1/8 exactly — (1..7)
+  plus the two Goddyn–Wong instances (recovered from scratch). Nothing
+  below 1/8. The ML spectrum below 1/7 (V ≤ 40) is exactly {s/(7s+k),
+  k∈{1,2}} — consistent with Fan–Sun's amended spectrum conjecture, new
+  data point at n=7. Exact rational arithmetic, independently re-verified.
 
 ## Insights / cross-problem notes
 
