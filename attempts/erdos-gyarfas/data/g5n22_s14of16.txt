@@ -1,0 +1,2 @@
+P8ONLY U????A?O@?A?B?o_GKCA_?k?J?@_C?gO?GK?H@?? girth=5
+SUMMARY {"total": 5634, "girth_hist": {"5": 5607, "6": 27}, "combo_c4_c8_c16": {"010": 1, "011": 5633}}
