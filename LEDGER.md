@@ -1,35 +1,35 @@
 # Ledger
 
-## TL;DR (updated 2026-07-25, cycle 0 wrap-up)
+## TL;DR (updated 2026-07-25, cycle 2 start)
 
-Cycle 0 mostly complete. Erdős–Gyárfás: baseline verified — all 556,471
-connected cubic graphs on ≤ 20 vertices contain a power-of-2 cycle; bridged
-counterexamples need ≥ 38 vertices. Union-closed: entropy barrier mapped
-precisely; four candidate routes past 0.382 recorded (weighted-KL ladder is
-the most testable). Erdős–Straus agent lost twice to API overload (529);
-retry in progress — if absent from attempts/, it's the top queue item.
+Cycles 0–1 done except the Erdős–Gyárfás n=22 run (in flight, slice
+checkpoints banked in data/). Erdős–Straus coverage map complete: Mordell's
+QR obstruction confirmed exactly; low-representation primes are all
+1 mod 24 with an unexplained class-601 enrichment (lead). Union-closed
+idea B (weighted-KL) definitively dead — Sawin's family kills every weight;
+root obstruction recorded. Cycle 2 launched Singmaster collision search and
+lonely-runner k=8 near-tight scan.
 
 ## Problem status
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
-| Erdős–Gyárfás | active | high | C4∧C8-free targeted search beyond n=20; cycle-spectrum realizability census |
-| Union-closed (Frankl) | active | high | test the weighted-KL ladder (idea B) on Sawin's counterexample; extremal family structure |
-| Erdős–Straus | retrying | medium | residue-class identity coverage map (agent lost to 529s twice) |
-| Singmaster | queued | medium | binomial collision search design |
-| Lonely runner | queued | medium | near-tight speed-tuple mining, k=8 |
-| Graceful trees | queued | low | graceful-labeling count statistics; lobster verification |
+| Erdős–Gyárfás | active (run in flight) | high | girth≥5 exhaustion n=22 (→24); spectrum census next |
+| Union-closed (Frankl) | active | high | ideas A/C/D remain (probability-charging constraints, dependent couplings); idea B closed |
+| Erdős–Straus | active | medium | mine low-f(p) prime structure; explain class-601 anomaly |
+| Singmaster | active | medium | multiplicity collision search (agent running) |
+| Lonely runner | active | medium | k=8 near-tight scan (agent running) |
+| Graceful trees | queued | low | SAT encoding; labeling-count statistics n ≤ 18 |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [erdos-straus] If attempts/erdos-straus/ is still empty: residue-class identity coverage map (see problems/erdos-straus.md; the seed agent was killed by server overload — re-run it).
-2. [union-closed] Idea B from 001: compute the KL-divergence profile D(U‖Unif F) of Sawin's counterexample family to determine which weight c survives; even c=0.1 would beat the 0.38271 record if admissible.
-3. [erdos-gyarfas] Targeted C4-free ∧ C8-free search beyond n=20 (bridgeless only, per the ≥38-vertex bridge bound); girth ≥ 5 pruning makes this far smaller than full enumeration.
-4. [singmaster] Design the multiplicity-≥8 collision search (small-k strategy, hash of C(n,k) values); estimate reachable range.
-5. [lonely-runner] Implement gap computation for integer speed tuples; scan k=8 small speeds for near-tight cases.
-6. [graceful-trees] SAT encoding for graceful labeling; count labelings for all trees n ≤ 18.
-7. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20 data (which length-sets occur?) — standalone interest.
+1. [erdos-gyarfas] If attempt 002 record still missing: check/resume the n=22 search agent (slice checkpoints in attempts/erdos-gyarfas/data/ are reusable — never re-run completed slices).
+2. [union-closed] Idea C (dependent/family-adaptive couplings): formalize the smallest nontrivial coupling class beyond Liu's conditionally-iid rung and test it against Sawin's family with the uc_weighted_kl.py machinery (adversarial test FIRST, per 002's protocol).
+3. [erdos-straus] Class-601 anomaly: compute f(p) for primes to 10^6 in classes {1,49,73,97 mod 120} ∪ {601 mod 840}; is 601-enrichment real at scale or small-sample noise? (es_coverage.py has the C kernel.)
+4. [graceful-trees] SAT encoding for graceful labeling; count labelings for all trees n ≤ 18.
+5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20 data (which length-sets occur?) — standalone interest.
+6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
 
 ## Verified results
 
@@ -46,6 +46,17 @@ retry in progress — if absent from attempts/, it's the top queue item.
   exhaustive — minimum max element frequency over all union-closed families
   on ground sets of size ≤ 4 is exactly 1/2 (2/12/120/4958 families;
   optima triple-checked for closure).
+- **[erdos-straus] Identity coverage + Mordell confirmation** (2026-07-25,
+  attempt 001): 12 machine-verified polynomial identity families cover
+  834/840 classes; the uncovered set mod 840 is exactly the 6 coprime
+  quadratic residues {1,121,169,289,361,529}. All 9592 primes < 10^5
+  solvable (0 failures), exact f(p) computed for each (C kernel,
+  cross-checked vs independent Python counter for p < 3000).
+- **[erdos-straus] Low-representation structure** (2026-07-25, attempt 001):
+  the 24 lowest-f primes > 1000 are all ≡ 1 mod 24; bottom 50 concentrate
+  in {1,49,73,97} mod 120; QR-mod-840 classes ~15× enriched but not
+  characterizing (non-residue class 601 mod 840 holds 6 of bottom 50 —
+  unexplained, queued).
 
 ## Insights / cross-problem notes
 
@@ -69,3 +80,11 @@ retry in progress — if absent from attempts/, it's the top queue item.
   (0.382 → 0.318 → 0.276 for k = 2,3,4); recorded in attempt 001.
 - **[union-closed] Gilmer's Conjecture 1** (strengthened entropy inequality):
   refuted by Sawin's construction — do not re-attempt as stated.
+- **[union-closed] Weighted-KL ladder (idea B)** (2026-07-25, attempt 002):
+  fully dead. Family-level version is vacuous for c ≤ 1, false for c > 1;
+  distributional version killed for EVERY c ≥ 0 by Sawin's geometric-mixture
+  family (c*(μ_n) → ∞ at marginals → ψ), with an exact finite-n certificate
+  below the 0.38271 record. Root obstruction: KL charges escaping union-mass
+  by log-likelihood (log(1/δ) for planted mass δ) vs Θ(n) entropy drop.
+  Generalized no-go covers all smoothing-insensitive functionals
+  Φ(law(U), μ) — see 002 before attempting ANY entropy-side strengthening.
