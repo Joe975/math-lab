@@ -1,0 +1,101 @@
+{
+ "min_n": 20,
+ "max_n": 20,
+ "total": 114795,
+ "counterexample_total": 0,
+ "per_n": {
+  "20": {
+   "graphs": 114795,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8,
+    16
+   ],
+   "intersection_histogram": {
+    "4": 53,
+    "4+8": 3018,
+    "4+8+16": 104996,
+    "4+16": 67,
+    "8": 4,
+    "8+16": 6657
+   },
+   "girth_histogram": {
+    "4": 18580,
+    "3": 95268,
+    "5": 939,
+    "6": 8
+   },
+   "single_pow2_counts": {
+    "4": 53,
+    "8": 4
+   },
+   "near_misses_non4": [
+    {
+     "g6": "S???C@?G?oA___SGG`?X?A`?_Q@E?CA_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "S???C@?G?oA___SGG`?WGAg?_Q@E?CA_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "S???C@?G?oA___SAH_?HGAg?_Q@E?CA_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "S???C@?G?oA___SAGc?WGAg?_Q@E?CA_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "pow2": [
+      8
+     ]
+    }
+   ]
+  }
+ }
+}

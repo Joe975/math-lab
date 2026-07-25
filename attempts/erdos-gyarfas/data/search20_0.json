@@ -1,0 +1,52 @@
+{
+ "min_n": 20,
+ "max_n": 20,
+ "total": 117329,
+ "counterexample_total": 0,
+ "per_n": {
+  "20": {
+   "graphs": 117329,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8,
+    16
+   ],
+   "intersection_histogram": {
+    "4": 69,
+    "4+8": 5412,
+    "4+8+16": 105208,
+    "4+16": 93,
+    "8": 1,
+    "8+16": 6546
+   },
+   "girth_histogram": {
+    "4": 17418,
+    "6": 7,
+    "3": 99287,
+    "5": 617
+   },
+   "single_pow2_counts": {
+    "4": 69,
+    "8": 1
+   },
+   "near_misses_non4": [
+    {
+     "g6": "S???C@?G?_P?X?GgGQ?H_B_?OK?q?CAO?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "pow2": [
+      8
+     ]
+    }
+   ]
+  }
+ }
+}

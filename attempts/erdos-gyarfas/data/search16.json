@@ -1,0 +1,819 @@
+{
+ "min_n": 4,
+ "max_n": 16,
+ "total": 4681,
+ "counterexample_total": 0,
+ "per_n": {
+  "4": {
+   "graphs": 1,
+   "counterexamples": [],
+   "powers_considered": [
+    4
+   ],
+   "intersection_histogram": {
+    "4": 1
+   },
+   "girth_histogram": {
+    "3": 1
+   },
+   "single_pow2_counts": {
+    "4": 1
+   },
+   "near_misses_non4": []
+  },
+  "6": {
+   "graphs": 2,
+   "counterexamples": [],
+   "powers_considered": [
+    4
+   ],
+   "intersection_histogram": {
+    "4": 2
+   },
+   "girth_histogram": {
+    "4": 1,
+    "3": 1
+   },
+   "single_pow2_counts": {
+    "4": 2
+   },
+   "near_misses_non4": []
+  },
+  "8": {
+   "graphs": 5,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8
+   ],
+   "intersection_histogram": {
+    "4+8": 5
+   },
+   "girth_histogram": {
+    "4": 2,
+    "3": 3
+   },
+   "single_pow2_counts": {},
+   "near_misses_non4": []
+  },
+  "10": {
+   "graphs": 19,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8
+   ],
+   "intersection_histogram": {
+    "4": 1,
+    "4+8": 15,
+    "8": 3
+   },
+   "girth_histogram": {
+    "4": 5,
+    "3": 13,
+    "5": 1
+   },
+   "single_pow2_counts": {
+    "4": 1,
+    "8": 3
+   },
+   "near_misses_non4": [
+    {
+     "g6": "ICOf@pSb?",
+     "spectrum": [
+      5,
+      6,
+      8,
+      9
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "ICOedPKL?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "ICOedO[X?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "pow2": [
+      8
+     ]
+    }
+   ]
+  },
+  "12": {
+   "graphs": 85,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8
+   ],
+   "intersection_histogram": {
+    "4": 6,
+    "4+8": 71,
+    "8": 8
+   },
+   "girth_histogram": {
+    "4": 20,
+    "3": 63,
+    "5": 2
+   },
+   "single_pow2_counts": {
+    "4": 6,
+    "8": 8
+   },
+   "near_misses_non4": [
+    {
+     "g6": "K?ABEagE`gH_",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`@E`gFCKEO",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`@E`gEcKE_",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`@Cr_T?[EO",
+     "spectrum": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`D@`cS_wPG",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`D@bAJAgBG",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`D@`ae?iH_",
+     "spectrum": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "K?`D@aQY?wGg",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "pow2": [
+      8
+     ]
+    }
+   ]
+  },
+  "14": {
+   "graphs": 509,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8
+   ],
+   "intersection_histogram": {
+    "4": 15,
+    "4+8": 458,
+    "8": 36
+   },
+   "girth_histogram": {
+    "4": 101,
+    "6": 1,
+    "3": 399,
+    "5": 8
+   },
+   "single_pow2_counts": {
+    "4": 15,
+    "8": 36
+   },
+   "near_misses_non4": [
+    {
+     "g6": "M???FAW`agD_K_Q_?",
+     "spectrum": [
+      6,
+      8,
+      10,
+      12,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M??CBBOQcWAgM?H_?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M??CB@WpD_@WJ?D_?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M??CB@WpCc@oL?IO?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M??CB?XTD_D_Q_`_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@BOi@KHGE_DO?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@BORDOBO@oKO?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@AWwAgDOCoBO?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@ASqB_BO@oIO?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@ASqAcF?BOGo?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?oqAa@cI_D_?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?ooQWDOD_EG?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?ooOXJ?I_D_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?WsAQEOB_HG?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?WoaaE_I_BG?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?WoR_AoJ?Ag?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?WcPgL?B_Og?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AAD?WKHWI_Aoo_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@_gwCQB_CgP_?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "M?AA@_gwCQ@oT?Cg?",
+     "spectrum": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "pow2": [
+      8
+     ]
+    }
+   ]
+  },
+  "16": {
+   "graphs": 4060,
+   "counterexamples": [],
+   "powers_considered": [
+    4,
+    8,
+    16
+   ],
+   "intersection_histogram": {
+    "4": 14,
+    "4+8": 199,
+    "4+8+16": 3562,
+    "4+16": 16,
+    "8": 6,
+    "8+16": 263
+   },
+   "girth_histogram": {
+    "4": 743,
+    "6": 1,
+    "3": 3268,
+    "5": 48
+   },
+   "single_pow2_counts": {
+    "4": 14,
+    "8": 6
+   },
+   "near_misses_non4": [
+    {
+     "g6": "O??CA?_ceOGgH_F?AK@P?",
+     "spectrum": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "O??CA?_ccWJ?POL??[@P?",
+     "spectrum": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "O??CA?oIC`B_@cX?OWAQ?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "O??CA?oI?XR?W_oO?w?g_",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "O??CA?oB@PPOd?X?AIAE?",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "pow2": [
+      8
+     ]
+    },
+    {
+     "g6": "O?AA@?OaBO@WH_d?GK?`_",
+     "spectrum": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "pow2": [
+      8
+     ]
+    }
+   ]
+  }
+ }
+}

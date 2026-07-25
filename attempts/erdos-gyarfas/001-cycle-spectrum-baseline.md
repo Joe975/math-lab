@@ -48,7 +48,7 @@ extend it with targeted (SAT/girth-based) searches.
 ## Outcome
 
 **Verified: every connected cubic graph on n ≤ 20 vertices contains a cycle
-of length 4, 8, or 16. Zero counterexamples among 556,462 graphs.**
+of length 4, 8, or 16. Zero counterexamples among 556,471 graphs.**
 
 | n | graphs | counterexamples | pow2-intersection histogram |
 |---|--------|-----------------|------------------------------|
@@ -60,7 +60,11 @@ of length 4, 8, or 16. Zero counterexamples among 556,462 graphs.**
 | 14 | 509 | 0 | {4}: 15, {4,8}: 458, {8}: 36 |
 | 16 | 4060 | 0 | {4}: 14, {4,8}: 199, {4,8,16}: 3562, {4,16}: 16, {8}: 6, {8,16}: 263 |
 | 18 | 41301 | 0 | {4}: 67, {4,8}: 1403, {4,8,16}: 37014, {4,16}: 56, {8}: 1, {8,16}: 2760 |
-| 20 | 510489 | 0 | (filled from parallel run; see below) |
+| 20 | 510489 | 0 | {4}: 196, {4,8}: 12505, {4,8,16}: 461414, {4,16}: 273, {8}: 8, {8,16}: 36093 |
+
+(n=20 was run as four parallel `geng` slices; slice graph counts
+117329 + 114795 + 142787 + 135578 = 510489 and all per-slice histograms sum
+to the totals above, matching OEIS A002851 exactly.)
 
 This is **computational evidence, not proof**, and for cubic graphs only
 (general min-degree-3 graphs on these vertex counts were not enumerated;
@@ -72,26 +76,32 @@ replicates the small-case bound with our own tooling.
 
 - **Single-pow2 graphs.** Graphs whose spectrum meets the powers of 2 in
   exactly one value are the frontier. Counts of "{8} only":
-  n=10: 3 (incl. Petersen), n=12: 8, n=14: 36, n=16: 6, n=18: **1**.
-  At n=14 all 36 are bridgeless. "{8} only" collapses at n ≥ 16 because
-  16-cycles become available; the graphs avoiding C4 and C16 nearly always
-  contain C8.
+  n=10: 3 (incl. Petersen), n=12: 8, n=14: 36, n=16: 6, n=18: **1**,
+  n=20: **8**. At n=14 all 36 are bridgeless. "{8} only" collapses at
+  n ≥ 16 because 16-cycles become available; the graphs avoiding C4 and C16
+  nearly always contain C8.
 - **The unique n=18 "{8} only" graph** (`Q??CA?_cAOA_`CC`@o@@OIO@@_?`,
   spectrum {3,5,6,7,8,9}) is structurally instructive: it is two identical
   9-vertex blocks joined by a **bridge** (4–14). Each block has spectrum
   {3,5,6,7,8,9}; the bridge caps the circumference at 9, killing all
   16-cycles globally. Its only power-of-2 cycles live inside the blocks.
+  The n=20 "{8} only" graphs show the same signature: the ones inspected
+  (3 of 8, one per slice log) each have exactly one bridge with biconnected
+  blocks of 9 and 11 vertices, spectra {3,5,...,10} or {3,5,...,11} —
+  cycles confined to small pieces, so no C16 fits.
 - **C4-free graphs** (girth ≥ 5, or odd girth with no C4): 3, 8, 36, 269,
-  2761 for n = 10..18 — all contained C8 or C16.
-- **C8-free graphs**: 1, 6, 15, 30, 123 for n = 10..18 — every one contained
-  a C4 (asserted during the run).
+  2761, 36101 for n = 10..20 — all contained C8 or C16.
+- **C8-free graphs**: 1, 6, 15, 30, 123, 469 for n = 10..20 — every one
+  contained a C4 (asserted during the runs for n ≤ 18; at n=20 all C8-free
+  graphs fell in the {4} or {4,16} histogram cells, same conclusion).
 - **Named extremes.** The n=14 girth-6 graph is the **Heawood graph**
   (verified by isomorphism), spectrum {6,8,10,12,14}: bipartite, C4-free,
   saved only by its 8-cycles. The unique n=16 girth-6 graph is
   **Möbius–Kantor** (verified), spectrum {6,8,10,12,14,16} — meets powers of
   2 in both 8 and 16.
-- Girth distribution at n=18: girth 3: 33496, girth 4: 7350, girth 5: 450,
-  girth 6: 5. High-girth cubic graphs (the C4-free pool) are a thin slice,
+- Girth distribution at n=20: girth 3: 412943, girth 4: 91763, girth 5:
+  5751, girth 6: 32. High-girth cubic graphs (the C4-free pool) are a thin
+  slice,
   consistent with the known fact that a counterexample needs girth ≥ 9-ish
   or must dodge C8 combinatorially.
 
@@ -103,7 +113,10 @@ checked well past n=20). What survived:
 
 - A validated, re-runnable generator + spectrum pipeline
   (`tools/cycle_spectrum.py`, `--validate` re-runs all checks in ~4 s;
-  full n ≤ 16 search takes ~6 s, n = 18 ~2 min, n = 20 ~20 min on 4 cores).
+  full n ≤ 16 search takes ~6 s, n = 18 ~2 min, n = 20 ~40 min wall on
+  4 cores via `--split`).
+- The bridge-side result under Leads below (no C4+C8-free near-cubic side on
+  ≤ 17 vertices; bridged counterexamples need ≥ 38 vertices).
 - The n ≤ 20 verification itself (exact counts above).
 - The near-miss census, which sharpened where the tension actually is.
 
@@ -167,3 +180,9 @@ done; wait
 # bridge-side search (lead 1):
 python3 tools/cycle_spectrum.py --blocks 5 7 9 11 13 15 17
 ```
+
+JSON reports from the runs above (per-n histograms, near-miss graph6
+strings, empty counterexample lists) are archived in
+`attempts/erdos-gyarfas/data/` (search16 covers n=4..16; search18 n=18;
+search20_0..3 the four n=20 slices, totals summing to 556,471 graphs).
+The n=4..14 portion of the search is fully contained in search16.json.
