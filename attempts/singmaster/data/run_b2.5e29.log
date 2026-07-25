@@ -2,3 +2,50 @@ bound B = 2.5e+29 (250000000000000004971156209664); k=3 stream: n up to 11447142
 k=4 stream: n up to 49492321 (49492314 values, streamed)
 k>=5 table: 2304208 values in set ({5: 1974343, 6: 237609, 7: 53523, 8: 17789, 9: 7646, 10: 3927, 11: 2293, 12: 1472, 13: 1015, 14: 740, 15: 563, 16: 444, 17: 359, 18: 298, 19: 251, 20: 215, 21: 187, 22: 163, 23: 145, 24: 129, 25: 115, 26: 104, 27: 94, 28: 85, 29: 77, 30: 70, 31: 64, 32: 58, 33: 53, 34: 49, 35: 44, 36: 40, 37: 36, 38: 33, 39: 30, 40: 26, 41: 23, 42: 21, 43: 18, 44: 15, 45: 13, 46: 11, 47: 8, 48: 6, 49: 4, 50: 2})  [build: 2.5s]
   ...   1.3% done, 63s elapsed, ETA 4704s
+  ...   4.2% done, 123s elapsed, ETA 2832s
+  ...   6.4% done, 183s elapsed, ETA 2677s
+  ...   9.2% done, 243s elapsed, ETA 2403s
+  ...  11.7% done, 303s elapsed, ETA 2283s
+  ...  14.3% done, 363s elapsed, ETA 2172s
+  ...  16.9% done, 423s elapsed, ETA 2080s
+  ...  19.3% done, 483s elapsed, ETA 2015s
+  ...  21.7% done, 543s elapsed, ETA 1958s
+  ...  24.0% done, 603s elapsed, ETA 1904s
+  ...  26.4% done, 663s elapsed, ETA 1845s
+  ...  28.8% done, 723s elapsed, ETA 1789s
+  ...  31.2% done, 783s elapsed, ETA 1729s
+  ...  33.5% done, 843s elapsed, ETA 1673s
+  ...  35.9% done, 903s elapsed, ETA 1614s
+  ...  38.2% done, 963s elapsed, ETA 1555s
+  ...  40.6% done, 1023s elapsed, ETA 1499s
+  ...  42.9% done, 1083s elapsed, ETA 1442s
+  ...  44.9% done, 1143s elapsed, ETA 1401s
+  ...  47.4% done, 1203s elapsed, ETA 1335s
+  ...  50.3% done, 1263s elapsed, ETA 1246s
+  ...  52.9% done, 1323s elapsed, ETA 1180s
+  ...  55.4% done, 1383s elapsed, ETA 1115s
+  ...  57.9% done, 1443s elapsed, ETA 1051s
+  ...  60.4% done, 1503s elapsed, ETA 986s
+  ...  62.9% done, 1563s elapsed, ETA 923s
+  ...  67.1% done, 1623s elapsed, ETA 796s
+  ...  71.1% done, 1683s elapsed, ETA 685s
+  ...  74.5% done, 1743s elapsed, ETA 597s
+  ...  78.8% done, 1803s elapsed, ETA 484s
+  ...  83.6% done, 1863s elapsed, ETA 364s
+  ...  88.7% done, 1923s elapsed, ETA 246s
+  ...  93.7% done, 1983s elapsed, ETA 134s
+  ...  98.6% done, 2043s elapsed, ETA 28s
+
+=== results (2066s) ===
+values <= 2.5e+29 with multiplicity >= 5: 8
+census: {6: 7, 8: 1}
+multiplicity >= 6:
+  mult 6: 120  cells [(16, 2), (10, 3)]
+  mult 6: 210  cells [(21, 2), (10, 4)]
+  mult 6: 1540  cells [(56, 2), (22, 3)]
+  mult 8: 3003  cells [(78, 2), (15, 5), (14, 6)]
+  mult 6: 7140  cells [(120, 2), (36, 3)]
+  mult 6: 11628  cells [(153, 2), (19, 5)]
+  mult 6: 24310  cells [(221, 2), (17, 8)]
+  mult 6: 61218182743304701891431482520  cells [(104, 39), (103, 40)]
+written: /home/user/claude-code-experiments/math-lab/attempts/singmaster/data/results_b327cb2734119d400000000000.json

@@ -1,14 +1,15 @@
 # Ledger
 
-## TL;DR (updated 2026-07-25, cycle 2 start)
+## TL;DR (updated 2026-07-25, cycle 3 = recovery cycle)
 
-Cycles 0–1 done except the Erdős–Gyárfás n=22 run (in flight, slice
-checkpoints banked in data/). Erdős–Straus coverage map complete: Mordell's
-QR obstruction confirmed exactly; low-representation primes are all
-1 mod 24 with an unexplained class-601 enrichment (lead). Union-closed
-idea B (weighted-KL) definitively dead — Sawin's family kills every weight;
-root obstruction recorded. Cycle 2 launched Singmaster collision search and
-lonely-runner k=8 near-tight scan.
+A second container restart (22:38Z) silently killed all three in-flight
+agents (Erdős–Gyárfás n=22, Singmaster collisions, lonely-runner V=72);
+all three resumed from checkpoints — no banked compute lost. No new lines
+launched this cycle. Standing results: Erdős–Straus coverage map + Mordell
+confirmation done (class-601 anomaly queued); union-closed idea B dead with
+generalized no-go; lonely-runner validation recovered both Goddyn–Wong
+tight instances at V≤40 (good tool signal). Next fresh launches: union-
+closed idea C, Erdős–Straus 601-at-10^6, graceful-trees SAT.
 
 ## Problem status
 
@@ -73,6 +74,14 @@ lonely-runner k=8 near-tight scan.
 - Ops: parallel subagents can die to 529 Overloaded during API load spikes;
   resume via SendMessage, and don't record a queue item as done until its
   files exist on disk.
+- Ops (hardened after two container restarts): restarts kill agents, their
+  compute, AND their waiters silently — an agent idling on a monitor dies
+  without any notification. Orchestrator protocol every cycle: health-check
+  in-flight agents via data-file mtimes + ps before launching new work;
+  resume dead agents with a recovery message. Agent protocol: checkpoint
+  every completed work unit to the repo immediately (per-slice files),
+  never re-run completed units, and treat "the container can restart at any
+  moment" as the design assumption.
 
 ## Dead ends
 

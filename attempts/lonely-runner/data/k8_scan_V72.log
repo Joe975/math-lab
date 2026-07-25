@@ -1,0 +1,5 @@
+V=72 k=8: scanned 1473109704 tuples in 2027.3s; 21 near-tight hits, 3 primitive (ML < 13/100)
+  (1, 2, 3, 4, 5, 6, 7)  ML = 1/8 = 0.125000  at t = 1/8
+  (1, 2, 3, 4, 5, 7, 12)  ML = 1/8 = 0.125000  at t = 1/8
+  (1, 4, 5, 6, 7, 11, 13)  ML = 1/8 = 0.125000  at t = 1/8
+wrote attempts/lonely-runner/data/k8_scan_V72.json
