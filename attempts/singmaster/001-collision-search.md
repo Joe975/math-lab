@@ -2,8 +2,8 @@
 
 **Problem:** Singmaster's conjecture. **Line:** computational search for entries
 of Pascal's triangle with high multiplicity, up to a value bound B.
-**Tool:** `tools/singmaster_search.py`. **Status:** RUN IN PROGRESS (this file
-is finalized after the run; see Outcome).
+**Tool:** `tools/singmaster_search.py`. **Status:** COMPLETE (run finished
+2026-07-25, 2066 s wall on 4 cores; results in `data/`).
 
 ## Approach
 
