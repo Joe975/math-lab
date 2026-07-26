@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "Math Lab: an agent-driven library of attempted approaches to open conjectures"
+message: >-
+  If you use this library, please cite it. Note that every record was written
+  and reviewed by AI agents and has not been peer-reviewed by a human
+  mathematician; cite it as a record of attempted approaches, not as a source
+  of established results.
+type: dataset
+authors:
+  - family-names: Walker
+    given-names: Joe
+repository-code: "https://github.com/Joe975/math-lab"
+abstract: >-
+  A library of attempted approaches to seven open mathematical conjectures
+  (union-closed sets/Frankl, Erdos-Gyarfas, Erdos-Straus, Singmaster, lonely
+  runner, graceful trees, Collatz), produced by an autonomous agent loop with
+  adversarial verification. Records dead ends as first-class output alongside
+  verified computational results, and separates published background from the
+  lab's own findings so that later attempts can be made either blind or
+  informed.
+keywords:
+  - open conjectures
+  - automated mathematical research
+  - AI agents
+  - union-closed sets conjecture
+  - negative results
+license: CC-BY-4.0

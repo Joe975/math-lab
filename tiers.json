@@ -1,0 +1,23 @@
+{
+  "_comment": "The machine-readable definition of the blind/informed cut. scripts/blind.sh copies tier-0 only; tests/test_tier_isolation.py enforces that tier 0 stays clean. Paths are glob patterns relative to the repo root, matched against forward-slash paths.",
+  "_readme_note": "README.md is tier 1: its job is to advertise what the lab found, which is exactly what a blind agent must not see. Orientation for a blind copy comes from AGENTS.md, CONTRIBUTING.md and the generated MODE file.",
+  "tier0": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "LICENSE*",
+    "CITATION.cff",
+    "tiers.json",
+    "harness/**",
+    "problems/*/PROBLEM.md"
+  ],
+  "tier1": [
+    "README.md",
+    "STATUS.md",
+    "GUIDANCE.md",
+    "problems/*/PRIOR-ART.md",
+    "problems/*/prior-art.json",
+    "problems/*/attempts/**",
+    "problems/*/explore/**",
+    "problems/*/data/**"
+  ]
+}

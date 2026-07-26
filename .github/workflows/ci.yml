@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tier-isolation:
+    # The blind/informed cut is the repo's core guarantee. If prior art leaks
+    # into tier 0, blind attempts stop being independent and the dataset is
+    # quietly worthless. So it gates every PR.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: python -m pytest tests/ -q
+
+  harness-builds:
+    # A verifier nobody can compile is not a shared verifier.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build C kernels
+        run: |
+          cc -O2 -o /tmp/cycle_filter   harness/erdos-gyarfas/cycle_filter.c
+          cc -O2 -fopenmp -o /tmp/es_fcount harness/erdos-straus/es_fcount.c
+          cc -O2 -o /tmp/graceful_core harness/graceful-trees/graceful_core.c
+      - name: Python harness imports cleanly
+        run: |
+          python -m py_compile $(find harness -name '*.py')
+          python -m py_compile $(find problems -path '*/explore/*.py')

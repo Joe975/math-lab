@@ -1,0 +1,29 @@
+{
+  "problem": "singmaster",
+  "route_status": "CENSUS_COMPLETE_TO_2.5E29",
+  "route_summary": "Complete multiplicity census to 2.5e29: 3003 is the unique multiplicity-8 value, seven multiplicity-6 values, and multiplicities 5 and 7 are provably empty in range.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-collision-search.md",
+      "date": "2026-07-25",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "range": "all values <= 2.5e29",
+      "mechanism": [
+        "canonical-cell-enumeration",
+        "collision-search",
+        "completeness-argument"
+      ],
+      "one_line": "Complete census of multiplicities >=5 to 2.5e29 via canonical-cell enumeration with a completeness argument; agrees with de Weger's coincidence list.",
+      "refuted_by": null,
+      "gaps": [],
+      "note": "Searching deeper is now low value; all in-range coincidences come from known families. The Diophantine curve table is the better use of budget.",
+      "leak_terms": [
+        "unique multiplicity-8",
+        "2.5x10^29",
+        "multiplicities 5 and 7"
+      ]
+    }
+  ]
+}

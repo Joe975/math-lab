@@ -1,0 +1,53 @@
+{
+  "problem": "erdos-gyarfas",
+  "route_status": "VERIFIED_TO_N24",
+  "route_summary": "Conjecture verified for all connected cubic graphs to n=22, and all girth->=5 cubics at n=24. Zero candidates. Bridged counterexamples need >=38 vertices.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-cycle-spectrum-baseline.md",
+      "date": "2026-07-25",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "range": "connected cubic graphs, n <= 20",
+      "mechanism": [
+        "exhaustive-enumeration",
+        "nauty-geng",
+        "cycle-spectrum",
+        "bridge-block-analysis"
+      ],
+      "one_line": "All 556,471 connected cubic graphs on 4-20 vertices contain a C4, C8 or C16; counts match OEIS A002851; bridged counterexamples need >=38 vertices.",
+      "refuted_by": null,
+      "gaps": [],
+      "leak_terms": [
+        "bridge bound",
+        "38 vertices",
+        "Mobius-Kantor",
+        "Möbius–Kantor"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-c4free-search-n22plus.md",
+      "date": "2026-07-25",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "range": "girth->=5 connected cubic graphs, n = 22 and n = 24",
+      "mechanism": [
+        "girth-restriction",
+        "exhaustive-enumeration",
+        "c-kernel",
+        "slice-parallelism"
+      ],
+      "one_line": "All 90,938 girth->=5 cubics at n=22 and all 1,620,479 at n=24 contain a C8; totals match OEIS A014372; zero C8-free graphs.",
+      "refuted_by": null,
+      "gaps": [],
+      "leak_terms": [
+        "1,620,479",
+        "90,938",
+        "zero candidates",
+        "zero C8-free"
+      ]
+    }
+  ]
+}

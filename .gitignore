@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+.venv/
+
+# Compiled harness kernels — build from source, see README
+harness/erdos-gyarfas/cycle_filter
+harness/erdos-straus/es_fcount
+harness/graceful-trees/graceful_core
+*.exe
+
+# Harness run output (MATHLAB_OUT default)
+out/

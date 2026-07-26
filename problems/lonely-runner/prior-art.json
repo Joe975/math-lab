@@ -1,0 +1,30 @@
+{
+  "problem": "lonely-runner",
+  "route_status": "CENSUS_COMPLETE_K8_V72",
+  "route_summary": "k=8 near-tight census to V=72: exactly 3 primitives below ML 13/100, all at ML=1/8. Goddyn-Wong instances recovered from scratch. k=9 is the frontier.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-k8-near-tight-scan.md",
+      "date": "2026-07-25",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "range": "all primitive speed 7-tuples with max speed <= 72",
+      "mechanism": [
+        "exhaustive-speed-tuple-scan",
+        "exact-rational-ml",
+        "tightness-census",
+        "spectrum-gap-analysis"
+      ],
+      "one_line": "Among 1.47e9 tuples, exactly 3 primitives have ML < 13/100 and all equal 1/8 exactly; no tuple below 1/8, and an empirical spectrum gap above it.",
+      "refuted_by": null,
+      "gaps": [],
+      "leak_terms": [
+        "Goddyn-Wong acceleration",
+        "Goddyn–Wong acceleration",
+        "empirical gap",
+        "1,473,109,704"
+      ]
+    }
+  ]
+}
