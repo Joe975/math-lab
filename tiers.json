@@ -1,5 +1,5 @@
 {
-  "_comment": "The machine-readable definition of the blind/informed cut. scripts/blind.sh copies tier-0 only; tests/test_tier_isolation.py enforces that tier 0 stays clean. Paths are glob patterns relative to the repo root, matched against forward-slash paths.",
+  "_comment": "The machine-readable definition of the blind/informed cut. scripts/blind.sh copies tier-0 only; tests/test_tier_isolation.py enforces that tier 0 stays clean. Paths are glob patterns relative to the repo root, matched against forward-slash paths. Use **/* rather than ** for recursive matches: pathlib only made a trailing ** match files in Python 3.13, so ** alone silently matches nothing on 3.12.",
   "_readme_note": "README.md is tier 1: its job is to advertise what the lab found, which is exactly what a blind agent must not see. Orientation for a blind copy comes from AGENTS.md, CONTRIBUTING.md and the generated MODE file.",
   "tier0": [
     "AGENTS.md",
@@ -7,7 +7,7 @@
     "LICENSE*",
     "CITATION.cff",
     "tiers.json",
-    "harness/**",
+    "harness/**/*",
     "problems/*/PROBLEM.md"
   ],
   "tier1": [
@@ -16,8 +16,8 @@
     "GUIDANCE.md",
     "problems/*/PRIOR-ART.md",
     "problems/*/prior-art.json",
-    "problems/*/attempts/**",
-    "problems/*/explore/**",
-    "problems/*/data/**"
+    "problems/*/attempts/**/*",
+    "problems/*/explore/**/*",
+    "problems/*/data/**/*"
   ]
 }

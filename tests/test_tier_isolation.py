@@ -103,6 +103,33 @@ def find_leaks(files: set[Path], terms: dict[str, list[str]]) -> list[str]:
 # --- the actual guarantees ------------------------------------------------
 
 
+def test_tier_globs_actually_match():
+    """A glob that matches nothing would make every check below vacuous.
+
+    This is not hypothetical: `harness/**` matches files on Python 3.13 but not
+    3.12, so the tier sets silently emptied on CI while passing locally. Assert
+    on representative members, not just non-emptiness.
+    """
+    t0 = {p.relative_to(ROOT).as_posix() for p in tier0_files()}
+    t1 = {p.relative_to(ROOT).as_posix() for p in tier1_files()}
+
+    for expected in (
+        "harness/union-closed/uc_search.py",
+        "harness/common/run_slices.sh",
+        "problems/union-closed/PROBLEM.md",
+        "AGENTS.md",
+    ):
+        assert expected in t0, f"tier-0 globs missed {expected}"
+
+    for expected in (
+        "problems/union-closed/attempts/003-dependent-couplings.md",
+        "problems/union-closed/explore/uc_couplings.py",
+        "problems/union-closed/PRIOR-ART.md",
+        "README.md",
+    ):
+        assert expected in t1, f"tier-1 globs missed {expected}"
+
+
 def test_no_prior_art_leaks_into_tier0_prose():
     """A blind agent must not be able to infer our findings from tier-0 prose."""
     findings = find_leaks(tier0_prose(), leak_terms())
