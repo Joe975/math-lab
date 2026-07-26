@@ -670,9 +670,9 @@ outside the tilt family (random-kernel Sinkhorn probes).\n""")
     Fb = chain
     prod = sorted({a | (b << 6) for a in Fa for b in Fb})
     fams["two-scale product (upset x chain) n=12"] = (prod, 12)
-    # {S: |S| >= 4} at n=12 (= closure of the full 4-slice)
-    fams["all |S|>=4, n=12"] = ([m for m in range(1 << 12)
-                                 if bin(m).count("1") >= 4], 12)
+    # {S: |S| >= 4} at n=11 (= closure of the full 4-slice)
+    fams["all |S|>=4, n=11"] = ([m for m in range(1 << 11)
+                                 if bin(m).count("1") >= 4], 11)
     # low-entropy union-closed: chain + one fat antichain closed
     gens = [0b000000111111, 0b111111000000, 0b000111000111]
     fams["closure(3 fat gens) n=12"] = (close_family(gens, 12), 12)
@@ -699,13 +699,15 @@ outside the tilt family (random-kernel Sinkhorn probes).\n""")
             best = max(best, r["gain"])
         # random-kernel probes (well beyond the tilt family)
         nprobe = 30 if len(fam) <= 700 else 8
+        Afam = np.array(fam, dtype=np.uint64)
+        Ufam = Afam[:, None] | Afam[None, :]
+        uniqf, invf = np.unique(Ufam, return_inverse=True)
         for _ in range(nprobe):
-            A = np.array(fam)
             lnK = rng.normal(0, 1.5, size=(len(fam), len(fam)))
             # sinkhorn on random kernel
             lu = lnmu / 2.0
             lv = lu.copy()
-            for it in range(4000):
+            for it in range(1500):
                 r1 = lnK + lv[None, :]
                 m1 = r1.max(axis=1)
                 lun = lnmu - (m1 + np.log(np.exp(r1 - m1[:, None])
@@ -719,15 +721,10 @@ outside the tilt family (random-kernel Sinkhorn probes).\n""")
                 if d < 1e-12:
                     break
             pi = np.exp(lu[:, None] + lnK + lv[None, :])
-            ul = {}
-            for i, a in enumerate(fam):
-                row = pi[i]
-                for j, b in enumerate(fam):
-                    u = a | b
-                    ul[u] = ul.get(u, 0.0) + row[j]
-            pu = np.array(list(ul.values()))
+            pu = np.bincount(invf.ravel(), weights=pi.ravel())
             pu /= pu.sum()
-            HU = float(-(pu * np.log(pu)).sum() / LN2)
+            pos = pu > 0
+            HU = float(-(pu[pos] * np.log(pu[pos])).sum() / LN2)
             g = HU - log(len(fam)) / LN2
             best = max(best, g)
         ok = best <= 1e-9

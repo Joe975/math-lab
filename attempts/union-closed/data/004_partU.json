@@ -1,0 +1,68 @@
+{
+ "closure(CL mini slice+top) n=10": {
+  "size": 848,
+  "maxfreq": 0.5495283018867925,
+  "max_gain": -0.2544545866691692,
+  "ok": true
+ },
+ "two-scale product (upset x chain) n=12": {
+  "size": 406,
+  "maxfreq": 0.8571428571428571,
+  "max_gain": -0.12878163266602094,
+  "ok": true
+ },
+ "all |S|>=4, n=11": {
+  "size": 1816,
+  "maxfreq": 0.5330396475770925,
+  "max_gain": -0.25274867552992397,
+  "ok": true
+ },
+ "closure(3 fat gens) n=12": {
+  "size": 6,
+  "maxfreq": 0.8333333333333334,
+  "max_gain": -4.378743362476456e-05,
+  "ok": true
+ },
+ "random closure #0 n=12": {
+  "size": 26,
+  "maxfreq": 0.9615384615384616,
+  "max_gain": -0.06513619259902015,
+  "ok": true
+ },
+ "random closure #1 n=12": {
+  "size": 9,
+  "maxfreq": 0.8888888888888888,
+  "max_gain": -0.00989461162845462,
+  "ok": true
+ },
+ "random closure #2 n=12": {
+  "size": 14,
+  "maxfreq": 0.9285714285714286,
+  "max_gain": -0.032346738614424275,
+  "ok": true
+ },
+ "random closure #3 n=12": {
+  "size": 6,
+  "maxfreq": 0.8333333333333334,
+  "max_gain": -0.005556557880511903,
+  "ok": true
+ },
+ "random closure #4 n=12": {
+  "size": 15,
+  "maxfreq": 0.9333333333333333,
+  "max_gain": -0.02407499812412528,
+  "ok": true
+ },
+ "random closure #5 n=12": {
+  "size": 7,
+  "maxfreq": 1.0,
+  "max_gain": -0.010324039473703195,
+  "ok": true
+ },
+ "powerset n=4": {
+  "size": 16,
+  "maxfreq": 0.5,
+  "max_gain": -0.06535994105105347,
+  "ok": true
+ }
+}
