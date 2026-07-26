@@ -169,6 +169,25 @@ first (banked as a real slice — its result file counts toward the run).
 Expected cross-checks when complete: total = 1620479; exactly one girth-7
 graph (McGee, spectrum {7..24} — contains C8+C16, so expected combo "011").
 
-*Status at time of writing: benchmark in progress; this section will be
-updated with measured results, or with the feasibility analysis if the
-~45 min budget rules the full run out.*
+**COMPLETE (2026-07-26, closed out by the orchestrator after the search
+agent was lost to a container restart; results verified from the banked
+aggregate `data/g5n24_aggregate.json`):**
+
+**Every girth-≥5 connected cubic graph on 24 vertices contains a C8.
+Zero C8-free graphs, zero counterexample candidates.**
+
+- Total 1,620,479 — matches published A014372 exactly; slice totals
+  (all 64), girth histogram, and C4/C8/C16 combo counts each
+  independently sum to the same total (orchestrator re-verified from the
+  raw aggregate).
+- Girth histogram: 1,612,905 girth 5; 7,573 girth 6; exactly 1 girth 7 —
+  the unique girth-7 entry is the McGee-graph sanity check predicted
+  above, and it lands in combo "011" (has C8 and C16) as expected.
+- {8}-only phenomenon persists: 8 graphs at n = 24 have C8 but no C16
+  (all girth 5, graph6 strings recorded in the aggregate), vs 1 at n = 22.
+  Whether all 8 are bridged (per the lead-2 pattern) was not checked —
+  folded into lead 2 for any future cycle.
+
+Combined verified frontier for the conjecture in this lab's own tooling:
+**all cubic graphs to n = 22 (full), plus all girth-≥5 cubic graphs at
+n = 24.**

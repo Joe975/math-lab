@@ -1,24 +1,28 @@
 # Ledger
 
-## TL;DR (updated 2026-07-26, post-skeptic)
+## TL;DR (updated 2026-07-26 — LAB PAUSED by user; hourly cycle stopped)
 
-HEADLINE: the union-closed dependent-couplings route SURVIVED independent
-skeptic review — first live interface past the entropy barrier in this
-lab. Skeptic corrected two claims (real ceiling 0.4315 in closed form;
-mini-theorem restated) but confirmed the core: licensing lemma, the
-Conjecture-1 equivalence, both killer-family separations, genuine no-go
-evasion. Next: attack the three proof gaps (see queue item 1).
-Also complete: Singmaster census to 2.5×10^29 (3003 unique at mult 8);
-Erdős–Gyárfás verified through n=22 with n=24 aggregation finishing;
-lonely-runner k=8 census (Goddyn–Wong recovered; k=9 is the frontier);
-Erdős–Straus 601 refuted → real signal is QR-class identity-poverty
-(p ≈ 10^-110); graceful census n ≤ 14 (minimizers all in proven classes).
+The user stopped the loop after the in-flight work completed. All lines
+are closed out; nothing is running; the cron trigger is deleted. To
+resume: recreate an hourly routine with the standard cycle prompt (see
+README "How the loop works") — all state needed is in this directory.
+
+Final standing. HEADLINE: the union-closed dependent-couplings route
+SURVIVED independent skeptic review — first live interface past the
+entropy barrier in this lab (corrected ceiling 0.4315; three labeled
+proof gaps are queue item 1). Complete: Singmaster census to 2.5×10^29
+(3003 unique at mult 8); Erdős–Gyárfás verified for ALL cubic graphs to
+n=22 plus all girth-≥5 cubics at n=24 (zero candidates); lonely-runner
+k=8 census (Goddyn–Wong recovered; k=9 frontier); Erdős–Straus 601
+refuted → real signal is QR-class identity-poverty (p ≈ 10^-110);
+graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
+7 problems, ~20 reusable tools.
 
 ## Problem status
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
-| Erdős–Gyárfás | n=24 run in flight | high | girth≥5 exhaustion n=24; spectrum census next |
+| Erdős–Gyárfás | n=24 done | high | next (on resume): 2-connected C16-free test (lead 2); n=26 is a ~16h run |
 | Union-closed (Frankl) | ROUTE LIVE (verified) | high | close the three proof gaps in the couplings route (skeptic-corrected, ceiling 0.4315) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
@@ -73,6 +77,13 @@ Erdős–Straus 601 refuted → real signal is QR-class identity-poverty
   OEIS A014372 exactly; C kernel re-validated bit-for-bit vs the Python
   spectrum tool on 4,569 graphs). Conjecture verified for all cubic graphs
   through 22 vertices with our own reproducible tooling.
+- **[erdos-gyarfas] n=24 girth-≥5 exhausted** (2026-07-26, attempt 002
+  addendum): all 1,620,479 girth-≥5 connected cubic graphs on 24 vertices
+  contain C8 — zero candidates. Total matches A014372; slice totals,
+  girth histogram, and combo counts independently reconcile; the unique
+  girth-7 graph (McGee) appears exactly once as predicted. Eight
+  {8}-only graphs recorded (vs 1 at n=22) — bridgedness check folded
+  into lead 2.
 - **[union-closed] Dependent-couplings route VERIFIED LIVE (skeptic-
   corrected)** (2026-07-26, attempts 003+004): exact union-closure
   licenses every coupling of uniform marginals (lemma re-derived
