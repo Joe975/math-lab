@@ -8,9 +8,14 @@ COUNTING CONVENTION: for each tree we take one fixed vertex-labeled
 representative (as produced by networkx.nonisomorphic_trees) and count
 distinct graceful injections f on it, divided by 2 for the complementation
 symmetry f -> (n-1)-f (which always yields a distinct graceful labeling).
-We do NOT quotient by tree automorphisms; counts of automorphism-rich trees
-(paths, stars) therefore include automorphic images. A star's count is
-exactly 1 under this convention (center must get label 0 or n-1).
+The raw count does NOT quotient by tree automorphisms; counts of
+automorphism-rich trees include automorphic images (a star's raw count up to
+complementation is exactly (n-1)!: center takes 0 or n-1, leaves take the
+rest in any order). We additionally record |Aut(T)| (computed via AHU
+canonical forms) so the "essential" count raw/|Aut| — labelings up to
+automorphism, still up to complementation — can be analyzed; that is the
+right notion for "how many essentially different graceful labelings does
+this tree have".
 
 Subcommands:
   validate          run the full validation suite (tree counts vs A000055,
@@ -38,6 +43,7 @@ import statistics
 import subprocess
 import sys
 import time
+from math import factorial
 
 import networkx as nx
 from networkx.generators.nonisomorphic_trees import nonisomorphic_trees
@@ -77,6 +83,54 @@ def bfs_parent_order(G):
     return par
 
 
+def aut_size(G):
+    """|Aut(T)| for a tree T via AHU canonical forms.
+
+    Root at the (Jordan) center. Rooted subtree: aut = product of child auts
+    times product of multiplicity! over groups of identical child canonical
+    codes. Two adjacent centers: automorphisms preserve the central edge, so
+    aut = aut(T1)*aut(T2)*(2 if the two halves are isomorphic), where T1, T2
+    are the two rooted halves."""
+    n = G.number_of_nodes()
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+
+    def rooted(u, parent):
+        codes = []
+        aut = 1
+        for w in G.neighbors(u):
+            if w == parent:
+                continue
+            c, a = rooted(w, u)
+            codes.append(c)
+            aut *= a
+        codes.sort()
+        i = 0
+        while i < len(codes):
+            j = i
+            while j < len(codes) and codes[j] == codes[i]:
+                j += 1
+            aut *= factorial(j - i)
+            i = j
+        return "(" + "".join(codes) + ")", aut
+
+    centers = nx.center(G)
+    if len(centers) == 1:
+        return rooted(centers[0], None)[1]
+    c1, c2 = centers
+    code1, a1 = rooted(c1, c2)
+    code2, a2 = rooted(c2, c1)
+    return a1 * a2 * (2 if code1 == code2 else 1)
+
+
+def aut_size_bruteforce(G):
+    """|Aut| by VF2 self-isomorphism enumeration (validation only)."""
+    from networkx.algorithms.isomorphism import GraphMatcher
+    return sum(1 for _ in GraphMatcher(G, G).isomorphisms_iter())
+
+
 def tree_features(G):
     """Structural features of tree G."""
     n = G.number_of_nodes()
@@ -109,6 +163,7 @@ def tree_features(G):
         "cat": caterpillar,
         "lob": lobster,
         "spider": spider,
+        "aut": aut_size(G),
     }
 
 
@@ -218,17 +273,22 @@ def count_all_trees(trees, jobs=1):
         return [count_graceful_python(G) for G in trees]
     if jobs <= 1 or len(pars) < 4 * jobs:
         return count_batch_core(pars)
-    # interleaved chunks so hard trees spread across workers
+    # interleaved chunks so hard trees spread across workers; feed each
+    # worker from a temp file (writing big inputs to a pipe up-front would
+    # block and serialize the workers)
+    import tempfile
     chunks = [pars[k::jobs] for k in range(jobs)]
     procs = []
     for chunk in chunks:
         inp = "".join(
             f"{len(par)} " + " ".join(map(str, par[1:])) + "\n"
             for par in chunk)
-        p = subprocess.Popen([CORE_BIN], stdin=subprocess.PIPE,
+        tf = tempfile.TemporaryFile(mode="w+")
+        tf.write(inp)
+        tf.seek(0)
+        p = subprocess.Popen([CORE_BIN], stdin=tf,
                              stdout=subprocess.PIPE, text=True)
-        p.stdin.write(inp)
-        p.stdin.close()
+        tf.close()
         procs.append(p)
     results = [None] * len(pars)
     for k, p in enumerate(procs):
@@ -276,17 +336,35 @@ def validate():
             print(f"    n={n}: TREE WITH 0 LABELINGS (bug!)")
             ok = False
 
-    print("[3] stars K_{1,n-1} must have exactly 1 labeling up to complement:")
-    for n in [5, 9, 12, 15, 18]:
+    print("[3] stars K_{1,n-1}: raw count up to complement must be (n-1)!,")
+    print("    i.e. exactly 1 essential labeling after dividing |Aut|=(n-1)!:")
+    for n in [5, 9, 11, 13]:
         star = nx.star_graph(n - 1)
         c = (count_batch_core([bfs_parent_order(star)])[0] if has_core
              else count_graceful_python(star))
-        status = "ok" if c == 1 else "FAIL"
-        if c != 1:
+        exp = factorial(n - 1)
+        status = "ok" if c == exp else "FAIL"
+        if c != exp:
             ok = False
-        print(f"    n={n:2d}: count={c} {status}")
+        print(f"    n={n:2d}: count={c} (expected {exp}) {status}")
 
-    print("[4] paths (sanity, counts reported for the record):")
+    print("[4] |Aut| via AHU vs VF2 brute force, all trees n=4..9 + spot checks:")
+    for n in range(4, 10):
+        trees = gen_trees(n)
+        bad = [1 for G in trees if aut_size(G) != aut_size_bruteforce(G)]
+        agree = not bad
+        if bad:
+            ok = False
+        print(f"    n={n}: {len(trees)} trees, AHU==VF2: {agree}")
+    for name, G, exp in [("star n=13", nx.star_graph(12), factorial(12)),
+                         ("path n=13", nx.path_graph(13), 2)]:
+        a = aut_size(G)
+        status = "ok" if a == exp else "FAIL"
+        if a != exp:
+            ok = False
+        print(f"    {name}: |Aut|={a} (expected {exp}) {status}")
+
+    print("[5] paths (sanity, counts reported for the record):")
     for n in range(4, 13):
         path = nx.path_graph(n)
         c = (count_batch_core([bfs_parent_order(path)])[0] if has_core
@@ -329,14 +407,16 @@ def run(nmin, nmax, budget_min, jobs, outdir):
             g6 = nx.to_graph6_bytes(G, header=False).decode().strip()
             ft = tree_features(G)
             recs.append([g6, c, ft["maxdeg"], ft["diam"], ft["leaves"],
-                         int(ft["cat"]), int(ft["lob"]), int(ft["spider"])])
+                         int(ft["cat"]), int(ft["lob"]), int(ft["spider"]),
+                         ft["aut"]])
         out = {
             "n": n,
-            "convention": "labelings of fixed representative, up to "
-                          "complementation f->(n-1)-f; not quotiented by "
-                          "tree automorphisms",
+            "convention": "count = graceful labelings of the fixed "
+                          "representative up to complementation f->(n-1)-f, "
+                          "NOT quotiented by tree automorphisms; essential "
+                          "count = count/aut",
             "fields": ["graph6", "count", "maxdeg", "diam", "leaves",
-                       "caterpillar", "lobster", "spider"],
+                       "caterpillar", "lobster", "spider", "aut"],
             "n_trees": len(trees),
             "elapsed_sec": round(elapsed, 2),
             "trees": recs,
@@ -365,83 +445,107 @@ def load_all(outdir):
     return data
 
 
+def _cls(r, n):
+    """Human label for a tree record."""
+    g6, c, md, dm, lv, cat, lob, sp = r[:8]
+    if md == n - 1:
+        return "star"
+    if dm == n - 1:
+        return "path"
+    if sp and md >= 3:
+        return "spider"
+    if cat:
+        return "caterpillar"
+    if lob:
+        return "lobster"
+    return "other"
+
+
+def _ess(r):
+    """Essential count = count / |Aut| (labelings up to automorphism and
+    complementation; may be half-integral in rare complement-symmetric
+    cases)."""
+    return r[1] / r[8]
+
+
 def analyze(outdir):
     data = load_all(outdir)
     if not data:
         print("no data files found in", outdir)
         return
 
-    print("== per-n count distribution (counts up to complementation) ==")
-    print(f"{'n':>3} {'#trees':>7} {'min':>10} {'median':>12} {'max':>14} "
-          f"{'mean':>14} {'time_s':>8}")
-    for n in sorted(data):
-        counts = [r[1] for r in data[n]["trees"]]
-        print(f"{n:>3} {len(counts):>7} {min(counts):>10} "
-              f"{int(statistics.median(counts)):>12} {max(counts):>14} "
-              f"{statistics.mean(counts):>14.1f} "
-              f"{data[n]['elapsed_sec']:>8.1f}")
+    for label, key in [("raw counts (fixed representative, up to complement)",
+                        lambda r: r[1]),
+                       ("essential counts (raw / |Aut|)", _ess)]:
+        print(f"== per-n distribution: {label} ==")
+        print(f"{'n':>3} {'#trees':>7} {'min':>12} {'median':>14} "
+              f"{'max':>16} {'mean':>16} {'time_s':>8}")
+        for n in sorted(data):
+            counts = [key(r) for r in data[n]["trees"]]
+            print(f"{n:>3} {len(counts):>7} {min(counts):>12.6g} "
+                  f"{statistics.median(counts):>14.6g} "
+                  f"{max(counts):>16.6g} {statistics.mean(counts):>16.6g} "
+                  f"{data[n]['elapsed_sec']:>8.1f}")
+        print()
 
-    print("\n== minimizers and maximizers per n ==")
+    print("== minimizers and maximizers per n (essential counts) ==")
     for n in sorted(data):
         if n < 6:
             continue
         recs = data[n]["trees"]
-        recs_sorted = sorted(recs, key=lambda r: r[1])
-        lo = recs_sorted[:3]
-        hi = recs_sorted[-3:]
+        recs_sorted = sorted(recs, key=_ess)
         print(f"n={n}:")
-        for tag, group in [("min", lo), ("max", hi)]:
+        for tag, group in [("min", recs_sorted[:3]),
+                           ("max", recs_sorted[-3:])]:
             for r in group:
-                g6, c, md, dm, lv, cat, lob, sp = r
-                cls = ("star" if md == len(recs[0]) else
-                       "spider" if sp and md >= 3 else
-                       "caterpillar" if cat else
-                       "lobster" if lob else "other")
-                if md == n - 1:
-                    cls = "star"
-                elif dm == n - 1:
-                    cls = "path"
-                print(f"  {tag}  count={c:>12}  maxdeg={md:>2} diam={dm:>2} "
+                g6, c, md, dm, lv, cat, lob, sp, aut = r
+                print(f"  {tag}  ess={_ess(r):>12.6g} raw={c:>12} "
+                      f"aut={aut:>6} maxdeg={md:>2} diam={dm:>2} "
                       f"leaves={lv:>2} cat={cat} lob={lob} spider={sp} "
-                      f"[{cls}]  {g6}")
+                      f"[{_cls(r, n)}]  {g6}")
 
-    print("\n== structural class averages (largest n available) ==")
+    print("\n== structural class stats, essential counts (largest n) ==")
     nmax = max(data)
     recs = data[nmax]["trees"]
     classes = {
-        "caterpillar": [r[1] for r in recs if r[5]],
-        "lobster-not-cat": [r[1] for r in recs if r[6] and not r[5]],
-        "spider(maxdeg>=3)": [r[1] for r in recs if r[7] and r[2] >= 3],
-        "other": [r[1] for r in recs if not r[6]],
+        "star": [r for r in recs if r[2] == nmax - 1],
+        "path": [r for r in recs if r[3] == nmax - 1],
+        "spider(non-path)": [r for r in recs
+                             if r[7] and r[2] >= 3 and r[3] < nmax - 1],
+        "caterpillar": [r for r in recs if r[5]],
+        "lobster-not-cat": [r for r in recs if r[6] and not r[5]],
+        "not-lobster": [r for r in recs if not r[6]],
+        "ALL": recs,
     }
-    for name, cs in classes.items():
-        if cs:
-            print(f"  {name:>18}: {len(cs):>6} trees, "
-                  f"min={min(cs)}, median={int(statistics.median(cs))}, "
-                  f"max={max(cs)}")
+    print(f"  (n={nmax})")
+    for name, rs in classes.items():
+        if rs:
+            cs = [_ess(r) for r in rs]
+            print(f"  {name:>18}: {len(rs):>6} trees, "
+                  f"min={min(cs):.6g}, median={statistics.median(cs):.6g}, "
+                  f"max={max(cs):.6g}")
 
-    print("\n== growth of extremes ==")
+    print("\n== growth of extremes (essential counts) ==")
     ns = sorted(data)
-    mins = [min(r[1] for r in data[n]["trees"]) for n in ns]
-    meds = [statistics.median(r[1] for r in data[n]["trees"]) for n in ns]
-    maxs = [max(r[1] for r in data[n]["trees"]) for n in ns]
+    mins = [min(_ess(r) for r in data[n]["trees"]) for n in ns]
+    meds = [statistics.median(_ess(r) for r in data[n]["trees"]) for n in ns]
+    maxs = [max(_ess(r) for r in data[n]["trees"]) for n in ns]
     print("  n:      ", ns)
-    print("  min:    ", mins)
-    print("  median: ", [int(x) for x in meds])
-    print("  max:    ", maxs)
+    print("  min:    ", [round(x, 2) for x in mins])
+    print("  median: ", [round(x, 1) for x in meds])
+    print("  max:    ", [round(x, 1) for x in maxs])
     if len(ns) >= 4:
-        # fit log(min) ~ a + b*n on the last points where min > 0
-        pts = [(n, math.log(v)) for n, v in zip(ns, mins) if v > 0][-6:]
-        nbar = sum(p[0] for p in pts) / len(pts)
-        ybar = sum(p[1] for p in pts) / len(pts)
-        b = (sum((p[0] - nbar) * (p[1] - ybar) for p in pts)
-             / sum((p[0] - nbar) ** 2 for p in pts))
-        print(f"  log-linear fit of min over last {len(pts)} points: "
-              f"min ~ C * {math.exp(b):.3f}^n  (b={b:.3f})")
+        for name, seq in [("min", mins), ("median", meds)]:
+            pts = [(n, math.log(v)) for n, v in zip(ns, seq) if v > 0][-6:]
+            nbar = sum(p[0] for p in pts) / len(pts)
+            ybar = sum(p[1] for p in pts) / len(pts)
+            b = (sum((p[0] - nbar) * (p[1] - ybar) for p in pts)
+                 / sum((p[0] - nbar) ** 2 for p in pts))
+            print(f"  log-linear fit of {name} over last {len(pts)} points: "
+                  f"{name} ~ C * {math.exp(b):.3f}^n  (slope b={b:.3f})")
         ratios = [mins[i + 1] / mins[i] for i in range(len(mins) - 1)
                   if mins[i] > 0]
-        print(f"  successive min ratios: "
-              f"{[round(r, 2) for r in ratios]}")
+        print(f"  successive min ratios: {[round(r, 2) for r in ratios]}")
 
 
 # ------------------------------------------------------------------- main
