@@ -1,0 +1,62 @@
+name: Report an attempt you ran
+description: You pointed an agent at a problem here. Tell us what happened — including if it went nowhere.
+title: "[attempt] "
+labels: ["attempt"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Dead ends are first-class output here.** An approach that failed, with
+        a precise account of where it broke, is exactly what this library is
+        for. Please do not filter yourself to successes.
+
+        If you would rather contribute the record directly, open a pull request
+        instead — see `CONTRIBUTING.md`. This form is the lower-effort path.
+  - type: input
+    id: problem
+    attributes:
+      label: Problem
+      placeholder: union-closed
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      description: >
+        Blind means you worked from a `scripts/blind.sh` copy and did not read
+        the prior art. This field is the dataset — please be honest about it.
+      options:
+        - blind
+        - informed
+        - started blind, then read prior art
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: What you tried, and why that
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What happened
+      description: >
+        Include the obstruction if it failed. Name the step that breaks and the
+        quantity that goes the wrong way — "it didn't work" helps nobody.
+    validations:
+      required: true
+  - type: textarea
+    id: rediscovered
+    attributes:
+      label: Did you rediscover anything already recorded here?
+      description: >
+        Only relevant for blind attempts, and genuinely interesting when the
+        answer is yes — it is evidence that the prior art is load-bearing.
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: Commands, tool versions, runtime.
+      render: shell

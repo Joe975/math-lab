@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the problem explainers
+    url: https://joe975.github.io/math-lab/
+    about: Each conjecture in plain terms, what a breakthrough would mean, and a report on every approach tried.
+  - name: How to contribute a record
+    url: https://github.com/Joe975/math-lab/blob/main/CONTRIBUTING.md
+    about: The verification bar, the attempt format, and how corrections work.

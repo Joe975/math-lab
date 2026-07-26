@@ -140,3 +140,41 @@ def test_explainer_front_matter_is_complete():
             f"{path.name}: missing the implications section, which is the whole "
             f"point of the explainer"
         )
+
+
+def test_every_page_offers_a_way_to_report_a_problem(site):
+    """Reporting an error must be one click from the thing that is wrong."""
+    for name, body in site.items():
+        if name == "method.html":
+            continue
+        assert "issues/new?" in body, f"{name} has no issue link"
+
+
+def test_every_attempt_card_links_to_a_prefilled_challenge(site):
+    """The challenge link must name the specific record it is about."""
+    import json as _json
+
+    missing = []
+    for slug in problems():
+        index = _json.loads(
+            (ROOT / "problems" / slug / "prior-art.json").read_text(encoding="utf-8")
+        )
+        page = site[f"{slug}.html"]
+        for attempt in index["attempts"]:
+            token = f"record={slug}%2F{attempt['id']}"
+            if token not in page:
+                missing.append(f"{slug}/{attempt['id']}")
+    assert not missing, f"attempts with no prefilled challenge link: {missing}"
+
+
+def test_issue_links_name_real_templates(site):
+    """A link to a template that does not exist lands the reporter nowhere."""
+    available = {
+        p.name for p in (ROOT / ".github" / "ISSUE_TEMPLATE").glob("*.yml")
+    } - {"config.yml"}
+    referenced = set()
+    for body in site.values():
+        referenced |= set(re.findall(r"issues/new\?template=([a-z_]+\.yml)", body))
+    assert referenced, "no issue templates referenced from the site"
+    unknown = referenced - available
+    assert not unknown, f"site links to missing issue templates: {sorted(unknown)}"

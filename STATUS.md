@@ -4,8 +4,8 @@
 
 The user stopped the loop after the in-flight work completed. All lines
 are closed out; nothing is running; the cron trigger is deleted. To
-resume: recreate an hourly routine with the standard cycle prompt (see
-README "How the loop works") — all state needed is in this directory.
+resume: recreate an hourly routine using `docs/CYCLE.md`, which is the
+standard cycle prompt — all state needed is in this directory.
 
 Final standing. HEADLINE: the union-closed dependent-couplings route
 SURVIVED independent skeptic review — first live interface past the

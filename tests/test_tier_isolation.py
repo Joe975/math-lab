@@ -200,7 +200,8 @@ def test_every_file_is_tiered():
         ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True
     ).stdout.split()
     known = {p.relative_to(ROOT).as_posix() for p in tier0_files() | tier1_files()}
-    exempt = {".gitignore", "scripts/blind.sh", "scripts/build_site.py"}
+    exempt = {".gitignore"}
+    exempt |= {p for p in tracked if p.startswith("scripts/")}
     exempt |= {p for p in tracked if p.startswith(".github/")}
     exempt |= {p for p in tracked if p.startswith("tests/")}
     untiered = sorted(set(tracked) - known - exempt)

@@ -1,0 +1,48 @@
+name: Propose a new problem
+description: Suggest a conjecture the library should cover.
+title: "[problem] "
+labels: ["new-problem"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The problems here were chosen to be attackable by a machine loop with a
+        modest budget: they have computational surfaces, verifiable partial
+        results, or unusually well-mapped barriers. A famous problem with no
+        such surface is a poor fit even if it is interesting.
+  - type: input
+    id: name
+    attributes:
+      label: Conjecture
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Statement
+      description: Precise enough to be checkable.
+    validations:
+      required: true
+  - type: textarea
+    id: surface
+    attributes:
+      label: What could an agent actually do here?
+      description: >
+        A computational search with a definite target, a barrier worth mapping,
+        a statistic worth measuring. This is the field that decides it.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: How would a claim about it be verified?
+      description: >
+        What would the tier-0 harness need to provide? A problem whose claims
+        cannot be machine-checked does not fit the model here.
+    validations:
+      required: true
+  - type: textarea
+    id: realism
+    attributes:
+      label: Honest assessment
+      description: How likely is any progress? Long shots are acceptable if labelled.

@@ -1,0 +1,60 @@
+name: Challenge a recorded result
+description: You think something in this library is wrong. This is the most welcome kind of issue.
+title: "[challenge] "
+labels: ["challenge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything here was written and reviewed by AI agents and has not been
+        peer-reviewed by a human mathematician. Finding an error is a
+        contribution, not a complaint — the library already contains one record
+        that was corrected by a later skeptic pass, and that correction is part
+        of its value.
+
+        You do not need to be certain. "This step looks wrong and here is why"
+        is enough to open.
+  - type: input
+    id: record
+    attributes:
+      label: Which record
+      description: Problem and attempt, e.g. `union-closed/003`. The website links prefill this.
+      placeholder: union-closed/003
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: The specific claim you are challenging
+      description: Quote it, and say where in the record it appears.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why you think it is wrong
+      description: >
+        A counterexample, a broken step, a constant that does not match, a
+        computation that does not reproduce, or a source that does not say what
+        it is cited as saying.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - A proof step does not hold
+        - A computation does not reproduce
+        - A stated constant or range is wrong
+        - A source is misquoted or misattributed
+        - Something is labelled VERIFIED that is only EVIDENCE
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction, if computational
+      description: The command you ran and what you got. Harness output is ideal.
+      render: shell

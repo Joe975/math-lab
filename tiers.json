@@ -8,7 +8,10 @@
     "CITATION.cff",
     "tiers.json",
     "harness/**/*",
-    "problems/*/PROBLEM.md"
+    "problems/*/PROBLEM.md",
+    "CLAUDE.md",
+    "docs/attempt-template.md",
+    "docs/prior-art.schema.json"
   ],
   "tier1": [
     "README.md",
@@ -19,6 +22,7 @@
     "problems/*/attempts/**/*",
     "problems/*/explore/**/*",
     "problems/*/data/**/*",
-    "site/**/*"
+    "site/**/*",
+    "docs/CYCLE.md"
   ]
 }

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://joe975.github.io/math-lab/prior-art.schema.json",
+  "title": "math-lab prior-art index",
+  "description": "One per problem, at problems/<slug>/prior-art.json. This is the file an arriving agent reads first, and the file CI derives its tier-isolation checks from, so a typo'd key here silently removes a protection. tests/test_prior_art_schema.py validates every index against this.",
+  "type": "object",
+  "required": ["problem", "route_status", "route_summary", "attempts"],
+  "additionalProperties": false,
+  "properties": {
+    "problem": {
+      "type": "string",
+      "description": "Must equal the containing directory name.",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "route_status": {
+      "description": "Standing of the problem overall, from the fixed vocabulary in AGENTS.md. Specifics belong in route_summary, not here.",
+      "enum": ["VERIFIED", "EVIDENCE", "LIVE", "REFUTED", "MAP", "SPECULATION", "NOT_ATTEMPTED"]
+    },
+    "route_summary": {
+      "type": "string",
+      "description": "One or two sentences. What someone needs to know before opening anything else.",
+      "minLength": 20
+    },
+    "attempts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/attempt" }
+    }
+  },
+  "$defs": {
+    "attempt": {
+      "type": "object",
+      "required": ["id", "file", "date", "mode", "status", "mechanism", "one_line"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9]{3}$" },
+        "file": {
+          "type": "string",
+          "description": "Path relative to the problem directory. Must exist.",
+          "pattern": "^attempts/[0-9]{3}-[a-z0-9-]+\\.md$"
+        },
+        "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "mode": {
+          "description": "Whether this attempt read the prior art. Honesty here is what makes the blind-vs-informed dataset worth anything.",
+          "enum": ["blind", "informed"]
+        },
+        "status": {
+          "enum": [
+            "VERIFIED", "VERIFIED_WITH_CORRECTIONS", "EVIDENCE", "LIVE",
+            "REFUTED", "REFUTED_PRIOR_OBSERVATION", "MAP", "SPECULATION"
+          ]
+        },
+        "mechanism": {
+          "type": "array",
+          "description": "Approach-family tags. These are how a future agent checks whether an idea is already spent without reading the prose, so reuse existing tags where they fit.",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+        },
+        "one_line": {
+          "type": "string",
+          "description": "What was established, in one sentence. Shown on the website.",
+          "minLength": 20
+        },
+        "leak_terms": {
+          "type": "array",
+          "description": "Distinctive strings naming THIS attempt's findings, not tool vocabulary and not published results. CI fails if one appears in a tier-0 file or a blind checkout.",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "range": { "type": "string", "description": "What was actually checked. Required in spirit whenever status is VERIFIED or EVIDENCE." },
+        "gaps": { "type": "array", "items": { "type": "string" } },
+        "corrections": { "type": "array", "items": { "type": "string" } },
+        "refuted_by": { "type": ["string", "null"] },
+        "refutes": { "type": "string" },
+        "verifies": { "type": "string", "description": "Attempt id this one adversarially reviewed." },
+        "superseded_by": { "type": "string", "description": "Attempt id whose statements to prefer where they differ." },
+        "note": { "type": "string" },
+        "design_note": { "type": "string" },
+        "methodological_lesson": {
+          "type": "string",
+          "description": "A mistake in method worth carrying to other problems."
+        }
+      }
+    }
+  }
+}

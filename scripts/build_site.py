@@ -25,6 +25,20 @@ ROOT = Path(__file__).resolve().parent.parent
 EXPLAINERS = ROOT / "site" / "explainers"
 REPO_URL = "https://github.com/Joe975/math-lab"
 BLOB = f"{REPO_URL}/blob/main"
+ISSUES = f"{REPO_URL}/issues"
+
+
+def issue_url(template: str, **prefill: str) -> str:
+    """A GitHub 'new issue' link with the form fields already filled in.
+
+    Reporting an error should be one click from the thing that is wrong, not a
+    scavenger hunt through the repo. Field names must match the ids in
+    .github/ISSUE_TEMPLATE/<template>.
+    """
+    from urllib.parse import urlencode
+
+    query = urlencode({"template": template, **prefill})
+    return f"{ISSUES}/new?{query}"
 
 # Presentation for each status term. The vocabulary itself is defined in
 # AGENTS.md; this only says how to colour it.
@@ -165,6 +179,8 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, monospace;
   text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-top: .8rem; }
 .report dd { margin: .15rem 0 0; }
 .report ul { margin: .15rem 0 0; padding-left: 1.1rem; }
+.report .actions { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid var(--rule);
+  font: .84rem/1.5 ui-sans-serif, system-ui, sans-serif; }
 
 .badge { display: inline-block; font: 600 .68rem/1.5 ui-sans-serif, system-ui, sans-serif;
   text-transform: uppercase; letter-spacing: .06em; padding: .12rem .5rem;
@@ -290,6 +306,15 @@ def render_attempt(attempt: dict, slug: str) -> str:
             parts.append(f"<dt>{esc(label)}</dt><dd>{value}</dd>")
         parts.append("</dl>")
 
+    challenge = issue_url(
+        "challenge.yml",
+        record=f"{slug}/{ident}",
+        title=f"[challenge] {slug}/{ident}: ",
+    )
+    parts.append(
+        f'<p class="actions"><a href="{href}">Read the full record</a> '
+        f'&middot; <a href="{challenge}">Challenge this result</a></p>'
+    )
     parts.append("</div>")
     return "\n".join(parts)
 
@@ -333,6 +358,18 @@ def render_problem(meta: dict, index: dict) -> str:
         f'&middot; <a href="{BLOB}/problems/{slug}/prior-art.json">Machine-readable '
         "index</a></p>"
     )
+    report = issue_url("attempt.yml", problem=slug, title=f"[attempt] {slug}: ")
+    challenge_problem = issue_url("challenge.yml", record=slug, title=f"[challenge] {slug}: ")
+    body.append("<h2>Found something, or think we got it wrong?</h2>")
+    body.append(
+        "<p>Both are welcome, and the second especially. Nothing here has been "
+        "peer-reviewed by a human mathematician, so errors are expected rather "
+        "than embarrassing — one record in this library was already corrected by "
+        "a later review.</p>"
+        f'<p><a href="{challenge_problem}">Challenge something on this page</a> '
+        f'&middot; <a href="{report}">Report an attempt you ran</a> '
+        f'&middot; <a href="{ISSUES}">Browse open issues</a></p>'
+    )
     body.append(
         '<div class="callout"><strong>Attacking this yourself?</strong> '
         f'<code>scripts/blind.sh {slug} ../work</code> gives your agent the problem '
@@ -359,6 +396,8 @@ def render_index(problems: list[tuple[dict, dict]]) -> str:
         )
 
     attempt_count = sum(len(i["attempts"]) for _, i in problems)
+    challenge_any = issue_url("challenge.yml")
+    report_any = issue_url("attempt.yml")
 
     body = f"""
 <h1>Math Lab</h1>
@@ -393,6 +432,14 @@ the rest of it. One skeptic pass found a false proof claim and a wrong headline
 constant in the attempt it was reviewing; both records are kept as written, with
 the correction recorded against them rather than edited in.
 <a href="method.html">More on the method</a>.</p>
+
+<h2>Report an error, or tell us what you tried</h2>
+<p>Every record here was written and reviewed by AI agents, never by a human
+mathematician. Challenging one is the most useful thing you can do with this
+library, and you do not need to be certain to open an issue.</p>
+<p><a href="{challenge_any}">Challenge a recorded result</a> &middot;
+<a href="{report_any}">Report an attempt you ran</a> &middot;
+<a href="{ISSUES}">Browse open issues</a></p>
 
 <h2>Send your own agent</h2>
 <p>The library is built to be used by other people's agents, in either of two
