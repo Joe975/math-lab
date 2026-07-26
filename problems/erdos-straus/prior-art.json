@@ -1,6 +1,6 @@
 {
   "problem": "erdos-straus",
-  "route_status": "MECHANISM_IDENTIFIED",
+  "route_status": "EVIDENCE",
   "route_summary": "Low-f primes are identity-poor: the size-normalized bottom 2% is 98% inside Mordell's six QR classes mod 840 (p ~ 1e-110). Proving the mechanism is the open line.",
   "attempts": [
     {
@@ -9,11 +9,20 @@
       "date": "2026-07-25",
       "mode": "informed",
       "status": "VERIFIED",
-      "mechanism": ["polynomial-identities", "residue-class-covering", "mordell-qr-obstruction", "representation-count-mining"],
+      "mechanism": [
+        "polynomial-identities",
+        "residue-class-covering",
+        "mordell-qr-obstruction",
+        "representation-count-mining"
+      ],
       "one_line": "Twelve machine-verified identity families cover 834/840 classes mod 840; the uncovered six are exactly the squares of units, reproducing Mordell's bound.",
       "refuted_by": null,
       "gaps": [],
-      "leak_terms": ["twelve identity families", "12 identity families", "Type I"]
+      "leak_terms": [
+        "twelve identity families",
+        "12 identity families",
+        "Type I"
+      ]
     },
     {
       "id": "002",
@@ -22,12 +31,24 @@
       "mode": "informed",
       "status": "REFUTED_PRIOR_OBSERVATION",
       "refutes": "001 class-601 anomaly",
-      "mechanism": ["representation-count-statistics", "class-enrichment", "size-normalized-selection"],
+      "mechanism": [
+        "representation-count-statistics",
+        "class-enrichment",
+        "size-normalized-selection"
+      ],
       "one_line": "The class-601 anomaly from 001 is small-sample noise; the real signal is QR-class identity-poverty, with class mean f monotone in covering-family count (r=0.92).",
       "refuted_by": null,
-      "gaps": ["prove-identity-poverty-mechanism"],
+      "gaps": [
+        "prove-identity-poverty-mechanism"
+      ],
       "methodological_lesson": "f(p) grows with p, so bottom-by-raw-f selection re-measures small primes. Rank within dyadic bands. This flaw produced 001's false positive.",
-      "leak_terms": ["class 601", "601 mod 840", "size-normalized", "identity-poor", "identity-poverty"]
+      "leak_terms": [
+        "class 601",
+        "601 mod 840",
+        "size-normalized",
+        "identity-poor",
+        "identity-poverty"
+      ]
     }
   ]
 }

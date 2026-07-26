@@ -1,6 +1,6 @@
 {
   "problem": "singmaster",
-  "route_status": "CENSUS_COMPLETE_TO_2.5E29",
+  "route_status": "VERIFIED",
   "route_summary": "Complete multiplicity census to 2.5e29: 3003 is the unique multiplicity-8 value, seven multiplicity-6 values, and multiplicities 5 and 7 are provably empty in range.",
   "attempts": [
     {

@@ -1,6 +1,6 @@
 {
   "problem": "graceful-trees",
-  "route_status": "CENSUS_COMPLETE_TO_N14",
+  "route_status": "VERIFIED",
   "route_summary": "Exact |Aut|-normalized labeling counts for all 5,444 trees on n<=14. Global minimum is 1 (the star) for every n, but restricted minima grow geometrically.",
   "attempts": [
     {

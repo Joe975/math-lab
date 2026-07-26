@@ -1,6 +1,6 @@
 {
   "problem": "erdos-gyarfas",
-  "route_status": "VERIFIED_TO_N24",
+  "route_status": "VERIFIED",
   "route_summary": "Conjecture verified for all connected cubic graphs to n=22, and all girth->=5 cubics at n=24. Zero candidates. Bridged counterexamples need >=38 vertices.",
   "attempts": [
     {

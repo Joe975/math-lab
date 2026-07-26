@@ -18,6 +18,7 @@
     "problems/*/prior-art.json",
     "problems/*/attempts/**/*",
     "problems/*/explore/**/*",
-    "problems/*/data/**/*"
+    "problems/*/data/**/*",
+    "site/**/*"
   ]
 }

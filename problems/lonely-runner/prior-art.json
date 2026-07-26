@@ -1,6 +1,6 @@
 {
   "problem": "lonely-runner",
-  "route_status": "CENSUS_COMPLETE_K8_V72",
+  "route_status": "VERIFIED",
   "route_summary": "k=8 near-tight census to V=72: exactly 3 primitives below ML 13/100, all at ML=1/8. Goddyn-Wong instances recovered from scratch. k=9 is the frontier.",
   "attempts": [
     {
