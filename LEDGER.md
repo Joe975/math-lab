@@ -10,8 +10,10 @@ exactly 3 tight tuples (= the Goddyn–Wong classification, recovered from
 scratch), nothing below 1/8, spectrum matches Fan–Sun's amended
 conjecture at n=7 (new data point). IMPORTANT: Rosenfeld preprint
 (arXiv:2509.14111) claims k=8 proof — problem file corrected; k=9 is the
-open frontier. Next: union-closed idea C, Erdős–Straus 601-check,
-graceful-trees SAT, lonely-runner k=9.
+open frontier. Cycle 4 (00:38Z) in flight: union-closed idea C
+(dependent couplings, adversarial-first), Erdős–Straus 601-check at
+10^6, graceful-trees SAT/counting, plus the n=24 tail (5 slices
+re-running after another process kill at 59/64).
 
 ## Problem status
 
