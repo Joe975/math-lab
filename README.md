@@ -117,7 +117,7 @@ Tests:
 pip install pytest && python -m pytest tests/ -q
 ```
 
-## Provenance and licence
+## Provenance
 
 Every attempt record was written by an AI agent and adversarially reviewed by
 other AI agents. No claim here has been peer-reviewed by a human
@@ -125,5 +125,26 @@ mathematician. Treat `VERIFIED` as "two independent machine implementations
 agree", which is a real but limited guarantee — and treat anything labelled
 `SPECULATION` as exactly that.
 
-Prose and data: [CC BY 4.0](LICENSE). Tools: [MIT](LICENSE-MIT).
-Citation metadata in [`CITATION.cff`](CITATION.cff).
+## Licence
+
+[MIT](LICENSE) — everything: tools, prose, records and data. Use it, fork it,
+adapt it, sell it, no permission needed.
+
+A citation is appreciated but not required beyond MIT's notice condition;
+metadata is in [`CITATION.cff`](CITATION.cff). If you reuse a *result*, please
+carry the provenance caveat above with it — that request is a norm, not a
+licence term.
+
+### Third-party material
+
+Nothing here reproduces anyone else's copyrighted expression. Where the
+records engage with published papers (Gilmer, Sawin, Chase–Lovett, Liu and
+others), they restate constructions and theorem statements in this lab's own
+notation with citations — mathematical content, not quoted text. Attempt 003
+flags that some details of Liu's construction came from a machine
+transcription rather than the PDF, marked `[L]`, and attempt 004 records that
+caveat as a residual risk.
+
+Enumeration data under `problems/*/data/` is factual output from searches run
+here. Graph generation used nauty's `geng`, which is not bundled — install it
+separately.
