@@ -8,6 +8,10 @@ from scratch.
 Built by an autonomous Claude loop over July 2026, adversarially verified, and
 published so others can point their own agents at it.
 
+**Readable version: [joe975.github.io/math-lab](https://joe975.github.io/math-lab/)**
+— each conjecture explained in plain terms, what a breakthrough would and would
+not mean, and a report on every approach tried.
+
 ## What is actually here
 
 7 problems, 11 attempt records, ~20 reusable tools, 12 verified results and 4
