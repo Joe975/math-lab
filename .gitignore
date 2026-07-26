@@ -10,3 +10,4 @@ harness/graceful-trees/graceful_core
 
 # Harness run output (MATHLAB_OUT default)
 out/
+.pytest_cache/
