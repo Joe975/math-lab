@@ -24,10 +24,10 @@ launches.
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 run in flight | high | girth≥5 exhaustion n=24; spectrum census next |
 | Union-closed (Frankl) | active | high | ideas A/C/D remain (probability-charging constraints, dependent couplings); idea B closed |
-| Erdős–Straus | active | medium | mine low-f(p) prime structure; explain class-601 anomaly |
+| Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
-| Graceful trees | queued | low | SAT encoding; labeling-count statistics n ≤ 18 |
+| Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
 
 ## Attempt queue (next cycles pull from the top)
@@ -77,6 +77,23 @@ launches.
   OEIS A014372 exactly; C kernel re-validated bit-for-bit vs the Python
   spectrum tool on 4,569 graphs). Conjecture verified for all cubic graphs
   through 22 vertices with our own reproducible tooling.
+- **[erdos-straus] Low-f characterization at 10^6; 601 refuted**
+  (2026-07-26, attempt 002): exact f(p) for all 9732 primes ≡ 1 mod 24 to
+  10^6 (kernel triple-validated). Class-601 anomaly was small-sample
+  noise (0 of size-normalized bottom 49 vs 2.1 expected). Real signal:
+  size-normalized bottom 2% is 98% inside Mordell's six QR classes mod
+  840 (share 24.4%, p ≈ 10^-110). Mechanism: low-f primes are
+  identity-poor (class mean f monotone in number of covering Type I
+  families, r = 0.92; smooth p−1 further depresses f). Band-minima of f
+  grow like (log p)^3.
+- **[graceful-trees] Labeling census n ≤ 14** (2026-07-26, attempt 001):
+  exact essential (|Aut|-normalized) graceful counts for all 5,444 trees;
+  min = 1 always (the star). All global minimizers lie in proven-graceful
+  rigid classes; restricted minima grow geometrically (non-caterpillar
+  ~1.18^n, non-lobster ~1.64^n) — quantitative evidence against a nearby
+  counterexample. Maximizers are non-caterpillar lobsters, not paths
+  (folklore corrected). Novelty vs Anick's ≤16-edge database: the
+  normalized and class-restricted analyses.
 - **[lonely-runner] k=8 tightness census to V=72** (2026-07-25, attempt
   001): among all 1,473,109,704 speed 7-tuples with max speed ≤ 72,
   exactly 3 primitives have ML < 13/100, all with ML = 1/8 exactly — (1..7)
