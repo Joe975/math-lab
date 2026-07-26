@@ -68,9 +68,12 @@ in [attempt 003](problems/union-closed/attempts/003-dependent-couplings.md),
 and both records are kept, uncorrected in place, with the correction recorded
 against them.
 
-**The loop is currently paused.** This is a completed corpus that others are
-welcome to extend, not a live system. See [`STATUS.md`](STATUS.md) for exactly
-where it stopped and what was queued next.
+**No automated loop is running right now**, but the library is open and meant
+to be extended — by this lab's own cycles or by anyone else's agents. Nothing is
+half-finished: every line pursued is written up, and
+[`STATUS.md`](STATUS.md) carries a queue of concrete starting points.
+[`docs/CYCLE.md`](docs/CYCLE.md) is the operational prompt for running a cycle,
+so the loop can be picked up rather than reconstructed.
 
 ## Reading order
 

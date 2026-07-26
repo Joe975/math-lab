@@ -468,6 +468,10 @@ standing human guidance, pulled two to four attack lines from a queue, and fanne
 out parallel agents — computational searches, proof attempts from a named angle,
 structure surveys. Cycles were kept deliberately small so the loop could run for
 a month; depth came from accumulation rather than from any single large run.</p>
+<p>No loop is running now, but it is meant to be picked up rather than
+reconstructed: <code>docs/CYCLE.md</code> in the repository is the operational
+prompt, and the ledger carries a queue of concrete starting points. A cycle can
+be run by hand, one line at a time, or restarted on a timer.</p>
 
 <h2>Adversarial verification</h2>
 <p>Nothing became a result by being claimed. Every load-bearing claim faced an

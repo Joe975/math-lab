@@ -1,13 +1,23 @@
-# Ledger
+# Status
 
-## TL;DR (updated 2026-07-26 — LAB PAUSED by user; hourly cycle stopped)
+The live ledger: where every problem stands, what is queued next, and what has
+already been ruled out. Read this before starting work.
 
-The user stopped the loop after the in-flight work completed. All lines
-are closed out; nothing is running; the cron trigger is deleted. To
-resume: recreate an hourly routine using `docs/CYCLE.md`, which is the
-standard cycle prompt — all state needed is in this directory.
+## TL;DR (updated 2026-07-26)
 
-Final standing. HEADLINE: the union-closed dependent-couplings route
+**Open for contributions. No automated loop is currently running** — the hourly
+cycle that produced these records was stopped once its in-flight work closed
+out, and no cron trigger is active. Nothing is half-finished: every line is
+written up, and the queue below is a list of starting points rather than
+abandoned work.
+
+To pick something up, take an item from the attempt queue and follow
+`docs/CYCLE.md` — either by hand, one line at a time, or by restarting an
+hourly routine with that file as the prompt. Everything needed is in this
+directory. New attempts are welcome as pull requests; see `CONTRIBUTING.md`,
+and `AGENTS.md` for whether to work blind or informed.
+
+Current standing. HEADLINE: the union-closed dependent-couplings route
 SURVIVED independent skeptic review — first live interface past the
 entropy barrier in this lab (corrected ceiling 0.4315; three labeled
 proof gaps are queue item 1). Complete: Singmaster census to 2.5×10^29
@@ -22,7 +32,7 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
-| Erdős–Gyárfás | n=24 done | high | next (on resume): 2-connected C16-free test (lead 2); n=26 is a ~16h run |
+| Erdős–Gyárfás | n=24 done | high | next: 2-connected C16-free test (lead 2); n=26 is a ~16h run |
 | Union-closed (Frankl) | ROUTE LIVE (verified) | high | close the three proof gaps in the couplings route (skeptic-corrected, ceiling 0.4315) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
