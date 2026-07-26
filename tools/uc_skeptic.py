@@ -446,9 +446,8 @@ def atom_sinkhorn_indep(masks, lnmu, lam2, tol=1e-13, itmax=20000):
     """From-scratch atom-level engine with ASYMMETRIC alternating scaling
     (u,v).  By uniqueness of Sinkhorn scalings this converges to the same
     coupling as any symmetric-potential parametrization."""
-    A = np.asarray(masks)
-    pc = np.array([[bin(int(a) & int(b)).count("1") for b in A] for a in A],
-                  dtype=float)
+    A = np.asarray(masks, dtype=np.uint64)
+    pc = np.bitwise_count(A[:, None] & A[None, :]).astype(float)
     lnK = lam2 * LN2 * pc
     lu = np.asarray(lnmu) / 2.0
     lv = lu.copy()
@@ -469,18 +468,17 @@ def atom_sinkhorn_indep(masks, lnmu, lam2, tol=1e-13, itmax=20000):
     mB = pi.sum(axis=0)
     mu = np.exp(np.asarray(lnmu))
     emax = max(np.abs(mA - mu).max(), np.abs(mB - mu).max())
-    ul = {}
-    for i, a in enumerate(A):
-        for j, b in enumerate(A):
-            u = int(a) | int(b)
-            ul[u] = ul.get(u, 0.0) + pi[i, j]
-    pu = np.array(list(ul.values()))
-    pu = pu / pu.sum()
-    HU = float(-(pu * np.log(pu)).sum() / LN2)
+    U = A[:, None] | A[None, :]
+    uniq, inv = np.unique(U, return_inverse=True)
+    pu = np.bincount(inv.ravel(), weights=pi.ravel())
+    tot = pu.sum()
+    pu = pu / tot
+    pos = pu > 0
+    HU = float(-(pu[pos] * np.log(pu[pos])).sum() / LN2)
     HA = float(-(mu * np.asarray(lnmu)).sum() / LN2)
-    esc = sum(v for k, v in ul.items() if k not in set(int(x) for x in A))
+    esc = float(pu[~np.isin(uniq, A)].sum())
     return {"gain": HU - HA, "marg_err": float(emax), "iters": it + 1,
-            "escape_mass": esc / pi.sum()}
+            "escape_mass": esc}
 
 
 def part_E_engine():
