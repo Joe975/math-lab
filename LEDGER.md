@@ -10,10 +10,13 @@ exactly 3 tight tuples (= the Goddyn–Wong classification, recovered from
 scratch), nothing below 1/8, spectrum matches Fan–Sun's amended
 conjecture at n=7 (new data point). IMPORTANT: Rosenfeld preprint
 (arXiv:2509.14111) claims k=8 proof — problem file corrected; k=9 is the
-open frontier. Cycle 4 (00:38Z) in flight: union-closed idea C
-(dependent couplings, adversarial-first), Erdős–Straus 601-check at
-10^6, graceful-trees SAT/counting, plus the n=24 tail (5 slices
-re-running after another process kill at 59/64).
+open frontier. MAJOR (cycle 4, pending skeptic): union-closed dependent
+couplings (attempt 003) is the first LIVE route past the entropy
+barrier — exact closure licenses every coupling; overlap-tilts separate
+both killer families; skeptic agent (004) attacking it now. Cycle 5 =
+convergence cycle: nudged three stalled post-compute agents (Erdős–
+Straus 601 stats, graceful-trees analysis, n=24 aggregation); no new
+launches.
 
 ## Problem status
 
