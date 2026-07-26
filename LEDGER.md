@@ -1,29 +1,25 @@
 # Ledger
 
-## TL;DR (updated 2026-07-25, cycle 3 wrap-up)
+## TL;DR (updated 2026-07-26, post-skeptic)
 
-Big harvest. Singmaster: multiplicity census PROVABLY COMPLETE to
-2.5×10^29 — 3003 still the unique mult-8 value; mult 5 and 7 empty in
-range. Erdős–Gyárfás: n=22 exhausted (all 90,938 girth≥5 cubics contain
-C8); n=24 running (64 slices). Lonely runner: V=72 full scan at k=8 —
-exactly 3 tight tuples (= the Goddyn–Wong classification, recovered from
-scratch), nothing below 1/8, spectrum matches Fan–Sun's amended
-conjecture at n=7 (new data point). IMPORTANT: Rosenfeld preprint
-(arXiv:2509.14111) claims k=8 proof — problem file corrected; k=9 is the
-open frontier. MAJOR (cycle 4, pending skeptic): union-closed dependent
-couplings (attempt 003) is the first LIVE route past the entropy
-barrier — exact closure licenses every coupling; overlap-tilts separate
-both killer families; skeptic agent (004) attacking it now. Cycle 5 =
-convergence cycle: nudged three stalled post-compute agents (Erdős–
-Straus 601 stats, graceful-trees analysis, n=24 aggregation); no new
-launches.
+HEADLINE: the union-closed dependent-couplings route SURVIVED independent
+skeptic review — first live interface past the entropy barrier in this
+lab. Skeptic corrected two claims (real ceiling 0.4315 in closed form;
+mini-theorem restated) but confirmed the core: licensing lemma, the
+Conjecture-1 equivalence, both killer-family separations, genuine no-go
+evasion. Next: attack the three proof gaps (see queue item 1).
+Also complete: Singmaster census to 2.5×10^29 (3003 unique at mult 8);
+Erdős–Gyárfás verified through n=22 with n=24 aggregation finishing;
+lonely-runner k=8 census (Goddyn–Wong recovered; k=9 is the frontier);
+Erdős–Straus 601 refuted → real signal is QR-class identity-poverty
+(p ≈ 10^-110); graceful census n ≤ 14 (minimizers all in proven classes).
 
 ## Problem status
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 run in flight | high | girth≥5 exhaustion n=24; spectrum census next |
-| Union-closed (Frankl) | active | high | ideas A/C/D remain (probability-charging constraints, dependent couplings); idea B closed |
+| Union-closed (Frankl) | ROUTE LIVE (verified) | high | close the three proof gaps in the couplings route (skeptic-corrected, ceiling 0.4315) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
@@ -32,13 +28,13 @@ launches.
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] Idea C (dependent/family-adaptive couplings): formalize the smallest nontrivial coupling class beyond Liu's conditionally-iid rung and test it against Sawin's family with the uc_weighted_kl.py machinery (adversarial test FIRST, per 002's protocol).
-2. [erdos-straus] Class-601 anomaly: compute f(p) for primes to 10^6 in classes {1,49,73,97 mod 120} ∪ {601 mod 840}; is 601-enrichment real at scale or small-sample noise? (es_coverage.py has the C kernel.)
-3. [graceful-trees] SAT encoding for graceful labeling; count labelings for all trees n ≤ 18.
-4. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
-5. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
-6. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20 data (which length-sets occur?) — standalone interest.
-7. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
+1. [union-closed] Proof-gap attack, one gap per agent: (a) Plackett odds-ratio control for the tilt family; (b) the mutual-information tax bound; (c) the perturbative assembly at ρ≈1.03 around the proven c=0 argument. Use 004's corrected statements ONLY (ceiling 0.4315, restated mini-theorem, half-mixing coupling for the {0}∪[½,1) genre). Any claimed bound → skeptic review before ledger entry.
+2. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
+3. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
+4. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
+5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
+6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
+7. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
 
 ## Verified results
 
@@ -77,6 +73,21 @@ launches.
   OEIS A014372 exactly; C kernel re-validated bit-for-bit vs the Python
   spectrum tool on 4,569 graphs). Conjecture verified for all cubic graphs
   through 22 vertices with our own reproducible tooling.
+- **[union-closed] Dependent-couplings route VERIFIED LIVE (skeptic-
+  corrected)** (2026-07-26, attempts 003+004): exact union-closure
+  licenses every coupling of uniform marginals (lemma re-derived
+  independently); the refuted Gilmer Conjecture 1 is exactly the
+  diag⊕iid rung (two-way equivalence confirmed); overlap-tilt couplings
+  separate Sawin and Chase–Lovett killer families (independent
+  implementation matches to 3 decimals); the functional genuinely evades
+  the 002 no-go. Skeptic corrections: single-λ model ceiling is 0.431496
+  in closed form (NOT 0.445 — grid-floor artifact), extremal genre
+  δ_∅⊕Bern(½+ε); mini-theorem restated (fails on {0}∪[½,1) mixtures,
+  that genre now covered by a verified half-mixing C₃ coupling). Route
+  status: LIVE — first interface to survive the full protocol; ceiling
+  0.4315 ≫ current record 0.38271; three labeled proof gaps remain
+  (Plackett odds-ratio control, mutual-information tax, perturbative
+  assembly at ρ≈1.03).
 - **[erdos-straus] Low-f characterization at 10^6; 601 refuted**
   (2026-07-26, attempt 002): exact f(p) for all 9732 primes ≡ 1 mod 24 to
   10^6 (kernel triple-validated). Class-601 anomaly was small-sample
