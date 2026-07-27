@@ -184,6 +184,15 @@ with an explicit 5-member family.
 
 ## Previous TL;DR (2026-08-16)
 
+## Three problems added (2026-07-27)
+
+**Three problems added 2026-07-27** — Hadwiger–Nelson, Giuga and Conway's
+99-graph — chosen for a machine-checkable finite core, a published frontier the
+tooling can be calibrated against, and mechanism families the library did not
+already have. First attempts are in flight; until they land those three read
+`NOT_ATTEMPTED` and blind mode is equivalent to informed there.
+
+
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
 out, and no cron trigger is active. Nothing is half-finished: every line is
@@ -460,6 +469,9 @@ problems with no attempts (queue 18–19; run blind).
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 | Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
 | Three-phase conductivity | onboarded, no attempts | medium | dual-route laminate harness ready; first attempt is the two-phase ground-truth self-test (run blind) |
+| Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
+| Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
+| Conway 99-graph | added 2026-07-27 | low (long shot) | SRG checker + calibration battery; where a canonical extension search explodes |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -484,6 +496,9 @@ problems with no attempts (queue 18–19; run blind).
 19. [three-phase-conductivity] **Run blind.** Two-phase ground truth first: rank-2 laminates attaining the 2D HS bounds exactly in ℚ, duality checks, series/parallel forms (expected `VERIFIED`, harness validation). Then the three-phase attainability map: fixed rational (σ₁,σ₂,σ₃), rational grid on the fraction simplex, bounded-rank laminate optimization (float screen, exact certification), gap-to-HS charted per cell (`MAP`/`EVIDENCE`, scoped by rank + direction set + grid). Nesi/Cherkaev improved bounds enter as marked transcriptions cross-checked against the papers' examples before anything is killed against them. Kill condition: bounded-rank optima plateauing strictly inside bounds across the whole grid = one negative-map record, then cap the budget.
 20. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]). ~~Extend the raw-weight ladder past n = 128~~ and ~~re-run the ladder at the λ-window boundary~~ **DONE in 018** — the raw ladder does NOT cross through n = 320 (decaying along each dilution branch, min +0.104 at n = 256; the 016 kill is entirely the re-weighting), and the window boundary is positive at every n ≤ 320 tried, θ re-optimized there included.
 21. [collatz] ~~Graph-structure census of truncated Collatz digraphs~~ **DONE in 002 — REFUTED, and the whole graph-decomposition family is priced out with it.** Out-degree one makes `G_B` a forest plus one triangle, so: dominator tree = orbit tree (checked to B = 2^18), treewidth = 2 for every B, and the min cut is `|S_k| = J_{k−1} ~ 2^k/6` in closed form, set by `3r+1 > 2^{k+1}` alone with B dropping out. Novelty pre-step (001 gap 2) discharged: no dominator/treewidth Collatz work found, but the inverted-graph-is-a-tree fact is classical (Wirsching; Ebert arXiv:1905.07575 [T]), which explains the empty literature better than novelty does. **Do not rebuild the flow-cutter plan** — no truncated Collatz digraph has treewidth other than 2. Replacements, both from 002: (a) **explain the escape-fraction anomaly** — map `#{n ≤ 2^k : max orbit > 2^{k+1}}/2^k` to k ≤ 26 and find the mechanism for the k = 12→13 drop (0.609 → 0.379) and the ~0.404 plateau; falsifiable either as a window-alignment artifact with an exact description or as a real density worth stating, and it is the only part of the census with dynamical content; (b) **close the graph family with a reason** — the one un-killed variant is the reverse map (out-degree > 1); compute the density of binary-branching vertices in the reverse tree on [1, 2^k], k ≤ 24, against the 1/3 that `n ≡ 4 (mod 6)` forces. Expected kill; if it is not 1/3 the shape carries arithmetic and the family reopens.
+22. [hadwiger-nelson] Skeptic pass on the first attempt once it lands: re-derive the exact-arithmetic certification with an independent implementation, and check that "unit distance" was decided in the field rather than by tolerance anywhere.
+23. [giuga] Skeptic pass on the first attempt once it lands: re-implement the enumeration independently (the Agoh/Bernoulli side is the natural second implementation) and audit every pruning rule for soundness — a pruning bug produces a stronger-looking result and leaves no trace.
+24. [conway-99] Skeptic pass on the first attempt once it lands: check the case split is exhaustive and that the canonical form was validated against parameter sets with published verdicts.
 
 ## Verified results
 

@@ -52,19 +52,27 @@ def tier0_prose() -> set[Path]:
 
 
 def bash() -> str:
-    """Locate bash: on PATH, or Git for Windows' copy."""
+    """Locate a bash that understands the paths we hand it.
+
+    Order matters. On Windows `shutil.which("bash")` finds the System32 WSL
+    shim first, and that shim reads a Windows-style path as escaped POSIX --
+    `C:\\Repos\\math-lab\\scripts\\blind.sh` reaches it as
+    `C:Reposmath-labscriptsblind.sh` and every blind-checkout test failed with
+    "No such file or directory". Git for Windows' bash accepts both forms, so
+    it is preferred where it exists.
+    """
     import shutil
 
-    found = shutil.which("bash")
-    if found:
-        return found
     for candidate in (
         r"C:\Program Files\Git\bin\bash.exe",
         r"C:\Program Files (x86)\Git\bin\bash.exe",
     ):
         if Path(candidate).exists():
             return candidate
-    pytest.skip("bash not available")
+    found = shutil.which("bash")
+    if found and "system32" not in found.lower():
+        return found
+    pytest.skip("no bash that accepts native paths (the WSL shim does not)")
 
 
 def tier1_files() -> set[Path]:
@@ -239,6 +247,24 @@ def test_prior_art_index_matches_attempt_files():
             f"only on disk: {sorted(on_disk - indexed)}, "
             f"only in index: {sorted(indexed - on_disk)}"
         )
+
+
+def test_bash_runs_a_script_given_a_native_path(tmp_path):
+    """Guard the locator, because its failure mode looks like a repo bug.
+
+    The System32 WSL shim swallows backslashes, so every blind-checkout test
+    below reported `blind.sh` missing when the script was fine. If bash() ever
+    hands back a shim again, this fails first and says why.
+    """
+    script = tmp_path / "echo_arg.sh"
+    script.write_text('#!/usr/bin/env bash\necho "$1"\n', encoding="utf-8")
+    result = subprocess.run(
+        [bash(), str(script), str(tmp_path)], capture_output=True, text=True
+    )
+    assert result.returncode == 0, f"bash could not run the script: {result.stderr}"
+    assert result.stdout.strip() == str(tmp_path), (
+        f"bash mangled its argument: {result.stdout.strip()!r}"
+    )
 
 
 @pytest.mark.parametrize(

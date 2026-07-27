@@ -14,7 +14,7 @@ not mean, and a report on every approach tried.
 
 ## What is actually here
 
-7 problems, 11 attempt records, ~20 reusable tools, 12 verified results and 4
+10 problems, 11 attempt records, ~20 reusable tools, 12 verified results and 4
 recorded dead ends. The headline standing, in the lab's own vocabulary:
 
 | Problem | Standing |
@@ -26,6 +26,9 @@ recorded dead ends. The headline standing, in the lab's own vocabulary:
 | [Lonely runner](problems/lonely-runner/) | k = 8 near-tight census complete to V = 72; Goddyn–Wong instances recovered from scratch. |
 | [Graceful trees](problems/graceful-trees/) | Exact labeling census for all trees to n = 14; a piece of folklore corrected. |
 | [Collatz](problems/collatz/) | Queued, never worked. Deliberate long shot. |
+| [Hadwiger–Nelson](problems/hadwiger-nelson/) | Added 2026-07-27. The chromatic number of the plane, where the frontier moves in small independently-checkable steps. |
+| [Giuga](problems/giuga/) | Added 2026-07-27. A primality congruence whose counterexample bound is a search this lab's tooling can recover and extend. |
+| [Conway 99-graph](problems/conway-99/) | Added 2026-07-27. One finite existence question, every standard obstruction already checked and passed. |
 
 **No conjecture here is solved, and none is close to solved.** That is the
 expected outcome and the honest framing: the deliverables are the approach
