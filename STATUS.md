@@ -136,6 +136,12 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
 
 ## Insights / cross-problem notes
 
+- Infrastructure (2026-07-27): cross-pollination layer added. `mechanisms.json`
+  maps every approach tag to a field lens (`scripts/mechanisms.py` for
+  gaps/matrix queries); `docs/IDEATE.md` = field-sweep ideation on one
+  problem, `docs/RIPPLE.md` = propagate a new result across problems; both
+  are hooked into `docs/CYCLE.md` and have session skills (`/ideate`,
+  `/ripple`, `/mechanisms`, `/cycle`). No sweep or scan has been run yet.
 - Union-closed: the entropy method's ONLY use of closure is H(A∪B) ≤ log|F|
   for iid uniform A,B — an average-case fact, tight at (3−√5)/2 by
   Chase–Lovett's approximate family. Any advance must use worst-case

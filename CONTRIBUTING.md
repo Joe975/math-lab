@@ -71,7 +71,9 @@ Use the status vocabulary in `AGENTS.md` exactly: `VERIFIED`, `EVIDENCE`,
 3. Add an entry to `problems/<problem>/prior-art.json`, including:
    - `mechanism` — tags for the approach family. These are what lets a future
      agent check "has this family been tried?" without reading the prose.
-     Reuse existing tags where they fit.
+     Reuse existing tags where they fit. Every tag must be defined in the
+     root `mechanisms.json` (a tier-1 file; if you worked blind, the merge
+     adds the definition) — CI fails on an unregistered tag.
    - `leak_terms` — distinctive strings naming your *findings* (not tool
      vocabulary, not published results). CI uses these to keep tier 0 clean.
    - `gaps` — what blocks a proof, if the route is `LIVE`.

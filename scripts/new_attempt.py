@@ -102,6 +102,8 @@ def main() -> int:
     print(f"added a stub to {index_path.relative_to(ROOT)}")
     print()
     print("Next: fill in both, then run `python -m pytest tests/ -q`.")
+    print("Mechanism tags: reuse from mechanisms.json where they fit; a new")
+    print("tag needs an entry there (field + description) or CI fails.")
     print("The TODO placeholders will fail the schema test until replaced —")
     print("that is deliberate, so a half-filled index cannot be committed.")
     return 0
