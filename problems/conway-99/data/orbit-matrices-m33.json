@@ -1,0 +1,47 @@
+{
+ "m": 33,
+ "n": 99,
+ "k": 14,
+ "lam": 1,
+ "mu": 2,
+ "t": 3,
+ "count": 1,
+ "nodes": 553,
+ "verified": 1,
+ "admissible_traces": {
+  "r": 3,
+  "s": -4,
+  "t": 3,
+  "options": [
+   {
+    "a_mult_of_r": 0,
+    "b_mult_of_s": 2,
+    "trace": 6
+   },
+   {
+    "a_mult_of_r": 2,
+    "b_mult_of_s": 0,
+    "trace": 20
+   }
+  ]
+ },
+ "matrices": [
+  [
+   [
+    2,
+    6,
+    6
+   ],
+   [
+    6,
+    2,
+    6
+   ],
+   [
+    6,
+    6,
+    2
+   ]
+  ]
+ ]
+}

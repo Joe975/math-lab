@@ -1,6 +1,36 @@
 {
   "problem": "giuga",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Added 2026-07-27. No attempts recorded yet, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "EVIDENCE",
+  "route_summary": "Open. One blind attempt re-derived the counterexample conditions from the power sum, recovered the small Giuga numbers with two independent enumerators, and pushed a reciprocal-sum relaxation of the conditions to a certified bound of more than 3355 prime factors and 10^10395 -- short of the published 3459-factor figure. That relaxation is capped at 8135 by an explicit witness set, so passing the published digit bound needs the exact divisibility conditions put back.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-reciprocal-sum-relaxation.md",
+      "date": "2026-07-27",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "reciprocal-sum-relaxation",
+        "prime-set-enumeration",
+        "branch-and-bound",
+        "carmichael-pairwise-constraint",
+        "structural-reduction"
+      ],
+      "one_line": "Relaxing the counterexample conditions to 'odd primes, none dividing another minus one, reciprocals summing above 1' yields a searchable bound of more than 3355 prime factors and 10^10395, plus an explicit 8135-prime set proving the relaxation can never exceed 8135.",
+      "range": "Congruence formulations cross-checked for n = 2..4000 (Agoh's form to 261); Giuga numbers enumerated exhaustively to 7 prime factors (8 factors aborts, needing candidate primes to 5.4e10); factor bound at branch limit X = 701 over the odd primes below 3e6; size bound at X = 307; ceiling witness of 8135 primes checked over all 66,170,090 ordered pairs.",
+      "gaps": [
+        "The bound is about a relaxation: it drops the exact Giuga divisibility conditions, so a large admissible set is not a near-counterexample.",
+        "L(X) for X > 73 rests on one search program; only the winning leaf is re-verified exactly, not the claim that no other configuration is smaller.",
+        "Exhaustiveness of the 6- and 7-factor Giuga lists rests on one enumerator, validated by toggling its pruning rules rather than by a second program.",
+        "Cost grows 4-5x per step of the branch limit (18s, 70s, 336s at X = 503, 601, 701), so the ceiling of 8135 is unreachable in pure Python."
+      ],
+      "leak_terms": [
+        "reciprocal-sum relaxation",
+        "more than 3355",
+        "8135-prime witness",
+        "10^10395",
+        "0.565846"
+      ]
+    }
+  ]
 }

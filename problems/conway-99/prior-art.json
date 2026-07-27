@@ -1,6 +1,47 @@
 {
   "problem": "conway-99",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Added 2026-07-27. No attempts recorded yet, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "MAP",
+  "route_summary": "One blind attempt. The forced local structure is fully worked out and validated against the two realised members of the lam=1,mu=2 family, reducing the problem to 3486 binary variables; the standard conditions then transmit almost nothing into the residual instance, and a plain propagating search cannot even reconstruct the known 243-vertex graph. Note that PROBLEM.md's eigenvalue multiplicities are wrong: they are 54 and 44, not 56 and 42.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-forced-pair-model-and-partner-regular-split.md",
+      "date": "2026-07-27",
+      "mode": "blind",
+      "status": "MAP",
+      "target_shape": "mixed",
+      "push_rounds": 2,
+      "mechanism": [
+        "local-structure-reduction",
+        "constraint-propagation-search",
+        "isomorph-rejection",
+        "exact-feasibility-arithmetic",
+        "automorphism-order-restriction",
+        "positive-control-calibration"
+      ],
+      "one_line": "Reduces SRG(99,14,1,2) to 3486 binary variables via a validated bijection between distance-2 vertices and non-partner pairs, splits on partner-regularity, and shows the residual instance is nearly propagation-free -- while flagging that PROBLEM.md's multiplicities are wrong.",
+      "range": "Feasibility and the five-member lam=1,mu=2 family verified exactly for n <= 2e6; the pair reduction machine-checked at every vertex of Paley(9), rook(3) and BvLS(243), 261 decompositions; the partner-regular closure (1806 of 3486 pairs forced) and the 73-solution / 4-orbit n_B case split enumerated exhaustively; the search itself ran only to a node budget and settled no case.",
+      "corrections": [
+        "PROBLEM.md states the eigenvalue multiplicities of (99,14,1,2) are 56 and 42. They are 54 and 44: 56 and 42 fail both tr(A)=0 (gives 14, needs 0) and tr(A^2)=nk (gives 1372, needs 1386). Re-derived three independent ways."
+      ],
+      "gaps": [
+        "Case A (some vertex is partner-regular) is reduced but not eliminated; 1680 pair variables remain free with each D-vertex choosing 10 neighbours from 40 candidates.",
+        "The extension search fails its own positive control: it cannot reconstruct BvLS(243), so its stalling point on 99 is not evidence about 99.",
+        "The four automorphism lemmas L1-L4 are proofs given here without a skeptic pass, so they are LIVE rather than VERIFIED.",
+        "No contradiction was reached in the order-5 case: the fixed-subgraph structure closes consistently on every count tried."
+      ],
+      "methodological_lesson": "The propagator initially omitted the mu-condition between a distance-2 vertex and a neighbour of v0, and the only thing that exposed it was a hand-derived lemma disagreeing with the machine closure. Deriving the same structural fact twice, by hand and by propagation, is what caught it; adding the missing layer constraints nearly doubled the forced structure.",
+      "design_note": "The lam=1,mu=2 family contains two realised members, so this open problem admits a positive control in the same family. Running the identical search on the satisfiable k=22 instance is what stopped a fake obstruction being reported, and any future search here should be gated on that control first.",
+      "leak_terms": [
+        "partner-regular",
+        "partner-regularity",
+        "forced pair model",
+        "1806 of 3486",
+        "10 neighbours from 40 candidates",
+        "73 labelled solutions in 4 orbits",
+        "cannot reconstruct BvLS",
+        "fails its own positive control"
+      ]
+    }
+  ]
 }

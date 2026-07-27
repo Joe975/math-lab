@@ -16,9 +16,13 @@ DIMACS conference on identifying integer sequences).
 
 Open, and open for a specific reason: **the standard obstructions do not
 apply.** The parameter set is feasible. The eigenvalues are 3 and −4 with
-multiplicities 56 and 42, all integral; the Krein and absolute bounds are
+multiplicities 54 and 44, all integral; the Krein and absolute bounds are
 satisfied. There is no cheap counting reason for the graph not to exist, and no
 construction is known.
+
+Re-derive that spectrum rather than trusting this line. An earlier revision of
+this file said the multiplicities were 56 and 42, which fails both tr(A) = 0
+and tr(A²) = nk, and it stood until an attempt recomputed them.
 
 - The local structure is forced. With k = 14 and λ = 1, the neighbourhood of
   every vertex is exactly 7 disjoint edges (7K₂).
