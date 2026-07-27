@@ -175,7 +175,7 @@ def test_no_dead_internal_links(site):
     dead = []
     for name, body in site.items():
         for href in re.findall(r'href="([^"]+)"', body):
-            if href.startswith(("http://", "https://", "#", "mailto:")):
+            if href.startswith(("http://", "https://", "#", "mailto:", "data:")):
                 continue
             if href not in site and not href.endswith(".nojekyll"):
                 dead.append(f"{name} -> {href}")
@@ -399,6 +399,90 @@ def test_nav_links_are_reachable_tap_targets():
     match = re.search(r"min-height:\s*(\d+)px", body)
     assert match, f"nav links declare no min-height: {body!r}"
     assert int(match.group(1)) >= 44, "nav tap target under 44px"
+
+
+def test_the_index_never_hardcodes_its_own_count(site):
+    """The lede said "seven" three lines above a computed count of the same thing.
+
+    An eighth problem would have made the page contradict itself, on a site
+    whose build script exists so it cannot drift from its records.
+    """
+    index = site["index.html"]
+    spelled = build_site.number_word(len(problems()))
+    assert f"{spelled.capitalize()} open mathematical conjectures" in index
+    stale = [
+        word
+        for n, word in build_site.NUMBER_WORDS.items()
+        if n != len(problems()) and f"{word} open mathematical" in index.lower()
+    ]
+    assert not stale, f"index states a count that is not the problem count: {stale}"
+
+
+def test_the_index_h1_does_not_repeat_the_brand(site):
+    """Two identical "Math Lab" headings, 60px apart, said nothing twice."""
+    heading = re.search(r"<h1>(.*?)</h1>", site["index.html"], flags=re.S)
+    assert heading, "index has no h1"
+    assert heading.group(1).strip().lower() != "math lab"
+
+
+@pytest.mark.parametrize(
+    "tag",
+    [
+        '<meta name="color-scheme" content="light dark">',
+        '<link rel="icon"',
+        '<meta property="og:title"',
+        '<meta property="og:description"',
+        '<meta name="twitter:card"',
+    ],
+)
+def test_every_page_head_is_complete(site, tag):
+    """A site whose whole premise is being linked to should render when linked."""
+    missing = [name for name, body in site.items() if tag not in body]
+    assert not missing, f"{tag} missing from: {missing}"
+
+
+def test_every_page_offers_a_skip_link(site):
+    """Three nav links before the content, on every page, for keyboard users."""
+    for name, body in site.items():
+        assert '<a class="skip" href="#main">' in body, f"{name} has no skip link"
+        assert 'id="main"' in body, f"{name} has no skip target"
+
+
+def test_focus_is_visible_to_keyboard_users():
+    rules = _css_rules()
+    assert any(
+        "outline" in body
+        for selector, body in rules.items()
+        if "focus-visible" in selector
+    ), "nothing in the stylesheet styles :focus-visible"
+
+
+def test_the_blind_command_is_selectable_as_a_unit(site):
+    """It is a command to copy, not prose to read."""
+    for slug in problems():
+        assert f'<code class="cmd">scripts/blind.sh {slug} ../work</code>' in site[
+            f"{slug}.html"
+        ], f"{slug}: blind.sh command is not a copyable block"
+    assert "user-select: all" in _css_rules().get("code.cmd", "")
+
+
+def test_the_stylesheet_has_no_unused_class(site):
+    """.scroll was defined and never emitted. Dead style is dead weight."""
+    used = set()
+    for body in site.values():
+        for attribute in re.findall(r'class="([^"]*)"', body):
+            used.update(attribute.split())
+    assert used, "no class attributes in the generated markup at all"
+
+    unused = sorted(
+        {
+            name
+            for selector in _css_rules()
+            for name in re.findall(r"\.([a-z][a-z0-9-]*)", selector)
+            if name not in used
+        }
+    )
+    assert not unused, f"classes styled but never emitted: {unused}"
 
 
 def test_issue_links_name_real_templates(site):

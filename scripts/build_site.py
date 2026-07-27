@@ -91,6 +91,22 @@ STATUS_GLOSS = {
 # long and GitHub already renders them well -- so nothing more is needed.
 
 
+NUMBER_WORDS = {
+    1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six",
+    7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve",
+}
+
+
+def number_word(n: int) -> str:
+    """Spell small counts, so prose can say a number without hardcoding it.
+
+    The index used to open with "seven open mathematical conjectures" three
+    lines above a computed count of the same thing. An eighth problem would
+    have made the page contradict itself.
+    """
+    return NUMBER_WORDS.get(n, str(n))
+
+
 def esc(text: str) -> str:
     """Escape for text content. Attribute values use html.escape() directly."""
     return html.escape(text, quote=False)
@@ -290,21 +306,60 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, monospace;
 footer.site { margin: 4.5rem 0 0; border-top: 1px solid var(--rule); }
 footer.site .wrap { padding: 1.6rem 1.25rem 3rem;
   font: .84rem/1.6 ui-sans-serif, system-ui, sans-serif; color: var(--muted); }
-.scroll { overflow-x: auto; }
+
+/* A command meant to be copied, not read as prose. `user-select: all` makes
+   one click take the whole line, which is the closest a no-JavaScript page
+   gets to a copy button. */
+code.cmd { display: block; margin: .7rem 0 .2rem; padding: .5rem .7rem;
+  border: 1px solid var(--rule); border-radius: 5px; color: var(--fg);
+  overflow-x: auto; white-space: pre; user-select: all; -webkit-user-select: all; }
+
+/* Keyboard users get the same affordances as pointer users. */
+a:focus-visible, .skip:focus { outline: 2px solid var(--accent);
+  outline-offset: 2px; border-radius: 2px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 1.25rem; top: .5rem; z-index: 10; background: var(--card);
+  padding: .6rem .9rem; border-radius: 6px; border: 1px solid var(--rule);
+  font: 500 .85rem ui-sans-serif, system-ui, sans-serif; }
+main:focus { outline: none; }
 """
 
 
+# Therefore (∴), as a favicon: three dots, legible at 16px where a glyph is
+# not. Inlined so the site stays a directory of HTML with nothing to fetch.
+FAVICON = (
+    "data:image/svg+xml,"
+    "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
+    "%3Crect width='32' height='32' rx='7' fill='%231c1a17'/%3E"
+    "%3Cg fill='%23d3a06a'%3E%3Ccircle cx='16' cy='9' r='3.4'/%3E"
+    "%3Ccircle cx='9' cy='23' r='3.4'/%3E%3Ccircle cx='23' cy='23' r='3.4'/%3E"
+    "%3C/g%3E%3C/svg%3E"
+)
+
+
 def page(title: str, body: str, description: str) -> str:
+    safe_title = html.escape(title)
+    safe_description = html.escape(description)
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{html.escape(title)}</title>
-<meta name="description" content="{html.escape(description)}">
+<meta name="color-scheme" content="light dark">
+<title>{safe_title}</title>
+<meta name="description" content="{safe_description}">
+<link rel="icon" href="{FAVICON}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Math Lab">
+<meta property="og:title" content="{safe_title}">
+<meta property="og:description" content="{safe_description}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{safe_title}">
+<meta name="twitter:description" content="{safe_description}">
 <style>{CSS}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap">
   <a class="brand" href="index.html">Math Lab</a>
   <nav>
@@ -313,7 +368,7 @@ def page(title: str, body: str, description: str) -> str:
     <a href="{REPO_URL}">Repository</a>
   </nav>
 </div></header>
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 {body}
 </main>
 <footer class="site"><div class="wrap">
@@ -483,9 +538,10 @@ def render_problem(meta: dict, index: dict) -> str:
     )
     body.append(
         '<div class="callout"><strong>Attacking this yourself?</strong> '
-        f'<code>scripts/blind.sh {slug} ../work</code> gives your agent the problem '
-        "statement and verification harness with everything on this page removed, so "
-        "its attempt is independent. See <a href=\"method.html\">Method</a>.</div>"
+        "This gives your agent the problem statement and verification harness "
+        "with everything on this page removed, so its attempt is independent."
+        f'<code class="cmd">scripts/blind.sh {esc(slug)} ../work</code>'
+        '<a href="method.html">More on blind and informed mode</a>.</div>'
     )
 
     return page(
@@ -510,11 +566,13 @@ def render_index(problems: list[tuple[dict, dict]]) -> str:
     attempt_count = sum(len(i["attempts"]) for _, i in problems)
     challenge_any = issue_url("challenge.yml")
     report_any = issue_url("attempt.yml")
+    count = number_word(len(problems))
 
     body = f"""
-<h1>Math Lab</h1>
-<p class="lede">A library of attempted approaches to seven open mathematical
-conjectures — including, especially, the ones that failed.</p>
+<h1>Attempted approaches to open conjectures</h1>
+<p class="lede">{count.capitalize()} open mathematical conjectures, and every
+line this lab pursued on them — including, especially, the ones that
+failed.</p>
 
 <p>Most research writing records what worked. The dead ends stay in people's
 heads, so the same doomed idea gets tried again and again. This is an attempt at
@@ -563,8 +621,8 @@ here. Which one you pick changes what your result means.
     return page(
         "Math Lab — attempted approaches to open conjectures",
         body,
-        "A library of attempted approaches to seven open mathematical conjectures, "
-        "including the failed ones, with adversarial verification.",
+        f"A library of attempted approaches to {count} open mathematical "
+        "conjectures, including the failed ones, with adversarial verification.",
     )
 
 
