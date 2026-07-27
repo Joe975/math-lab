@@ -34,9 +34,16 @@ Use the status vocabulary in `AGENTS.md` exactly: `VERIFIED`, `EVIDENCE`,
 
 ## Submitting an attempt
 
-1. Number it next in sequence for that problem:
-   `problems/<problem>/attempts/NNN-<slug>.md`.
-2. Use the required sections:
+1. Scaffold it — this picks the next number and writes both files:
+
+   ```bash
+   python scripts/new_attempt.py <problem> <slug> --mode blind|informed
+   ```
+
+2. Fill in the sections. Records come in **two shapes**, and
+   `tests/test_records.py` enforces whichever one you are writing.
+
+   **An attempt** — you tried to make progress:
    - **front-matter** — problem, date, `mode`, type, tools used, sources
    - **Approach** — what you tried and why *this* rather than something else
    - **What was done** — enough that someone can follow and check it
@@ -45,6 +52,22 @@ Use the status vocabulary in `AGENTS.md` exactly: `VERIFIED`, `EVIDENCE`,
      specific about the obstruction; "it didn't work" helps nobody
    - **Leads generated** — concrete, falsifiable next steps
    - **References**
+
+   **A review** — you tried to break someone else's record:
+   - **front-matter** — as above, plus which record you attacked
+   - **Claims attacked** — enumerated, so the coverage is auditable
+   - **Refutations found** — one subsection each, with the corrected statement
+   - **Claims that survive** — *and what you did to try to break them*. A
+     survival with no attack behind it is worth nothing.
+   - **References**
+
+   `problems/union-closed/attempts/004-skeptic-review-of-003.md` is the worked
+   example of the second shape.
+
+   **On `mode`:** `prior-art.json` is authoritative. New records should also
+   carry it in their front matter, but the eleven records written before this
+   format was codified do not, and are not being retro-fitted — this repo does
+   not edit existing records, and that rule outranks tidiness.
 3. Add an entry to `problems/<problem>/prior-art.json`, including:
    - `mechanism` — tags for the approach family. These are what lets a future
      agent check "has this family been tried?" without reading the prose.

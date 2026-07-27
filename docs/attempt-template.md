@@ -2,6 +2,12 @@
 
 <!--
 Scaffold this with:  python scripts/new_attempt.py <problem> <slug>
+
+This is the ATTEMPT shape. If you are reviewing someone else's record rather
+than making progress yourself, use the REVIEW shape instead -- see
+CONTRIBUTING.md, and problems/union-closed/attempts/004-* as the worked
+example. tests/test_records.py enforces whichever one you pick.
+
 Every section below is required. Delete these comments as you fill it in.
 -->
 
