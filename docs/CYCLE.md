@@ -19,6 +19,13 @@ Read, in this order:
 If guidance and queue disagree, guidance wins; note the divergence in the
 ledger.
 
+If something *new* has landed since the last cycle — an external paper
+touching a problem or a mechanism family, or an internal route newly `LIVE`,
+`VERIFIED`, or killed by a general no-go — consider a ripple scan
+(`docs/RIPPLE.md`) before choosing lines: it is cheap, and a result that
+unblocks a recorded gap or forecloses a queued route changes what is worth
+running this cycle.
+
 ### 2. Choose two to four lines
 
 Pull from the top of the `STATUS.md` queue, adjusted for guidance. Keep cycles
@@ -31,6 +38,11 @@ one large fan-out. Prefer:
 - balance across problems, so a single hard problem does not eat the budget.
 
 Give long shots (Collatz here) a minority share, deliberately.
+
+When a problem's queue is thin, or its routes all live in one or two fields,
+`python scripts/mechanisms.py gaps <problem>` shows which field lenses are
+untried there; a full ideation sweep (`docs/IDEATE.md`) is itself a valid
+line for a cycle, and produces a `MAP` attempt.
 
 ### 3. Work the lines in parallel
 
@@ -76,7 +88,10 @@ python scripts/new_attempt.py <problem> <slug>
 
 Fill in the scaffold (`docs/attempt-template.md` explains each section) and
 complete the `prior-art.json` entry — `mechanism` tags, `status`, `gaps`, and
-`leak_terms` naming your findings so CI can keep them out of tier 0.
+`leak_terms` naming your findings so CI can keep them out of tier 0. Reuse
+`mechanism` tags from `mechanisms.json` where they fit; a genuinely new tag
+gets an entry there (field + method-level description), and
+`tests/test_mechanisms.py` fails until it does.
 
 The **"Why it failed / what survived"** section is the most valuable thing you
 will write. Be specific about the obstruction. "It didn't work" helps nobody;

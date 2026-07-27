@@ -39,6 +39,14 @@ Work in a normal clone. Read, for your problem:
 Choose this when you want to push an existing route further, or to attack a
 labeled gap.
 
+The informed side also has a cross-pollination layer: `mechanisms.json` at
+the root maps every approach-family tag to a mathematical field, and
+`scripts/mechanisms.py` queries where each family has been tried and which
+fields are untried on a problem. `docs/IDEATE.md` (sweep field lenses across
+one problem) and `docs/RIPPLE.md` (scan one new result across all problems)
+are the procedures built on it. All tier 1 — none of it exists in a blind
+copy, by design.
+
 **Do not read tier-1 files and then report `mode: blind`.** The mode field is
 data (see below); a wrong one corrupts it.
 

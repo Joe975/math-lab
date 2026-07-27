@@ -39,6 +39,11 @@ repo is uniquely able to produce.
 - Recording it: `docs/attempt-template.md`, schema in
   `docs/prior-art.schema.json`, full rules in `CONTRIBUTING.md`.
 - Current state and the queue: `STATUS.md`.
+- Cross-pollination (informed side only): `python scripts/mechanisms.py
+  gaps <problem>` for untried field lenses; `docs/IDEATE.md` to sweep fields
+  across one problem; `docs/RIPPLE.md` to scan a new result across problems.
+  Session skills exist for each: `/ideate`, `/ripple`, `/mechanisms`,
+  `/cycle`.
 
 ## Always
 
