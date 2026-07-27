@@ -14,7 +14,7 @@ not mean, and a report on every approach tried.
 
 ## What is actually here
 
-7 problems, 11 attempt records, ~20 reusable tools, 12 verified results and 4
+8 problems, 12 attempt records, ~24 reusable tools, 13 verified results and 4
 recorded dead ends. The headline standing, in the lab's own vocabulary:
 
 | Problem | Standing |
@@ -26,6 +26,7 @@ recorded dead ends. The headline standing, in the lab's own vocabulary:
 | [Lonely runner](problems/lonely-runner/) | k = 8 near-tight census complete to V = 72; Goddyn–Wong instances recovered from scratch. |
 | [Graceful trees](problems/graceful-trees/) | Exact labeling census for all trees to n = 14; a piece of folklore corrected. |
 | [Collatz](problems/collatz/) | Queued, never worked. Deliberate long shot. |
+| [Zaremba](problems/zaremba/) | Baseline census `VERIFIED`: z(n) ≤ 5 to 10⁷ with every certificate independently re-checked (10⁸ single-pass); the exceptional set stops at 6234 — is it finite? |
 
 **No conjecture here is solved, and none is close to solved.** That is the
 expected outcome and the honest framing: the deliverables are the approach

@@ -1,6 +1,31 @@
 {
   "problem": "zaremba",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Problem added 2026-07-27; no attempts yet. First cycle should be a baseline z(n) census per the PROBLEM.md contract.",
-  "attempts": []
+  "route_status": "VERIFIED",
+  "route_summary": "Baseline census done: z(n) exact to 10^5 (two independent implementations agree), z(n) <= 5 witnessed to 10^7 and checked to 10^8. The exceptional set {z >= 4} has 38 members, all <= 6234; whether it is finite is the standing question.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-baseline-z-census.md",
+      "date": "2026-07-27",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "range": "z(n) exact for 2 <= n <= 1e5 (independent re-implementation, tables identical); z(n) <= 5 with certificates for n <= 1e7 (every witness independently re-verified); n <= 1e8 single-implementation check only",
+      "mechanism": [
+        "exhaustive-witness-scan",
+        "exact-z-census",
+        "continuant-generation-crosscheck",
+        "cantor-infimum-pruning"
+      ],
+      "one_line": "z(n) <= 5 holds to 10^8; exactly 38 n <= 10^5 need 4 or 5, none past 6234, and first witnesses concentrate at the left edge of the bounded-quotient Cantor set.",
+      "refuted_by": null,
+      "gaps": [],
+      "leak_terms": [
+        "6234",
+        "z-exceptional",
+        "37 of the 38",
+        "0.170834",
+        "first witnesses pin"
+      ]
+    }
+  ]
 }

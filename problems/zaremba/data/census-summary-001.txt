@@ -1,0 +1,39 @@
+# Zaremba attempt 001 census summary (2026-07-27)
+# Provenance: see problems/zaremba/attempts/001-baseline-z-census.md for commands.
+
+## Exact z histogram, 2 <= n <= 100000 (zscan exact; independently reproduced by explore/crosscheck_tree.py, tables identical)
+histogram [2,100000]:
+  z=2: 47049
+  z=3: 52912
+  z=4: 35
+  z=5: 3
+
+## Witness scan to 10^7, A = 5 (zscan check; tries counted from just under the K<=5 infimum (3*sqrt(5)-5)/10)
+slice_to 1000000  mean_tries 16.093  worst_tries 810 at n=858840
+slice_to 2000000  mean_tries 21.694  worst_tries 927 at n=1200870
+slice_to 3000000  mean_tries 24.562  worst_tries 844 at n=2648448
+slice_to 4000000  mean_tries 26.493  worst_tries 1168 at n=3744300
+slice_to 5000000  mean_tries 28.263  worst_tries 1056 at n=4044090
+slice_to 6000000  mean_tries 29.613  worst_tries 966 at n=5454930
+slice_to 7000000  mean_tries 30.720  worst_tries 925 at n=6865824
+slice_to 8000000  mean_tries 31.832  worst_tries 1165 at n=7602132
+slice_to 9000000  mean_tries 33.028  worst_tries 1308 at n=8604750
+slice_to 10000000  mean_tries 33.879  worst_tries 1268 at n=9495570
+done [1,10000000] A=5 failures=0
+
+## Witness position m_first/n over 2 <= n <= 10^7
+min 0.170820393  mean 0.170834  max 0.833333  (K<=5 infimum = 0.170820393)
+
+## Check-only scan to 10^8, A = 5
+# every 10^7-th slice line shown; full log regenerates from the command in attempt 001
+slice_to 10000000  mean_tries 33.879  worst_tries 1268 at n=9495570
+slice_to 20000000  mean_tries 41.837  worst_tries 1421 at n=19354482
+slice_to 30000000  mean_tries 48.824  worst_tries 1335 at n=29738370
+slice_to 40000000  mean_tries 55.018  worst_tries 1753 at n=39586260
+slice_to 50000000  mean_tries 61.137  worst_tries 2095 at n=49396200
+slice_to 60000000  mean_tries 66.496  worst_tries 1620 at n=59473722
+slice_to 70000000  mean_tries 72.197  worst_tries 1695 at n=69206340
+slice_to 80000000  mean_tries 77.283  worst_tries 1923 at n=79786470
+slice_to 90000000  mean_tries 82.655  worst_tries 1691 at n=89634930
+slice_to 100000000  mean_tries 87.518  worst_tries 1978 at n=99296964
+done [1,100000000] A=5 failures=0

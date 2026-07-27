@@ -3,7 +3,7 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-07-26)
+## TL;DR (updated 2026-07-27)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
@@ -25,8 +25,13 @@ proof gaps are queue item 1). Complete: Singmaster census to 2.5×10^29
 n=22 plus all girth-≥5 cubics at n=24 (zero candidates); lonely-runner
 k=8 census (Goddyn–Wong recovered; k=9 frontier); Erdős–Straus 601
 refuted → real signal is QR-class identity-poverty (p ≈ 10^-110);
-graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
-7 problems, ~20 reusable tools.
+graceful census n ≤ 14. NEW (2026-07-27): Zaremba's conjecture added as
+the eighth problem with its baseline done same-day — z(n) ≤ 5 verified
+to 10^7 with every certificate independently re-checked (10^8
+single-implementation), exact z(n) to 10^5 confirmed by two independent
+algorithms; the exceptional set {z ≥ 4} has 38 members, none past 6234.
+13 verified results, 4 recorded dead ends, 8 problems, ~24 reusable
+tools.
 
 ## Problem status
 
@@ -39,6 +44,7 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
+| Zaremba | baseline done | medium | next: exact census to 10^6 (does {z≥4} grow past 6234?); bitmap mark-all scan to 10^9 |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -46,9 +52,11 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
 2. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
 3. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
 4. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
-5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
-6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
-7. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
+5. [zaremba] Exact census to 10^6 (zscan exact, sliced): any member of {z ≥ 4} above 6234 kills the finiteness speculation in 001; none extends the empty gap by a decade. Cheap and decisive either way.
+6. [zaremba] Bitmap mark-all scan to 10^9: port explore/crosscheck_tree.py's generation to C with a 125 MB bitmap; decides z ≤ 5 coverage at 10^9 in one output-linear pass and yields the z ≤ 3 density curve for free. Leads 3-5 of 001 (odd exceptional members, z=2 residues mod 8/12/16, hard-n divisibility anatomy) ride on its output.
+7. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
+8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
+9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
 
 ## Verified results
 
@@ -126,6 +134,16 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
   counterexample. Maximizers are non-caterpillar lobsters, not paths
   (folklore corrected). Novelty vs Anick's ≤16-edge database: the
   normalized and class-restricted analyses.
+- **[zaremba] Baseline z(n) census** (2026-07-27, attempt 001): z(n) ≤ 5
+  for all n ≤ 10^7 with a witness certificate per n, every one of the
+  9,999,999 certificates re-verified by an independent implementation
+  (10^8 checked single-implementation, zero failures). Exact z(n) for
+  n ≤ 10^5 computed by exhaustive Euclid scan AND independently by
+  forward continuant generation (no Euclid, no gcd) — 99,999-line tables
+  identical. Exceptional set {z ≥ 4}: exactly 38 members, z = 5 only for
+  {6, 54, 150}, largest member 6234, 37 of 38 even (odd one: 1155).
+  First witnesses concentrate at the K ≤ 5 Cantor-set edge (3√5−5)/10:
+  min m/n over 10^7 denominators matches it to 9 decimals.
 - **[lonely-runner] k=8 tightness census to V=72** (2026-07-25, attempt
   001): among all 1,473,109,704 speed 7-tuples with max speed ≤ 72,
   exactly 3 primitives have ML < 13/100, all with ML = 1/8 exactly — (1..7)
@@ -146,6 +164,13 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
   Möbius–Kantor graphs are the canonical high-girth near-misses.
 - Constrained graph generation (nauty geng, installed via apt) + SAT tooling
   is shared infrastructure for Erdős–Gyárfás and graceful trees.
+- Zaremba: know the support of your search space before scanning it. The
+  witness scan sped up ~60× at 10^7 by starting at the *infimum of the
+  bounded-quotient Cantor set* ((3√5−5)/10) instead of the naive feasibility
+  bound n/6 — the dead zone between the two is where all the wasted work
+  lived, and mean tries dropped from ~0.004·n (linear!) to ~34 (near-flat).
+  The same "compute the attractor's edge first" trick likely applies to any
+  scan whose targets live on a fractal.
 - Ops: parallel subagents can die to 529 Overloaded during API load spikes;
   resume via SendMessage, and don't record a queue item as done until its
   files exist on disk.
