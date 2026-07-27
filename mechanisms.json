@@ -1,0 +1,183 @@
+{
+  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings — findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
+  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there — that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
+  "fields": {
+    "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
+    "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
+    "computation": "Exhaustive or structured search, enumeration infrastructure, exact arithmetic, SAT/solver methods.",
+    "dynamics": "Iteration, orbits, transfer operators, ergodic and symbolic-dynamics viewpoints.",
+    "extremal-combinatorics": "Extremal set systems and structures, shifting/compression, stability, local-global arguments.",
+    "geometry-topology": "Geometric, topological and lattice-point viewpoints; view-obstruction and covering-space framings.",
+    "graph-theory": "Structural graph theory: connectivity, girth, cycle structure, decompositions, minors.",
+    "information-theory": "Entropy, KL divergence, information inequalities and entropy-functional arguments.",
+    "logic-methodology": "Meta-level machinery: verification protocol, barrier maps, completeness arguments. Not itself an attack lens.",
+    "number-theory": "Congruences, quadratic residues, Diophantine equations, multiplicative structure.",
+    "probability": "Random structures, couplings, dependence engineering, concentration, statistical modelling of exact data."
+  },
+  "mechanisms": {
+    "adversarial-verification": {
+      "field": "logic-methodology",
+      "description": "Skeptic pass whose default stance is refute: attack each claim of an existing record independently."
+    },
+    "aut-normalization": {
+      "field": "algebra",
+      "description": "Quotient counts or searches by the automorphism group so symmetric objects are not over-weighted."
+    },
+    "barrier-analysis": {
+      "field": "logic-methodology",
+      "description": "Map where and why a known technique provably stops, to direct later attempts around the obstruction."
+    },
+    "bitmask-backtracking": {
+      "field": "computation",
+      "description": "Depth-first search over labelings/assignments with bitset state for constant-time constraint checks."
+    },
+    "block-adaptive-coupling": {
+      "field": "probability",
+      "description": "Couplings whose joint law is chosen per structural block of the instance rather than globally."
+    },
+    "bridge-block-analysis": {
+      "field": "graph-theory",
+      "description": "Decompose near-counterexamples by bridges/2-connected blocks to locate where the required structure lives."
+    },
+    "c-kernel": {
+      "field": "computation",
+      "description": "Hot inner loop reimplemented as a small C program driven by a Python harness."
+    },
+    "canonical-cell-enumeration": {
+      "field": "computation",
+      "description": "Partition the search domain into canonical cells enumerated exactly once, giving a completeness guarantee."
+    },
+    "class-enrichment": {
+      "field": "probability",
+      "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
+    },
+    "class-restricted-minima": {
+      "field": "extremal-combinatorics",
+      "description": "Track extremal values within structural subclasses, not just globally, to see which class carries the extremum."
+    },
+    "collision-search": {
+      "field": "computation",
+      "description": "Hash or sort a generated set to find repeated values (coincidences) rather than testing pairs."
+    },
+    "completeness-argument": {
+      "field": "logic-methodology",
+      "description": "Prove the enumeration covered everything in range, so absence of hits is a theorem about the range."
+    },
+    "conditionally-iid": {
+      "field": "probability",
+      "description": "Model dependent pairs as iid conditional on a latent variable, to interpolate between iid and adversarial."
+    },
+    "coupling": {
+      "field": "probability",
+      "description": "Construct a joint distribution with prescribed marginals so a quantity of interest becomes comparable pathwise."
+    },
+    "cycle-spectrum": {
+      "field": "graph-theory",
+      "description": "Compute the full set of cycle lengths per graph and reason about which spectra are realizable."
+    },
+    "entropy-functional-reweighting": {
+      "field": "information-theory",
+      "description": "Replace Shannon entropy by a reweighted or penalized functional and re-derive the base inequality."
+    },
+    "entropy-method": {
+      "field": "information-theory",
+      "description": "Gilmer-style argument: bound the entropy of a combined random object against the entropies of its parts."
+    },
+    "exact-rational-ml": {
+      "field": "computation",
+      "description": "Exact rational arithmetic for extremal quantities, so ties and strict inequalities are decided without float error."
+    },
+    "exhaustive-enumeration": {
+      "field": "computation",
+      "description": "Generate every object in a finite range and test the property directly."
+    },
+    "exhaustive-labeling-count": {
+      "field": "computation",
+      "description": "Count all valid labelings per object exactly, not just decide existence."
+    },
+    "exhaustive-small-family-search": {
+      "field": "computation",
+      "description": "Brute-force all instances at tiny size to anchor conjectured constants and find minimal examples."
+    },
+    "exhaustive-speed-tuple-scan": {
+      "field": "computation",
+      "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
+    },
+    "girth-restriction": {
+      "field": "graph-theory",
+      "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
+    },
+    "independent-reimplementation": {
+      "field": "logic-methodology",
+      "description": "Re-derive a computational claim with different code and, where possible, a different algorithm."
+    },
+    "k-wise-union": {
+      "field": "extremal-combinatorics",
+      "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
+    },
+    "mordell-qr-obstruction": {
+      "field": "number-theory",
+      "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."
+    },
+    "nauty-geng": {
+      "field": "computation",
+      "description": "Canonical isomorph-free graph generation via nauty/geng as the enumeration backbone."
+    },
+    "overlap-tilt": {
+      "field": "probability",
+      "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
+    },
+    "plackett": {
+      "field": "probability",
+      "description": "Plackett-family copulas: one-parameter odds-ratio control of dependence with fixed marginals."
+    },
+    "polynomial-identities": {
+      "field": "number-theory",
+      "description": "Parametric algebraic identities that settle every instance in a residue class at once."
+    },
+    "representation-count-mining": {
+      "field": "number-theory",
+      "description": "Compute exact representation/solution counts per instance and mine the table for structural patterns."
+    },
+    "representation-count-statistics": {
+      "field": "probability",
+      "description": "Treat exact counts as a dataset: normalize for size, then test which structural covariates explain the variance."
+    },
+    "residue-class-covering": {
+      "field": "number-theory",
+      "description": "Cover all instances by congruence classes, each settled by its own identity or argument."
+    },
+    "sinkhorn": {
+      "field": "probability",
+      "description": "Sinkhorn/IPF scaling to construct or normalize couplings with prescribed marginals numerically."
+    },
+    "size-normalized-selection": {
+      "field": "probability",
+      "description": "Compare instances against size-matched controls so magnitude effects are not read as structural effects."
+    },
+    "slice-parallelism": {
+      "field": "computation",
+      "description": "Split an enumeration into independent restartable slices with per-slice checkpoint files."
+    },
+    "smoothing-insensitive-functional": {
+      "field": "information-theory",
+      "description": "Study functionals unchanged by small-mass smoothing of the law, and what any such functional can or cannot see."
+    },
+    "spectrum-gap-analysis": {
+      "field": "analysis",
+      "description": "Examine the set of achieved objective values for gaps and accumulation points, not just the extremum."
+    },
+    "tightness-census": {
+      "field": "extremal-combinatorics",
+      "description": "Enumerate all near-extremal instances in range to see whether tightness is isolated or part of a family."
+    },
+    "up-sets": {
+      "field": "extremal-combinatorics",
+      "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
+    },
+    "weighted-kl": {
+      "field": "information-theory",
+      "description": "Replace entropy differences by c-weighted KL divergences to a reference law and tune c."
+    }
+  }
+}
