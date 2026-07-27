@@ -41,10 +41,14 @@ def issue_url(template: str, **prefill: str) -> str:
     return f"{ISSUES}/new?{query}"
 
 # Presentation for each status term. The vocabulary itself is defined in
-# AGENTS.md; this only says how to colour it.
+# AGENTS.md; this only says how to colour it, and how to explain it.
+#
+# Every term here is rendered on the Method page as its own badge beside its
+# definition, so a reader who meets a badge on a card has somewhere to look it
+# up. Adding a term to the vocabulary without a gloss fails the test suite.
 STATUS = {
     "VERIFIED": ("verified", "Verified"),
-    "VERIFIED_WITH_CORRECTIONS": ("verified", "Verified, with corrections"),
+    "VERIFIED_WITH_CORRECTIONS": ("corrected", "Verified, with corrections"),
     "EVIDENCE": ("evidence", "Evidence"),
     "LIVE": ("live", "Live"),
     "REFUTED": ("refuted", "Refuted"),
@@ -52,6 +56,32 @@ STATUS = {
     "MAP": ("map", "Map"),
     "SPECULATION": ("speculation", "Speculation"),
     "NOT_ATTEMPTED": ("none", "Not attempted"),
+}
+
+STATUS_GLOSS = {
+    "VERIFIED": "Independently re-derived or re-computed, always with a stated "
+    "range or scope. For a finite search this describes the range checked, "
+    "never the conjecture.",
+    "VERIFIED_WITH_CORRECTIONS": "Re-derived independently, and the review that "
+    "did it also found errors in the record it was checking. The original is "
+    "kept exactly as written; the corrections are listed against it. Read the "
+    "corrections before building on the claim.",
+    "EVIDENCE": "Computational support, not proof. A search to 10<sup>6</sup> is "
+    "evidence about 10<sup>6</sup>.",
+    "LIVE": "A route that has survived every adversary tried, with no bound yet "
+    "claimed. The most fragile-sounding status and the most interesting one.",
+    "MAP": "A survey of the terrain rather than an attack on it: which barriers "
+    "sit where, what the small cases look like, which ideas are worth queueing. "
+    "Claims nothing about the conjecture itself.",
+    "SPECULATION": "Plausible, unproven, and load-bearing. Labelled inline at the "
+    "step that needs it, not in a footnote.",
+    "REFUTED": "Killed, with the obstruction recorded, so nobody re-treads it "
+    "blindly.",
+    "REFUTED_PRIOR_OBSERVATION": "Killed one of our own earlier observations "
+    "rather than a route. The record that made the observation still stands, "
+    "with the refutation recorded against it.",
+    "NOT_ATTEMPTED": "Queued and never worked. Recorded so the absence is "
+    "visible, instead of looking like a gap in the reporting.",
 }
 
 
@@ -137,13 +167,16 @@ body {
 }
 .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
 header.site { border-bottom: 1px solid var(--rule); margin-bottom: 3rem; }
-header.site .wrap { display: flex; gap: 1.5rem; align-items: baseline;
-  padding-top: 1.1rem; padding-bottom: 1.1rem; flex-wrap: wrap; }
+header.site .wrap { display: flex; gap: 1.5rem; align-items: center;
+  padding-top: .35rem; padding-bottom: .35rem; flex-wrap: wrap; }
 header.site a { color: var(--fg); text-decoration: none; }
-header.site .brand { font-weight: 700; letter-spacing: -.01em; }
+header.site .brand { font-weight: 700; letter-spacing: -.01em;
+  display: flex; align-items: center; min-height: 44px; }
 header.site nav { margin-left: auto; display: flex; gap: 1.25rem;
   font: 500 .82rem/1 ui-sans-serif, system-ui, sans-serif; }
-header.site nav a { color: var(--muted); }
+/* Tap targets, not just text: at .82rem/1 these were 13px tall. */
+header.site nav a { color: var(--muted); display: flex; align-items: center;
+  min-height: 44px; }
 header.site nav a:hover { color: var(--accent); }
 h1 { font-size: 2.1rem; line-height: 1.15; letter-spacing: -.02em; margin: 0 0 .6rem; }
 h2 { font-size: 1.28rem; letter-spacing: -.01em; margin: 2.6rem 0 .7rem;
@@ -182,21 +215,48 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, monospace;
 .report .actions { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid var(--rule);
   font: .84rem/1.5 ui-sans-serif, system-ui, sans-serif; }
 
+/* Colours here are contrast-checked against their own composited background by
+   tests/test_site.py -- the text is .68rem, so it needs the 4.5:1 rule. */
 .badge { display: inline-block; font: 600 .68rem/1.5 ui-sans-serif, system-ui, sans-serif;
   text-transform: uppercase; letter-spacing: .06em; padding: .12rem .5rem;
   border-radius: 20px; vertical-align: .12em; }
-.badge.verified { background: #1f7a4d1f; color: #1c7a4c; }
-.badge.evidence { background: #2563eb1f; color: #2f6fdc; }
-.badge.live     { background: #b4790016; color: #a97400; }
-.badge.refuted  { background: #c0392b1a; color: #bd4034; }
-.badge.map, .badge.none, .badge.speculation {
-  background: color-mix(in srgb, var(--muted) 16%, transparent); color: var(--muted); }
+.badge.verified  { background: #1f7a4d1f; color: #176b42; }
+/* Verified, but asterisked: the green of a pass, ringed in the amber of the
+   corrections. Must not read as an unqualified VERIFIED at a glance. */
+.badge.corrected { background: #1f7a4d14; color: #176b42;
+  box-shadow: inset 0 0 0 1px #b4790066; }
+.badge.evidence  { background: #2563eb1f; color: #2560c8; }
+.badge.live      { background: #b4790016; color: #8f6200; }
+.badge.refuted   { background: #c0392b1a; color: #b0392e; }
+/* Three different meanings that used to share one grey pill. Kept colourless
+   on purpose -- they are distinguished by fill, outline and dash instead. */
+.badge.map { background: color-mix(in srgb, var(--muted) 14%, transparent);
+  color: var(--fg); }
+.badge.none { color: var(--muted); box-shadow: inset 0 0 0 1px var(--rule); }
+.badge.speculation { color: var(--accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
 @media (prefers-color-scheme: dark) {
-  .badge.verified { background: #4ade8018; color: #6ee7a8; }
-  .badge.evidence { background: #60a5fa18; color: #8ebbfb; }
-  .badge.live     { background: #fbbf2418; color: #f0c274; }
-  .badge.refuted  { background: #f8717118; color: #f79f9f; }
+  .badge.verified  { background: #4ade8018; color: #6ee7a8; }
+  .badge.corrected { background: #4ade8010; color: #6ee7a8;
+    box-shadow: inset 0 0 0 1px #fbbf2455; }
+  .badge.evidence  { background: #60a5fa18; color: #8ebbfb; }
+  .badge.live      { background: #fbbf2418; color: #f0c274; }
+  .badge.refuted   { background: #f8717118; color: #f79f9f; }
 }
+/* Status vocabulary on the Method page: the badge itself is the term. */
+.glossary { margin: 1.4rem 0 0; }
+.glossary dt { margin-top: 1.1rem; }
+.glossary dd { margin: .35rem 0 0; }
+@media (min-width: 40rem) {
+  .glossary { display: grid; grid-template-columns: 11.5rem 1fr; gap: .9rem 1.2rem; }
+  .glossary dt { margin-top: .1rem; text-align: right; }
+  .glossary dd { margin: 0; }
+}
+
+/* Jumping to an attempt from a cross-reference must land somewhere obvious. */
+.report:target { border-color: var(--accent); box-shadow: 0 0 0 2px
+  color-mix(in srgb, var(--accent) 22%, transparent); scroll-margin-top: 1.5rem; }
+
 .tags { margin: .7rem 0 0; display: flex; flex-wrap: wrap; gap: .35rem; }
 .tag { font: .72rem/1.5 ui-monospace, monospace; color: var(--muted);
   border: 1px solid var(--rule); border-radius: 4px; padding: .05rem .38rem; }
@@ -249,11 +309,29 @@ def badge(status: str) -> str:
 # --- rendering -------------------------------------------------------------
 
 
-def render_attempt(attempt: dict, slug: str) -> str:
+def cross_ref(text: str, on_page: set[str]) -> str:
+    """Link any attempt id in `text` to that attempt's card on this page.
+
+    The records cite each other constantly -- 004 verifies 003, 003 is
+    superseded by 004 -- and following that graph is most of what a reader
+    does here, so it has to be clickable rather than merely stated.
+    """
+    return re.sub(
+        r"\b(\d{3})\b",
+        lambda m: (
+            f'<a href="#attempt-{m.group(1)}">{m.group(1)}</a>'
+            if m.group(1) in on_page
+            else m.group(1)
+        ),
+        inline(text),
+    )
+
+
+def render_attempt(attempt: dict, slug: str, on_page: set[str]) -> str:
     ident = attempt["id"]
     href = f"{BLOB}/problems/{slug}/{attempt['file']}"
     parts = [
-        '<div class="report">',
+        f'<div class="report" id="attempt-{html.escape(ident)}">',
         f'<h3><a href="{href}">Attempt {esc(ident)}</a> {badge(attempt["status"])}</h3>',
         f'<p class="one-line">{inline(attempt["one_line"])}</p>',
     ]
@@ -270,12 +348,15 @@ def render_attempt(attempt: dict, slug: str) -> str:
     if attempt.get("range"):
         rows.append(("Range checked", inline(attempt["range"])))
     if attempt.get("refutes"):
-        rows.append(("Refutes", inline(attempt["refutes"])))
+        rows.append(("Refutes", cross_ref(attempt["refutes"], on_page)))
     if attempt.get("verifies"):
-        rows.append(("Verifies", f"attempt {esc(attempt['verifies'])}"))
+        rows.append(("Verifies", f"attempt {cross_ref(attempt['verifies'], on_page)}"))
     if attempt.get("superseded_by"):
         rows.append(
-            ("Superseded by", f"attempt {html.escape(attempt['superseded_by'])}")
+            (
+                "Superseded by",
+                f"attempt {cross_ref(attempt['superseded_by'], on_page)}",
+            )
         )
     for key, label in (
         ("corrections", "Corrections"),
@@ -342,7 +423,8 @@ def render_problem(meta: dict, index: dict) -> str:
             "<p>Every approach below is recorded in full, including the ones that "
             "failed and why. Attempt titles link to the complete record.</p>"
         )
-        body.extend(render_attempt(a, slug) for a in attempts)
+        on_page = {a["id"] for a in attempts}
+        body.extend(render_attempt(a, slug, on_page) for a in attempts)
     else:
         body.append(
             "<p>No approaches have been recorded for this problem yet, so there is "
@@ -456,6 +538,19 @@ here. Which one you pick changes what your result means.
     )
 
 
+def render_glossary() -> str:
+    """The status vocabulary, every term, each shown as the badge you will meet.
+
+    Generated from STATUS rather than written out, because a hand-written
+    legend drifts: this one documented five of the eight terms the site was
+    actually rendering, and one term it never rendered at all.
+    """
+    rows = [
+        f'<dt>{badge(term)}</dt><dd>{STATUS_GLOSS[term]}</dd>' for term in STATUS
+    ]
+    return '<dl class="glossary">' + "".join(rows) + "</dl>"
+
+
 def render_method(problems: list[tuple[dict, dict]]) -> str:
     body = """
 <h1>Method</h1>
@@ -486,23 +581,10 @@ original record was not edited. Both stand, with the relationship between them
 recorded, because how often the loop corrects itself is evidence about how much
 to trust it.</p>
 
-<h2>What the status words mean</h2>
+<h2 id="status-words">What the status words mean</h2>
 <p>These are used exactly, and the machine-readable indexes are filtered on
-them.</p>
-<h3>Verified</h3>
-<p>Independently re-derived or re-computed, always with a stated range or scope.
-For a finite search this describes the range checked, never the conjecture.</p>
-<h3>Evidence</h3>
-<p>Computational support, not proof. A search to 10<sup>6</sup> is evidence about
-10<sup>6</sup>.</p>
-<h3>Live</h3>
-<p>A route that has survived every adversary tried, with no bound yet claimed.
-The most fragile-sounding status and the most interesting one.</p>
-<h3>Speculation</h3>
-<p>Plausible, unproven, and load-bearing. Labelled inline at the step that needs
-it, not in a footnote.</p>
-<h3>Refuted</h3>
-<p>Killed, with the obstruction recorded, so nobody re-treads it blindly.</p>
+them. Every badge you will meet anywhere on this site is listed here.</p>
+__GLOSSARY__
 
 <h2>Blind and informed</h2>
 <p>The repository is cut in two. <strong>Tier 0</strong> is published background
@@ -539,7 +621,7 @@ one — and read anything labelled <em>speculation</em> as exactly that.</p>
 """
     return page(
         "Method — Math Lab",
-        body,
+        body.replace("__GLOSSARY__", render_glossary()),
         "How the records were produced, what the status vocabulary means, and how "
         "to point your own agent at the library in blind or informed mode.",
     )
