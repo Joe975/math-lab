@@ -163,6 +163,8 @@ def main() -> int:
                 if not parts or parts[0].startswith("#"):
                     continue
                 n, m = int(parts[0]), int(parts[1])
+                if (n, m) == (1, 0):
+                    continue  # conventional z(1) = 1 entry; no fraction exists
                 total += 1
                 try:
                     worst = k_of(n, m)

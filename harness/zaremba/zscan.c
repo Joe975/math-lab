@@ -56,7 +56,15 @@ static int mode_check(unsigned A, u64 lo, u64 hi, const char *wpath) {
     u64 worst_tries = 0, worst_tries_n = 0;
     for (u64 n = lo; n <= hi; n++) {
         u64 m, tries = 0, found = 0;
-        for (m = 1; m < n; m++) {
+        /* Any m/n with all quotients <= A is at least the infimum of the
+         * bounded-quotient set, [0; A,1,A,1,...]; for A = 5 that is
+         * (3*sqrt(5)-5)/10 = 0.1708203932... Starting below it only burns
+         * divisions on m that cannot qualify, so start just under the
+         * infimum (17082/100000 < it); the first qualifying m is unchanged.
+         * For A != 5 fall back to the coarse bound n/(A+1). */
+        u64 start = A == 5 ? (n / 100000) * 17082 + (n % 100000) * 17082 / 100000
+                           : n / (A + 1);
+        for (m = start + 1; m < n; m++) {
             tries++;
             if (kmax_capped(n, m, A)) { found = 1; break; }
         }
