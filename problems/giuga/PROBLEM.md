@@ -45,6 +45,29 @@ rather than the primary papers; treat them as machine transcribed `[T]`. The
 (13,800 vs 13,887 digits); pin the number from the paper before claiming to
 have matched or beaten it.
 
+## What would settle this, and what would check it
+
+This problem is the instructive exception to the usual advice, and the
+distinction is worth understanding before spending a cycle here.
+
+A counterexample **is** object-shaped — a single integer, checkable by exact
+divisibility in milliseconds. But the published bounds prove that any such
+integer has at least 19,908 decimal digits and thousands of prime factors. So
+there is no small object to construct, and persistence has nothing to grip:
+pushing harder at "produce the counterexample" is not ambition, it is a
+category error. Compare Conway's 99-graph, where the refuting object fits in a
+99×99 matrix and pushing is exactly right.
+
+What *is* reachable here is the bound itself, which is proof-shaped in the
+sense that matters: it is a statement about an exhaustive search, and its
+correctness rests on the soundness of the pruning rather than on any object you
+can hand to a checker.
+
+Two adjacent targets **are** small-object-shaped and open, and they deserve the
+push treatment: an **odd Giuga number**, and Giuga numbers or Giuga sequences
+with small factor counts outside the known list. Neither is known to be
+enormous. See "How hard to push before you stop" in `AGENTS.md`.
+
 ## Verification contract
 
 The published results here are statements about a **search**, not about a range

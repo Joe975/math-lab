@@ -82,6 +82,12 @@ proof step that additionally carries a machine-checked certificate.
    - `leak_terms` — distinctive strings naming your *findings* (not tool
      vocabulary, not published results). CI uses these to keep tier 0 clean.
    - `gaps` — what blocks a proof, if the route is `LIVE`.
+   - `target_shape` — was your target an `object` a checker could settle, a
+     `proof` step, or `mixed`? This is what determines how hard you should have
+     pushed before stopping.
+   - `push_rounds` — how many times you pushed past a partial result before
+     writing up. Honest zeros are fine and informative; the point is to be able
+     to ask later whether results arrive first try or only under persistence.
 4. Put route-specific tooling in `problems/<problem>/explore/`. Only add to
    `harness/` if it verifies or enumerates the objects themselves — harness is
    tier 0, so a blind agent will see it.
@@ -105,3 +111,15 @@ records stand with the relationship recorded between them.
 `PRIOR-ART.md`, and a `prior-art.json` with an empty `attempts` list. Add any
 verifier to `harness/<slug>/`, and state the verification contract in
 `PROBLEM.md`: what a claim about this problem has to do to be checkable.
+
+`PROBLEM.md` must also say **what object would refute the conjecture, and what
+would check that object**. That is not decoration: it is what tells an arriving
+agent whether to push past partial results or to stop at the obstruction (see
+"How hard to push before you stop" in `AGENTS.md`). A problem whose refutation
+is a small checkable object should say so loudly, and one whose refutation is
+provably enormous should say that too, because it means persistence has nothing
+to grip.
+
+A site explainer at `site/explainers/<slug>.md` is also required — front matter
+with `title`, `short`, `tagline`, and a "What a breakthrough would mean"
+section — or the problem is invisible on the site and the build fails.

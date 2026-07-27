@@ -97,8 +97,15 @@ act. The calibration rules below are load-bearing, not stylistic.
 - Rebalance effort toward whatever generates real traction. The budgets in the
   problem-status table are guidance, not quota.
 - Famous long shots (Collatz) keep a minority share, deliberately.
-- Keep per-cycle cost modest: many small verified steps beat rare huge
-  fan-outs. Depth here comes from accumulation across cycles.
+- **Prefer burning extra tokens on exploration that may dead-end over stopping
+  early** (added 2026-07-27). Token cost is not the binding constraint; an
+  attempt abandoned two ideas short of a result is more expensive than a
+  wasted search, because nothing in the process detects it afterwards. Where
+  the target is an object a checker can settle, push while a structurally
+  different idea remains — see step 3b of `docs/CYCLE.md`.
+- Keep per-cycle *fan-out* modest even so: depth here comes from accumulation
+  across cycles and from persistence within a line, not from launching more
+  agents at once.
 - The `STATUS.md` TL;DR must always reflect current state, so someone dropping
   in cold is oriented by one paragraph.
 
@@ -109,7 +116,10 @@ act. The calibration rules below are load-bearing, not stylistic.
 - Dead ends are the expected output and a full contribution.
 - `VERIFIED` describes a range. `EVIDENCE` is not proof. `SPECULATION` is
   labelled inline.
-- An agent reporting a breakthrough has almost certainly made an error.
+- An agent reporting a breakthrough **it cannot hand to a checker** has almost
+  certainly made an error. One that hands over an object an independent checker
+  accepts is a different situation: verify it, do not disbelieve it. The bar
+  never relaxes; where to point the doubt is what changed (2026-07-27).
 
 ## Changing this file
 

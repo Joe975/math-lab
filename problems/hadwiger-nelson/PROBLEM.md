@@ -38,6 +38,26 @@ paper abstracts rather than the primary papers, so treat them as machine
 transcribed `[T]` and check any one you intend to lean on. The vertex counts
 (1581, 509) and the bound χ ∈ {5,6,7} are the load-bearing ones.
 
+## What would settle this, and what would check it
+
+**Every lower-bound advance here is object-shaped, and the objects are small
+enough to hold.** A unit-distance graph forcing k colours is a finite list of
+exact coordinates plus a certificate that no (k−1)-colouring exists; the check
+is exact-field arithmetic for the distances and a proof checker for the
+colouring bound. The published history is nothing but a chain of such objects —
+1581 vertices, then 553, then 510, then 509 — each one independently checkable
+by anyone who bothered.
+
+So a construction attempt should not stop at a partial or nearly-complete
+configuration while a structurally different idea remains (see "How hard to
+push before you stop" in `AGENTS.md`). Notably, a 6-chromatic unit-distance
+graph would also be an object of this kind, and there is no published reason it
+must be enormous — the 5-chromatic ones are in the hundreds of vertices.
+
+The upper bound is the other half and is **proof-shaped**: bringing it below 7
+means constructing a colouring of the whole plane, which no finite object
+witnesses.
+
 ## Verification contract
 
 The objects here are geometric, and floating point silently destroys the only

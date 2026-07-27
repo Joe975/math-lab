@@ -14,6 +14,7 @@ Two failure modes this catches, both of which had already happened:
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -136,3 +137,33 @@ def test_the_orientation_chain_is_intact():
     cycle = (ROOT / "docs" / "CYCLE.md").read_text(encoding="utf-8")
     for pointer in ("STATUS.md", "GUIDANCE.md", "scripts/new_attempt.py"):
         assert pointer in cycle, f"docs/CYCLE.md does not point at {pointer}"
+
+
+def test_the_push_doctrine_survives_in_the_docs():
+    """Under-reaching is the failure mode nothing else in this repo detects.
+
+    An abandoned line and a genuinely dead one produce identical records, so
+    the only defence is the instruction itself. If it gets edited away, the
+    library goes back to rewarding tidy early stops and nobody notices.
+    """
+    cycle = (ROOT / "docs" / "CYCLE.md").read_text(encoding="utf-8")
+    assert "3b." in cycle, "docs/CYCLE.md has lost the push step"
+    for term in ("push_rounds", "target_shape"):
+        assert term in cycle, f"docs/CYCLE.md no longer asks for {term}"
+
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    assert "How hard to push before you stop" in agents, (
+        "AGENTS.md has lost the object-vs-proof distinction, so an arriving "
+        "agent is told to stop at the obstruction in every case"
+    )
+
+    contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
+    for term in ("target_shape", "push_rounds"):
+        assert term in contributing, f"CONTRIBUTING.md does not document {term}"
+
+    schema = json.loads(
+        (ROOT / "docs" / "prior-art.schema.json").read_text(encoding="utf-8")
+    )
+    properties = schema["$defs"]["attempt"]["properties"]
+    for field in ("target_shape", "push_rounds"):
+        assert field in properties, f"the schema would reject {field}"

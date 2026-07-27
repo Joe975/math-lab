@@ -73,6 +73,15 @@
         "refutes": { "type": "string" },
         "verifies": { "type": "string", "description": "Attempt id this one adversarially reviewed." },
         "superseded_by": { "type": "string", "description": "Attempt id whose statements to prefer where they differ." },
+        "target_shape": {
+          "description": "Whether the attempt aimed at an object a checker can settle, or a proof step needing a human. Determines how hard it should push before stopping -- see AGENTS.md.",
+          "enum": ["object", "proof", "mixed"]
+        },
+        "push_rounds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many times the attempt was pushed past a partial result before it stopped. Paired with target_shape this measures whether results arrive first try or only under persistence."
+        },
         "note": { "type": "string" },
         "design_note": { "type": "string" },
         "methodological_lesson": {

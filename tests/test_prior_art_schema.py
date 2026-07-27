@@ -33,6 +33,8 @@ def check(value, spec: dict, where: str, errors: list[str]) -> None:
             or (t == "array" and isinstance(value, list))
             or (t == "object" and isinstance(value, dict))
             or (t == "null" and value is None)
+            # bool is an int in Python, and `push_rounds: true` is a typo, not a count.
+            or (t == "integer" and isinstance(value, int) and not isinstance(value, bool))
             for t in wanted
         )
         if not ok:
@@ -47,6 +49,9 @@ def check(value, spec: dict, where: str, errors: list[str]) -> None:
     if "minLength" in spec and isinstance(value, str):
         if len(value) < spec["minLength"]:
             errors.append(f"{where}: shorter than {spec['minLength']} chars")
+    if "minimum" in spec and isinstance(value, int) and not isinstance(value, bool):
+        if value < spec["minimum"]:
+            errors.append(f"{where}: {value} is below the minimum {spec['minimum']}")
     if "minItems" in spec and isinstance(value, list):
         if len(value) < spec["minItems"]:
             errors.append(f"{where}: needs at least {spec['minItems']} item(s)")
@@ -126,6 +131,41 @@ def test_attempt_ids_are_unique_and_ordered(path: Path):
     ids = [a["id"] for a in data["attempts"]]
     assert len(ids) == len(set(ids)), f"{path}: duplicate attempt ids: {ids}"
     assert ids == sorted(ids), f"{path}: attempts out of order: {ids}"
+
+
+def test_the_push_fields_are_actually_enforced():
+    """`target_shape` and `push_rounds` carry the push doctrine's dataset.
+
+    A validator that shrugged at them would let the field fill with typos while
+    appearing to measure something, which is worse than not collecting it. The
+    integer branch is new here, so it gets exercised in both directions.
+    """
+    attempt_spec = SCHEMA["$defs"]["attempt"]
+    good = {
+        "id": "001",
+        "file": "attempts/001-example-approach.md",
+        "date": "2026-07-27",
+        "mode": "blind",
+        "status": "MAP",
+        "mechanism": ["exhaustive-search"],
+        "one_line": "Established the calibration battery and where the search stops.",
+        "target_shape": "object",
+        "push_rounds": 3,
+    }
+    errors: list[str] = []
+    check_object(good, attempt_spec, "good", errors)
+    assert not errors, f"a well-formed entry was rejected: {errors}"
+
+    for field, value in (
+        ("target_shape", "objekt"),
+        ("target_shape", True),
+        ("push_rounds", "three"),
+        ("push_rounds", True),
+        ("push_rounds", -1),
+    ):
+        errors = []
+        check_object({**good, field: value}, attempt_spec, "bad", errors)
+        assert errors, f"{field}={value!r} validated but should not have"
 
 
 def test_scaffolder_produces_a_record_the_schema_rejects_until_filled(tmp_path):

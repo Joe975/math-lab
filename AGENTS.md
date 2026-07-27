@@ -92,6 +92,30 @@ Full version in `CONTRIBUTING.md`. The non-negotiable parts:
 - Famous conjectures are long shots. The deliverables are the approach
   library, the tooling, and progress on the smaller open problems.
 
+## How hard to push before you stop
+
+Not a matter of temperament. It depends on what you are aiming at, and the two
+cases pull in opposite directions.
+
+| Your target | What checks it | What to do |
+|---|---|---|
+| An **object** — a counterexample, a graph, an integer, a point set | A checker, exhaustively, in exact arithmetic | Build the checker **first**, then push. Do not stop at a partial result while a structurally different idea remains. |
+| A **proof step** — a bound, an asymptotic claim, an argument | A human, eventually, expensively | Stop at the obstruction and describe it precisely. That *is* the deliverable. |
+
+The asymmetry is not optimism. A checkable object cannot lie to you: build the
+thing, run the checker, and the question is settled regardless of anyone's
+prior about how hard the problem was. Ambition is safe exactly to the extent
+that verification is cheap — which is why the checker comes first, and why the
+bar in `CONTRIBUTING.md` never relaxes to buy it.
+
+Partial results are the trap in the object case. A conditional or
+nearly-complete construction reads like progress and quietly ends the search.
+So: **while a structurally different idea remains, take it.** Write up when you
+are out of distinct ideas, not when you are out of patience. Record how many
+pushes it took (`push_rounds`) and which case you were in (`target_shape`) in
+your index entry — whether results arrive first try or only under persistence
+is something this library can measure and almost nobody else can.
+
 ## Status vocabulary
 
 Use these exact words; they are what the indexes are filtered on.

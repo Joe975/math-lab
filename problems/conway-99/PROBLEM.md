@@ -41,6 +41,25 @@ construction is known.
 the primary papers; treat as machine transcribed `[T]`. The automorphism
 restrictions and the five-parameter-set list are the load-bearing claims.
 
+## What would settle this, and what would check it
+
+**Existence is object-shaped, and the object is small.** A 99×99 adjacency
+matrix is the entire answer, and an exact checker settles it in microseconds:
+count common neighbours over every pair and compare against λ = 1, μ = 2. There
+is no gap between "found it" and "proved it" here — the object *is* the proof.
+
+That has a direct consequence for how hard to push (see "How hard to push
+before you stop" in `AGENTS.md`): a construction attempt should not stop at a
+partial or conditional configuration while a structurally different idea
+remains. Assumed-symmetry searches are the standard route, and the published
+automorphism restrictions make them cheap: the candidate groups are tiny and
+enumerated, and an orbit-matrix search under an assumed automorphism collapses
+the space by orders of magnitude.
+
+Nonexistence is the other half and is **proof-shaped**: no finite object
+witnesses it, exhaustion is infeasible, and the standard obstructions already
+pass. Stop at the obstruction there and describe it precisely.
+
 ## Verification contract
 
 The search space is finite and astronomically large, so essentially every

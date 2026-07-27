@@ -1166,6 +1166,17 @@ problems with no attempts (queue 18–19; run blind).
   Möbius–Kantor graphs are the canonical high-girth near-misses.
 - Constrained graph generation (nauty geng, installed via apt) + SAT tooling
   is shared infrastructure for Erdős–Gyárfás and graceful trees.
+- **Method (2026-07-27): ambition is gated on checkability, not on modesty.**
+  The lab's calibration language told every agent to stop at the obstruction,
+  which is right for a proof step and wrong for an object a checker can settle.
+  Prompted by the July 2026 refutation of Goemans' unsplittable-flow cost
+  conjecture: a seven-node counterexample that a model produced only on the
+  fourth push, its first three answers being exactly the kind of
+  precisely-described partial result this lab rewards. Codified as step 3b of
+  `docs/CYCLE.md` and "How hard to push before you stop" in `AGENTS.md`; new
+  index fields `target_shape` and `push_rounds` make persistence measurable
+  alongside blind-vs-informed. Under-reaching is the failure mode nothing else
+  here detects — an abandoned line and a dead one produce identical records.
 - Ops: parallel subagents can die to 529 Overloaded during API load spikes;
   resume via SendMessage, and don't record a queue item as done until its
   files exist on disk.

@@ -58,6 +58,35 @@ Checkpoint completed work units to disk immediately. Treat "this process can
 die at any moment" as a design assumption — a long run that loses everything on
 restart is worse than a short one that does not.
 
+### 3b. Push, before you allow anyone to write up
+
+Step 3 tells an agent to stop at the obstruction. That is right for a proof
+step and wrong for an object, and conflating the two costs results.
+
+Before accepting a partial result, ask: **is the target something a checker
+could settle?** A counterexample, a graph, an integer, a point set — anything
+that can be handed to an exhaustive verifier in exact arithmetic. If so:
+
+- the agent builds the checker first, then keeps going;
+- a conditional or nearly-complete construction is **not** a stopping point.
+  It is the most dangerous kind of result, because it reads like progress and
+  ends the search;
+- push again for the complete object, and keep pushing while a *structurally
+  different* idea remains. A retry of the same search is not a push;
+- stop when the distinct ideas run out, not when patience does.
+
+The failure mode this prevents is real and recent: in July 2026 a ~30-year-old
+conjecture in flow theory fell to a seven-node counterexample that a model
+produced only on the fourth push. Its first three answers were exactly the
+"precisely-described obstruction" this document otherwise rewards.
+
+None of this touches step 4. Ambition is affordable *because* verification is
+cheap for these targets, so the bar does not move to accommodate it.
+
+Record `push_rounds` and `target_shape` in the index entry. Whether results
+arrive on the first try or only under persistence is a second dataset this
+library can produce, alongside blind-vs-informed.
+
 ### 4. Adversarially verify — the step that makes this worth doing
 
 Nothing enters the ledger as a result because an agent claimed it.
@@ -138,6 +167,17 @@ refutation.
 
 These are famous open problems. The expected outcome of any cycle is a recorded
 dead end, and that is a success. The deliverables are the approach library, the
-tooling, and progress on the smaller problems. An agent that reports a
-breakthrough has almost certainly made an error, which is exactly why step 4
-exists.
+tooling, and progress on the smaller problems.
+
+An agent that reports a breakthrough **it cannot hand to a checker** has almost
+certainly made an error, which is exactly why step 4 exists. An agent that
+hands you an object a checker accepts is a different situation entirely, and
+the correct response is to verify it rather than to disbelieve it: run an
+independent implementation, and if it holds, it holds. Calibration is about
+where to place doubt, not about capping what an attempt is allowed to aim at.
+
+Two failure modes, not one. Overclaiming is the obvious one and step 4 catches
+it. Under-reaching is the quiet one — stopping at a partial construction that
+a few more pushes would have completed — and nothing catches it, because a
+tidy dead-end record looks identical whether or not the answer was two ideas
+away. Step 3b exists for that reason.
