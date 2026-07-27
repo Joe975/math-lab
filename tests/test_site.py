@@ -326,6 +326,51 @@ def test_cross_references_between_attempts_are_links(site):
     assert not unlinked, f"cross-references left as plain text: {unlinked}"
 
 
+def test_every_card_carries_its_status_on_its_edge(site):
+    """Badges start at whatever x the title ends, so a column cannot be scanned.
+
+    The status class on the card is what tints its left edge; without it the
+    card falls back to the neutral rule colour.
+    """
+    missing = []
+    for slug in problems():
+        index = json.loads(
+            (ROOT / "problems" / slug / "prior-art.json").read_text(encoding="utf-8")
+        )
+        page = site[f"{slug}.html"]
+        for attempt in index["attempts"]:
+            cls, _ = build_site.STATUS[attempt["status"]]
+            card = re.search(
+                rf'<div class="report ([^"]*)" id="attempt-{attempt["id"]}"', page
+            )
+            if not card or f"s-{cls}" not in card.group(1):
+                missing.append(f"{slug}/{attempt['id']} ({cls})")
+        route, _ = build_site.STATUS[index["route_status"]]
+        if f'<li class="s-{route}">' not in site["index.html"]:
+            missing.append(f"index card for {slug} ({route})")
+    assert not missing, f"cards with no status edge: {missing}"
+
+
+def test_mode_is_a_chip_not_a_row(site):
+    """One categorical word on every card does not deserve a whole dl row."""
+    page = site["union-closed.html"]
+    assert '<span class="mode">informed</span>' in page
+    assert "<dt>Mode</dt>" not in page, "mode is still rendered as a definition row"
+
+
+def test_report_labels_sit_beside_their_values_when_there_is_room():
+    """Stacked, 'MODE / informed' burned two lines on two words."""
+    _, blocks = _split_at_rules(build_site.CSS)
+    wide = [b for cond, b in blocks if "min-width" in cond]
+    assert wide, "no wide-viewport rules at all"
+    rules = {}
+    for body in wide:
+        rules.update(_declarations(body))
+    assert "grid" in rules.get(".report dl", ""), (
+        "report definition lists never become a label column on wider screens"
+    )
+
+
 @pytest.mark.parametrize("scheme", ["light", "dark"])
 def test_badge_text_meets_wcag_aa(scheme):
     """Badges are .68rem uppercase, so they are small text: 4.5:1, not 3:1.

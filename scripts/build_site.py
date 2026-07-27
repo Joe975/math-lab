@@ -194,24 +194,49 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, monospace;
   margin: 1.8rem 0; color: var(--muted); }
 .callout strong { color: var(--fg); }
 
+/* A card's left edge carries its status, so a column of them can be scanned
+   vertically. The badge carries the nuance; the edge is the coarse signal. */
+.s-verified, .s-corrected { --edge: #1f7a4d66; }
+.s-evidence { --edge: #2563eb55; }
+.s-live     { --edge: #b4790099; }
+.s-refuted  { --edge: #c0392b55; }
+
 /* problem cards on the index */
 .cards { display: grid; gap: .9rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
 .cards li { background: var(--card); border: 1px solid var(--rule); border-radius: 9px;
+  border-left: 3px solid var(--edge, var(--rule));
   padding: 1.1rem 1.2rem; box-shadow: var(--shadow); }
+.cards .head { display: flex; align-items: baseline; gap: .5rem .7rem; flex-wrap: wrap; }
 .cards a.title { font-weight: 700; text-decoration: none; font-size: 1.06rem; }
 .cards a.title:hover { text-decoration: underline; }
 .cards p { margin: .4rem 0 0; font-size: .94rem; color: var(--muted); }
 
 /* approach report cards */
 .report { background: var(--card); border: 1px solid var(--rule); border-radius: 9px;
+  border-left: 3px solid var(--edge, var(--rule));
   padding: 1.15rem 1.25rem; margin: 1rem 0; box-shadow: var(--shadow); }
-.report h3 { margin: 0 0 .1rem; font-size: 1.02rem; }
+.report h3 { margin: 0 0 .1rem; font-size: 1.02rem;
+  display: flex; align-items: baseline; gap: .5rem .7rem; flex-wrap: wrap; }
+.report .flags { display: flex; align-items: baseline; gap: .45rem; }
+/* One categorical word repeated on every card: a chip, not a whole dl row. */
+.report .mode { font: 500 .72rem/1.5 ui-sans-serif, system-ui, sans-serif;
+  color: var(--muted); }
 .report .one-line { margin: .55rem 0 0; }
 .report dl { margin: .9rem 0 0; font-size: .9rem; }
 .report dt { font: 600 .72rem/1.4 ui-sans-serif, system-ui, sans-serif;
   text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-top: .8rem; }
 .report dd { margin: .15rem 0 0; }
 .report ul { margin: .15rem 0 0; padding-left: 1.1rem; }
+/* Stacked, "MODE / informed" cost two lines for two words. Once there is room
+   for a label column, the label sits beside its value instead of above it. */
+@media (min-width: 40rem) {
+  .report dl { display: grid; grid-template-columns: 8.5rem 1fr; gap: .6rem 1.1rem; }
+  .report dt { margin-top: .12rem; text-align: right; }
+  .report dd, .report dd ul { margin: 0; }
+  /* Only once the header reliably fits on one line. Below this a long badge
+     wraps, and a right-aligned orphan reads as a layout bug. */
+  .report .flags, .cards .head .badge { margin-left: auto; }
+}
 .report .actions { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid var(--rule);
   font: .84rem/1.5 ui-sans-serif, system-ui, sans-serif; }
 
@@ -248,7 +273,8 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, monospace;
 .glossary dt { margin-top: 1.1rem; }
 .glossary dd { margin: .35rem 0 0; }
 @media (min-width: 40rem) {
-  .glossary { display: grid; grid-template-columns: 11.5rem 1fr; gap: .9rem 1.2rem; }
+  /* Wide enough that the longest term stays on one line inside its pill. */
+  .glossary { display: grid; grid-template-columns: 13.5rem 1fr; gap: .9rem 1.2rem; }
   .glossary dt { margin-top: .1rem; text-align: right; }
   .glossary dd { margin: 0; }
 }
@@ -330,9 +356,13 @@ def cross_ref(text: str, on_page: set[str]) -> str:
 def render_attempt(attempt: dict, slug: str, on_page: set[str]) -> str:
     ident = attempt["id"]
     href = f"{BLOB}/problems/{slug}/{attempt['file']}"
+    cls, _ = STATUS.get(attempt["status"], ("none", ""))
+    mode = attempt.get("mode", "unknown")
     parts = [
-        f'<div class="report" id="attempt-{html.escape(ident)}">',
-        f'<h3><a href="{href}">Attempt {esc(ident)}</a> {badge(attempt["status"])}</h3>',
+        f'<div class="report s-{cls}" id="attempt-{html.escape(ident)}">',
+        f'<h3><a href="{href}">Attempt {esc(ident)}</a>'
+        f'<span class="flags"><span class="mode">{esc(mode)}</span>'
+        f'{badge(attempt["status"])}</span></h3>',
         f'<p class="one-line">{inline(attempt["one_line"])}</p>',
     ]
 
@@ -379,7 +409,6 @@ def render_attempt(attempt: dict, slug: str, on_page: set[str]) -> str:
     ):
         if attempt.get(key):
             rows.append((label, inline(attempt[key])))
-    rows.append(("Mode", esc(attempt.get("mode", "unknown"))))
 
     if rows:
         parts.append("<dl>")
@@ -469,10 +498,11 @@ def render_problem(meta: dict, index: dict) -> str:
 def render_index(problems: list[tuple[dict, dict]]) -> str:
     cards = []
     for meta, index in problems:
+        cls, _ = STATUS.get(index["route_status"], ("none", ""))
         cards.append(
-            "<li>"
-            f'<a class="title" href="{meta["slug"]}.html">{esc(meta["title"])}</a> '
-            f'{badge(index["route_status"])}'
+            f'<li class="s-{cls}"><div class="head">'
+            f'<a class="title" href="{meta["slug"]}.html">{esc(meta["title"])}</a>'
+            f'{badge(index["route_status"])}</div>'
             f'<p>{inline(meta["tagline"])}</p>'
             "</li>"
         )
