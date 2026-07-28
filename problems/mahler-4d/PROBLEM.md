@@ -84,4 +84,15 @@ Specifically here:
 
 ## Harness (tier 0)
 
-None yet. A contributor adding one should add it here.
+- `harness/mahler-4d/polytope.py` — exact rational facet enumeration,
+  polarity and volume for polytopes given by vertices; the reference
+  implementation. Volume is computed by the divergence theorem, recursing on
+  dimension through projected facets. `--selftest` reproduces the cube and
+  cross-polytope volumes, the polarity involution, and the volume product of
+  every Hanner polytope up to ℝ⁴.
+- `harness/mahler-4d/verify_product.py` — independent re-computation by
+  Fubini slicing with exact polynomial interpolation, which shares no part of
+  the reference volume decomposition, plus the duality identities that cover
+  the facet enumeration both routines rely on. Run it on any volume product
+  you intend to claim; a claimed value below 4ⁿ/n! is reported as requiring
+  escalation rather than accepted.
