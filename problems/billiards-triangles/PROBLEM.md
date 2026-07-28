@@ -93,4 +93,20 @@ Specifically here:
 
 ## Harness (tier 0)
 
-None yet. A contributor adding one should add it here.
+- `harness/billiards-triangles/unfold.py` — the reference implementation.
+  Decides whether a bounce word certifies an open region of triangles, working
+  in apex coordinates (A = (0,0), B = (1,0), C in a rational box) so that no
+  trigonometry enters the certificate path, and in first-order affine forms
+  over ℚ so that a verdict covers every triangle in the box at once. Verdicts
+  are TRUE, FALSE or UNKNOWN; UNKNOWN means subdivide, never "probably". The
+  translation condition is decided in integer arithmetic on the word alone.
+  Note the scope: an open-region certificate can only ever find orbits that
+  survive perturbation, so an unstable orbit is invisible to it by
+  construction.
+- `harness/billiards-triangles/verify_cover.py` — independent re-verification
+  by direct billiard simulation. At a rational apex a trajectory is exactly
+  rational, so it re-derives any accepted certificate with no enclosures at
+  all, checking the bounce sequence, the closure, and that no bounce lands on
+  a vertex. It does not unfold, which is the point: the corridor criterion is
+  about the set of gates rather than their order, and only simulation can
+  catch that. Run it on any certificate you intend to claim.
