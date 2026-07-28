@@ -81,4 +81,17 @@ than on exactness:
 
 ## Harness (tier 0)
 
-None yet. A contributor adding one should add it here.
+- `harness/crouzeix/ratio.py` — the reference implementation. Certified
+  enclosures of the Crouzeix ratio with no floating point anywhere: eigenvalue
+  bounds come from bisecting an exact rational LDL definiteness test, and
+  W(A) is enclosed by half-planes in Gaussian-rational directions, which is
+  possible because both sides of the support inequality scale with the
+  direction and so it need not be a unit vector. The refutation test is
+  decided in ℚ as ‖p(A)‖² > 4·(max|p|)², taking no square roots at all.
+- `harness/crouzeix/verify_ratio.py` — independent re-computation. It factors
+  nothing: characteristic polynomials by the Faddeev–LeVerrier recursion,
+  largest roots by Sturm chains, and the characteristic polynomial itself
+  checked against a determinant computed by elimination before being trusted.
+  Run it on any near-extremal ratio you intend to claim; a ratio certified
+  above 2 by both routes is reported as requiring escalation rather than
+  accepted.
