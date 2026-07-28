@@ -26,7 +26,13 @@ n=22 plus all girth-≥5 cubics at n=24 (zero candidates); lonely-runner
 k=8 census (Goddyn–Wong recovered; k=9 frontier); Erdős–Straus 601
 refuted → real signal is QR-class identity-poverty (p ≈ 10^-110);
 graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
-7 problems, ~20 reusable tools.
+10 problems, ~26 reusable tools.
+
+Three physics-flavored problems were onboarded on 2026-07-28 —
+triangular billiards, Mahler in ℝ⁴, and Crouzeix — with statements,
+verification contracts and working harnesses, but **no attempts yet**.
+They are queue items 8-11 and are meant to be run blind, which costs
+nothing while their records are empty.
 
 ## Problem status
 
@@ -39,6 +45,9 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
+| Triangular billiards | onboarded, no attempts | high | harness ready; first attempt is the acute/right coverage self-test (run blind) |
+| Mahler in ℝ⁴ | onboarded, no attempts | high | harness ready; first attempt is the 0/±1-vertex census (run blind) |
+| Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -49,6 +58,10 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
 5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
 6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
 7. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
+8. [mahler-4d] **Run blind.** Exact census of centrally symmetric polytopes in ℝ⁴ with vertices in {0,±1}: is anything within ε of 32/3 that is not a Hanner polytope? State the generator universe and the counts; `EVIDENCE` scoped to that universe. The harness self-test already reproduces the cube, cross-polytope and every Hanner polytope up to ℝ⁴, so treat that as done and spend the budget on the census. Kill/win: any symmetric polytope below 32/3 refutes Mahler outright — re-verify with `verify_product.py` before it is written anywhere outside the attempt record. Kill: if the {0,±1} universe is exhausted with nothing within ε of the bound and no near-miss structure, say so and stop rather than widening the coordinate set by reflex.
+9. [billiards-triangles] **Run blind.** Word census by length L: which words certify which regions of the obtuse parameter range, and where does coverage stall as the largest angle approaches and passes 112.3°? The geometry of the uncovered set is a `MAP`-grade deliverable even if no new region is covered. Kill condition: if certificate word length grows super-exponentially as the angle increases, the finite-census route is dead — record the measured growth rate, which is a better outcome than a deeper search. Note the scope limit first: an open-region certificate can only find orbits that survive perturbation, so this says nothing about unstable orbits.
+10. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
+11. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Lower value than item 9 now that the harness self-test covers Fagnano and the orthic geometry — take it only if item 9 turns up something the certificate machinery cannot express.
 
 ## Verified results
 
@@ -142,6 +155,30 @@ graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
   problem, `docs/RIPPLE.md` = propagate a new result across problems; both
   are hooked into `docs/CYCLE.md` and have session skills (`/ideate`,
   `/ripple`, `/mechanisms`, `/cycle`). No sweep or scan has been run yet.
+- Onboarding (2026-07-28): three problems added, and two literature findings
+  from the check that changed their framing. Triangular billiards — the
+  constructive frontier is 112.3° (Garber–Marinov–Moore–Tokarsky 2018), not
+  the 100° of Schwartz's theorem; and Forni's June 2026 preprint
+  (arXiv:2606.10102) claims a periodic orbit in *every* polygon, which if it
+  holds settles existence. It is non-constructive, so the certificate-covering
+  frontier is untouched — but frame any attempt against the constructive
+  question, not against existence. Mahler — the Viterbo counterexample that
+  killed its physics motivation is non-symmetric, so the symmetric variant
+  that implies Mahler still stands; `/ripple` on that refutation is a cheap
+  early exercise. Crouzeix's certification risk is retired: stdlib-only
+  certified enclosures are affordable (timings in queue item 10).
+- Interval arithmetic is the wrong default for iterated geometry
+  (2026-07-28, from the billiards harness). Unfolding recombines coordinates
+  that earlier steps already widened, and an interval cannot see that those
+  errors are the same error, so the enclosure grew about an order of magnitude
+  per reflection — a six-step word was hopeless from a box of width 1e-6.
+  First-order affine forms made the growth additive and the certificates
+  possible. Two smaller traps in the same file: squaring must be its own
+  operation (a generic product of x with itself loses non-negativity and a
+  length comes out zero), and a quantity that is a geometric invariant must be
+  computed once from the original data rather than recomputed from widened
+  coordinates. Any future harness that iterates a map over a parameter box
+  should start from affine forms rather than discover this again.
 - Union-closed: the entropy method's ONLY use of closure is H(A∪B) ≤ log|F|
   for iid uniform A,B — an average-case fact, tight at (3−√5)/2 by
   Chase–Lovett's approximate family. Any advance must use worst-case

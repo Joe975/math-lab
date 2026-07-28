@@ -12,6 +12,7 @@
     "information-theory": "Entropy, KL divergence, information inequalities and entropy-functional arguments.",
     "logic-methodology": "Meta-level machinery: verification protocol, barrier maps, completeness arguments. Not itself an attack lens.",
     "number-theory": "Congruences, quadratic residues, Diophantine equations, multiplicative structure.",
+    "operator-theory": "Spectral theory, numerical ranges, functional calculus, non-normal operator behaviour.",
     "probability": "Random structures, couplings, dependence engineering, concentration, statistical modelling of exact data."
   },
   "mechanisms": {
