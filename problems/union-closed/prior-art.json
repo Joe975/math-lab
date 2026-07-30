@@ -142,6 +142,41 @@
         "mutual-information-tax",
         "recipe-totality"
       ]
+    },
+    {
+      "id": "006",
+      "file": "attempts/006-skeptic-review-of-005.md",
+      "date": "2026-07-30",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "005",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "total-positivity"
+      ],
+      "one_line": "Independent re-implementation and hand re-derivation confirm all six propositions of 005 including the crash identity at lambdas 005 never ran; the Karlin-Rinott step is checked against the literature and re-proved via Ahlswede-Daykin; corrections are minor (Prop 2 equality-iff needs lambda > 0, two part-B reporting slips, docstring bugs); the restated averaged-control gap survives its own first falsifiable test.",
+      "corrections": [
+        "Prop 2 equality characterization ('equality iff proportional slices') is false at lambda = 0, where OR = 1 identically for every mu; the iff needs lambda > 0",
+        "part-B prose misreports its checkpoint: the 1.0000000011 minimum is the i<n figure, not 'all diagonal histories'; median per-trial minimum excess is 5.2e-4, not 5.4e-4",
+        "uc_odds_ratio.py docstring errors: part F says 'OR >= 1' where code and record prove OR >= 2^lambda; part G says overall deviation scales like delta where the data show delta^2",
+        "'about 83% of history mass' is the lambda = 0.5 figure; it is 81% at lambda = 1.5"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "M_i census",
+        "averaged control survives crash",
+        "family-dependent delta-squared onset",
+        "uc_or_skeptic"
+      ]
     }
   ]
 }

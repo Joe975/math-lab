@@ -1,0 +1,160 @@
+[
+ {
+  "family": "crash",
+  "lambda": 1.0,
+  "n": 5,
+  "per_i": [
+   {
+    "M_i": 1.8489710918270692,
+    "defined_mass": 0.9999999999999999,
+    "i": 1
+   },
+   {
+    "M_i": 2.094575195414845,
+    "defined_mass": 1.0,
+    "i": 2
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 3
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 4
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 5
+   }
+  ]
+ },
+ {
+  "family": "crash",
+  "lambda": 1.0,
+  "n": 8,
+  "per_i": [
+   {
+    "M_i": 2.283814970448998,
+    "defined_mass": 1.0,
+    "i": 1
+   },
+   {
+    "M_i": 3.5421937640492756,
+    "defined_mass": 1.0000000000000002,
+    "i": 2
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 3
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 4
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 5
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 6
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 7
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 8
+   }
+  ]
+ },
+ {
+  "family": "mirror",
+  "lambda": 1.0,
+  "n": 5,
+  "per_i": [
+   {
+    "M_i": 0.9999999999999999,
+    "defined_mass": 1.0,
+    "i": 1
+   },
+   {
+    "M_i": 4.0,
+    "defined_mass": 1.0,
+    "i": 2
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 3
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 4
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 5
+   }
+  ]
+ },
+ {
+  "family": "mirror",
+  "lambda": 1.0,
+  "n": 8,
+  "per_i": [
+   {
+    "M_i": 1.0,
+    "defined_mass": 1.0,
+    "i": 1
+   },
+   {
+    "M_i": 7.0,
+    "defined_mass": 1.0,
+    "i": 2
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 3
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 4
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 5
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 6
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 7
+   },
+   {
+    "M_i": null,
+    "defined_mass": 0,
+    "i": 8
+   }
+  ]
+ }
+]
