@@ -9,11 +9,24 @@
       "date": "2026-07-25",
       "mode": "informed",
       "status": "MAP",
-      "mechanism": ["entropy-method", "barrier-analysis", "exhaustive-small-family-search", "k-wise-union", "up-sets"],
+      "mechanism": [
+        "entropy-method",
+        "barrier-analysis",
+        "exhaustive-small-family-search",
+        "k-wise-union",
+        "up-sets"
+      ],
       "one_line": "Mapped the entropy-method frontier and the (3-sqrt5)/2 barrier; established the n<=4 exhaustive baseline; produced candidate ideas A-D.",
       "refuted_by": null,
       "gaps": [],
-      "leak_terms": ["k-wise union", "idea A", "idea B", "idea C", "idea D", "p(c) ladder"]
+      "leak_terms": [
+        "k-wise union",
+        "idea A",
+        "idea B",
+        "idea C",
+        "idea D",
+        "p(c) ladder"
+      ]
     },
     {
       "id": "002",
@@ -21,11 +34,19 @@
       "date": "2026-07-25",
       "mode": "informed",
       "status": "REFUTED",
-      "mechanism": ["weighted-kl", "entropy-functional-reweighting", "smoothing-insensitive-functional"],
+      "mechanism": [
+        "weighted-kl",
+        "entropy-functional-reweighting",
+        "smoothing-insensitive-functional"
+      ],
       "one_line": "The weighted-KL ladder is dead for every c >= 0, killed by Sawin geometric mixtures; generalizes to a no-go covering all smoothing-insensitive functionals.",
       "refuted_by": "sawin-geometric-mixtures",
       "gaps": [],
-      "leak_terms": ["weighted-KL", "weighted KL ladder", "smoothing-insensitive"]
+      "leak_terms": [
+        "weighted-KL",
+        "weighted KL ladder",
+        "smoothing-insensitive"
+      ]
     },
     {
       "id": "003",
@@ -34,11 +55,29 @@
       "mode": "informed",
       "status": "LIVE",
       "superseded_by": "004",
-      "mechanism": ["coupling", "overlap-tilt", "sinkhorn", "plackett", "conditionally-iid", "block-adaptive-coupling"],
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "conditionally-iid",
+        "block-adaptive-coupling"
+      ],
       "one_line": "Overlap-biased couplings separate every adversary that killed the KL ladder; evades the 002 no-go by being smoothing-sensitive. No bound claimed.",
       "refuted_by": null,
-      "gaps": ["plackett-odds-ratio-control", "mutual-information-tax", "recipe-totality"],
-      "leak_terms": ["overlap-tilt", "overlap-biased", "Sinkhorn", "Plackett", "dependent coupling", "conditionally-iid"]
+      "gaps": [
+        "plackett-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "overlap-tilt",
+        "overlap-biased",
+        "Sinkhorn",
+        "Plackett",
+        "dependent coupling",
+        "conditionally-iid"
+      ]
     },
     {
       "id": "004",
@@ -47,16 +86,62 @@
       "mode": "informed",
       "status": "VERIFIED_WITH_CORRECTIONS",
       "verifies": "003",
-      "mechanism": ["adversarial-verification", "independent-reimplementation", "coupling", "overlap-tilt"],
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt"
+      ],
       "one_line": "Independent re-implementation confirms 003's interface and separations are real; corrects the recipe ceiling to 0.431496 and refutes 003's mini-theorem (e) as stated.",
       "refuted_by": null,
-      "gaps": ["plackett-odds-ratio-control", "mutual-information-tax", "recipe-totality"],
+      "gaps": [
+        "plackett-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
       "corrections": [
         "mini-theorem (e) bracket positivity is false as stated; restated, with the {0} u [1/2,1) genre covered by a half-mixing coupling",
         "single-parameter recipe ceiling is 0.431496 in closed form, not 0.445 (grid-floor artifact)",
         "one non-reproducible data file; several overstated sentences"
       ],
-      "leak_terms": ["0.4315", "0.431496", "half-mixing", "mini-theorem"]
+      "leak_terms": [
+        "0.4315",
+        "0.431496",
+        "half-mixing",
+        "mini-theorem"
+      ]
+    },
+    {
+      "id": "005",
+      "file": "attempts/005-odds-ratio-control-refuted.md",
+      "date": "2026-07-30",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "plackett",
+        "sinkhorn",
+        "total-positivity",
+        "barrier-analysis"
+      ],
+      "one_line": "The Gap-1 pointwise odds-ratio control [1, 2^lambda] is false both ways: Cauchy-Schwarz forces OR >= 2^lambda on diagonal histories, and an explicit 4-atom family crashes OR to 2^{lambda(3-n)}; sharp range and MTP2 one-sided partial result proved. Route stays LIVE with Gap 1 restated.",
+      "leak_terms": [
+        "odds-ratio crash",
+        "crash family",
+        "future-overlap discrepancy",
+        "over-diagonalizes",
+        "2^{lambda(3-n)}",
+        "averaged-odds-ratio-control",
+        "OR census",
+        "uc_odds_ratio"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ]
     }
   ]
 }

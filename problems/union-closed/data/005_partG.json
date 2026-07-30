@@ -1,0 +1,52 @@
+{
+ "lambda": 1.0,
+ "n": 5,
+ "rows": [
+  {
+   "delta": 0.005,
+   "max_diag_excess": 1.526845978228053e-05,
+   "max_overall_dev": 1.526845978228053e-05,
+   "residual": 3.6637359812630166e-15
+  },
+  {
+   "delta": 0.01,
+   "diag_excess_ratio_vs_prev": 3.9293799563499063,
+   "max_diag_excess": 5.999557983282777e-05,
+   "max_overall_dev": 5.999557983282777e-05,
+   "overall_dev_ratio_vs_prev": 3.9293799563499063,
+   "residual": 3.83026943495679e-15
+  },
+  {
+   "delta": 0.02,
+   "diag_excess_ratio_vs_prev": 3.8610941897267,
+   "max_diag_excess": 0.0002316485847018157,
+   "max_overall_dev": 0.0002316485847018157,
+   "overall_dev_ratio_vs_prev": 3.8610941897267,
+   "residual": 4.496403249731884e-15
+  },
+  {
+   "delta": 0.04,
+   "diag_excess_ratio_vs_prev": 3.7310116145768846,
+   "max_diag_excess": 0.0008642835600227716,
+   "max_overall_dev": 0.0008642835600227716,
+   "overall_dev_ratio_vs_prev": 3.7310116145768846,
+   "residual": 5.745404152435185e-15
+  },
+  {
+   "delta": 0.08,
+   "diag_excess_ratio_vs_prev": 3.493622083156065,
+   "max_diag_excess": 0.003019480131404295,
+   "max_overall_dev": 0.003019480131404295,
+   "overall_dev_ratio_vs_prev": 3.493622083156065,
+   "residual": 9.603429163007604e-15
+  },
+  {
+   "delta": 0.16,
+   "diag_excess_ratio_vs_prev": 3.1012947544075966,
+   "max_diag_excess": 0.009364297892562101,
+   "max_overall_dev": 0.009364297892562101,
+   "overall_dev_ratio_vs_prev": 3.1012947544075966,
+   "residual": 4.996003610813204e-16
+  }
+ ]
+}

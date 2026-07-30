@@ -172,6 +172,10 @@
       "field": "extremal-combinatorics",
       "description": "Enumerate all near-extremal instances in range to see whether tightness is isolated or part of a family."
     },
+    "total-positivity": {
+      "field": "probability",
+      "description": "TP2/MTP2 and log-supermodularity structure: four-function and Cauchy-Schwarz cross-ratio inequalities, closure under conditioning and marginalization."
+    },
     "up-sets": {
       "field": "extremal-combinatorics",
       "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
