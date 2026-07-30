@@ -20,6 +20,7 @@
     "mechanisms.json",
     "docs/IDEATE.md",
     "docs/RIPPLE.md",
+    "docs/PLAN-physics-problems.md",
     ".claude/**/*",
     "problems/*/PRIOR-ART.md",
     "problems/*/prior-art.json",
