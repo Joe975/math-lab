@@ -1,0 +1,9 @@
+{"src": "family_W21.json", "mid": ["4091/8192", "13327/32768"], "len": 14, "half_width": "1/8192", "ok": true, "n_apexes": 5}
+{"src": "family_W21_K1600.json", "mid": ["16379/32768", "13327/32768"], "len": 14, "half_width": "1/8192", "ok": true, "n_apexes": 5}
+{"src": "family_W32.json", "mid": ["8123/16384", "8483/32768"], "len": 22, "half_width": "1/1048576", "ok": true, "n_apexes": 5}
+{"src": "family_W33.json", "mid": ["6865/16384", "7261/32768"], "len": 26, "half_width": "1/16777216", "ok": true, "n_apexes": 5}
+{"src": "family_W43.json", "mid": ["4091/8192", "3165/16384"], "len": 30, "half_width": "1/134217728", "ok": true, "n_apexes": 5}
+{"src": "family_W44.json", "mid": ["7219/16384", "2805/16384"], "len": 34, "half_width": "1/2147483648", "ok": true, "n_apexes": 5}
+{"src": "family_W55.json", "mid": ["14831/32768", "4621/32768"], "len": 42, "half_width": "1/137438953472", "ok": true, "n_apexes": 5}
+{"src": "family_W66.json", "mid": ["7553/16384", "3873/32768"], "len": 50, "half_width": "1/17592186044416", "ok": true, "n_apexes": 5}
+{"src": "family_W88.json", "mid": ["15381/32768", "2989/32768"], "len": 66, "half_width": "1/144115188075855872", "ok": true, "n_apexes": 5}

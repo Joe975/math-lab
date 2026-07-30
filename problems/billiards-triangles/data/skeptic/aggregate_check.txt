@@ -1,0 +1,35 @@
+cells: interior 739 boundary 94 CAND 264 NOCAND 475 anchored 260
+interior area 0.1804  boundary fringe 0.0159  (region 0.1963)
+
+max_len  cand%   anchored%
+  14     7.6     7.2
+  16     7.6     7.2
+  18    15.7    14.9
+  20    22.7    21.9
+  22    29.9    29.0
+  24    30.7    30.0
+  26    35.7    35.2
+
+no candidate <= 26 at midpoint: 64.3% of interior
+
+gamma band   cand%
+  92-95:  54.3  (area 0.0112)
+  95-100:  75.7  (area 0.0171)
+  100-105:  60.6  (area 0.0161)
+  105-112.3:  59.1  (area 0.0215)
+  112.3-120:  60.0  (area 0.0183)
+  120-135:  38.6  (area 0.0310)
+  135-180:   0.0  (area 0.0632)
+
+certified area over 376 anchors: 4.3e-06
+
+spot-check of cand_len at cell midpoints (own float corridor):
+  cell (27,28) mid ['55/128', '57/128']: mine 24 theirs 24 OK
+  cell (26,22) mid ['53/128', '45/128']: mine 14 theirs 14 OK
+  cell (25,6) mid ['51/128', '13/128']: mine None theirs None OK
+  cell (16,9) mid ['33/128', '19/128']: mine None theirs None OK
+  cell (29,19) mid ['59/128', '39/128']: mine 18 theirs 18 OK
+  cell (18,6) mid ['37/128', '13/128']: mine None theirs None OK
+  cell (4,2) mid ['9/128', '5/128']: mine None theirs None OK
+  cell (12,21) mid ['25/128', '43/128']: mine 20 theirs 20 OK
+spot-check: all agree
