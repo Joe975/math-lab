@@ -1,0 +1,12 @@
+kernel size of action on pairs: 2 (expect 2)
+k= 1  orbits=4
+k= 2  orbits=21
+k= 3  orbits=123
+k= 4  orbits=756
+k= 5  orbits=4310
+k= 6  orbits=22567
+k= 7  orbits=103649
+k= 8  orbits=415920
+k= 9  orbits=1456466
+k=10  orbits=4478554
+k=11  orbits=12154844

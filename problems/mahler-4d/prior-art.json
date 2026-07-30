@@ -1,6 +1,57 @@
 {
   "problem": "mahler-4d",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Onboarded, never worked. No prior art, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "EVIDENCE",
+  "route_summary": "Blind exhaustive census of centrally symmetric {0,+-1}^4-vertex polytopes up to 22 vertices (1.77M distinct bodies up to B4): minimum volume product is exactly 32/3, attained only by Hanner polytopes (1113 orbits, all GL-certified), with a spectral gap of ~0.146 to the nearest non-attainer. Skeptic-confirmed. No counterexample lives in this universe.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-zero-pm-one-vertex-census.md",
+      "date": "2026-07-30",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "volume-product-census",
+        "group-orbit-enumeration",
+        "exhaustive-enumeration",
+        "c-kernel",
+        "slice-parallelism"
+      ],
+      "one_line": "Exhaustive census of centrally symmetric conv(+-S), S <= 11 antipodal pairs in {0,+-1}^4, up to B4: minimum volume product exactly 32/3, all 1113 attainers GL-equivalent to Hanner polytopes, nearest non-attainer at +4535/31104.",
+      "leak_terms": [
+        "336311/31104",
+        "4535/31104",
+        "81101001",
+        "1113",
+        "1773715",
+        "spectrum rigidity"
+      ],
+      "range": "all centrally symmetric 4-polytopes with <= 22 vertices in {0,+-1}^4 (18,637,214 B4-orbits; 1,773,715 distinct genuine bodies); k=12..20 pairs and coordinates outside {0,+-1} NOT covered",
+      "gaps": [
+        "k-12-to-20-untested",
+        "two-tier-exactness-only-near-bound"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-skeptic-review-of-001.md",
+      "date": "2026-07-30",
+      "mode": "blind",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "volume-product-census"
+      ],
+      "one_line": "Independent Burnside recount, from-scratch exact recomputation of all 1176 near-bound bodies, verification of all 1113 Hanner certificates, and 240-body float-vs-exact audit (max deviation 8.9e-15) confirm every headline number of 001.",
+      "leak_terms": [
+        "8.9e-15",
+        "proof-grade transversals"
+      ],
+      "verifies": "001",
+      "corrections": [
+        "Outcome sec.4 'without a monotone trend' is self-contradictory: level minima are strictly decreasing over k=9,10,11; non-monotone only if k=7 is included",
+        "level-10/11 canonicality is sampled evidence (50k seeded masks each), not the proof-grade full audit done for k<=9"
+      ]
+    }
+  ]
 }

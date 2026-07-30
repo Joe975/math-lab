@@ -1,0 +1,6 @@
+data/level01.masks: 4 masks, 0 duplicates, canonicality ALL 4: 0 NON-CANONICAL
+data/level02.masks: 21 masks, 0 duplicates, canonicality ALL 21: 0 NON-CANONICAL
+data/level03.masks: 123 masks, 0 duplicates, canonicality ALL 123: 0 NON-CANONICAL
+data/level04.masks: 756 masks, 0 duplicates, canonicality ALL 756: 0 NON-CANONICAL
+data/level05.masks: 4310 masks, 0 duplicates, canonicality ALL 4310: 0 NON-CANONICAL
+data/level06.masks: 22567 masks, 0 duplicates, canonicality ALL 22567: 0 NON-CANONICAL

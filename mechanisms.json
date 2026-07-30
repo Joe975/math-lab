@@ -112,6 +112,10 @@
       "field": "graph-theory",
       "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
     },
+    "group-orbit-enumeration": {
+      "field": "algebra",
+      "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
+    },
     "independent-reimplementation": {
       "field": "logic-methodology",
       "description": "Re-derive a computational claim with different code and, where possible, a different algorithm."
@@ -187,6 +191,10 @@
     "up-sets": {
       "field": "extremal-combinatorics",
       "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
+    },
+    "volume-product-census": {
+      "field": "geometry-topology",
+      "description": "Enumerate convex bodies over a structured vertex universe and compute Mahler volume products, with exact rational recomputation near the extremum and explicit equality-case certificates."
     },
     "weighted-kl": {
       "field": "information-theory",

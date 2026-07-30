@@ -1,0 +1,5 @@
+data/level07.masks: 103649 masks, 0 duplicates, canonicality ALL 103649: 0 NON-CANONICAL
+data/level08.masks: 415920 masks, 0 duplicates, canonicality ALL 415920: 0 NON-CANONICAL
+data/level09.masks: 1456466 masks, 0 duplicates, canonicality ALL 1456466: 0 NON-CANONICAL
+data/level10.masks: 4478554 masks, 0 duplicates, canonicality sample 50000/4478554 seed=20260730: 0 NON-CANONICAL
+data/level11.masks: 12154844 masks, 0 duplicates, canonicality sample 50000/12154844 seed=20260730: 0 NON-CANONICAL

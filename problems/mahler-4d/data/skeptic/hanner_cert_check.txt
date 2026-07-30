@@ -1,0 +1,6 @@
+my Hanner family in R^4: 22 vertex sets, 10 B4-orbits, vertex counts [8, 10, 12, 16]
+all my Hanner masks have exact P = 32/3 (my code)
+1113 certificates: 1103 GL, 10 B4
+all 10 B4 certificates verified (my canon)
+GL certificates verified (all 1103): T invertible, T(V) = W bijectively; 4 distinct targets
+ALL CERTIFICATE CHECKS PASSED
