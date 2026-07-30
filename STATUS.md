@@ -3,7 +3,7 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-07-26)
+## TL;DR (updated 2026-07-30)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
@@ -19,49 +19,56 @@ and `AGENTS.md` for whether to work blind or informed.
 
 Current standing. HEADLINE: the union-closed dependent-couplings route
 SURVIVED independent skeptic review — first live interface past the
-entropy barrier in this lab (corrected ceiling 0.4315; three labeled
-proof gaps are queue item 1). Complete: Singmaster census to 2.5×10^29
-(3003 unique at mult 8); Erdős–Gyárfás verified for ALL cubic graphs to
-n=22 plus all girth-≥5 cubics at n=24 (zero candidates); lonely-runner
-k=8 census (Goddyn–Wong recovered; k=9 frontier); Erdős–Straus 601
-refuted → real signal is QR-class identity-poverty (p ≈ 10^-110);
-graceful census n ≤ 14. 12 verified results, 4 recorded dead ends,
-10 problems, ~26 reusable tools.
-
-Three physics-flavored problems were onboarded on 2026-07-28 —
-triangular billiards, Mahler in ℝ⁴, and Crouzeix — with statements,
-verification contracts and working harnesses, but **no attempts yet**.
-They are queue items 8-11 and are meant to be run blind, which costs
-nothing while their records are empty.
+entropy barrier in this lab (corrected ceiling 0.4315). Its gap (a) —
+pointwise Plackett odds-ratio control — is now REFUTED as stated, in
+both directions, with a sharp replacement range (005, confirmed by
+006); the live restatement is *averaged* odds-ratio control, and the
+perturbative lead survives untouched. The 2026-07-30 cycle also ran the
+first two blind attempts of the lab: a mahler-4d census (minimum volume
+product over all 1.77M centrally symmetric {0,±1}⁴-vertex bodies ≤ 22
+vertices is EXACTLY 32/3, attained only by Hanner polytopes, spectral
+gap ≈ 0.146 — no counterexample in that universe) and a billiards word
+census (coverage staircase stalls at 135°; needed word length grows
+hyperbolically, not super-exponentially, but certified area collapses —
+length buys angle reach, not area; the ~112.5° constructive frontier
+was rediscovered blind). Both skeptic-confirmed by from-scratch
+re-implementations. Also complete: Singmaster census to 2.5×10^29;
+Erdős–Gyárfás verified for ALL cubic graphs to n=22 plus all girth-≥5
+cubics at n=24; lonely-runner k=8 census; Erdős–Straus 601 refuted →
+QR-class identity-poverty; graceful census n ≤ 14. 15 verified
+results, 5 recorded dead ends, 10 problems, ~35 reusable tools.
+Crouzeix remains the one onboarded problem with no attempts (queue;
+run blind).
 
 ## Problem status
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 done | high | next: 2-connected C16-free test (lead 2); n=26 is a ~16h run |
-| Union-closed (Frankl) | ROUTE LIVE (verified) | high | close the three proof gaps in the couplings route (skeptic-corrected, ceiling 0.4315) |
+| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a) refuted as stated (005/006) → close the restated gaps: (a′) averaged odds-ratio control, (b) mutual-information tax, (c) perturbative assembly at ρ≈1.03 |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
-| Triangular billiards | onboarded, no attempts | high | harness ready; first attempt is the acute/right coverage self-test (run blind) |
-| Mahler in ℝ⁴ | onboarded, no attempts | high | harness ready; first attempt is the 0/±1-vertex census (run blind) |
+| Triangular billiards | census done blind (skeptic-confirmed) | high | next: prove the W(a,b) death-angle laws (test W(10,9)→162.90°); pinch-gap scan ℓ=28–34; Taylor-model enclosure as a new tier-0 tool |
+| Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] Proof-gap attack, one gap per agent: (a) Plackett odds-ratio control for the tilt family; (b) the mutual-information tax bound; (c) the perturbative assembly at ρ≈1.03 around the proven c=0 argument. Use 004's corrected statements ONLY (ceiling 0.4315, restated mini-theorem, half-mixing coupling for the {0}∪[½,1) genre). Any claimed bound → skeptic review before ledger entry.
+1. [union-closed] Proof-gap attack, one gap per agent: (a′) the AVERAGED odds-ratio control M_i ≥ λ from 005's restatement (the pointwise version is REFUTED — see 005/006; the averaged form survived its first falsifiable test on the crash family, but must first resolve the zero-mass bookkeeping for i ≥ 3 on small supports); (b) the mutual-information tax bound; (c) the perturbative assembly at ρ≈1.03 around the proven c=0 argument — 005's Prop 6 (first-order cancellation, λ + O(δ²) near product) is the natural starting point, noting its family-dependent asymptotic onset (006 part S7). Use 004+005+006's corrected statements ONLY. Any claimed bound → skeptic review before ledger entry.
 2. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
 3. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
 4. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
 5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
 6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
 7. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
-8. [mahler-4d] **Run blind.** Exact census of centrally symmetric polytopes in ℝ⁴ with vertices in {0,±1}: is anything within ε of 32/3 that is not a Hanner polytope? State the generator universe and the counts; `EVIDENCE` scoped to that universe. The harness self-test already reproduces the cube, cross-polytope and every Hanner polytope up to ℝ⁴, so treat that as done and spend the budget on the census. Kill/win: any symmetric polytope below 32/3 refutes Mahler outright — re-verify with `verify_product.py` before it is written anywhere outside the attempt record. Kill: if the {0,±1} universe is exhausted with nothing within ε of the bound and no near-miss structure, say so and stop rather than widening the coordinate set by reflex.
-9. [billiards-triangles] **Run blind.** Word census by length L: which words certify which regions of the obtuse parameter range, and where does coverage stall as the largest angle approaches and passes 112.3°? The geometry of the uncovered set is a `MAP`-grade deliverable even if no new region is covered. Kill condition: if certificate word length grows super-exponentially as the angle increases, the finite-census route is dead — record the measured growth rate, which is a better outcome than a deeper search. Note the scope limit first: an open-region certificate can only find orbits that survive perturbation, so this says nothing about unstable orbits.
-10. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
-11. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Lower value than item 9 now that the harness self-test covers Fagnano and the orthic geometry — take it only if item 9 turns up something the certificate machinery cannot express.
+8. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
+9. [billiards-triangles] Prove the W(a,b) death-angle laws from 001 (SPECULATION there; survived two out-of-sample rows in 002): the corridor endpoints are rational functions of the apex, so degeneration at γ = 180a/(a+1)° is a finite symbolic computation per a. Test predictions first: W(10,9) dies at 162.90°, W(12,12) at 166.154°. A proof turns the hyperbolic growth law from measured to established along the family curve.
+10. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
+11. [billiards-triangles] Pinch-gap scan: what covers [death(W(a,a)), birth(W(a+1,a))] (e.g. the measured [135.000°, 135.049°] where nothing ≤ 30 is alive)? Scan words of length 28–34 restricted to the family's letter statistics. If nothing bounded covers a neighbourhood of γ = 180a/(a+1)° on the arc-minimum curve, those angles are genuine accumulation points of the constructive problem.
+12. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
 
 ## Verified results
 
@@ -139,6 +146,42 @@ nothing while their records are empty.
   counterexample. Maximizers are non-caterpillar lobsters, not paths
   (folklore corrected). Novelty vs Anick's ≤16-edge database: the
   normalized and class-restricted analyses.
+- **[union-closed] Pointwise odds-ratio control REFUTED, both directions
+  (skeptic-confirmed)** (2026-07-30, attempts 005+006): the tilt family's
+  claimed pointwise control OR ≤ 2^λ fails upward on every diagonal
+  history (OR ≥ 2^λ by Cauchy–Schwarz in the tilt kernel's inner product)
+  and downward on an explicit 4-atom family with a positive-mass history
+  where OR = 2^{λ(3−n)} → 0, with all marginals < 0.38271. Sharp universal
+  range OR ∈ [2^{λ(1−m)}, 2^{λ(1+m)}], both ends attained. Near product
+  measures log₂OR = λ + O(δ²) — the perturbative lead survives. 006
+  re-derived every proposition by hand and re-computed with a from-scratch
+  engine (sparse supports, off-grid λ); the Karlin–Rinott citation was
+  checked against the paper and the binary-cube case re-proved via
+  Ahlswede–Daykin. Live restatement: averaged odds-ratio control, which
+  survived its first falsifiable test. Route stays LIVE.
+- **[mahler-4d] {0,±1}⁴ census: minimum is exactly 32/3, Hanner-only
+  (blind, skeptic-confirmed)** (2026-07-30, attempts 001+002): over all
+  centrally symmetric conv(±S), S ≤ 11 antipodal pairs of nonzero {0,±1}⁴
+  points — every centrally symmetric 4-polytope with ≤ 22 vertices in that
+  lattice cube; 18,637,214 B4-orbits, Burnside-verified; 1,773,715 distinct
+  bodies — the minimum volume product is exactly 32/3, attained by 1113
+  orbits, each GL-certified Hanner; nearest non-attainer is a single
+  10-vertex simplicial orbit at 32/3 + 4535/31104 ≈ +0.146. Skeptic
+  re-derived the orbit counts, exactly recomputed all 1176 near-bound
+  bodies from scratch, verified all 1113 certificates, and audited floats
+  vs exact (max deviation 8.9e-15). No Mahler counterexample in this
+  universe; k = 12–20 not covered.
+- **[billiards-triangles] Obtuse word census to length 26 (blind,
+  skeptic-confirmed)** (2026-07-30, attempts 001+002): 17,527 canonical
+  translation words, 376 exact dyadic-box certificates (family orbits to
+  length 66, γ ≤ 160°). Coverage staircase: ℓ=14 to 112.5°, 18 to 120°,
+  22 to 130°, 26 to 135°, nothing ≤ 26 past 135°; the length-14 family
+  dies at 112.4989° — a blind rediscovery of the published constructive
+  frontier. Needed word length grows hyperbolically in the angle
+  (ℓ ≈ 1440/(180−γ), death-law SPECULATION survived two out-of-sample
+  prediction rows), but certified box width collapses exponentially in ℓ:
+  length buys angle reach, not area. Negatives are sample-bounded; says
+  nothing about unstable orbits.
 - **[lonely-runner] k=8 tightness census to V=72** (2026-07-25, attempt
   001): among all 1,473,109,704 speed 7-tuples with max speed ≤ 72,
   exactly 3 primitives have ML < 13/100, all with ML = 1/8 exactly — (1..7)
@@ -192,6 +235,22 @@ nothing while their records are empty.
 - Ops: parallel subagents can die to 529 Overloaded during API load spikes;
   resume via SendMessage, and don't record a queue item as done until its
   files exist on disk.
+- Blind mode produced its first data points (2026-07-30): both blind
+  attempts independently rediscovered published structure — the billiards
+  census hit the ~112.5° constructive frontier to four decimal places, and
+  the mahler census recovered the full Hanner equality case — without
+  access to PRIOR-ART.md or the framing there. Early but real evidence
+  that the harnesses alone are enough to orient an attempt, and a baseline
+  for the anchor-vs-help question the mode field exists to answer.
+- Ops (2026-07-30): background watcher loops can die silently even without
+  a container restart — an agent that parks itself on "wake me when the
+  slices finish" may never be woken although its compute completed fine.
+  Orchestrator protocol unchanged but sharpened: on any agent-stopped
+  notification, health-check the compute (data-file mtimes + ps) and, if
+  the work is done but the agent idle, resume it with a state summary
+  rather than waiting. Also: 529-Overloaded kills can hit the same agent
+  repeatedly; resume works, but make restructuring/formatting jobs
+  orchestrator-side rather than burning agent restarts on them.
 - Ops (hardened after two container restarts): restarts kill agents, their
   compute, AND their waiters silently — an agent idling on a monitor dies
   without any notification. Orchestrator protocol every cycle: health-check
@@ -203,6 +262,12 @@ nothing while their records are empty.
 
 ## Dead ends
 
+- **[union-closed] Pointwise Plackett odds-ratio control (gap (a) as
+  stated)** (2026-07-30, attempts 005+006): dead in both directions — do
+  not re-attempt any pointwise uniform-in-μ version; diagonal histories
+  force the opposite inequality and structured 4-atom adversaries crash
+  the ratio to 0 within the record-relevant marginal regime. The averaged
+  restatement (a′) is the live replacement; see queue item 1.
 - **[union-closed] k-wise unions**: strictly worsen the entropy constant
   (0.382 → 0.318 → 0.276 for k = 2,3,4); recorded in attempt 001.
 - **[union-closed] Gilmer's Conjecture 1** (strengthened entropy inequality):
