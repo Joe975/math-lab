@@ -1,0 +1,27 @@
+{
+ "checks": {
+  "mu_eq_delta_sq": true,
+  "tau_parallel_axis": true,
+  "I1": true,
+  "I2": true,
+  "I3": true,
+  "D2": true,
+  "D1": true,
+  "I4": true
+ },
+ "term_counts": {
+  "B": 2,
+  "C": 2,
+  "A1": 4,
+  "mu": 1,
+  "delta": 1,
+  "w": 8,
+  "tau": 8,
+  "m": 12,
+  "pB": 4,
+  "pC": 4,
+  "pA1": 8
+ },
+ "ok": true,
+ "meaning": "each True is an exact identity in Q(i)[x^,y^,P^,Q^]; holds for ALL integer a,b and all real angles by specialization"
+}

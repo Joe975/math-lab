@@ -1,0 +1,10 @@
+{
+ "a": 16,
+ "b": 4,
+ "theta_d": 22.5,
+ "n_points": 120073,
+ "case_hits_at_or_below_theta_d": [],
+ "n_hits": 0,
+ "positive_control_above_theta_d_fires": true,
+ "ok": true
+}

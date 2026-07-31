@@ -1,0 +1,662 @@
+[
+ {
+  "a": 2,
+  "b": 1,
+  "len": 14,
+  "theta_d": "135/2",
+  "gamma_d": "225/2",
+  "corner": [
+   "45",
+   "45/2"
+  ],
+  "n_distinct_diffs": 8,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 4,
+   "generic": 5,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.008271275871167605,
+   0.00016721352895165964
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "449/4",
+   "-> 225/2 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [112.250000, 112.5) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(2,1)) = 225/2 EXACTLY"
+ },
+ {
+  "a": 2,
+  "b": 2,
+  "len": 18,
+  "theta_d": "60",
+  "gamma_d": "120",
+  "corner": [
+   "45",
+   "15"
+  ],
+  "n_distinct_diffs": 10,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 5,
+   "generic": 7,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.008634987355991663,
+   0.00017258672141773346
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "479/4",
+   "-> 120 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [119.750000, 120.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(2,2)) = 120 EXACTLY"
+ },
+ {
+  "a": 3,
+  "b": 2,
+  "len": 22,
+  "theta_d": "50",
+  "gamma_d": "130",
+  "corner": [
+   "30",
+   "20"
+  ],
+  "n_distinct_diffs": 12,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 9,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.015080518656982678,
+   0.0003036161233458401
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "519/4",
+   "-> 130 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [129.750000, 130.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(3,2)) = 130 EXACTLY"
+ },
+ {
+  "a": 3,
+  "b": 3,
+  "len": 26,
+  "theta_d": "45",
+  "gamma_d": "135",
+  "corner": [
+   "30",
+   "15"
+  ],
+  "n_distinct_diffs": 14,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 11,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.01660184191556402,
+   0.00033125930304978013
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "539/4",
+   "-> 135 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [134.750000, 135.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(3,3)) = 135 EXACTLY"
+ },
+ {
+  "a": 4,
+  "b": 2,
+  "len": 26,
+  "theta_d": "45",
+  "gamma_d": "135",
+  "corner": [
+   "45/2",
+   "45/2"
+  ],
+  "n_distinct_diffs": 14,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 11,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.019384397213460858,
+   0.00039091814364589084
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "539/4",
+   "-> 135 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [134.750000, 135.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(4,2)) = 135 EXACTLY"
+ },
+ {
+  "a": 4,
+  "b": 3,
+  "len": 30,
+  "theta_d": "315/8",
+  "gamma_d": "1125/8",
+  "corner": [
+   "45/2",
+   "135/8"
+  ],
+  "n_distinct_diffs": 16,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 13,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.02224763681635422,
+   0.00044507936132665016
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "1123/8",
+   "-> 1125/8 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [140.375000, 140.625) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(4,3)) = 1125/8 EXACTLY"
+ },
+ {
+  "a": 4,
+  "b": 4,
+  "len": 34,
+  "theta_d": "36",
+  "gamma_d": "144",
+  "corner": [
+   "45/2",
+   "27/2"
+  ],
+  "n_distinct_diffs": 18,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 15,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.02460177897663729,
+   0.0004883217924147587
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "575/4",
+   "-> 144 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [143.750000, 144.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(4,4)) = 144 EXACTLY"
+ },
+ {
+  "a": 5,
+  "b": 3,
+  "len": 34,
+  "theta_d": "36",
+  "gamma_d": "144",
+  "corner": [
+   "18",
+   "18"
+  ],
+  "n_distinct_diffs": 18,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 15,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.026572470962002548,
+   0.0005320163696000968
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "575/4",
+   "-> 144 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [143.750000, 144.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(5,3)) = 144 EXACTLY"
+ },
+ {
+  "a": 5,
+  "b": 4,
+  "len": 38,
+  "theta_d": "162/5",
+  "gamma_d": "738/5",
+  "corner": [
+   "18",
+   "72/5"
+  ],
+  "n_distinct_diffs": 20,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 17,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.03002575610360081,
+   0.0005968217762120087
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "2947/20",
+   "-> 738/5 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [147.350000, 147.6) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(5,4)) = 738/5 EXACTLY"
+ },
+ {
+  "a": 5,
+  "b": 5,
+  "len": 42,
+  "theta_d": "30",
+  "gamma_d": "150",
+  "corner": [
+   "18",
+   "12"
+  ],
+  "n_distinct_diffs": 22,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 19,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.03294444957364662,
+   0.0006501659274507077
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "599/4",
+   "-> 150 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [149.750000, 150.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(5,5)) = 150 EXACTLY"
+ },
+ {
+  "a": 6,
+  "b": 6,
+  "len": 50,
+  "theta_d": "180/7",
+  "gamma_d": "1080/7",
+  "corner": [
+   "15",
+   "75/7"
+  ],
+  "n_distinct_diffs": 26,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 23,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.04159840724181363,
+   0.00081621327276582
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "4313/28",
+   "-> 1080/7 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [154.035714, 154.28571428571428) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(6,6)) = 1080/7 EXACTLY"
+ },
+ {
+  "a": 7,
+  "b": 7,
+  "len": 58,
+  "theta_d": "45/2",
+  "gamma_d": "315/2",
+  "corner": [
+   "90/7",
+   "135/14"
+  ],
+  "n_distinct_diffs": 30,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 29,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.05050831632093855,
+   0.0009853753738819915
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "629/4",
+   "-> 315/2 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [157.250000, 157.5) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(7,7)) = 315/2 EXACTLY"
+ },
+ {
+  "a": 8,
+  "b": 8,
+  "len": 66,
+  "theta_d": "20",
+  "gamma_d": "160",
+  "corner": [
+   "45/4",
+   "35/4"
+  ],
+  "n_distinct_diffs": 34,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 35,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.059631514908079275,
+   0.001156812645383809
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "639/4",
+   "-> 160 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [159.750000, 160.0) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(8,8)) = 160 EXACTLY"
+ },
+ {
+  "a": 10,
+  "b": 9,
+  "len": 78,
+  "theta_d": "171/10",
+  "gamma_d": "1629/10",
+  "corner": [
+   "9",
+   "81/10"
+  ],
+  "n_distinct_diffs": 40,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 5,
+   "generic": 52,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.074153501392493,
+   0.0014308051446241254
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "3253/20",
+   "-> 1629/10 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [162.650000, 162.9) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(10,9)) = 1629/10 EXACTLY"
+ },
+ {
+  "a": 12,
+  "b": 12,
+  "len": 98,
+  "theta_d": "180/13",
+  "gamma_d": "2160/13",
+  "corner": [
+   "15/2",
+   "165/26"
+  ],
+  "n_distinct_diffs": 50,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 5,
+   "generic": 102,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.09777230517601831,
+   0.0018559367472987809
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "8627/52",
+   "-> 2160/13 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [165.903846, 166.15384615384616) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(12,12)) = 2160/13 EXACTLY"
+ },
+ {
+  "a": 6,
+  "b": 3,
+  "len": 38,
+  "theta_d": "135/4",
+  "gamma_d": "585/4",
+  "corner": [
+   "15",
+   "75/4"
+  ],
+  "n_distinct_diffs": 20,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 6,
+   "generic": 17,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.02998385610623533,
+   0.0006003131386775884
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "146",
+   "-> 585/4 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [146.000000, 146.25) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(6,3)) = 585/4 EXACTLY"
+ },
+ {
+  "a": 6,
+  "b": 1,
+  "len": 30,
+  "theta_d": "105/2",
+  "gamma_d": "255/2",
+  "corner": [
+   "15",
+   "75/2"
+  ],
+  "n_distinct_diffs": 16,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 4,
+   "generic": 13,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.018997614198509538,
+   0.0003860905611792198
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "509/4",
+   "-> 255/2 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [127.250000, 127.5) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(6,1)) = 255/2 EXACTLY"
+ },
+ {
+  "a": 8,
+  "b": 2,
+  "len": 42,
+  "theta_d": "75/2",
+  "gamma_d": "285/2",
+  "corner": [
+   "45/4",
+   "105/4"
+  ],
+  "n_distinct_diffs": 22,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 5,
+   "generic": 19,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.028046729753725685,
+   0.0005645577132145085
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "569/4",
+   "-> 285/2 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [142.250000, 142.5) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(8,2)) = 285/2 EXACTLY"
+ },
+ {
+  "a": 8,
+  "b": 1,
+  "len": 38,
+  "theta_d": "405/8",
+  "gamma_d": "1035/8",
+  "corner": [
+   "45/4",
+   "315/8"
+  ],
+  "n_distinct_diffs": 20,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 4,
+   "generic": 17,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.020557916642400365,
+   0.0004170429733560965
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "1033/8",
+   "-> 1035/8 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [129.125000, 129.375) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(8,1)) = 1035/8 EXACTLY"
+ },
+ {
+  "a": 7,
+  "b": 1,
+  "len": 34,
+  "theta_d": "360/7",
+  "gamma_d": "900/7",
+  "corner": [
+   "90/7",
+   "270/7"
+  ],
+  "n_distinct_diffs": 18,
+  "rho": 2,
+  "leaves": {
+   "N2": 0,
+   "N4": 0,
+   "N1_deriv": 1,
+   "N1_bisect": 4,
+   "generic": 15,
+   "tau_r": 1
+  },
+  "t0": "1/4",
+  "ok": true,
+  "float_widths_at_t0/2_t0/97": [
+   0.01987993020830281,
+   0.00040368223407805104
+  ],
+  "float_alive_crosscheck": true,
+  "gamma_range_alive": [
+   "3593/28",
+   "-> 900/7 (open)"
+  ],
+  "conclusion": "alive for all t in (0, 1/4]: gamma in [128.321429, 128.57142857142858) all realized; with the parametric necessity theorem (003 + 005 extended case tree): death(W(7,1)) = 900/7 EXACTLY"
+ }
+]
