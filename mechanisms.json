@@ -52,6 +52,10 @@
       "field": "computation",
       "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
     },
+    "chain-rule-assembly": {
+      "field": "information-theory",
+      "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
+    },
     "class-enrichment": {
       "field": "probability",
       "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
@@ -131,6 +135,10 @@
     "mordell-qr-obstruction": {
       "field": "number-theory",
       "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."
+    },
+    "mutual-information-tax": {
+      "field": "information-theory",
+      "description": "Bound the conditional mutual information a dependent coupling spends against the per-coordinate entropy gains it buys; the route survives iff gains exceed the tax."
     },
     "nauty-geng": {
       "field": "computation",

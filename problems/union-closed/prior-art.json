@@ -179,6 +179,40 @@
       ]
     },
     {
+      "id": "009",
+      "file": "attempts/009-mutual-information-tax.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Gap 2 made precise as a chain-rule assembly statement (TAX at p) and probed: it survives all four adversary genres, is smoothing-sensitive on 002's own certificates, the pure slice tilt is provably tax-free, the half-mixing coupling provably loses nothing to chain-rule certification, and a previously unnamed second tax (measured ~0.40 log2 n on slices) is identified as the binding loss channel.",
+      "range": "Crash family n<=11, lambda in [-1,3]; half-mixing genre n<=14 at two parameter points; Sawin certificate gadgets n<=60000 (block recipe, rigorous bound); CL pure slice n<=80, lambda in [0,3], p in {0.42, 0.3823}. Finite-n, finite-grid EVIDENCE only; mini-lemmas SL/HM proved but not yet skeptic-reviewed.",
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "second-tax-scaling"
+      ],
+      "leak_terms": [
+        "chain-rule assembly value",
+        "second tax",
+        "(TAX at p)",
+        "tax-free slice",
+        "uc_mitax",
+        "0.40 log2 n",
+        "lambda-window narrowing",
+        "CR = Gain identically"
+      ],
+      "note": "Deliberately the smallest-budget line of the cycle: a probe, not a campaign. The expected outcome was a precise obstruction; instead the candidate survived everywhere tested and the losses were localized (T_A vs ST, by genre)."
+    },
+    {
       "id": "010",
       "file": "attempts/010-ideation-sweep-fields.md",
       "date": "2026-07-31",
