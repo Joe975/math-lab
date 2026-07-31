@@ -92,6 +92,10 @@
       "field": "information-theory",
       "description": "Gilmer-style argument: bound the entropy of a combined random object against the entropies of its parts."
     },
+    "exact-rational-arithmetic": {
+      "field": "computation",
+      "description": "Certified exact computation over Q (fractions, directed rounding, rigorous enclosures) replacing floating point in verification, so that a numeric claim becomes a rational identity or a certified inequality."
+    },
     "exact-rational-ml": {
       "field": "computation",
       "description": "Exact rational arithmetic for extremal quantities, so ties and strict inequalities are decided without float error."

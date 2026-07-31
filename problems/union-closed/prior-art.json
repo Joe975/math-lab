@@ -359,6 +359,42 @@
         "most conservative assembly",
         "m_k legality"
       ]
+    },
+    {
+      "id": "013",
+      "file": "attempts/013-skeptic-review-of-007.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "verifies": "007",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "gram-mass-pairing"
+      ],
+      "one_line": "Exact rational arithmetic (Fraction end-to-end, certified log2 enclosures) confirms 007 in full: the 10-atom witness's violation is certified float-free at rational tilts spanning lambda ~ 0.0144..5 including exactly rational lambda = 2, 3, 4 (positive at small t exactly where Theorem C forces it), both invariances hold as exact rational identities, the aggregate is certified positive (+1.844669) and survives witness-seeded two-coordinate attacks, all four partial theorems re-derive by hand, and the refutation even survives the conjecture-friendliest alternative bookkeeping (degenerate histories scored at lambda: still -0.067); no corrections, one cosmetic runtime discrepancy.",
+      "range": "Witness certified at 12 exact rational tilt parameters (fixed-u family t = 101/100 .. 32 plus rationalized-refit measures at lambda = 1, 2, 3 within 9.2e-16 of the witness mu); enclosure widths < 1e-40; own 96-instance battery + 21-endpoint aggregate hunt at n <= 7; Theorem B probed on 500 random <= 4-atom instances; hand re-derivations of section 1, Lemmas G/M, Theorems A/B/C and both invariances",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "oravgsk",
+        "uc_or_avg_skeptic",
+        "exact rational witness",
+        "convention robustness",
+        "surrogate-lambda",
+        "1.844669",
+        "minor ratio 6.68"
+      ],
+      "note": "Decisive check: 007's confessed vulnerability (both engines share IEEE floats; its first witnesses were shared-underflow artifacts) is closed by re-verifying the witness in exact rational arithmetic with directed-rounding log2 enclosures. At t = 4 and t = 16 the refutation of M_i >= lambda is a fully rational statement with lambda = 2, 4 exactly. New strengthening beyond 007: the violation does not hinge on the conditioning-out convention (degenerate histories scored at exactly lambda still give M_5 - lambda = -0.067, certified). Nuance: exact certificates at lambda = 1, 2, 3 are for rationalized-refit measures within 9.2e-16 of the witness mu, not the identical rational mu. Theorem C's smoothness step is analogous to but not literally discharged by 008's P6-prime (P6-prime is d/d-mu at fixed lambda; Theorem C needs d/d-lambda at fixed mu)."
     }
   ]
 }
