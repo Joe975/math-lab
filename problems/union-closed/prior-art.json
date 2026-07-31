@@ -361,6 +361,50 @@
       ]
     },
     {
+      "id": "012",
+      "file": "attempts/012-skeptic-review-of-008.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "008",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "perturbative-expansion",
+        "implicit-function-theorem"
+      ],
+      "one_line": "Line-by-line re-derivation and two independent engines (incl. an orbit-symmetrized census that reaches n = 32) confirm 008's Theorem P6' closure of the Prop-6 smoothness gap, the 78-run assembly table, the calibration block, and the centered-kernel closed form; but the conditional theorem's constants fail (box-uniform tau_half is analytically false at 008's own s0 = 0.10, ceiling s0 <= 0.0843; delta_0 = 0.022 should be <= 0.0079 by 008's own formula, ~0.004 corrected), and the extended census reverses the flattening reading: the averaged downward OR budget's increments stop shrinking and start growing past n ~ 22 (claimed limits 0.07/0.3 passed by n = 16/10, delta^2-coefficient verified stable in delta at n = 32), killing budget (B1) as stated at evidence level by 008's own lead-1 criterion, while the tax budget (B2) is first-order in delta, not quadratic, in every observable window.",
+      "corrections": [
+        "conditional theorem's 'G nondecreasing in tau up to tau_half on the box' is analytically false at (p, rho, s0) = (0.383, 1.2, 0.10): (x0+s0)^2 = 0.5141 > 1/2 and z > xy for rho > 1, so tau_half(corner) = 0; the claimed P2d numerical check does not exist in uc_pert.py; repair requires s0 <= x_c - x0 = 0.0843 with re-measured constants",
+        "delta_0 ~ 0.022 does not follow from 008's stated formula: the code drops the ||G||_box/s0^2 c3 term (||G||_box = 0.1456, never computed by 008 -> delta_0 = 0.0079); the off-box charge needs the global sup(-G) = 0.487, not ||G||_box; M_tau must include the tau < 0 side (0.0838 vs 0.0592); c3 is ~4.7 not 2.5; fully corrected delta_0 ~ 0.004",
+        "the averaged downward budget does NOT flatten: at (0.383, 1.2) the delta->0 coefficient rises 0.065 (n=9) -> 0.104 (n=32) with increasing increments; at (0.30, 1.0) it passes the claimed 0.3 limit at n = 10 and reaches >= 1.24 by n = 32 (the fixed-delta turnover is a delta-saturation artifact); (B1) with n-uniform constant is dead at EVIDENCE level per 008's own lead-1 falsification criterion",
+        "the tax is first-order in delta (halving ratios -> 2), not O(delta^2), in every observable window at large n; fixed-delta tax/delta^2 exceeds the instantiated c2 = 0.01 by 10x at n = 32; (B2) must be restated as a linear-in-delta budget (absolute tax stays tiny, so end-to-end positivity is not threatened)",
+        "'worst in-class net = +0.0003 (slice n=5 delta=0.2)' is out of class by 008's own capped flag; true worst in-class min-net is ~ +0.00105 (rho=1.06 crash n=6 delta=0.02)",
+        "P6' constant chase: the stated step 'using m0 <= 1/2' yields 831, not 924 (924 corresponds to m0 <= 1; bound valid either way); the 'measured c ~ 0.6' looseness illustration ignores 008's own census worst case c ~ 20.6"
+      ],
+      "range": "Hand re-derivation of Lemmas A-C and Theorem P6' in full; P6' bound stress-tested on 120 instances (n <= 6, five directions incl. delta_full and half-empty, delta up to the theorem boundary 0.5, zero violations); Lemma B checked at interior delta; 78-run table spot-verified to 5e-6 and 104-run capped-negative hunt (rho in {1.045, 1.06, 1.20}, n <= 9, delta <= 0.2, incl. the half-empty direction with marginals exactly p) found none; budget census re-run and extended to n = 32 on the crash direction via an orbit-symmetrized engine (n <= 9 values reproduce 008 to all printed digits), with delta -> 0 stability verified at n = 32 down to delta = 0.003125 for the downward budget (clean delta^2) and shown NOT to hold for the tax (delta-linear); conditional-theorem constants recomputed on 008's grid plus tau < 0 and global domains",
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "sinkhorn-tv-stability"
+      ],
+      "leak_terms": [
+        "uc_pert_skeptic",
+        "pertsk",
+        "orbit engine",
+        "budget growth resumes",
+        "delta-linear tax",
+        "s0 ceiling 0.0843",
+        "tau_half corner",
+        "corrected delta0",
+        "n = 32 census"
+      ]
+    },
+    {
       "id": "013",
       "file": "attempts/013-skeptic-review-of-007.md",
       "date": "2026-07-31",
