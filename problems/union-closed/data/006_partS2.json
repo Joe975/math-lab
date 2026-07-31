@@ -1,0 +1,8 @@
+{
+ "lambda0_max_abs_or_minus_1": 1.1102230246251565e-15,
+ "min_diag_or_over_2lam_all": 0.9999999999999993,
+ "min_diag_or_over_2lam_i_lt_n": 0.9999999999999997,
+ "n": 6,
+ "proportional_slice_equality_dev": 0.0,
+ "trials": 60
+}

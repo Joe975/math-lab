@@ -1,0 +1,26 @@
+[S1] reduction OR = 2^lam * cross-ratio: 15336 histories (dense+sparse, n=4..6), max rel err 4.66e-15 (PASS)
+[S2] diagonal C-S, 60 random potentials (n=6, dense+sparse): min OR/2^lam = 1.000000000000 all, 1.000000000000 on i<n (PASS)
+[S2] proportional-slice equality dev 0.00e+00; lambda=0 max|OR-1| = 1.11e-15 (equality WITHOUT proportional slices -> Prop 2's 'iff' needs lambda > 0)
+[S3] n= 4: max marginal 0.3700, H=1.7625 bits, crash mass 0.1112, log2 OR errs at lam .7/1/1.9 <= 2.2e-16
+[S3] n= 5: max marginal 0.3700, H=1.7625 bits, crash mass 0.1007, log2 OR errs at lam .7/1/1.9 <= 2.2e-16
+[S3] n= 8: max marginal 0.3700, H=1.7625 bits, crash mass 0.0892, log2 OR errs at lam .7/1/1.9 <= 1.8e-15
+[S3] n=11: max marginal 0.3700, H=1.7625 bits, crash mass 0.0875, log2 OR errs at lam .7/1/1.9 <= 1.8e-15
+[S3] full support lam=1.0 eps=0.01: log2 OR = -4.6204 (limit -5.0)
+[S3] full support lam=1.0 eps=0.001: log2 OR = -4.9587 (limit -5.0)
+[S3] full support lam=1.0 eps=0.0001: log2 OR = -4.9958 (limit -5.0)
+[S3] full support lam=1.5 eps=0.01: log2 OR = -6.5553 (limit -7.5)
+[S3] full support lam=1.5 eps=0.001: log2 OR = -7.3859 (limit -7.5)
+[S3] full support lam=1.5 eps=0.0001: log2 OR = -7.4883 (limit -7.5)
+[S3] crash identity log2 OR = lam(3-n): max |err| = 1.8e-15 (PASS)
+[S4] range sweep (30 potentials, dense+sparse, n=6): min slack lo/hi = -0.000/-0.000 (PASS); both ends attained at n=5,7: PASS
+[S5] mixture census vs 005_partE.json: max abs diff over every reported field = 1.07e-14 (PASS)
+[S6a] MTP2 marginalization (Karlin-Rinott Prop 3.2), 120 random ferro f, n=5..7: worst log-supermod ratio of marginal = 1.006497516753 (PASS)
+[S6b] 20 random log-supermodular potentials (n=5, lam 0.5/2.0): min OR/2^lam over ALL histories = 1.000000000000 (PASS)
+[S6c] worst_case_instance refit: mu MTP2 ratio 1.002112 (is MTP2); fitted-u worst ratio 0.992152021 (claimed 0.992152021); min OR/2^lam 1.000000000
+[S7] 005_family_Bern30_Bern05_n5: max|log2 OR - lam| = 1.53e-05 6.00e-05 2.32e-04 8.64e-04 3.02e-03; log-log slopes 1.974 1.949 1.900 1.805
+[S7] second_family_Bern35_Bern70_n5: max|log2 OR - lam| = 4.54e-07 1.80e-06 7.13e-06 2.79e-05 1.06e-04 3.89e-04 3.78e-03 1.79e-02; log-log slopes 1.992 1.983 1.966 1.933 1.869 1.642 1.121
+[S8] crash n=5 lam=1.0: M_i = +1.849 +2.095 -- -- --  (all M_i >= lambda)
+[S8] crash n=8 lam=1.0: M_i = +2.284 +3.542 -- -- -- -- -- --  (all M_i >= lambda)
+[S8] mirror n=5 lam=1.0: M_i = +1.000 +4.000 -- -- --  (all M_i >= lambda)
+[S8] mirror n=8 lam=1.0: M_i = +1.000 +7.000 -- -- -- -- -- --  (all M_i >= lambda)
+done; checkpoints in /home/user/math-lab/problems/union-closed/data

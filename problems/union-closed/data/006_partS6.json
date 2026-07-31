@@ -1,0 +1,15 @@
+{
+ "instance": {
+  "claimed": 0.9921520205873654,
+  "lambda": 1.5,
+  "min_or_over_2lam": 0.9999999999999997,
+  "mu_is_mtp2": true,
+  "mu_worst_ratio": 1.0021122719403286,
+  "resid": 3.241851231905457e-14,
+  "sym_dev": 4.476419235288631e-13,
+  "u_worst_ratio": 0.9921520205873636
+ },
+ "marginalization_tests": 120,
+ "min_or_ratio_logsupermod": 0.9999999999999992,
+ "worst_marginal_ratio": 1.0064975167525314
+}

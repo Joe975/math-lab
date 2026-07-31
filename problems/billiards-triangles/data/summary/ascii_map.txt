@@ -1,0 +1,37 @@
+31                         ........
+30                     .....#####jD
+29                   ...########DDD
+28                 ...#####I#IIHDDD
+27               ...#######IJ##DDDD
+26              ..#HH###FFFFFFDDDDD
+25             ..##HHHH#FFFFFDDDDDD
+24           ...##GGGGGFFFFFDDDDDDD
+23          ..#GGGGGGGGFFFDDDDDDDDD
+22         ..GGGGGGGGGFFFFDDDDDDDDD
+21        ..GGGGGGGH##F#jDDDDDD#HHH
+20        .GGGGGJ####HHHDDFFFFF#HHH
+19       ..GGGG###JJHHDFFFFFFFFFF#H
+18      ..GGG####JJHHHFFFFFFFFFF#HH
+17     ..GGG####JJJHFFFFF#####J#HHH
+16     .GGI#####J#JFFFHHHHHJJJJ#HHH
+15    ..GI#######JFFHHH######JHHHHH
+14    .GG########FHHHJ######HJJJ###
+13   ..G########hHJJ######JJJJJJJJ#
+12   .G########hHJ#######J#########
+11  ..#########J###################
+10  .G#############################
+ 9  .##############################
+ 8  .##############################
+ 7 ..##############################
+ 6 .###############################
+ 5 .###############################
+ 4 .###############################
+ 3 .###############################
+ 2 .###############################
+ 1 .###############################
+ 0 ................................
+
+x: i/64..(i+1)/64, y: j/64..(j+1)/64; apex parameter region x<=1/2 of the obtuse half-disk
+letter = minimal candidate word length at cell midpoint: d=14 e=16 f=18 g=20 h=22 i=24 j=26
+UPPERCASE = midpoint neighbourhood carries an exact harness certificate (anchor)
+# = no candidate word of length <= 26; . = cell straddles the region boundary

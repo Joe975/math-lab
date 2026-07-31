@@ -48,6 +48,10 @@
       "field": "computation",
       "description": "Partition the search domain into canonical cells enumerated exactly once, giving a completeness guarantee."
     },
+    "certified-box-coverage": {
+      "field": "computation",
+      "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
+    },
     "class-enrichment": {
       "field": "probability",
       "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
@@ -107,6 +111,10 @@
     "girth-restriction": {
       "field": "graph-theory",
       "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
+    },
+    "group-orbit-enumeration": {
+      "field": "algebra",
+      "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
     },
     "independent-reimplementation": {
       "field": "logic-methodology",
@@ -172,9 +180,21 @@
       "field": "extremal-combinatorics",
       "description": "Enumerate all near-extremal instances in range to see whether tightness is isolated or part of a family."
     },
+    "total-positivity": {
+      "field": "probability",
+      "description": "TP2/MTP2 and log-supermodularity structure: four-function and Cauchy-Schwarz cross-ratio inequalities, closure under conditioning and marginalization."
+    },
+    "unfolding-word-census": {
+      "field": "dynamics",
+      "description": "Enumerate symbolic bounce words, reduce them by symmetry, and certify periodic billiard orbits by unfolding each word to a translation and intersecting the resulting corridor over a parameter box."
+    },
     "up-sets": {
       "field": "extremal-combinatorics",
       "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
+    },
+    "volume-product-census": {
+      "field": "geometry-topology",
+      "description": "Enumerate convex bodies over a structured vertex universe and compute Mahler volume products, with exact rational recomputation near the extremum and explicit equality-case certificates."
     },
     "weighted-kl": {
       "field": "information-theory",

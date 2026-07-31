@@ -1,0 +1,126 @@
+{
+ "mixture": "0.7*Bern(0.30)+0.3*Bern(0.05)",
+ "n": 6,
+ "runs": [
+  {
+   "lambda": 0.5,
+   "per_coordinate": [
+    {
+     "i": 1,
+     "mass_or_above_2lam": 0.9999999999999963,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 0.5147639024776296,
+     "max_log2_or": 0.5147639024776296,
+     "min_diag_or_over_2lam": 1.0102860993020382,
+     "min_log2_or": 0.5147639024776296
+    },
+    {
+     "i": 2,
+     "mass_or_above_2lam": 1.0,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 0.5111191987862953,
+     "max_log2_or": 0.5162429985273583,
+     "min_diag_or_over_2lam": 1.0005109980913172,
+     "min_log2_or": 0.5007370261188107
+    },
+    {
+     "i": 3,
+     "mass_or_above_2lam": 0.9999999999999994,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 0.507775862195232,
+     "max_log2_or": 0.5157445067694635,
+     "min_diag_or_over_2lam": 1.000010711246576,
+     "min_log2_or": 0.5000154529795566
+    },
+    {
+     "i": 4,
+     "mass_or_above_2lam": 0.9999999999999987,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 0.5047865402539828,
+     "max_log2_or": 0.5126950420749257,
+     "min_diag_or_over_2lam": 1.0000000513391727,
+     "min_log2_or": 0.5000000740667682
+    },
+    {
+     "i": 5,
+     "mass_or_above_2lam": 0.9887966622893513,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 0.5021875311627226,
+     "max_log2_or": 0.5071659765546274,
+     "min_diag_or_over_2lam": 1.000000016927329,
+     "min_log2_or": 0.4999867171192768
+    },
+    {
+     "i": 6,
+     "mass_or_above_2lam": 0,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 0.5000000000000001,
+     "max_log2_or": 0.5000000000000006,
+     "min_diag_or_over_2lam": 0.9999999999999996,
+     "min_log2_or": 0.49999999999999944
+    }
+   ],
+   "sinkhorn_residual": 7.105427357601002e-15
+  },
+  {
+   "lambda": 1.5,
+   "per_coordinate": [
+    {
+     "i": 1,
+     "mass_or_above_2lam": 0.9999999999999994,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 1.5434808390945418,
+     "max_log2_or": 1.5434808390945418,
+     "min_diag_or_over_2lam": 1.0305973865200013,
+     "min_log2_or": 1.5434808390945418
+    },
+    {
+     "i": 2,
+     "mass_or_above_2lam": 0.9999999999999999,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 1.5336174748552314,
+     "max_log2_or": 1.5484868260852975,
+     "min_diag_or_over_2lam": 1.0012192597797116,
+     "min_log2_or": 1.5017579485574069
+    },
+    {
+     "i": 3,
+     "mass_or_above_2lam": 0.9999999999999996,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 1.5240941967608321,
+     "max_log2_or": 1.5475749512732917,
+     "min_diag_or_over_2lam": 1.0000044868708895,
+     "min_log2_or": 1.5000064731718594
+    },
+    {
+     "i": 4,
+     "mass_or_above_2lam": 0.9654614243881525,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 1.5151676500090776,
+     "max_log2_or": 1.5387985223253389,
+     "min_diag_or_over_2lam": 1.0000058134544003,
+     "min_log2_or": 1.4994319077493954
+    },
+    {
+     "i": 5,
+     "mass_or_above_2lam": 0.9019043403957254,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 1.5070712098781764,
+     "max_log2_or": 1.5221493829606145,
+     "min_diag_or_over_2lam": 1.0000026869982894,
+     "min_log2_or": 1.499663712866185
+    },
+    {
+     "i": 6,
+     "mass_or_above_2lam": 0,
+     "mass_or_below_1": 0,
+     "mass_weighted_mean_log2_or": 1.4999999999999798,
+     "max_log2_or": 1.5000000000000009,
+     "min_diag_or_over_2lam": 0.9999999999999992,
+     "min_log2_or": 1.499999999999999
+    }
+   ],
+   "sinkhorn_residual": 3.2751579226442118e-15
+  }
+ ]
+}

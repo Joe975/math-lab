@@ -1,0 +1,12 @@
+{"src": "arcsweep_frontier.jsonl", "mid": ["5/16", "9939/32768"], "len": 14, "half_width": "1/32768", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["6963/16384", "3879/16384"], "len": 22, "half_width": "1/2097152", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "13379/32768"], "len": 14, "half_width": "1/8192", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "12227/32768"], "len": 14, "half_width": "1/8192", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "4307/16384"], "len": 22, "half_width": "1/1048576", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "13499/32768"], "len": 14, "half_width": "1/8192", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "15677/32768"], "len": 14, "half_width": "1/16384", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_frontier.jsonl", "mid": ["2437/8192", "9709/32768"], "len": 14, "half_width": "1/65536", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "2063/8192"], "len": 22, "half_width": "1/1048576", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["6963/16384", "10071/32768"], "len": 18, "half_width": "1/131072", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["3973/8192", "4171/16384"], "len": 22, "half_width": "1/1048576", "ok": true, "n_apexes": 5}
+{"src": "arcsweep_fine.jsonl", "mid": ["14909/32768", "7939/32768"], "len": 22, "half_width": "1/2097152", "ok": true, "n_apexes": 5}

@@ -1,0 +1,1 @@
+improper sampled 40, mismatches 0; degen sampled 8, mismatches 0

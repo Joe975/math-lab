@@ -1,6 +1,57 @@
 {
   "problem": "billiards-triangles",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Onboarded, never worked. No prior art, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "EVIDENCE",
+  "route_summary": "Word-census route mapped blind to length 26: 376 exact certificates (family orbits to length 66, gamma <= 160 deg), coverage staircase stalling at 135 deg, and a measured hyperbolic (not super-exponential) growth of needed word length vs angle - but certified box width collapses exponentially in length, so length buys angle reach, not area. Negatives are sample-bounded; skeptic-confirmed with one numeric correction.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-word-census-coverage-map.md",
+      "date": "2026-07-30",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "unfolding-word-census",
+        "certified-box-coverage",
+        "exhaustive-enumeration"
+      ],
+      "one_line": "Canonical word census to length 26 with 376 exact certificates: coverage staircase stalls at 135 deg, blind rediscovery of the ~112.5 deg frontier, and a hyperbolic certificate-length growth law along the W(a,b) family (checked to length 66).",
+      "leak_terms": [
+        "112.4989",
+        "W(a,b)",
+        "coverage staircase",
+        "length buys angle reach",
+        "17,527"
+      ],
+      "range": "canonical translation words of even length <= 26 (17,527 words); 1/64-cell midpoint screen of the obtuse half-disk; exact dyadic-box anchors; family rows to W(8,8), gamma <= 160 deg",
+      "gaps": [
+        "sample-bounded-negatives",
+        "death-angle-laws-unproven"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-skeptic-review-of-001.md",
+      "date": "2026-07-30",
+      "mode": "blind",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "unfolding-word-census"
+      ],
+      "one_line": "From-scratch re-implementation of every layer confirms 001 (36/36 sampled certificates at 180 exact apexes, 17,527-word universe reproduced word-for-word, death law survives two out-of-sample prediction rows); certified-area figure corrected to ~4.3e-6.",
+      "leak_terms": [
+        "147.5974",
+        "157.4976",
+        "4.3e-6"
+      ],
+      "verifies": "001",
+      "corrections": [
+        "certified-area total over all 376 anchors is ~4.3e-6, not ~2.2e-6 (which is the map-anchor subtotal)",
+        "the 64.3% uncovered figure is of the resolved interior, not the whole obtuse region",
+        "anchor simulation re-derivation is at the anchor centre; the full 9-sample box attack ran on every 5th/7th record",
+        "kill-condition verdict is measured only to gamma ~ 160 deg; beyond that the hyperbolic form is the SPECULATION law's extrapolation"
+      ]
+    }
+  ]
 }

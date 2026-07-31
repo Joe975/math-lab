@@ -1,0 +1,33 @@
+{
+ "a": 2,
+ "b": 1,
+ "word": "01212020121202",
+ "len": 14,
+ "is_word": true,
+ "is_translation_word": true,
+ "alive_gammas_coarse": [
+  90.25,
+  112.25
+ ],
+ "n_alive_gammas": 45,
+ "death_between": [
+  112.49728393554688,
+  112.4972915649414
+ ],
+ "birth_between": [
+  90.01718139648438,
+  90.0171890258789
+ ],
+ "anchor_apex": [
+  "16379/32768",
+  "13327/32768"
+ ],
+ "anchor_gamma": 101.7491,
+ "anchor": {
+  "len": 14,
+  "word": "01212020121202",
+  "half_width": "1/8192"
+ },
+ "sim_ok": true,
+ "sim_msg": "closed after 7 bounces (word length 14) at ('12520972296706633/16591813145603125', '9930824820289868/49775439436809375')"
+}

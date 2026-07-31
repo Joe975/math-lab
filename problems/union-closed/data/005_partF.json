@@ -1,0 +1,201 @@
+{
+ "max_diag_or_over_2lam_logsupermod": 1.0553925875834658,
+ "min_or_ratio_logsupermod_potentials": 0.9999999999999994,
+ "min_or_ratio_mu_mtp2_instances": 0.9999999999999992,
+ "n": 4,
+ "probe": [
+  {
+   "lambda": 0.5,
+   "residual": 3.219646771412954e-15,
+   "trial": 0,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.0152096759778402
+  },
+  {
+   "lambda": 1.5,
+   "residual": 2.3314683517128287e-15,
+   "trial": 0,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.0021875632951336
+  },
+  {
+   "lambda": 0.5,
+   "residual": 1.1102230246251565e-16,
+   "trial": 1,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.5400854066325926
+  },
+  {
+   "lambda": 1.5,
+   "residual": 4.107825191113079e-15,
+   "trial": 1,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.491310976553758
+  },
+  {
+   "lambda": 0.5,
+   "residual": 9.992007221626409e-16,
+   "trial": 2,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.096543458098937
+  },
+  {
+   "lambda": 1.5,
+   "residual": 7.771561172376096e-16,
+   "trial": 2,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.084032891140258
+  },
+  {
+   "lambda": 0.5,
+   "residual": 1.1102230246251565e-15,
+   "trial": 3,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.4175183037763917
+  },
+  {
+   "lambda": 1.5,
+   "residual": 9.159339953157541e-15,
+   "trial": 3,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.375740984388391
+  },
+  {
+   "lambda": 0.5,
+   "residual": 4.996003610813204e-16,
+   "trial": 4,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.1695795500902584
+  },
+  {
+   "lambda": 1.5,
+   "residual": 5.717648576819556e-15,
+   "trial": 4,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.1604198305807143
+  },
+  {
+   "lambda": 0.5,
+   "residual": 3.3306690738754696e-16,
+   "trial": 5,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.3240864698841956
+  },
+  {
+   "lambda": 1.5,
+   "residual": 8.326672684688674e-15,
+   "trial": 5,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.2958668315335526
+  },
+  {
+   "lambda": 0.5,
+   "residual": 1.609823385706477e-15,
+   "trial": 6,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.0013795335078548
+  },
+  {
+   "lambda": 1.5,
+   "residual": 2.0539125955565396e-15,
+   "trial": 6,
+   "u_log_supermodular": false,
+   "worst_supermod_ratio": 0.9921520205873654
+  },
+  {
+   "lambda": 0.5,
+   "residual": 3.885780586188048e-16,
+   "trial": 7,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.3091291921570427
+  },
+  {
+   "lambda": 1.5,
+   "residual": 7.382983113757291e-15,
+   "trial": 7,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.289026344609819
+  },
+  {
+   "lambda": 0.5,
+   "residual": 1.3322676295501878e-15,
+   "trial": 8,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.6007960576380384
+  },
+  {
+   "lambda": 1.5,
+   "residual": 4.9960036108132044e-15,
+   "trial": 8,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.5493609089037814
+  },
+  {
+   "lambda": 0.5,
+   "residual": 2.9976021664879227e-15,
+   "trial": 9,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.061313923327805
+  },
+  {
+   "lambda": 1.5,
+   "residual": 3.552713678800501e-15,
+   "trial": 9,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.0525994462119286
+  },
+  {
+   "lambda": 0.5,
+   "residual": 3.608224830031759e-15,
+   "trial": 10,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.0144373135633895
+  },
+  {
+   "lambda": 1.5,
+   "residual": 1.734723475976807e-15,
+   "trial": 10,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.005208904840709
+  },
+  {
+   "lambda": 0.5,
+   "residual": 1.9984014443252818e-15,
+   "trial": 11,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.5665552517699004
+  },
+  {
+   "lambda": 1.5,
+   "residual": 9.992007221626409e-16,
+   "trial": 11,
+   "u_log_supermodular": true,
+   "worst_supermod_ratio": 1.5443262223317156
+  }
+ ],
+ "probe_failures": 1,
+ "worst_case_instance": {
+  "lambda": 1.5,
+  "mu": {
+   "0": 0.006973285153276113,
+   "1": 0.009658158255930912,
+   "10": 0.037315817397744,
+   "11": 0.1844631844704283,
+   "12": 0.008640302179353042,
+   "13": 0.0550495782679821,
+   "14": 0.03845672510883331,
+   "15": 0.486330782845626,
+   "2": 0.008718247771473946,
+   "3": 0.02396737642613593,
+   "4": 0.004290689087901643,
+   "5": 0.01520290765157841,
+   "6": 0.008965864384921545,
+   "7": 0.06305596465691858,
+   "8": 0.014012735674929043,
+   "9": 0.03489838066696723
+  },
+  "residual": 2.0539125955565396e-15,
+  "trial": 6
+ },
+ "worst_u_supermod_ratio": 0.9921520205873654
+}

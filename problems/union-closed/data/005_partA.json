@@ -1,0 +1,8 @@
+{
+ "lambda": 0.8,
+ "max_abs_log2_or_minus_lambda": 1.4432899320127035e-15,
+ "n": 4,
+ "n_histories": 85,
+ "p": 0.3,
+ "sinkhorn_residual": 5.190292640122607e-15
+}

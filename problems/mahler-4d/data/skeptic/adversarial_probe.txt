@@ -1,0 +1,4 @@
+81101001: NOT-HANNER: not B4-equivalent and no linear map onto any harness Hanner vertex set exists (exhaustive basis-image search)
+1680180: NOT-HANNER: not B4-equivalent and no linear map onto any harness Hanner vertex set exists (exhaustive basis-image search)
+21b7: NOT-HANNER: not B4-equivalent and no linear map onto any harness Hanner vertex set exists (exhaustive basis-image search)
+11001010: GL-equivalent to harness Hanner mask 80002000a via T=[1,0,0,0; 0,0,1/2,-1/2; 0,1,0,0; 0,0,1/2,1/2]

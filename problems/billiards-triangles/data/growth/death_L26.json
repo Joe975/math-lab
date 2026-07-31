@@ -1,0 +1,16 @@
+{
+ "len": 26,
+ "points_per_arc": 400,
+ "x_lo": 0.02,
+ "alive_at_gamma_lo": 1,
+ "death_between": [
+  134.99411010742188,
+  134.9942626953125
+ ],
+ "last_alive_words": [
+  "01212120202020121212020202"
+ ],
+ "confirm_gamma": 135.2442626953125,
+ "confirm_alive_full_scan": 0,
+ "confirm_words": []
+}
