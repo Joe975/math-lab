@@ -17,34 +17,37 @@ hourly routine with that file as the prompt. Everything needed is in this
 directory. New attempts are welcome as pull requests; see `CONTRIBUTING.md`,
 and `AGENTS.md` for whether to work blind or informed.
 
-Current standing. HEADLINE: the 2026-07-31 cycle attacked all three
-gaps of the LIVE union-closed route in parallel; every verdict is
-skeptic-confirmed. Gap (a′) — averaged odds-ratio control — is
-REFUTED by an explicit 10-atom witness (M_5 = λ − 0.122, all
-marginals ≤ 0.318 < 0.38271), certified float-free in exact rational
-arithmetic and robust to the bookkeeping convention; the i-AGGREGATED
-control survives certified (+1.84 on the witness itself) and is the
-restated gap. Gap (c): the smoothness step 005's Prop 6 was missing is
-now a proved theorem (P6′, quantitative IFT, skeptic-verified at fixed
-n) — but the skeptic's n=32 census killed the naive n-uniform budget
-(the flattening reverses past n ≈ 22) and showed the tax is δ-linear,
-so the conditional assembly needs a corrected budget object. Gap (b)
-got its first precise statement and survived everywhere tested (the
-slice tilt is provably tax-free; a newly named "second tax"
-~0.40·log₂n is the binding loss channel; λ-window law λ_max ≈
-4.847/(n−3)). Route stays LIVE, ceiling 0.4315 vs record 0.38271.
-Also this cycle: the billiards W(a,b) death-angle laws held both
-pre-registered out-of-sample predictions, were unified into a general
-law γ_d(a,b) = 180 − 90(a+b)/(a(b+1)), and PROVEN as a necessity
-theorem (machine-certified for 15 members, skeptic-confirmed); and the
-first cross-field ideation sweep ran on union-closed (6 lenses → 3
-queue-worthy routes, 5 no-purchase verdicts, one proven product-weight
-no-go). Standing library: Singmaster census to 2.5×10^29;
-Erdős–Gyárfás for all cubics to n=22 + girth-≥5 at n=24; lonely-runner
-k=8; Erdős–Straus identity-poverty; graceful n ≤ 14; mahler-4d and
-billiards blind censuses. 19 verified results, 7 recorded dead ends,
-10 problems, ~40 reusable tools. Crouzeix remains the one problem with
-no attempts (queue; run blind).
+Current standing. HEADLINE: the second 2026-07-31 cycle ran the
+two-track billiards plan (old queue 11+12); all four records are
+skeptic-confirmed, six corrections total, none load-bearing.
+Conservative track (005+008): the W(a,b) death law is closed on both
+sides — the half word composes in closed form to
+R₀·Rot_A(2aα)·Rot_B(−2bβ), so I1–I4 and the glide facts are proven
+for ALL (a,b) by one formal-ring check, Lemmas C and D fall to an
+elementary monotonicity lemma, the case tree closes with the
+a ≤ 2b+3 restriction REMOVED (necessity is now fully parametric for
+a ≥ b ≥ 1, a ≥ 2), and certified alive segments into the death
+corner give death(W(a,b)) = γ_d(a,b) EXACTLY (sup not attained) for
+20 members, independently re-certified to γ_d − 9.3e-10. Exploratory
+track (006+007): the 135° stall dissolves — 001's pinch gap
+[135.000°, 135.049°] was a sampler artifact (W(4,3) certified alive
+inside it; the mechanism of 001's error is pinned), births follow
+γ_birth = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION; survives every
+out-of-sample test at the sampler floor), consecutive windows touch,
+and W(5,2) plus a genuinely non-W four-block word are certified
+alive at γ = EXACTLY 135° — the "135° is a constructive barrier"
+kill condition is refuted. Union-closed (previous cycle, all
+skeptic-confirmed): gap (a′) refuted float-free by a 10-atom witness;
+the i-AGGREGATED control survives and is the restated gap; P6′
+proved at fixed n but naive n-uniform budgets killed (flattening
+reverses past n ≈ 22; tax is δ-linear); gap (b) precisely stated and
+surviving; route LIVE, ceiling 0.4315 vs record 0.38271. Standing
+library: Singmaster census to 2.5×10^29; Erdős–Gyárfás cubics to
+n=22 + girth-≥5 at n=24; lonely-runner k=8; Erdős–Straus
+identity-poverty; graceful n ≤ 14; mahler-4d and billiards blind
+censuses. 21 verified results, 7 recorded dead ends, 10 problems,
+~45 reusable tools. Crouzeix remains the one problem with no
+attempts (queue; run blind).
 
 ## Problem status
 
@@ -57,7 +60,7 @@ no attempts (queue; run blind).
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
-| Triangular billiards | death law PROVEN as necessity (003/004, skeptic-confirmed) | high | two-track plan (queue 11+12): complete the parametric theorem; use the factorization as a DESIGN tool to hunt a family with γ_d > 135° |
+| Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12) |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
 
@@ -73,11 +76,10 @@ no attempts (queue; run blind).
 8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
 9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
 10. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
-11. [billiards-triangles] **Complete the death-law theorem** (one line; conservative track of the two-track plan, 2026-07-31): (i) sufficiency — certified alive points approaching γ_d via the first-order corner argument (003 lead 2; note 004's correction that a zero-width touching corridor AT γ_d is not excluded by the necessity theorem), turning "no positive width at or past γ_d" into "death is exactly γ_d"; (ii) prove I1–I3 and Lemma C for general (a,b) rather than per member (certified for 15 members; Lemma C numerically true for all b ≤ a ≤ 25) — a symbolic proof over the parameter upgrades the whole family curve at once; (iii) map the a > 2b+3 branch (W(6,3)-type members are unmeasured; the case tree breaks there, so first measure, then extend or restate). Deliverable either way: the exact parametric death theorem, or the precise step that resists.
-12. [billiards-triangles] **Design a family past 135°** (one line; exploratory track of the two-track plan, 2026-07-31 — this is the line with real upside on the constructive frontier). The death law explains WHY the W-family dies: closed-form binding factors like cos(aα)·sin((b+1)β)·sin(α+β) vanish at γ_d = 180 − 90(a+b)/(a(b+1)), which is bounded by the family's glide structure. Invert the machinery: parametrize a broader class of half-word/gate structures in the division-free Laurent ring (003's `deathlaw_symbolic.py` is the substrate), derive each candidate family's binding factorization and death angle symbolically, and hunt for structures whose factors vanish only past 135°. Falsifiable first step: derive γ_d formulas for the nearest structural neighbours of W(a,b) (extra letter block, asymmetric gates) and check whether ANY exceeds 135°; any candidate must then produce one certified alive point at γ > 135° with the existing exact-corridor machinery — that alone would push the lab's constructive frontier past the census stall. Kill condition: if every family in the searched structure class has γ_d ≤ 135° — or the factor structure provably caps γ_d — record that obstruction precisely; it would itself be strong evidence that 135° is a real constructive barrier, sharpening queue item 14. Any certified orbit or claimed cap → skeptic review.
+11. [billiards-triangles] **Parametric sufficiency + the birth side** (from 005/008 and 006/007, 2026-07-31): (i) prove a parametric positive lower bound on the *generic* fan-gate margins along the universal segment (α,β) = (90/a − t, 90(a−1)/(a(b+1)) + 2t), t ∈ (0, 1/4] — each margin is a 3–5-term trig polynomial with the fan index entering linearly via the prefix maps; this is the ONLY missing piece for death(W(a,b)) = γ_d(a,b) at ALL (a,b). Mind the 3-fold degenerate death corner: the gate-(2a+2) margin (identity I4) also vanishes there — a naive 2-margin Taylor route silently misses it (005). (ii) Prove the birth law γ_birth(a,b) = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION; survives out-of-sample at the sampler floor incl. a > 2b+3 members) with the same gate machinery — which gate pair binds at the birth edge — and produce exact birth brackets from below (NONE exist for any member; all float births share a one-sided floor bias). Windows-touch (birth(W(a+1,a)) = death(W(a,a))) then makes the family staircase fully algebraic. Cheap side task: measure the a = 1 column, still untouched.
+12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): 006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
-14. [billiards-triangles] Pinch-gap scan: what covers [death(W(a,a)), birth(W(a+1,a))] (e.g. the measured [135.000°, 135.049°] where nothing ≤ 30 is alive)? Scan words of length 28–34 restricted to the family's letter statistics. If nothing bounded covers a neighbourhood of γ = 180a/(a+1)° on the arc-minimum curve, those angles are genuine accumulation points of the constructive problem. The general law γ_d(a,b) from 003 now predicts where W(a+1,a) births/deaths sit — use it to target the scan. (If queue item 12 finds a structural cap at 135°, fold that finding in here.)
-15. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
+14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
 
 ## Verified results
 
@@ -254,6 +256,62 @@ no attempts (queue; run blind).
   touching at γ_d is not excluded; the general-(a,b) identities remain
   SPECULATION (per-member certified); a > 2b+3 uncovered.
 
+- **[billiards-triangles] Death law closed on both sides: parametric
+  necessity for all (a,b), death = γ_d exactly for 20 members
+  (skeptic-confirmed)** (2026-07-31, attempts 005+008): the half word
+  composes in closed form to R₀·Rot_A(2aα)·Rot_B(−2bβ), so adjoining
+  e^{iaα}, e^{ibβ} as formal Laurent variables proves I1–I3, the glide
+  facts, and a new identity I4 (gate 2a+2) for ALL integers a, b in one
+  exact polynomial check, specialized by ring homomorphism (bridge to
+  geometry cross-checked exactly on 40 members to a = 40 by the
+  skeptic's own off-torus recomposition). Lemma C is proven for all
+  a ≥ 2, b ≤ a and Lemma D proven — both via one elementary lemma
+  (c·cot(cs) strictly decreasing), retiring 004's residual. The case
+  tree closes for all a ≥ b ≥ 1, a ≥ 2: the a ≤ 2b+3 restriction is
+  GONE (new branches re-derived by hand twice; ~1.56M + 447k
+  adversarial sign-scan points incl. 10 members with a > 2b+3, zero
+  hits). Sufficiency: along a universal segment into the death corner
+  every corridor condition is certified strict, so death(W(a,b)) =
+  γ_d(a,b) EXACTLY (sup not attained) for 20 members; the skeptic
+  independently certified alive by full 2n-gate interval unfolding (no
+  glide reduction) down to γ_d − 9.3e-10. Five new members measured at
+  γ_d to ~5e-12: W(6,3)→146.25, W(6,1)→127.5, W(8,2)→142.5,
+  W(8,1)→1035/8, W(7,1)→900/7 (windows on the mirror half). Correction
+  (008-C1): four of the five new alive certificates reach only
+  γ_d − 1e-4, not the 1e-6 one sentence claims — superseded by the
+  segment certificates. Open: parametric sufficiency (generic fan-gate
+  margins; the death corner is 3-fold degenerate, not 2-fold), the
+  a = 1 column, the birth side.
+- **[billiards-triangles] The 135° stall dissolves: pinch gap closed,
+  birth law found, alive at exactly 135° (skeptic-confirmed)**
+  (2026-07-31, attempts 006+007): inverting the death-law machinery
+  into a structure-class design search (plus a small new fact: ANY odd
+  half word u makes u² a translation word, so the glide reduction
+  applies class-wide) shows 001's pinch gap [135.000°, 135.0486°] was
+  a sampler artifact: W(4,3) is certified alive inside it, and the
+  mechanism of 001's error is pinned — the alive window is a corner
+  sliver thinner than its grid's terminal 6e-4 clearance (001's
+  knowledge-scoped gap claim stays true as written; what falls is its
+  birth measurements, off by 10× the stated noise). Births obey
+  γ_birth(a,b) = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION as a law;
+  survives three genuinely out-of-sample members incl. a > 2b+3 at the
+  ~3e-11 sampler floor), making consecutive windows touch. W(5,2)
+  (length 30, never measured before) and a genuinely non-W four-block
+  word N1 (length 46) are certified alive at γ = EXACTLY 135° via
+  rational apexes on the arc (2x−1)² + (2y+1)² = 2 (on-arc identity
+  hand-verified in Fractions; the W(5,2) triangle is irrational-angled
+  by Niven). All five exact certificates re-established digit-for-digit
+  by a third corridor implementation. 003's theorem extends to (5,2)
+  and (6,2). The kill condition is REFUTED: 135° is not a constructive
+  barrier — every sampled arc in 90.5°–165° (157 + 25 independent) has
+  a W member float-alive. Negative screens (nothing of length ≤ 26
+  alive past 135°; extra letter blocks collapse death angles; clean
+  angle laws confined to the two-fan factorization) are sample-bounded.
+  New structural fact (007-C4): W(a,b) and W(b+1,a−1) are the SAME
+  canonical word — 003's "two distinct words dying on the same arc"
+  was a relabeling. Corrections: length-30 universe is 566 words (not
+  811); gap certificates are pointwise, not "alive throughout".
+
 ## Insights / cross-problem notes
 
 - Infrastructure (2026-07-27): cross-pollination layer added. `mechanisms.json`
@@ -353,6 +411,35 @@ no attempts (queue; run blind).
   should align the two escapings. Related: leak_terms must name
   findings, not generic vocabulary — "certified enclosure" collided
   with tier-0 problem statements and tripped the leak test.
+
+- Sampler blind spots are one-sided and shared (2026-07-31, billiards
+  006/007): 001's birth angles were wrong by 0.0486° — 10× its stated
+  noise — because the alive window near birth is a corner sliver
+  thinner than the grid's terminal clearance, and its "deaths only
+  under-estimated" hedge does not transfer to births. Cheap
+  validations that caught it: floor-tracking (re-measure at several
+  sampler depths and check whether the value tracks the sampler floor)
+  and certifying an exact point inside the claimed-empty region.
+  Standing residual: every billiards sampler in use accumulates only
+  at the 90/j window edges, so an interior-pinch window would hide
+  from all of them (queue item 12).
+- Formal-parameter specialization proves infinite identity families in
+  one check (2026-07-31, billiards 005/008): move the family
+  parameters into the exponent lattice (adjoin e^{iaα}, e^{ibβ} as
+  formal Laurent variables), verify the identity once by exact
+  polynomial subtraction, specialize by ring homomorphism to every
+  integer (a,b). The entire risk concentrates in the hand-derived
+  bridge (geometry = closed form) — the formal check cannot see a
+  wrong bridge — so cross-check the bridge exactly on many members;
+  the specialization direction itself is safe (formal zero ⟹
+  geometric zero). New mechanism tags: formal-parameter-specialization,
+  structure-class-design-search.
+- Canonicalize before counting evidence (2026-07-31, billiards 007):
+  W(a,b) and W(b+1,a−1) are the same canonical word, which made a
+  claimed "window pairing" vacuous (the fit spanned 9 canonical words,
+  not 11) and turned "two distinct words dying on the same arc" into a
+  relabeling. Any law fitted over family members must first quotient
+  by the word-canonicalization symmetry.
 
 ## Dead ends
 
