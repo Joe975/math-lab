@@ -1,0 +1,528 @@
+{
+ "results": {
+  "W(2,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(2,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(3,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(3,3)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(4,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(4,3)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(4,4)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(5,3)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(5,4)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(5,5)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(6,6)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(7,7)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(8,8)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(10,9)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(12,12)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(6,3)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(6,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(8,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(8,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(7,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(11,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(14,4)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(17,9)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(1,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(40,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(40,40)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(37,13)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(25,24)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(15,15)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(23,23)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(28,1)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(19,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(24,23)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(19,17)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(10,4)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(38,29)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(22,14)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(9,6)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(6,2)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  },
+  "W(13,8)": {
+   "points": 2,
+   "ok": true,
+   "detail": {
+    "mu": true,
+    "w": true,
+    "v2": true,
+    "delta_sq": true,
+    "tau_axis": true,
+    "glide_action": true,
+    "ok": true
+   }
+  }
+ },
+ "seed": 20260738,
+ "n_members": 40,
+ "ok": true,
+ "meaning": "direct reflection-composition of the half word agrees EXACTLY (off-torus pair algebra, my own maps) with 005's closed forms mu, w, v2 and glide facts at random rational points"
+}

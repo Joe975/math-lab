@@ -1,0 +1,511 @@
+{
+ "rows": [
+  {
+   "a": 2,
+   "b": 1,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.014453856082452398,
+    0.014453856082452398
+   ],
+   "float_width": 0.016873021792679244
+  },
+  {
+   "a": 2,
+   "b": 1,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.00707270751630691,
+    0.00707270751630691
+   ],
+   "float_width": 0.008271275871167605
+  },
+  {
+   "a": 2,
+   "b": 1,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0005717046529941308,
+    0.0005717046529941308
+   ],
+   "float_width": 0.0006696938577750444
+  },
+  {
+   "a": 2,
+   "b": 1,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    5.4066358327977364e-05,
+    5.4066358327977364e-05
+   ],
+   "float_width": 6.334178451405936e-05
+  },
+  {
+   "a": 2,
+   "b": 1,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    5.279006812820406e-08,
+    5.279006812820406e-08
+   ],
+   "float_width": 6.184741452308629e-08
+  },
+  {
+   "a": 2,
+   "b": 1,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    5.155279221873824e-11,
+    5.155279221873824e-11
+   ],
+   "float_width": 6.040379307847843e-11
+  },
+  {
+   "a": 6,
+   "b": 3,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.019295790998529443,
+    0.019295790998529443
+   ],
+   "float_width": 0.061707689257259
+  },
+  {
+   "a": 6,
+   "b": 3,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.00931525522436241,
+    0.00931525522436241
+   ],
+   "float_width": 0.02998385610623533
+  },
+  {
+   "a": 6,
+   "b": 3,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0007429745467479262,
+    0.0007429745467479262
+   ],
+   "float_width": 0.002405814542045359
+  },
+  {
+   "a": 6,
+   "b": 3,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    7.018410228407905e-05,
+    7.018410228407905e-05
+   ],
+   "float_width": 0.0002273728765080918
+  },
+  {
+   "a": 6,
+   "b": 3,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    6.851922019914965e-08,
+    6.851922019914965e-08
+   ],
+   "float_width": 2.2199058102856384e-07
+  },
+  {
+   "a": 6,
+   "b": 3,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    6.691328195716561e-11,
+    6.691328195716561e-11
+   ],
+   "float_width": 2.1677371009332091e-10
+  },
+  {
+   "a": 6,
+   "b": 1,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.024415410367628607,
+    0.024415410367628607
+   ],
+   "float_width": 0.03853325598165913
+  },
+  {
+   "a": 6,
+   "b": 1,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.011997289866456748,
+    0.011997289866456748
+   ],
+   "float_width": 0.018997614198509538
+  },
+  {
+   "a": 6,
+   "b": 1,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0009732104193492639,
+    0.0009732104193492639
+   ],
+   "float_width": 0.0015458008458719696
+  },
+  {
+   "a": 6,
+   "b": 1,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    9.206228769633953e-05,
+    9.206228769633953e-05
+   ],
+   "float_width": 0.0001462638813101158
+  },
+  {
+   "a": 6,
+   "b": 1,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    8.989164409327136e-08,
+    8.989164409327136e-08
+   ],
+   "float_width": 1.4281900773127632e-07
+  },
+  {
+   "a": 6,
+   "b": 1,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    8.778479634930547e-11,
+    8.778479634930547e-11
+   ],
+   "float_width": 1.3947776267286827e-10
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.02151466199850969,
+    0.02151466199850969
+   ],
+   "float_width": 0.05740151574099306
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.01045298885881909,
+    0.01045298885881909
+   ],
+   "float_width": 0.028046729753725685
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0008385785804844219,
+    0.0008385785804844219
+   ],
+   "float_width": 0.002261756627806477
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    7.925251902739655e-05,
+    7.925251902739655e-05
+   ],
+   "float_width": 0.00021384520977996146
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    7.737632641933203e-08,
+    7.737632641933203e-08
+   ],
+   "float_width": 2.0879195883338753e-07
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    7.556280092268023e-11,
+    7.556280092268023e-11
+   ],
+   "float_width": 2.039386437502344e-10
+  },
+  {
+   "a": 8,
+   "b": 1,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.02513106389179757,
+    0.02513106389179757
+   ],
+   "float_width": 0.041758378467665835
+  },
+  {
+   "a": 8,
+   "b": 1,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.012328253009664876,
+    0.012328253009664876
+   ],
+   "float_width": 0.020557916642400365
+  },
+  {
+   "a": 8,
+   "b": 1,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0009981575310631773,
+    0.0009981575310631773
+   ],
+   "float_width": 0.0016699371144404118
+  },
+  {
+   "a": 8,
+   "b": 1,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    9.440611727106323e-05,
+    9.440611727106323e-05
+   ],
+   "float_width": 0.00015798550874901451
+  },
+  {
+   "a": 8,
+   "b": 1,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    9.217855721870576e-08,
+    9.217855721870576e-08
+   ],
+   "float_width": 1.5426206445567914e-07
+  },
+  {
+   "a": 8,
+   "b": 1,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    9.001810805636265e-11,
+    9.001810805636265e-11
+   ],
+   "float_width": 1.5067591618844745e-10
+  },
+  {
+   "a": 7,
+   "b": 1,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.02483577460706991,
+    0.02483577460706991
+   ],
+   "float_width": 0.04034990575270081
+  },
+  {
+   "a": 7,
+   "b": 1,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.012194078104334753,
+    0.012194078104334753
+   ],
+   "float_width": 0.01987993020830281
+  },
+  {
+   "a": 7,
+   "b": 1,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0009882808314485205,
+    0.0009882808314485205
+   ],
+   "float_width": 0.0016163278354914823
+  },
+  {
+   "a": 7,
+   "b": 1,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    9.34803542232188e-05,
+    9.34803542232188e-05
+   ],
+   "float_width": 0.00015292631882157792
+  },
+  {
+   "a": 7,
+   "b": 1,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    9.127549997725092e-08,
+    9.127549997725092e-08
+   ],
+   "float_width": 1.4932338698869785e-07
+  },
+  {
+   "a": 7,
+   "b": 1,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    8.913621718102525e-11,
+    8.913621718102525e-11
+   ],
+   "float_width": 1.4585177510184621e-10
+  },
+  {
+   "a": 12,
+   "b": 12,
+   "t": "1/4",
+   "gamma_minus_gamma_d": -0.25,
+   "certified_alive": true,
+   "width_iv": [
+    0.00825779123019944,
+    0.00825779123019944
+   ],
+   "float_width": 0.13921562062072013
+  },
+  {
+   "a": 12,
+   "b": 12,
+   "t": "1/8",
+   "gamma_minus_gamma_d": -0.125,
+   "certified_alive": true,
+   "width_iv": [
+    0.005699154228327501,
+    0.005699154228327501
+   ],
+   "float_width": 0.09777230517601831
+  },
+  {
+   "a": 12,
+   "b": 12,
+   "t": "1/97",
+   "gamma_minus_gamma_d": -0.010309278350515464,
+   "certified_alive": true,
+   "width_iv": [
+    0.0004281638666464535,
+    0.0004281638666464535
+   ],
+   "float_width": 0.0074650707824859275
+  },
+  {
+   "a": 12,
+   "b": 12,
+   "t": "1/1024",
+   "gamma_minus_gamma_d": -0.0009765625,
+   "certified_alive": true,
+   "width_iv": [
+    4.023422923578153e-05,
+    4.023422923578153e-05
+   ],
+   "float_width": 0.0007024143447091902
+  },
+  {
+   "a": 12,
+   "b": 12,
+   "t": "1/1048576",
+   "gamma_minus_gamma_d": -9.5367431640625e-07,
+   "certified_alive": true,
+   "width_iv": [
+    3.9258131186314934e-08,
+    3.9258131186314934e-08
+   ],
+   "float_width": 6.854683793910965e-07
+  },
+  {
+   "a": 12,
+   "b": 12,
+   "t": "1/1073741824",
+   "gamma_minus_gamma_d": -9.313225746154785e-10,
+   "certified_alive": true,
+   "width_iv": [
+    3.833798716164971e-11,
+    3.833798716164971e-11
+   ],
+   "float_width": 6.695413112822735e-10
+  }
+ ],
+ "ok": true,
+ "seed": 20260738,
+ "meaning": "full 2n-gate corridor built by my own interval unfolding (no glide reduction), certified positive width at every sampled t on 005's universal segment incl. t = 2^-30 (gamma within 1e-9 of gamma_d)"
+}

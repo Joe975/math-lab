@@ -1,0 +1,13 @@
+{
+ "a": 6,
+ "b": 1,
+ "theta_d": 52.5,
+ "seed": 20260738,
+ "n_points": 44450,
+ "n_hits": 0,
+ "hits": [],
+ "n_nearhits_below_margin": 0,
+ "nearhits": [],
+ "positive_control_fires": true,
+ "ok": true
+}

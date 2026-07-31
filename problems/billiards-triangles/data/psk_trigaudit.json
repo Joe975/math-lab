@@ -1,0 +1,7 @@
+{
+ "n_checks": 596,
+ "worst_point_width": 4.990496198076935e-16,
+ "ok": true,
+ "seed": 20260738,
+ "note": "earlier FAILED run used an UNREDUCED reference argument (my stack has no mod-360 reduction and its series is invalid past ~660 deg) -- an artifact of my audit, not of plaw_suffice; see record"
+}
