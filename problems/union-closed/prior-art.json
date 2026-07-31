@@ -238,6 +238,48 @@
       ],
       "refuted_by": null,
       "gaps": []
+    },
+    {
+      "id": "011",
+      "file": "attempts/011-skeptic-review-of-009.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "009",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Independent re-implementation (recursion engine, natural-log Sinkhorn, direct-MI cross-checks) confirms 009 in full: mini-lemmas SL and HM re-derived by hand and now VERIFIED, all headline numbers reproduce to <= 1.4e-10, the crash lambda-window sharpens to the law lam_max*(n-3) -> 4.8475, the ST ~ 0.40 log2 n fit survives extension to n = 240 and two new p, and the untested tilt-on-Sawin cell closes positive at n <= 300; corrections are reporting-level (grid-edge suprema quoted as suprema, mixed-p 'increasing margin', slice-ratio scope, a measured 1e-5 lgamma floor behind part D's 'exactly', and an unstated m_k = 1/2 legality hypothesis p_k >= 1-1/sqrt(2) in the block bound, verified to hold on every instance used).",
+      "corrections": [
+        "slice sup_lambda CR values at p ~ 0.42 are grid-edge values; true suprema sit at lambda ~ 4-5 and are larger (e.g. +1.4655 vs reported +1.0199 at n=80, w0=34); 'increasing margin in n' conflates p = 0.4167 and p = 0.425 rows -- at fixed p the margin is cleanly increasing",
+        "Outcome scope 'p in {0.42, 0.3823}' overstates: slice ratios actually run are {0.4167, 0.425, 0.3833, 0.3875}; p = 0.3823 itself was never tested",
+        "part D's 'H(mu) computed exactly' has a measured ~4e-6 absolute lgamma floor at n = 60000 (harmless at the +2418 scale)",
+        "the part-D block bound's m_k = 1/2 choice needs the unstated hypothesis p_k >= 1-1/sqrt(2) ~ 0.29289; holds on all instances used but would fail silently on mixtures with a component marginal below it"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "second-tax-scaling"
+      ],
+      "leak_terms": [
+        "uc_mitax_skeptic",
+        "mitaxsk",
+        "lambda-window law",
+        "4.847/(n-3)",
+        "0.405 log2 n",
+        "tilt-CR on Sawin",
+        "recursion engine",
+        "most conservative assembly",
+        "m_k legality"
+      ]
     }
   ]
 }
