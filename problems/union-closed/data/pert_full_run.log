@@ -1,0 +1,208 @@
+==============================================================================
+P0. Engine validation
+==============================================================================
+[P0a] product Bern(0.3)^5 lam=1.0: max|log2OR-lam| = 2.00e-15, gain = +0.586707820 vs closed form +0.586707820 (|err| 4.7e-14), gain_lb = +0.586707820, resid 1.4e-13
+[P0a] max tax_i on product = 5.55e-16 (must be ~0)
+[P0b] 005 part-G reproduction (6 deltas): max abs diff vs checkpoint = 3.55e-15 (PASS)
+[P0c] crash n=5: log2 OR = -2.000000 (predicted -2), err 0.0e+00, history mass 0.1588
+[P0c] crash n=8: log2 OR = -5.000000 (predicted -5), err 0.0e+00, history mass 0.1441
+==============================================================================
+P1. IFT first-order formula and quadratic remainder (T1 numerics)
+==============================================================================
+[P1] delta= 0.01: |v - v0 - delta*vdot|_inf = 6.177e-04  /delta^2 = 6.1771   |v-v0|_inf = 3.277e-02
+[P1] delta= 0.02: |v - v0 - delta*vdot|_inf = 2.414e-03  /delta^2 = 6.0340   |v-v0|_inf = 6.437e-02
+[P1] delta= 0.04: |v - v0 - delta*vdot|_inf = 9.230e-03  /delta^2 = 5.7685   |v-v0|_inf = 1.243e-01
+[P1] delta= 0.08: |v - v0 - delta*vdot|_inf = 3.397e-02  /delta^2 = 5.3073   |v-v0|_inf = 2.332e-01
+[P1] remainder/delta^2 ratios between successive deltas: 0.977 0.956 0.920  (→ 1 means clean quadratic remainder; solve resid 7.8e-16)
+==============================================================================
+P2. Assembly margins and end-to-end per-coordinate nets (lead 3)
+==============================================================================
+[P2a] rho*(0.383) = 1.042205; rho*(0.38271) = 1.030222
+[P2a]   g(rho=1.031, p=0.383) = -0.000417 bits/coord
+[P2a]   g(rho=1.050, p=0.383) = +0.000286 bits/coord
+[P2a]   g(rho=1.060, p=0.383) = +0.000649 bits/coord
+[P2a]   g(rho=1.100, p=0.383) = +0.002052 bits/coord
+[P2a]   g(rho=1.200, p=0.383) = +0.005252 bits/coord
+[P2a]   g(rho=1.400, p=0.383) = +0.010580 bits/coord
+[P2a]   g(rho=2.000, p=0.383) = +0.021153 bits/coord
+[P2a]   g(rho=4.000, p=0.383) = +0.034587 bits/coord
+[P2a] AHS point dg/drho|_1 = 0.038647 numeric vs 0.038689 closed form h'(psi)*phi^6 (|err| 4.2e-05)
+[P2b] rho=1.200 n=5 nu=crash       delta=0.050: min net_i +0.006260 (base margin +0.005252), gain_lb +0.03541, gain +0.04021, max tax 1.28e-05, max|dev| 5.64e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=crash       delta=0.100: min net_i +0.007388 (base margin +0.005252), gain_lb +0.04764, gain +0.06448, max tax 4.30e-05, max|dev| 1.57e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=crash       delta=0.200: min net_i +0.010070 (base margin +0.005252), gain_lb +0.07774, gain +0.13296, max tax 1.25e-04, max|dev| 3.53e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=delta_empty delta=0.050: min net_i +0.032995 (base margin +0.005252), gain_lb +0.16690, gain +0.17021, max tax 8.82e-06, max|dev| 2.75e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=delta_empty delta=0.100: min net_i +0.059965 (base margin +0.005252), gain_lb +0.30601, gain +0.31569, max tax 2.62e-05, max|dev| 8.07e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=delta_empty delta=0.200: min net_i +0.110728 (base margin +0.005252), gain_lb +0.56871, gain +0.59129, max tax 6.19e-05, max|dev| 2.08e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=bern005     delta=0.050: min net_i +0.029408 (base margin +0.005252), gain_lb +0.14799, gain +0.14952, max tax 4.34e-06, max|dev| 1.24e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=bern005     delta=0.100: min net_i +0.052999 (base margin +0.005252), gain_lb +0.26806, gain +0.27266, max tax 1.34e-05, max|dev| 3.85e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=5 nu=bern005     delta=0.200: min net_i +0.097938 (base margin +0.005252), gain_lb +0.49753, gain +0.50839, max tax 3.33e-05, max|dev| 9.70e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=crash       delta=0.050: min net_i +0.006264 (base margin +0.005252), gain_lb +0.04327, gain +0.05408, max tax 2.25e-05, max|dev| 2.00e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=crash       delta=0.100: min net_i +0.007407 (base margin +0.005252), gain_lb +0.05927, gain +0.09252, max tax 6.48e-05, max|dev| 3.95e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=crash       delta=0.200: min net_i +0.010167 (base margin +0.005252), gain_lb +0.09820, gain +0.19045, max tax 1.58e-04, max|dev| 7.20e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=delta_empty delta=0.050: min net_i +0.032999 (base margin +0.005252), gain_lb +0.20160, gain +0.20790, max tax 1.30e-05, max|dev| 5.56e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=delta_empty delta=0.100: min net_i +0.059977 (base margin +0.005252), gain_lb +0.37104, gain +0.38820, max tax 3.53e-05, max|dev| 1.47e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=delta_empty delta=0.200: min net_i +0.110734 (base margin +0.005252), gain_lb +0.69031, gain +0.72720, max tax 7.53e-05, max|dev| 3.14e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=bern005     delta=0.050: min net_i +0.029411 (base margin +0.005252), gain_lb +0.17813, gain +0.18093, max tax 6.18e-06, max|dev| 2.45e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=bern005     delta=0.100: min net_i +0.053006 (base margin +0.005252), gain_lb +0.32329, gain +0.33114, max tax 1.77e-05, max|dev| 6.59e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=6 nu=bern005     delta=0.200: min net_i +0.097946 (base margin +0.005252), gain_lb +0.60049, gain +0.61759, max tax 4.06e-05, max|dev| 1.46e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=crash       delta=0.050: min net_i +0.006268 (base margin +0.005252), gain_lb +0.05147, gain +0.07262, max tax 3.36e-05, max|dev| 4.57e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=crash       delta=0.100: min net_i +0.007427 (base margin +0.005252), gain_lb +0.07164, gain +0.12859, max tax 8.36e-05, max|dev| 8.06e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=crash       delta=0.200: min net_i +0.010263 (base margin +0.005252), gain_lb +0.12060, gain +0.25752, max tax 1.98e-04, max|dev| 1.25e-01, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=delta_empty delta=0.050: min net_i +0.033004 (base margin +0.005252), gain_lb +0.23726, gain +0.24796, max tax 1.77e-05, max|dev| 1.07e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=delta_empty delta=0.100: min net_i +0.059990 (base margin +0.005252), gain_lb +0.43841, gain +0.46544, max tax 4.38e-05, max|dev| 2.40e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=delta_empty delta=0.200: min net_i +0.110741 (base margin +0.005252), gain_lb +0.81550, gain +0.86945, max tax 8.55e-05, max|dev| 4.72e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=bern005     delta=0.050: min net_i +0.029414 (base margin +0.005252), gain_lb +0.20862, gain +0.21322, max tax 8.22e-06, max|dev| 4.49e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=bern005     delta=0.100: min net_i +0.053014 (base margin +0.005252), gain_lb +0.37936, gain +0.39141, max tax 2.19e-05, max|dev| 1.01e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=7 nu=bern005     delta=0.200: min net_i +0.097954 (base margin +0.005252), gain_lb +0.70476, gain +0.72917, max tax 4.65e-05, max|dev| 2.03e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=crash       delta=0.050: min net_i +0.006272 (base margin +0.005252), gain_lb +0.05992, gain +0.09530, max tax 4.29e-05, max|dev| 9.30e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=crash       delta=0.100: min net_i +0.007447 (base margin +0.005252), gain_lb +0.08497, gain +0.17017, max tax 9.65e-05, max|dev| 1.33e-01, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=crash       delta=0.200: min net_i +0.010357 (base margin +0.005252), gain_lb +0.14564, gain +0.32909, max tax 2.49e-04, max|dev| 1.90e-01, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=delta_empty delta=0.050: min net_i +0.033010 (base margin +0.005252), gain_lb +0.27419, gain +0.29070, max tax 2.24e-05, max|dev| 1.86e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=delta_empty delta=0.100: min net_i +0.060002 (base margin +0.005252), gain_lb +0.50839, gain +0.54729, max tax 5.08e-05, max|dev| 3.62e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=delta_empty delta=0.200: min net_i +0.110747 (base margin +0.005252), gain_lb +0.94399, gain +1.01681, max tax 9.27e-05, max|dev| 6.39e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=bern005     delta=0.050: min net_i +0.029417 (base margin +0.005252), gain_lb +0.23952, gain +0.24648, max tax 1.03e-05, max|dev| 7.47e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=bern005     delta=0.100: min net_i +0.053022 (base margin +0.005252), gain_lb +0.43632, gain +0.45338, max tax 2.55e-05, max|dev| 1.53e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.200 n=8 nu=bern005     delta=0.200: min net_i +0.097963 (base margin +0.005252), gain_lb +0.81019, gain +0.84268, max tax 5.13e-05, max|dev| 2.71e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=crash       delta=0.020: min net_i +0.001055 (base margin +0.000649), gain_lb +0.00811, gain +0.01020, max tax 4.75e-07, max|dev| 1.84e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=crash       delta=0.050: min net_i +0.001697 (base margin +0.000649), gain_lb +0.01662, gain +0.02724, max tax 2.30e-06, max|dev| 6.42e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=crash       delta=0.100: min net_i +0.002865 (base margin +0.000649), gain_lb +0.03440, gain +0.06711, max tax 6.62e-06, max|dev| 1.27e-02, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=delta_empty delta=0.020: min net_i +0.012281 (base margin +0.000649), gain_lb +0.07447, gain +0.07578, max tax 2.80e-07, max|dev| 4.26e-04, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=delta_empty delta=0.050: min net_i +0.029514 (base margin +0.000649), gain_lb +0.18137, gain +0.18756, max tax 1.32e-06, max|dev| 1.76e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=delta_empty delta=0.100: min net_i +0.057549 (base margin +0.000649), gain_lb +0.35891, gain +0.37576, max tax 3.59e-06, max|dev| 4.67e-03, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=bern005     delta=0.020: min net_i +0.010769 (base margin +0.000649), gain_lb +0.06498, gain +0.06554, max tax 1.27e-07, max|dev| 1.71e-04, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=bern005     delta=0.050: min net_i +0.025787 (base margin +0.000649), gain_lb +0.15673, gain +0.15947, max tax 6.29e-07, max|dev| 7.78e-04, OR<1 mass 0.0e+00
+[P2b] rho=1.060 n=6 nu=bern005     delta=0.100: min net_i +0.050316 (base margin +0.000649), gain_lb +0.30836, gain +0.31603, max tax 1.80e-06, max|dev| 2.09e-03, OR<1 mass 0.0e+00
+[P2b] total time 2.2s
+[P2c] rho=1.200 n=5 nu=pm03          delta=0.050: min net_i +0.005262 (base +0.005252), gain_lb +0.02676, gain +0.02731, max tax 2.03e-06, max|dev| 4.60e-04, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=5 nu=pm03          delta=0.100: min net_i +0.005290 (base +0.005252), gain_lb +0.02814, gain +0.03009, max tax 7.47e-06, max|dev| 1.53e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=5 nu=pm03          delta=0.200: min net_i +0.005404 (base +0.005252), gain_lb +0.03309, gain +0.03937, max tax 2.58e-05, max|dev| 6.10e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=5 nu=slice         delta=0.050: min net_i +0.004011 (base +0.005252), gain_lb +0.02071, gain +0.02254, max tax 4.55e-06, max|dev| 1.19e-03, OR<1 mass 0.0e+00, capped=False
+[P2c] rho=1.200 n=5 nu=slice         delta=0.100: min net_i +0.002777 (base +0.005252), gain_lb +0.01648, gain +0.02369, max tax 1.77e-05, max|dev| 4.56e-03, OR<1 mass 0.0e+00, capped=False
+[P2c] rho=1.200 n=5 nu=slice         delta=0.200: min net_i +0.000332 (base +0.005252), gain_lb +0.01180, gain +0.04002, max tax 6.55e-05, max|dev| 1.68e-02, OR<1 mass 0.0e+00, capped=False
+[P2c] rho=1.200 n=6 nu=pm03          delta=0.050: min net_i +0.005264 (base +0.005252), gain_lb +0.03228, gain +0.03322, max tax 2.69e-06, max|dev| 9.64e-04, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=pm03          delta=0.100: min net_i +0.005300 (base +0.005252), gain_lb +0.03435, gain +0.03746, max tax 9.48e-06, max|dev| 2.33e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=pm03          delta=0.200: min net_i +0.005442 (base +0.005252), gain_lb +0.04156, gain +0.05081, max tax 3.10e-05, max|dev| 7.62e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=slice         delta=0.050: min net_i +0.008888 (base +0.005252), gain_lb +0.05404, gain +0.05623, max tax 4.67e-06, max|dev| 1.37e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=slice         delta=0.100: min net_i +0.012518 (base +0.005252), gain_lb +0.07786, gain +0.08646, max tax 1.79e-05, max|dev| 5.21e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=slice         delta=0.200: min net_i +0.019759 (base +0.005252), gain_lb +0.12875, gain +0.16225, max tax 6.51e-05, max|dev| 1.89e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=emb0_crash_k2 delta=0.050: min net_i +0.006330 (base +0.005252), gain_lb +0.09551, gain +0.10239, max tax 1.48e-05, max|dev| 8.66e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=emb0_crash_k2 delta=0.100: min net_i +0.007653 (base +0.005252), gain_lb +0.16146, gain +0.18507, max tax 4.83e-05, max|dev| 2.93e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=6 nu=emb0_crash_k2 delta=0.200: min net_i +0.010983 (base +0.005252), gain_lb +0.29257, gain +0.36690, max tax 1.34e-04, max|dev| 8.76e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=7 nu=pm03          delta=0.050: min net_i +0.005267 (base +0.005252), gain_lb +0.03789, gain +0.03936, max tax 3.44e-06, max|dev| 1.94e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=7 nu=pm03          delta=0.100: min net_i +0.005309 (base +0.005252), gain_lb +0.04081, gain +0.04545, max tax 1.16e-05, max|dev| 3.63e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=7 nu=pm03          delta=0.200: min net_i +0.005480 (base +0.005252), gain_lb +0.05060, gain +0.06340, max tax 3.57e-05, max|dev| 9.13e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=7 nu=slice         delta=0.050: min net_i +0.001913 (base +0.005252), gain_lb +0.01425, gain +0.01691, max tax 5.48e-06, max|dev| 1.69e-03, OR<1 mass 0.0e+00, capped=False
+[P2c] rho=1.200 n=7 nu=slice         delta=0.100: min net_i -0.001429 (base +0.005252), gain_lb -0.00661, gain +0.00374, max tax 2.10e-05, max|dev| 6.29e-03, OR<1 mass 0.0e+00, capped=False
+[P2c] rho=1.200 n=7 nu=slice         delta=0.200: min net_i -0.008118 (base +0.005252), gain_lb -0.04357, gain -0.00411, max tax 7.58e-05, max|dev| 2.21e-02, OR<1 mass 0.0e+00, capped=False
+[P2c] rho=1.200 n=7 nu=emb0_crash_k2 delta=0.050: min net_i +0.006336 (base +0.005252), gain_lb +0.10381, gain +0.11797, max tax 2.50e-05, max|dev| 2.02e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=7 nu=emb0_crash_k2 delta=0.100: min net_i +0.007680 (base +0.005252), gain_lb +0.17445, gain +0.21797, max tax 7.04e-05, max|dev| 4.40e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=7 nu=emb0_crash_k2 delta=0.200: min net_i +0.011117 (base +0.005252), gain_lb +0.31636, gain +0.43589, max tax 1.67e-04, max|dev| 1.32e-01, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=pm03          delta=0.050: min net_i +0.005269 (base +0.005252), gain_lb +0.04359, gain +0.04580, max tax 4.28e-06, max|dev| 3.27e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=pm03          delta=0.100: min net_i +0.005319 (base +0.005252), gain_lb +0.04753, gain +0.05410, max tax 1.37e-05, max|dev| 5.46e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=pm03          delta=0.200: min net_i +0.005518 (base +0.005252), gain_lb +0.06022, gain +0.07707, max tax 4.00e-05, max|dev| 1.06e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=slice         delta=0.050: min net_i +0.005841 (base +0.005252), gain_lb +0.04761, gain +0.05044, max tax 5.41e-06, max|dev| 1.73e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=slice         delta=0.100: min net_i +0.006433 (base +0.005252), gain_lb +0.05491, gain +0.06594, max tax 2.06e-05, max|dev| 6.44e-03, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=slice         delta=0.200: min net_i +0.007631 (base +0.005252), gain_lb +0.07407, gain +0.11633, max tax 7.38e-05, max|dev| 2.26e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=emb0_crash_k2 delta=0.050: min net_i +0.006341 (base +0.005252), gain_lb +0.11261, gain +0.13855, max tax 3.65e-05, max|dev| 4.59e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=emb0_crash_k2 delta=0.100: min net_i +0.007707 (base +0.005252), gain_lb +0.18845, gain +0.25903, max tax 8.89e-05, max|dev| 8.10e-02, OR<1 mass 0.0e+00, capped=True
+[P2c] rho=1.200 n=8 nu=emb0_crash_k2 delta=0.200: min net_i +0.011240 (base +0.005252), gain_lb +0.34203, gain +0.51273, max tax 2.10e-04, max|dev| 1.76e-01, OR<1 mass 0.0e+00, capped=True
+[P2] runs with chain-rule bound gain_lb <= 0: 2  <-- assembly loses at: (rho=1.20,n=7,slice,d=0.1), (rho=1.20,n=7,slice,d=0.2)
+[P2] runs with some per-coordinate net_i <= 0: 2  at: (n=7,slice,d=0.1), (n=7,slice,d=0.2)
+==============================================================================
+P2d. Explicit constants for the conditional theorem
+==============================================================================
+[P2d] p=0.383 rho=1.2 s0=0.1: g = 0.005252, G_x(center) = +0.7325, tau_half = 3.017
+[P2d] M_tau = sup|dG/dtau| = 0.0592;  M2 = sup neg curvature (tau=0) = 2.2518;  L2 = sup|dG/dx| = 1.0220
+[P2d] worst huge-tau dip on box: sup(-G) = 0.007112
+[P2d] with measured budgets (c1,c2,c3) = (0.07,0.01,2.5): loss <= 5.644*delta^2; delta_0 = sqrt(g/2 / loss-rate) = 0.0216
+==============================================================================
+P3. Budget growth in n (is any budget constant n-uniform?)
+==============================================================================
+[P3] n=4 done (12 rows, 0s elapsed)
+[P3] n=5 done (12 rows, 0s elapsed)
+[P3] n=6 done (16 rows, 0s elapsed)
+[P3] n=7 done (16 rows, 1s elapsed)
+[P3] n=8 done (16 rows, 4s elapsed)
+[P3] n=9 done (8 rows, 11s elapsed)
+
+[P3] c_hat(n) = max_abs_dev/delta^2 at delta=0.025, and max_abs_dev at fixed delta=0.1:
+[P3]           dir n=4: c_hat / dev@0.1 n=5: c_hat / dev@0.1 n=6: c_hat / dev@0.1 n=7: c_hat / dev@0.1 n=8: c_hat / dev@0.1 n=9: c_hat / dev@0.1
+[P3]         crash     2.32 /  0.0193    20.64 /  0.0991   119.62 /  0.2509   348.92 /  0.5251   744.90 /  0.8175  1183.27 /  1.1374
+[P3] emb0_crash_k2       --             --           8.78 /  0.0605    62.86 /  0.1866   246.21 /  0.3987   537.90 /  0.6754
+[P3]   delta_empty     0.74 /  0.0064     1.46 /  0.0113     2.83 /  0.0190     5.34 /  0.0302     9.79 /  0.0461       --      
+[P3]        bern07     9.27 /  0.0245    24.62 /  0.0449    50.68 /  0.0675    78.27 /  0.0899   117.51 /  0.1122       --      
+
+[P3] mass-weighted analogue c_hat_w(n) = max_wmean_dev/delta^2 at delta=0.025:
+[P3]         crash    1.602    2.610    4.278    6.309    8.805   11.875
+[P3] emb0_crash_k2     --       --      1.824    2.846    4.638    6.791
+[P3]   delta_empty    0.571    0.785    1.011    1.250    1.504     --  
+[P3]        bern07    1.737    2.433    3.193    4.021    4.921     --  
+
+[P3] per-coordinate tax and E_xi2 growth at delta=0.1:
+[P3]         crash 3.34e-04/4.70e-03 6.71e-04/9.67e-03 1.01e-03/1.53e-02 1.18e-03/1.89e-02 1.43e-03/2.07e-02 1.94e-03/2.16e-02
+[P3] emb0_crash_k2       --             --       5.67e-04/7.97e-03 9.36e-04/1.38e-02 1.18e-03/1.84e-02 1.34e-03/2.09e-02
+[P3]   delta_empty 9.37e-05/2.23e-03 1.40e-04/2.89e-03 1.93e-04/3.63e-03 2.49e-04/4.44e-03 3.04e-04/5.25e-03       --      
+[P3]        bern07 2.38e-04/4.88e-03 3.15e-04/5.98e-03 3.84e-04/6.99e-03 4.44e-04/7.91e-03 4.97e-04/8.74e-03       --      
+
+[P3] embedded-crash designated history (i=4, a=0011, b=0111): log2 OR by (n, delta):
+[P3]   n=6 delta=0.0125: log2 OR =   +0.9991 (pure-family value -1.0), mass 4.97e-02
+[P3]   n=6 delta=0.0250: log2 OR =   +0.9964 (pure-family value -1.0), mass 5.09e-02
+[P3]   n=6 delta=0.0500: log2 OR =   +0.9865 (pure-family value -1.0), mass 5.34e-02
+[P3]   n=6 delta=0.1000: log2 OR =   +0.9510 (pure-family value -1.0), mass 5.83e-02
+[P3]   n=7 delta=0.0125: log2 OR =   +0.9986 (pure-family value -2.0), mass 4.97e-02
+[P3]   n=7 delta=0.0250: log2 OR =   +0.9945 (pure-family value -2.0), mass 5.09e-02
+[P3]   n=7 delta=0.0500: log2 OR =   +0.9794 (pure-family value -2.0), mass 5.34e-02
+[P3]   n=7 delta=0.1000: log2 OR =   +0.9257 (pure-family value -2.0), mass 5.83e-02
+[P3]   n=8 delta=0.0125: log2 OR =   +0.9981 (pure-family value -3.0), mass 4.97e-02
+[P3]   n=8 delta=0.0250: log2 OR =   +0.9925 (pure-family value -3.0), mass 5.09e-02
+[P3]   n=8 delta=0.0500: log2 OR =   +0.9718 (pure-family value -3.0), mass 5.33e-02
+[P3]   n=8 delta=0.1000: log2 OR =   +0.8995 (pure-family value -3.0), mass 5.82e-02
+[P3]   n=9 delta=0.0125: log2 OR =   +0.9975 (pure-family value -4.0), mass 4.97e-02
+[P3]   n=9 delta=0.0250: log2 OR =   +0.9902 (pure-family value -4.0), mass 5.09e-02
+[P3]   n=9 delta=0.0500: log2 OR =   +0.9636 (pure-family value -4.0), mass 5.33e-02
+[P3]   n=9 delta=0.1000: log2 OR =   +0.8721 (pure-family value -4.0), mass 5.81e-02
+==============================================================================
+P3b. Anatomy of the max deviations (crash direction)
+==============================================================================
+[P3b] crash dir, n=8, delta=0.05: top-5 deviation histories (dev, log2OR, i, a, b, mass):
+[P3b]   dev= 0.6298 log2OR= +1.6298 i=6 a=00011100 b=00011100 mass=3.134e-03
+[P3b]   dev= 0.5831 log2OR= +1.5831 i=6 a=00011111 b=00011100 mass=2.840e-04
+[P3b]   dev= 0.5831 log2OR= +1.5831 i=6 a=00011100 b=00011111 mass=2.840e-04
+[P3b]   dev= 0.5402 log2OR= +1.5402 i=5 a=00001100 b=00001100 mass=7.888e-03
+[P3b]   dev= 0.5394 log2OR= +1.5394 i=6 a=00011111 b=00011111 mass=1.038e-04
+[P3b]   worst BELOW-lam history: log2OR= +0.9879 i=2 mass=1.787e-01
+[P3b]   mass-weighted sum of (lam - log2OR)_+ over all coords: 4.935e-03  (per coordinate 6.169e-04, /delta^2 = 0.2468)
+[P3b]   mass with log2OR < lam: 1.806e+00; with OR < 1: 0.000e+00 (defined mass 8.0000, per-coordinate avg 1.0000)
+[P3b] crash dir, n=9, delta=0.05: top-5 deviation histories (dev, log2OR, i, a, b, mass):
+[P3b]   dev= 0.9725 log2OR= +1.9725 i=6 a=000011100 b=000011100 mass=3.545e-03
+[P3b]   dev= 0.9069 log2OR= +1.9069 i=6 a=000011111 b=000011100 mass=3.172e-04
+[P3b]   dev= 0.9069 log2OR= +1.9069 i=6 a=000011100 b=000011111 mass=3.172e-04
+[P3b]   dev= 0.8447 log2OR= +1.8447 i=6 a=000011111 b=000011111 mass=1.146e-04
+[P3b]   dev= 0.7956 log2OR= +1.7956 i=7 a=000111100 b=000111100 mass=2.547e-03
+[P3b]   worst BELOW-lam history: log2OR= +0.9853 i=2 mass=1.786e-01
+[P3b]   mass-weighted sum of (lam - log2OR)_+ over all coords: 6.164e-03  (per coordinate 6.849e-04, /delta^2 = 0.2739)
+[P3b]   mass with log2OR < lam: 2.003e+00; with OR < 1: 0.000e+00 (defined mass 9.0000, per-coordinate avg 1.0000)
+==============================================================================
+P3c. Downward budget c_minus(n) = E[(lam - log2OR)_+]/delta^2
+==============================================================================
+[P3c] p030_lam1: n=4: max_i E[(lam-log2OR)_+] = 1.288e-03  /delta^2 = 0.5153 (worst at i=2); per-coord AVG /delta^2 = 0.1288
+[P3c] p030_lam1: n=5: max_i E[(lam-log2OR)_+] = 1.961e-03  /delta^2 = 0.7844 (worst at i=2); per-coord AVG /delta^2 = 0.1617
+[P3c] p030_lam1: n=6: max_i E[(lam-log2OR)_+] = 2.677e-03  /delta^2 = 1.0709 (worst at i=2); per-coord AVG /delta^2 = 0.1912
+[P3c] p030_lam1: n=7: max_i E[(lam-log2OR)_+] = 3.455e-03  /delta^2 = 1.3821 (worst at i=2); per-coord AVG /delta^2 = 0.2193
+[P3c] p030_lam1: n=8: max_i E[(lam-log2OR)_+] = 4.313e-03  /delta^2 = 1.7251 (worst at i=2); per-coord AVG /delta^2 = 0.2468
+[P3c] p030_lam1: n=9: max_i E[(lam-log2OR)_+] = 5.265e-03  /delta^2 = 2.1059 (worst at i=2); per-coord AVG /delta^2 = 0.2739
+[P3c] p0383_rho12: n=4: max_i E[(lam-log2OR)_+] = 4.139e-04  /delta^2 = 0.1656 (worst at i=2); per-coord AVG /delta^2 = 0.0414
+[P3c] p0383_rho12: n=5: max_i E[(lam-log2OR)_+] = 6.202e-04  /delta^2 = 0.2481 (worst at i=2); per-coord AVG /delta^2 = 0.0497
+[P3c] p0383_rho12: n=6: max_i E[(lam-log2OR)_+] = 8.264e-04  /delta^2 = 0.3306 (worst at i=2); per-coord AVG /delta^2 = 0.0553
+[P3c] p0383_rho12: n=7: max_i E[(lam-log2OR)_+] = 1.033e-03  /delta^2 = 0.4131 (worst at i=2); per-coord AVG /delta^2 = 0.0594
+[P3c] p0383_rho12: n=8: max_i E[(lam-log2OR)_+] = 1.240e-03  /delta^2 = 0.4959 (worst at i=2); per-coord AVG /delta^2 = 0.0626
+[P3c] p0383_rho12: n=9: max_i E[(lam-log2OR)_+] = 1.447e-03  /delta^2 = 0.5789 (worst at i=2); per-coord AVG /delta^2 = 0.0652
+==============================================================================
+P4. Lead 4's one-line kernel change: two-scale / centered kernel
+==============================================================================
+[P4] centered kernel, crash n=5: crash-history log2 OR = -0.400000 vs closed form lam(3-n)/n = -0.400000 (err 2.8e-16); census min/max log2 OR = -0.400/+3.200  [plain tilt: -2]
+[P4] centered kernel, crash n=8: crash-history log2 OR = -0.625000 vs closed form lam(3-n)/n = -0.625000 (err 0.0e+00); census min/max log2 OR = -0.625/+3.875  [plain tilt: -5]
+[P4] centered kernel, mirror n=5: history log2 OR = +0.8000 [plain tilt: +4]
+[P4] centered kernel, product Bern(0.383)^6: log2 OR in [+0.8265, +0.8333] (plain tilt: == 1.0); gain +0.10366, gain_lb +0.10239
+[P4] centered kernel, product Bern(0.383)^8: log2 OR in [+0.8695, +0.8750] (plain tilt: == 1.0); gain +0.14593, gain_lb +0.14462
+done in 18.4s; checkpoints in /home/user/math-lab/problems/union-closed/data

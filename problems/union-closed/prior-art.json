@@ -179,6 +179,43 @@
       ]
     },
     {
+      "id": "008",
+      "file": "attempts/008-perturbative-assembly.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "LIVE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "perturbative-expansion",
+        "implicit-function-theorem"
+      ],
+      "one_line": "Closes the missing smoothness step in 005 Prop 6 (quantitative IFT, explicit fixed-n budget 924*min(p,1-p)^{-3n}*delta^2), runs the perturbative assembly end-to-end (positive on every marginal-capped instance to delta=0.2, n<=9), and shows the pointwise delta^2 OR budget is NOT n-uniform (deviation grows ~0.3 bits/coordinate at fixed delta) while the coordinate-averaged downward budget flattens; conditional n-uniform assembly theorem with every budget labelled by its gap.",
+      "range": "Exact couplings at n <= 9; delta <= 0.2; directions crash / zero-prefix embedded crash / delta_empty / Bernoulli mixtures / slice / pm-mixture; (p, rho) = (0.383, 1.06|1.20) and (0.30, 2.0); 78 assembly runs, 80 budget-census fits; proofs (Lemmas A-C, Theorem P6', conditional theorem) are for all n but pending skeptic pass",
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "sinkhorn-tv-stability"
+      ],
+      "leak_terms": [
+        "perturbative assembly",
+        "capped delta-ball",
+        "downward budget",
+        "centered-overlap",
+        "zero-prefix embedded crash",
+        "n-uniform budget",
+        "uc_pert",
+        "Theorem P6",
+        "tau_half",
+        "budget census"
+      ],
+      "note": "Sub-results at different confidence levels inside one record: the Prop-6 closure is a written-out proof (VERIFIED pending independent skeptic pass); the lead-3 assembly check and the non-uniformity of the pointwise budget are EVIDENCE at n <= 9; the assembly theorem is CONDITIONAL on budgets (B1)-(B4) with n-uniform constants, of which (B1) is the perturbative form of gap a-prime and (B2) of gap b. 005's leads 3 and 4 are distinct (the task line conflated them); both were run."
+    },
+    {
       "id": "009",
       "file": "attempts/009-mutual-information-tax.md",
       "date": "2026-07-31",

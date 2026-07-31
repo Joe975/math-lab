@@ -124,6 +124,10 @@
       "field": "algebra",
       "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
     },
+    "implicit-function-theorem": {
+      "field": "analysis",
+      "description": "Existence/uniqueness/smoothness of implicitly-defined objects (fixed points, scaling potentials) in a parameter, with quantitative resolvent bounds."
+    },
     "independent-reimplementation": {
       "field": "logic-methodology",
       "description": "Re-derive a computational claim with different code and, where possible, a different algorithm."
@@ -147,6 +151,10 @@
     "overlap-tilt": {
       "field": "probability",
       "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
+    },
+    "perturbative-expansion": {
+      "field": "analysis",
+      "description": "Expand a functional around an exactly-solved point (product measure, equality case) and control the remainder with explicit second-order budgets."
     },
     "plackett": {
       "field": "probability",
