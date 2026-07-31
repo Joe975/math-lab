@@ -1,0 +1,88 @@
+{
+ "command": "certs",
+ "rows": [
+  {
+   "file": "design_cert_W43_pinchgap.json",
+   "len": 30,
+   "word_matches_claimed_family": true,
+   "my_exact_corridor_positive": true,
+   "width_matches_record_digit_for_digit": true,
+   "my_own_exact_simulation": true,
+   "sim_msg": "own exact simulation: closed periodic orbit, 30 bounces",
+   "my_gamma_gt": [
+    "135001/1000",
+    true
+   ],
+   "my_gamma_lt": [
+    "16881/125",
+    true
+   ],
+   "ok": true
+  },
+  {
+   "file": "design_cert_W43_gapdeep.json",
+   "len": 30,
+   "word_matches_claimed_family": true,
+   "my_exact_corridor_positive": true,
+   "width_matches_record_digit_for_digit": true,
+   "my_own_exact_simulation": true,
+   "sim_msg": "own exact simulation: closed periodic orbit, 30 bounces",
+   "my_gamma_gt": [
+    "1350000001/10000000",
+    true
+   ],
+   "my_gamma_lt": [
+    "135001/1000",
+    true
+   ],
+   "ok": true
+  },
+  {
+   "file": "design_cert_W54_touch144.json",
+   "len": 38,
+   "word_matches_claimed_family": true,
+   "my_exact_corridor_positive": true,
+   "width_matches_record_digit_for_digit": true,
+   "my_own_exact_simulation": true,
+   "sim_msg": "own exact simulation: closed periodic orbit, 38 bounces",
+   "my_gamma_gt": [
+    "1440000001/10000000",
+    true
+   ],
+   "my_gamma_lt": [
+    "144001/1000",
+    true
+   ],
+   "ok": true
+  },
+  {
+   "file": "design_exact135_W52.json",
+   "len": 30,
+   "word_matches_claimed_family": true,
+   "my_exact_corridor_positive": true,
+   "width_matches_record_digit_for_digit": true,
+   "my_own_exact_simulation": true,
+   "sim_msg": "own exact simulation: closed periodic orbit, 30 bounces",
+   "my_on_arc_135_exact": true,
+   "circle_identity_exact": true,
+   "tan_alpha": "512242667139/1686780588413",
+   "niven_applicable": true,
+   "ok": true
+  },
+  {
+   "file": "design_exact135_N1.json",
+   "len": 46,
+   "word_matches_claimed_family": true,
+   "my_exact_corridor_positive": true,
+   "width_matches_record_digit_for_digit": true,
+   "my_own_exact_simulation": true,
+   "sim_msg": "own exact simulation: closed periodic orbit, 46 bounces",
+   "my_on_arc_135_exact": true,
+   "circle_identity_exact": true,
+   "tan_alpha": "737239986301/1461783269251",
+   "niven_applicable": true,
+   "ok": true
+  }
+ ],
+ "all_ok": true
+}

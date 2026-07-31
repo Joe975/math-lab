@@ -1,0 +1,12 @@
+{
+ "command": "lemmac",
+ "a": 6,
+ "b": 2,
+ "v0": "30",
+ "endpoint_identity_90_minus_v0_eq_b_v0": true,
+ "d2": "15/16",
+ "h2p_hi_on_zone": -0.03228069927231018,
+ "d1": "15/4",
+ "bisection_leaves": 36,
+ "ok": true
+}

@@ -1,0 +1,30 @@
+{
+ "command": "birthlaw2",
+ "note": "W(6,4)~W(5,5) same canonical word, so replaced; these two are genuinely outside the fit classes",
+ "rows": [
+  {
+   "a": 6,
+   "b": 3,
+   "outside_003_scope": false,
+   "predicted_birth": 142.5,
+   "predicted_death": 146.25,
+   "alive_mid": true,
+   "measured_birth": 142.5000000000303,
+   "birth_minus_predicted": 3.029754225281067e-11,
+   "dead_sampled_below": true,
+   "best_width_below": -6.097433197385356e-12
+  },
+  {
+   "a": 8,
+   "b": 2,
+   "outside_003_scope": true,
+   "predicted_birth": 138.75,
+   "predicted_death": 142.5,
+   "alive_mid": true,
+   "measured_birth": 138.75000000003,
+   "birth_minus_predicted": 3.001332515850663e-11,
+   "dead_sampled_below": true,
+   "best_width_below": -2.2475589080573663e-11
+  }
+ ]
+}
