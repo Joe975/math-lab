@@ -3,7 +3,7 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-07-30)
+## TL;DR (updated 2026-07-31)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
@@ -17,58 +17,66 @@ hourly routine with that file as the prompt. Everything needed is in this
 directory. New attempts are welcome as pull requests; see `CONTRIBUTING.md`,
 and `AGENTS.md` for whether to work blind or informed.
 
-Current standing. HEADLINE: the union-closed dependent-couplings route
-SURVIVED independent skeptic review — first live interface past the
-entropy barrier in this lab (corrected ceiling 0.4315). Its gap (a) —
-pointwise Plackett odds-ratio control — is now REFUTED as stated, in
-both directions, with a sharp replacement range (005, confirmed by
-006); the live restatement is *averaged* odds-ratio control, and the
-perturbative lead survives untouched. The 2026-07-30 cycle also ran the
-first two blind attempts of the lab: a mahler-4d census (minimum volume
-product over all 1.77M centrally symmetric {0,±1}⁴-vertex bodies ≤ 22
-vertices is EXACTLY 32/3, attained only by Hanner polytopes, spectral
-gap ≈ 0.146 — no counterexample in that universe) and a billiards word
-census (coverage staircase stalls at 135°; needed word length grows
-hyperbolically, not super-exponentially, but certified area collapses —
-length buys angle reach, not area; the ~112.5° constructive frontier
-was rediscovered blind). Both skeptic-confirmed by from-scratch
-re-implementations. Also complete: Singmaster census to 2.5×10^29;
-Erdős–Gyárfás verified for ALL cubic graphs to n=22 plus all girth-≥5
-cubics at n=24; lonely-runner k=8 census; Erdős–Straus 601 refuted →
-QR-class identity-poverty; graceful census n ≤ 14. 15 verified
-results, 5 recorded dead ends, 10 problems, ~35 reusable tools.
-Crouzeix remains the one onboarded problem with no attempts (queue;
-run blind).
+Current standing. HEADLINE: the 2026-07-31 cycle attacked all three
+gaps of the LIVE union-closed route in parallel; every verdict is
+skeptic-confirmed. Gap (a′) — averaged odds-ratio control — is
+REFUTED by an explicit 10-atom witness (M_5 = λ − 0.122, all
+marginals ≤ 0.318 < 0.38271), certified float-free in exact rational
+arithmetic and robust to the bookkeeping convention; the i-AGGREGATED
+control survives certified (+1.84 on the witness itself) and is the
+restated gap. Gap (c): the smoothness step 005's Prop 6 was missing is
+now a proved theorem (P6′, quantitative IFT, skeptic-verified at fixed
+n) — but the skeptic's n=32 census killed the naive n-uniform budget
+(the flattening reverses past n ≈ 22) and showed the tax is δ-linear,
+so the conditional assembly needs a corrected budget object. Gap (b)
+got its first precise statement and survived everywhere tested (the
+slice tilt is provably tax-free; a newly named "second tax"
+~0.40·log₂n is the binding loss channel; λ-window law λ_max ≈
+4.847/(n−3)). Route stays LIVE, ceiling 0.4315 vs record 0.38271.
+Also this cycle: the billiards W(a,b) death-angle laws held both
+pre-registered out-of-sample predictions, were unified into a general
+law γ_d(a,b) = 180 − 90(a+b)/(a(b+1)), and PROVEN as a necessity
+theorem (machine-certified for 15 members, skeptic-confirmed); and the
+first cross-field ideation sweep ran on union-closed (6 lenses → 3
+queue-worthy routes, 5 no-purchase verdicts, one proven product-weight
+no-go). Standing library: Singmaster census to 2.5×10^29;
+Erdős–Gyárfás for all cubics to n=22 + girth-≥5 at n=24; lonely-runner
+k=8; Erdős–Straus identity-poverty; graceful n ≤ 14; mahler-4d and
+billiards blind censuses. 19 verified results, 7 recorded dead ends,
+10 problems, ~40 reusable tools. Crouzeix remains the one problem with
+no attempts (queue; run blind).
 
 ## Problem status
 
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 done | high | next: 2-connected C16-free test (lead 2); n=26 is a ~16h run |
-| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a) refuted as stated (005/006) → close the restated gaps: (a′) averaged odds-ratio control, (b) mutual-information tax, (c) perturbative assembly at ρ≈1.03 |
+| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a′) refuted (007/013) → live gaps: aggregated OR control (probe n ≳ 20 BEFORE proof effort), δ-linear tax budget, corrected assembly budgets (012); plus three sweep leads (010) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
-| Triangular billiards | census done blind (skeptic-confirmed) | high | next: prove the W(a,b) death-angle laws (test W(10,9)→162.90°); pinch-gap scan ℓ=28–34; Taylor-model enclosure as a new tier-0 tool |
+| Triangular billiards | death law PROVEN as necessity (003/004, skeptic-confirmed) | high | next: sufficiency at γ_d (first-order corner argument); general-(a,b) proofs of I1–I3 / Lemma C; a > 2b+3 branch; pinch-gap scan |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] Proof-gap attack, one gap per agent: (a′) the AVERAGED odds-ratio control M_i ≥ λ from 005's restatement (the pointwise version is REFUTED — see 005/006; the averaged form survived its first falsifiable test on the crash family, but must first resolve the zero-mass bookkeeping for i ≥ 3 on small supports); (b) the mutual-information tax bound; (c) the perturbative assembly at ρ≈1.03 around the proven c=0 argument — 005's Prop 6 (first-order cancellation, λ + O(δ²) near product) is the natural starting point, noting its family-dependent asymptotic onset (006 part S7). Use 004+005+006's corrected statements ONLY. Any claimed bound → skeptic review before ledger entry.
-2. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
-3. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
-4. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
-5. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
-6. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
-7. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
-8. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
-9. [billiards-triangles] Prove the W(a,b) death-angle laws from 001 (SPECULATION there; survived two out-of-sample rows in 002): the corridor endpoints are rational functions of the apex, so degeneration at γ = 180a/(a+1)° is a finite symbolic computation per a. Test predictions first: W(10,9) dies at 162.90°, W(12,12) at 166.154°. A proof turns the hyperbolic growth law from measured to established along the family curve.
-10. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
-11. [billiards-triangles] Pinch-gap scan: what covers [death(W(a,a)), birth(W(a+1,a))] (e.g. the measured [135.000°, 135.049°] where nothing ≤ 30 is alive)? Scan words of length 28–34 restricted to the family's letter statistics. If nothing bounded covers a neighbourhood of γ = 180a/(a+1)° on the arc-minimum curve, those angles are genuine accumulation points of the constructive problem.
-12. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
+1. [union-closed] The restated gap: i-AGGREGATED odds-ratio control (007's replacement after the per-i averaged form died — see 007/013). FIRST extend the certified probe to larger n: 012's orbit-symmetrized engine reaches n = 32, and its budget-growth reversal past n ≈ 22 is a standing warning against small-n optimism — the aggregate is certified positive only at n ≤ 7. If it survives n ≳ 20, attack the proof through 007's Gram/Frobenius machinery (PSD mass matrix; first-order-in-λ perfect square) and the margin-modulated variant. Any claimed bound → skeptic review before ledger entry.
+2. [union-closed] Rebuild the assembly budgets per 012's corrections: the tax is δ-LINEAR (restate B2), the τ_half step needs s₀ ≤ 0.0843, corrected δ₀ ≈ 0.004. The open question is whether ANY n-uniform budget object exists — 008's conditional theorem survives structurally; its constants need the corrected inputs, and the budget census machinery (uc_pert.py + uc_pert_skeptic.py's orbit engine) is ready.
+3. [union-closed] Sweep leads from 010, one per cycle: (i) pairwise-closure LP/degree-2 SOS certification on the n ≤ 4 census (all 4958 families) — kill: certified bound converges to ≈ 0.382; (ii) union-transfer-operator eigenvalue field — test log-supermodularity of λ_C on the n ≤ 5 census (pre-check the total-positivity records first); (iii) bipartite-MIS decomposition — geng census to n = 12, connectivity of extremals, compositionality across 1- and 2-cuts. Kill conditions recorded in 010.
+4. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
+5. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
+6. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
+7. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
+8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
+9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
+10. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
+11. [billiards-triangles] Close the death-law sufficiency: certified alive points approaching γ_d (the first-order corner argument, 003 lead 2 — note 004's correction that a zero-width touching corridor AT γ_d is not excluded by the necessity theorem); prove I1–I3 and Lemma C for general (a,b) (per-member certified for 15 members; Lemma C numerically true for all b ≤ a ≤ 25); map the a > 2b+3 branch (W(6,3)-type members are unmeasured).
+12. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
+13. [billiards-triangles] Pinch-gap scan: what covers [death(W(a,a)), birth(W(a+1,a))] (e.g. the measured [135.000°, 135.049°] where nothing ≤ 30 is alive)? Scan words of length 28–34 restricted to the family's letter statistics. If nothing bounded covers a neighbourhood of γ = 180a/(a+1)° on the arc-minimum curve, those angles are genuine accumulation points of the constructive problem. The general law γ_d(a,b) from 003 now predicts where W(a+1,a) births/deaths sit — use it to target the scan.
+14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
 
 ## Verified results
 
@@ -189,6 +197,61 @@ run blind).
   below 1/8. The ML spectrum below 1/7 (V ≤ 40) is exactly {s/(7s+k),
   k∈{1,2}} — consistent with Fan–Sun's amended spectrum conjecture, new
   data point at n=7. Exact rational arithmetic, independently re-verified.
+- **[union-closed] Gap 2 (mutual-information tax) formalized; probe
+  survives (skeptic-confirmed)** (2026-07-31, attempts 009+011): first
+  precise candidate statement (TAX at p) via a chain-rule assembly value
+  CR and a newly named second tax ST ≥ 0; smoothing-sensitive on 002's
+  own certificate gadgets (Θ(n) positive — so the 002 no-go does not
+  apply); the pure slice tilt is provably tax-free and the half-mixing
+  coupling provably has ST = 0 (both proofs independently re-derived);
+  survives all four adversary genres, and the skeptic closed 009's
+  untested tilt-recipe/Sawin cell positively to n = 300. λ-window law:
+  λ_max ≈ 4.847/(n−3), sup CR at λ = 0 for n ≥ 14 (crash genre pulls
+  λ → 0, mixtures pull λ ≳ 1 — gap 3 in miniature). Second-tax scaling
+  ~0.40·log₂n survives extension to n = 240 (slope is λ-dependent).
+  Finite-n EVIDENCE; four reporting-level corrections in 011.
+- **[union-closed] Gap (a′) — per-i averaged OR control — REFUTED
+  float-free (skeptic-confirmed)** (2026-07-31, attempts 007+013):
+  well-posedness first forced (proved degeneracy dichotomy; the
+  normalization is pinned by the i=n and product-μ anchors), then the
+  control PROVED for four subclasses (≤4-atom supports — upgrading 006's
+  S8 to a corollary — potential-MTP₂ μ, i ∈ {1,n}, first order in λ with
+  a perfect-square coefficient), then REFUTED in the record-relevant
+  regime: an explicit 10-atom μ on 2^[7] (marginals ≤ 0.318 < 0.38271)
+  has M_5 = λ − 0.122033, violating for every λ ≳ 0.03. Certified in
+  exact rational arithmetic (at rational tilts t = 4, 16 the violation
+  is a fully rational statement), perturbation-stable, and robust to the
+  conjecture-friendliest alternative bookkeeping (still −0.067). The
+  i-AGGREGATED control is certified positive (+1.844669) on the witness
+  and survived seeded attacks — it is the restated gap.
+- **[union-closed] Theorem P6′: the Prop-6 smoothness step closed
+  (skeptic-confirmed at fixed n); naive n-uniform budgets killed**
+  (2026-07-31, attempts 008+012): existence/uniqueness/differentiability
+  of the symmetric Sinkhorn potential in μ proved via quantitative IFT;
+  |log₂OR − λ| ≤ 924·min(p,1−p)^(−3n)·δ², re-derived line-by-line and
+  stress-tested to the theorem boundary with zero violations.
+  Calibration corrected: ρ*(0.383) = 1.0422 (the queue's 1.03 was
+  wrong); centered kernel suppresses the crash OR to 2^{λ(3−n)/n}.
+  Skeptic kills on the assembly half: the averaged-budget flattening
+  REVERSES past n ≈ 22 (008's own pre-asymptotic worry was real — B1
+  dead as stated), the tax is δ-linear not quadratic (B2 restated), the
+  box-uniform τ_half step is analytically false at its own parameters
+  (s₀ ≤ 0.0843), δ₀ → ≈ 0.004. The conditional theorem survives
+  structurally with corrected constants.
+- **[billiards-triangles] W(a,b) death-angle law PROVEN as necessity
+  and generalized (skeptic-confirmed)** (2026-07-31, attempts 003+004):
+  both pre-registered out-of-sample predictions held (W(10,9) → 162.90°,
+  W(12,12) → 2160/13°, agreement ~1e-12); a division-free Laurent-ring
+  unfolding collapses the corridor criterion to a glide-axis offset
+  inside gate projections, with the binding functions factoring exactly;
+  the general law γ_d(a,b) = 180 − 90(a+b)/(a(b+1)) unifies 001's two
+  slice formulas and predicted W(5,3) → 144° and W(4,2) → 135° BEFORE
+  measurement (mirror-half members 001/002 never scanned). Necessity —
+  no positive-width corridor at any γ ≥ γ_d — machine-certified for 15
+  members and fully re-verified by an independent ring, an independent
+  interval stack, and a 1.94M-point case-tree search. Scope: zero-width
+  touching at γ_d is not excluded; the general-(a,b) identities remain
+  SPECULATION (per-member certified); a > 2b+3 uncovered.
 
 ## Insights / cross-problem notes
 
@@ -260,14 +323,65 @@ run blind).
   never re-run completed units, and treat "the container can restart at any
   moment" as the design assumption.
 
+- Verification standard (2026-07-31): when a claim is decidable over Q,
+  exact rational arithmetic IS the skeptic pass — cross-engine float
+  agreement is NOT independence. 007's first "witnesses" were
+  shared-IEEE-underflow artifacts that two independent engines AND a
+  round-trip check all agreed on; a physical parameter sweep exposed
+  them, and 013's Fraction-plus-certified-log₂-enclosures settled the
+  real witness beyond floats. Billiards 003/004 ran the same standard
+  geometrically (exact-rational intervals, independent stacks). New
+  mechanism tag: exact-rational-arithmetic. Guard adopted in engines:
+  cell-floor diagnostics + dynamic-range clamps.
+- Small-n flattening is not evidence of n-uniformity (2026-07-31): 012
+  extended 008's budget census from n = 9 to n = 32 with an
+  orbit-symmetrized engine and the "flattening" reversed past n ≈ 22 —
+  the pre-asymptotic worry 008 itself recorded was real. Corollary
+  applied to the queue: the restated aggregated-control gap must be
+  probed at n ≳ 20 before proof effort is invested (its certified
+  positives live at n ≤ 7).
+- First ideation sweep ran (2026-07-31, union-closed 010): 6 lenses,
+  3 queue-worthy routes, 5 recorded no-purchase verdicts. The filter
+  step earned its keep — one lens agent's numeric "witness" did not
+  reconcile with its own construction and was replaced by a one-line
+  proof of the same no-go. Sweeps on other problems remain unrun.
+- Infra (2026-07-31): tests/test_site.py checks one_line summaries with
+  html.escape() (quote=True) while scripts/build_site.py renders them
+  with quote=False, so an apostrophe in the first ~40 characters of a
+  one_line fails the site test. Worked around by wording; a proper fix
+  should align the two escapings. Related: leak_terms must name
+  findings, not generic vocabulary — "certified enclosure" collided
+  with tier-0 problem statements and tripped the leak test.
+
 ## Dead ends
 
 - **[union-closed] Pointwise Plackett odds-ratio control (gap (a) as
   stated)** (2026-07-30, attempts 005+006): dead in both directions — do
   not re-attempt any pointwise uniform-in-μ version; diagonal histories
   force the opposite inequality and structured 4-atom adversaries crash
-  the ratio to 0 within the record-relevant marginal regime. The averaged
-  restatement (a′) is the live replacement; see queue item 1.
+  the ratio to 0 within the record-relevant marginal regime.
+- **[union-closed] Per-i averaged odds-ratio control M_i ≥ λ (gap (a′),
+  005's restatement)** (2026-07-31, attempts 007+013): dead in the
+  record-relevant regime — a 10-atom witness certified in exact rational
+  arithmetic violates at every λ ≳ 0.03 and survives every bookkeeping
+  convention. Do not re-attempt any per-i averaged form; the witness
+  genre (near-proportional light slices, anti-aligned cross-ratios) is
+  the reusable adversary. Live replacements: the i-aggregated and
+  margin-modulated controls (queue item 1).
+- **[union-closed] n-uniform δ²-budgets for the perturbative assembly
+  (008's B1/B2 as stated)** (2026-07-31, attempt 012): the averaged
+  downward budget's flattening reverses past n ≈ 22 (evidence to
+  n = 32), and the tax side is δ-linear, not quadratic. Restate the
+  budget object before any assembly re-attempt; 008's conditional
+  theorem itself survives with corrected constants.
+- **[union-closed] Product-weight functionals / the multiplicative-
+  Dirichlet toolbox** (2026-07-31, attempt 010): product-weighted Frankl
+  is trivially FALSE (the power set gives frequency x/(1+x) < 1/2 for
+  any product weight x < 1), and every functional visible to the
+  lcm/divisor encoding is a product-weight functional — the arithmetic
+  toolbox aims at an invariant for which the conjecture fails. Pre-empts
+  multiplicative repackagings the way the smoothing-insensitive no-go
+  pre-empts functional ones.
 - **[union-closed] k-wise unions**: strictly worsen the entropy constant
   (0.382 → 0.318 → 0.276 for k = 2,3,4); recorded in attempt 001.
 - **[union-closed] Gilmer's Conjecture 1** (strengthened entropy inequality):
