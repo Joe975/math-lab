@@ -1,0 +1,86 @@
+{
+ "command": "alivecheck",
+ "rows": [
+  {
+   "file": "deathlaw_exact_alive_W109.json",
+   "a": 10,
+   "b": 9,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "162899999/1000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W1212.json",
+   "a": 12,
+   "b": 12,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "2159999987/13000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W21.json",
+   "a": 2,
+   "b": 1,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "112499999/1000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W22.json",
+   "a": 2,
+   "b": 2,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "119999999/1000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W32.json",
+   "a": 3,
+   "b": 2,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "129999999/1000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W33.json",
+   "a": 3,
+   "b": 3,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "13499999999/100000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W42.json",
+   "a": 4,
+   "b": 2,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "13499999999/100000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  },
+  {
+   "file": "deathlaw_exact_alive_W53.json",
+   "a": 5,
+   "b": 3,
+   "exact_corridor_positive": true,
+   "width_matches_003_exactly": true,
+   "my_certified_gamma_gt": "143999999/1000000",
+   "my_certified_gamma_lt_gamma_d": true,
+   "ok": true
+  }
+ ],
+ "all_ok": true
+}

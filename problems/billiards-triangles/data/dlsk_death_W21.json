@@ -1,0 +1,22 @@
+{
+ "command": "death",
+ "a": 2,
+ "b": 1,
+ "len": 14,
+ "uniform": 1200,
+ "iters": 46,
+ "full": false,
+ "death_between": [
+  112.49999999998624,
+  112.49999999998626
+ ],
+ "predicted": 112.5,
+ "measured_minus_predicted": -1.375610736431554e-11,
+ "last_alive": {
+  "alpha": 44.999999999992724,
+  "beta": 22.500000000021032,
+  "width": 1.0006440120946536e-12,
+  "best_width_alpha_ge_beta": 1.0006440120946536e-12,
+  "best_width_alpha_lt_beta": -Infinity
+ }
+}
