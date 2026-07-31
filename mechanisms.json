@@ -1,6 +1,6 @@
 {
-  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings — findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
-  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there — that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
+  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings \u2014 findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
+  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there \u2014 that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
   "fields": {
     "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
     "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
@@ -107,6 +107,10 @@
     "exhaustive-speed-tuple-scan": {
       "field": "computation",
       "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
+    },
+    "field-lens-sweep": {
+      "field": "logic-methodology",
+      "description": "Cross-field ideation sweep: apply untried field lenses to one problem in parallel to generate candidate attack routes; output is a MAP of triaged leads and recorded no-purchase verdicts (docs/IDEATE.md)."
     },
     "girth-restriction": {
       "field": "graph-theory",

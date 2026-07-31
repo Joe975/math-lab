@@ -177,6 +177,33 @@
         "family-dependent delta-squared onset",
         "uc_or_skeptic"
       ]
+    },
+    {
+      "id": "010",
+      "file": "attempts/010-ideation-sweep-fields.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "field-lens-sweep",
+        "barrier-analysis"
+      ],
+      "one_line": "First ideation sweep (6 field lenses): 3 queue-worthy routes (pairwise-closure LP certification, union-transfer-operator eigenvalue field, bipartite MIS decomposition), 6 secondary, 5 no-purchase verdicts incl. a proven product-weight no-go killing the multiplicative toolbox.",
+      "leak_terms": [
+        "field-lens sweep",
+        "coatom eigenvalue",
+        "union transfer operator",
+        "eigenvalue field",
+        "log-supermodular lambda",
+        "product-weight no-go",
+        "pairwise-closure LP",
+        "union-injection Hall",
+        "union-escape graph",
+        "MIS share r(G)",
+        "crosscut truncation"
+      ],
+      "refuted_by": null,
+      "gaps": []
     }
   ]
 }
