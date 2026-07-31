@@ -179,6 +179,48 @@
       ]
     },
     {
+      "id": "007",
+      "file": "attempts/007-averaged-or-control.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "plackett",
+        "sinkhorn",
+        "total-positivity",
+        "gram-mass-pairing"
+      ],
+      "one_line": "The restated Gap-1 averaged control M_i >= lambda is made well-posed (forced degeneracy bookkeeping), proved for four structured subclasses, then refuted in the record-relevant regime by an explicit perturbation-stable 10-atom mu (marginals <= 0.318) with M_5 = lambda - 0.122; the i-aggregated form survives and becomes the new gap.",
+      "range": "444-instance census plus clamped adversarial searches at n <= 8, lambda in [0.05, 6]; witness verified by two independent engines to 1e-14, stable under 3% perturbation and 2-digit rounding, violating for every lambda >= 0.03 on the same mu",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "two-prefix witness",
+        "light slice",
+        "light-slice",
+        "10-atom witness",
+        "0.122033",
+        "dilution invariance",
+        "Gram mass pairing",
+        "gram-mass-pairing",
+        "2x2-minor control",
+        "cell floor",
+        "degeneracy dichotomy",
+        "aggregated-or-control",
+        "uc_or_avg",
+        "or_avg_part"
+      ],
+      "methodological_lesson": "Cross-engine agreement is not independence when both engines share IEEE arithmetic: a 1e-299 atom made u(A)u(B) underflow to exact zero in one diagonal cell, and both implementations plus the Sinkhorn round-trip agreed on the resulting fake violation; a parameter sweep of the suspect light atom toward its boundary was what exposed it. Guard adopted: cell-floor diagnostic plus dynamic-range clamping in searches.",
+      "note": "Settles 005 lead 1 negatively (005's SPECULATION label was accurate; nothing in 005/006 needs correction). Route stays LIVE: this kills a candidate bridge, not the interface. Partial positives now proved: M_i >= lambda for supports of <= 4 atoms, for potential-MTP2 mu, at i in {1, n}, and to first order in lambda (perfect-square coefficient), the last modulo the standard Sinkhorn-smoothness step."
+    },
+    {
       "id": "008",
       "file": "attempts/008-perturbative-assembly.md",
       "date": "2026-07-31",

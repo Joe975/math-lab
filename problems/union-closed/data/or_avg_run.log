@@ -1,0 +1,43 @@
+[W1] degeneracy dichotomy (cell zero <=> margin zero <=> prefix outside N_i): 1016 coordinate-censuses on 200 random sparse supports -- PASS
+[W2] direction unif     : log2 OR at degenerate history (i=3, a=b=01) for eps=1e-2,1e-3,1e-4 -> +1.4677, +1.4713, +1.4716
+[W2] direction bern015  : log2 OR at degenerate history (i=3, a=b=01) for eps=1e-2,1e-3,1e-4 -> +1.0397, +1.0399, +1.0399
+[W2] direction two_atoms: log2 OR at degenerate history (i=3, a=b=01) for eps=1e-2,1e-3,1e-4 -> +1.0002, +1.0000, +1.0000
+[W2] spread of eps=1e-4 values across directions = 0.4716 (direction-DEPENDENT limit -> no continuous extension)
+[C] vs 006_partS8 (crash+mirror M_i): max |diff| = 8.88e-16 (PASS)
+[C] vs 005_partE (mass-weighted mean log2 OR): max |diff| = 2.78e-14 (PASS)
+[K] census: 444 instances (98 in-regime), violations of M_i >= lambda (any i, tol 1e-9): 0
+[K] global min over i<n of (M_i - lambda) = -0.000000 at rand_sparse_n6_k7 lam=0.73
+[K]   closest approach rand_sparse           : min i<n excess -0.000000
+[K]   closest approach mirror                : min i<n excess -0.000000
+[K]   closest approach sawin_geo_b           : min i<n excess +0.000149
+[K]   closest approach sawin_geo_c           : min i<n excess +0.000155
+[K]   closest approach sawin_geo_a           : min i<n excess +0.000201
+[K]   closest approach partE_mix             : min i<n excess +0.000204
+[K]   closest approach d0_bern               : min i<n excess +0.006621
+[K]   closest approach crash                 : min i<n excess +0.011255
+[K]   closest approach smslice               : min i<n excess +0.030482
+[K]   closest approach slice                 : min i<n excess +0.044821
+[L] L-matrix probe: 572 (instance, i) pairs; Frobenius identity max err = 9.91e-15 (PASS)
+[L] min eigenvalue of L over probe = -3.112701 at ('rand_n5_k8', 6.0, 2); instances with L not PSD: 132
+[L]   ...yet min (M_i - lambda) among non-PSD instances = +0.000518 (mass weighting rescues the average)
+[S-a] hill-climb on min_(i<n) (M_i - lambda), 36 restarts x 400 steps (5..12 atoms, marginal-penalized):
+[S-a] best (most negative) i<n excess found = -0.000000 at n=6 k=8 lam=1.0 (max marginal 1.0000)
+[S-a] five most negative endpoints: -0.000000 -0.000000 -0.000000 -0.000000 +0.000000
+[S-b] hill-climb on min eig of L, 12 restarts x 250 steps:
+[S-b] most negative L eigenvalue found = -2.5247 (lam=6.0); i<n excess at that optimum = +0.201631
+[S-b] min i<n excess across all L-optimized instances = +0.000000
+[T] EXPLICIT WITNESS: n=7, 10 atoms, lambda=3.5, response coordinate i=5
+[T]   M_i - lambda = -0.122033  (VIOLATION)  |  max marginal = 0.3178 < 0.38271  |  H(mu) = 2.7218 bits
+[T]   all M_i - lambda: +1.4834 +1.9057 +2.2437 +2.7704 -0.1220 +3.4738 +0.0000
+[T]   defined mass at i = 0.5511; cell floor at i = 3.04e-06 (no underflow: atoms span 0.0048..27)
+[T]   aggregate over i<n at witness = +1.8448 (the i-averaged form is NOT killed by this instance)
+[T]   (a) Sinkhorn round-trip from mu: resid 8.7e-14, max |M_i diff| = 3.38e-14
+[T]   (b) dilution invariance: without dilution atoms M_i - lambda = -0.122033 (diff 1.8e-15), max marginal 0.5076 (out of regime -> dilution is what buys in-regime, changing M_i by nothing)
+[T]   (c) perturbation: 3% noise, 20 trials -> 20/20 still in-regime violations (weakest -0.120015)
+[T]   (d) 2-significant-digit witness: M_i - lambda = -0.121891, max marginal 0.3130
+[T]   (e) lambda profile (same mu): 0.005:+1.89e-06 0.01:+2.89e-06 0.02:+2.25e-06 0.05:-2.08e-05 0.1:-1.29e-04 0.5:-4.08e-03 1:-1.63e-02 1.5:-3.55e-02 2:-5.95e-02 2.5:-8.47e-02 3:-1.07e-01 3.5:-1.22e-01 4:-1.28e-01 5:-1.11e-01
+[T]       small-lambda excesses all positive: True (Theorem C consistency; the violation is second-order in lambda, onset ~0.03)
+[T]   (f) light-slice weight sweep: 0.05:-0.12153 0.01:-0.12198 0.001:-0.12207 0.0001:-0.12208 1e-06:-0.12208
+[U] clamped search, mode=single_i: 20 restarts x 700 steps; 1 in-regime violations; three lowest endpoints: -0.00334 -0.00000 +0.00000
+[U] clamped search, mode=aggregate: 20 restarts x 700 steps; 0 in-regime violations; three lowest endpoints: +0.01254 +0.02348 +0.03009
+done; checkpoints in /home/user/math-lab/problems/union-closed/data

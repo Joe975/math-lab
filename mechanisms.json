@@ -120,6 +120,10 @@
       "field": "graph-theory",
       "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
     },
+    "gram-mass-pairing": {
+      "field": "analysis",
+      "description": "Recast an averaged inequality as a Frobenius pairing of a PSD Gram mass matrix against a deficit matrix, so spectral conditions on the deficit decide the bound and their failure modes locate counterexamples."
+    },
     "group-orbit-enumeration": {
       "field": "algebra",
       "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
