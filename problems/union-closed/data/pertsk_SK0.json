@@ -1,0 +1,32 @@
+{
+ "crash": [
+  {
+   "err": 0.0,
+   "log2_or": -2.0,
+   "n": 5
+  },
+  {
+   "err": 0.0,
+   "log2_or": -5.0,
+   "n": 8
+  }
+ ],
+ "orbit_vs_direct": [
+  {
+   "direct_resid": 4.996003610813204e-16,
+   "max_abs_disagreement": 1.199040866595169e-14,
+   "n": 6,
+   "orbit_resid": 5.412337245047638e-16
+  },
+  {
+   "direct_resid": 1.5265566588595902e-15,
+   "max_abs_disagreement": 8.881784197001252e-15,
+   "n": 7,
+   "orbit_resid": 1.2906342661267445e-15
+  }
+ ],
+ "product": {
+  "gain_err": 4.440892098500626e-16,
+  "max_dev": 1.3322676295501878e-15
+ }
+}

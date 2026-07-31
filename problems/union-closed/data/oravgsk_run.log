@@ -1,0 +1,54 @@
+[A] EXACT witness, t = float(2^3.5) as a rational (lambda in [3.500000000000000, 3.500000000000000]):
+[A]   degeneracy dichotomy exact at all i: True
+[A]   max elementwise marginal (exact) = 0.3177685744 < 0.38271: True  [exact comparison 934009420465907745204123727028694954665928600557109574200104398526959786591185272832/2939275610772074700156865822530328937120246324140160562237467799050709805147469342213 < 38271/100000]
+[A]   defined history-mass fraction at i=5 (exact) = 0.5510878757
+[A]   M_5 - log2 t  in  [-0.122033410223667, -0.122033410223667]
+[A]   CERTIFIED VIOLATION at this exact t: True   (record claims -0.122033)
+[A]   t = 181/16: all M_i - log2 t enclosures: [+1.4834,+1.4834] [+1.9055,+1.9055] [+2.2436,+2.2436] [+2.7702,+2.7702] [-0.1220,-0.1220] [+3.4737,+3.4737] [+0.0000,+0.0000]
+[A]   t = 181/16: max marginal 0.317770, in-regime True, i=5 violation certified: True
+[A]   convention robustness (degenerate histories scored AT lambda): M_5 - lam in [-0.067173, -0.067173] -> still violated: True
+[A]   tidy 2-sig-decimal witness at t=181/16: M_5 - lam in [-0.121887, -0.121887], max marginal 0.312983, certified in-regime violation: True
+[A]   exact-t sweep (fixed u; lambda = log2 t exact where t is a power of 2):
+[A]     t=101/100  (lam=0.0144): M_5-lam in [+8.323e-04,+8.323e-04] pos in-regime
+[A]     t=103/100  (lam=0.0426): M_5-lam in [+2.411e-03,+2.411e-03] pos in-regime
+[A]     t=21/20    (lam=0.0704): M_5-lam in [+3.880e-03,+3.880e-03] pos in-regime
+[A]     t=11/10    (lam=0.1375): M_5-lam in [+7.114e-03,+7.114e-03] pos in-regime
+[A]     t=3/2      (lam=0.5850): M_5-lam in [+1.775e-02,+1.775e-02] pos in-regime
+[A]     t=2        (lam=1.0000): M_5-lam in [+1.254e-02,+1.254e-02] pos in-regime
+[A]     t=4        (lam=2.0000): M_5-lam in [-4.010e-02,-4.010e-02] VIOL in-regime
+[A]     t=8        (lam=3.0000): M_5-lam in [-1.041e-01,-1.041e-01] VIOL in-regime
+[A]     t=16       (lam=4.0000): M_5-lam in [-1.239e-01,-1.239e-01] VIOL in-regime
+[A]     t=32       (lam=5.0000): M_5-lam in [-7.802e-02,-7.802e-02] VIOL (marg>rec)
+[B] dilution invariance EXACT: same N_5 True, same histories True, all unnormalized masses and ORs equal as rationals: True
+[B]   max marginal with dilution 0.3178 (in-regime), without 0.5076 (out of regime) -- dilution buys regime at exactly zero cost to M_5
+[B] stripping invariance EXACT (always-1 coordinate appended): ORs identical True; masses scale by exactly t True -> M_i exactly invariant
+[C] exact i-aggregated form on the witness (t=181/16): sum w_i (M_i - lam) / sum w_i in [+1.844669, +1.844669]
+[C]   certified POSITIVE (aggregated form survives the witness): True   (record claims +1.84)
+[D] own-engine refit profile of the SAME mu: 0.005:+1.89e-06 0.01:+2.89e-06 0.02:+2.25e-06 0.05:-2.08e-05 0.1:-1.29e-04 0.5:-4.08e-03 1:-1.63e-02 2:-5.95e-02 3:-1.07e-01 3.5:-1.22e-01 4:-1.28e-01 5:-1.11e-01
+[D]   small-lambda (<=0.02) excesses positive: True; violation onset and depth match 007 part T(e)
+[D]   EXACT witness at lambda=1 (rationalized refit; mu within 8.0e-16 of the lam=3.5 witness's mu): M_5-1 in [-0.01629,-0.01629], max marg 0.3178 -> certified in-regime violation: True
+[D]   EXACT witness at lambda=2 (rationalized refit; mu within 7.5e-16 of the lam=3.5 witness's mu): M_5-2 in [-0.05950,-0.05950], max marg 0.3178 -> certified in-regime violation: True
+[D]   EXACT witness at lambda=3 (rationalized refit; mu within 9.2e-16 of the lam=3.5 witness's mu): M_5-3 in [-0.10684,-0.10684], max marg 0.3178 -> certified in-regime violation: True
+[E] battery spot-check (own engine): 96 instances, violations: 0 (record: 0 in its 444)
+[E]   family mirror       min i<n excess -0.000000
+[E]   family rand         min i<n excess -0.000000
+[E]   family sawin        min i<n excess +0.000943
+[E]   family partE        min i<n excess +0.001321
+[E]   family d0           min i<n excess +0.009473
+[E]   family slice        min i<n excess +0.053353
+[E]   family crash        min i<n excess +0.077832
+[E] planted genre detection: witness:-0.1220 tidy:-0.1219 pert0:-0.1218 pert1:-0.1217 pert2:-0.1219 pert3:-0.1215 pert4:-0.1217 light0.01:-0.1220 light1e-05:-0.1221
+[E]   pipeline flags every planted instance: True -- the battery pipeline detects the genre; its families simply do not contain it
+[F1] Theorem B probe: 500 random <=4-atom instances, min (M_i - lambda) over all defined i = -7.11e-15 (PASS >= -1e-10)
+[F2] exact crash identity OR == t^(3-n) at random rational potentials and t: PASS
+[F3] MTP2-potential probe: min (log2 OR - lambda) over every history of 30 ferromagnetic instances = -3.55e-15 (PASS)
+[F4] anchors: min (M_1 - lam) = +9.35e-04 (>=0 expected); max |M_n - lam| = 1.33e-15 (0 expected)
+[F4] Frobenius identity max err = 8.88e-16; normalized mass-matrix min eig = +2.82e-04 (PSD expected)
+[F5] Theorem C coefficient ||sum nu D||^2 vs Richardson slope (3 random mu): max rel err = 2.16e-05 (PASS < 5%)
+[F5] witness mu predicted first-order coefficient at i=5: 4.6530e-04  (record claims 4.65e-4)
+[F6] witness L at i=5: |N_5| = 2, diag = +0.2553 +0.2653, eigs = -1.4785 +1.9990
+[F6]   L non-PSD: True; 2x2-minor ratio |L_ab|/sqrt(e_a e_b) = 6.68 (> 1 = minor control fails, as the record's mechanism claims); H(mu) = 2.7218 bits (record: 2.72)
+[W2] own-engine directional limits at the degenerate history: unif:+1.4716 bern015:+1.0399 two_atoms:+1.0000  spread 0.4716 (007: 1.4716/1.0399/1.0000, 0.4716)
+[G] aggregated-form hunt (own seeds, witness-seeded + random): 21 endpoints, in-regime violations: 0
+[G]   five lowest endpoints: +0.47189 +0.47709 +0.47806 +0.48417 +0.49544
+done; checkpoints in /home/user/math-lab/problems/union-closed/data

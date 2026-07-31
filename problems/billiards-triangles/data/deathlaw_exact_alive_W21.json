@@ -1,0 +1,17 @@
+{
+ "a": 2,
+ "b": 1,
+ "len": 14,
+ "apex": [
+  "161019750019/549755813888",
+  "161019749977/549755813888"
+ ],
+ "exact_corridor_width": "250408976291257762906773044776505743849365109460454164587290623982952302154559214341841328849/361988182584521043930913373732129494549480055201976884853875298350447895183577530095377409911029760000",
+ "exact_corridor_width_float": 6.917600859326104e-10,
+ "orbit_verified_by_simulation": true,
+ "orbit_msg": "exact periodic orbit confirmed, 14 bounces",
+ "predicted_death": "225/2",
+ "certified_gamma_lower_bound_deg": "112499999/1000000",
+ "certified_gamma_below_prediction": true,
+ "conclusion": "death(W(2,1)) >= 112499999/1000000 deg, exactly; apex gamma certified < predicted death: True"
+}

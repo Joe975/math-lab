@@ -1,6 +1,6 @@
 {
-  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings — findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
-  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there — that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
+  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings \u2014 findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
+  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there \u2014 that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
   "fields": {
     "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
     "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
@@ -52,6 +52,14 @@
       "field": "computation",
       "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
     },
+    "certified-interval-inequality": {
+      "field": "analysis",
+      "description": "Prove a one-variable analytic inequality rigorously by splitting into an endpoint-algebra zone, an adaptive rational-interval bisection zone, and a derivative-sign zone near a vanishing endpoint; all enclosures exact-rational, single evaluations only."
+    },
+    "chain-rule-assembly": {
+      "field": "information-theory",
+      "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
+    },
     "class-enrichment": {
       "field": "probability",
       "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
@@ -88,6 +96,10 @@
       "field": "information-theory",
       "description": "Gilmer-style argument: bound the entropy of a combined random object against the entropies of its parts."
     },
+    "exact-rational-arithmetic": {
+      "field": "computation",
+      "description": "Certified exact computation over Q (fractions, directed rounding, rigorous enclosures) replacing floating point in verification, so that a numeric claim becomes a rational identity or a certified inequality."
+    },
     "exact-rational-ml": {
       "field": "computation",
       "description": "Exact rational arithmetic for extremal quantities, so ties and strict inequalities are decided without float error."
@@ -108,13 +120,25 @@
       "field": "computation",
       "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
     },
+    "field-lens-sweep": {
+      "field": "logic-methodology",
+      "description": "Cross-field ideation sweep: apply untried field lenses to one problem in parallel to generate candidate attack routes; output is a MAP of triaged leads and recorded no-purchase verdicts (docs/IDEATE.md)."
+    },
     "girth-restriction": {
       "field": "graph-theory",
       "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
     },
+    "gram-mass-pairing": {
+      "field": "analysis",
+      "description": "Recast an averaged inequality as a Frobenius pairing of a PSD Gram mass matrix against a deficit matrix, so spectral conditions on the deficit decide the bound and their failure modes locate counterexamples."
+    },
     "group-orbit-enumeration": {
       "field": "algebra",
       "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
+    },
+    "implicit-function-theorem": {
+      "field": "analysis",
+      "description": "Existence/uniqueness/smoothness of implicitly-defined objects (fixed points, scaling potentials) in a parameter, with quantitative resolvent bounds."
     },
     "independent-reimplementation": {
       "field": "logic-methodology",
@@ -128,13 +152,25 @@
       "field": "number-theory",
       "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."
     },
+    "mutual-information-tax": {
+      "field": "information-theory",
+      "description": "Bound the conditional mutual information a dependent coupling spends against the per-coordinate entropy gains it buys; the route survives iff gains exceed the tax."
+    },
     "nauty-geng": {
       "field": "computation",
       "description": "Canonical isomorph-free graph generation via nauty/geng as the enumeration backbone."
     },
+    "out-of-sample-prediction": {
+      "field": "logic-methodology",
+      "description": "Test a conjectured law on family members it was not fitted to, computed before comparison, so that agreement is evidence and disagreement is refutation rather than refitting."
+    },
     "overlap-tilt": {
       "field": "probability",
       "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
+    },
+    "perturbative-expansion": {
+      "field": "analysis",
+      "description": "Expand a functional around an exactly-solved point (product measure, equality case) and control the remainder with explicit second-order budgets."
     },
     "plackett": {
       "field": "probability",
@@ -175,6 +211,10 @@
     "spectrum-gap-analysis": {
       "field": "analysis",
       "description": "Examine the set of achieved objective values for gaps and accumulation points, not just the extremum."
+    },
+    "symbolic-trig-closed-form": {
+      "field": "algebra",
+      "description": "Recast an iterated geometric construction in an exact division-free symbolic domain (here Laurent polynomials in half-angle exponentials over Q(i)) so that the quantities of interest become closed-form trigonometric polynomials whose factorizations expose the law being sought."
     },
     "tightness-census": {
       "field": "extremal-combinatorics",

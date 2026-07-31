@@ -1,0 +1,167 @@
+==============================================================================
+A. Evaluator validation (products + Plackett; slice tilt vs 003)
+==============================================================================
+  product Bern(0.4)^8, Plackett rho=   1: CR = -0.226139242 vs closed -0.226139242, tax_A = 9.24e-14, ST = 1.15e-14  OK
+  product Bern(0.4)^8, Plackett rho= 1.5: CR = -0.084080497 vs closed -0.084080497, tax_A = -1.95e-13, ST = 3.64e-14  OK
+  product Bern(0.4)^8, Plackett rho=   3: CR = +0.094270982 vs closed +0.094270982, tax_A = -1.15e-12, ST = -6.77e-13  OK
+  slice n=8 w0=3 lam2=0.7: gain = +1.585790908 (003_partB2: +1.585790908) OK; CR = +0.360941, tax_A = -0.000000, ST = 1.224850
+  [checkpoint: ../data/mitax_partA.json]
+
+==============================================================================
+B. 4-atom crash family (005 Prop 3), Sinkhorn tilt, lambda sweep
+==============================================================================
+Marginals <= 0.37 < record; H(mu) = 1.76 bits; the family that
+crashed the pointwise OR control.  Question: sup_lam CR > 0 ?
+
+  n= 5 lam2=-1.00: CR =  -0.0493  gain =  +0.6058  tax_A = 0.0090  ST = 0.6551  OR:   +2.000 (pred   +2.000)
+  n= 5 lam2=-0.50: CR =  +0.0404  gain =  +0.7834  tax_A = 0.0030  ST = 0.7430  OR:   +1.000 (pred   +1.000)
+  n= 5 lam2=-0.25: CR =  +0.0810  gain =  +0.8688  tax_A = 0.0008  ST = 0.7878  OR:   +0.500 (pred   +0.500)
+  n= 5 lam2= 0.00: CR =  +0.1114  gain =  +0.9390  tax_A = 0.0000  ST = 0.8276
+  n= 5 lam2= 0.25: CR =  +0.1281  gain =  +0.9854  tax_A = 0.0009  ST = 0.8572  OR:   -0.500 (pred   -0.500)
+  n= 5 lam2= 0.50: CR =  +0.1307  gain =  +1.0030  tax_A = 0.0033  ST = 0.8723  OR:   -1.000 (pred   -1.000)
+  n= 5 lam2= 1.00: CR =  +0.1035  gain =  +0.9540  tax_A = 0.0102  ST = 0.8505  OR:   -2.000 (pred   -2.000)
+  n= 5 lam2= 1.50: CR =  +0.0598  gain =  +0.8266  tax_A = 0.0154  ST = 0.7668  OR:   -3.000 (pred   -3.000)
+  n= 5 lam2= 2.00: CR =  +0.0232  gain =  +0.6715  tax_A = 0.0165  ST = 0.6483  OR:   -4.000 (pred   -4.000)
+  n= 5 lam2= 3.00: CR =  -0.0099  gain =  +0.4001  tax_A = 0.0120  ST = 0.4100  OR:   -6.000 (pred   -6.000)
+  ==> n=5: sup_lam CR = +0.1307 at lam2 = 0.5  (TAX candidate SURVIVES)
+
+  n= 8 lam2=-1.00: CR =  -0.1640  gain =  +0.4595  tax_A = 0.0183  ST = 0.6235  OR:   +5.000 (pred   +5.000)
+  n= 8 lam2=-0.50: CR =  -0.0474  gain =  +0.6604  tax_A = 0.0107  ST = 0.7078  OR:   +2.500 (pred   +2.500)
+  n= 8 lam2=-0.25: CR =  +0.0433  gain =  +0.8115  tax_A = 0.0036  ST = 0.7683  OR:   +1.250 (pred   +1.250)
+  n= 8 lam2= 0.00: CR =  +0.1114  gain =  +0.9390  tax_A = 0.0000  ST = 0.8276
+  n= 8 lam2= 0.25: CR =  +0.1281  gain =  +0.9920  tax_A = 0.0041  ST = 0.8639  OR:   -1.250 (pred   -1.250)
+  n= 8 lam2= 0.50: CR =  +0.0976  gain =  +0.9607  tax_A = 0.0141  ST = 0.8631  OR:   -2.500 (pred   -2.500)
+  n= 8 lam2= 1.00: CR =  -0.0048  gain =  +0.7657  tax_A = 0.0313  ST = 0.7705  OR:   -5.000 (pred   -5.000)
+  n= 8 lam2= 1.50: CR =  -0.0628  gain =  +0.5756  tax_A = 0.0331  ST = 0.6384  OR:   -7.500 (pred   -7.500)
+  n= 8 lam2= 2.00: CR =  -0.0734  gain =  +0.4462  tax_A = 0.0272  ST = 0.5196  OR:  -10.000 (pred  -10.000)
+  n= 8 lam2= 3.00: CR =  -0.0497  gain =  +0.2893  tax_A = 0.0148  ST = 0.3389  OR:  -15.000 (pred  -15.000)
+  ==> n=8: sup_lam CR = +0.1281 at lam2 = 0.25  (TAX candidate SURVIVES)
+
+  n=11 lam2=-1.00: CR =  -0.1960  gain =  +0.4217  tax_A = 0.0203  ST = 0.6177  OR:   +8.000 (pred   +8.000)
+  n=11 lam2=-0.50: CR =  -0.1241  gain =  +0.5609  tax_A = 0.0175  ST = 0.6849  OR:   +4.000 (pred   +4.000)
+  n=11 lam2=-0.25: CR =  -0.0012  gain =  +0.7483  tax_A = 0.0076  ST = 0.7495  OR:   +2.000 (pred   +2.000)
+  n=11 lam2= 0.00: CR =  +0.1114  gain =  +0.9390  tax_A = 0.0000  ST = 0.8276
+  n=11 lam2= 0.25: CR =  +0.1154  gain =  +0.9807  tax_A = 0.0096  ST = 0.8653  OR:   -2.000 (pred   -2.000)
+  n=11 lam2= 0.50: CR =  +0.0375  gain =  +0.8757  tax_A = 0.0285  ST = 0.8382  OR:   -4.000 (pred   -4.000)
+  n=11 lam2= 1.00: CR =  -0.0940  gain =  +0.6080  tax_A = 0.0454  ST = 0.7019  OR:   -8.000 (pred   -8.000)
+  n=11 lam2= 1.50: CR =  -0.1162  gain =  +0.4673  tax_A = 0.0388  ST = 0.5835  OR:  -12.000 (pred  -12.000)
+  n=11 lam2= 2.00: CR =  -0.0974  gain =  +0.3930  tax_A = 0.0290  ST = 0.4905  OR:  -16.000 (pred  -16.000)
+  n=11 lam2= 3.00: CR =  -0.0531  gain =  +0.2807  tax_A = 0.0149  ST = 0.3339  OR:  -24.000 (pred  -24.000)
+  ==> n=11: sup_lam CR = +0.1154 at lam2 = 0.25  (TAX candidate SURVIVES)
+
+  [checkpoint: ../data/mitax_partB.json]
+
+==============================================================================
+C. Half-mixing genre (004 R1): delta_empty (+) Bern(p_h)^n
+==============================================================================
+The genre 003's mini-theorem-(e) coupling provably cannot touch
+(its gain is 0); 004's half-mixing repair has gain Theta(n).
+Question: does chain-rule certification survive, i.e. CR = 
+Theta(n) too, or does the tax eat the repair?
+
+  004's mu_n (marginals 0.30): p_h = 0.6, P1 = 0.5
+    n= 6: CR =  +1.2630  gain =  +1.2630 (004 closed form  +1.2677)  tax_A = 0.1060  ST = 0.0000  maxfreq = 0.300
+    n= 8: CR =  +1.7520  gain =  +1.7520 (004 closed form  +1.7532)  tax_A = 0.1077  ST = -0.0000  maxfreq = 0.300
+    n=10: CR =  +2.2384  gain =  +2.2384 (004 closed form  +2.2387)  tax_A = 0.1079  ST = -0.0000  maxfreq = 0.300
+    n=12: CR =  +2.7241  gain =  +2.7241 (004 closed form  +2.7241)  tax_A = 0.1080  ST = 0.0000  maxfreq = 0.300
+    n=14: CR =  +3.2096  gain =  +3.2096 (004 closed form  +3.2096)  tax_A = 0.1080  ST = 0.0000  maxfreq = 0.300
+    slope dCR/dn (last step) = +0.2428 vs per-coord gain slope (P1/2)h(p_h) = +0.2427
+
+  recipe-killer shape, cap 0.427: p_h = 0.51, P1 = 0.163
+    n= 6: CR =  +0.2626  gain =  +0.2626 (004 closed form  +0.2549)  tax_A = 0.1154  ST = -0.0000  maxfreq = 0.427
+    n= 8: CR =  +0.4192  gain =  +0.4192 (004 closed form  +0.4178)  tax_A = 0.1236  ST = -0.0000  maxfreq = 0.427
+    n=10: CR =  +0.5810  gain =  +0.5810 (004 closed form  +0.5808)  tax_A = 0.1256  ST = 0.0000  maxfreq = 0.427
+    n=12: CR =  +0.7437  gain =  +0.7437 (004 closed form  +0.7437)  tax_A = 0.1261  ST = 0.0000  maxfreq = 0.427
+    n=14: CR =  +0.9067  gain =  +0.9067 (004 closed form  +0.9067)  tax_A = 0.1263  ST = 0.0000  maxfreq = 0.427
+    slope dCR/dn (last step) = +0.0815 vs per-coord gain slope (P1/2)h(p_h) = +0.0815
+
+  [checkpoint: ../data/mitax_partC.json]
+
+==============================================================================
+D. Sawin certificates: certified CR lower bound, block coupling
+   (= the 002-no-go smoothing-sensitivity check)
+==============================================================================
+Rigorous: E[h(z_i)] = H(U_i|a,b) >= H(U_i|a,b,k) = sum_k P_k
+h(m_k) for the shared-k block coupling of 003 part D (given k,
+(A_i,B_i) is independent of histories).  So CR >= n sum_k P_k
+h(m_k) - H(mu) exactly -- computed below on 002's certificate
+instances, whose H(A) values are re-derived and matched.
+
+       n    ubar  theta   maxmarg      H(mu)   H(P)      CR_lb
+    2000  0.3900  0.050  0.402269    1927.70  0.301     +66.58   H(mu) matches 002
+   20000  0.3860  0.020  0.390799   19239.59  0.144    +741.33   H(mu) matches 002
+   60000  0.3823  0.001  0.382536   57578.99  0.011   +2418.55   H(mu) matches 002
+
+  Reading: the tax-paid chain-rule functional is Theta(n)
+  POSITIVE on exactly the instances that certify the 002 no-go
+  (where every smoothing-insensitive functional is Theta(n)
+  negative) -- the functional responds at probability scale,
+  i.e. it is smoothing-sensitive; the no-go does not apply.
+  [checkpoint: ../data/mitax_partD.json]
+
+==============================================================================
+E. Chase-Lovett pure slice, pure overlap tilt: exact CR (DP)
+==============================================================================
+The sufficient prefix state is (wa, wb); DP validated against
+the atom-level evaluator at n=8 and the identity
+sum_cells N = S(future).  Sweep lambda, track losses vs n.
+
+  DP vs atom evaluator (n=8, w0=3, lam2=0.7): |dCR| = 4.71e-14, |dgain| = 8.08e-14  OK
+
+  n= 24 w0= 10 lam2= 0.0: CR =   -0.8624  gain =   +0.8804  tax_A =  0.0000  ST =  1.7428
+  n= 24 w0= 10 lam2= 0.3: CR =   -0.6073  gain =   +1.1548  tax_A =  0.0000  ST =  1.7621
+  n= 24 w0= 10 lam2= 0.6: CR =   -0.3782  gain =   +1.4016  tax_A =  0.0000  ST =  1.7797
+  n= 24 w0= 10 lam2= 1.0: CR =   -0.1138  gain =   +1.6862  tax_A =  0.0000  ST =  1.8000
+  n= 24 w0= 10 lam2= 1.5: CR =   +0.1509  gain =   +1.9701  tax_A =  0.0000  ST =  1.8192
+  n= 24 w0= 10 lam2= 2.0: CR =   +0.3464  gain =   +2.1767  tax_A =  0.0000  ST =  1.8304
+  n= 24 w0= 10 lam2= 3.0: CR =   +0.5586  gain =   +2.3829  tax_A =  0.0000  ST =  1.8243
+  ==> n=24, p=0.4167: sup_lam CR = +0.5586 at lam2 = 3.0   (SURVIVES)
+
+  n= 40 w0= 17 lam2= 0.0: CR =   -2.1559  gain =   -0.1566  tax_A = -0.0000  ST =  1.9993
+  n= 40 w0= 17 lam2= 0.3: CR =   -1.6886  gain =   +0.3327  tax_A = -0.0000  ST =  2.0213
+  n= 40 w0= 17 lam2= 0.6: CR =   -1.2645  gain =   +0.7775  tax_A = -0.0000  ST =  2.0420
+  n= 40 w0= 17 lam2= 1.0: CR =   -0.7680  gain =   +1.2988  tax_A = -0.0000  ST =  2.0669
+  n= 40 w0= 17 lam2= 1.5: CR =   -0.2581  gain =   +1.8344  tax_A = -0.0000  ST =  2.0925
+  n= 40 w0= 17 lam2= 2.0: CR =   +0.1343  gain =   +2.2449  tax_A = -0.0000  ST =  2.1106
+  n= 40 w0= 17 lam2= 3.0: CR =   +0.6121  gain =   +2.7310  tax_A = -0.0000  ST =  2.1189
+  ==> n=40, p=0.4250: sup_lam CR = +0.6121 at lam2 = 3.0   (SURVIVES)
+
+  n= 60 w0= 25 lam2= 0.0: CR =   -2.6708  gain =   -0.4482  tax_A =  0.0000  ST =  2.2226
+  n= 60 w0= 25 lam2= 0.3: CR =   -2.0132  gain =   +0.2316  tax_A =  0.0000  ST =  2.2448
+  n= 60 w0= 25 lam2= 0.6: CR =   -1.4166  gain =   +0.8494  tax_A =  0.0000  ST =  2.2660
+  n= 60 w0= 25 lam2= 1.0: CR =   -0.7193  gain =   +1.5727  tax_A =  0.0000  ST =  2.2920
+  n= 60 w0= 25 lam2= 1.5: CR =   -0.0057  gain =   +2.3141  tax_A =  0.0000  ST =  2.3199
+  n= 60 w0= 25 lam2= 2.0: CR =   +0.5393  gain =   +2.8802  tax_A =  0.0000  ST =  2.3409
+  n= 60 w0= 25 lam2= 3.0: CR =   +1.1874  gain =   +3.5441  tax_A =  0.0000  ST =  2.3567
+  ==> n=60, p=0.4167: sup_lam CR = +1.1874 at lam2 = 3.0   (SURVIVES)
+
+  n= 80 w0= 34 lam2= 0.0: CR =   -4.7523  gain =   -2.3909  tax_A =  0.0000  ST =  2.3613
+  n= 80 w0= 34 lam2= 0.3: CR =   -3.8015  gain =   -1.4156  tax_A =  0.0000  ST =  2.3859
+  n= 80 w0= 34 lam2= 0.6: CR =   -2.9346  gain =   -0.5250  tax_A = -0.0000  ST =  2.4096
+  n= 80 w0= 34 lam2= 1.0: CR =   -1.9132  gain =   +0.5260  tax_A =  0.0000  ST =  2.4392
+  n= 80 w0= 34 lam2= 1.5: CR =   -0.8534  gain =   +1.6184  tax_A = -0.0000  ST =  2.4717
+  n= 80 w0= 34 lam2= 2.0: CR =   -0.0252  gain =   +2.4724  tax_A =  0.0000  ST =  2.4975
+  n= 80 w0= 34 lam2= 3.0: CR =   +1.0199  gain =   +3.5429  tax_A = -0.0000  ST =  2.5230
+  ==> n=80, p=0.4250: sup_lam CR = +1.0199 at lam2 = 3.0   (SURVIVES)
+
+  n= 60 w0= 23 lam2= 0.0: CR =   +0.3748  gain =   +2.6353  tax_A =  0.0000  ST =  2.2606
+  n= 60 w0= 23 lam2= 0.3: CR =   +0.8311  gain =   +3.1098  tax_A =  0.0000  ST =  2.2787
+  n= 60 w0= 23 lam2= 0.6: CR =   +1.2361  gain =   +3.5317  tax_A =  0.0000  ST =  2.2957
+  n= 60 w0= 23 lam2= 1.0: CR =   +1.6925  gain =   +4.0087  tax_A =  0.0000  ST =  2.3162
+  n= 60 w0= 23 lam2= 1.5: CR =   +2.1276  gain =   +4.4651  tax_A =  0.0000  ST =  2.3375
+  n= 60 w0= 23 lam2= 2.0: CR =   +2.4183  gain =   +4.7710  tax_A =  0.0000  ST =  2.3527
+  n= 60 w0= 23 lam2= 3.0: CR =   +2.6254  gain =   +4.9846  tax_A =  0.0000  ST =  2.3592
+  ==> n=60, p=0.3833: sup_lam CR = +2.6254 at lam2 = 3.0   (SURVIVES)
+
+  n= 80 w0= 31 lam2= 0.0: CR =   -0.1253  gain =   +2.2881  tax_A =  0.0000  ST =  2.4135
+  n= 80 w0= 31 lam2= 0.3: CR =   +0.5200  gain =   +2.9523  tax_A =  0.0000  ST =  2.4323
+  n= 80 w0= 31 lam2= 0.6: CR =   +1.0962  gain =   +3.5465  tax_A =  0.0000  ST =  2.4503
+  n= 80 w0= 31 lam2= 1.0: CR =   +1.7520  gain =   +4.2247  tax_A =  0.0000  ST =  2.4727
+  n= 80 w0= 31 lam2= 1.5: CR =   +2.3896  gain =   +4.8863  tax_A =  0.0000  ST =  2.4967
+  n= 80 w0= 31 lam2= 2.0: CR =   +2.8321  gain =   +5.3471  tax_A = -0.0000  ST =  2.5151
+  n= 80 w0= 31 lam2= 3.0: CR =   +3.2092  gain =   +5.7379  tax_A =  0.0000  ST =  2.5287
+  ==> n=80, p=0.3875: sup_lam CR = +3.2092 at lam2 = 3.0   (SURVIVES)
+
+  [checkpoint: ../data/mitax_partE.json]
+
+[total time: 25.0s]

@@ -52,6 +52,65 @@
         "anchor simulation re-derivation is at the anchor centre; the full 9-sample box attack ran on every 5th/7th record",
         "kill-condition verdict is measured only to gamma ~ 160 deg; beyond that the hyperbolic form is the SPECULATION law's extrapolation"
       ]
+    },
+    {
+      "id": "003",
+      "file": "attempts/003-death-angle-laws.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality",
+        "out-of-sample-prediction",
+        "unfolding-word-census"
+      ],
+      "one_line": "The W(a,b) death-angle laws of 001 survive both out-of-sample tests (W(10,9) -> 162.90, W(12,12) -> 2160/13, to ~1e-12), and are then derived: exact division-free unfolding gives closed-form binding functions, a general law gamma_d = 180 - 90(a+b)/(a(b+1)) (confirmed out-of-sample on W(5,3) -> 144 and W(4,2) -> 135), and a machine-certified necessity theorem: the corridor is empty at every gamma >= gamma_d, for 15 verified members.",
+      "leak_terms": [
+        "gamma_d = 180 - 90(a+b)/(a(b+1))",
+        "90(a+b)/(a(b+1))",
+        "glide reflection reduction",
+        "W(5,3)",
+        "144.0000000000",
+        "deathlaw_",
+        "Lemma C",
+        "division-free unfolding"
+      ],
+      "range": "necessity theorem machine-certified for the 15 members (2,1),(2,2),(3,2),(3,3),(4,2),(4,3),(4,4),(5,3),(5,4),(5,5),(6,6),(7,7),(8,8),(10,9),(12,12); exact alive certificates at gamma_d - 1e-6 (1e-8 for (3,3),(4,2)) for 8 members; float deaths measured to ~1e-11 for 11 members; parametric statement for all a >= b >= 1, a >= 2, a <= 2b+3 rests on two per-member-verified inputs (identities I1-I3 and Lemma C) labelled SPECULATION in general",
+      "gaps": [
+        "sufficiency-limit-unclosed (death = gamma_d exactly needs alive points approaching gamma_d; certified alive stops at gamma_d - 1e-6)",
+        "parametric-identities-unproven-in-general (I1-I3 and Lemma C verified per member, 15 members; general (a,b) statement labelled SPECULATION)",
+        "a-greater-than-2b+3-uncovered (branch analysis breaks; W(6,3)-type members unmeasured)"
+      ],
+      "refuted_by": null
+    },
+    {
+      "id": "004",
+      "file": "attempts/004-skeptic-review-of-003.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality"
+      ],
+      "one_line": "From-scratch re-verification confirms 003 end to end: glide reduction and mod-360 case tree re-derived by hand (1.9M-point adversarial sign search, zero dropped-branch hits), I1-I3 re-proven in an independent ring plus an off-torus grid-interpolation proof for W(2,1), Lemma C re-certified with an independent interval stack (4 members), all 8 exact alive certificates match digit-for-digit, four out-of-sample deaths re-measured to about 1e-12, mirror-half windows confirmed; two wording-level corrections, nothing load-bearing refuted.",
+      "leak_terms": [
+        "dlsk_",
+        "off-torus grid",
+        "glide action p -> 2m - p",
+        "1938477"
+      ],
+      "range": "identities and glide facts re-proven for all 15 members (own ring; proof-grade off-torus grid for W(2,1); 20 exact spot points each); Lemma C re-certified for (2,1),(5,3),(10,9),(12,12); case tree searched at 1.94M adversarial points across all 15 members; all 8 exact alive certificates re-verified; deaths re-measured for (10,9),(12,12),(5,3),(4,2) plus calibration (2,1),(3,3); dead hunts at gamma_d + {0..0.5} deg for 4 members",
+      "verifies": "003",
+      "corrections": [
+        "the W(5,3) exact alive certificate is at gamma_d - 1e-6, not the gamma_d - 1e-8 stated in 003 section on the general law (the Outcome/range/Death-brackets statements are correct; only that one sentence is wrong)",
+        "003 Outcome bullet corridor is empty at every gamma >= gamma_d overstates the theorem: it proves no positive width; a zero-width touching corridor at gamma_d is not excluded (alive is defined as positive width throughout, so nothing downstream is damaged)"
+      ],
+      "refuted_by": null,
+      "gaps": []
     }
   ]
 }

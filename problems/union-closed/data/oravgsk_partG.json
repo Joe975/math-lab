@@ -1,0 +1,138 @@
+{
+ "endpoints": [
+  {
+   "agg": 1.1781353983800613,
+   "lambda": 3.5,
+   "max_marginal": 0.37112633607389706,
+   "seed": "witness"
+  },
+  {
+   "agg": 0.47805948293124473,
+   "lambda": 3.5,
+   "max_marginal": 0.3658230906295031,
+   "seed": "witness"
+  },
+  {
+   "agg": 0.581806160778769,
+   "lambda": 3.5,
+   "max_marginal": 0.3512803268109654,
+   "seed": "witness"
+  },
+  {
+   "agg": 1.418052390115999,
+   "lambda": 3.5,
+   "max_marginal": 0.37388277569399875,
+   "seed": "witness+light156"
+  },
+  {
+   "agg": 1.2142627261915127,
+   "lambda": 3.5,
+   "max_marginal": 0.34674664679025835,
+   "seed": "witness+light156"
+  },
+  {
+   "agg": 0.49544194835288713,
+   "lambda": 3.5,
+   "max_marginal": 0.3688121025438143,
+   "seed": "witness+light156"
+  },
+  {
+   "agg": 0.4770865698220105,
+   "lambda": 3.5,
+   "max_marginal": 0.3749670127882299,
+   "seed": "witness+light67"
+  },
+  {
+   "agg": 0.4718865666305422,
+   "lambda": 3.5,
+   "max_marginal": 0.3726979642114563,
+   "seed": "witness+light67"
+  },
+  {
+   "agg": 0.48417177750476265,
+   "lambda": 3.5,
+   "max_marginal": 0.35520911277644834,
+   "seed": "witness+light67"
+  },
+  {
+   "agg": 6.227544797918697,
+   "lambda": 3.5,
+   "max_marginal": 0.4811033444881616,
+   "seed": "rand_k8"
+  },
+  {
+   "agg": 4.038671571714098,
+   "lambda": 2.0,
+   "max_marginal": 0.679647550461377,
+   "seed": "rand_k6"
+  },
+  {
+   "agg": 3.945987957382801,
+   "lambda": 3.5,
+   "max_marginal": 0.6664136281051322,
+   "seed": "rand_k12"
+  },
+  {
+   "agg": 12.934828941843634,
+   "lambda": 5.0,
+   "max_marginal": 0.5136113081693963,
+   "seed": "rand_k6"
+  },
+  {
+   "agg": 5.535157864985828,
+   "lambda": 3.5,
+   "max_marginal": 0.5996852690929764,
+   "seed": "rand_k10"
+  },
+  {
+   "agg": 4.273357953511843,
+   "lambda": 2.0,
+   "max_marginal": 0.597348969137032,
+   "seed": "rand_k7"
+  },
+  {
+   "agg": 2.6211927589311896,
+   "lambda": 2.0,
+   "max_marginal": 0.5370391510495968,
+   "seed": "rand_k11"
+  },
+  {
+   "agg": 1.7500065927097554,
+   "lambda": 3.5,
+   "max_marginal": 0.9999999996829048,
+   "seed": "rand_k8"
+  },
+  {
+   "agg": 4.4622125738693255,
+   "lambda": 5.0,
+   "max_marginal": 0.6842784910424212,
+   "seed": "rand_k10"
+  },
+  {
+   "agg": 3.4092729300304256,
+   "lambda": 2.0,
+   "max_marginal": 0.4085971319197952,
+   "seed": "rand_k8"
+  },
+  {
+   "agg": 6.083254041977615,
+   "lambda": 3.5,
+   "max_marginal": 0.5615937485786069,
+   "seed": "rand_k9"
+  },
+  {
+   "agg": 2.653552941719983,
+   "lambda": 2.0,
+   "max_marginal": 0.6377609203365742,
+   "seed": "rand_k10"
+  }
+ ],
+ "lowest": [
+  0.4718865666305422,
+  0.4770865698220105,
+  0.47805948293124473,
+  0.48417177750476265,
+  0.49544194835288713
+ ],
+ "n_violations": 0
+}

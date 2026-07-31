@@ -1,0 +1,20 @@
+{
+ "a": 12,
+ "b": 12,
+ "len": 98,
+ "death_between": [
+  166.1538461538449,
+  166.15384615384497
+ ],
+ "uniform_points": 800,
+ "geo_points": 64,
+ "bisect_iters": 44,
+ "alive_at_death_lo": {
+  "alpha_deg": 7.4999999999990905,
+  "beta_deg": 6.346153846156,
+  "alpha_beta_ratio": 1.1818181818176374,
+  "width": 1.0001999228848035e-12
+ },
+ "predicted_death": 166.15384615384616,
+ "measured_minus_predicted": -1.2221335055073723e-12
+}

@@ -1,0 +1,8 @@
+{
+ "command": "casetree",
+ "samples_per_member": 200000,
+ "seed": 20260731,
+ "float_margin": 1e-09,
+ "total_points": 1938477,
+ "counterexamples": []
+}

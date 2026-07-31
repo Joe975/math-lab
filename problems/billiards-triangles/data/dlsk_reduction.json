@@ -1,0 +1,62 @@
+{
+ "command": "reduction",
+ "samples_per_member": 300,
+ "seed": 20260731,
+ "rows": [
+  {
+   "a": 2,
+   "b": 1,
+   "checks": 303,
+   "alive": 58,
+   "reduction_mismatches": 0,
+   "m_outside_gate_at": null,
+   "ok": true
+  },
+  {
+   "a": 3,
+   "b": 3,
+   "checks": 303,
+   "alive": 9,
+   "reduction_mismatches": 0,
+   "m_outside_gate_at": null,
+   "ok": true
+  },
+  {
+   "a": 4,
+   "b": 2,
+   "checks": 303,
+   "alive": 11,
+   "reduction_mismatches": 0,
+   "m_outside_gate_at": null,
+   "ok": true
+  },
+  {
+   "a": 5,
+   "b": 3,
+   "checks": 303,
+   "alive": 4,
+   "reduction_mismatches": 0,
+   "m_outside_gate_at": null,
+   "ok": true
+  },
+  {
+   "a": 5,
+   "b": 4,
+   "checks": 303,
+   "alive": 3,
+   "reduction_mismatches": 0,
+   "m_outside_gate_at": null,
+   "ok": true
+  },
+  {
+   "a": 10,
+   "b": 9,
+   "checks": 303,
+   "alive": 3,
+   "reduction_mismatches": 0,
+   "m_outside_gate_at": null,
+   "ok": true
+  }
+ ],
+ "all_ok": true
+}

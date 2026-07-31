@@ -1,0 +1,29 @@
+{
+ "command": "gridproof",
+ "a": 2,
+ "b": 1,
+ "half_len": 7,
+ "degree_bound": 50,
+ "grid": [
+  101,
+  101
+ ],
+ "residuals_all_zero": [
+  "D1",
+  "D2",
+  "I1",
+  "I2",
+  "I3",
+  "gate1_u",
+  "gate1_v",
+  "gate2_u",
+  "gate2_v",
+  "glide_action_gA",
+  "glide_action_gA1",
+  "glide_action_gB",
+  "glide_action_gC",
+  "mu_monomial",
+  "tau_parallel"
+ ],
+ "conclusion": "I1,I2,I3,D1,D2 + glide facts for W(2,1) are exact ring identities (grid interpolation proof)"
+}

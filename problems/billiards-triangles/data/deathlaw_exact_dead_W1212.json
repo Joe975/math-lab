@@ -1,0 +1,14 @@
+{
+ "a": 12,
+ "b": 12,
+ "len": 98,
+ "band_deg": [
+  "318759833516770235214153/1918461383665793368064",
+  "79690030321494446270793/479615345916448342016"
+ ],
+ "n_apexes_certified_in_band": 174,
+ "n_skipped_gamma_uncertified": 0,
+ "n_alive": 0,
+ "max_exact_width_float": -8.146102372140776e-05,
+ "conclusion": "all 174 sampled apexes with certified gamma in band are exactly dead (sample-bounded evidence)"
+}
