@@ -52,6 +52,10 @@
       "field": "computation",
       "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
     },
+    "certified-interval-inequality": {
+      "field": "analysis",
+      "description": "Prove a one-variable analytic inequality rigorously by splitting into an endpoint-algebra zone, an adaptive rational-interval bisection zone, and a derivative-sign zone near a vanishing endpoint; all enclosures exact-rational, single evaluations only."
+    },
     "chain-rule-assembly": {
       "field": "information-theory",
       "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
@@ -156,6 +160,10 @@
       "field": "computation",
       "description": "Canonical isomorph-free graph generation via nauty/geng as the enumeration backbone."
     },
+    "out-of-sample-prediction": {
+      "field": "logic-methodology",
+      "description": "Test a conjectured law on family members it was not fitted to, computed before comparison, so that agreement is evidence and disagreement is refutation rather than refitting."
+    },
     "overlap-tilt": {
       "field": "probability",
       "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
@@ -203,6 +211,10 @@
     "spectrum-gap-analysis": {
       "field": "analysis",
       "description": "Examine the set of achieved objective values for gaps and accumulation points, not just the extremum."
+    },
+    "symbolic-trig-closed-form": {
+      "field": "algebra",
+      "description": "Recast an iterated geometric construction in an exact division-free symbolic domain (here Laurent polynomials in half-angle exponentials over Q(i)) so that the quantities of interest become closed-form trigonometric polynomials whose factorizations expose the law being sought."
     },
     "tightness-census": {
       "field": "extremal-combinatorics",

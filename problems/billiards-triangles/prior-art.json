@@ -52,6 +52,37 @@
         "anchor simulation re-derivation is at the anchor centre; the full 9-sample box attack ran on every 5th/7th record",
         "kill-condition verdict is measured only to gamma ~ 160 deg; beyond that the hyperbolic form is the SPECULATION law's extrapolation"
       ]
+    },
+    {
+      "id": "003",
+      "file": "attempts/003-death-angle-laws.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality",
+        "out-of-sample-prediction",
+        "unfolding-word-census"
+      ],
+      "one_line": "The W(a,b) death-angle laws of 001 survive both out-of-sample tests (W(10,9) -> 162.90, W(12,12) -> 2160/13, to ~1e-12), and are then derived: exact division-free unfolding gives closed-form binding functions, a general law gamma_d = 180 - 90(a+b)/(a(b+1)) (confirmed out-of-sample on W(5,3) -> 144 and W(4,2) -> 135), and a machine-certified necessity theorem: the corridor is empty at every gamma >= gamma_d, for 15 verified members.",
+      "leak_terms": [
+        "gamma_d = 180 - 90(a+b)/(a(b+1))",
+        "90(a+b)/(a(b+1))",
+        "glide reflection reduction",
+        "W(5,3)",
+        "144.0000000000",
+        "deathlaw_",
+        "Lemma C",
+        "division-free unfolding"
+      ],
+      "range": "necessity theorem machine-certified for the 15 members (2,1),(2,2),(3,2),(3,3),(4,2),(4,3),(4,4),(5,3),(5,4),(5,5),(6,6),(7,7),(8,8),(10,9),(12,12); exact alive certificates at gamma_d - 1e-6 (1e-8 for (3,3),(4,2)) for 8 members; float deaths measured to ~1e-11 for 11 members; parametric statement for all a >= b >= 1, a >= 2, a <= 2b+3 rests on two per-member-verified inputs (identities I1-I3 and Lemma C) labelled SPECULATION in general",
+      "gaps": [
+        "sufficiency-limit-unclosed (death = gamma_d exactly needs alive points approaching gamma_d; certified alive stops at gamma_d - 1e-6)",
+        "parametric-identities-unproven-in-general (I1-I3 and Lemma C verified per member, 15 members; general (a,b) statement labelled SPECULATION)",
+        "a-greater-than-2b+3-uncovered (branch analysis breaks; W(6,3)-type members unmeasured)"
+      ],
+      "refuted_by": null
     }
   ]
 }
