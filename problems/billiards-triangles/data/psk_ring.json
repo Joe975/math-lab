@@ -1,0 +1,20 @@
+{
+ "checks": {
+  "rotA_block": true,
+  "rotB_block": true,
+  "rotB_fixes_B": true,
+  "u_antilinear": true,
+  "mu_matches_005": true,
+  "w_matches_005": true,
+  "mu_eq_delta_sq": true,
+  "tau_parallel_axis": true,
+  "I1": true,
+  "I2": true,
+  "I3": true,
+  "I4": true,
+  "D1": true,
+  "D2": true
+ },
+ "ok": true,
+ "seed": 20260738
+}

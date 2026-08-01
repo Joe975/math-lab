@@ -111,6 +111,139 @@
       ],
       "refuted_by": null,
       "gaps": []
+    },
+    {
+      "id": "005",
+      "file": "attempts/005-complete-death-law-theorem.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "formal-parameter-specialization",
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality",
+        "unfolding-word-census",
+        "out-of-sample-prediction"
+      ],
+      "one_line": "Death law completed on both sides: the half word composes to R_0 Rot_A(2a.alpha) Rot_B(-2b.beta), so I1-I4 and the glide facts become one exact 4-variable Laurent check valid for ALL (a,b); Lemmas C and D fall to an elementary c.cot(cs) monotonicity; the case tree is closed for all a >= b >= 1, a >= 2 (the a <= 2b+3 restriction removed); and certified alive segments into the death corner give death(W(a,b)) = gamma_d(a,b) EXACTLY (sup not attained) for 20 members including the newly measured W(6,3), W(6,1), W(8,2), W(8,1), W(7,1).",
+      "leak_terms": [
+        "plaw_",
+        "R_0 Rot_A(2a alpha) Rot_B(-2b beta)",
+        "identity I4",
+        "margin N4",
+        "c cot(cs) monotone",
+        "Lemma L1",
+        "aw - bv = a(b+1)(theta - theta_d) - 360kb",
+        "rho = 2, t0 = 1/4",
+        "death corner (90/a, 90(a-1)/(a(b+1)))",
+        "585/4",
+        "255/2",
+        "285/2",
+        "1035/8",
+        "900/7",
+        "three-fold degenerate corner"
+      ],
+      "range": "I1-I4, D1, D2 and glide facts proven for ALL integers a, b >= 1 (formal ring; specialization cross-checked exactly on 23 members, floats to a = 40); Lemma C proven for all a >= 2, 1 <= b <= a and Lemma D for all b >= 1; necessity theorem for all integers a >= b >= 1, a >= 2 (no upper restriction on a); exact death = gamma_d certified for 20 members via alive segments t in (0, 1/4], gamma sweeping [gamma_d - 1/4, gamma_d); new float deaths for (6,3),(6,1),(8,2),(8,1),(7,1) at gamma_d to ~5e-12; adversarial case-tree scans ~1.56M points over 13 members",
+      "gaps": [
+        "parametric-sufficiency-open",
+        "a-equals-1-column-unmeasured",
+        "birth-side-unproven"
+      ]
+    },
+    {
+      "id": "006",
+      "file": "attempts/006-design-family-past-135.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "symbolic-trig-closed-form",
+        "unfolding-word-census",
+        "exact-rational-arithmetic",
+        "out-of-sample-prediction",
+        "structure-class-design-search"
+      ],
+      "one_line": "The 135 deg stall dissolves: 001 pinch gap was a sampler artifact (W(4,3) certified alive at gamma in (135.0000001, 135.048)), births obey a closed form gamma_birth = 180 - 90(a+b+1)/(a(b+1)) making staircase windows touch, the never-measured W(5,2) and a genuinely new four-block word are certified alive at gamma EXACTLY 135 (rational apexes on the arc, exact orbits), and the W family covers all 157 sampled obtuse arcs - while the design screens (3000+ canonical doubled words to length 50) find nothing of length <= 26 alive past 135 and show clean angle laws are confined to W's two-fan factorization.",
+      "leak_terms": [
+        "design_",
+        "gamma_birth = 180 - 90(a+b+1)/(a(b+1))",
+        "W(5,2)",
+        "0(12)^3(02)^3(12)^2(02)^3",
+        "exactly 135",
+        "windows touch",
+        "(2x-1)^2 + (2y+1)^2 = 2",
+        "edge-accumulating sampler",
+        "136.8265"
+      ],
+      "range": "five exact certificates (rational apexes, Fraction corridors, independently simulated orbits): W(4,3) at certified gamma in (135.001,135.048) and (135.0000001,135.001); W(5,4) at (144.0000001,144.001); W(5,2) len 30 and non-W four-block N1 len 46 at gamma exactly 135 (exact on-arc identity); 003 obligations machine-certified for two new members (5,2),(6,2). Float screens sample-bounded: 245 canonical doubled words len <= 26 dead at 13 arcs >= 135; 811 len-30 words (only W(4,3),W(5,2) alive on 135-144); 2008 two-alternating words len 34-50 (only W members + two four-block words); three-block family a,b,c <= 3 (25/27 dead everywhere obtuse); birth law float-checked at 11 members; coverage checked at 157 arcs 90.5-165",
+      "gaps": [
+        "birth-law-unproven (gamma_birth closed form is float-fitted + factor-structure motivated; no necessity/sufficiency theorem)",
+        "coverage-conjecture-open (union of windows covering (90,180) reduces to an elementary Diophantine statement, unproven)",
+        "length-26-stall-sample-bounded (doubled words only, 13 arcs; non-doubled even words 24-26 not rescreened)",
+        "four-block-death-angles-uncharacterized (binding differences provably non-elementary here only by failed factor search)"
+      ]
+    },
+    {
+      "id": "007",
+      "file": "attempts/007-skeptic-review-of-006.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "out-of-sample-prediction"
+      ],
+      "one_line": "From-scratch re-verification confirms 006 everywhere it is exact: all five certificates re-established by a third corridor implementation (digit-for-digit widths) plus an own exact simulator, the exactly-135 on-arc identity re-derived by hand, 001's pinch-gap birth value regenerated from a replica of its own sampler (mechanism: the alive window is a corner sliver inside the grid's terminal 6e-4 clearance), the birth law survives three genuinely out-of-sample members to ~3e-11 (= sampler floor, including a > 2b+3), and the (5,2)/(6,2) theorem extension re-proves in an independent ring; four corrections, none load-bearing.",
+      "leak_terms": [
+        "dsk_",
+        "566 not 811",
+        "canonical pairing (a,b) ~ (b+1,a-1)",
+        "corner sliver 6e-4",
+        "floor-tracking",
+        "W(8,2) birth 138.75"
+      ],
+      "range": "all 5 exact certificates re-verified (own matrix-form exact corridor, widths match digit-for-digit; own exact orbit simulation; own certified gamma brackets via 004's interval stack; on-arc gamma=135 identity hand-derived and Fraction-checked; Niven applicability checked); W(4,3) birth floor-tracked at 4 sampler depths; 001's census sampler replicated (reproduces 135.0486) and window x-extent measured at 7 gammas; birth law tested out-of-sample on W(7,3), W(6,3), W(8,2) (all +3.0e-11 = floor, dead-sampled below); coverage re-run at 25 own arcs (25/25 alive); universes recounted (245 and 2008 confirmed, 566-vs-811 correction); s1 hits reclassified (14 W + N1/N2); N1/N2 non-W checked incl. 0-1 swap; 60-word random dead re-test + 19 near-miss attacks (zero kills); identities + case tree (550k points) + Lemma C re-certified for (5,2),(6,2). NOT re-swept: full length-30 and s1 negative universes, three-block table, design_factor.py factorizations",
+      "verifies": "006",
+      "corrections": [
+        "universe counts: the length-30 (|u|=15) universe is 566 canonical words, not 811 (811 is |u| <= 15 cumulative); 'all doubled odd words to length 30: 1056' double-counts (true count 811); the index one_line's '3000+' is 2846 counted correctly - screen coverage itself is unaffected",
+        "'length 30 is alive throughout the measured gap' overstates: certificates prove alive points AT gamma = 135 exactly and at one gamma in each of (135.0000001, 135.001) and (135.001, 135.048); the continuum statement is float evidence plus the SPECULATION window law",
+        "refutation semantics vs 001: 001's gap claim was knowledge-scoped ('nothing <= 30 KNOWN alive') and stays true as written; what 006 overturns is 001's birth measurements (error 0.0486 deg, 10x the stated ~0.005 sampling noise, whose 'deaths only under-estimated' hedge does not transfer to births) - correction/closure, not refutation",
+        "the window pairing (a,b) <-> (b+1, a-1) is a canonical-word identity (0<->1 swap + rotation/reversal; verified exactly on six pairs), so it is vacuous as evidence for the birth law, 006's 11-member fit spans only 9 canonical words, and 003's 'two distinct words dying on the same arc' (W(3,3)/W(4,2)) is a relabeling of one canonical word"
+      ],
+      "refuted_by": null,
+      "gaps": []
+    },
+    {
+      "id": "008",
+      "file": "attempts/008-skeptic-review-of-005.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "formal-parameter-specialization",
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality"
+      ],
+      "one_line": "Adversarial re-verification confirms 005 end to end: the closed-form bridge u = R_0 Rot_A(2a.alpha) Rot_B(-2b.beta) recomposed exactly at off-torus rational points (40 members to a = 40), I1-I4 and glide facts re-proven in an independent 4-variable ring with u re-derived by symbolic map composition, Lemmas L1/C/D re-derived by hand and stressed to a = 10^6, the extended case tree re-derived branch by branch (threshold identity exact; 447k-point scan on 10 a > 2b+3 members, zero hits), the sufficiency segments independently certified alive by full-corridor interval unfolding down to gamma_d - 9.3e-10, and all five new deaths re-measured on the mirror half; one numeric correction, nothing load-bearing refuted.",
+      "leak_terms": [
+        "psk_",
+        "off-torus pair algebra",
+        "gamma_d - 9.3e-10",
+        "447k",
+        "1e-4 not 1e-6"
+      ],
+      "range": "bridge recomposed exactly for 40 members incl. (40,40) at 2 rational points each; identities re-proven formally (my ring, 14/14); Lemma numerics 14,183 checks to a = 10^6; case tree scanned at ~447k adversarial points over 10 members with a > 2b+3 (k up to 2 reachable); segments certified alive at 42 points (7 members incl. the 5 new, t down to 2^-30); plaw_suffice trig layer audited (596 enclosure checks); 5 deaths re-measured with 004's sampler; plaw_suffice all NOT re-run end to end (selftest + one member reproduced, code audited)",
+      "verifies": "005",
+      "corrections": [
+        "005 states the five new exact-alive certificates certify gamma within 1e-6 of gamma_d; the data files show gamma_d - 1e-4 for W(6,3), W(8,2), W(8,1), W(7,1) (only W(6,1) reaches 1e-6) - the --dg 1e-6 request is a float target, the certified bound is the largest 10^-k that certifies after apex snapping",
+        "caveat, not an error: the five new members' necessity rests on the parametric theorem alone (no per-member deathlaw_prove obligations were run for them, unlike 003's fifteen); sound by design since the identities are now proven for all (a,b)"
+      ],
+      "refuted_by": null,
+      "gaps": []
     }
   ]
 }

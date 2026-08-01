@@ -1,0 +1,45 @@
+{
+ "command": "birthlaw",
+ "rows": [
+  {
+   "a": 7,
+   "b": 3,
+   "len": 42,
+   "predicted_birth": 144.64285714285714,
+   "predicted_death": 147.85714285714286,
+   "alive_at_window_mid": true,
+   "mid_width": 0.5448828289815619,
+   "measured_birth_between": [
+    144.64285714288727,
+    144.6428571428873
+   ],
+   "birth_minus_predicted": 3.015543370565865e-11,
+   "dead_sampled_at_birth_minus_1e-3": true,
+   "best_width_below": -4.315391780999529e-05
+  },
+  {
+   "a": 6,
+   "b": 4,
+   "len": 42,
+   "predicted_birth": 147.0,
+   "predicted_death": 150.0,
+   "alive_at_window_mid": true,
+   "mid_width": 0.5463897595483762,
+   "measured_birth_between": [
+    147.00000000003027,
+    147.0000000000303
+   ],
+   "birth_minus_predicted": 3.029754225281067e-11,
+   "dead_sampled_at_birth_minus_1e-3": true,
+   "best_width_below": -1.6339351791392926e-12
+  },
+  {
+   "a": 5,
+   "b": 2,
+   "alive_132.001": true,
+   "dead_sampled_131.999": true,
+   "alive_135": true,
+   "width_135": 0.6940004600100327
+  }
+ ]
+}

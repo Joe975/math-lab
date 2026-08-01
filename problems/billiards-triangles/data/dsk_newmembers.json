@@ -1,0 +1,57 @@
+{
+ "command": "newmembers",
+ "members": [
+  {
+   "a": 5,
+   "b": 2,
+   "scope_precondition_a_le_2b+3": true,
+   "ring_identities": {
+    "mu_monomial": true,
+    "tau_parallel": true,
+    "gate1_u": true,
+    "gate1_v": true,
+    "gate2_u": true,
+    "gate2_v": true,
+    "I1": true,
+    "I2": true,
+    "I3": true,
+    "D1": true,
+    "D2": true,
+    "glide_action_gA": true,
+    "glide_action_gB": true,
+    "glide_action_gC": true,
+    "glide_action_gA1": true
+   },
+   "pair_spots_ok": true,
+   "casetree_points": 273291,
+   "casetree_counterexamples": 0,
+   "ok": true
+  },
+  {
+   "a": 6,
+   "b": 2,
+   "scope_precondition_a_le_2b+3": true,
+   "ring_identities": {
+    "mu_monomial": true,
+    "tau_parallel": true,
+    "gate1_u": true,
+    "gate1_v": true,
+    "gate2_u": true,
+    "gate2_v": true,
+    "I1": true,
+    "I2": true,
+    "I3": true,
+    "D1": true,
+    "D2": true,
+    "glide_action_gA": true,
+    "glide_action_gB": true,
+    "glide_action_gC": true,
+    "glide_action_gA1": true
+   },
+   "pair_spots_ok": true,
+   "casetree_points": 276538,
+   "casetree_counterexamples": 0,
+   "ok": true
+  }
+ ]
+}

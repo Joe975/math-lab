@@ -1,0 +1,27 @@
+[
+ {
+  "a": 5,
+  "b": 2,
+  "len": 30,
+  "theta_d": "42",
+  "gamma_d": "138",
+  "scope_ok": true,
+  "identities": {
+   "I1": true,
+   "I2": true,
+   "I3": true,
+   "D1": true,
+   "D2": true,
+   "glide_facts": true,
+   "numeric_sane": true
+  },
+  "lemma_c": {
+   "v0": "30",
+   "d2": "15/32",
+   "d1": "15/4",
+   "ok": true,
+   "bisection_leaves": 44
+  },
+  "ok": true
+ }
+]

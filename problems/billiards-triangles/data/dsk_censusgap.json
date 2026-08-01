@@ -1,0 +1,83 @@
+{
+ "command": "censusgap",
+ "replicated_001_birth_between": [
+  135.04856872558594,
+  135.04857635498047
+ ],
+ "census_grid": {
+  "max_x": 0.4994,
+  "spacing": 0.0012
+ },
+ "window_rows": [
+  {
+   "gamma": 135.005,
+   "x_window": [
+    0.4999382879069728,
+    0.499999999999999
+   ],
+   "x_window_width": 6.171209302618941e-05,
+   "below_grid_max_x": false,
+   "contains_grid_point": false
+  },
+  {
+   "gamma": 135.01,
+   "x_window": [
+    0.4998765650403333,
+    0.499999999999999
+   ],
+   "x_window_width": 0.0001234349596657136,
+   "below_grid_max_x": false,
+   "contains_grid_point": false
+  },
+  {
+   "gamma": 135.02,
+   "x_window": [
+    0.49975308697116705,
+    0.499999999999999
+   ],
+   "x_window_width": 0.0002469130288319521,
+   "below_grid_max_x": false,
+   "contains_grid_point": false
+  },
+  {
+   "gamma": 135.03,
+   "x_window": [
+    0.4996295657623879,
+    0.499999999999999
+   ],
+   "x_window_width": 0.00037043423761112804,
+   "below_grid_max_x": false,
+   "contains_grid_point": false
+  },
+  {
+   "gamma": 135.04,
+   "x_window": [
+    0.4995060013838543,
+    0.499999999999999
+   ],
+   "x_window_width": 0.0004939986161446863,
+   "below_grid_max_x": false,
+   "contains_grid_point": false
+  },
+  {
+   "gamma": 135.0486,
+   "x_window": [
+    0.49939970146814483,
+    0.499999999999999
+   ],
+   "x_window_width": 0.0006002985318541709,
+   "below_grid_max_x": false,
+   "contains_grid_point": true
+  },
+  {
+   "gamma": 135.06,
+   "x_window": [
+    0.4992587429968286,
+    0.499999999999999
+   ],
+   "x_window_width": 0.0007412570031704036,
+   "below_grid_max_x": false,
+   "contains_grid_point": true
+  }
+ ]
+}
