@@ -212,7 +212,7 @@ leaves, count 24, index sum −4. Certificates gzipped in `data/` as
 | A | arithmetic grid: `--prec-bits 80`, same auto region | `data/abk-witness-config.json` | 471,985 / 235,993 | 2609 | **24** | −4 |
 | B | wholesale different geometry: explicit region, offsets 1/89, 1/91, 1/93, half-width 5/4 (vs auto 1/97, 1/101, 1/103, 17/16) | `explore/skeptic_region_config.json`, `--prec-bits 64` | 472,775 / 236,388 | 2539 | **24** | −4 (from leaf data) |
 | C | charge q = 4360/1000000 (window bracket, low) | `explore/skeptic_q4360_config.json`, `--prec-bits 64` | 359,577 / 179,789 | 1988 | **12** | −4 (+4/−8) |
-| D | charge q = 4400/1000000 (window bracket, high) | `explore/skeptic_q4400_config.json`, `--prec-bits 64` | RUND_BOXES / RUND_LEAVES | RUND_TIME | **RUND_COUNT** | RUND_IDX |
+| D | charge q = 4400/1000000 (window bracket, high) | `explore/skeptic_q4400_config.json`, `--prec-bits 64` | 1,022,511 / 511,256 | 5307 | **16** | −4 (+6/−10) |
 
 Reproduce with (outputs land wherever `--out` points; the gzipped copies in
 `data/` are byte-identical up to the `seconds` field):
@@ -253,15 +253,35 @@ Notes:
   contains the closed ball |x| ≤ R0 = 1 (checked exactly on the run-B
   certificate) and the localization lemma was re-derived in S1. Its index
   sum, recomputed from the leaf data, is −4 (10 positive, 14 negative).
-- Every completed run was pushed through `skeptic_cert_checks.py` — all
-  checks pass on all certificates (run C with `--expect-count 12`; the
-  centroid lies in exactly one enclosure in every run). RUNV_SENTENCE
+- Every run was pushed through `skeptic_cert_checks.py` — all checks pass on
+  all four certificates (C with `--expect-count 12`, D with
+  `--expect-count 16`; the centroid lies in exactly one enclosure in every
+  run). Run B — the tree-perturbation run — was additionally re-verified
+  end-to-end by the second engine:
+  `python harness/maxwell-equilibria/verify_equilibria.py --cert
+  certB-region.json` → **PASS, zero failures, 1098 s**: all 236,388 leaves
+  re-established (the 24 isolations by preconditioned interval Newton, the
+  26 ball-exclusions and both lemmas re-derived). Its report shows
+  `index_sum: null` because the verifier runs the Poincaré–Hopf identity
+  only for certificates claiming `complete: true` — a benign, scope-honest
+  limitation (the checker refuses to infer a completeness the certificate
+  did not claim), *distinct* from the R1 gap; the leaf det signs it did
+  re-establish sum to −4 (INDEX check above).
+- **Run D doubles as a conditioning stress test**, and the exact centroid
+  Hessian below explains why: q = 4400/1000000 sits only 3.2·10⁻⁶ above the
+  exact centroid degeneracy q\* (S4), where det DF(centroid) ≈ −1.6·10⁻⁸,
+  a thousand times smaller than 001's minimum |det DF| ≈ 1.3·10⁻⁵. The
+  driver needed 1.02M boxes (2.2× the witness run) and isolated the
+  centroid at depth 64 (enclosure width ≈ 2.8·10⁻⁷) — with zero unresolved
+  leaves. A useful calibration: the harness still resolves a census this
+  close to a degeneracy at 64 bits.
 
 ### S4. The add-on predictions (attacks 7, 8)
 
-- **Window brackets**: certified complete counts **RUNC_COUNT** at
-  q = 4360/1000000 and **RUND_COUNT** at q = 4400/1000000, vs 001's float
-  predictions 12 and 16. RUNCD_VERDICT
+- **Window brackets**: certified complete counts **12** at q = 4360/1000000
+  and **16** at q = 4400/1000000 — exactly 001's float predictions. The
+  12 → 24 → 16 sequence is now bracketed by certificates, not floats; both
+  index sums are −4 (+4/−8 and +6/−10), as the identity demands.
 - **Exact centroid Hessian** (001 lead 5, closed): by the D₃ symmetry the
   Jacobian at the centroid is A·I + B·J (J = all-ones; the rank-one sums
   Σ_tri d dᵀ = I − J/3 and axial d dᵀ = t²J are verified exactly), and
@@ -276,13 +296,18 @@ Notes:
     cross-check of one certified index by pure symmetry algebra, no
     intervals involved.
   - q = 4400/1000000: λ_ax < 0, signature (−,+,+), det DF(c) < 0.
+  - The predicted index flip is **confirmed in the certificates**: the
+    enclosure containing (1/3,1/3,1/3) carries certified det_sign +1 in the
+    B and C runs (and in 001's own certificate) and −1 in the D run — three
+    interval-arithmetic censuses agreeing with the pure symmetry algebra on
+    both sides of q\*.
   - The centroid is **exactly degenerate at q\*(t) = 81√2·t³/16**; at
     t = 17/200, q\* = 4.396801013961…·10⁻³ (certified enclosure of width
     2⁻¹²⁰ in the script output). Note q\* is *above* 001's float window edge
     ≈ 4.389·10⁻³. SPECULATION: the 24→16 transition at the window's high
     edge is NOT the centroid degeneracy; the centroid degenerates slightly
-    later, inside the 16-count regime, flipping its index +1 → −1 (consistent
-    with the C/D centroid det signs above). A certified census inside
+    later, already inside the 16-count regime, flipping its index +1 → −1
+    with a compensating event elsewhere. A certified census inside
     q ∈ (4.389, 4.3968)·10⁻³ would separate the two events — lead 3.
 
 ## Outcome
