@@ -46,7 +46,8 @@
         "status": {
           "enum": [
             "VERIFIED", "VERIFIED_WITH_CORRECTIONS", "EVIDENCE", "LIVE",
-            "REFUTED", "REFUTED_PRIOR_OBSERVATION", "MAP", "SPECULATION"
+            "REFUTED", "REFUTED_PRIOR_OBSERVATION", "MAP", "SPECULATION",
+            "FORMALIZED"
           ]
         },
         "mechanism": {

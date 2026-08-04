@@ -99,6 +99,7 @@ Use these exact words; they are what the indexes are filtered on.
 | Term | Means |
 |---|---|
 | `VERIFIED` | Independently re-derived or re-computed. State the range or scope. |
+| `FORMALIZED` | A verified proof step additionally carrying a machine-checked certificate (Lean 4). Covers exactly the formal statement, which is stated in the record. |
 | `EVIDENCE` | Computational support, not proof. State the range. |
 | `LIVE` | A route that has survived every adversary tried, with no bound claimed yet. |
 | `SPECULATION` | Plausible, unproven, and load-bearing. Must be labelled inline. |

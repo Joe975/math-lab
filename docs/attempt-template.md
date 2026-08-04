@@ -40,7 +40,8 @@ Enough that a reader can follow and check it. Include:
 
 ## Outcome
 
-Lead with a status term: `VERIFIED` / `EVIDENCE` / `LIVE` / `REFUTED` / `MAP`.
+Lead with a status term: `VERIFIED` / `EVIDENCE` / `LIVE` / `REFUTED` / `MAP`
+(reviews that produce a machine-checked certificate use `FORMALIZED`).
 
 State the **range or scope** — `VERIFIED` describes what was checked, never the
 conjecture itself.
