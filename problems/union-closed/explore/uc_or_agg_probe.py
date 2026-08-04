@@ -140,23 +140,62 @@ def _ln_1_to_2(s: Fraction, terms: int) -> tuple[Fraction, Fraction]:
 LN2_LO, LN2_HI = _ln_1_to_2(Fraction(2), 48)   # width ~ 1e-47
 
 
-def _dir_round(r: Fraction, scale: int) -> tuple[Fraction, Fraction]:
-    n, d = r.numerator, r.denominator
-    lo = Fraction(n * scale // d, scale)
-    hi = Fraction(-((-n * scale) // d), scale)
-    return lo, hi
+def _dround(x: Fraction, up: bool, bits: int = 120) -> Fraction:
+    """Directed rounding of x to a dyadic rational with a <= bits-bit
+    numerator: result <= x if not up, result >= x if up.  Keeping every
+    intermediate dyadic avoids the gcd churn that makes long certified
+    sums explode."""
+    if x == 0:
+        return F0
+    n, d = x.numerator, x.denominator
+    shift = bits - (abs(n).bit_length() - d.bit_length())
+    if shift >= 0:
+        num, den = n << shift, d
+    else:
+        num, den = n, d << (-shift)
+    q = num // den                       # floor (rounds down, also for <0)
+    if up and q * den != num:
+        q += 1
+    if shift >= 0:
+        return Fraction(q, 1 << shift)
+    return Fraction(q << (-shift))
+
+
+def _ln_1_to_2_fp(s: Fraction, up: bool, terms: int,
+                  bits: int = 120) -> Fraction:
+    """Directed bound on ln s for 1 <= s < 2, dyadic fixed-point: every
+    operation is rounded in the safe direction, and the atanh-series tail
+    2 z^{2J+1}/((2J+1)(1-z^2)) is added on the upper side."""
+    if s == 1:
+        return F0
+    z = _dround((s - 1) / (s + 1), up, bits)
+    z2 = _dround(z * z, up, bits)
+    term = z
+    acc = F0
+    for j in range(terms):
+        acc = _dround(acc + term / (2 * j + 1), up, bits)
+        term = _dround(term * z2, up, bits)
+    val = 2 * acc
+    if up:
+        tail = _dround(2 * term / ((2 * terms + 1) * (1 - z2)), True, bits)
+        val = _dround(val + tail, True, bits)
+    return val
+
+
+LN2D_LO = _dround(LN2_LO, False)
+LN2D_HI = _dround(LN2_HI, True)
 
 
 def log2_enclosure(r: Fraction, terms: int = 12,
-                   scale: int = 10 ** 30) -> tuple[Fraction, Fraction]:
-    """[lo, hi] with lo <= log2 r <= hi, exact rationals; r > 0.
+                   bits: int = 120) -> tuple[Fraction, Fraction]:
+    """[lo, hi] with lo <= log2 r <= hi, dyadic rationals; r > 0.
     terms=12 gives width ~ 1e-13 (z <= 1/3 after range reduction)."""
     assert r > 0
-    r_lo, r_hi = _dir_round(r, scale)
-    if r_lo <= 0:
-        r_lo = r
     out = []
-    for rr, want_hi in ((r_lo, False), (r_hi, True)):
+    for up in (False, True):
+        rr = _dround(r, up, bits)
+        if rr <= 0:
+            rr = r
         k = 0
         while rr >= 2:
             rr /= 2
@@ -164,11 +203,15 @@ def log2_enclosure(r: Fraction, terms: int = 12,
         while rr < 1:
             rr *= 2
             k -= 1
-        ln_lo, ln_hi = _ln_1_to_2(rr, terms)
-        if want_hi:
-            out.append(k + ln_hi / LN2_LO)
+        ln_dir = _ln_1_to_2_fp(rr, up, terms, bits)
+        if up:
+            out.append(_dround(k + ln_dir / LN2D_LO, True, bits)
+                       if ln_dir >= 0 else
+                       _dround(k + ln_dir / LN2D_HI, True, bits))
         else:
-            out.append(k + ln_lo / LN2_HI)
+            out.append(_dround(k + ln_dir / LN2D_HI, False, bits)
+                       if ln_dir >= 0 else
+                       _dround(k + ln_dir / LN2D_LO, False, bits))
     return out[0], out[1]
 
 
@@ -337,29 +380,42 @@ def sparse_marginals_exact(u: dict[int, Fraction], t: Fraction, n: int):
 
 def agg_enclosure(rows_by_i, t: Fraction, n: int, terms: int = 12):
     """Certified [lo, hi] for A = sum_{i<n} sum_rows m log2(OR/t) / sum m.
-    Also returns per-i M_i - log2 t enclosures."""
-    num_lo = num_hi = den = F0
+    Also returns per-i M_i - log2 t enclosures.  Running sums are
+    compacted to 120-bit dyadics with directed rounding, so the whole
+    accumulation stays certified AND cheap."""
+    num_lo = num_hi = den_lo = den_hi = F0
     per_i = []
     memo: dict[Fraction, tuple[Fraction, Fraction]] = {}
     for i, rows in enumerate(rows_by_i, start=1):
         if i >= n or not rows:
             per_i.append(None)
             continue
-        slo = shi = W = F0
+        slo = shi = w_lo = w_hi = F0
         for (m, orr) in rows:
             q = orr / t
             enc = memo.get(q)
             if enc is None:
                 enc = log2_enclosure(q, terms=terms)
                 memo[q] = enc
-            slo += m * enc[0]
-            shi += m * enc[1]
-            W += m
-        per_i.append((slo / W, shi / W, W))
-        num_lo += slo
-        num_hi += shi
-        den += W
-    return num_lo / den, num_hi / den, per_i
+            mlo = _dround(m, False)
+            mhi = _dround(m, True)
+            # m > 0: directed products depend on the sign of the bound
+            slo = _dround(slo + (mlo if enc[0] >= 0 else mhi) * enc[0],
+                          False)
+            shi = _dround(shi + (mhi if enc[1] >= 0 else mlo) * enc[1],
+                          True)
+            w_lo = _dround(w_lo + mlo, False)
+            w_hi = _dround(w_hi + mhi, True)
+        per_i.append((slo / w_hi if slo >= 0 else slo / w_lo,
+                      shi / w_lo if shi >= 0 else shi / w_hi,
+                      (w_lo + w_hi) / 2))
+        num_lo = _dround(num_lo + slo, False)
+        num_hi = _dround(num_hi + shi, True)
+        den_lo = _dround(den_lo + w_lo, False)
+        den_hi = _dround(den_hi + w_hi, True)
+    a_lo = num_lo / den_hi if num_lo >= 0 else num_lo / den_lo
+    a_hi = num_hi / den_lo if num_hi >= 0 else num_hi / den_hi
+    return a_lo, a_hi, per_i
 
 
 # ======================================================================
@@ -1414,18 +1470,33 @@ def certify_sparse(name: str, u: dict[int, float], lam_num: int,
     return rec
 
 
+def _quant(v: float, bits: int = 36) -> Fraction:
+    """Nearest dyadic with a bits-bit mantissa (exact, sign-preserving)."""
+    if v == 0.0:
+        return F0
+    m, e = math.frexp(v)
+    return Fraction(round(m * (1 << bits)), 1 << bits) * Fraction(2) ** e
+
+
 def certify_orbit(name: str, n: int, tgt: dict, lam: float,
-                  terms: int = 10):
-    """Sinkhorn-fit at float lambda, rationalize the potential (dyadic)
-    and the tilt (dyadic float-rationalization of 2^lambda), then certify
+                  terms: int = 10, use_t: Fraction | None = None,
+                  quant_bits: int = 36):
+    """Sinkhorn-fit at float lambda, rationalize the potential (dyadic,
+    quantized to quant_bits-bit mantissas to keep exact arithmetic fast)
+    and the tilt (use_t if given -- prefer a short rational like 271/256
+    -- else the dyadic float-rationalization of 2^lambda), then certify
     the aggregate sign for that EXACT rational measure (013's
     rationalized-refit scope: the certificate is about a mu-tilde within
-    Sinkhorn residual of the named family, which suffices for the
-    universally-quantified claim)."""
+    ~Sinkhorn-residual + 2^-quant_bits relative of the named family,
+    which suffices for the universally-quantified claim)."""
     t0 = time.time()
+    if use_t is not None:
+        t = use_t
+        lam = math.log2(float(t.numerator) / float(t.denominator))
+    else:
+        t = Fraction(2.0 ** lam)
     g, resid = orbit_sinkhorn(n, tgt, lam)
-    t = Fraction(2.0 ** lam)
-    gF = {s: Fraction(v) for s, v in g.items()}
+    gF = {s: _quant(v, quant_bits) for s, v in g.items()}
     rows = orbit_rows(n, t, gF)
     lo, hi, _per = agg_enclosure(rows, t, n, terms=terms)
     m1, m2, mt = orbit_marginals(n, t, gF)
@@ -1470,8 +1541,8 @@ def part_e(o_tightest=None) -> dict:
         out["sparse"].append(rec)
 
     # (c) fully rational statement at lambda = 2 exactly (t = 4): the
-    # witness genre at n = 20
-    u20, _i = witness_at_n(20, 2.0)
+    # witness genre at n = 20 (wdil = 20 keeps it in-regime at t = 4)
+    u20, _i = witness_at_n(20, 20.0)
     rec = certify_sparse("witness_n20_t4_lam2exact", u20, 2, 1, 20,
                          use_t=Fraction(4))
     out["sparse"].append(rec)
@@ -1493,25 +1564,25 @@ def part_e(o_tightest=None) -> dict:
         if not cand:
             continue
         worst = min(cand, key=lambda r: r["aggregate"])
-        name, lam = worst["name"], float(worst["lambda"])
+        name = worst["name"]
         fams = orbit_families(n)
         if name not in fams:
             continue
-        try:
-            rec = certify_orbit(f"{name}_n{n}_lam{lam:g}", n, fams[name],
-                                lam, terms=8 if n >= 24 else 10)
-            out["orbit"].append(rec)
-        except MemoryError:
-            print(f"[E] n={n} orbit certification skipped (memory)")
+        # census min sits at the smallest grid lambda (~0.083-0.084);
+        # certify at the nearby SHORT exact rational tilt t = 271/256
+        # (lambda = log2(271/256) ~ 0.08215), 013's clean-rational move
+        rec = certify_orbit(f"{name}_n{n}", n, fams[name], 0.0,
+                            terms=10, use_t=Fraction(271, 256))
+        out["orbit"].append(rec)
 
     # (d) the softest direction found (part P/T): slice-direction
-    # perturbation of Bern(0.30) at d = 0.05, lambda ~ 0.084 -- margin
-    # ~ 6e-7 at n = 32, the smallest nonzero margin in the whole probe.
-    # Certify it at n = 20 and n = 32 (enclosure width ~1e-9 << margin).
+    # perturbation of Bern(0.30) at d = 0.05, small lambda -- the
+    # smallest nonzero margin in the whole probe (~6e-7 at n = 32).
+    # Certify at n = 20 and 32 (enclosure width ~1e-10 << margin).
     for n_soft in (20, 32):
         tgt = st_mix_dir(n_soft, 0.30, "slice", 0.05)
         rec = certify_orbit(f"mixdir_slice_p0.3_d0.05_n{n_soft}", n_soft,
-                            tgt, 0.084, terms=10)
+                            tgt, 0.0, terms=10, use_t=Fraction(271, 256))
         out["orbit"].append(rec)
 
     save("or_agg_probe_partE.json", out)

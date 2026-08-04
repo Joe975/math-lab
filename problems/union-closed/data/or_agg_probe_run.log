@@ -92,3 +92,46 @@ done in 76s; checkpoints in /home/user/math-lab/problems/union-closed/data
 [H] 82 climb endpoints; in-regime aggregate violations: 0; five lowest in-regime endpoints: +0.00560 +0.00700 +0.00882 +0.00932 +0.00977
 [H] lowest in-regime endpoint: +0.005602 (small_lam n=10 lam=0.084, 25 atoms)
 done in 208s; checkpoints in /home/user/math-lab/problems/union-closed/data
+== part X: engine cross-checks ==
+[X1] witness n=7 lam=3.5: M_5 - lam = -0.122033 (007: -0.122033), aggregate = +1.844754 (007: +1.84), max marginal = 0.3178 (007: 0.3178)
+[X1] exact aggregate at t=181/16 in [+1.844669005, +1.844669005] (013: +1.844669), width 2.7e-15
+[X2] orbit vs direct, slice_w2 n=6: max |diff| = 1.55e-15 (resids 2.2e-16/2.8e-17)
+[X2] orbit vs direct, sawin_geo_a n=6: max |diff| = 2.77e-13 (resids 7.7e-12/9.9e-14)
+[X2] orbit vs direct, crash_eps2 n=6: max |diff| = 7.95e-13 (resids 6.9e-12/5.9e-14)
+[X2] orbit vs direct, d0bern_30_51 n=7: max |diff| = 3.43e-13 (resids 7.1e-12/6.7e-14)
+[X3] exact vs float orbit rows (partE_mix n=8): float +0.021228885, exact [+0.021228885, +0.021228885], diff 7.9e-15
+[X] ALL PASS
+== part E: exact rational certification ==
+[E] witness_n10_wdil16 (sparse, n=10, t=181/16): aggregate in [+1.709542464, +1.709542464] -> positive; exact max marginal 0.270498 < 0.38271; 0.0s
+[E] witness_n14_wdil16 (sparse, n=14, t=181/16): aggregate in [+1.474040147, +1.474040147] -> positive; exact max marginal 0.196720 < 0.38271; 0.0s
+[E] witness_n20_wdil20 (sparse, n=20, t=181/16): aggregate in [+1.162947590, +1.162947590] -> positive; exact max marginal 0.104401 < 0.38271; 0.0s
+[E] witness_n24_wdil20 (sparse, n=24, t=181/16): aggregate in [+1.013509091, +1.013509091] -> positive; exact max marginal 0.084848 < 0.38271; 0.1s
+[E] witness_n28_wdil20 (sparse, n=28, t=181/16): aggregate in [+0.896763710, +0.896763710] -> positive; exact max marginal 0.071167 < 0.38271; 0.1s
+[E] witness_n32_wdil20 (sparse, n=32, t=181/16): aggregate in [+0.803594797, +0.803594797] -> positive; exact max marginal 0.061118 < 0.38271; 0.1s
+[E] witness_n20_t4_lam2exact (sparse, n=20, t=4/1): aggregate in [+0.904942086, +0.904942086] -> positive; exact max marginal 0.463729 >= 0.38271; 0.0s
+[E] crashmix_383_05_n10 (orbit, n=10, lam~0.082149): aggregate in [+0.000476924, +0.000476924] -> positive; exact max marginal 0.382350; resid 5.6e-12; 0.6s
+[E] crashmix_383_05_n14 (orbit, n=14, lam~0.082149): aggregate in [+0.000634269, +0.000634269] -> positive; exact max marginal 0.382350; resid 5.3e-12; 2.1s
+[E] crashmix_383_05_n20 (orbit, n=20, lam~0.082149): aggregate in [+0.000829968, +0.000829968] -> positive; exact max marginal 0.382350; resid 8.7e-12; 7.7s
+[E] crashmix_383_05_n24 (orbit, n=24, lam~0.082149): aggregate in [+0.000952638, +0.000952638] -> positive; exact max marginal 0.382350; resid 5.4e-12; 15.5s
+[E] crashmix_383_05_n28 (orbit, n=28, lam~0.082149): aggregate in [+0.001075588, +0.001075588] -> positive; exact max marginal 0.382350; resid 6.3e-12; 25.3s
+[E] crashmix_383_05_n32 (orbit, n=32, lam~0.082149): aggregate in [+0.001201865, +0.001201865] -> positive; exact max marginal 0.382350; resid 7.0e-12; 41.3s
+[E] mixdir_slice_p0.3_d0.05_n20 (orbit, n=20, lam~0.082149): aggregate in [+0.000004637, +0.000004637] -> positive; exact max marginal 0.302500; resid 7.3e-12; 3.4s
+[E] mixdir_slice_p0.3_d0.05_n32 (orbit, n=32, lam~0.082149): aggregate in [+0.000000599, +0.000000599] -> positive; exact max marginal 0.303750; resid 5.7e-12; 18.8s
+done in 116s; checkpoints in /home/user/math-lab/problems/union-closed/data
+== part E: exact rational certification ==
+[E] witness_n10_wdil16 (sparse, n=10, t=181/16): aggregate in [+1.709542464, +1.709542464] -> positive; exact max marginal 0.270498 < 0.38271; 0.0s
+[E] witness_n14_wdil16 (sparse, n=14, t=181/16): aggregate in [+1.474040147, +1.474040147] -> positive; exact max marginal 0.196720 < 0.38271; 0.0s
+[E] witness_n20_wdil20 (sparse, n=20, t=181/16): aggregate in [+1.162947590, +1.162947590] -> positive; exact max marginal 0.104401 < 0.38271; 0.0s
+[E] witness_n24_wdil20 (sparse, n=24, t=181/16): aggregate in [+1.013509091, +1.013509091] -> positive; exact max marginal 0.084848 < 0.38271; 0.1s
+[E] witness_n28_wdil20 (sparse, n=28, t=181/16): aggregate in [+0.896763710, +0.896763710] -> positive; exact max marginal 0.071167 < 0.38271; 0.1s
+[E] witness_n32_wdil20 (sparse, n=32, t=181/16): aggregate in [+0.803594797, +0.803594797] -> positive; exact max marginal 0.061118 < 0.38271; 0.1s
+[E] witness_n20_t4_lam2exact (sparse, n=20, t=4/1): aggregate in [+0.483059569, +0.483059569] -> positive; exact max marginal 0.091560 < 0.38271; 0.0s
+[E] crashmix_383_05_n10 (orbit, n=10, lam~0.082149): aggregate in [+0.000476924, +0.000476924] -> positive; exact max marginal 0.382350; resid 5.6e-12; 0.6s
+[E] crashmix_383_05_n14 (orbit, n=14, lam~0.082149): aggregate in [+0.000634269, +0.000634269] -> positive; exact max marginal 0.382350; resid 5.3e-12; 2.1s
+[E] crashmix_383_05_n20 (orbit, n=20, lam~0.082149): aggregate in [+0.000829968, +0.000829968] -> positive; exact max marginal 0.382350; resid 8.7e-12; 7.6s
+[E] crashmix_383_05_n24 (orbit, n=24, lam~0.082149): aggregate in [+0.000952638, +0.000952638] -> positive; exact max marginal 0.382350; resid 5.4e-12; 14.3s
+[E] crashmix_383_05_n28 (orbit, n=28, lam~0.082149): aggregate in [+0.001075588, +0.001075588] -> positive; exact max marginal 0.382350; resid 6.3e-12; 25.0s
+[E] crashmix_383_05_n32 (orbit, n=32, lam~0.082149): aggregate in [+0.001201865, +0.001201865] -> positive; exact max marginal 0.382350; resid 7.0e-12; 39.4s
+[E] mixdir_slice_p0.3_d0.05_n20 (orbit, n=20, lam~0.082149): aggregate in [+0.000004637, +0.000004637] -> positive; exact max marginal 0.302500; resid 7.3e-12; 3.4s
+[E] mixdir_slice_p0.3_d0.05_n32 (orbit, n=32, lam~0.082149): aggregate in [+0.000000599, +0.000000599] -> positive; exact max marginal 0.303750; resid 5.7e-12; 20.0s
+done in 113s; checkpoints in /home/user/math-lab/problems/union-closed/data
