@@ -1,6 +1,32 @@
 {
   "problem": "crouzeix",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Onboarded, never worked. No prior art, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "EVIDENCE",
+  "route_summary": "First attempt (blind, 2026-08-04): a certified 286-start local-maxima census at n=3, deg<=3 found no unknown extremal structure; skeptic pass pending. The published intermediate GO maxima are untested by this design and are the standing gap.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-blind-dim3-local-maxima-census.md",
+      "date": "2026-08-04",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "optimization-landscape-census",
+        "nonsmooth-maximization",
+        "certified-enclosure",
+        "basin-classification"
+      ],
+      "one_line": "286-start local-maxima census of the Crouzeix ratio at n=3, deg p<=3 from 7 structured start families: every probe-surviving local maximum is known structure (13 ice-cream-cone points at ratio 1, 97 Jordan-type endpoints near ratio 2); all 4 intermediate candidates were optimizer stalls; all 286 endpoints certified below 2, top 8 verified by the independent harness route.",
+      "leak_terms": [
+        "escape-probe stall rate 61%",
+        "near2-other class",
+        "deep-probe stall verdict",
+        "286-start census n3 deg3",
+        "ice-cream-cone rediscovery at ratio 1"
+      ],
+      "range": "dimension 3, polynomial degree <= 3; 286 optimization starts (families: random 81, perturbed-J3 36, perturbed-J2+c 34, near-normal 34, companion-like 34, multi-peak 34, real 33); certified enclosures at all 286 endpoints rounded to denominator 256 (tol 1e-6, 32 half-planes), 0 refutations, max certified lower bound 1.969725",
+      "gaps": [
+        "published intermediate local maxima (ratios ~1.185, ~1.433 at this slice, per Greenbaum-Overton Calcolo 2021) were never reached by this design; their basins are untested here and the census says nothing about them"
+      ]
+    }
+  ]
 }

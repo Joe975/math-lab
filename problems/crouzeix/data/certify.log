@@ -1,0 +1,70 @@
+  25/286 certified, 21s elapsed
+  50/286 certified, 40s elapsed
+  75/286 certified, 60s elapsed
+  100/286 certified, 78s elapsed
+  125/286 certified, 96s elapsed
+  150/286 certified, 114s elapsed
+  175/286 certified, 132s elapsed
+  200/286 certified, 150s elapsed
+  225/286 certified, 168s elapsed
+  250/286 certified, 186s elapsed
+  275/286 certified, 206s elapsed
+certified 286 points, refutations: 0, total 214s
+
+independent verification (verify_ratio.py) of the top 8 endpoints by float ratio:
+[jordan2 seed=602007 float=1.99875]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [1.708227933, 1.708228853]  roots [1.708227360, 1.708228007]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 0.442922732  independent 0.442922789 AGREE
+  ratio  reference [1.963852766, 2.003138920]  independent [1.963852309, 2.003138424]  AGREE
+  verify: AGREE
+[real seed=406009 float=1.99864]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [3.600167515, 3.600168040]  roots [3.600167714, 3.600168270]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 0.927922296  independent 0.927922221 AGREE
+  ratio  reference [1.969724783, 2.051433206]  independent [1.969724918, 2.051433272]  AGREE
+  verify: AGREE
+[real seed=506001 float=1.99863]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [12.270158291, 12.270159108]  roots [12.270158009, 12.270158838]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 3.200673941  independent 3.200673858 AGREE
+  ratio  reference [1.957962482, 2.047418460]  independent [1.957962485, 2.047418438]  AGREE
+  verify: AGREE
+[peaks seed=605007 float=1.99836]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [739.814318590, 739.814319368]  roots [739.814318093, 739.814318783]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 199.400872260  independent 199.400823580 AGREE
+  ratio  reference [1.926184303, 2.398949702]  independent [1.926184538, 2.398949701]  AGREE
+  verify: AGREE
+[real seed=406007 float=1.99818]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [2.305948178, 2.305948783]  roots [2.305948359, 2.305949160]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 0.597578871  independent 0.597579129 AGREE
+  ratio  reference [1.964387468, 2.023830686]  independent [1.964387121, 2.023830851]  AGREE
+  verify: AGREE
+[jordan3 seed=601006 float=1.99677]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [15.012566390, 15.012566948]  roots [15.012566509, 15.012567464]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 4.047140827  independent 4.047140881 AGREE
+  ratio  reference [1.925986826, 2.072421238]  independent [1.925986821, 2.072421274]  AGREE
+  verify: AGREE
+[jordan2 seed=402005 float=1.99675]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [0.847132360, 0.847133323]  roots [0.847132185, 0.847133124]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 0.220015754  independent 0.220016015 AGREE
+  ratio  reference [1.962224739, 2.022964281]  independent [1.962223371, 2.022964043]  AGREE
+  verify: AGREE
+[jordan2 seed=602004 float=1.99669]
+  characteristic polynomial agrees with the determinant: OK
+  ||p(A)||^2  definiteness [1.436166928, 1.436167773]  roots [1.436167124, 1.436167710]  AGREE
+  32 support values, 0 disagreeing with the reference OK
+  outer bound on max|p|^2  reference 0.371746448  independent 0.371746011 AGREE
+  ratio  reference [1.965527149, 2.047954503]  independent [1.965528439, 2.047954458]  AGREE
+  verify: AGREE
