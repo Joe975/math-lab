@@ -1,0 +1,78 @@
+{
+ "certs": [
+  {
+   "in_regime_exact": true,
+   "intervals_overlap": true,
+   "max_marginal": 0.27049832331955115,
+   "my_hi": 1.7095424637138186,
+   "my_lo": 1.709542463713808,
+   "my_sign": "positive",
+   "my_width": 1.0658141036401503e-14,
+   "name": "witness_n10_wdil16",
+   "sign_agrees": true,
+   "their_hi": 1.7095424637138141,
+   "their_lo": 1.7095424637138115
+  },
+  {
+   "in_regime_exact": true,
+   "intervals_overlap": true,
+   "max_marginal": 0.09156022350625077,
+   "my_hi": 0.48305956855679133,
+   "my_lo": 0.48305956855678067,
+   "my_sign": "positive",
+   "my_width": 1.0658141036401503e-14,
+   "name": "witness_n20_t4_lam2exact",
+   "sign_agrees": true,
+   "their_hi": 0.48305956855678606,
+   "their_lo": 0.48305956855678567
+  },
+  {
+   "in_regime_exact": true,
+   "intervals_overlap": true,
+   "max_marginal": 0.06111843723141829,
+   "my_hi": 0.8035947973888391,
+   "my_lo": 0.8035947973888284,
+   "my_sign": "positive",
+   "my_width": 1.0658141036401503e-14,
+   "name": "witness_n32_wdil20",
+   "sign_agrees": true,
+   "their_hi": 0.8035947973888339,
+   "their_lo": 0.803594797388832
+  },
+  {
+   "in_regime_exact": true,
+   "intervals_overlap": true,
+   "max_marginal": 0.38235000000005875,
+   "my_hi": 0.001201865436563904,
+   "my_lo": 0.001201865436553246,
+   "my_sign": "positive",
+   "my_width": 1.0658141036401503e-14,
+   "name": "crashmix_383_05_n32",
+   "sign_agrees": true,
+   "their_hi": 0.0012018654365805032,
+   "their_lo": 0.0012018654345185519
+  },
+  {
+   "in_regime_exact": true,
+   "intervals_overlap": true,
+   "max_marginal": 0.303749999999851,
+   "my_hi": 5.988236463096674e-07,
+   "my_lo": 5.988236356515264e-07,
+   "my_sign": "positive",
+   "my_width": 1.0658141036401503e-14,
+   "name": "mixdir_slice_p0.3_d0.05_n32",
+   "sign_agrees": true,
+   "their_hi": 5.988237042421268e-07,
+   "their_lo": 5.988177652162741e-07
+  },
+  {
+   "in_regime_exact": true,
+   "max_marginal": 0.30375000000005453,
+   "my_hi": 5.98823646304681e-07,
+   "my_lo": 5.9882363564654e-07,
+   "my_sign": "positive",
+   "name": "mixdir_slice_p0.3_d0.05_n32_MY_mu",
+   "sinkhorn_resid": 6.902478588699523e-12
+  }
+ ]
+}

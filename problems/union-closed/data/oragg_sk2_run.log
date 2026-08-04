@@ -1,0 +1,132 @@
+== part K: enclosure-kit attack ==
+[K1] 437 rationals: disjoint-enclosure failures = 0; max widths theirs 1.5e-13 / mine 1.1e-14
+[K2] _dround directionality: 0 failures / 2000
+[K3] _ln_1_to_2_fp anchor vs my bracket*ln2 (slack 1e-12): 0 failures / 300
+[K4] combinatorics brute force: Ncl failures 0, PK failures 0
+done in 0s
+== part X: formula cross-checks ==
+[X1] my direct on witness n=7 lam=3.5: M_5-lam = -0.122033 (007: -0.122033), agg = +1.844754 (014: +1.844754), marg = 0.3178 (0.3178)
+[X2] crashmix_383_05 n=8 lam=0.5: mine-orbit +0.002523796 mine-direct +0.002523796 014-orbit +0.002523796 (maxdiff 7.63e-15)
+[X2] sawin_geo_a n=8 lam=0.5: mine-orbit +0.016367617 mine-direct +0.016367617 014-orbit +0.016367617 (maxdiff 2.24e-14)
+[X2] mixdir_slice_p.30_d.05 n=8 lam=0.5: mine-orbit +0.000097667 mine-direct +0.000097667 014-orbit +0.000097667 (maxdiff 4.61e-14)
+[X2] d0bern_30_51 n=8 lam=0.5: mine-orbit +0.088665065 mine-direct +0.088665065 014-orbit +0.088665065 (maxdiff 1.24e-14)
+[X2] crashmix_383_05 n=8 lam=1.0: mine-orbit +0.005641590 mine-direct +0.005641590 014-orbit +0.005641590 (maxdiff 1.25e-14)
+[X2] sawin_geo_a n=8 lam=1.0: mine-orbit +0.032687699 mine-direct +0.032687699 014-orbit +0.032687699 (maxdiff 1.83e-14)
+[X2] mixdir_slice_p.30_d.05 n=8 lam=1.0: mine-orbit +0.000209476 mine-direct +0.000209476 014-orbit +0.000209476 (maxdiff 7.58e-15)
+[X2] d0bern_30_51 n=8 lam=1.0: mine-orbit +0.187274148 mine-direct +0.187274148 014-orbit +0.187274148 (maxdiff 2.40e-14)
+[X2] crashmix_383_05 n=9 lam=0.5: mine-orbit +0.002905299 mine-direct +0.002905299 014-orbit +0.002905299 (maxdiff 3.05e-14)
+[X2] sawin_geo_a n=9 lam=0.5: mine-orbit +0.017510437 mine-direct +0.017510437 014-orbit +0.017510437 (maxdiff 3.59e-14)
+[X2] mixdir_slice_p.30_d.05 n=9 lam=0.5: mine-orbit +0.000096401 mine-direct +0.000096401 014-orbit +0.000096401 (maxdiff 3.32e-14)
+[X2] d0bern_30_51 n=9 lam=0.5: mine-orbit +0.098394651 mine-direct +0.098394651 014-orbit +0.098394651 (maxdiff 1.05e-13)
+[X2] crashmix_383_05 n=9 lam=1.0: mine-orbit +0.006716601 mine-direct +0.006716601 014-orbit +0.006716601 (maxdiff 6.45e-14)
+[X2] sawin_geo_a n=9 lam=1.0: mine-orbit +0.034888993 mine-direct +0.034888993 014-orbit +0.034888993 (maxdiff 5.00e-15)
+[X2] mixdir_slice_p.30_d.05 n=9 lam=1.0: mine-orbit +0.000198760 mine-direct +0.000198760 014-orbit +0.000198760 (maxdiff 1.98e-14)
+[X2] d0bern_30_51 n=9 lam=1.0: mine-orbit +0.210938451 mine-direct +0.210938451 014-orbit +0.210938451 (maxdiff 2.78e-14)
+[X3] j-independence at n=9 i=6: 256 classes, max rel spread of within-class ORs = 0.00e+00
+[X] ALL PASS
+done in 3s
+== part C: independent re-certification ==
+[C] witness_n10_wdil16: mine [+1.70954246371, +1.70954246371] (w 1.1e-14) vs theirs [+1.70954246371, +1.70954246371] -> overlap=True sign=positive marg=0.270498
+[C] witness_n20_t4_lam2exact: mine [+0.483059568557, +0.483059568557] (w 1.1e-14) vs theirs [+0.483059568557, +0.483059568557] -> overlap=True sign=positive marg=0.091560
+[C] witness_n32_wdil20: mine [+0.803594797389, +0.803594797389] (w 1.1e-14) vs theirs [+0.803594797389, +0.803594797389] -> overlap=True sign=positive marg=0.061118
+    (sparse certs 0s)
+[C] crashmix_383_05_n32: mine [+0.00120186543655, +0.00120186543656] (w 1.1e-14) vs theirs [+0.00120186543452, +0.00120186543658] -> overlap=True sign=positive marg=0.382350
+    (3s, their-resid 7.0e-12)
+[C] mixdir_slice_p0.3_d0.05_n32: mine [+5.98823635652e-07, +5.9882364631e-07] (w 1.1e-14) vs theirs [+5.98817765216e-07, +5.98823704242e-07] -> overlap=True sign=positive marg=0.303750
+    (2s)
+[C] MY OWN mu-tilde' at softest point: [+5.988236356e-07, +5.988236463e-07] -> positive, marg 0.303750, resid 6.9e-12 (2s)
+done in 7s
+== part T: trend attack ==
+[T1] n=32: agg +6.150e-07 (014: 6.15e-7 / 2.22e-7 / 1.41e-7 / 2.33e-7 / 4.31e-7) resid 6.8e-12
+[T1] n=40: agg +2.217e-07 (014: 6.15e-7 / 2.22e-7 / 1.41e-7 / 2.33e-7 / 4.31e-7) resid 8.5e-12
+[T1] n=48: agg +1.408e-07 (014: 6.15e-7 / 2.22e-7 / 1.41e-7 / 2.33e-7 / 4.31e-7) resid 6.1e-12
+[T1] n=56: agg +2.330e-07 (014: 6.15e-7 / 2.22e-7 / 1.41e-7 / 2.33e-7 / 4.31e-7) resid 7.1e-12
+[T1] n=64: agg +4.305e-07 (014: 6.15e-7 / 2.22e-7 / 1.41e-7 / 2.33e-7 / 4.31e-7) resid 8.0e-12
+[T2] n=48 lam=0.005: agg +3.223e-09 agg/lam +6.446e-07
+[T2] n=48 lam=0.01: agg +7.092e-09 agg/lam +7.092e-07
+[T2] n=48 lam=0.02: agg +1.677e-08 agg/lam +8.386e-07
+[T2] n=48 lam=0.04: agg +4.395e-08 agg/lam +1.099e-06
+[T2] n=48 lam=0.06: agg +8.161e-08 agg/lam +1.360e-06
+[T2] n=48 lam=0.12: agg +2.584e-07 agg/lam +2.154e-06
+[T2] n=48 lam=0.25: agg +9.798e-07 agg/lam +3.919e-06
+[T2] n=48 lam=0.5: agg +3.747e-06 agg/lam +7.494e-06
+[T2] n=48 d=0.01: agg +4.886e-09
+[T2] n=48 d=0.02: agg +1.890e-08
+[T2] n=48 d=0.1: agg +1.065e-06
+[T2] n=48 d=0.2: agg +1.168e-05
+[T2] n=48 p=0.26 (record layer): agg +6.720e-06
+[T2] n=48 p=0.28 (record layer): agg +1.457e-06
+[T2] n=48 p=0.32 (record layer): agg +6.644e-07
+[T2] n=48 p=0.34 (record layer): agg +1.663e-06
+[T2] n=48 p=0.28 (matched layer): agg +2.294e-06
+[T2] n=48 p=0.3 (matched layer): agg +2.334e-06
+[T2] n=48 p=0.32 (matched layer): agg +2.367e-06
+[T3] crashmix n=10: 0.005:+2.85e-05 0.02:+1.14e-04 0.05:+2.88e-04 0.084:+4.88e-04 0.15:+8.86e-04 0.3:+1.85e-03 0.7:+4.93e-03 1.5:+1.42e-02 2.75:+3.42e-02 4.4:+5.55e-02
+[T3] crashmix n=20: 0.005:+4.88e-05 0.02:+1.96e-04 0.05:+4.97e-04 0.084:+8.50e-04 0.15:+1.59e-03 0.3:+3.74e-03 0.7:+1.56e-02 1.5:+6.26e-02 2.75:+1.29e-01 4.4:+1.80e-01
+[T3] crashmix n=32: 0.005:+6.77e-05 0.02:+2.73e-04 0.05:+7.01e-04 0.084:+1.23e-03 0.15:+2.51e-03 0.3:+7.73e-03 0.7:+4.65e-02 1.5:+1.49e-01 2.75:+2.67e-01 4.4:+3.56e-01
+[T] negative in-regime aggregates: 0
+done in 53s
+== part V: new-adversary hunt ==
+[V1] lam=0.084 p0=0.3 d=0.03: agg +1.570515e-07 marg 0.3003 minexc +0.0000
+[V1] lam=0.084 p0=0.3 d=0.3: agg +1.435734e-05 marg 0.3027 minexc +0.0000
+[V1] lam=0.084 p0=0.3 d=3: agg +7.901415e-04 marg 0.3222 minexc +0.0000
+[V1] lam=0.084 p0=0.375 d=0.03: agg +3.216775e-08 marg 0.3750 minexc +0.0000
+[V1] lam=0.084 p0=0.375 d=0.3: agg +3.096566e-06 marg 0.3753 minexc +0.0000
+[V1] lam=0.084 p0=0.375 d=3: agg +2.310343e-04 marg 0.3777 minexc +0.0000
+[V1] lam=0.5 p0=0.3 d=0.03: agg +1.363987e-06 marg 0.3003 minexc +0.0000
+[V1] lam=0.5 p0=0.3 d=0.3: agg +1.236621e-04 marg 0.3031 minexc +0.0000
+[V1] lam=0.5 p0=0.3 d=3: agg +6.566013e-03 marg 0.3268 minexc +0.0005
+[V1] lam=0.5 p0=0.375 d=0.03: agg +2.899298e-07 marg 0.3750 minexc +0.0000
+[V1] lam=0.5 p0=0.375 d=0.3: agg +2.774709e-05 marg 0.3753 minexc +0.0000
+[V1] lam=0.5 p0=0.375 d=3: agg +2.006391e-03 marg 0.3784 minexc +0.0001
+[V1] lam=2 p0=0.3 d=0.03: agg +2.614547e-05 marg 0.3006 minexc +0.0000
+[V1] lam=2 p0=0.3 d=0.3: agg +2.279550e-03 marg 0.3060 minexc +0.0007
+[V1] lam=2 p0=0.3 d=3: agg +9.941058e-02 marg 0.3586 minexc +0.0205
+[V1] lam=2 p0=0.375 d=0.03: agg +6.230744e-06 marg 0.3751 minexc +0.0000
+[V1] lam=2 p0=0.375 d=0.3: agg +5.798669e-04 marg 0.3756 minexc +0.0001
+[V1] lam=2 p0=0.375 d=3: agg +3.676327e-02 marg 0.3850 minexc +0.0058 OUT
+[V1] lam=3.5 p0=0.3 d=0.03: agg +2.727813e-04 marg 0.3011 minexc +0.0001
+[V1] lam=3.5 p0=0.3 d=0.3: agg +2.218938e-02 marg 0.3125 minexc +0.0087
+[V1] lam=3.5 p0=0.3 d=3: agg +5.761402e-01 marg 0.4016 minexc +0.1570 OUT
+[V1] lam=3.5 p0=0.375 d=0.03: agg +7.225921e-05 marg 0.3751 minexc +0.0000
+[V1] lam=3.5 p0=0.375 d=0.3: agg +6.435270e-03 marg 0.3763 minexc +0.0022
+[V1] lam=3.5 p0=0.375 d=3: agg +3.115537e-01 marg 0.4014 minexc +0.0762 OUT
+[V2] n=20 lam=0.02 p=0.383363: agg +1.962e-04 marg 0.382695
+[V2] n=20 lam=0.084 p=0.383363: agg +8.495e-04 marg 0.382695
+[V2] n=20 lam=0.5 p=0.383363: agg +8.286e-03 marg 0.382695
+[V2] n=20 d0bern(0.304145,0.55) lam=0.084: agg +3.447e-02 marg 0.382720
+[V2] n=20 d0bern(0.304145,0.55) lam=0.5: agg +2.893e-01 marg 0.382720
+[V2] n=20 d0bern(0.48976,0.75) lam=0.084: agg +1.531e-01 marg 0.382680
+[V2] n=20 d0bern(0.48976,0.75) lam=0.5: agg +1.190e+00 marg 0.382680
+[V2] n=20 sawin-boundary lam=0.084: agg +4.620e-03 marg 0.382643
+[V2] n=20 sawin-boundary lam=0.5: agg +3.152e-02 marg 0.382643
+[V2] n=32 lam=0.02 p=0.383363: agg +2.733e-04 marg 0.382695
+[V2] n=32 lam=0.084 p=0.383363: agg +1.232e-03 marg 0.382695
+[V2] n=32 lam=0.5 p=0.383363: agg +2.290e-02 marg 0.382695
+[V2] n=32 d0bern(0.304145,0.55) lam=0.084: agg +5.462e-02 marg 0.382720
+[V2] n=32 d0bern(0.304145,0.55) lam=0.5: agg +5.350e-01 marg 0.382720
+[V2] n=32 d0bern(0.48976,0.75) lam=0.084: agg +2.480e-01 marg 0.382680
+[V2] n=32 d0bern(0.48976,0.75) lam=0.5: agg +2.005e+00 marg 0.382680
+[V2] n=32 sawin-boundary lam=0.084: agg +5.292e-03 marg 0.382643
+[V2] n=32 sawin-boundary lam=0.5: agg +3.503e-02 marg 0.382643
+[V3] n=20 lam=0.002: crashmix +1.951e-05 slice-dir +1.113e-07
+[V3] n=20 lam=0.01: crashmix +9.777e-05 slice-dir +5.572e-07
+[V3] n=20 lam=0.04: crashmix +3.955e-04 slice-dir +2.241e-06
+[V3] n=32 lam=0.002: crashmix +2.706e-05 slice-dir +1.185e-08
+[V3] n=32 lam=0.01: crashmix +1.358e-04 slice-dir +6.060e-08
+[V3] n=32 lam=0.04: crashmix +5.554e-04 slice-dir +2.628e-07
+[V] in-regime negatives: 0
+done in 74s
+== part T addendum: order-vs-d for the worst part-P cell ==
+d=0.02: agg=4.603581e-02 order(2d->d)=nan resid=9.5e-12
+d=0.01: agg=1.890016e-02 order(2d->d)=1.284 resid=9.1e-12
+d=0.005: agg=7.222218e-03 order(2d->d)=1.388 resid=8.7e-12
+d=0.0025: agg=2.535775e-03 order(2d->d)=1.510 resid=8.2e-12
+d=0.00125: agg=8.154163e-04 order(2d->d)=1.637 resid=7.7e-12
+d=0.000625: agg=2.426045e-04 order(2d->d)=1.749 resid=6.9e-12
+crash dir:
+d=0.02: agg=1.041370e-02 order(2d->d)=nan resid=9.7e-12
+d=0.01: agg=3.671295e-03 order(2d->d)=1.504 resid=9.3e-12
+d=0.005: agg=1.191232e-03 order(2d->d)=1.624 resid=8.8e-12
+d=0.0025: agg=3.579897e-04 order(2d->d)=1.734 resid=8.0e-12
+d=0.00125: agg=1.013996e-04 order(2d->d)=1.820 resid=6.4e-12
