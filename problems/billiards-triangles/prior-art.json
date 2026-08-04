@@ -1,320 +1,342 @@
 {
- "problem": "billiards-triangles",
- "route_status": "EVIDENCE",
- "route_summary": "Word-census route mapped blind to length 26: 376 exact certificates (family orbits to length 66, gamma <= 160 deg), coverage staircase stalling at 135 deg, and a measured hyperbolic (not super-exponential) growth of needed word length vs angle - but certified box width collapses exponentially in length, so length buys angle reach, not area. Negatives are sample-bounded; skeptic-confirmed with one numeric correction.",
- "attempts": [
-  {
-   "id": "001",
-   "file": "attempts/001-word-census-coverage-map.md",
-   "date": "2026-07-30",
-   "mode": "blind",
-   "status": "EVIDENCE",
-   "mechanism": [
-    "unfolding-word-census",
-    "certified-box-coverage",
-    "exhaustive-enumeration"
-   ],
-   "one_line": "Canonical word census to length 26 with 376 exact certificates: coverage staircase stalls at 135 deg, blind rediscovery of the ~112.5 deg frontier, and a hyperbolic certificate-length growth law along the W(a,b) family (checked to length 66).",
-   "leak_terms": [
-    "112.4989",
-    "W(a,b)",
-    "coverage staircase",
-    "length buys angle reach",
-    "17,527"
-   ],
-   "range": "canonical translation words of even length <= 26 (17,527 words); 1/64-cell midpoint screen of the obtuse half-disk; exact dyadic-box anchors; family rows to W(8,8), gamma <= 160 deg",
-   "gaps": [
-    "sample-bounded-negatives",
-    "death-angle-laws-unproven"
-   ]
-  },
-  {
-   "id": "002",
-   "file": "attempts/002-skeptic-review-of-001.md",
-   "date": "2026-07-30",
-   "mode": "blind",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "unfolding-word-census"
-   ],
-   "one_line": "From-scratch re-implementation of every layer confirms 001 (36/36 sampled certificates at 180 exact apexes, 17,527-word universe reproduced word-for-word, death law survives two out-of-sample prediction rows); certified-area figure corrected to ~4.3e-6.",
-   "leak_terms": [
-    "147.5974",
-    "157.4976",
-    "4.3e-6"
-   ],
-   "verifies": "001",
-   "corrections": [
-    "certified-area total over all 376 anchors is ~4.3e-6, not ~2.2e-6 (which is the map-anchor subtotal)",
-    "the 64.3% uncovered figure is of the resolved interior, not the whole obtuse region",
-    "anchor simulation re-derivation is at the anchor centre; the full 9-sample box attack ran on every 5th/7th record",
-    "kill-condition verdict is measured only to gamma ~ 160 deg; beyond that the hyperbolic form is the SPECULATION law's extrapolation"
-   ]
-  },
-  {
-   "id": "003",
-   "file": "attempts/003-death-angle-laws.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED",
-   "mechanism": [
-    "symbolic-trig-closed-form",
-    "certified-interval-inequality",
-    "out-of-sample-prediction",
-    "unfolding-word-census"
-   ],
-   "one_line": "The W(a,b) death-angle laws of 001 survive both out-of-sample tests (W(10,9) -> 162.90, W(12,12) -> 2160/13, to ~1e-12), and are then derived: exact division-free unfolding gives closed-form binding functions, a general law gamma_d = 180 - 90(a+b)/(a(b+1)) (confirmed out-of-sample on W(5,3) -> 144 and W(4,2) -> 135), and a machine-certified necessity theorem: the corridor is empty at every gamma >= gamma_d, for 15 verified members.",
-   "leak_terms": [
-    "gamma_d = 180 - 90(a+b)/(a(b+1))",
-    "90(a+b)/(a(b+1))",
-    "glide reflection reduction",
-    "W(5,3)",
-    "144.0000000000",
-    "deathlaw_",
-    "Lemma C",
-    "division-free unfolding"
-   ],
-   "range": "necessity theorem machine-certified for the 15 members (2,1),(2,2),(3,2),(3,3),(4,2),(4,3),(4,4),(5,3),(5,4),(5,5),(6,6),(7,7),(8,8),(10,9),(12,12); exact alive certificates at gamma_d - 1e-6 (1e-8 for (3,3),(4,2)) for 8 members; float deaths measured to ~1e-11 for 11 members; parametric statement for all a >= b >= 1, a >= 2, a <= 2b+3 rests on two per-member-verified inputs (identities I1-I3 and Lemma C) labelled SPECULATION in general",
-   "gaps": [
-    "sufficiency-limit-unclosed (death = gamma_d exactly needs alive points approaching gamma_d; certified alive stops at gamma_d - 1e-6)",
-    "parametric-identities-unproven-in-general (I1-I3 and Lemma C verified per member, 15 members; general (a,b) statement labelled SPECULATION)",
-    "a-greater-than-2b+3-uncovered (branch analysis breaks; W(6,3)-type members unmeasured)"
-   ],
-   "refuted_by": null
-  },
-  {
-   "id": "004",
-   "file": "attempts/004-skeptic-review-of-003.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "symbolic-trig-closed-form",
-    "certified-interval-inequality"
-   ],
-   "one_line": "From-scratch re-verification confirms 003 end to end: glide reduction and mod-360 case tree re-derived by hand (1.9M-point adversarial sign search, zero dropped-branch hits), I1-I3 re-proven in an independent ring plus an off-torus grid-interpolation proof for W(2,1), Lemma C re-certified with an independent interval stack (4 members), all 8 exact alive certificates match digit-for-digit, four out-of-sample deaths re-measured to about 1e-12, mirror-half windows confirmed; two wording-level corrections, nothing load-bearing refuted.",
-   "leak_terms": [
-    "dlsk_",
-    "off-torus grid",
-    "glide action p -> 2m - p",
-    "1938477"
-   ],
-   "range": "identities and glide facts re-proven for all 15 members (own ring; proof-grade off-torus grid for W(2,1); 20 exact spot points each); Lemma C re-certified for (2,1),(5,3),(10,9),(12,12); case tree searched at 1.94M adversarial points across all 15 members; all 8 exact alive certificates re-verified; deaths re-measured for (10,9),(12,12),(5,3),(4,2) plus calibration (2,1),(3,3); dead hunts at gamma_d + {0..0.5} deg for 4 members",
-   "verifies": "003",
-   "corrections": [
-    "the W(5,3) exact alive certificate is at gamma_d - 1e-6, not the gamma_d - 1e-8 stated in 003 section on the general law (the Outcome/range/Death-brackets statements are correct; only that one sentence is wrong)",
-    "003 Outcome bullet corridor is empty at every gamma >= gamma_d overstates the theorem: it proves no positive width; a zero-width touching corridor at gamma_d is not excluded (alive is defined as positive width throughout, so nothing downstream is damaged)"
-   ],
-   "refuted_by": null,
-   "gaps": []
-  },
-  {
-   "id": "005",
-   "file": "attempts/005-complete-death-law-theorem.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED",
-   "mechanism": [
-    "formal-parameter-specialization",
-    "symbolic-trig-closed-form",
-    "certified-interval-inequality",
-    "unfolding-word-census",
-    "out-of-sample-prediction"
-   ],
-   "one_line": "Death law completed on both sides: the half word composes to R_0 Rot_A(2a.alpha) Rot_B(-2b.beta), so I1-I4 and the glide facts become one exact 4-variable Laurent check valid for ALL (a,b); Lemmas C and D fall to an elementary c.cot(cs) monotonicity; the case tree is closed for all a >= b >= 1, a >= 2 (the a <= 2b+3 restriction removed); and certified alive segments into the death corner give death(W(a,b)) = gamma_d(a,b) EXACTLY (sup not attained) for 20 members including the newly measured W(6,3), W(6,1), W(8,2), W(8,1), W(7,1).",
-   "leak_terms": [
-    "plaw_",
-    "R_0 Rot_A(2a alpha) Rot_B(-2b beta)",
-    "identity I4",
-    "margin N4",
-    "c cot(cs) monotone",
-    "Lemma L1",
-    "aw - bv = a(b+1)(theta - theta_d) - 360kb",
-    "rho = 2, t0 = 1/4",
-    "death corner (90/a, 90(a-1)/(a(b+1)))",
-    "585/4",
-    "255/2",
-    "285/2",
-    "1035/8",
-    "900/7",
-    "three-fold degenerate corner"
-   ],
-   "range": "I1-I4, D1, D2 and glide facts proven for ALL integers a, b >= 1 (formal ring; specialization cross-checked exactly on 23 members, floats to a = 40); Lemma C proven for all a >= 2, 1 <= b <= a and Lemma D for all b >= 1; necessity theorem for all integers a >= b >= 1, a >= 2 (no upper restriction on a); exact death = gamma_d certified for 20 members via alive segments t in (0, 1/4], gamma sweeping [gamma_d - 1/4, gamma_d); new float deaths for (6,3),(6,1),(8,2),(8,1),(7,1) at gamma_d to ~5e-12; adversarial case-tree scans ~1.56M points over 13 members",
-   "gaps": [
-    "parametric-sufficiency-open",
-    "a-equals-1-column-unmeasured",
-    "birth-side-unproven"
-   ]
-  },
-  {
-   "id": "006",
-   "file": "attempts/006-design-family-past-135.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED",
-   "mechanism": [
-    "symbolic-trig-closed-form",
-    "unfolding-word-census",
-    "exact-rational-arithmetic",
-    "out-of-sample-prediction",
-    "structure-class-design-search"
-   ],
-   "one_line": "The 135 deg stall dissolves: 001 pinch gap was a sampler artifact (W(4,3) certified alive at gamma in (135.0000001, 135.048)), births obey a closed form gamma_birth = 180 - 90(a+b+1)/(a(b+1)) making staircase windows touch, the never-measured W(5,2) and a genuinely new four-block word are certified alive at gamma EXACTLY 135 (rational apexes on the arc, exact orbits), and the W family covers all 157 sampled obtuse arcs - while the design screens (3000+ canonical doubled words to length 50) find nothing of length <= 26 alive past 135 and show clean angle laws are confined to W's two-fan factorization.",
-   "leak_terms": [
-    "design_",
-    "gamma_birth = 180 - 90(a+b+1)/(a(b+1))",
-    "W(5,2)",
-    "0(12)^3(02)^3(12)^2(02)^3",
-    "exactly 135",
-    "windows touch",
-    "(2x-1)^2 + (2y+1)^2 = 2",
-    "edge-accumulating sampler",
-    "136.8265"
-   ],
-   "range": "five exact certificates (rational apexes, Fraction corridors, independently simulated orbits): W(4,3) at certified gamma in (135.001,135.048) and (135.0000001,135.001); W(5,4) at (144.0000001,144.001); W(5,2) len 30 and non-W four-block N1 len 46 at gamma exactly 135 (exact on-arc identity); 003 obligations machine-certified for two new members (5,2),(6,2). Float screens sample-bounded: 245 canonical doubled words len <= 26 dead at 13 arcs >= 135; 811 len-30 words (only W(4,3),W(5,2) alive on 135-144); 2008 two-alternating words len 34-50 (only W members + two four-block words); three-block family a,b,c <= 3 (25/27 dead everywhere obtuse); birth law float-checked at 11 members; coverage checked at 157 arcs 90.5-165",
-   "gaps": [
-    "birth-law-unproven (gamma_birth closed form is float-fitted + factor-structure motivated; no necessity/sufficiency theorem)",
-    "coverage-conjecture-open (union of windows covering (90,180) reduces to an elementary Diophantine statement, unproven)",
-    "length-26-stall-sample-bounded (doubled words only, 13 arcs; non-doubled even words 24-26 not rescreened)",
-    "four-block-death-angles-uncharacterized (binding differences provably non-elementary here only by failed factor search)"
-   ]
-  },
-  {
-   "id": "007",
-   "file": "attempts/007-skeptic-review-of-006.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "out-of-sample-prediction"
-   ],
-   "one_line": "From-scratch re-verification confirms 006 everywhere it is exact: all five certificates re-established by a third corridor implementation (digit-for-digit widths) plus an own exact simulator, the exactly-135 on-arc identity re-derived by hand, 001's pinch-gap birth value regenerated from a replica of its own sampler (mechanism: the alive window is a corner sliver inside the grid's terminal 6e-4 clearance), the birth law survives three genuinely out-of-sample members to ~3e-11 (= sampler floor, including a > 2b+3), and the (5,2)/(6,2) theorem extension re-proves in an independent ring; four corrections, none load-bearing.",
-   "leak_terms": [
-    "dsk_",
-    "566 not 811",
-    "canonical pairing (a,b) ~ (b+1,a-1)",
-    "corner sliver 6e-4",
-    "floor-tracking",
-    "W(8,2) birth 138.75"
-   ],
-   "range": "all 5 exact certificates re-verified (own matrix-form exact corridor, widths match digit-for-digit; own exact orbit simulation; own certified gamma brackets via 004's interval stack; on-arc gamma=135 identity hand-derived and Fraction-checked; Niven applicability checked); W(4,3) birth floor-tracked at 4 sampler depths; 001's census sampler replicated (reproduces 135.0486) and window x-extent measured at 7 gammas; birth law tested out-of-sample on W(7,3), W(6,3), W(8,2) (all +3.0e-11 = floor, dead-sampled below); coverage re-run at 25 own arcs (25/25 alive); universes recounted (245 and 2008 confirmed, 566-vs-811 correction); s1 hits reclassified (14 W + N1/N2); N1/N2 non-W checked incl. 0-1 swap; 60-word random dead re-test + 19 near-miss attacks (zero kills); identities + case tree (550k points) + Lemma C re-certified for (5,2),(6,2). NOT re-swept: full length-30 and s1 negative universes, three-block table, design_factor.py factorizations",
-   "verifies": "006",
-   "corrections": [
-    "universe counts: the length-30 (|u|=15) universe is 566 canonical words, not 811 (811 is |u| <= 15 cumulative); 'all doubled odd words to length 30: 1056' double-counts (true count 811); the index one_line's '3000+' is 2846 counted correctly - screen coverage itself is unaffected",
-    "'length 30 is alive throughout the measured gap' overstates: certificates prove alive points AT gamma = 135 exactly and at one gamma in each of (135.0000001, 135.001) and (135.001, 135.048); the continuum statement is float evidence plus the SPECULATION window law",
-    "refutation semantics vs 001: 001's gap claim was knowledge-scoped ('nothing <= 30 KNOWN alive') and stays true as written; what 006 overturns is 001's birth measurements (error 0.0486 deg, 10x the stated ~0.005 sampling noise, whose 'deaths only under-estimated' hedge does not transfer to births) - correction/closure, not refutation",
-    "the window pairing (a,b) <-> (b+1, a-1) is a canonical-word identity (0<->1 swap + rotation/reversal; verified exactly on six pairs), so it is vacuous as evidence for the birth law, 006's 11-member fit spans only 9 canonical words, and 003's 'two distinct words dying on the same arc' (W(3,3)/W(4,2)) is a relabeling of one canonical word"
-   ],
-   "refuted_by": null,
-   "gaps": []
-  },
-  {
-   "id": "008",
-   "file": "attempts/008-skeptic-review-of-005.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "formal-parameter-specialization",
-    "symbolic-trig-closed-form",
-    "certified-interval-inequality"
-   ],
-   "one_line": "Adversarial re-verification confirms 005 end to end: the closed-form bridge u = R_0 Rot_A(2a.alpha) Rot_B(-2b.beta) recomposed exactly at off-torus rational points (40 members to a = 40), I1-I4 and glide facts re-proven in an independent 4-variable ring with u re-derived by symbolic map composition, Lemmas L1/C/D re-derived by hand and stressed to a = 10^6, the extended case tree re-derived branch by branch (threshold identity exact; 447k-point scan on 10 a > 2b+3 members, zero hits), the sufficiency segments independently certified alive by full-corridor interval unfolding down to gamma_d - 9.3e-10, and all five new deaths re-measured on the mirror half; one numeric correction, nothing load-bearing refuted.",
-   "leak_terms": [
-    "psk_",
-    "off-torus pair algebra",
-    "gamma_d - 9.3e-10",
-    "447k",
-    "1e-4 not 1e-6"
-   ],
-   "range": "bridge recomposed exactly for 40 members incl. (40,40) at 2 rational points each; identities re-proven formally (my ring, 14/14); Lemma numerics 14,183 checks to a = 10^6; case tree scanned at ~447k adversarial points over 10 members with a > 2b+3 (k up to 2 reachable); segments certified alive at 42 points (7 members incl. the 5 new, t down to 2^-30); plaw_suffice trig layer audited (596 enclosure checks); 5 deaths re-measured with 004's sampler; plaw_suffice all NOT re-run end to end (selftest + one member reproduced, code audited)",
-   "verifies": "005",
-   "corrections": [
-    "005 states the five new exact-alive certificates certify gamma within 1e-6 of gamma_d; the data files show gamma_d - 1e-4 for W(6,3), W(8,2), W(8,1), W(7,1) (only W(6,1) reaches 1e-6) - the --dg 1e-6 request is a float target, the certified bound is the largest 10^-k that certifies after apex snapping",
-    "caveat, not an error: the five new members' necessity rests on the parametric theorem alone (no per-member deathlaw_prove obligations were run for them, unlike 003's fifteen); sound by design since the identities are now proven for all (a,b)"
-   ],
-   "refuted_by": null,
-   "gaps": []
-  },
-  {
-   "id": "009",
-   "file": "attempts/009-lean-pilot-cot-lemma.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "FORMALIZED",
-   "mechanism": [
-    "machine-checked-formalization",
-    "symbolic-trig-closed-form"
-   ],
-   "one_line": "First Lean 4 certificate in the lab: Lemma L1 of 005 (c.cot(cs) strictly decreasing on (0,1] for fixed s in (0, pi/2]) proved in mathlib with zero sorries and only the three standard axioms, statement matching 005 hypothesis-by-hypothesis with no narrowing; independent statement review and independent rebuild still pending.",
-   "leak_terms": [
-    "cot_lemma_L1",
-    "strictAntiOn_id_mul_cot",
-    "BilliardsFormal",
-    "no HasDerivAt lemma for Real.cot",
-    "first Lean certificate"
-   ],
-   "verifies": "005",
-   "range": "exactly the formal statement StrictAntiOn (fun c => c * Real.cot (c * s)) (Ioc 0 1) for all real s with 0 < s <= pi/2 (Lean 4.32.2, mathlib v4.32.2); Lemmas C and D themselves, and the I1-I4 Laurent block, are NOT formalized",
-   "gaps": [
-    "laurent-block-I1-I4-not-attempted (queue item 16 second half)"
-   ]
-  },
-  {
-   "id": "010",
-   "file": "attempts/010-statement-review-of-009.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "VERIFIED",
-   "mechanism": [
-    "adversarial-verification",
-    "machine-checked-formalization"
-   ],
-   "one_line": "Independent completion of the FORMALIZE.md pass on 009: non-formalizer statement review finds cot_lemma_L1 matches 005's Lemma L1 hypothesis-for-hypothesis with no narrowing (StrictAntiOn/Ioc/Real.cot read from vendored mathlib source, no junk-value reliance, cheat scan clean), own fresh lake build after deleting the project build output is green with axioms exactly [propext, Classical.choice, Quot.sound], and all three of 005's L1 use sites instantiate inside the formalized hypotheses; zero corrections, two cosmetic nits.",
-   "leak_terms": [
-    "SkepticAxiomCheck",
-    "statement review signed off",
-    "AxiomCheck.lean not committed"
-   ],
-   "verifies": "009",
-   "range": "statement fidelity vs 005 section (ii)-B checked hypothesis by hypothesis; definitions Real.cot, StrictAntiOn, Set.Ioc read from mathlib rev 905b958 source; cheat scan over both project .lean files; rebuild = rm -rf .lake/build + lake build (8657 jobs, green) in a fresh container session with the pinned toolchain, mathlib oleans from the existing pinned cache (not re-downloaded); own axiom audit of both theorems; usage check of all three L1 call sites in 005. NOT audited: mathlib internals beyond the definitions used, Lean kernel, Lemmas C/D themselves",
-   "gaps": []
-  },
-  {
-   "id": "011",
-   "file": "attempts/011-lean-laurent-block.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "FORMALIZED",
-   "mechanism": [
-    "machine-checked-formalization",
-    "formal-parameter-specialization"
-   ],
-   "one_line": "Second Lean 4 certificate: the full Laurent-identity block of 005 - closed-form half-word composition R0.RotA(2a alpha).RotB(-2b beta), I1-I4, D1, D2 and the glide facts - kernel-checked with (a,b) as formal exponent variables (23 theorems, zero sorries, standard three axioms only), tiers A+B+C green plus the letter-word iterate version for all natural (a,b); the block turns out homogeneous in i (no i^2 = -1 needed); geometry bridge out of scope per the lane, statement review pending.",
-   "leak_terms": [
-    "LaurentBlock",
-    "half_word_letters",
-    "half_word_closed_form",
-    "homogeneous in i",
-    "pair encoding conj substitution",
-    "no AddMonoidAlgebra needed"
-   ],
-   "verifies": "005",
-   "range": "exactly the formal statements in formal/BilliardsFormal/LaurentBlock.lean: the identity block over an arbitrary field K with nonzero generators x, y, P, Q, i and 2 != 0 (P, Q carrying the (a,b) exponents formally; Tier C specializes P = x^a, Q = y^b for all integers a, b; half_word_letters covers the genuine letter word for all natural a, b); Lean 4.32.2, mathlib v4.32.2, axioms exactly [propext, Classical.choice, Quot.sound]",
-   "gaps": [
-    "pending-independent-statement-review (encoding table vs 005 (ii)-A; FORMALIZE.md part 1)",
-    "pending-independent-rebuild (FORMALIZE.md part 3)",
-    "geometry-bridge-not-formalized (ring model = unfolding geometry carried by 005/008, out of scope by design)"
-   ]
-  }
- ]
+  "problem": "billiards-triangles",
+  "route_status": "EVIDENCE",
+  "route_summary": "Word-census route mapped blind to length 26: 376 exact certificates (family orbits to length 66, gamma <= 160 deg), coverage staircase stalling at 135 deg, and a measured hyperbolic (not super-exponential) growth of needed word length vs angle - but certified box width collapses exponentially in length, so length buys angle reach, not area. Negatives are sample-bounded; skeptic-confirmed with one numeric correction.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-word-census-coverage-map.md",
+      "date": "2026-07-30",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "unfolding-word-census",
+        "certified-box-coverage",
+        "exhaustive-enumeration"
+      ],
+      "one_line": "Canonical word census to length 26 with 376 exact certificates: coverage staircase stalls at 135 deg, blind rediscovery of the ~112.5 deg frontier, and a hyperbolic certificate-length growth law along the W(a,b) family (checked to length 66).",
+      "leak_terms": [
+        "112.4989",
+        "W(a,b)",
+        "coverage staircase",
+        "length buys angle reach",
+        "17,527"
+      ],
+      "range": "canonical translation words of even length <= 26 (17,527 words); 1/64-cell midpoint screen of the obtuse half-disk; exact dyadic-box anchors; family rows to W(8,8), gamma <= 160 deg",
+      "gaps": [
+        "sample-bounded-negatives",
+        "death-angle-laws-unproven"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-skeptic-review-of-001.md",
+      "date": "2026-07-30",
+      "mode": "blind",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "unfolding-word-census"
+      ],
+      "one_line": "From-scratch re-implementation of every layer confirms 001 (36/36 sampled certificates at 180 exact apexes, 17,527-word universe reproduced word-for-word, death law survives two out-of-sample prediction rows); certified-area figure corrected to ~4.3e-6.",
+      "leak_terms": [
+        "147.5974",
+        "157.4976",
+        "4.3e-6"
+      ],
+      "verifies": "001",
+      "corrections": [
+        "certified-area total over all 376 anchors is ~4.3e-6, not ~2.2e-6 (which is the map-anchor subtotal)",
+        "the 64.3% uncovered figure is of the resolved interior, not the whole obtuse region",
+        "anchor simulation re-derivation is at the anchor centre; the full 9-sample box attack ran on every 5th/7th record",
+        "kill-condition verdict is measured only to gamma ~ 160 deg; beyond that the hyperbolic form is the SPECULATION law's extrapolation"
+      ]
+    },
+    {
+      "id": "003",
+      "file": "attempts/003-death-angle-laws.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality",
+        "out-of-sample-prediction",
+        "unfolding-word-census"
+      ],
+      "one_line": "The W(a,b) death-angle laws of 001 survive both out-of-sample tests (W(10,9) -> 162.90, W(12,12) -> 2160/13, to ~1e-12), and are then derived: exact division-free unfolding gives closed-form binding functions, a general law gamma_d = 180 - 90(a+b)/(a(b+1)) (confirmed out-of-sample on W(5,3) -> 144 and W(4,2) -> 135), and a machine-certified necessity theorem: the corridor is empty at every gamma >= gamma_d, for 15 verified members.",
+      "leak_terms": [
+        "gamma_d = 180 - 90(a+b)/(a(b+1))",
+        "90(a+b)/(a(b+1))",
+        "glide reflection reduction",
+        "W(5,3)",
+        "144.0000000000",
+        "deathlaw_",
+        "Lemma C",
+        "division-free unfolding"
+      ],
+      "range": "necessity theorem machine-certified for the 15 members (2,1),(2,2),(3,2),(3,3),(4,2),(4,3),(4,4),(5,3),(5,4),(5,5),(6,6),(7,7),(8,8),(10,9),(12,12); exact alive certificates at gamma_d - 1e-6 (1e-8 for (3,3),(4,2)) for 8 members; float deaths measured to ~1e-11 for 11 members; parametric statement for all a >= b >= 1, a >= 2, a <= 2b+3 rests on two per-member-verified inputs (identities I1-I3 and Lemma C) labelled SPECULATION in general",
+      "gaps": [
+        "sufficiency-limit-unclosed (death = gamma_d exactly needs alive points approaching gamma_d; certified alive stops at gamma_d - 1e-6)",
+        "parametric-identities-unproven-in-general (I1-I3 and Lemma C verified per member, 15 members; general (a,b) statement labelled SPECULATION)",
+        "a-greater-than-2b+3-uncovered (branch analysis breaks; W(6,3)-type members unmeasured)"
+      ],
+      "refuted_by": null
+    },
+    {
+      "id": "004",
+      "file": "attempts/004-skeptic-review-of-003.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality"
+      ],
+      "one_line": "From-scratch re-verification confirms 003 end to end: glide reduction and mod-360 case tree re-derived by hand (1.9M-point adversarial sign search, zero dropped-branch hits), I1-I3 re-proven in an independent ring plus an off-torus grid-interpolation proof for W(2,1), Lemma C re-certified with an independent interval stack (4 members), all 8 exact alive certificates match digit-for-digit, four out-of-sample deaths re-measured to about 1e-12, mirror-half windows confirmed; two wording-level corrections, nothing load-bearing refuted.",
+      "leak_terms": [
+        "dlsk_",
+        "off-torus grid",
+        "glide action p -> 2m - p",
+        "1938477"
+      ],
+      "range": "identities and glide facts re-proven for all 15 members (own ring; proof-grade off-torus grid for W(2,1); 20 exact spot points each); Lemma C re-certified for (2,1),(5,3),(10,9),(12,12); case tree searched at 1.94M adversarial points across all 15 members; all 8 exact alive certificates re-verified; deaths re-measured for (10,9),(12,12),(5,3),(4,2) plus calibration (2,1),(3,3); dead hunts at gamma_d + {0..0.5} deg for 4 members",
+      "verifies": "003",
+      "corrections": [
+        "the W(5,3) exact alive certificate is at gamma_d - 1e-6, not the gamma_d - 1e-8 stated in 003 section on the general law (the Outcome/range/Death-brackets statements are correct; only that one sentence is wrong)",
+        "003 Outcome bullet corridor is empty at every gamma >= gamma_d overstates the theorem: it proves no positive width; a zero-width touching corridor at gamma_d is not excluded (alive is defined as positive width throughout, so nothing downstream is damaged)"
+      ],
+      "refuted_by": null,
+      "gaps": []
+    },
+    {
+      "id": "005",
+      "file": "attempts/005-complete-death-law-theorem.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "formal-parameter-specialization",
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality",
+        "unfolding-word-census",
+        "out-of-sample-prediction"
+      ],
+      "one_line": "Death law completed on both sides: the half word composes to R_0 Rot_A(2a.alpha) Rot_B(-2b.beta), so I1-I4 and the glide facts become one exact 4-variable Laurent check valid for ALL (a,b); Lemmas C and D fall to an elementary c.cot(cs) monotonicity; the case tree is closed for all a >= b >= 1, a >= 2 (the a <= 2b+3 restriction removed); and certified alive segments into the death corner give death(W(a,b)) = gamma_d(a,b) EXACTLY (sup not attained) for 20 members including the newly measured W(6,3), W(6,1), W(8,2), W(8,1), W(7,1).",
+      "leak_terms": [
+        "plaw_",
+        "R_0 Rot_A(2a alpha) Rot_B(-2b beta)",
+        "identity I4",
+        "margin N4",
+        "c cot(cs) monotone",
+        "Lemma L1",
+        "aw - bv = a(b+1)(theta - theta_d) - 360kb",
+        "rho = 2, t0 = 1/4",
+        "death corner (90/a, 90(a-1)/(a(b+1)))",
+        "585/4",
+        "255/2",
+        "285/2",
+        "1035/8",
+        "900/7",
+        "three-fold degenerate corner"
+      ],
+      "range": "I1-I4, D1, D2 and glide facts proven for ALL integers a, b >= 1 (formal ring; specialization cross-checked exactly on 23 members, floats to a = 40); Lemma C proven for all a >= 2, 1 <= b <= a and Lemma D for all b >= 1; necessity theorem for all integers a >= b >= 1, a >= 2 (no upper restriction on a); exact death = gamma_d certified for 20 members via alive segments t in (0, 1/4], gamma sweeping [gamma_d - 1/4, gamma_d); new float deaths for (6,3),(6,1),(8,2),(8,1),(7,1) at gamma_d to ~5e-12; adversarial case-tree scans ~1.56M points over 13 members",
+      "gaps": [
+        "parametric-sufficiency-open",
+        "a-equals-1-column-unmeasured",
+        "birth-side-unproven"
+      ]
+    },
+    {
+      "id": "006",
+      "file": "attempts/006-design-family-past-135.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "symbolic-trig-closed-form",
+        "unfolding-word-census",
+        "exact-rational-arithmetic",
+        "out-of-sample-prediction",
+        "structure-class-design-search"
+      ],
+      "one_line": "The 135 deg stall dissolves: 001 pinch gap was a sampler artifact (W(4,3) certified alive at gamma in (135.0000001, 135.048)), births obey a closed form gamma_birth = 180 - 90(a+b+1)/(a(b+1)) making staircase windows touch, the never-measured W(5,2) and a genuinely new four-block word are certified alive at gamma EXACTLY 135 (rational apexes on the arc, exact orbits), and the W family covers all 157 sampled obtuse arcs - while the design screens (3000+ canonical doubled words to length 50) find nothing of length <= 26 alive past 135 and show clean angle laws are confined to W's two-fan factorization.",
+      "leak_terms": [
+        "design_",
+        "gamma_birth = 180 - 90(a+b+1)/(a(b+1))",
+        "W(5,2)",
+        "0(12)^3(02)^3(12)^2(02)^3",
+        "exactly 135",
+        "windows touch",
+        "(2x-1)^2 + (2y+1)^2 = 2",
+        "edge-accumulating sampler",
+        "136.8265"
+      ],
+      "range": "five exact certificates (rational apexes, Fraction corridors, independently simulated orbits): W(4,3) at certified gamma in (135.001,135.048) and (135.0000001,135.001); W(5,4) at (144.0000001,144.001); W(5,2) len 30 and non-W four-block N1 len 46 at gamma exactly 135 (exact on-arc identity); 003 obligations machine-certified for two new members (5,2),(6,2). Float screens sample-bounded: 245 canonical doubled words len <= 26 dead at 13 arcs >= 135; 811 len-30 words (only W(4,3),W(5,2) alive on 135-144); 2008 two-alternating words len 34-50 (only W members + two four-block words); three-block family a,b,c <= 3 (25/27 dead everywhere obtuse); birth law float-checked at 11 members; coverage checked at 157 arcs 90.5-165",
+      "gaps": [
+        "birth-law-unproven (gamma_birth closed form is float-fitted + factor-structure motivated; no necessity/sufficiency theorem)",
+        "coverage-conjecture-open (union of windows covering (90,180) reduces to an elementary Diophantine statement, unproven)",
+        "length-26-stall-sample-bounded (doubled words only, 13 arcs; non-doubled even words 24-26 not rescreened)",
+        "four-block-death-angles-uncharacterized (binding differences provably non-elementary here only by failed factor search)"
+      ]
+    },
+    {
+      "id": "007",
+      "file": "attempts/007-skeptic-review-of-006.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "out-of-sample-prediction"
+      ],
+      "one_line": "From-scratch re-verification confirms 006 everywhere it is exact: all five certificates re-established by a third corridor implementation (digit-for-digit widths) plus an own exact simulator, the exactly-135 on-arc identity re-derived by hand, 001's pinch-gap birth value regenerated from a replica of its own sampler (mechanism: the alive window is a corner sliver inside the grid's terminal 6e-4 clearance), the birth law survives three genuinely out-of-sample members to ~3e-11 (= sampler floor, including a > 2b+3), and the (5,2)/(6,2) theorem extension re-proves in an independent ring; four corrections, none load-bearing.",
+      "leak_terms": [
+        "dsk_",
+        "566 not 811",
+        "canonical pairing (a,b) ~ (b+1,a-1)",
+        "corner sliver 6e-4",
+        "floor-tracking",
+        "W(8,2) birth 138.75"
+      ],
+      "range": "all 5 exact certificates re-verified (own matrix-form exact corridor, widths match digit-for-digit; own exact orbit simulation; own certified gamma brackets via 004's interval stack; on-arc gamma=135 identity hand-derived and Fraction-checked; Niven applicability checked); W(4,3) birth floor-tracked at 4 sampler depths; 001's census sampler replicated (reproduces 135.0486) and window x-extent measured at 7 gammas; birth law tested out-of-sample on W(7,3), W(6,3), W(8,2) (all +3.0e-11 = floor, dead-sampled below); coverage re-run at 25 own arcs (25/25 alive); universes recounted (245 and 2008 confirmed, 566-vs-811 correction); s1 hits reclassified (14 W + N1/N2); N1/N2 non-W checked incl. 0-1 swap; 60-word random dead re-test + 19 near-miss attacks (zero kills); identities + case tree (550k points) + Lemma C re-certified for (5,2),(6,2). NOT re-swept: full length-30 and s1 negative universes, three-block table, design_factor.py factorizations",
+      "verifies": "006",
+      "corrections": [
+        "universe counts: the length-30 (|u|=15) universe is 566 canonical words, not 811 (811 is |u| <= 15 cumulative); 'all doubled odd words to length 30: 1056' double-counts (true count 811); the index one_line's '3000+' is 2846 counted correctly - screen coverage itself is unaffected",
+        "'length 30 is alive throughout the measured gap' overstates: certificates prove alive points AT gamma = 135 exactly and at one gamma in each of (135.0000001, 135.001) and (135.001, 135.048); the continuum statement is float evidence plus the SPECULATION window law",
+        "refutation semantics vs 001: 001's gap claim was knowledge-scoped ('nothing <= 30 KNOWN alive') and stays true as written; what 006 overturns is 001's birth measurements (error 0.0486 deg, 10x the stated ~0.005 sampling noise, whose 'deaths only under-estimated' hedge does not transfer to births) - correction/closure, not refutation",
+        "the window pairing (a,b) <-> (b+1, a-1) is a canonical-word identity (0<->1 swap + rotation/reversal; verified exactly on six pairs), so it is vacuous as evidence for the birth law, 006's 11-member fit spans only 9 canonical words, and 003's 'two distinct words dying on the same arc' (W(3,3)/W(4,2)) is a relabeling of one canonical word"
+      ],
+      "refuted_by": null,
+      "gaps": []
+    },
+    {
+      "id": "008",
+      "file": "attempts/008-skeptic-review-of-005.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "formal-parameter-specialization",
+        "symbolic-trig-closed-form",
+        "certified-interval-inequality"
+      ],
+      "one_line": "Adversarial re-verification confirms 005 end to end: the closed-form bridge u = R_0 Rot_A(2a.alpha) Rot_B(-2b.beta) recomposed exactly at off-torus rational points (40 members to a = 40), I1-I4 and glide facts re-proven in an independent 4-variable ring with u re-derived by symbolic map composition, Lemmas L1/C/D re-derived by hand and stressed to a = 10^6, the extended case tree re-derived branch by branch (threshold identity exact; 447k-point scan on 10 a > 2b+3 members, zero hits), the sufficiency segments independently certified alive by full-corridor interval unfolding down to gamma_d - 9.3e-10, and all five new deaths re-measured on the mirror half; one numeric correction, nothing load-bearing refuted.",
+      "leak_terms": [
+        "psk_",
+        "off-torus pair algebra",
+        "gamma_d - 9.3e-10",
+        "447k",
+        "1e-4 not 1e-6"
+      ],
+      "range": "bridge recomposed exactly for 40 members incl. (40,40) at 2 rational points each; identities re-proven formally (my ring, 14/14); Lemma numerics 14,183 checks to a = 10^6; case tree scanned at ~447k adversarial points over 10 members with a > 2b+3 (k up to 2 reachable); segments certified alive at 42 points (7 members incl. the 5 new, t down to 2^-30); plaw_suffice trig layer audited (596 enclosure checks); 5 deaths re-measured with 004's sampler; plaw_suffice all NOT re-run end to end (selftest + one member reproduced, code audited)",
+      "verifies": "005",
+      "corrections": [
+        "005 states the five new exact-alive certificates certify gamma within 1e-6 of gamma_d; the data files show gamma_d - 1e-4 for W(6,3), W(8,2), W(8,1), W(7,1) (only W(6,1) reaches 1e-6) - the --dg 1e-6 request is a float target, the certified bound is the largest 10^-k that certifies after apex snapping",
+        "caveat, not an error: the five new members' necessity rests on the parametric theorem alone (no per-member deathlaw_prove obligations were run for them, unlike 003's fifteen); sound by design since the identities are now proven for all (a,b)"
+      ],
+      "refuted_by": null,
+      "gaps": []
+    },
+    {
+      "id": "009",
+      "file": "attempts/009-lean-pilot-cot-lemma.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "FORMALIZED",
+      "mechanism": [
+        "machine-checked-formalization",
+        "symbolic-trig-closed-form"
+      ],
+      "one_line": "First Lean 4 certificate in the lab: Lemma L1 of 005 (c.cot(cs) strictly decreasing on (0,1] for fixed s in (0, pi/2]) proved in mathlib with zero sorries and only the three standard axioms, statement matching 005 hypothesis-by-hypothesis with no narrowing; independent statement review and independent rebuild still pending.",
+      "leak_terms": [
+        "cot_lemma_L1",
+        "strictAntiOn_id_mul_cot",
+        "BilliardsFormal",
+        "no HasDerivAt lemma for Real.cot",
+        "first Lean certificate"
+      ],
+      "verifies": "005",
+      "range": "exactly the formal statement StrictAntiOn (fun c => c * Real.cot (c * s)) (Ioc 0 1) for all real s with 0 < s <= pi/2 (Lean 4.32.2, mathlib v4.32.2); Lemmas C and D themselves, and the I1-I4 Laurent block, are NOT formalized",
+      "gaps": [
+        "laurent-block-I1-I4-not-attempted (queue item 16 second half)"
+      ]
+    },
+    {
+      "id": "010",
+      "file": "attempts/010-statement-review-of-009.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "machine-checked-formalization"
+      ],
+      "one_line": "Independent completion of the FORMALIZE.md pass on 009: non-formalizer statement review finds cot_lemma_L1 matches 005's Lemma L1 hypothesis-for-hypothesis with no narrowing (StrictAntiOn/Ioc/Real.cot read from vendored mathlib source, no junk-value reliance, cheat scan clean), own fresh lake build after deleting the project build output is green with axioms exactly [propext, Classical.choice, Quot.sound], and all three of 005's L1 use sites instantiate inside the formalized hypotheses; zero corrections, two cosmetic nits.",
+      "leak_terms": [
+        "SkepticAxiomCheck",
+        "statement review signed off",
+        "AxiomCheck.lean not committed"
+      ],
+      "verifies": "009",
+      "range": "statement fidelity vs 005 section (ii)-B checked hypothesis by hypothesis; definitions Real.cot, StrictAntiOn, Set.Ioc read from mathlib rev 905b958 source; cheat scan over both project .lean files; rebuild = rm -rf .lake/build + lake build (8657 jobs, green) in a fresh container session with the pinned toolchain, mathlib oleans from the existing pinned cache (not re-downloaded); own axiom audit of both theorems; usage check of all three L1 call sites in 005. NOT audited: mathlib internals beyond the definitions used, Lean kernel, Lemmas C/D themselves",
+      "gaps": []
+    },
+    {
+      "id": "011",
+      "file": "attempts/011-lean-laurent-block.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "FORMALIZED",
+      "mechanism": [
+        "machine-checked-formalization",
+        "formal-parameter-specialization"
+      ],
+      "one_line": "Second Lean 4 certificate: the full Laurent-identity block of 005 - closed-form half-word composition R0.RotA(2a alpha).RotB(-2b beta), I1-I4, D1, D2 and the glide facts - kernel-checked with (a,b) as formal exponent variables (23 theorems, zero sorries, standard three axioms only), tiers A+B+C green plus the letter-word iterate version for all natural (a,b); the block turns out homogeneous in i (no i^2 = -1 needed); geometry bridge out of scope per the lane, statement review pending.",
+      "leak_terms": [
+        "LaurentBlock",
+        "half_word_letters",
+        "half_word_closed_form",
+        "homogeneous in i",
+        "pair encoding conj substitution",
+        "no AddMonoidAlgebra needed"
+      ],
+      "verifies": "005",
+      "range": "exactly the formal statements in formal/BilliardsFormal/LaurentBlock.lean: the identity block over an arbitrary field K with nonzero generators x, y, P, Q, i and 2 != 0 (P, Q carrying the (a,b) exponents formally; Tier C specializes P = x^a, Q = y^b for all integers a, b; half_word_letters covers the genuine letter word for all natural a, b); Lean 4.32.2, mathlib v4.32.2, axioms exactly [propext, Classical.choice, Quot.sound]",
+      "gaps": [
+        "geometry-bridge-not-formalized (ring model = unfolding geometry carried by 005/008, out of scope by design)"
+      ]
+    },
+    {
+      "id": "012",
+      "file": "attempts/012-statement-review-of-011.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "machine-checked-formalization",
+        "independent-reimplementation",
+        "formal-parameter-specialization"
+      ],
+      "one_line": "Independent completion of the FORMALIZE.md pass on 011: non-formalizer statement review confirms all 23 Lean theorems say what 005's Laurent block says (definitions, angle dictionary, signs, conj-as-substitution = 008's star involution, pair encoding assumption-free, i-drop safe, no nat-vs-int narrowing, v2's Q genuinely absent in 005 too); every theorem re-proven in an own 7-variable symbolic ring with i formal (31/31 exact zero polynomials, independently confirming the i-homogeneity), D1 additionally re-derived by hand, statements matched to 005's prose at 200 random points to ~4e-15; own fresh lake build green, own axiom audit of all 23 theorems exactly the standard three; zero corrections, three cosmetic nits.",
+      "leak_terms": [
+        "lbsk_",
+        "7-variable ring i formal",
+        "31/31 zero polynomials",
+        "rationality invariant of the conj substitution",
+        "Laurent block pass complete"
+      ],
+      "verifies": "011",
+      "range": "statement fidelity of all 23 theorems in formal/BilliardsFormal/LaurentBlock.lean checked against 005 (ii)-A Steps 2-4 and plaw_general.closed_forms definition by definition; every theorem re-proven symbolically in an independent stdlib ring with i as a formal Laurent variable (half_word_letters re-composed by symbolic iteration for a,b <= 3); Lean-to-005 mapping float-checked at 200 random (a,b,alpha,beta), a <= 12, 30 quantities; cheat scan over all four project .lean files; rebuild = rm -rf .lake/build + lake build (8658 jobs, green, LaurentBlock re-elaborated 41 s) in a fresh session with the pinned toolchain and mathlib cache; own axiom audit of all 23 theorems from an own scratch file. NOT audited: the geometry bridge (permanent certificate scope, carried by 005/008), Lemmas C/D and the analytic layer, mathlib internals, the Lean kernel",
+      "gaps": []
+    }
+  ]
 }
