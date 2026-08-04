@@ -439,6 +439,18 @@
         "minor ratio 6.68"
       ],
       "note": "Decisive check: 007's confessed vulnerability (both engines share IEEE floats; its first witnesses were shared-underflow artifacts) is closed by re-verifying the witness in exact rational arithmetic with directed-rounding log2 enclosures. At t = 4 and t = 16 the refutation of M_i >= lambda is a fully rational statement with lambda = 2, 4 exactly. New strengthening beyond 007: the violation does not hinge on the conditioning-out convention (degenerate histories scored at exactly lambda still give M_5 - lambda = -0.067, certified). Nuance: exact certificates at lambda = 1, 2, 3 are for rationalized-refit measures within 9.2e-16 of the witness mu, not the identical rational mu. Theorem C's smoothness step is analogous to but not literally discharged by 008's P6-prime (P6-prime is d/d-mu at fixed lambda; Theorem C needs d/d-lambda at fixed mu)."
+    },
+    {
+      "id": "014",
+      "file": "attempts/014-aggregated-or-probe-large-n.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "TODO",
+      "mechanism": [
+        "TODO-approach-family-tag"
+      ],
+      "one_line": "TODO: what this established, in one sentence.",
+      "leak_terms": []
     }
   ]
 }

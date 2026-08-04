@@ -1,0 +1,10 @@
+{
+  "_comment": "Fold-window bracket, high side (attempt 001 lead 2): same geometry as the abk witness but q = 4400/1000000, above the float-observed 24-window (~(4.366, 4.389)e-3). 001's float scan predicts a complete count of 16 here.",
+  "charges": [
+    {"q": "1", "pos": ["1", "0", "0"]},
+    {"q": "1", "pos": ["0", "1", "0"]},
+    {"q": "1", "pos": ["0", "0", "1"]},
+    {"q": "4400/1000000", "pos": ["251/600", "251/600", "251/600"]},
+    {"q": "4400/1000000", "pos": ["149/600", "149/600", "149/600"]}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "_comment": "Skeptic re-run of the abk-witness census (attempt 001) over a geometrically different search region: offsets 1/89,1/91,1/93 (vs the auto-region 1/97,1/101,1/103), half-width 5/4 (vs 17/16). Region strictly contains the localization ball |x| <= R0 = 1, so by the all-positive localization lemma a census over it is complete even though the tool, given an explicit region, does not claim completeness itself. Every subdivision face is (non-dyadic offset + dyadic), so no symmetric rational point of small height lies on a face. The subdivision tree this induces shares no box with the 001 tree; the certified count must still be 24.",
+  "charges": [
+    {"q": "1", "pos": ["1", "0", "0"]},
+    {"q": "1", "pos": ["0", "1", "0"]},
+    {"q": "1", "pos": ["0", "0", "1"]},
+    {"q": "4367/1000000", "pos": ["251/600", "251/600", "251/600"]},
+    {"q": "4367/1000000", "pos": ["149/600", "149/600", "149/600"]}
+  ],
+  "region": [["-441/356", "449/356"], ["-451/364", "459/364"], ["-461/372", "469/372"]]
+}
