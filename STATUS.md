@@ -29,8 +29,11 @@ n = 96). Probe-before-proof vindicated a second time: certified
 positives at n ≤ 32 masked the asymptotic failure. Also this cycle: the
 **entire 005 Laurent block is now FORMALIZED** (011/012 — closed-form
 composition, I1–I4, glide facts, specializations; 23 theorems, zero
-corrections, statement review + independent rebuild complete), and the
-first blind attempt on crouzeix ran (integration in progress).
+corrections, statement review + independent rebuild complete), and
+**crouzeix got its first attempt** (blind, 001, skeptic-confirmed 002):
+a certified 286-start local-maxima census at n = 3, deg ≤ 3 finds no
+unknown extremal structure — no problem in the portfolio is
+unattempted any more.
 
 To pick something up, take an item from the attempt queue and follow
 `docs/CYCLE.md` — either by hand, one line at a time, or by restarting an
@@ -66,9 +69,10 @@ surviving; route LIVE, ceiling 0.4315 vs record 0.38271. Standing
 library: Singmaster census to 2.5×10^29; Erdős–Gyárfás cubics to
 n=22 + girth-≥5 at n=24; lonely-runner k=8; Erdős–Straus
 identity-poverty; graceful n ≤ 14; mahler-4d and billiards blind
-censuses. As of 2026-08-04: 24 verified results, 8 recorded dead
-ends, 10 problems, ~48 reusable tools, and a machine-checked
-certificate layer (24 Lean theorems) over the billiards route.
+censuses. As of 2026-08-04: 25 verified results, 8 recorded dead
+ends, 10 problems all with at least one attempt, ~56 reusable tools,
+and a machine-checked certificate layer (24 Lean theorems) over the
+billiards route.
 
 ## Problem status
 
@@ -83,7 +87,7 @@ certificate layer (24 Lean theorems) over the billiards route.
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
 | Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12); Lean lane: L1 + the full Laurent block FORMALIZED (009–012); the geometry bridge stays informal by design |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
-| Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
+| Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -96,7 +100,7 @@ certificate layer (24 Lean theorems) over the billiards route.
 7. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
 8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
 9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
-10. [crouzeix] **Run blind.** Local-maxima census, dimension 3, polynomial degree ≤ 3: do all basins terminate at known extremal structure? `EVIDENCE` scoped by dimension, degree and search design, all of which must be in the record — and state how the search design differs from Greenbaum–Overton's before running it, since reproducing their finding is not a result. Kill condition (measured, not hypothetical): one certified ratio enclosure costs about 0.4s in dim 2, 0.75s in dim 3 and 1.4s in dim 4 at tolerance 1e-9 with 32 directions, so a wide census is affordable only in the low thousands of points; if the design needs more, narrow to structured families where the norm has a closed form and record the narrowing.
+10. [crouzeix] **Hunt the intermediate-maxima basins** (from 001/002's recorded gap; informed — the blind census is spent). Seed local maximization AT Overton's published intermediate configurations (ratios ≈ 1.185 and ≈ 1.433 at n = 3; re-derive the seeds from arXiv:2105.14176's descriptions, not the [L] transcriptions) and map their basins with the 001 pipeline + 002's equal-sample escape probe: are they genuine local maxima under this design's probe standard, and how do their basins sit relative to the 001 start families that never found them? Falsifiable either way, and either outcome sharpens the landscape SPECULATION ({1, 2}-only) recorded in 001.
 11. [billiards-triangles] **Parametric sufficiency + the birth side** (from 005/008 and 006/007, 2026-07-31): (i) prove a parametric positive lower bound on the *generic* fan-gate margins along the universal segment (α,β) = (90/a − t, 90(a−1)/(a(b+1)) + 2t), t ∈ (0, 1/4] — each margin is a 3–5-term trig polynomial with the fan index entering linearly via the prefix maps; this is the ONLY missing piece for death(W(a,b)) = γ_d(a,b) at ALL (a,b). Mind the 3-fold degenerate death corner: the gate-(2a+2) margin (identity I4) also vanishes there — a naive 2-margin Taylor route silently misses it (005). (ii) Prove the birth law γ_birth(a,b) = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION; survives out-of-sample at the sampler floor incl. a > 2b+3 members) with the same gate machinery — which gate pair binds at the birth edge — and produce exact birth brackets from below (NONE exist for any member; all float births share a one-sided floor bias). Windows-touch (birth(W(a+1,a)) = death(W(a,a))) then makes the family staircase fully algebraic. Cheap side task: measure the a = 1 column, still untouched.
 12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): 006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
@@ -385,8 +389,47 @@ certificate layer (24 Lean theorems) over the billiards route.
   window (≈ 0.05 at n = 96) — so the ∀λ gap closes but the
   window-restricted variant is untouched (queue 1).
 
+- **[crouzeix] Dim-3 local-maxima census: no unknown extremal structure
+  (blind, skeptic-confirmed)** (2026-08-04, attempts 001+002): 286-start
+  census at n = 3, deg p ≤ 3 from seven structured start families, with
+  certified rational enclosures at every endpoint — scoped precisely as
+  **0 endpoints certified above 2** (182 enclosure upper ends exceed 2,
+  so this is a no-refutation statement, not a global bound). Every
+  probe-surviving local maximum is known structure: 13 genuine ratio-1
+  maxima in the ice-cream-cone configuration (eigenvalue on ∂W(A),
+  |p|-peak there; probed hard by the skeptic — no ascent) and 94
+  Jordan-type endpoints climbing toward ratio 2; all four intermediate
+  candidates confirmed as optimizer stalls by the skeptic's independent
+  equal-sample probe. Skeptic re-certified 30/286 with a structurally
+  different certifier (Sylvester-minor bisection, Bernstein segment
+  bounds), reproduced both calibration anchors to the last printed
+  digit, and confirmed the denominator discretization errs in the sound
+  direction. Corrections: near-2 class 94 not 97; the 2021 paper is
+  Overton alone. Scope: this design only — Overton's published
+  intermediate maxima (≈ 1.185, ≈ 1.433) never appeared and their
+  basins are untested (queue 10).
+
 ## Insights / cross-problem notes
 
+- Blind mode, data point #3 (2026-08-04, crouzeix 001/002): with prior
+  art physically absent, the census blind-rediscovered both known
+  extremal structures (the ratio-1 ice-cream-cone configuration and the
+  ratio-2 Jordan limit). All three blind censuses to date (mahler,
+  billiards, crouzeix) have now independently recovered published
+  structure from the harness + problem statement alone. Caveat recorded
+  by 002 and inherited by future blind assignments: the task *framing*
+  (slice, cost-first sizing, design-difference requirement) came from
+  the orchestrator's queue, so the blind label certifies prior-art
+  absence, not task-selection independence.
+- Escape probes need sample-count parity (2026-08-04, crouzeix 001/002):
+  001's deep probe compared 128-sample escape values against 512-sample
+  baselines — on a noisy nonsmooth objective that mismatch can
+  manufacture ascent and turn a genuine local maximum into a "stall".
+  002 re-ran every stall verdict at 512-vs-512 (all survived, so the
+  census's conclusions stand), but the lesson generalizes: any
+  stall-vs-maximum verdict must compare like against like, and a
+  landscape census without an escape-probe pass at matched sampling
+  reports optimizer artifacts as mathematics.
 - Unit replication + re-weighting is a portable adversary genre
   (2026-08-04, union-closed 014/015): a family certified positive at
   small n can fail after replicating its adversarial core Θ(n) times
