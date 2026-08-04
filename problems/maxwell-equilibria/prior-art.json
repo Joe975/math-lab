@@ -1,6 +1,25 @@
 {
   "problem": "maxwell-equilibria",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Onboarded, never worked. No prior art, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "VERIFIED",
+  "route_summary": "Explicit rational five-charge witness certified with exactly 24 nondegenerate equilibria (> 16 = (5-1)^2) by two independent engines - a concrete, machine-checkable instance of the arXiv:2607.27197 refutation. Escalation: a skeptic review of the harness driver is queued before this is treated as settled. The n=3 gap (4 vs 6) is untouched.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-abk-explicit-witness.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "certified-box-coverage",
+        "exact-rational-arithmetic",
+        "independent-reimplementation"
+      ],
+      "one_line": "Five rational charges (units at e1,e2,e3; 4367/1000000 at centroid +- (17/200)(1,1,1)) certified to have exactly 24 nondegenerate equilibria - explicit refutation instance of Maxwell (n-1)^2 at n=5, both engines PASS, index sum -4.",
+      "leak_terms": [
+        "4367/1000000",
+        "abk-witness",
+        "24-count window"
+      ]
+    }
+  ]
 }

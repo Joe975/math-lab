@@ -3,7 +3,7 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-07-31)
+## TL;DR (updated 2026-08-04)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
@@ -17,8 +17,21 @@ hourly routine with that file as the prompt. Everything needed is in this
 directory. New attempts are welcome as pull requests; see `CONTRIBUTING.md`,
 and `AGENTS.md` for whether to work blind or informed.
 
-Current standing. HEADLINE: the second 2026-07-31 cycle ran the
-two-track billiards plan (old queue 11+12); all four records are
+Current standing. HEADLINE (2026-08-04): maxwell-equilibria onboarded
+(new problem, E&M round per docs/PLAN-em-problems.md) and its first
+attempt closed the marquee target: an explicit rational five-charge
+configuration — units at e₁,e₂,e₃, charges 4367/1000000 at
+(1/3,1/3,1/3) ± (17/200)(1,1,1) — is CERTIFIED to have exactly 24
+nondegenerate equilibria, > (5−1)² = 16: a concrete machine-checkable
+instance of the six-day-old arXiv:2607.27197 refutation of Maxwell's
+1873 conjecture, which the asymptotic preprint itself does not supply.
+Complete census (472k boxes, all-positive localization, index sum −4),
+independently re-verified leaf-by-leaf by the second engine (different
+arithmetic + fixed-point theorem), both PASS. Escalation per contract:
+skeptic review of the shared subdivision driver queued (new queue 16)
+before this counts as settled. Float side-finding: the 24-count window
+needs ε ≲ 0.18 and is ~0.5% wide in q. Previous headline (2026-07-31):
+the two-track billiards plan (old queue 11+12); all four records are
 skeptic-confirmed, six corrections total, none load-bearing.
 Conservative track (005+008): the W(a,b) death law is closed on both
 sides — the half word composes in closed form to
@@ -63,7 +76,7 @@ attempts (queue; run blind).
 | Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12) |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
-| Maxwell equilibria | onboarded, no attempts | high | harness ready + cross-verified on classical knowns; first attempt is the self-test census (run blind), then the arXiv:2607.27197 explicit witness (queue 16) |
+| Maxwell equilibria | explicit 24-equilibria witness VERIFIED (001, both engines) | high | next: skeptic review of the driver (queue 16, escalation), certified window/fold brackets + exact centroid Hessian (001 leads 2, 5); n=3 census (queue 17) untouched |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -82,7 +95,7 @@ attempts (queue; run blind).
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
 14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
 15. [maxwell-equilibria] **Run blind.** First attempt: certified counts for structured 3-charge families beyond the harness self-test knowns — collinear with unequal charges (does the count stay 2 or drop?), isoceles families, a coarse (shape × charge-ratio) sweep. Deliverable is the count strata map, `EVIDENCE` scoped by grid and region. Every complete count must pass the index-sum identity; treat a violation as a harness bug, not a finding.
-16. [maxwell-equilibria] Explicit certified witness for the arXiv:2607.27197 refutation (informed; consumes the preprint as a labelled input). Rational embedding: unit charges at e₁,e₂,e₃, axial pair at (1/3,1/3,1/3) ± t·(1,1,1) with rational t, charge ≈ the scaled (3/4)ε³ law (ε = t√3; scale-covariance makes the similarity irrelevant). Certify ≥ 24 isolated equilibria for a concrete t — the first independent verification (or refutation) of a days-old result; the 21 bifurcated equilibria are near-degenerate as t → 0, so the work is finding the certifiable window. Kill condition: if no rational t certifies at affordable depth (--max-boxes ~10⁶, min-width 2⁻⁴⁰), record the cost curve and tightest bracketing as `EVIDENCE` about the window.
+16. [maxwell-equilibria] ~~Explicit certified witness for the arXiv:2607.27197 refutation~~ **DONE in 001** (witness certified, both engines PASS). Replacement item — the escalation the contract demands: **skeptic review of 001**, fresh eyes on the shared subdivision driver (the residual common-mode risk: both engines re-check the same leaf tree, so a driver bug that produced a wrong tree AND self-consistent leaves would slip through). Concrete: re-run the census at different precision/min-width/box offsets (tree changes wholesale; certified count must not), verify the 24 enclosures pairwise disjoint exactly, audit the Krawczyk-verdict and leaf-emission code paths by hand. Cheap add-ons that bracket the structure: certified counts at q = 4360/1000000 (expect 12) and 4400/1000000 (expect 16) — 001 lead 2 — and the exact rational centroid-Hessian fold analysis (001 lead 5).
 17. [maxwell-equilibria] Three-positive-charge census hunting the open 4-vs-6 gap: after 15's strata map, target the strata boundaries (where counts jump) with unequal charges. Win condition kept in view by every run: any configuration certified with ≥ 5 isolated equilibria refutes the conjectured max 4 and is a result people have sought since 1873 — it must survive verify_equilibria.py and be reported as requiring escalation. Equal-magnitude configurations are settled (Tsai 2015, max 4) — spend no effort there.
 
 ## Verified results
@@ -315,6 +328,22 @@ attempts (queue; run blind).
   canonical word — 003's "two distinct words dying on the same arc"
   was a relabeling. Corrections: length-30 universe is 566 words (not
   811); gap certificates are pointwise, not "alive throughout".
+
+- **[maxwell-equilibria] Explicit five-charge witness: exactly 24
+  nondegenerate equilibria, certified (both engines)** (2026-08-04,
+  attempt 001): unit charges at e₁, e₂, e₃ plus charges 4367/1000000 at
+  (1/3,1/3,1/3) ± (17/200)(1,1,1) — a rational embedding of the
+  arXiv:2607.27197 family at ε ≈ 0.18, charge within 2·10⁻⁸ of their law —
+  has exactly 24 isolated equilibria, all nondegenerate with certified
+  index signs (10/−14, sum −4 = 1−n as Poincaré–Hopf demands). Complete
+  census: 472k boxes tile the localization ball, zero unresolved leaves,
+  enclosure widths 5·10⁻⁷–2·10⁻⁴; independently re-verified leaf-by-leaf
+  (different arithmetic, interval Newton vs Krawczyk), PASS in 924 s.
+  24 > (5−1)² = 16: an explicit, checkable instance of the refutation of
+  Maxwell's conjecture — the preprint's own result is asymptotic with no
+  explicit ε. Float `EVIDENCE`, sampled grids: the 24-count window exists
+  only for ε ≲ 0.18 and spans ~0.5% in q. Escalation open: skeptic review
+  of the shared driver (queue 16) before this is settled library fact.
 
 ## Insights / cross-problem notes
 

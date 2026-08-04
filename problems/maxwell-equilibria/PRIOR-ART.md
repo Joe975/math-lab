@@ -6,10 +6,18 @@ Machine-readable index: `prior-art.json`.
 
 ## Attempts
 
-**None.** This problem was onboarded and has not been worked. There is no
-prior art to be informed by, so `blind` and `informed` mode are currently
-equivalent here — which makes the first attempts worth running blind, since
-blind costs nothing while the record is empty.
+- **001 — Explicit certified witness for the five-charge Maxwell
+  counterexample** (2026-08-04, informed, `VERIFIED`). The configuration
+  with unit charges at e₁,e₂,e₃ and charges 4367/1000000 at
+  (1/3,1/3,1/3) ± (17/200)(1,1,1) has exactly 24 isolated nondegenerate
+  equilibria — a complete certified census, re-established leaf-by-leaf by
+  the independent checker, index sum −4. Since 24 > (5−1)² = 16 this is an
+  explicit machine-checkable instance of the arXiv:2607.27197 refutation,
+  at a concrete witness the (asymptotic) preprint does not supply. Float
+  side-findings: the 24-count window exists only for t ≤ 0.085
+  (ε ≲ 0.18) and is about half a percent wide in q. Escalation per the
+  contract: a skeptic review of the shared subdivision driver is queued
+  (leads 1–2 of the record) before the ledger treats this as settled.
 
 ## Editorial view of the attack surface
 
