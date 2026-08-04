@@ -508,7 +508,7 @@ def auto_region(cfg: Config) -> tuple[tuple[IV, IV, IV], Fraction]:
 
 def count_equilibria(cfg: Config, region=None, min_width_bits: int = 30,
                      kraw_start: Fraction = Fraction(1, 2),
-                     max_boxes: int = 400_000) -> dict:
+                     max_boxes: int = 400_000, progress_every: int = 0) -> dict:
     """Run the certified census; return the certificate as a JSON-able dict."""
     t0 = time.time()
     complete = region is None
@@ -531,6 +531,10 @@ def count_equilibria(cfg: Config, region=None, min_width_bits: int = 30,
     while stack:
         box, path = stack.pop()
         processed += 1
+        if progress_every and processed % progress_every == 0:
+            print(f"  ... {processed} boxes, {len(stack)} queued, "
+                  f"{len(isolated)} isolated, {unresolved} unresolved, "
+                  f"{round(time.time() - t0)}s", file=sys.stderr)
         if processed > max_boxes:
             raise RuntimeError(f"box budget exceeded ({max_boxes}); "
                                f"raise --max-boxes or shrink the region")
@@ -695,6 +699,8 @@ def main() -> int:
     ap.add_argument("--min-width-bits", type=int, default=30)
     ap.add_argument("--prec-bits", type=int, default=128)
     ap.add_argument("--max-boxes", type=int, default=400_000)
+    ap.add_argument("--progress-every", type=int, default=0,
+                    help="print a progress line to stderr every N boxes")
     args = ap.parse_args()
 
     set_precision(args.prec_bits)
@@ -712,7 +718,8 @@ def main() -> int:
         region = tuple(IV(Fraction(lo), Fraction(hi)) for lo, hi in obj["region"])
     cert = count_equilibria(cfg, region=region,
                             min_width_bits=args.min_width_bits,
-                            max_boxes=args.max_boxes)
+                            max_boxes=args.max_boxes,
+                            progress_every=args.progress_every)
 
     out = args.out
     if not out:
