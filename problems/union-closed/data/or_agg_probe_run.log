@@ -89,3 +89,6 @@ done in 76s; checkpoints in /home/user/math-lab/problems/union-closed/data
 [T] n=64: mixdir_slice_p0.3_d0.05@0.084:+4.305e-07  mixdir_slice_p0.3_d0.05@0.5:+4.768e-06  mixdir_slice_matched_p0.3_d0.05@0.084:+1.818e-06  mixdir_slice_p0.3823_d0.05@0.084:+1.787e-06  mixdir_slice_matched_p0.3823_d0.05@0.084:+1.787e-06  mixdir_crash_p0.3823_d0.05@0.084:+2.642e-03  mixdir_crash_p0.3823_d0.05@0.079459:+2.427e-03  crashmix_383_05@0.084064:+2.642e-03
 [T] negative in-regime aggregates: 0
 == part H: adversarial hill-climbs on the aggregate ==
+[H] 82 climb endpoints; in-regime aggregate violations: 0; five lowest in-regime endpoints: +0.00560 +0.00700 +0.00882 +0.00932 +0.00977
+[H] lowest in-regime endpoint: +0.005602 (small_lam n=10 lam=0.084, 25 atoms)
+done in 208s; checkpoints in /home/user/math-lab/problems/union-closed/data
