@@ -152,6 +152,10 @@
       "field": "extremal-combinatorics",
       "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
     },
+    "machine-checked-formalization": {
+      "field": "logic-methodology",
+      "description": "State a skeptic-confirmed proof step in a proof assistant (Lean 4 + mathlib) and have the kernel accept a sorry-free proof; the informal-to-formal statement bridge is reviewed separately per docs/FORMALIZE.md."
+    },
     "mordell-qr-obstruction": {
       "field": "number-theory",
       "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."

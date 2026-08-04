@@ -1,0 +1,5 @@
+# Lake build artifacts and downloaded dependencies / mathlib cache — never commit.
+.lake/
+# Editor/OS noise
+.DS_Store
+*.olean

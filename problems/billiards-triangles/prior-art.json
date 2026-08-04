@@ -244,6 +244,32 @@
       ],
       "refuted_by": null,
       "gaps": []
+    },
+    {
+      "id": "009",
+      "file": "attempts/009-lean-pilot-cot-lemma.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "FORMALIZED",
+      "mechanism": [
+        "machine-checked-formalization",
+        "symbolic-trig-closed-form"
+      ],
+      "one_line": "First Lean 4 certificate in the lab: Lemma L1 of 005 (c.cot(cs) strictly decreasing on (0,1] for fixed s in (0, pi/2]) proved in mathlib with zero sorries and only the three standard axioms, statement matching 005 hypothesis-by-hypothesis with no narrowing; independent statement review and independent rebuild still pending.",
+      "leak_terms": [
+        "cot_lemma_L1",
+        "strictAntiOn_id_mul_cot",
+        "BilliardsFormal",
+        "no HasDerivAt lemma for Real.cot",
+        "first Lean certificate"
+      ],
+      "verifies": "005",
+      "range": "exactly the formal statement StrictAntiOn (fun c => c * Real.cot (c * s)) (Ioc 0 1) for all real s with 0 < s <= pi/2 (Lean 4.32.2, mathlib v4.32.2); Lemmas C and D themselves, and the I1-I4 Laurent block, are NOT formalized",
+      "gaps": [
+        "independent-statement-review-pending (the FORMALIZE.md pass part 1 must be done by a non-formalizer agent)",
+        "independent-rebuild-pending (skeptic lake build on a different machine, FORMALIZE.md part 3)",
+        "laurent-block-I1-I4-not-attempted (queue item 16 second half)"
+      ]
     }
   ]
 }
