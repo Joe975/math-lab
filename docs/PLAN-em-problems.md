@@ -203,6 +203,25 @@ Same as `docs/PLAN-physics-problems.md` phases 0–4, with these deltas:
 - **Phase 4.** `python -m pytest tests/ -q`, `scripts/blind.sh` smoke test
   per new slug, push.
 
+## Execution addendum (2026-08-04, same branch)
+
+Phases 0–4 for `maxwell-equilibria` were executed the day after this plan
+was written, and Phase 0 materially changed the framing: **the general
+Maxwell conjecture was refuted between planning and execution** —
+arXiv:2607.27197 (July 29, 2026) constructs five charges with ≥ 24
+nondegenerate equilibria (> 16), and arXiv:2607.28785 sharpens the
+three-positive-charge bound to 6 unconditionally. The problem was onboarded
+*reframed* around the surviving open questions (n = 3 max between 4 and 6;
+explicit certified witness for the refutation, which is asymptotic-only;
+growth of the max; finiteness) rather than the dead statement. See
+PROBLEM.md and STATUS queue items 15–17.
+
+Decision recorded per the Phase 1–2 delta above: `thomson-sphere` is
+**deferred** to a follow-up onboarding session — the maxwell harness came
+out problem-specific (its certificates lean on the charge-field structure),
+so no shared certified-optimization infrastructure fell out to extract, and
+the refutation shifted the value toward starting maxwell attempts sooner.
+
 ## Non-goals for the onboarding session
 
 Identical to the July plan: onboarding only — no attempt records, no census
