@@ -74,12 +74,15 @@ unknown. Onboarded as `three-phase-conductivity`.
   and the Thouless bandwidth constant (q·|σ| → 32C/π, C Catalan's constant —
   unproven in general).
 - **Exact-arithmetic fit.** At rational flux p/q, Chambers' relation reduces
-  the spectrum to {E : |P(E)| ≤ 4} with P ∈ ℤ[E] monic of degree q. P is
-  computable exactly (transfer-matrix trace over ℤ[ζ_q], reduced mod the
-  cyclotomic polynomial), and band edges / gap widths are then certified by
-  Sturm-chain root isolation over ℚ. Everything about rational flux is
-  `VERIFIED`-able; everything about irrational α is `EVIDENCE` via
-  convergents, and the records must say so.
+  the spectrum to {E : |P(E)| ≤ 4} with P monic of degree q over
+  ℤ[2cos(2π/q)] — the coefficients are *not* rational integers once
+  φ(q) > 2 (a wrong first assumption, caught by the harness's own
+  integrality assertion during onboarding: flux 1/5 already has
+  P = E⁵ − 10E³ + (15 − 10cos72°)E). P is computable exactly in the real
+  cyclotomic field, and band edges / gap widths are then certified by exact
+  sign-change brackets with a complete count by the degree argument.
+  Everything about rational flux is `VERIFIED`-able; everything about
+  irrational α is `EVIDENCE` via convergents, and the records must say so.
 - **Harness**: `harness/almost-mathieu/chambers.py` (exact Chambers
   polynomial + certified bands/gaps), `harness/almost-mathieu/verify_bands.py`
   (independent route: multipoint evaluation + interpolation for P, separate
