@@ -18,7 +18,7 @@
   is closed for 001's actual certificate by a strictly stronger
   axis-consistency tree check written fresh for this review.
 - **Tools:** `explore/skeptic_cert_checks.py` (independent structural checks,
-  fresh code, exact rational arithmetic, no harness imports; ~1–2 min on the
+  fresh code, exact rational arithmetic, no harness imports; ~4 s on the
   34 MB certificate); `explore/skeptic_verifier_gap_demo.py` (the tiling-gap
   demonstrations, ~1 min); `explore/skeptic_centroid_hessian.py` (exact
   centroid eigenvalue signature, instant); `harness/maxwell-equilibria/
@@ -201,15 +201,16 @@ silently rest on an unstated lemma. No numerical conclusion changes.
 ### four full re-censuses, every tree different, every count as predicted
 
 All runs single-core from the repo root, `--max-boxes 3000000`,
-deterministic. Baseline (001): 471,985 boxes / 235,993 leaves / 1984 s,
-count 24, index sum −4. Certificates gzipped in `data/` as
+deterministic (wall times below are under 4-way CPU contention; 001's
+baseline 1984 s was uncontended). Baseline (001): 471,985 boxes / 235,993
+leaves, count 24, index sum −4. Certificates gzipped in `data/` as
 `skeptic-002-cert{A,B,C,D}.json.gz`.
 
 | run | perturbation | config / flags | boxes / leaves | secs | count | index sum |
 |---|---|---|---|---|---|---|
-| A | arithmetic grid: `--prec-bits 80`, same auto region | `data/abk-witness-config.json` | RUNA_BOXES / RUNA_LEAVES | RUNA_TIME | **RUNA_COUNT** | RUNA_IDX |
-| B | wholesale different geometry: explicit region, offsets 1/89, 1/91, 1/93, half-width 5/4 (vs auto 1/97, 1/101, 1/103, 17/16) | `explore/skeptic_region_config.json`, `--prec-bits 64` | RUNB_BOXES / RUNB_LEAVES | RUNB_TIME | **RUNB_COUNT** | RUNB_IDX |
-| C | charge q = 4360/1000000 (window bracket, low) | `explore/skeptic_q4360_config.json`, `--prec-bits 64` | RUNC_BOXES / RUNC_LEAVES | RUNC_TIME | **RUNC_COUNT** | RUNC_IDX |
+| A | arithmetic grid: `--prec-bits 80`, same auto region | `data/abk-witness-config.json` | 471,985 / 235,993 | 2609 | **24** | −4 |
+| B | wholesale different geometry: explicit region, offsets 1/89, 1/91, 1/93, half-width 5/4 (vs auto 1/97, 1/101, 1/103, 17/16) | `explore/skeptic_region_config.json`, `--prec-bits 64` | 472,775 / 236,388 | 2539 | **24** | −4 (from leaf data) |
+| C | charge q = 4360/1000000 (window bracket, low) | `explore/skeptic_q4360_config.json`, `--prec-bits 64` | 359,577 / 179,789 | 1988 | **12** | −4 (+4/−8) |
 | D | charge q = 4400/1000000 (window bracket, high) | `explore/skeptic_q4400_config.json`, `--prec-bits 64` | RUND_BOXES / RUND_LEAVES | RUND_TIME | **RUND_COUNT** | RUND_IDX |
 
 Reproduce with (outputs land wherever `--out` points; the gzipped copies in
@@ -230,14 +231,30 @@ Reproduce with (outputs land wherever `--out` points; the gzipped copies in
 
 Notes:
 
+- **Run A came back with the *identical* tree** — the same 471,985 boxes,
+  leaf-by-leaf identical (path, kind) lists and identical isolated boxes and
+  det signs; only the isolation enclosures tightened (Krawczyk images on the
+  finer 2⁻⁸⁰ grid). Checked by direct list comparison against 001's
+  certificate. This is *expected on reflection* — split axis (max width) and
+  midpoints are exact-arithmetic decisions independent of the grid, so the
+  tree can only change where a certification test flips outcome, and every
+  one of the ~472k test outcomes has margin far above the 2⁻⁶⁴ → 2⁻⁸⁰
+  rounding difference. So A is evidence that no leaf verdict in 001 is a
+  rounding-margin artifact, but it is a *weak* independence check for the
+  tree itself; run B is the one that carries the tree-perturbation weight
+  (different region ⇒ no box in common with 001's tree; leaf count 236,388
+  vs 235,993, max depth 65 vs 58, 26 ball-exclusions vs 18, no
+  outside-localization leaves — and the same 24 zeros, +10/−14).
 - Run B supplies the region explicitly, so the driver does not itself claim
   completeness (`complete: false`) and skips the outside-localization
-  shortcut and the index-sum field; the census is nevertheless complete
-  because the region contains the closed ball |x| ≤ R0 = 1 (checked exactly
-  on the run-B certificate) and the localization lemma was re-derived in S1.
-  Its index sum was recomputed from the leaf data.
-- Every run was pushed through `skeptic_cert_checks.py` — all checks pass on
-  all four certificates. RUNV_SENTENCE
+  shortcut and the index-sum field (that is why its log reports
+  `index_sum=None`); the census is nevertheless complete because the region
+  contains the closed ball |x| ≤ R0 = 1 (checked exactly on the run-B
+  certificate) and the localization lemma was re-derived in S1. Its index
+  sum, recomputed from the leaf data, is −4 (10 positive, 14 negative).
+- Every completed run was pushed through `skeptic_cert_checks.py` — all
+  checks pass on all certificates (run C with `--expect-count 12`; the
+  centroid lies in exactly one enclosure in every run). RUNV_SENTENCE
 
 ### S4. The add-on predictions (attacks 7, 8)
 
@@ -324,7 +341,7 @@ Nothing in the review kills 001. Found and worth keeping:
 Reusable:
 
 - `explore/skeptic_cert_checks.py`: certificate-level structural audit with
-  the axis-consistency tiling proof — cheap (~1–2 min) and engine-independent;
+  the axis-consistency tiling proof — cheap (~4 s) and engine-independent;
   run it on every future census certificate alongside the checker.
 - `explore/skeptic_centroid_hessian.py`: the exact symmetry reduction of the
   centroid Hessian for the whole (t, q) family, and the closed-form
