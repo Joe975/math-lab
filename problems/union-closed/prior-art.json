@@ -439,6 +439,87 @@
         "minor ratio 6.68"
       ],
       "note": "Decisive check: 007's confessed vulnerability (both engines share IEEE floats; its first witnesses were shared-underflow artifacts) is closed by re-verifying the witness in exact rational arithmetic with directed-rounding log2 enclosures. At t = 4 and t = 16 the refutation of M_i >= lambda is a fully rational statement with lambda = 2, 4 exactly. New strengthening beyond 007: the violation does not hinge on the conditioning-out convention (degenerate histories scored at exactly lambda still give M_5 - lambda = -0.067, certified). Nuance: exact certificates at lambda = 1, 2, 3 are for rationalized-refit measures within 9.2e-16 of the witness mu, not the identical rational mu. Theorem C's smoothness step is analogous to but not literally discharged by 008's P6-prime (P6-prime is d/d-mu at fixed lambda; Theorem C needs d/d-lambda at fixed mu)."
+    },
+    {
+      "id": "014",
+      "file": "attempts/014-aggregated-or-probe-large-n.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "exact-rational-arithmetic",
+        "group-orbit-enumeration"
+      ],
+      "one_line": "The queue-mandated large-n probe of the restated gap: the i-aggregated OR control survives to n = 32 certified (15 exact-rational certificates, tightest +5.99e-7) and to n = 64 on float trends -- 0 violations in ~1780 instances spanning every known adversary genre plus aggregate-objective hill-climbs; product measures are its exact equality set, all perturbative departures are quadratically upward, the minimum margin GROWS with n on every structured family (no 012-style reversal), and the one decaying direction dips to +1.4e-7 at n ~ 48 then recovers.",
+      "range": "n in {10,14,20,24,28,32} across 14 orbit families x 10-point lambda grids in [0.079, 5] (840 instances) + 432 perturbative instances around the product boundary + trend runs to n = 64 + 426 sparse structured instances (witness genre re-laid-out per n, multi-gadget stacks, crash/mirror) + 82 climb endpoints at n <= 24; 15 certificates in exact rational arithmetic at tilts 181/16, 4 (lambda = 2 exactly), 271/256, enclosure widths <= 5.9e-12",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_or_agg_probe",
+        "or_agg_probe",
+        "aggregate survives n=32",
+        "equality boundary at products",
+        "product equality set",
+        "slice-direction dip",
+        "271/256",
+        "0.001201865",
+        "5.99e-7",
+        "dyadic compaction",
+        "witness-at-n",
+        "gadget stack"
+      ],
+      "note": "Probe only, per the queue's ordering (012's budget-growth reversal was the standing warning; it was looked for and not found in the aggregate, including on 012's own crash-mixture genre). Sign of the aggregate shown convention-robust under 013's surrogate-lambda bookkeeping (numerator unchanged, denominator grows). Certificates are for quantized refit measures at exact rational tilts (013 R2 scope). Proof effort on the aggregated control is now justified by the queue's own criterion; lead 1 (product-boundary Hessian) is the entry point."
+    },
+    {
+      "id": "015",
+      "file": "attempts/015-skeptic-review-of-014.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "014",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "group-orbit-enumeration"
+      ],
+      "one_line": "Independent re-implementation (digit-extraction log2 bracket instead of the atanh kit, integer-scaled exact rows, own orbit derivation and Sinkhorn) confirms 014 in full: five certificates incl. the softest +5.99e-7 and the fully rational t = 4 point re-certified on identical exact inputs with no disagreement, kit sound by hand and by 437-case cross-bracketing, orbit formulas cross-checked at n = 8-9 with exactly zero within-class OR spread, the n ~ 48 dip reproduced digit-for-digit and shown robust off-grid, and ~116 new adversary instances (witness-direction off the product boundary, marginals pushed to 0.3827, lambda below the grid floor) all positive; corrections are reporting-level (part-P order range is d^1.39-d^2.06 on its own checkpoint, not d^1.85-d^2.06; 'products are the exact equality set' claims an unproven converse that is false at lambda = 0; stale docstring runtimes; 1820 not ~1780 instances).",
+      "corrections": [
+        "part P 'fitted order d^1.85-d^2.06 in every direction' misreports its own checkpoint: 19 of 72 fitted cells lie below 1.85, minimum d^1.39 (n=32, full direction, lambda=0.5, in-regime); successive-halving orders climb back toward 2 as d -> 0, so the qualitative quadratic-upward reading survives but the quoted range is a grid-edge artifact, and the cubic term is large at lambda >= 0.5 (lead-1 consequence recorded)",
+        "'product measures are the exact equality set' proves only the forward inclusion; the converse is untested and false outright at lambda = 0 (A = 0 for every mu), needing the same lambda > 0 proviso 006 added to 005 Prop 2; no downstream use is affected",
+        "uc_or_agg_probe.py docstring runtimes (O ~ 40-80 min, E ~ 10-30 min) are stale; actual O ~ 146 s, E ~ 113 s (the record's own times are right)",
+        "the Outcome's '~1780 float instances' should be 1820 (840+432+40+426+82)"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "oragg_sk2",
+        "uc_or_agg_skeptic2",
+        "digit-extraction bracket",
+        "log2_bracket",
+        "d^1.39",
+        "equality-set converse",
+        "cubic remainder",
+        "witness-direction boundary attack",
+        "6.4e-7 first-order floor"
+      ],
+      "note": "Decisive check: 014's unreviewed enclosure kit is re-derived by hand and beaten against a from-scratch certifier using a different algorithm (binary digit extraction with directed integer shifts; exact integer masses so the aggregate denominator is exact); the five re-certifications agree with 014's enclosures at width 1.1e-14, including on the identical quantized refit measures. New floor observed: the lambda -> 0 first-order coefficient at the dip point is +6.4e-7 (n = 48), the smallest Theorem-C square seen anywhere; lead 2 should track that coefficient, not A at fixed lambda."
     }
   ]
 }
