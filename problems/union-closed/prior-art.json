@@ -482,13 +482,44 @@
       "id": "015",
       "file": "attempts/015-skeptic-review-of-014.md",
       "date": "2026-08-04",
-      "mode": "TODO-blind-or-informed",
-      "status": "TODO",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "014",
       "mechanism": [
-        "TODO-approach-family-tag"
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "group-orbit-enumeration"
       ],
-      "one_line": "TODO: what this established, in one sentence.",
-      "leak_terms": []
+      "one_line": "Independent re-implementation (digit-extraction log2 bracket instead of the atanh kit, integer-scaled exact rows, own orbit derivation and Sinkhorn) confirms 014 in full: five certificates incl. the softest +5.99e-7 and the fully rational t = 4 point re-certified on identical exact inputs with no disagreement, kit sound by hand and by 437-case cross-bracketing, orbit formulas cross-checked at n = 8-9 with exactly zero within-class OR spread, the n ~ 48 dip reproduced digit-for-digit and shown robust off-grid, and ~116 new adversary instances (witness-direction off the product boundary, marginals pushed to 0.3827, lambda below the grid floor) all positive; corrections are reporting-level (part-P order range is d^1.39-d^2.06 on its own checkpoint, not d^1.85-d^2.06; 'products are the exact equality set' claims an unproven converse that is false at lambda = 0; stale docstring runtimes; 1820 not ~1780 instances).",
+      "corrections": [
+        "part P 'fitted order d^1.85-d^2.06 in every direction' misreports its own checkpoint: 19 of 72 fitted cells lie below 1.85, minimum d^1.39 (n=32, full direction, lambda=0.5, in-regime); successive-halving orders climb back toward 2 as d -> 0, so the qualitative quadratic-upward reading survives but the quoted range is a grid-edge artifact, and the cubic term is large at lambda >= 0.5 (lead-1 consequence recorded)",
+        "'product measures are the exact equality set' proves only the forward inclusion; the converse is untested and false outright at lambda = 0 (A = 0 for every mu), needing the same lambda > 0 proviso 006 added to 005 Prop 2; no downstream use is affected",
+        "uc_or_agg_probe.py docstring runtimes (O ~ 40-80 min, E ~ 10-30 min) are stale; actual O ~ 146 s, E ~ 113 s (the record's own times are right)",
+        "the Outcome's '~1780 float instances' should be 1820 (840+432+40+426+82)"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "oragg_sk2",
+        "uc_or_agg_skeptic2",
+        "digit-extraction bracket",
+        "log2_bracket",
+        "d^1.39",
+        "equality-set converse",
+        "cubic remainder",
+        "witness-direction boundary attack",
+        "6.4e-7 first-order floor"
+      ],
+      "note": "Decisive check: 014's unreviewed enclosure kit is re-derived by hand and beaten against a from-scratch certifier using a different algorithm (binary digit extraction with directed integer shifts; exact integer masses so the aggregate denominator is exact); the five re-certifications agree with 014's enclosures at width 1.1e-14, including on the identical quantized refit measures. New floor observed: the lambda -> 0 first-order coefficient at the dip point is +6.4e-7 (n = 48), the smallest Theorem-C square seen anywhere; lead 2 should track that coefficient, not A at fixed lambda."
     }
   ]
 }
