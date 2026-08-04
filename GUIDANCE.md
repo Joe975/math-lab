@@ -33,9 +33,10 @@ what matters here, and three things follow for this lab:
    independent derivation — it is what made Astra's claims land after the
    October episode. `docs/FORMALIZE.md` defines the lane and the
    `FORMALIZED` status; the pilot completed 2026-08-04 (billiards 005's
-   Lemma L1, attempts 009+010, full three-part pass). Next certificate
-   target is the I1–I4 Laurent block (queue item 15). Expensive; use
-   deliberately.
+   Lemma L1, attempts 009+010) and the lane scaled the same day to the
+   full I1–I4 Laurent block (011+012, 23 theorems, zero corrections).
+   The remaining named candidate is union-closed P6′ (`docs/FORMALIZE.md`
+   pilot list). Expensive; use deliberately.
 
 **Portfolio note.** Astra's target list — decade-open but
 specialist-tractable problems whose deliverables are checkable objects

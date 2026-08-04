@@ -76,7 +76,10 @@ So a `FORMALIZED` pass has three parts, and the first is the point:
 
 ## Pilot candidates (2026-08-04)
 
-Ordered by (value ÷ effort), from the current ledger:
+Ordered by (value ÷ effort), from the current ledger. [Status, end of
+2026-08-04: (1) and (2) are DONE — billiards attempts 009–012 formalized
+the cot lemma and then the full Laurent block including I1–I4, both with
+completed statement reviews; (3) remains open.]
 
 1. **Billiards Laurent-identity block** (005/008): I1–I4 and the glide facts
    are already "one exact polynomial check" after adjoining e^{iaα}, e^{ibβ}
