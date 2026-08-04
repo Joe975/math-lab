@@ -28,9 +28,14 @@ an AI-generated mathematics repo that skips them is worse than nothing.
 6. **Transcription is marked.** If a source detail came from a machine
    transcription of a paper rather than the paper, mark it and say so, as
    attempt 003 does with `[L]`.
+7. **Novelty is checked.** A result recorded as *new* has been searched for
+   in the literature first. Rediscovering a published result is a fine
+   outcome — record it as a rediscovery, with the citation. Claiming a known
+   result as new is the failure mode.
 
 Use the status vocabulary in `AGENTS.md` exactly: `VERIFIED`, `EVIDENCE`,
-`LIVE`, `SPECULATION`, `REFUTED`, `MAP`.
+`LIVE`, `SPECULATION`, `REFUTED`, `MAP` — plus `FORMALIZED` for a verified
+proof step that additionally carries a machine-checked certificate.
 
 ## Submitting an attempt
 
