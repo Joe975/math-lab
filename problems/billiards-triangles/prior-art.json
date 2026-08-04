@@ -266,10 +266,28 @@
       "verifies": "005",
       "range": "exactly the formal statement StrictAntiOn (fun c => c * Real.cot (c * s)) (Ioc 0 1) for all real s with 0 < s <= pi/2 (Lean 4.32.2, mathlib v4.32.2); Lemmas C and D themselves, and the I1-I4 Laurent block, are NOT formalized",
       "gaps": [
-        "independent-statement-review-pending (the FORMALIZE.md pass part 1 must be done by a non-formalizer agent)",
-        "independent-rebuild-pending (skeptic lake build on a different machine, FORMALIZE.md part 3)",
         "laurent-block-I1-I4-not-attempted (queue item 16 second half)"
       ]
+    },
+    {
+      "id": "010",
+      "file": "attempts/010-statement-review-of-009.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "machine-checked-formalization"
+      ],
+      "one_line": "Independent completion of the FORMALIZE.md pass on 009: non-formalizer statement review finds cot_lemma_L1 matches 005's Lemma L1 hypothesis-for-hypothesis with no narrowing (StrictAntiOn/Ioc/Real.cot read from vendored mathlib source, no junk-value reliance, cheat scan clean), own fresh lake build after deleting the project build output is green with axioms exactly [propext, Classical.choice, Quot.sound], and all three of 005's L1 use sites instantiate inside the formalized hypotheses; zero corrections, two cosmetic nits.",
+      "leak_terms": [
+        "SkepticAxiomCheck",
+        "statement review signed off",
+        "AxiomCheck.lean not committed"
+      ],
+      "verifies": "009",
+      "range": "statement fidelity vs 005 section (ii)-B checked hypothesis by hypothesis; definitions Real.cot, StrictAntiOn, Set.Ioc read from mathlib rev 905b958 source; cheat scan over both project .lean files; rebuild = rm -rf .lake/build + lake build (8657 jobs, green) in a fresh container session with the pinned toolchain, mathlib oleans from the existing pinned cache (not re-downloaded); own axiom audit of both theorems; usage check of all three L1 call sites in 005. NOT audited: mathlib internals beyond the definitions used, Lean kernel, Lemmas C/D themselves",
+      "gaps": []
     }
   ]
 }
