@@ -445,12 +445,38 @@
       "file": "attempts/014-aggregated-or-probe-large-n.md",
       "date": "2026-08-04",
       "mode": "informed",
-      "status": "TODO",
+      "status": "EVIDENCE",
       "mechanism": [
-        "TODO-approach-family-tag"
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "exact-rational-arithmetic",
+        "group-orbit-enumeration"
       ],
-      "one_line": "TODO: what this established, in one sentence.",
-      "leak_terms": []
+      "one_line": "The queue-mandated large-n probe of the restated gap: the i-aggregated OR control survives to n = 32 certified (15 exact-rational certificates, tightest +5.99e-7) and to n = 64 on float trends -- 0 violations in ~1780 instances spanning every known adversary genre plus aggregate-objective hill-climbs; product measures are its exact equality set, all perturbative departures are quadratically upward, the minimum margin GROWS with n on every structured family (no 012-style reversal), and the one decaying direction dips to +1.4e-7 at n ~ 48 then recovers.",
+      "range": "n in {10,14,20,24,28,32} across 14 orbit families x 10-point lambda grids in [0.079, 5] (840 instances) + 432 perturbative instances around the product boundary + trend runs to n = 64 + 426 sparse structured instances (witness genre re-laid-out per n, multi-gadget stacks, crash/mirror) + 82 climb endpoints at n <= 24; 15 certificates in exact rational arithmetic at tilts 181/16, 4 (lambda = 2 exactly), 271/256, enclosure widths <= 5.9e-12",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_or_agg_probe",
+        "or_agg_probe",
+        "aggregate survives n=32",
+        "equality boundary at products",
+        "product equality set",
+        "slice-direction dip",
+        "271/256",
+        "0.001201865",
+        "5.99e-7",
+        "dyadic compaction",
+        "witness-at-n",
+        "gadget stack"
+      ],
+      "note": "Probe only, per the queue's ordering (012's budget-growth reversal was the standing warning; it was looked for and not found in the aggregate, including on 012's own crash-mixture genre). Sign of the aggregate shown convention-robust under 013's surrogate-lambda bookkeeping (numerator unchanged, denominator grows). Certificates are for quantized refit measures at exact rational tilts (013 R2 scope). Proof effort on the aggregated control is now justified by the queue's own criterion; lead 1 (product-boundary Hessian) is the entry point."
     }
   ]
 }
