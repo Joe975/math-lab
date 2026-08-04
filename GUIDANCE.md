@@ -15,22 +15,27 @@ for a reported ~$2,000 of tokens. None are peer-reviewed yet; treat the
 individual results as reported, not settled. The *shape* of the release is
 what matters here, and three things follow for this lab:
 
-1. **Run the ripple scan first.** Before the next cycle pulls anything else
-   from the queue, run `docs/RIPPLE.md` on the Astra results (queue item 15).
-   The Ehrhart-volume and extremal-graph/Ramsey entries are the plausible
-   bites on mahler-4d and erdos-gyarfas; the scan decides, not this note.
+1. **Ripple scan: done (2026-08-04), zero hits.** The scan ran the same day
+   this guidance was written; no gap unblocked, no route foreclosed — the
+   full reasoning is in the `STATUS.md` insights entry. The one live
+   residue: when a manuscript mirror becomes reachable, spend the hour
+   checking whether the Astra Ehrhart proof is complex-analytic; only in
+   that case, seed an analysis-lens `/ideate` sweep on mahler-4d.
 2. **The novelty gate is now part of the bar.** The October 2025 "GPT-5
    solved ten Erdős problems" collapse was a labeling failure, not a
    derivation failure: correct arguments, already in the literature, claimed
    as new. Our blind mode *wants* rediscoveries — but recorded as
    rediscoveries. The skeptic pass now includes a literature check on any
    claimed-new result (`docs/CYCLE.md` step 4, `CONTRIBUTING.md` bar item 7).
-3. **Formalization is the new top verification rung.** For skeptic-confirmed,
-   load-bearing, proof-shaped steps, a kernel-checked Lean certificate is the
-   one thing stronger than a second independent derivation — it is what made
-   Astra's claims land after the October episode. `docs/FORMALIZE.md`
-   defines the lane and the `FORMALIZED` status; queue item 16 is the pilot.
-   Expensive; use deliberately.
+3. **Formalization is the new top verification rung — and the lane is now
+   operational.** For skeptic-confirmed, load-bearing, proof-shaped steps, a
+   kernel-checked Lean certificate is the one thing stronger than a second
+   independent derivation — it is what made Astra's claims land after the
+   October episode. `docs/FORMALIZE.md` defines the lane and the
+   `FORMALIZED` status; the pilot completed 2026-08-04 (billiards 005's
+   Lemma L1, attempts 009+010, full three-part pass). Next certificate
+   target is the I1–I4 Laurent block (queue item 15). Expensive; use
+   deliberately.
 
 **Portfolio note.** Astra's target list — decade-open but
 specialist-tractable problems whose deliverables are checkable objects

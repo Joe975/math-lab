@@ -11,12 +11,16 @@ out, and no cron trigger is active. Nothing is half-finished: every line is
 written up, and the queue below is a list of starting points rather than
 abandoned work.
 
-**Process update (2026-08-04), prompted by OpenAI's Astra announcement:**
-a literature-novelty check is now part of the skeptic pass, a formalization
-lane (`docs/FORMALIZE.md`, status `FORMALIZED`) sits above `VERIFIED` for
-load-bearing proof steps, and `GUIDANCE.md` directs the next cycle to start
-with a ripple scan of the Astra results (queue items 15–16). No mathematical
-state changed.
+**2026-08-04 cycle (Astra follow-through):** a literature-novelty check is
+now part of the skeptic pass and a formalization lane (`docs/FORMALIZE.md`,
+status `FORMALIZED`) sits above `VERIFIED` for load-bearing proof steps.
+Both queue items the new guidance created are done: the ripple scan of the
+ten Astra results ran with **zero hits** across the portfolio (see
+insights — both flagged bites are reasoned misses), and the formalization
+pilot landed: billiards 005's Lemma L1 is the lab's first machine-checked
+result (Lean 4 + mathlib, attempts 009+010, statement review and
+independent rebuild complete). No mathematical state changed beyond the
+new certificate.
 
 To pick something up, take an item from the attempt queue and follow
 `docs/CYCLE.md` — either by hand, one line at a time, or by restarting an
@@ -67,7 +71,7 @@ attempts (queue; run blind).
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
-| Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12) |
+| Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12); Lean lane open — L1 FORMALIZED (009/010), I1–I4 Laurent block is the next certificate target |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | onboarded, no attempts | medium | harness ready, certification risk retired; first attempt is the dim-3 landscape (run blind) |
 
@@ -87,8 +91,7 @@ attempts (queue; run blind).
 12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): 006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
 14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
-15. [cross-problem] **Ripple scan the Astra results** (GUIDANCE 2026-08-04 pulls this to the front of the next cycle). Per `docs/RIPPLE.md`: characterize each of the ten 2026-08-02 OpenAI results (scope, mechanism tags, what the argument needs to apply), then scan the portfolio. Plausible bites to check first, without prejudging: the Ehrhart volume-conjecture proof against mahler-4d (both live in lattice-polytope volume land — does its machinery say anything about volume products, or vice versa?), and the extremal-graph-theory / multicolor-Ramsey entries against erdos-gyarfas (cycle-spectrum arguments share the field lens). Verify each result's actual statement from the published manuscripts/Lean certificates, not press coverage — these are unrefereed, so scope-check harder than usual, and treat any transfer hypothesis as SPECULATION. Expected outcome: recorded misses; a hit goes to the top of that problem's queue; a scan that changes the picture becomes a MAP attempt.
-16. [billiards-triangles] **Formalization pilot** (`docs/FORMALIZE.md`): produce the lab's first Lean 4 certificate for the c·cot(cs) monotonicity lemma (elementary, retires Lemmas C and D), then attempt the Laurent-identity block I1–I4 (already one exact polynomial check — but its geometry bridge is exactly what the statement-review step exists for). Record as a review-shape attempt with `status: FORMALIZED`; toolchain, mathlib pin, and `lake build` output in the record; independent statement review by a non-formalizer agent is part of the pass. A failed pilot is a full deliverable if it pins whether the obstruction is mathematical or tooling.
+15. [billiards-triangles] **Second certificate: the I1–I4 Laurent-identity block** (`docs/FORMALIZE.md`; follows the completed L1 pilot, 009/010). The identities are already one exact polynomial check after adjoining e^{iaα}, e^{ibβ} as formal variables — formalizing the polynomial identity is the tractable half, and the geometry bridge (unfolding = closed form) is exactly what the statement-review step exists to interrogate; 010 kept this gap open deliberately. Harder than the pilot: needs Laurent-polynomial infrastructure in mathlib, and the statement must be pinned to what 005 actually proves (formal identity + ring-homomorphism specialization), not to the geometric claim it feeds.
 
 ## Verified results
 
@@ -321,8 +324,54 @@ attempts (queue; run blind).
   was a relabeling. Corrections: length-30 universe is 566 words (not
   811); gap certificates are pointwise, not "alive throughout".
 
+- **[billiards-triangles] Lemma L1 FORMALIZED — the lab's first
+  machine-checked certificate (skeptic-confirmed)** (2026-08-04, attempts
+  009+010): 005's L1 (for fixed s ∈ (0, π/2], c ↦ c·cot(cs) is strictly
+  decreasing on (0, 1] — the lemma that retires Lemmas C and D) proved in
+  Lean 4 (mathlib v4.32.2), zero sorries, axioms exactly {propext,
+  Classical.choice, Quot.sound}. Independent statement review confirmed
+  fidelity to 005 hypothesis-by-hypothesis with no narrowing (Ioc,
+  StrictAntiOn, and Real.cot semantics read from mathlib source), the
+  cheat scan is clean, the root module provably elaborates the theorem
+  file, and the reviewer's own rebuild + axiom audit went green. Scope:
+  exactly the formal statement — L1 only; Lemmas C/D themselves and the
+  I1–I4 Laurent block remain VERIFIED, not FORMALIZED (queue 15). Source
+  in problems/billiards-triangles/formal/.
+
 ## Insights / cross-problem notes
 
+- Ripple scan of the Astra results ran (2026-08-04, informed):
+  all ten results characterized (press-transcribed only — openai.com, the
+  certificate repo, and erdosproblems.com were unreachable, so every scope
+  statement is [L]-grade and must be re-checked against a manuscript
+  before any transfer work) and scanned against all ten problems. **No
+  purchase anywhere**: no recorded gap unblocked, no queued route
+  foreclosed. Both queue-flagged bites are reasoned misses — Ehrhart vs
+  mahler-4d fails on direction (upper vs lower bound), symmetry (Ehrhart's
+  content is the non-symmetric case; the symmetric case is classical
+  Minkowski), and hypotheses (Mahler has no lattice-point constraint);
+  extremal/Ramsey vs erdos-gyarfas fails on regime (Turán/dense and
+  complete-graph coloring vs bounded-degree cycle forcing — a cubic graph
+  sits below every Turán threshold in play). One conditional seed,
+  SPECULATION, deliberately not queued: if the Astra Ehrhart proof turns
+  out complex-analytic (Berman–Berndtsson lineage — the toolbox
+  historically shared with Bourgain–Milman), it becomes the seed for an
+  analysis-lens /ideate sweep on mahler-4d; check the method (one hour)
+  when a manuscript mirror is reachable. Two hazards recorded for future
+  scans: the "Erdős–Gyárfás generalized Ramsey (p,q)-coloring" problem in
+  Astra-adjacent press is NOT our cycle conjecture; and press sources
+  conflict on which of Erdős #146/#180 is compactness vs degeneracy — do
+  not cite that numbering from this scan.
+- First FORMALIZE.md pass ran end-to-end (2026-08-04, billiards 009+010),
+  ops notes: the toolchain is viable in-session (elan, lean4 v4.32.2,
+  prebuilt mathlib via `lake exe cache get`, ~7.4 GB — never build mathlib
+  from source; `formal/.lake/` must be git-ignored, and the docs lint now
+  skips vendored deps). mathlib v4.32.2 has Real.cot but no derivative API
+  for it — an inline quotient rule is three lines, not an obstruction. The
+  statement-review step earned its keep procedurally: the semantic
+  verdicts (interval endpoints, StrictAntiOn direction, cot convention)
+  were read from mathlib source rather than assumed — exactly the
+  informal→formal bridge risk the lane exists to cover.
 - External event + process change (2026-08-04): OpenAI announced (2026-08-02)
   ten results on decade-plus-open problems (non-sofic groups, Connes rigidity
   counterexample, Ehrhart volume conjecture, three Erdős-catalog problems
