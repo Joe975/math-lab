@@ -8,3 +8,36 @@ Build completed successfully (8657 jobs).
 $ lake env lean AxiomCheck.lean   # axiom audit of the two theorems
 'BilliardsFormal.cot_lemma_L1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'BilliardsFormal.strictAntiOn_id_mul_cot' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+====================================================================
+$ lake build   # 2026-08-04T10:13:00Z  (after adding BilliardsFormal/LaurentBlock.lean, attempt 011)
+$ lean --version: Lean (version 4.32.2, x86_64-unknown-linux-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+$ mathlib rev: 905b95818eb32af7874a58b427f50c1711a5e96c (tag v4.32.2)
+Build completed successfully (8658 jobs).
+
+$ lake env lean AxiomCheck.lean   # axiom audit, all BilliardsFormal theorems (009 + 011)
+'BilliardsFormal.cot_lemma_L1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.strictAntiOn_id_mul_cot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.pair_collapse_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.pair_collapse_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.half_word_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.iterate_collapse_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.iterate_collapse_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.half_word_letters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.mu_eq_delta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.tau_parallel_axis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.mu_mul_conj_mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.half_word_sq_is_translation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.glide_action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_D1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_D2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.half_word_closed_form_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I1_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I2_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I3_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.identity_I4_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BilliardsFormal.Laurent.glide_facts_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
