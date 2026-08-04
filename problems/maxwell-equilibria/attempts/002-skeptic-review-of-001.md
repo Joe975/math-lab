@@ -8,8 +8,9 @@
   share the subdivision tree, so the residual common-mode risk is a bug in the
   subdivision DRIVER producing a wrong tree with self-consistent leaves.
 - **Outcome in one line:** the certified count of 24 nondegenerate equilibria
-  is REAL and survives every attack tried — including four full re-censuses
-  over wholesale-different subdivision trees — but the review found a genuine
+  is REAL and survives every attack tried — including a re-census over a
+  wholesale-different subdivision tree and a finer-grid rerun of the original
+  one — but the review found a genuine
   soundness gap in the *independent checker's* tiling check (prefix-freeness +
   Kraft equality do NOT imply a tiling for axis-labelled paths; demonstrated
   by a tampered certificate that hides a real equilibrium and still PASSes
@@ -295,8 +296,10 @@ The headline stands: the configuration of 001 (units at e₁,e₂,e₃, charges
 **exactly 24 nondegenerate equilibria**, now resting on: the original two
 engines, this review's independent structural checks in exact arithmetic
 (including a tiling proof strictly stronger than the checker's), and four
-re-censuses over different subdivision trees, all counting 24 at the witness
-parameters (A, B) and exactly the predicted bracket counts off them (C, D).
+re-censuses — 24 again on a subdivision tree sharing no box with 001's
+(run B) and on a finer-grid rerun that reproduced 001's tree verdict-by-
+verdict (run A), with exactly the predicted bracket counts off the witness
+(runs C, D).
 24 > 16 = (5−1)²: the explicit refutation instance of Maxwell's bound at
 n = 5 is confirmed, and the escalation required by the verification contract
 is discharged.
