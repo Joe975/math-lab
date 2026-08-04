@@ -3,13 +3,20 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-07-31)
+## TL;DR (updated 2026-08-04)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
 out, and no cron trigger is active. Nothing is half-finished: every line is
 written up, and the queue below is a list of starting points rather than
 abandoned work.
+
+**Process update (2026-08-04), prompted by OpenAI's Astra announcement:**
+a literature-novelty check is now part of the skeptic pass, a formalization
+lane (`docs/FORMALIZE.md`, status `FORMALIZED`) sits above `VERIFIED` for
+load-bearing proof steps, and `GUIDANCE.md` directs the next cycle to start
+with a ripple scan of the Astra results (queue items 15–16). No mathematical
+state changed.
 
 To pick something up, take an item from the attempt queue and follow
 `docs/CYCLE.md` — either by hand, one line at a time, or by restarting an
@@ -80,6 +87,8 @@ attempts (queue; run blind).
 12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): 006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
 14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
+15. [cross-problem] **Ripple scan the Astra results** (GUIDANCE 2026-08-04 pulls this to the front of the next cycle). Per `docs/RIPPLE.md`: characterize each of the ten 2026-08-02 OpenAI results (scope, mechanism tags, what the argument needs to apply), then scan the portfolio. Plausible bites to check first, without prejudging: the Ehrhart volume-conjecture proof against mahler-4d (both live in lattice-polytope volume land — does its machinery say anything about volume products, or vice versa?), and the extremal-graph-theory / multicolor-Ramsey entries against erdos-gyarfas (cycle-spectrum arguments share the field lens). Verify each result's actual statement from the published manuscripts/Lean certificates, not press coverage — these are unrefereed, so scope-check harder than usual, and treat any transfer hypothesis as SPECULATION. Expected outcome: recorded misses; a hit goes to the top of that problem's queue; a scan that changes the picture becomes a MAP attempt.
+16. [billiards-triangles] **Formalization pilot** (`docs/FORMALIZE.md`): produce the lab's first Lean 4 certificate for the c·cot(cs) monotonicity lemma (elementary, retires Lemmas C and D), then attempt the Laurent-identity block I1–I4 (already one exact polynomial check — but its geometry bridge is exactly what the statement-review step exists for). Record as a review-shape attempt with `status: FORMALIZED`; toolchain, mathlib pin, and `lake build` output in the record; independent statement review by a non-formalizer agent is part of the pass. A failed pilot is a full deliverable if it pins whether the obstruction is mathematical or tooling.
 
 ## Verified results
 
@@ -314,6 +323,20 @@ attempts (queue; run blind).
 
 ## Insights / cross-problem notes
 
+- External event + process change (2026-08-04): OpenAI announced (2026-08-02)
+  ten results on decade-plus-open problems (non-sofic groups, Connes rigidity
+  counterexample, Ehrhart volume conjecture, three Erdős-catalog problems
+  incl. multicolor Ramsey #183, sphere-packing and coding bounds, arithmetic
+  circuits, quantum parallel repetition, closest-vector, extremal graphs),
+  each with a model reasoning walkthrough and a Lean 4 certificate at zero
+  sorries; unrefereed as of this note. Adopted here: (1) literature-novelty
+  check added to the skeptic pass — the instructive contrast is OpenAI's own
+  October 2025 episode, where correct derivations already in the literature
+  were announced as new; (2) `FORMALIZED` status + `docs/FORMALIZE.md` lane
+  for kernel-checked certificates above `VERIFIED`, with the statement-review
+  step carrying the bridge risk we already hit in formal-parameter
+  specialization; (3) ripple scan of the ten results queued as item 15,
+  formalization pilot as item 16. No mathematical state changed by this note.
 - Infrastructure (2026-07-27): cross-pollination layer added. `mechanisms.json`
   maps every approach tag to a field lens (`scripts/mechanisms.py` for
   gaps/matrix queries); `docs/IDEATE.md` = field-sweep ideation on one
