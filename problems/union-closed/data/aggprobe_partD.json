@@ -1,0 +1,49 @@
+{
+ "rows": [
+  {
+   "base_agg": 1.8447543150919639,
+   "lambda": 3.5,
+   "min_over_perms": 1.6939330840227234,
+   "n": 7,
+   "n_perms": 41,
+   "n_violations": 0,
+   "target": "witness_n7"
+  },
+  {
+   "base_agg": 2.1264330959258757,
+   "lambda": 3.5,
+   "min_over_perms": 2.1999769427199114,
+   "n": 13,
+   "n_perms": 41,
+   "n_violations": 0,
+   "target": "MU(13)"
+  },
+  {
+   "base_agg": 1.730784205074476,
+   "lambda": 3.5,
+   "min_over_perms": 1.8985654665644105,
+   "n": 22,
+   "n_perms": 41,
+   "n_violations": 0,
+   "target": "MU(22)"
+  },
+  {
+   "base_agg": 1.730784205074476,
+   "lambda": 3.5,
+   "min_over_perms": 1.8291802471717407,
+   "n": 32,
+   "n_perms": 41,
+   "n_violations": 0,
+   "target": "MU(32)"
+  },
+  {
+   "base_agg": 0.16610609675906446,
+   "lambda": 3.5,
+   "min_over_perms": 0.018312372040694882,
+   "n": 8,
+   "n_perms": 41,
+   "n_violations": 0,
+   "target": "search_best_n8"
+  }
+ ]
+}

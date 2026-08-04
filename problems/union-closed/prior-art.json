@@ -439,6 +439,42 @@
         "minor ratio 6.68"
       ],
       "note": "Decisive check: 007's confessed vulnerability (both engines share IEEE floats; its first witnesses were shared-underflow artifacts) is closed by re-verifying the witness in exact rational arithmetic with directed-rounding log2 enclosures. At t = 4 and t = 16 the refutation of M_i >= lambda is a fully rational statement with lambda = 2, 4 exactly. New strengthening beyond 007: the violation does not hinge on the conditioning-out convention (degenerate histories scored at exactly lambda still give M_5 - lambda = -0.067, certified). Nuance: exact certificates at lambda = 1, 2, 3 are for rationalized-refit measures within 9.2e-16 of the witness mu, not the identical rational mu. Theorem C's smoothness step is analogous to but not literally discharged by 008's P6-prime (P6-prime is d/d-mu at fixed lambda; Theorem C needs d/d-lambda at fixed mu)."
+    },
+    {
+      "id": "014",
+      "file": "attempts/014-aggregated-control-probe-large-n.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "gram-mass-pairing",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Large-n probe of the restated Gap 1 kills it: unit-replicating the 10-atom witness genre (r crash units sharing one block marker) with re-optimized shared weights drives the i-aggregated control negative past n ~ 90, certified float-free at t = 4 (n = 96 and 160, marginals <= 0.309); the n <= 32 space stays positive everywhere searched.",
+      "leak_terms": [
+        "unit replication",
+        "multi-unit witness ladder",
+        "MU(n,r)",
+        "theta-star ladder",
+        "aggregate crossing",
+        "O(1) surplus corridor",
+        "0.024226",
+        "-0.000759865",
+        "uc_or_agg_probe",
+        "aggprobe"
+      ],
+      "range": "Free-support seeded climbs n <= 32 (58 climbs round 1, deep annealed round 2) plus permutation orbits: 0 violations; unit-symmetric ladder evaluated to n = 160 (raw witness weights: positive through n = 128, min +0.157; optimized theta*: float crossing in (88, 96], -0.0242 at n = 160, 20/20 perturbations stay negative); exact rational certificates at t = 181/16 and t = 4, enclosure widths < 1e-18",
+      "refuted_by": null,
+      "gaps": [
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "note": "Settles queue item 1's probe-first branch negatively: the aggregated control is certified positive at n <= 32 on everything searched, so proof effort there was exactly the small-n trap 012 warned about. The kill is convention-robust (scoring degenerate histories at lambda only grows the denominator, never the numerator). Route stays LIVE; Gap 1 falls to the margin-modulated candidate (007 lead 2), which this record's ladder family must now be run against."
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+ "name": "theta2_n96_float_exact_dyadic_t4",
+ "n": 96,
+ "t": "4",
+ "agg_lo": "-0.000759865185844166087",
+ "agg_hi": "-0.000759865185844166086",
+ "agg_lo_float": -0.0007598651858441661,
+ "agg_hi_float": -0.0007598651858441661,
+ "in_regime": true,
+ "max_marg_float": 0.30866648372421185,
+ "dich_ok": true,
+ "verdict": "CERTIFIED NEGATIVE (KILL)",
+ "secs": 141.7
+}
+done
