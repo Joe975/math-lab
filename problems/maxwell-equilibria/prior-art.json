@@ -1,0 +1,52 @@
+{
+  "problem": "maxwell-equilibria",
+  "route_status": "VERIFIED",
+  "route_summary": "Explicit rational five-charge witness certified with exactly 24 nondegenerate equilibria (> 16 = (5-1)^2) - a concrete, machine-checkable instance of the arXiv:2607.27197 refutation. The escalation is discharged: the skeptic review (002) confirmed the count against a driver audit, fresh exact structural checks and four perturbed re-censuses, while finding and closing a real common-mode gap in the checker's tiling test. The n=3 gap (4 vs 6) is untouched.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-abk-explicit-witness.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "certified-box-coverage",
+        "exact-rational-arithmetic",
+        "independent-reimplementation"
+      ],
+      "one_line": "Five rational charges (units at e1,e2,e3; 4367/1000000 at centroid +- (17/200)(1,1,1)) certified to have exactly 24 nondegenerate equilibria - explicit refutation instance of Maxwell (n-1)^2 at n=5, both engines PASS, index sum -4.",
+      "leak_terms": [
+        "4367/1000000",
+        "abk-witness",
+        "24-count window"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-skeptic-review-of-001.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "001",
+      "mechanism": [
+        "adversarial-verification",
+        "exact-rational-arithmetic",
+        "independent-reimplementation"
+      ],
+      "one_line": "Skeptic pass on 001: the 24-count survives a driver audit, fresh exact structural checks, and four re-censuses over different subdivision trees (also certifying the 12/16 window brackets and the exact centroid Hessian) - but the checker's Kraft+prefix tiling test is proven non-sound (a tampered mixed-axis certificate hiding a real zero PASSes), so coverage independence dates from this review's axis-consistency check.",
+      "range": "001's certificate re-audited leaf-by-leaf structurally; re-censuses at prec 80, a shifted/enlarged region, q=4360/1000000 and q=4400/1000000; centroid Hessian exact for the (t,q) family",
+      "corrections": [
+        "'established by two independent implementations' overstated: verify_equilibria.py's tiling check (prefix-freeness + Kraft equality) does not imply a tiling for axis-labelled paths, so coverage rested on driver honesty until this review's stronger tree check",
+        "the checker's det-sign evaluation over the driver's enclosure is sound only via an unstated convexity argument on the interval Jacobian, now recorded",
+        "latent (untriggered) driver hazard: rounded midpoint can exit the box when prec_bits is small relative to min_width_bits; safe by 10 decimal orders at 001's parameters"
+      ],
+      "leak_terms": [
+        "mixed-axis",
+        "axis-consistency",
+        "81*sqrt(2)*t^3/16",
+        "4.3968",
+        "12/24/16 brackets"
+      ]
+    }
+  ]
+}

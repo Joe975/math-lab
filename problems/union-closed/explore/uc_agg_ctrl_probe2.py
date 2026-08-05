@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Attempt 014, deep phase: push the aggregated-control probe past n = 32.
+"""Attempt 016, deep phase: push the aggregated-control probe past n = 32.
 
-Round 1 (uc_or_agg_probe.py part B) found the multi-unit witness ladder
+Round 1 (uc_agg_ctrl_probe.py part B) found the multi-unit witness ladder
 MU(n, n-6) has aggregate decaying like a - b log n over n = 7..32 (best
 2-parameter fit; max residual ~0.05), which EXTRAPOLATES to a sign change at
 n ~ 78 (lambda 5), ~140 (lambda 3.5), ~320 (lambda 2).  Extrapolation is not
@@ -28,7 +28,7 @@ evidence (012's lesson cuts both ways), so this phase measures instead:
 Standard library only.  Deterministic (fixed seeds).  Runtime ~30-60 min.
 
 Usage:
-    python problems/union-closed/explore/uc_or_agg_probe2.py
+    python problems/union-closed/explore/uc_agg_ctrl_probe2.py
 Checkpoints: problems/union-closed/data/aggprobe2_partP[12345]*.json
              problems/union-closed/data/aggprobe2_run.log (tee by hand)
 """
@@ -50,7 +50,7 @@ sys.path.insert(0, str(HERE))
 
 import uc_or_avg as ORA
 import uc_or_avg_skeptic as ORS
-from uc_or_agg_probe import (agg_eval, clamp_u, mu_ladder, objective,
+from uc_agg_ctrl_probe import (agg_eval, clamp_u, mu_ladder, objective,
                              exact_aggregate, dec_bound, RECORD, MARG_TARGET)
 
 T0 = time.monotonic()

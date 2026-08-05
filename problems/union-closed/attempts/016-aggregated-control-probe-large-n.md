@@ -1,4 +1,4 @@
-# 014 — Large-n probe kills the i-aggregated odds-ratio control
+# 016 — Large-n probe kills the i-aggregated odds-ratio control
 
 - **Problem:** union-closed, `problems/union-closed/PROBLEM.md`
 - **Date:** 2026-08-04
@@ -8,9 +8,9 @@
   exact rational certification. Outcome: the aggregated control is **REFUTED
   in the record-relevant regime** by an explicit unit-replicated family at
   n ≈ 96–128, certified float-free.
-- **Tools:** `explore/uc_or_agg_probe.py` (round 1: anchors, ladder trend to
+- **Tools:** `explore/uc_agg_ctrl_probe.py` (round 1: anchors, ladder trend to
   n = 32, seeded free-support climbs, permutation attack, exact certs;
-  ~3 min) and `explore/uc_or_agg_probe2.py` (round 2: ladder extension to
+  ~3 min) and `explore/uc_agg_ctrl_probe2.py` (round 2: ladder extension to
   n = 128, unit-symmetric θ-optimization, deep annealed climbs, adversarial
   dilution sweep `--sweep`, kill drill `--kill`; ~30 min + drill).
   Both standard-library only, deterministic (fixed seeds, fixed step counts).
@@ -20,12 +20,12 @@
   (013's own `f_census`) is used as an independent cross-check on the
   violating instance. Commands reproducing every number:
 
-      python problems/union-closed/explore/uc_or_agg_probe.py 2>&1 | tee problems/union-closed/data/aggprobe_run.log
-      python problems/union-closed/explore/uc_or_agg_probe2.py 2>&1 | tee problems/union-closed/data/aggprobe2_run.log
-      python problems/union-closed/explore/uc_or_agg_probe2.py --sweep 2>&1 | tee problems/union-closed/data/aggprobe2_sweep.log
-      python problems/union-closed/explore/uc_or_agg_probe2.py --kill 2>&1 | tee problems/union-closed/data/aggprobe2_kill.log
-      python problems/union-closed/explore/uc_or_agg_probe2.py --cert96 2>&1 | tee problems/union-closed/data/aggprobe2_n96cert.log
-      python problems/union-closed/explore/uc_or_agg_probe2.py --certp3   # re-cert of P3-best, writes aggprobe2_p3best_cert.json
+      python problems/union-closed/explore/uc_agg_ctrl_probe.py 2>&1 | tee problems/union-closed/data/aggprobe_run.log
+      python problems/union-closed/explore/uc_agg_ctrl_probe2.py 2>&1 | tee problems/union-closed/data/aggprobe2_run.log
+      python problems/union-closed/explore/uc_agg_ctrl_probe2.py --sweep 2>&1 | tee problems/union-closed/data/aggprobe2_sweep.log
+      python problems/union-closed/explore/uc_agg_ctrl_probe2.py --kill 2>&1 | tee problems/union-closed/data/aggprobe2_kill.log
+      python problems/union-closed/explore/uc_agg_ctrl_probe2.py --cert96 2>&1 | tee problems/union-closed/data/aggprobe2_n96cert.log
+      python problems/union-closed/explore/uc_agg_ctrl_probe2.py --certp3   # re-cert of P3-best, writes aggprobe2_p3best_cert.json
 
   Checkpoints: `data/aggprobe_part[ABDE]*.json`, `data/aggprobe_partC_n*.json`,
   `data/aggprobe2_partP[1-7]*.json`.
@@ -84,7 +84,7 @@ slice {1, c_j, n}; block b: ∅, {n−1}, {n}, plus per unit j the responder
 exactly the 10-atom witness**). 2r + 8 atoms, all marginals in-regime after
 dilution tuning.
 
-### 2. Round 1 (`uc_or_agg_probe.py`): anchors, trend to n = 32, controls
+### 2. Round 1 (`uc_agg_ctrl_probe.py`): anchors, trend to n = 32, controls
 
 - **Anchors (part A).** Witness aggregate reproduces: float +1.844754 at
   λ = 3.5, and the exact engine re-certifies **+1.844669** at t = 181/16
@@ -120,7 +120,7 @@ dilution tuning.
   n = 8 search endpoint +0.166100824. All CERTIFIED POSITIVE, in-regime,
   dichotomy exact.
 
-### 3. Round 2 (`uc_or_agg_probe2.py`): n up to 128 and the kill
+### 3. Round 2 (`uc_agg_ctrl_probe2.py`): n up to 128 and the kill
 
 - **P1/P6, honest ladder trend.** The dilution weight is the adversary's
   parameter too, so the per-n ladder margin is min over the dilution weight
@@ -319,7 +319,7 @@ Survived / reusable:
 - **The permutation attack** (part D): coordinate order is part of μ; it
   cut an optimized margin 9× at n = 8. Cheap, never used before this
   record; should join the standard battery.
-- **Engines:** `uc_or_agg_probe.py` / `uc_or_agg_probe2.py` re-use 007's
+- **Engines:** `uc_agg_ctrl_probe.py` / `uc_agg_ctrl_probe2.py` re-use 007's
   census and 013's exact machinery unchanged and add: aggregate evaluation,
   ladder builders, θ-space (orbit-quotient) search, dilution sweeps,
   n-scans, and exact aggregate enclosures at rational tilt on ~300-atom
@@ -375,7 +375,7 @@ Survived / reusable:
   lesson, orbit-symmetrized engine precedent); `attempts/005/006` (families
   and census conventions); `attempts/008` (assembly context for the
   aggregate's downstream role).
-- Tools/data: `explore/uc_or_agg_probe.py`, `explore/uc_or_agg_probe2.py`;
+- Tools/data: `explore/uc_agg_ctrl_probe.py`, `explore/uc_agg_ctrl_probe2.py`;
   checkpoints `data/aggprobe_*.json`, `data/aggprobe2_*.json`; logs
   `data/aggprobe_run.log`, `data/aggprobe2_run.log`,
   `data/aggprobe2_sweep.log`, `data/aggprobe2_kill.log`.

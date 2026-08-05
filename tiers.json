@@ -22,6 +22,7 @@
     "docs/RIPPLE.md",
     "docs/FORMALIZE.md",
     "docs/PLAN-physics-problems.md",
+    "docs/PLAN-em-problems.md",
     ".claude/**/*",
     "problems/*/PRIOR-ART.md",
     "problems/*/prior-art.json",

@@ -1,0 +1,80 @@
+{
+ "10": {
+  "Mn_minus_lam_abs": 1.9984014443252818e-14,
+  "aggregate": -1.973729821555835e-15,
+  "argmin_i": 9,
+  "in_regime": true,
+  "lambda": 3.5,
+  "max_marginal": 0.3823000000001116,
+  "min_excess_lt_n": -7.993605777301127e-15,
+  "n": 10,
+  "name": "bern_p3823",
+  "seconds": 0.01,
+  "sinkhorn_resid": 2.9187763317395365e-12
+ },
+ "14": {
+  "Mn_minus_lam_abs": 1.0658141036401503e-14,
+  "aggregate": -2.5962138422003687e-15,
+  "argmin_i": 12,
+  "in_regime": true,
+  "lambda": 3.5,
+  "max_marginal": 0.3823000000001115,
+  "min_excess_lt_n": -1.7319479184152442e-14,
+  "n": 14,
+  "name": "bern_p3823",
+  "seconds": 0.02,
+  "sinkhorn_resid": 4.086508909040276e-12
+ },
+ "20": {
+  "Mn_minus_lam_abs": 4.085620730620576e-14,
+  "aggregate": -4.627877028963825e-15,
+  "argmin_i": 16,
+  "in_regime": true,
+  "lambda": 5.0,
+  "max_marginal": 0.3823000000000779,
+  "min_excess_lt_n": -4.618527782440651e-14,
+  "n": 20,
+  "name": "bern_p3823",
+  "seconds": 0.06,
+  "sinkhorn_resid": 4.082734150756551e-12
+ },
+ "24": {
+  "Mn_minus_lam_abs": 4.6629367034256575e-14,
+  "aggregate": -4.189885153802793e-15,
+  "argmin_i": 23,
+  "in_regime": true,
+  "lambda": 3.5,
+  "max_marginal": 0.38230000000011155,
+  "min_excess_lt_n": -4.440892098500626e-14,
+  "n": 24,
+  "name": "bern_p3823",
+  "seconds": 0.13,
+  "sinkhorn_resid": 7.005285240779813e-12
+ },
+ "28": {
+  "Mn_minus_lam_abs": 3.9968028886505635e-14,
+  "aggregate": -4.8685335598377885e-15,
+  "argmin_i": 27,
+  "in_regime": true,
+  "lambda": 3.5,
+  "max_marginal": 0.3823000000001117,
+  "min_excess_lt_n": -5.995204332975845e-14,
+  "n": 28,
+  "name": "bern_p3823",
+  "seconds": 0.23,
+  "sinkhorn_resid": 8.173017818080552e-12
+ },
+ "32": {
+  "Mn_minus_lam_abs": 7.72715225139109e-14,
+  "aggregate": -9.225595198175543e-15,
+  "argmin_i": 30,
+  "in_regime": true,
+  "lambda": 5.0,
+  "max_marginal": 0.3000000000000216,
+  "min_excess_lt_n": -1.1191048088221578e-13,
+  "n": 32,
+  "name": "bern_p30",
+  "seconds": 0.57,
+  "sinkhorn_resid": 2.312594560294201e-12
+ }
+}

@@ -17,7 +17,7 @@ literature-novelty check joined the skeptic pass, the formalization lane
 ripple scan of the ten Astra results ran with **zero hits** (see
 insights), and the pilot certificate landed (billiards L1, 009/010).
 Second cycle HEADLINE: **the i-AGGREGATED odds-ratio control — Gap 1's
-restatement — is REFUTED at large n** (014, skeptic-confirmed 015): the
+restatement — is REFUTED at large n** (016, skeptic-confirmed 017): the
 10-atom witness replicates into a ladder MU(n,r) whose aggregate falls
 like a − b·log n and crosses zero near n ≈ 90, certified in exact
 rational arithmetic at n = 96/128/160 (λ = 2, marginals ≤ 0.309), the
@@ -26,14 +26,22 @@ the recorded ∀λ gap; the surviving Gap-1 candidates are the
 margin-modulated control and the λ ≲ c/n window-restricted variant (the
 violation lives at λ ∈ [2, 2.5], ~40× above the workable window at
 n = 96). Probe-before-proof vindicated a second time: certified
-positives at n ≤ 32 masked the asymptotic failure. Also this cycle: the
-**entire 005 Laurent block is now FORMALIZED** (011/012 — closed-form
-composition, I1–I4, glide facts, specializations; 23 theorems, zero
-corrections, statement review + independent rebuild complete), and
-**crouzeix got its first attempt** (blind, 001, skeptic-confirmed 002):
-a certified 286-start local-maxima census at n = 3, deg ≤ 3 finds no
-unknown extremal structure — no problem in the portfolio is
-unattempted any more.
+positives at n ≤ 32 masked the asymptotic failure — and a **parallel
+line reached exactly that ceiling independently** (014, skeptic-confirmed
+015): the same control certified positive to n = 32 with the margin
+growing, ~1900 instances, zero violations. The two agree everywhere they
+overlap; 014's forward-looking call ("proof effort now justified") is the
+part 016 overturns, and its equality-set structure (products are the
+exact equality set for λ > 0) survives as the reason the ladder had to be
+built to see the crossing. Also this cycle: the **entire 005 Laurent
+block is now FORMALIZED** (011/012 — closed-form composition, I1–I4,
+glide facts, specializations; 23 theorems, zero corrections, statement
+review + independent rebuild complete), **crouzeix got its first
+attempt** (blind, 001, skeptic-confirmed 002): a certified 286-start
+local-maxima census at n = 3, deg ≤ 3 finds no unknown extremal
+structure — no problem in the portfolio is unattempted any more — and the
+**maxwell-equilibria escalation is DISCHARGED** (002 confirms 001's
+certified 24-equilibria witness; see the standing note below).
 
 To pick something up, take an item from the attempt queue and follow
 `docs/CYCLE.md` — either by hand, one line at a time, or by restarting an
@@ -41,9 +49,43 @@ hourly routine with that file as the prompt. Everything needed is in this
 directory. New attempts are welcome as pull requests; see `CONTRIBUTING.md`,
 and `AGENTS.md` for whether to work blind or informed.
 
-Standing from the 2026-07-31 cycles: the second cycle ran the
-two-track billiards plan (old queue 11+12); all four records are
-skeptic-confirmed, six corrections total, none load-bearing.
+Current standing. HEADLINE (2026-08-04, second cycle): the
+maxwell-equilibria escalation is DISCHARGED — skeptic review (002)
+confirms 001's certified 24-equilibria witness: a shifted+enlarged-region
+re-census whose tree shares no box with 001's again certifies exactly 24
+(and the independent verifier PASSes it), an 80-bit re-run reproduces
+every leaf verdict, and the fold brackets 001 predicted are now certified
+counts — 12 at q = 4360/10⁶, 16 at q = 4400/10⁶. The centroid Hessian
+closes exactly: signature decided by 6561t⁶ vs 128q², degeneracy at
+q\* = 81√2·t³/16 ≈ 4.3968·10⁻³, certified index flip across it. Real
+correction: verify_equilibria.py's tiling check (prefix-freeness + Kraft)
+is UNSOUND for axis-labelled paths — coverage independence silently
+rested on driver honesty; closed for 001's certificate by an
+axis-consistency reconstruction (0 violations / 235,993 paths), hardening
+queued. The explicit refutation witness is now settled library fact.
+Union-closed: two independent lines ran the mandated large-n probe of the
+i-AGGREGATED odds-ratio control in parallel, and together they settle it.
+014 (skeptic-confirmed 015) certified the control POSITIVE in exact
+rationals to n = 32 (15 certificates, softest +5.99e-7; independent
+re-certification of 5, zero disagreement), float trends to n = 64,
+minimum margin GROWING in n across ~1900 instances with zero in-regime
+violations, and identified products as the exact equality set (λ > 0,
+inclusion proven; converse open). 016 (skeptic-confirmed 017) pushed the
+same object past that ceiling on a family 014 did not build — the 10-atom
+witness replicated into the unit ladder MU(n,r) with re-optimized shared
+weights — and certified it NEGATIVE at n = 96/128/160 (λ = 2, marginals
+≤ 0.309). The two searches agree at n ≤ 32 (016 finds nothing negative
+there either), so the merged reading is: the ∀λ aggregated control is
+REFUTED, 014's positivity is a small-n fact rather than a licence for
+proof effort, and what survives is the margin-modulated control and the
+λ ≲ c/n window-restricted variant — 016's violation sits at λ ∈ [2, 2.5],
+~40× above the workable window at n = 96, which 014's equality-set
+structure says is exactly where the boundary question still lives.
+Previous headlines: 2026-08-04 first cycle — maxwell-equilibria onboarded,
+001 certified the explicit rational five-charge witness (24 > 16) for the
+six-day-old arXiv:2607.27197 refutation; 2026-07-31 — the two-track
+billiards plan, all four records skeptic-confirmed (six corrections
+total, none load-bearing).
 Conservative track (005+008): the W(a,b) death law is closed on both
 sides — the half word composes in closed form to
 R₀·Rot_A(2aα)·Rot_B(−2bβ), so I1–I4 and the glide facts are proven
@@ -79,7 +121,7 @@ billiards route.
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 done | high | next: 2-connected C16-free test (lead 2); n=26 is a ~16h run |
-| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a′) refuted (007/013); AGGREGATED control refuted at large n (014/015, certified n = 96–160) → live: margin-modulated control, λ ≲ c/n restricted variant, δ-linear tax budget, corrected assembly budgets (012); plus three sweep leads (010) |
+| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a′) refuted (007/013); AGGREGATED control certified positive to n = 32 (014/015) but refuted at large n (016/017, certified n = 96–160) → live: margin-modulated control, λ ≲ c/n restricted variant, δ-linear tax budget, corrected assembly budgets (012); plus three sweep leads (010) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
@@ -88,10 +130,11 @@ billiards route.
 | Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12); Lean lane: L1 + the full Laurent block FORMALIZED (009–012); the geometry bridge stays informal by design |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
+| Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] The surviving Gap-1 candidates after 014/015's kill of the aggregated control, probe-first per standing policy: (i) **margin-modulated OR control** — run the certified probe on the MU(n,r) ladder genre FIRST (it is the reusable adversary; 015's independent engine `uc_or_agg_skeptic.py` certifies), then the killer genres from 007/013; only if it survives n ≳ 96 does proof effort start (007's Gram/Frobenius machinery). (ii) **λ-restricted variant**: the control restricted to the workable window λ ≲ 4.847/(n−3) (the 009/011 λ-window law) — 014's violation lives at λ ∈ [2, 2.5] and its family is positive at λ ≤ 1.5, so this variant is genuinely untested; probe the ladder AT the window boundary across n before anything else. Any claimed bound → skeptic review before ledger entry.
+1. [union-closed] ~~Probe the aggregated control at n ≳ 20~~ **DONE twice, independently, in 014/015 and 016/017** — positive to n = 32 with the margin growing, then negative at n = 96–160 on the MU(n,r) unit ladder. The ∀λ aggregated control is dead; the boundary-positivity program 014 proposed is off for it. The surviving Gap-1 candidates, probe-first per standing policy: (i) **margin-modulated OR control** — run the certified probe on the MU(n,r) ladder genre FIRST (it is the reusable adversary; 017's independent engine `uc_agg_ctrl_skeptic.py` certifies), then the killer genres from 007/013 and 014's battery (a one-line weight change there); only if it survives n ≳ 96 does proof effort start (007's Gram/Frobenius machinery). (ii) **λ-restricted variant**: the control restricted to the workable window λ ≲ 4.847/(n−3) (the 009/011 λ-window law) — 016's violation lives at λ ∈ [2, 2.5] and its family is positive at λ ≤ 1.5, so this variant is genuinely untested; probe the ladder AT the window boundary across n before anything else. Two structural questions from 014/015 keep their value under either candidate and are cheap: settle the equality-set converse for λ > 0, and map the near-zero slice-direction dip (+1.4e-7 at n ≈ 48, recovers by 64) over p × layer-ratio × n ≤ 96. Mind 015's R1 (fitted orders dip to d^1.39 at λ ≥ 0.5), so no Hessian-style argument gives a finite-d positivity radius on its own. Any claimed bound → skeptic review before ledger entry.
 2. [union-closed] Rebuild the assembly budgets per 012's corrections: the tax is δ-LINEAR (restate B2), the τ_half step needs s₀ ≤ 0.0843, corrected δ₀ ≈ 0.004. The open question is whether ANY n-uniform budget object exists — 008's conditional theorem survives structurally; its constants need the corrected inputs, and the budget census machinery (uc_pert.py + uc_pert_skeptic.py's orbit engine) is ready.
 3. [union-closed] Sweep leads from 010, one per cycle: (i) pairwise-closure LP/degree-2 SOS certification on the n ≤ 4 census (all 4958 families) — kill: certified bound converges to ≈ 0.382; (ii) union-transfer-operator eigenvalue field — test log-supermodularity of λ_C on the n ≤ 5 census (pre-check the total-positivity records first); (iii) bipartite-MIS decomposition — geng census to n = 12, connectivity of extremals, compositionality across 1- and 2-cuts. Kill conditions recorded in 010.
 4. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
@@ -105,7 +148,10 @@ billiards route.
 12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): 006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
 14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
-15. [union-closed] **Push the kill's frontier** (cheap, from 014 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]); extend the raw-weight ladder past n = 128 (certified +0.157 at 96 — does it also eventually cross?); and re-run the 014 ladder at the λ-window boundary as the first data point for queue item 1(ii).
+15. [maxwell-equilibria] **Run blind.** First attempt: certified counts for structured 3-charge families beyond the harness self-test knowns — collinear with unequal charges (does the count stay 2 or drop?), isoceles families, a coarse (shape × charge-ratio) sweep. Deliverable is the count strata map, `EVIDENCE` scoped by grid and region. Every complete count must pass the index-sum identity; treat a violation as a harness bug, not a finding.
+16. [maxwell-equilibria] ~~Skeptic review of 001~~ **DONE in 002** (confirmed-with-corrections; escalation discharged; brackets 12/16 certified; centroid Hessian exact). Replacement — harden the verification chain per 002's findings: (i) fix `verify_equilibria.py`'s tiling check with the axis-consistency reconstruction (prefix-freeness + Kraft is provably insufficient for axis-labelled paths — 002 R1) and add the two tamper-demo certificates from `explore/skeptic_verifier_gap_demo.py` as regression tests. Tier-0 change: keep it generic (a checker fix, no findings in prose), tests must pass. (ii) Guard `krawczyk()`'s rounded midpoint at low precision / deep min-width (002's latent hazard: margin 2⁻³¹ at 001's params, untriggered). (iii) Optional certified add-ons: binary-search the window edges q ∈ (4.389, 4.400)·10⁻³ and the sliver census q ∈ (4.389, 4.3968)·10⁻³ separating the 24→16 edge from the centroid degeneracy q\* = 81√2·t³/16.
+17. [maxwell-equilibria] Three-positive-charge census hunting the open 4-vs-6 gap: after 15's strata map, target the strata boundaries (where counts jump) with unequal charges. Win condition kept in view by every run: any configuration certified with ≥ 5 isolated equilibria refutes the conjectured max 4 and is a result people have sought since 1873 — it must survive verify_equilibria.py and be reported as requiring escalation. Equal-magnitude configurations are settled (Tsai 2015, max 4) — spend no effort there.
+18. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]); extend the raw-weight ladder past n = 128 (certified +0.157 at 96 — does it also eventually cross?); and re-run the 016 ladder at the λ-window boundary as the first data point for queue item 1(ii).
 
 ## Verified results
 
@@ -371,9 +417,10 @@ billiards route.
   permanently carried by 005/008's informal cross-checks.
 
 - **[union-closed] i-AGGREGATED odds-ratio control REFUTED at large n
-  (skeptic-confirmed)** (2026-08-04, attempts 014+015): the control —
+  (skeptic-confirmed)** (2026-08-04, attempts 016+017): the control —
   certified positive at n ≤ 7 by 013 and surviving 58 seeded attacks at
-  n ≤ 32 — fails asymptotically: replicating the 10-atom witness's
+  n ≤ 32 (and by the parallel line at 014/015, next entry) — fails
+  asymptotically: replicating the 10-atom witness's
   crash core Θ(n) times with orbit-optimized shared unit weights gives
   a ladder MU(n,r) whose aggregate falls like a − b·log n, certified
   negative in exact rational arithmetic at n = 96 (−7.6e-4, enclosure
@@ -387,7 +434,11 @@ billiards route.
   to certified +0.157 at n = 96. Corrections: n = 128 atom count (252);
   and the violation lives at λ ∈ [2, 2.5], NOT in the 009/011 workable
   window (≈ 0.05 at n = 96) — so the ∀λ gap closes but the
-  window-restricted variant is untouched (queue 1).
+  window-restricted variant is untouched (queue 1). Recorded as 016/017
+  rather than 014/015 because it ran in parallel with an independent
+  probe of the same object (next entry) that reached the 014/015 slots
+  first; nothing else about either record was changed on merge, and the
+  two agree at n ≤ 32.
 
 - **[crouzeix] Dim-3 local-maxima census: no unknown extremal structure
   (blind, skeptic-confirmed)** (2026-08-04, attempts 001+002): 286-start
@@ -408,6 +459,76 @@ billiards route.
   Overton alone. Scope: this design only — Overton's published
   intermediate maxima (≈ 1.185, ≈ 1.433) never appeared and their
   basins are untested (queue 10).
+
+- **[maxwell-equilibria] Explicit five-charge witness: exactly 24
+  nondegenerate equilibria, certified (both engines)** (2026-08-04,
+  attempt 001): unit charges at e₁, e₂, e₃ plus charges 4367/1000000 at
+  (1/3,1/3,1/3) ± (17/200)(1,1,1) — a rational embedding of the
+  arXiv:2607.27197 family at ε ≈ 0.18, charge within 2·10⁻⁸ of their law —
+  has exactly 24 isolated equilibria, all nondegenerate with certified
+  index signs (10/−14, sum −4 = 1−n as Poincaré–Hopf demands). Complete
+  census: 472k boxes tile the localization ball, zero unresolved leaves,
+  enclosure widths 5·10⁻⁷–2·10⁻⁴; independently re-verified leaf-by-leaf
+  (different arithmetic, interval Newton vs Krawczyk), PASS in 924 s.
+  24 > (5−1)² = 16: an explicit, checkable instance of the refutation of
+  Maxwell's conjecture — the preprint's own result is asymptotic with no
+  explicit ε. Float `EVIDENCE`, sampled grids: the 24-count window exists
+  only for ε ≲ 0.18 and spans ~0.5% in q. Escalation open: skeptic review
+  of the shared driver (queue 16) before this is settled library fact.
+
+- **[maxwell-equilibria] Witness settled: 001 skeptic-confirmed, fold
+  brackets certified, verifier gap found and closed for this certificate**
+  (2026-08-04, attempt 002): the escalation is discharged. A
+  shifted+enlarged-region re-census (472,775 boxes, tree sharing no box
+  with 001's) certifies exactly 24 again and PASSes the independent
+  verifier; an 80-bit re-run reproduces 001's tree verdict-by-verdict
+  (splits are grid-independent — precision perturbs nothing, the region
+  shift carries the independence weight). 001's float predictions are now
+  certified counts: 12 at q = 4360/10⁶ (index +4/−8), 16 at q = 4400/10⁶
+  (+6/−10; 2.2× tree, near-degenerate). Fresh-code structural checks on
+  001's certificate all pass in exact ℚ (tiling proof, 24 enclosures
+  pairwise disjoint with min gap 1.22e-3, index sum −4, region ⊇ ball).
+  Correction of record (R1): the checker's prefix-freeness + Kraft tiling
+  test is unsound for axis-labelled paths — a tampered certificate hiding
+  a real equilibrium PASSes it; coverage independence rested on the
+  (audited, correct) driver. Closed here by a strictly stronger
+  axis-consistency tree reconstruction: 0 violations over all 235,993
+  paths. Exact centroid Hessian (001 lead 5): signature decided by
+  6561t⁶ vs 128q², degeneracy q\* = 81√2·t³/16 ≈ 4.3968·10⁻³, certified
+  index flip +1 → −1 across it (matches C/D certs). Hardening leads in
+  queue 16.
+
+- **[union-closed] Aggregated odds-ratio control survives the mandated
+  large-n probe (skeptic-confirmed)** (2026-08-04, attempts 014+015): the
+  restated gap A(μ,λ) ≥ 0 (013's i-aggregated control) holds on every
+  instance tried — ~1900 total: 840 orbit-census (14 families × λ grids
+  incl. the 4.847/(n−3) window law, n ∈ {10,…,32}), 432 perturbative, 426
+  sparse structured (the 007/013 witness genre re-laid-out per n,
+  multi-gadget stacks, crash/mirror), 82 aggregate-objective hill-climbs,
+  float trends to n = 64. Fifteen exact-rational certificates (Fraction
+  end-to-end, directed log₂ enclosures, widths ≤ 5.9e-12), softest
+  +5.988e-7 at n = 32. Minimum census margin GROWS monotonically with n
+  (crashmix at small λ: +4.9e-4 at n = 10 → +1.2e-3 at n = 32) — the
+  012-style reversal was hunted for and not found, including on 012's own
+  genre. Structure: product measures are the exact equality set for
+  λ > 0 (inclusion proven; converse open — and false at λ = 0), so
+  perturbative departures rise ~quadratically and the tightest census
+  points are boundary noise. Skeptic (015): independent certifier on a
+  different algorithm re-certified 5/15 with zero disagreement (~200×
+  tighter), orbit formulas re-derived and cross-checked at n = 8, 9, dip
+  row (+1.4e-7 at n ≈ 48, recovers by 64) reproduced digit-for-digit and
+  shown not to be a grid artifact, ~116 new adversarial instances in
+  regions 014 could not see — all positive. Four reporting-level
+  corrections (fitted-order range d^1.39–d^2.06, converse overstatement,
+  docstring runtimes, instance count 1820). Finite-n `EVIDENCE`; proof
+  program in queue 1. **Superseded where they differ by 016/017**: the
+  parallel line built the one family this battery did not — the unit
+  ladder MU(n,r) with re-optimized shared weights — and certified the
+  aggregate negative at n = 96–160, so the ∀λ statement is refuted and
+  the proof effort this record licensed is off. Everything certified
+  here still stands: n ≤ 32 is positive on both searches, and the
+  equality-set structure is what makes the λ-restricted variant the
+  live question.
 
 ## Insights / cross-problem notes
 
@@ -431,13 +552,13 @@ billiards route.
   landscape census without an escape-probe pass at matched sampling
   reports optimizer artifacts as mathematics.
 - Unit replication + re-weighting is a portable adversary genre
-  (2026-08-04, union-closed 014/015): a family certified positive at
+  (2026-08-04, union-closed 016/017): a family certified positive at
   small n can fail after replicating its adversarial core Θ(n) times
   and re-optimizing shared weights — the zero crossing near n ≈ 90 was
   invisible to every fixed-n search below it. Second vindication of
-  probe-before-proof. Companion lesson from 015's correction C2: a kill
+  probe-before-proof. Companion lesson from 017's correction C2: a kill
   must be checked against the workable parameter window before
-  declaring a branch fully closed — 014's kill closes the recorded ∀λ
+  declaring a branch fully closed — 016's kill closes the recorded ∀λ
   statement; the window-restricted variant needed its own verdict and
   didn't get one from this family.
 - Ripple scan of the Astra results ran (2026-08-04, informed):
@@ -613,6 +734,52 @@ billiards route.
   relabeling. Any law fitted over family members must first quotient
   by the word-canonicalization symmetry.
 
+- Onboarding (2026-08-04): maxwell-equilibria added per `docs/PLAN-em-problems.md`,
+  and the Phase-0 literature check changed the framing mid-plan: Maxwell's
+  general (n−1)² conjecture was refuted by a preprint SIX DAYS before
+  onboarding (arXiv:2607.27197, ≥ 24 nondegenerate equilibria from 5 charges;
+  companion 2607.28785 takes 3 positive charges from 12 to 6). The refutation
+  is perturbative with no explicit certified witness — queue 16 targets
+  exactly that gap, which our certificate machinery is unusually suited to.
+  Frame all attempts against the surviving questions (n=3 max 4-vs-6,
+  explicit witnesses, growth of the max), never against the dead statement.
+  thomson-sphere (second problem in the plan) deferred to a follow-up
+  onboarding session. New harness pattern worth reusing: certificate =
+  subdivision tree with split paths + per-leaf certificates, so the
+  independent checker can re-establish every leaf AND verify the tiling
+  combinatorially (prefix-freeness + Kraft equality) — coverage claims stop
+  being trust-me. Also: decimal's squareRoot ignores context rounding
+  (always half-even, per spec) — directed sqrt bounds must be established
+  by hand; caught by the verifier's own validation suite.
+
+- Prefix-freeness + Kraft equality does NOT imply a tiling for
+  axis-labelled split paths (2026-08-04, maxwell 002): {"01","11"} is
+  prefix-free with Kraft sum 1 and tiles nothing — so a checker that
+  verifies coverage combinatorially from split paths accepts non-covering
+  trees, and a tampered certificate that hides a real equilibrium PASSes.
+  The lesson generalizes: an "independent" verifier must re-establish
+  coverage from leaf geometry (axis-consistency reconstruction), not from
+  combinatorial summaries the driver emitted; otherwise coverage
+  independence silently reduces to trusting the driver. Same cycle, same
+  family: changing working precision does not perturb a width-driven
+  subdivision tree at all (identical 471,985 boxes at 64 and 80 bits) —
+  region offsets, not precision, are the real tree-independence test.
+- Probe-before-proof paid for itself twice (2026-08-04, union-closed
+  014/015): the mandated large-n probe reshaped the proof target — products are the exact equality set of the
+  aggregated control (λ > 0), so the conjecture is boundary positivity of
+  a functional vanishing identically on products, and the census minima
+  are boundary noise rather than adversaries. It did NOT clear the proof
+  gate, though this record read it as having done so: the parallel probe
+  at 016/017 found the crossing past n ≈ 90 that this battery's families
+  could not reach. Third lesson, from the pair: "survives every genre I
+  built" is a statement about the genre list, and two independent probes
+  of one object are worth more than one probe with more instances. Two engine-methodology
+  notes that made the certificates cheap: integer-scaled rows make the
+  aggregate denominator exact, and a from-scratch certifier on a
+  different enclosure algorithm (binary digit-extraction log₂ vs atanh
+  series) is a fast, decisive skeptic instrument (5 re-certifications,
+  nested intervals, zero disagreement).
+
 ## Dead ends
 
 - **[union-closed] Pointwise Plackett odds-ratio control (gap (a) as
@@ -630,14 +797,14 @@ billiards route.
   margin-modulated controls (queue item 1). [Update 2026-08-04: the
   i-aggregated replacement is now also dead — see below.]
 - **[union-closed] i-AGGREGATED odds-ratio control, unrestricted-λ form
-  (013's restatement)** (2026-08-04, attempts 014+015): dead at large n —
+  (013's restatement)** (2026-08-04, attempts 016+017): dead at large n —
   the replicated-witness ladder MU(n,r) with orbit-optimized shared unit
   weights is certified negative in exact rational arithmetic at
   n = 96/128/160 (λ = 2, marginals ≤ 0.309), independently re-derived to
-  18+ digits by 015's from-scratch engine. Do not re-attempt any ∀λ
+  18+ digits by 017's from-scratch engine. Do not re-attempt any ∀λ
   aggregated form; the ladder + re-weighting genre is the reusable
-  adversary (`explore/uc_or_agg_probe2.py` builds it,
-  `explore/uc_or_agg_skeptic.py` certifies independently). NOT covered
+  adversary (`explore/uc_agg_ctrl_probe2.py` builds it,
+  `explore/uc_agg_ctrl_skeptic.py` certifies independently). NOT covered
   by the kill: the margin-modulated control and the λ ≲ c/n
   window-restricted variant (the violation sits at λ ∈ [2, 2.5], far
   above the workable window) — both live, queue item 1.

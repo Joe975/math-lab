@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Attempt 015: skeptic re-computation of 014's aggregated-control kill.
+"""Attempt 017: skeptic re-computation of 016's aggregated-control kill.
 
 INDEPENDENCE CONTRACT.  This file imports nothing from uc_or_avg.py,
-uc_or_avg_skeptic.py, uc_or_agg_probe.py or uc_or_agg_probe2.py.  The
+uc_or_avg_skeptic.py, uc_agg_ctrl_probe.py or uc_agg_ctrl_probe2.py.  The
 quantity is re-derived from the PROSE of 007 section 1 and 007 section 5 /
 013 part C:
 
@@ -29,12 +29,12 @@ lcm of denominators and by den(t)^n), so no rounding exists anywhere except
 inside the log2 enclosure, which is directed.
 
 Standard library only.  Deterministic.  Instances are read as DATA from
-014's checkpoints (theta parameters / atom lists); the family construction
-MU(n, r) is re-implemented from the prose of 014 section 1 and
+016's checkpoints (theta parameters / atom lists); the family construction
+MU(n, r) is re-implemented from the prose of 016 section 1 and
 cross-checked atom-by-atom in scripts/ -- not imported.
 
 Usage:
-    python problems/union-closed/explore/uc_or_agg_skeptic.py [--quick]
+    python problems/union-closed/explore/uc_agg_ctrl_skeptic.py [--quick]
         [--n128] [--n160]
 Checkpoints: problems/union-closed/data/aggsk15_*.json
 """
@@ -307,13 +307,13 @@ def exact_aggregate(u: dict[int, Fraction], n: int, t: Fraction,
 
 
 # ======================================================================
-# instance builders (re-implemented from 014's prose; data from
+# instance builders (re-implemented from 016's prose; data from
 # checkpoints)
 # ======================================================================
 
 def mu_ladder_from_theta(n: int, r: int, th: dict[str, float]
                          ) -> dict[int, Fraction]:
-    """MU(n, r) from the prose of 014 section 1.  Coordinate j = bit j-1.
+    """MU(n, r) from the prose of 016 section 1.  Coordinate j = bit j-1.
     Block a: {1,n-1}:A1, {1,n}:A2, light slices {1,c_j,n}:light;
     block b: {}:B0, {n-1}:B1, {n}:B2, responders {c_j,n-1}:resp;
     dilution {2},{3},{4}:dil; response coordinates c_j = 5..4+r.
@@ -337,7 +337,7 @@ def mu_ladder_from_theta(n: int, r: int, th: dict[str, float]
 
 
 def tidy(u: dict[int, Fraction], den: int = 10 ** 4) -> dict[int, Fraction]:
-    """014's tidy-rational convention: limit_denominator(1e4), zeros
+    """016's tidy-rational convention: limit_denominator(1e4), zeros
     dropped after rationalization."""
     out = {a: w.limit_denominator(den) for a, w in u.items()}
     return {a: w for a, w in out.items() if w > 0}
@@ -423,7 +423,7 @@ def main() -> None:
             and row["lambda"] == 2.0 and row["n"] == 96][0]["theta"]
     u96 = mu_ladder_from_theta(96, 90, th96)
     print(f"[S2] theta* ladder n=96 r=90 ({len(u96)} atoms) t=4 "
-          f"(014 cert: [-0.000759865185844166087, ...086]):")
+          f"(016 cert: [-0.000759865185844166087, ...086]):")
     r96 = exact_aggregate(u96, 96, Fraction(4), progress=True)
     print("    " + fmt(r96))
     results["theta2_n96_t4"] = public(r96)
@@ -435,14 +435,14 @@ def main() -> None:
         b = d3["best"]
         u32 = tidy({int(k, 2): Fraction(v) for k, v in b["u"].items()})
         print(f"[S3] P3-best n={b['n']} tidy ({len(u32)} atoms) t=4 "
-              f"(014 cert: +0.297679573):")
+              f"(016 cert: +0.297679573):")
         r32 = exact_aggregate(u32, b["n"], Fraction(4))
         print("    " + fmt(r32))
         results["p3best_n32_tidy_t4"] = public(r32)
         save("aggsk15_results.json", results)
 
     # ---- surviving-positive-space check: RAW witness-weight ladder at
-    #      n = 96 with 014's P6 adversarial dilution weight, t = 4
+    #      n = 96 with 016's P6 adversarial dilution weight, t = 4
     if not quick:
         d6 = json.loads((DATA / "aggprobe2_partP6.json").read_text())
         row6 = [x for x in d6["rows"] if x["n"] == 96
@@ -451,7 +451,7 @@ def main() -> None:
         thraw["dil"] = row6["wdil"]
         uraw = mu_ladder_from_theta(96, 90, thraw)
         print(f"[S4] RAW witness ladder n=96 wdil={row6['wdil']:.6f} t=4 "
-              f"(014 P6 float: {row6['agg']:+.6f}):")
+              f"(016 P6 float: {row6['agg']:+.6f}):")
         rr = exact_aggregate(uraw, 96, Fraction(4), progress=True)
         print("    " + fmt(rr))
         results["raw_ladder_n96_t4"] = public(rr)
@@ -463,7 +463,7 @@ def main() -> None:
                  and row["lambda"] == 2.0 and row["n"] == 128][0]["theta"]
         u128 = tidy(mu_ladder_from_theta(128, 122, th128))
         print(f"[S5] theta* ladder n=128 tidy ({len(u128)} atoms) t=4 "
-              f"(014 cert: -0.015405727):")
+              f"(016 cert: -0.015405727):")
         r128 = exact_aggregate(u128, 128, Fraction(4), progress=True)
         print("    " + fmt(r128))
         results["theta2_n128_tidy_t4"] = public(r128)
@@ -473,7 +473,7 @@ def main() -> None:
         u160 = {int(k, 2): Fraction(float(v))
                 for k, v in d7["u_target"].items()}
         print(f"[S6] theta* ladder n=160 dyadic ({len(u160)} atoms) t=4 "
-              f"(014 cert: -0.024225909):")
+              f"(016 cert: -0.024225909):")
         r160 = exact_aggregate(u160, 160, Fraction(4), progress=True)
         print("    " + fmt(r160))
         results["theta2_n160_dyadic_t4"] = public(r160)
