@@ -39,9 +39,19 @@ glide facts, specializations; 23 theorems, zero corrections, statement
 review + independent rebuild complete), **crouzeix got its first
 attempt** (blind, 001, skeptic-confirmed 002): a certified 286-start
 local-maxima census at n = 3, deg ≤ 3 finds no unknown extremal
-structure — no problem in the portfolio is unattempted any more — and the
+structure — every problem carried at the time now has an attempt (the two
+onboarded below do not yet) — and the
 **maxwell-equilibria escalation is DISCHARGED** (002 confirms 001's
 certified 24-equilibria witness; see the standing note below).
+
+2026-08-04: two problems onboarded from a conductance-physics scoping pass
+(`docs/PLAN-conductance-problems.md`): **almost-mathieu** (Dry Ten Martini at
+critical coupling; exact Chambers-polynomial harness over the real cyclotomic
+field, smoke-tested through golden-mean convergent 21/34) and
+**three-phase-conductivity** (attainability of optimal three-phase 2D
+composite bounds; exact laminate algebra with dual-route verification).
+Harnesses self-tested and cross-verified; **no attempts yet on either** — both
+first attempts should run blind (queue 18–19).
 
 To pick something up, take an item from the attempt queue and follow
 `docs/CYCLE.md` — either by hand, one line at a time, or by restarting an
@@ -111,10 +121,11 @@ surviving; route LIVE, ceiling 0.4315 vs record 0.38271. Standing
 library: Singmaster census to 2.5×10^29; Erdős–Gyárfás cubics to
 n=22 + girth-≥5 at n=24; lonely-runner k=8; Erdős–Straus
 identity-poverty; graceful n ≤ 14; mahler-4d and billiards blind
-censuses. As of 2026-08-04: 25 verified results, 8 recorded dead
-ends, 10 problems all with at least one attempt, ~56 reusable tools,
+censuses. As of 2026-08-04: 28 verified results, 8 recorded dead
+ends, 13 problems (11 with at least one attempt), ~84 reusable tools,
 and a machine-checked certificate layer (24 Lean theorems) over the
-billiards route.
+billiards route. Almost-mathieu and three-phase-conductivity are the
+problems with no attempts (queue 18–19; run blind).
 
 ## Problem status
 
@@ -131,6 +142,8 @@ billiards route.
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
+| Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
+| Three-phase conductivity | onboarded, no attempts | medium | dual-route laminate harness ready; first attempt is the two-phase ground-truth self-test (run blind) |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -151,7 +164,9 @@ billiards route.
 15. [maxwell-equilibria] **Run blind.** First attempt: certified counts for structured 3-charge families beyond the harness self-test knowns — collinear with unequal charges (does the count stay 2 or drop?), isoceles families, a coarse (shape × charge-ratio) sweep. Deliverable is the count strata map, `EVIDENCE` scoped by grid and region. Every complete count must pass the index-sum identity; treat a violation as a harness bug, not a finding.
 16. [maxwell-equilibria] ~~Skeptic review of 001~~ **DONE in 002** (confirmed-with-corrections; escalation discharged; brackets 12/16 certified; centroid Hessian exact). Replacement — harden the verification chain per 002's findings: (i) fix `verify_equilibria.py`'s tiling check with the axis-consistency reconstruction (prefix-freeness + Kraft is provably insufficient for axis-labelled paths — 002 R1) and add the two tamper-demo certificates from `explore/skeptic_verifier_gap_demo.py` as regression tests. Tier-0 change: keep it generic (a checker fix, no findings in prose), tests must pass. (ii) Guard `krawczyk()`'s rounded midpoint at low precision / deep min-width (002's latent hazard: margin 2⁻³¹ at 001's params, untriggered). (iii) Optional certified add-ons: binary-search the window edges q ∈ (4.389, 4.400)·10⁻³ and the sliver census q ∈ (4.389, 4.3968)·10⁻³ separating the 24→16 edge from the centroid degeneracy q\* = 81√2·t³/16.
 17. [maxwell-equilibria] Three-positive-charge census hunting the open 4-vs-6 gap: after 15's strata map, target the strata boundaries (where counts jump) with unequal charges. Win condition kept in view by every run: any configuration certified with ≥ 5 isolated equilibria refutes the conjectured max 4 and is a result people have sought since 1873 — it must survive verify_equilibria.py and be reported as requiring escalation. Equal-magnitude configurations are settled (Tsai 2015, max 4) — spend no effort there.
-18. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]); extend the raw-weight ladder past n = 128 (certified +0.157 at 96 — does it also eventually cross?); and re-run the 016 ladder at the λ-window boundary as the first data point for queue item 1(ii).
+18. [almost-mathieu] **Run blind.** Rational-flux gap census, all p/q with q ≤ 30: certify every gap open except the even-q central touching (re-derives van Mouche / Choi–Elliott–Yui in range; expected `VERIFIED`, scope = the q range), then the golden-mean convergent table — exact minimal-gap widths and q·|σ| along Fibonacci p/q as far as tooling reaches, against the (unproven) Thouless constant 32C/π. Onboarding smoke runs: q·|σ| = 9.2509 / 9.3199 / 9.3608 at q = 13 / 21 / 34 vs 9.3299 conjectured. Every record re-verified with `verify_bands.py` before ledger entry. Kill condition: if exact arithmetic stalls before q ≈ 100 even with a C kernel to the same contract, record the wall — no asymptotic claims from small denominators.
+19. [three-phase-conductivity] **Run blind.** Two-phase ground truth first: rank-2 laminates attaining the 2D HS bounds exactly in ℚ, duality checks, series/parallel forms (expected `VERIFIED`, harness validation). Then the three-phase attainability map: fixed rational (σ₁,σ₂,σ₃), rational grid on the fraction simplex, bounded-rank laminate optimization (float screen, exact certification), gap-to-HS charted per cell (`MAP`/`EVIDENCE`, scoped by rank + direction set + grid). Nesi/Cherkaev improved bounds enter as marked transcriptions cross-checked against the papers' examples before anything is killed against them. Kill condition: bounded-rank optima plateauing strictly inside bounds across the whole grid = one negative-map record, then cap the budget.
+20. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]); extend the raw-weight ladder past n = 128 (certified +0.157 at 96 — does it also eventually cross?); and re-run the 016 ladder at the λ-window boundary as the first data point for queue item 1(ii).
 
 ## Verified results
 
