@@ -100,7 +100,9 @@ def test_docs_do_not_point_at_missing_files():
     )
     broken = []
     for doc in sorted(ROOT.rglob("*.md")):
-        if ".git" in doc.parts or "attempts" in doc.parts:
+        if ".git" in doc.parts or "attempts" in doc.parts or ".lake" in doc.parts:
+            # .lake/ holds fetched Lean dependencies (e.g. mathlib's own
+            # docs); git-ignored, not ours to lint.
             continue
         text = doc.read_text(encoding="utf-8", errors="ignore")
         for match in pattern.finditer(text):

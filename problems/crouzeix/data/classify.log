@@ -1,0 +1,26 @@
+286 endpoints
+  probed 50/286
+  probed 100/286
+  probed 150/286
+  probed 200/286
+  probed 250/286
+
+class counts: {'stall': 175, 'near2-double': 48, 'near2-other': 44, 'one-exact': 13, 'below2-max': 4, 'near2-triple': 2}
+  companion   {'stall': 30, 'near2-double': 1, 'one-exact': 1, 'below2-max': 2}
+  jordan2     {'near2-other': 12, 'stall': 7, 'near2-double': 14, 'near2-triple': 1}
+  jordan3     {'near2-double': 11, 'near2-other': 15, 'stall': 9, 'near2-triple': 1}
+  nearnormal  {'stall': 25, 'one-exact': 8, 'near2-double': 1}
+  peaks       {'stall': 22, 'near2-other': 8, 'near2-double': 4}
+  random      {'stall': 64, 'one-exact': 3, 'near2-other': 6, 'near2-double': 7, 'below2-max': 1}
+  real        {'stall': 18, 'near2-double': 10, 'below2-max': 1, 'near2-other': 3, 'one-exact': 1}
+
+ratio distribution of non-stall endpoints:
+   1.0: 13
+   1.8: 1
+   2.0: 97
+
+4 probe-surviving endpoints strictly between 1 and 1.97:
+  random      seed=300010 ratio=1.96764 gaps=[0.325, 0.407, 0.421] disc=0.013 peaks=4 nonnormal=0.785
+  companion   seed=604002 ratio=1.96026 gaps=[0.163, 0.451, 0.591] disc=0.107 peaks=4 nonnormal=0.688
+  real        seed=406004 ratio=1.95884 gaps=[0.191, 0.286, 0.413] disc=0.040 peaks=3 nonnormal=0.774
+  companion   seed=504010 ratio=1.78117 gaps=[0.301, 0.482, 0.75] disc=0.320 peaks=4 nonnormal=0.647

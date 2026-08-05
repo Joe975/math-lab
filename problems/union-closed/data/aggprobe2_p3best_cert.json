@@ -1,0 +1,13 @@
+{
+ "agg_hi": "+0.297679573398184250233",
+ "agg_hi_float": 0.29767957339818424,
+ "agg_lo": "+0.297679573398184250232",
+ "agg_lo_float": 0.29767957339818424,
+ "dich_ok": true,
+ "in_regime": true,
+ "max_marg_float": 0.344552407031527,
+ "n": 32,
+ "name": "P3_best_n32_lam2.0_tidy_zero_dropped",
+ "t": "4",
+ "verdict": "CERTIFIED POSITIVE"
+}

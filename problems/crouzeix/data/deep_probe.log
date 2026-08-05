@@ -1,0 +1,4 @@
+real seed=406004 ratio96=1.95884 ratio512=1.95884 best_escape=1.96343 STALL
+companion seed=504010 ratio96=1.78117 ratio512=1.78117 best_escape=1.78652 STALL
+companion seed=604002 ratio96=1.96026 ratio512=1.96026 best_escape=1.96476 STALL
+random seed=300010 ratio96=1.96764 ratio512=1.96764 best_escape=1.97300 STALL

@@ -1,0 +1,122 @@
+{
+ "padding_invariance": {
+  "per_n": {
+   "20": 1.8447543150919639,
+   "32": 1.8447543150919639
+  },
+  "witness": 1.8447543150919639
+ },
+ "theorem_b_anchors": {
+  "min_agg": 0.7106271618088762,
+  "rows": [
+   {
+    "agg": 0.7106271618088762,
+    "family": "crash",
+    "lambda": 0.5,
+    "n": 8
+   },
+   {
+    "agg": 10.967966082943247,
+    "family": "crash",
+    "lambda": 3.5,
+    "n": 8
+   },
+   {
+    "agg": 1.5,
+    "family": "mirror",
+    "lambda": 0.5,
+    "n": 8
+   },
+   {
+    "agg": 10.500000000000002,
+    "family": "mirror",
+    "lambda": 3.5,
+    "n": 8
+   },
+   {
+    "agg": 1.6499584078047895,
+    "family": "crash",
+    "lambda": 0.5,
+    "n": 16
+   },
+   {
+    "agg": 23.04786783181196,
+    "family": "crash",
+    "lambda": 3.5,
+    "n": 16
+   },
+   {
+    "agg": 3.5,
+    "family": "mirror",
+    "lambda": 0.5,
+    "n": 16
+   },
+   {
+    "agg": 24.5,
+    "family": "mirror",
+    "lambda": 3.5,
+    "n": 16
+   },
+   {
+    "agg": 2.46603105462227,
+    "family": "crash",
+    "lambda": 0.5,
+    "n": 24
+   },
+   {
+    "agg": 35.121899147117645,
+    "family": "crash",
+    "lambda": 3.5,
+    "n": 24
+   },
+   {
+    "agg": 5.5,
+    "family": "mirror",
+    "lambda": 0.5,
+    "n": 24
+   },
+   {
+    "agg": 38.5,
+    "family": "mirror",
+    "lambda": 3.5,
+    "n": 24
+   },
+   {
+    "agg": 3.204645656441767,
+    "family": "crash",
+    "lambda": 0.5,
+    "n": 32
+   },
+   {
+    "agg": 47.195930461416474,
+    "family": "crash",
+    "lambda": 3.5,
+    "n": 32
+   },
+   {
+    "agg": 7.5,
+    "family": "mirror",
+    "lambda": 0.5,
+    "n": 32
+   },
+   {
+    "agg": 52.5,
+    "family": "mirror",
+    "lambda": 3.5,
+    "n": 32
+   }
+  ]
+ },
+ "witness_n7": {
+  "H": 2.721771624888537,
+  "agg": 1.8447543150919639,
+  "argmin_i": 5,
+  "cell_floor_at_argmin": 3.0395442711895177e-06,
+  "dichotomy_ok": true,
+  "k_atoms": 10,
+  "max_marginal": 0.3177685743531096,
+  "n_defined": 6,
+  "per_i_min": -0.12203341022366754,
+  "wsum": 3.578949670850217
+ }
+}

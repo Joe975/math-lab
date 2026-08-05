@@ -49,6 +49,7 @@ def issue_url(template: str, **prefill: str) -> str:
 STATUS = {
     "VERIFIED": ("verified", "Verified"),
     "VERIFIED_WITH_CORRECTIONS": ("corrected", "Verified, with corrections"),
+    "FORMALIZED": ("verified", "Formalized"),
     "EVIDENCE": ("evidence", "Evidence"),
     "LIVE": ("live", "Live"),
     "REFUTED": ("refuted", "Refuted"),
@@ -66,6 +67,10 @@ STATUS_GLOSS = {
     "did it also found errors in the record it was checking. The original is "
     "kept exactly as written; the corrections are listed against it. Read the "
     "corrections before building on the claim.",
+    "FORMALIZED": "A verified proof step additionally carrying a machine-checked "
+    "certificate (Lean 4), so its verdict does not depend on trusting whoever "
+    "produced it. Covers exactly the formal statement, which the record states "
+    "and which may be narrower than the informal claim.",
     "EVIDENCE": "Computational support, not proof. A search to 10<sup>6</sup> is "
     "evidence about 10<sup>6</sup>.",
     "LIVE": "A route that has survived every adversary tried, with no bound yet "

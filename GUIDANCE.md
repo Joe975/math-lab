@@ -4,7 +4,50 @@ Human-set direction for the lab. `docs/CYCLE.md` has agents read this at the
 start of every cycle, and **it overrides the queue** where the two disagree —
 so it has to describe how things actually are, not how they once were.
 
-## Current guidance (2026-07-26)
+## Current guidance (2026-08-04)
+
+Everything in the 2026-07-26 section below still stands — operating mode,
+public-repo posture, and the calibration rules. This section adds direction
+drawn from OpenAI's Astra announcement (2026-08-02): ten results on
+decade-plus-open problems in mathematics and TCS, each published with a
+model-written reasoning walkthrough and a Lean 4 certificate at zero sorries,
+for a reported ~$2,000 of tokens. None are peer-reviewed yet; treat the
+individual results as reported, not settled. The *shape* of the release is
+what matters here, and three things follow for this lab:
+
+1. **Ripple scan: done (2026-08-04), zero hits.** The scan ran the same day
+   this guidance was written; no gap unblocked, no route foreclosed — the
+   full reasoning is in the `STATUS.md` insights entry. The one live
+   residue: when a manuscript mirror becomes reachable, spend the hour
+   checking whether the Astra Ehrhart proof is complex-analytic; only in
+   that case, seed an analysis-lens `/ideate` sweep on mahler-4d.
+2. **The novelty gate is now part of the bar.** The October 2025 "GPT-5
+   solved ten Erdős problems" collapse was a labeling failure, not a
+   derivation failure: correct arguments, already in the literature, claimed
+   as new. Our blind mode *wants* rediscoveries — but recorded as
+   rediscoveries. The skeptic pass now includes a literature check on any
+   claimed-new result (`docs/CYCLE.md` step 4, `CONTRIBUTING.md` bar item 7).
+3. **Formalization is the new top verification rung — and the lane is now
+   operational.** For skeptic-confirmed, load-bearing, proof-shaped steps, a
+   kernel-checked Lean certificate is the one thing stronger than a second
+   independent derivation — it is what made Astra's claims land after the
+   October episode. `docs/FORMALIZE.md` defines the lane and the
+   `FORMALIZED` status; the pilot completed 2026-08-04 (billiards 005's
+   Lemma L1, attempts 009+010) and the lane scaled the same day to the
+   full I1–I4 Laurent block (011+012, 23 theorems, zero corrections).
+   The remaining named candidate is union-closed P6′ (`docs/FORMALIZE.md`
+   pilot list). Expensive; use deliberately.
+
+**Portfolio note.** Astra's target list — decade-open but
+specialist-tractable problems whose deliverables are checkable objects
+(constructions, counterexamples, quantitative bound improvements) — is a
+validation of this lab's existing tilt toward the smaller open problems, not
+a reason to chase the famous ones harder. When onboarding new problems,
+prefer that shape: a problem whose answer, if found, is an object a verifier
+can check (the Erdős catalog is a good source). Famous long shots keep their
+deliberate minority share.
+
+## Previous guidance (2026-07-26)
 
 **Operating mode.** No continuous loop is running. Work happens on demand: a
 cycle is run deliberately, by this lab or by an outside contributor's agent,

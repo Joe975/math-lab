@@ -476,7 +476,8 @@
         "witness-at-n",
         "gadget stack"
       ],
-      "note": "Probe only, per the queue's ordering (012's budget-growth reversal was the standing warning; it was looked for and not found in the aggregate, including on 012's own crash-mixture genre). Sign of the aggregate shown convention-robust under 013's surrogate-lambda bookkeeping (numerator unchanged, denominator grows). Certificates are for quantized refit measures at exact rational tilts (013 R2 scope). Proof effort on the aggregated control is now justified by the queue's own criterion; lead 1 (product-boundary Hessian) is the entry point."
+      "note": "Probe only, per the queue's ordering (012's budget-growth reversal was the standing warning; it was looked for and not found in the aggregate, including on 012's own crash-mixture genre). Sign of the aggregate shown convention-robust under 013's surrogate-lambda bookkeeping (numerator unchanged, denominator grows). Certificates are for quantized refit measures at exact rational tilts (013 R2 scope). Proof effort on the aggregated control is now justified by the queue's own criterion; lead 1 (product-boundary Hessian) is the entry point. Superseded where they differ by 016/017 (merged from a parallel cycle): the same control is certified NEGATIVE on a unit-replicated ladder at n = 96-160, so the n <= 32 positivity recorded here is a small-n fact, not a licence for proof effort on the forall-n statement. The two searches are consistent -- 016 also finds nothing negative at n <= 32.",
+      "superseded_by": "016"
     },
     {
       "id": "015",
@@ -520,6 +521,81 @@
         "6.4e-7 first-order floor"
       ],
       "note": "Decisive check: 014's unreviewed enclosure kit is re-derived by hand and beaten against a from-scratch certifier using a different algorithm (binary digit extraction with directed integer shifts; exact integer masses so the aggregate denominator is exact); the five re-certifications agree with 014's enclosures at width 1.1e-14, including on the identical quantized refit measures. New floor observed: the lambda -> 0 first-order coefficient at the dip point is +6.4e-7 (n = 48), the smallest Theorem-C square seen anywhere; lead 2 should track that coefficient, not A at fixed lambda."
+    },
+    {
+      "id": "016",
+      "file": "attempts/016-aggregated-control-probe-large-n.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "gram-mass-pairing",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Large-n probe of the restated Gap 1 kills it: unit-replicating the 10-atom witness genre (r crash units sharing one block marker) with re-optimized shared weights drives the i-aggregated control negative past n ~ 90, certified float-free at t = 4 (n = 96 and 160, marginals <= 0.309); the n <= 32 space stays positive everywhere searched.",
+      "leak_terms": [
+        "unit replication",
+        "multi-unit witness ladder",
+        "MU(n,r)",
+        "theta-star ladder",
+        "aggregate crossing",
+        "O(1) surplus corridor",
+        "0.024226",
+        "-0.000759865",
+        "uc_agg_ctrl_probe",
+        "aggprobe"
+      ],
+      "range": "Free-support seeded climbs n <= 32 (58 climbs round 1, deep annealed round 2) plus permutation orbits: 0 violations; unit-symmetric ladder evaluated to n = 160 (raw witness weights: positive through n = 128, min +0.157; optimized theta*: float crossing in (88, 96], -0.0242 at n = 160, 20/20 perturbations stay negative); exact rational certificates at t = 181/16 and t = 4, enclosure widths < 1e-18",
+      "refuted_by": null,
+      "gaps": [
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "note": "Settles queue item 1's probe-first branch negatively: the aggregated control is certified positive at n <= 32 on everything searched, so proof effort there was exactly the small-n trap 012 warned about. The kill is convention-robust (scoring degenerate histories at lambda only grows the denominator, never the numerator). Route stays LIVE; Gap 1 falls to the margin-modulated candidate (007 lead 2), which this record's ladder family must now be run against. Recorded as 016/017 (not 014/015) and on engines uc_agg_ctrl_probe*.py / uc_agg_ctrl_skeptic.py: this line ran in parallel with 014/015, which took the 014/015 slots and the uc_or_agg_probe.py name first. The two are independent and compatible -- 014 certifies the aggregate positive at n <= 32, which is exactly where this record finds nothing either; the kill lives past n ~ 90."
+    },
+    {
+      "id": "017",
+      "file": "attempts/017-skeptic-review-of-016.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "016",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "gram-mass-pairing"
+      ],
+      "one_line": "From-scratch third implementation of the aggregate (scaled-integer census plus an interval-squaring log2 enclosure, nothing shared with the probe engines) confirms 014's kill: all three certificates re-derive with matching digits (n=96 in [-0.000759865185844166092, -0.000759865185844166079], n=128 -0.0154057269, n=160 -0.0242259093, all t=4, marginals certified below 0.38271, dichotomy exact), the anchors and positive controls re-certify (+1.844669005 witness; raw-weight ladder at n=96 upgraded to certified +0.157131854664), and the convention-robustness proof re-derives; corrections: the n=128 instance has 252 atoms not 253, and P4's claim that the violating lambda-window sits where 009/011's lambda-window law puts the workable range is wrong (at n=96 the law gives lambda_max ~ 0.052 vs the violation at lambda in [2, 2.5]), so the lambda-restricted restatement joins the margin-modulated control as a live Gap-1 candidate.",
+      "corrections": [
+        "n = 128 tidy certificate instance has 252 atoms (2r+8, r=122), not the 253 stated in 014's certification block and Outcome table",
+        "P4's 'violating window sits exactly at moderate lambda where 009/011's lambda-window law puts the workable range' is false at every violating n: lambda_max ~ 4.847/(n-3) ~ 0.052 at n = 96 while the violation lives at lambda in [2, 2.5] and the same family is positive at lambda <= 1.5 -- the kill closes the unrestricted for-all-lambda gap only, and the lambda-restricted (lambda <~ c/n) restatement is untouched by this family"
+      ],
+      "range": "Kill certificates independently re-derived at n = 96 (188 atoms), 128 (252 atoms), 160 (316 atoms), all at t = 4 exactly, enclosure widths <= 1.3e-20; witness anchor at t = 181/16; P3-best n = 32 and raw-witness ladder n = 96 positives certified; padding invariance MU(20,1)/MU(32,1) verified as exact rational identity; alternative-bookkeeping aggregate certified negative at all three n; MU builder cross-checked atom-for-atom against the probe's; 014's float-only side claims (crossing in (88,96], 20/20 perturbations, P4 window edges) reconciled against checkpoints but not certified; n <= 32 search completeness not re-run (stays EVIDENCE)",
+      "refuted_by": null,
+      "gaps": [
+        "margin-modulated-or-control",
+        "lambda-restricted-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "aggsk15",
+        "uc_agg_ctrl_skeptic",
+        "interval-squaring enclosure",
+        "0.157131854664",
+        "lambda-window disjointness",
+        "252 atoms not 253"
+      ],
+      "note": "Decisive check per the 2026-07-31 verification standard: 014's certificates reused 013's exact engine and enclosures, so this review removes the shared-code risk with a third census written from 007 section 1's prose and a structurally different certified log2 enclosure (dyadic interval squaring; ln 2 from the exact series sum 1/(k 2^k)). Free anchors verified exactly: OR/t = 1 at i = n (005 Prop 1) on every instance, and including the i = n term keeps every kill negative. Union-closure of the support is correctly NOT a hypothesis (the control quantifies over all mu; 007's witness was not union-closed either) -- checked and recorded so the scope is explicit. Precedent followed from 013/007: the reviewed entry (014) is not modified."
     }
   ]
 }

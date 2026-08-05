@@ -244,6 +244,99 @@
       ],
       "refuted_by": null,
       "gaps": []
+    },
+    {
+      "id": "009",
+      "file": "attempts/009-lean-pilot-cot-lemma.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "FORMALIZED",
+      "mechanism": [
+        "machine-checked-formalization",
+        "symbolic-trig-closed-form"
+      ],
+      "one_line": "First Lean 4 certificate in the lab: Lemma L1 of 005 (c.cot(cs) strictly decreasing on (0,1] for fixed s in (0, pi/2]) proved in mathlib with zero sorries and only the three standard axioms, statement matching 005 hypothesis-by-hypothesis with no narrowing; independent statement review and independent rebuild still pending.",
+      "leak_terms": [
+        "cot_lemma_L1",
+        "strictAntiOn_id_mul_cot",
+        "BilliardsFormal",
+        "no HasDerivAt lemma for Real.cot",
+        "first Lean certificate"
+      ],
+      "verifies": "005",
+      "range": "exactly the formal statement StrictAntiOn (fun c => c * Real.cot (c * s)) (Ioc 0 1) for all real s with 0 < s <= pi/2 (Lean 4.32.2, mathlib v4.32.2); Lemmas C and D themselves, and the I1-I4 Laurent block, are NOT formalized",
+      "gaps": [
+        "laurent-block-I1-I4-not-attempted (queue item 16 second half)"
+      ]
+    },
+    {
+      "id": "010",
+      "file": "attempts/010-statement-review-of-009.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "machine-checked-formalization"
+      ],
+      "one_line": "Independent completion of the FORMALIZE.md pass on 009: non-formalizer statement review finds cot_lemma_L1 matches 005's Lemma L1 hypothesis-for-hypothesis with no narrowing (StrictAntiOn/Ioc/Real.cot read from vendored mathlib source, no junk-value reliance, cheat scan clean), own fresh lake build after deleting the project build output is green with axioms exactly [propext, Classical.choice, Quot.sound], and all three of 005's L1 use sites instantiate inside the formalized hypotheses; zero corrections, two cosmetic nits.",
+      "leak_terms": [
+        "SkepticAxiomCheck",
+        "statement review signed off",
+        "AxiomCheck.lean not committed"
+      ],
+      "verifies": "009",
+      "range": "statement fidelity vs 005 section (ii)-B checked hypothesis by hypothesis; definitions Real.cot, StrictAntiOn, Set.Ioc read from mathlib rev 905b958 source; cheat scan over both project .lean files; rebuild = rm -rf .lake/build + lake build (8657 jobs, green) in a fresh container session with the pinned toolchain, mathlib oleans from the existing pinned cache (not re-downloaded); own axiom audit of both theorems; usage check of all three L1 call sites in 005. NOT audited: mathlib internals beyond the definitions used, Lean kernel, Lemmas C/D themselves",
+      "gaps": []
+    },
+    {
+      "id": "011",
+      "file": "attempts/011-lean-laurent-block.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "FORMALIZED",
+      "mechanism": [
+        "machine-checked-formalization",
+        "formal-parameter-specialization"
+      ],
+      "one_line": "Second Lean 4 certificate: the full Laurent-identity block of 005 - closed-form half-word composition R0.RotA(2a alpha).RotB(-2b beta), I1-I4, D1, D2 and the glide facts - kernel-checked with (a,b) as formal exponent variables (23 theorems, zero sorries, standard three axioms only), tiers A+B+C green plus the letter-word iterate version for all natural (a,b); the block turns out homogeneous in i (no i^2 = -1 needed); geometry bridge out of scope per the lane, statement review pending.",
+      "leak_terms": [
+        "LaurentBlock",
+        "half_word_letters",
+        "half_word_closed_form",
+        "homogeneous in i",
+        "pair encoding conj substitution",
+        "no AddMonoidAlgebra needed"
+      ],
+      "verifies": "005",
+      "range": "exactly the formal statements in formal/BilliardsFormal/LaurentBlock.lean: the identity block over an arbitrary field K with nonzero generators x, y, P, Q, i and 2 != 0 (P, Q carrying the (a,b) exponents formally; Tier C specializes P = x^a, Q = y^b for all integers a, b; half_word_letters covers the genuine letter word for all natural a, b); Lean 4.32.2, mathlib v4.32.2, axioms exactly [propext, Classical.choice, Quot.sound]",
+      "gaps": [
+        "geometry-bridge-not-formalized (ring model = unfolding geometry carried by 005/008, out of scope by design)"
+      ]
+    },
+    {
+      "id": "012",
+      "file": "attempts/012-statement-review-of-011.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "machine-checked-formalization",
+        "independent-reimplementation",
+        "formal-parameter-specialization"
+      ],
+      "one_line": "Independent completion of the FORMALIZE.md pass on 011: non-formalizer statement review confirms all 23 Lean theorems say what 005's Laurent block says (definitions, angle dictionary, signs, conj-as-substitution = 008's star involution, pair encoding assumption-free, i-drop safe, no nat-vs-int narrowing, v2's Q genuinely absent in 005 too); every theorem re-proven in an own 7-variable symbolic ring with i formal (31/31 exact zero polynomials, independently confirming the i-homogeneity), D1 additionally re-derived by hand, statements matched to 005's prose at 200 random points to ~4e-15; own fresh lake build green, own axiom audit of all 23 theorems exactly the standard three; zero corrections, three cosmetic nits.",
+      "leak_terms": [
+        "lbsk_",
+        "7-variable ring i formal",
+        "31/31 zero polynomials",
+        "rationality invariant of the conj substitution",
+        "Laurent block pass complete"
+      ],
+      "verifies": "011",
+      "range": "statement fidelity of all 23 theorems in formal/BilliardsFormal/LaurentBlock.lean checked against 005 (ii)-A Steps 2-4 and plaw_general.closed_forms definition by definition; every theorem re-proven symbolically in an independent stdlib ring with i as a formal Laurent variable (half_word_letters re-composed by symbolic iteration for a,b <= 3); Lean-to-005 mapping float-checked at 200 random (a,b,alpha,beta), a <= 12, 30 quantities; cheat scan over all four project .lean files; rebuild = rm -rf .lake/build + lake build (8658 jobs, green, LaurentBlock re-elaborated 41 s) in a fresh session with the pinned toolchain and mathlib cache; own axiom audit of all 23 theorems from an own scratch file. NOT audited: the geometry bridge (permanent certificate scope, carried by 005/008), Lemmas C/D and the analytic layer, mathlib internals, the Lean kernel",
+      "gaps": []
     }
   ]
 }

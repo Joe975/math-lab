@@ -1,6 +1,66 @@
 {
   "problem": "crouzeix",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Onboarded, never worked. No prior art, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "EVIDENCE",
+  "route_summary": "First attempt (blind, 2026-08-04): a certified 286-start local-maxima census at n=3, deg<=3 found no unknown extremal structure. Skeptic pass complete (002): the evidence stands - independent re-certification 30/30 consistent, stall verdicts and ratio-1 maxima confirmed - with corrections (near-2 count is 94 not 97; the certificates prove 0-certified-above-2, not below-2; Calcolo 2021 is Overton solo). The published intermediate GO/Overton maxima are untested by this design and remain the standing gap.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-blind-dim3-local-maxima-census.md",
+      "date": "2026-08-04",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "optimization-landscape-census",
+        "nonsmooth-maximization",
+        "certified-enclosure",
+        "basin-classification"
+      ],
+      "one_line": "286-start local-maxima census of the Crouzeix ratio at n=3, deg p<=3 from 7 structured start families: every probe-surviving local maximum is known structure (13 ice-cream-cone points at ratio 1, 97 Jordan-type endpoints near ratio 2); all 4 intermediate candidates were optimizer stalls; all 286 endpoints certified below 2, top 8 verified by the independent harness route.",
+      "leak_terms": [
+        "escape-probe stall rate 61%",
+        "near2-other class",
+        "deep-probe stall verdict",
+        "286-start census n3 deg3",
+        "ice-cream-cone rediscovery at ratio 1"
+      ],
+      "range": "dimension 3, polynomial degree <= 3; 286 optimization starts (families: random 81, perturbed-J3 36, perturbed-J2+c 34, near-normal 34, companion-like 34, multi-peak 34, real 33); certified enclosures at all 286 endpoints rounded to denominator 256 (tol 1e-6, 32 half-planes), 0 refutations, max certified lower bound 1.969725",
+      "gaps": [
+        "published intermediate local maxima (ratios ~1.185, ~1.433 at this slice, per Greenbaum-Overton Calcolo 2021) were never reached by this design; their basins are untested here and the census says nothing about them"
+      ],
+      "superseded_by": "002"
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-skeptic-review-of-001.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "001",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "optimization-landscape-census"
+      ],
+      "one_line": "Independent re-implementation (Sylvester-minor bisection + Rayleigh + Bernstein segment bounds, nothing shared with the harness) confirms 001's census evidence: 30/30 stratified re-certifications consistent, both anchors reproduced to the digit, all 4 stall verdicts confirmed under a fair 512-vs-512 protocol, both attacked ratio-1 maxima survive with zero ascent; corrections: near-2 class is 94 not 97, the index's 'all 286 certified below 2' overstates 0-refutations (182/286 upper ends exceed 2), Calcolo 2021 is Overton solo, and the deep-probe protocol compared mismatched boundary resolutions (quantified harmless).",
+      "range": "re-certified 30 of 286 endpoints (all 4 below2-max, 5 of 13 one-exact, 13 near-2 incl. the 1.969725 record holder, 8 stalls) plus both calibration anchors and the 2x2 Jordan ceiling; independent escape probes at the 4 killed intermediates, 2 ratio-1 maxima, 3 spot-check stalls; full count reconciliation of all 286 records",
+      "corrections": [
+        "near-2 endpoint count is 94 (48 double + 44 other + 2 triple), not 97 as in 001's prose and index one_line",
+        "'all 286 endpoints certified below 2' (001's index one_line) should read '0 endpoints certified above 2, max certified lower bound 1.969725'; 182/286 enclosure upper ends are >= 2",
+        "arXiv:2105.14176 / Calcolo 58 (2021) is by M. L. Overton alone, not Greenbaum-Overton as cited",
+        "deep-probe ascents were 0.0045-0.0054, not 0.005-0.006, and were measured at 128 samples against a 512-sample baseline; consistent-resolution re-probing confirms the stall verdicts regardless",
+        "2 of the 13 ratio-1 endpoints have a near-flat multi-peak |p| profile, not a single peak; the dominant peak is at the boundary eigenvalue in all 13"
+      ],
+      "leak_terms": [
+        "94 not 97 near-2 count",
+        "0-certified-above-2 correction",
+        "Sylvester-Bernstein recertification",
+        "512-vs-512 fair-protocol probe",
+        "design-was-assigned blind caveat"
+      ],
+      "note": "001's design brief traces to STATUS.md queue item 10 (tier-1), so its blind label covers what the worker read, not the choice of approach; read the census as blind evidence about findings, not about design convergence.",
+      "methodological_lesson": "Escape probes must compare candidate and baseline at the same boundary resolution: coarser sampling under-estimates the denominator and manufactures apparent ascent. 001's verdicts survived (20/175 stalls had self-inflation, all still genuinely escaped), but the protocol should compare like with like."
+    }
+  ]
 }

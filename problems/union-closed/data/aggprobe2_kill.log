@@ -1,0 +1,19 @@
+[P7a] n=48: agg +0.057832, mm 0.310, H 2.92
+[P7a] n=56: agg +0.041061, mm 0.310, H 2.93
+[P7a] n=64: agg +0.028503, mm 0.309, H 2.94
+[P7a] n=72: agg +0.018745, mm 0.309, H 2.94
+[P7a] n=80: agg +0.010942, mm 0.309, H 2.95
+[P7a] n=88: agg +0.004560, mm 0.309, H 2.96
+[P7a] n=96: agg -0.000760, mm 0.309, H 2.97
+[P7a] n=104: agg -0.005263, mm 0.308, H 2.97
+[P7a] n=112: agg -0.009124, mm 0.308, H 2.98
+[P7a] n=120: agg -0.012473, mm 0.308, H 2.99
+[P7a] n=128: agg -0.015406, mm 0.308, H 3.00
+[P7a] n=144: agg -0.020301, mm 0.308, H 3.01
+[P7a] n=160: agg -0.024226, mm 0.307, H 3.03
+[P7] drill target n=160: float agg -0.024226
+[P7b] perturbation: 20/20 remain in-regime negative (range -0.025335 .. -0.020790)
+[P7c] cell floor at argmin i=5: 3.39e-09
+[P7d] exact float_exact_dyadic n=160 t=4: aggregate in [-0.024225909, -0.024225909] CERTIFIED NEGATIVE (KILL); in-regime True (max marg 0.30719); dichotomy True; 427s
+[P7d] exact tidy_1e4 n=160 t=4: aggregate in [-0.024225909, -0.024225909] CERTIFIED NEGATIVE (KILL); in-regime True (max marg 0.30719); dichotomy True; 404s
+done in 1114s

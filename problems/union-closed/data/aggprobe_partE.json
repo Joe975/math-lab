@@ -1,0 +1,69 @@
+{
+ "rows": [
+  {
+   "agg_hi": "+1.844669005340829561099",
+   "agg_hi_float": 1.8446690053408297,
+   "agg_lo": "+1.844669005340829561098",
+   "agg_lo_float": 1.8446690053408297,
+   "dich_ok": true,
+   "in_regime": true,
+   "max_marg_float": 0.31777018538674157,
+   "n": 7,
+   "name": "witness_n7_t181/16",
+   "t": "181/16",
+   "verdict": "CERTIFIED POSITIVE"
+  },
+  {
+   "agg_hi": "+1.730725429489793028018",
+   "agg_hi_float": 1.7307254294897931,
+   "agg_lo": "+1.730725429489793028017",
+   "agg_lo_float": 1.7307254294897931,
+   "dich_ok": true,
+   "in_regime": true,
+   "max_marg_float": 0.28113559544722944,
+   "n": 22,
+   "name": "MU(22)_t181/16",
+   "t": "181/16",
+   "verdict": "CERTIFIED POSITIVE"
+  },
+  {
+   "agg_hi": "+1.730725429489793028018",
+   "agg_hi_float": 1.7307254294897931,
+   "agg_lo": "+1.730725429489793028017",
+   "agg_lo_float": 1.7307254294897931,
+   "dich_ok": true,
+   "in_regime": true,
+   "max_marg_float": 0.28113559544722944,
+   "n": 32,
+   "name": "MU(32)_t181/16",
+   "t": "181/16",
+   "verdict": "CERTIFIED POSITIVE"
+  },
+  {
+   "agg_hi": "+1.018477405685522384955",
+   "agg_hi_float": 1.0184774056855224,
+   "agg_lo": "+1.018477405685522384954",
+   "agg_lo_float": 1.0184774056855224,
+   "dich_ok": true,
+   "in_regime": true,
+   "max_marg_float": 0.27862163830586417,
+   "n": 32,
+   "name": "MU(32)_t4",
+   "t": "4",
+   "verdict": "CERTIFIED POSITIVE"
+  },
+  {
+   "agg_hi": "+0.166100824141685656901",
+   "agg_hi_float": 0.16610082414168564,
+   "agg_lo": "+0.166100824141685656900",
+   "agg_lo_float": 0.16610082414168564,
+   "dich_ok": true,
+   "in_regime": true,
+   "max_marg_float": 0.36657218178000306,
+   "n": 8,
+   "name": "search_best_n8_t181/16",
+   "t": "181/16",
+   "verdict": "CERTIFIED POSITIVE"
+  }
+ ]
+}

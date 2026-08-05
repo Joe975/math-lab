@@ -1,0 +1,35 @@
+[P1] MU(40,34) lam=2.0: agg +0.2863, max marg 0.302, per-i min -0.0401 (0.1s)
+[P1] MU(48,42) lam=2.0: agg +0.2398, max marg 0.322, per-i min -0.0401 (0.2s)
+[P1] MU(64,58) lam=2.0: agg +0.1801, max marg 0.359, per-i min -0.0401 (0.5s)
+[P1] MU(80,74) lam=2.0: agg +1.2561, max marg 0.313, per-i min -0.0401 (1.0s)
+[P1] MU(96,90) lam=2.0: agg +1.1630, max marg 0.311, per-i min -0.0401 (1.7s)
+[P1] MU(128,122) lam=2.0: agg +0.9862, max marg 0.307, per-i min -0.0401 (4.7s)
+[P1] MU(40,34) lam=3.5: agg +0.3694, max marg 0.317, per-i min -0.1220 (0.1s)
+[P1] MU(48,42) lam=3.5: agg +0.2993, max marg 0.340, per-i min -0.1220 (0.2s)
+[P1] MU(64,58) lam=3.5: agg +2.4358, max marg 0.320, per-i min -0.1220 (0.5s)
+[P1] MU(80,74) lam=3.5: agg +2.2236, max marg 0.319, per-i min -0.1220 (1.0s)
+[P1] MU(96,90) lam=3.5: agg +2.0221, max marg 0.317, per-i min -0.1220 (1.8s)
+[P1] MU(128,122) lam=3.5: agg +1.6588, max marg 0.314, per-i min -0.1220 (4.5s)
+[P1] MU(48,42) lam=5.0: agg +0.3541, max marg 0.337, per-i min -0.0780 (0.2s)
+[P1] MU(96,90) lam=5.0: agg +2.5097, max marg 0.318, per-i min -0.0780 (1.8s)
+[P2] theta-opt at n=48 lam=2.0: agg +0.0342 (mm 0.366), theta=A1:14.03 A2:22.62 B0:13.57 B1:43.01 B2:24.62 dil:21.04 light:0.007943 resp:0.001726
+[P2]   theta(2.0) at n=64: agg +0.0285, mm 0.309, per-i min -0.0586
+[P2]   theta(2.0) at n=96: agg -0.0008, mm 0.309, per-i min -0.0589
+[P2]   theta(2.0) at n=128: agg -0.0154, mm 0.308, per-i min -0.0591
+[P2] theta-opt at n=48 lam=3.5: agg +0.0654 (mm 0.368), theta=A1:7.279 A2:12.93 B0:29.7 B1:46.34 B2:22.42 dil:23.73 light:0.05025 resp:0.01096
+[P2]   theta(3.5) at n=64: agg +0.0443, mm 0.335, per-i min -0.1052
+[P2]   theta(3.5) at n=96: agg -0.0069, mm 0.365, per-i min -0.1052
+[P2]   theta(3.5) at n=128: agg +1.0891, mm 0.308, per-i min -0.1052
+[P3] n=24 round1_best(MU_full_2.0) lam=2.0: agg +0.33506, mm 0.3529, per-i min -0.0448 (153.9s)
+[P3] n=24 MU_full_2.0 lam=2.0: agg +0.32789, mm 0.3688, per-i min -0.0401 (170.5s)
+[P3] n=24 MU_full_3.5 lam=3.5: agg +0.67776, mm 0.3682, per-i min -0.1220 (147.3s)
+[P3] n=32 round1_best(MU_full_2.0) lam=2.0: agg +0.28032, mm 0.3446, per-i min -0.0606 (239.4s)
+[P3] n=32 MU_full_2.0 lam=2.0: agg +0.32789, mm 0.3688, per-i min -0.0401 (225.9s)
+[P3] n=32 MU_full_3.5 lam=3.5: agg +0.45175, mm 0.3679, per-i min -0.1220 (189.1s)
+[P3] deep climbs: 6 endpoints, in-regime violations 0, best in-regime 0.28032340708298925
+[P4] lambda profile theta2_n96_ladder: 0.25:+0.015 0.5:+0.024 1.0:+0.025 1.5:+0.013 2.0:-0.001 2.5:-0.006 3.0:+0.953 3.5:+1.016 4.0:+1.039 5.0:+0.991 6.0:+0.884
+[P4] lambda profile p3_best_n32: 0.25:+0.047 0.5:+0.090 1.0:+0.168 1.5:+0.231 2.0:+0.280 2.5:+0.320 3.0:+0.355 3.5:+0.390 4.0:+0.428 5.0:+0.513 6.0:+0.607
+[P5] exact tidy-rational P1_min_MU(64)_lam2.0: aggregate in [+0.180142390, +0.180142390] CERTIFIED POSITIVE; in-regime True (max marg 0.35903); dichotomy True; 54s
+[P5] exact tidy-rational P2_min_theta_n128_lam2.0: aggregate in [-0.015405727, -0.015405727] CERTIFIED NEGATIVE (KILL); in-regime True (max marg 0.30793); dichotomy True; 237s
+[P5] exact tidy-rational P3_best_n32_lam2.0: aggregate in [+0.297679573, +0.297679573] CERTIFIED POSITIVE; in-regime True (max marg 0.34455); dichotomy False; 4s
+done in 1579s

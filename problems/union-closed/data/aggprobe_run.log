@@ -1,0 +1,40 @@
+[A] witness n=7 lam=3.5: aggregate +1.844754 (007/013: +1.8446 / +1.844669), per-i min -0.122033 at i=5, max marginal 0.3178, dichotomy True
+[A] MU(20,1) padding invariance: aggregate +1.844754 (must equal witness +1.844754; diff 0.00e+00)
+[A] MU(32,1) padding invariance: aggregate +1.844754 (must equal witness +1.844754; diff 0.00e+00)
+[A] <=4-atom families (crash/mirror, n up to 32, Theorem-B-safe): 16 instances, min aggregate +7.106e-01 (>= 0 expected)
+[B] MU ladder lam=2.0 full: agg vs n: 7:+1.3525 10:+1.2621 13:+1.1806 16:+1.1067 19:+1.0395 22:+0.9783 25:+0.9222 28:+0.8708 32:+0.8087
+[B]   per-i min vs n: 7:-0.0401 10:-0.0401 13:-0.0401 16:-0.0401 19:-0.0401 22:-0.0401 25:-0.0401 28:-0.0401 32:-0.0401
+[B]   max marginal vs n: 7:0.284 10:0.282 13:0.281 16:0.280 19:0.279 22:0.278 25:0.277 28:0.276 32:0.274
+[B] MU ladder lam=2.0 fixed6: agg vs n: 13:+1.2068 16:+1.2068 19:+1.2068 22:+1.2068 25:+1.2068 28:+1.2068 32:+1.2068
+[B]   per-i min vs n: 13:-0.0401 16:-0.0401 19:-0.0401 22:-0.0401 25:-0.0401 28:-0.0401 32:-0.0401
+[B]   max marginal vs n: 13:0.282 16:0.282 19:0.282 22:0.282 25:0.282 28:0.282 32:0.282
+[B] MU ladder lam=3.5 full: agg vs n: 7:+2.5996 10:+2.3434 13:+2.1264 16:+1.9405 19:+1.7797 22:+1.6392 25:+1.5157 28:+1.4064 32:+1.2789
+[B]   per-i min vs n: 7:-0.1220 10:-0.1220 13:-0.1220 16:-0.1220 19:-0.1220 22:-0.1220 25:-0.1220 28:-0.1220 32:-0.1220
+[B]   max marginal vs n: 7:0.286 10:0.285 13:0.284 16:0.283 19:0.282 22:0.280 25:0.279 28:0.278 32:0.276
+[B] MU ladder lam=3.5 fixed6: agg vs n: 13:+2.1950 16:+2.1950 19:+2.1950 22:+2.1950 25:+2.1950 28:+2.1950 32:+2.1950
+[B]   per-i min vs n: 13:-0.1220 16:-0.1220 19:-0.1220 22:-0.1220 25:-0.1220 28:-0.1220 32:-0.1220
+[B]   max marginal vs n: 13:0.284 16:0.284 19:0.284 22:0.284 25:0.284 28:0.284 32:0.284
+[B] MU ladder lam=5.0 full: agg vs n: 7:+3.7650 10:+3.1894 13:+2.7578 16:+2.4224 19:+2.1545 22:+1.9358 25:+1.7540 28:+1.6006 32:+1.4299
+[B]   per-i min vs n: 7:-0.0780 10:-0.0780 13:-0.0780 16:-0.0780 19:-0.0780 22:-0.0780 25:-0.0780 28:-0.0780 32:-0.0780
+[B]   max marginal vs n: 7:0.269 10:0.268 13:0.267 16:0.266 19:0.265 22:0.263 25:0.262 28:0.261 32:0.259
+[B] MU ladder lam=5.0 fixed6: agg vs n: 13:+2.8891 16:+2.8891 19:+2.8891 22:+2.8891 25:+2.8891 28:+2.8891 32:+2.8891
+[B]   per-i min vs n: 13:-0.0780 16:-0.0780 19:-0.0780 22:-0.0780 25:-0.0780 28:-0.0780 32:-0.0780
+[B]   max marginal vs n: 13:0.267 16:0.267 19:0.267 22:0.267 25:0.267 28:0.267 32:0.267
+[C] n=8: 7 climbs x 500 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.00406 +0.01401 +0.16611  (deepest per-i min -0.0290)
+[C] n=12: 8 climbs x 500 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.15688 +0.35391 +0.76562  (deepest per-i min -0.1203)
+[C] n=16: 8 climbs x 500 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.26185 +0.42299 +0.55815  (deepest per-i min -0.1076)
+[C] n=20: 8 climbs x 400 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.29210 +0.31462 +0.58902  (deepest per-i min -0.1037)
+[C] n=24: 8 climbs x 400 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.33506 +0.43785 +0.72213  (deepest per-i min -0.1207)
+[C] n=28: 8 climbs x 300 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.33766 +0.44225 +1.12057  (deepest per-i min -0.1171)
+[C] n=32: 8 climbs x 300 steps, in-regime aggregate violations: 0; three lowest endpoints: +0.16314 +0.28032 +0.42340  (deepest per-i min -0.0996)
+[D] permutation attack witness_n7: base +1.8448, 41 orders, min +1.6939, in-regime violations 0
+[D] permutation attack MU(13): base +2.1264, 41 orders, min +2.2000, in-regime violations 0
+[D] permutation attack MU(22): base +1.7308, 41 orders, min +1.8986, in-regime violations 0
+[D] permutation attack MU(32): base +1.7308, 41 orders, min +1.8292, in-regime violations 0
+[D] permutation attack search_best_n8: base +0.1661, 41 orders, min +0.0183, in-regime violations 0
+[E] exact witness_n7_t181/16: aggregate in [+1.844669005, +1.844669005] CERTIFIED POSITIVE; in-regime True (max marg 0.31777); dichotomy True; 0s
+[E] exact MU(22)_t181/16: aggregate in [+1.730725429, +1.730725429] CERTIFIED POSITIVE; in-regime True (max marg 0.28114); dichotomy True; 5s
+[E] exact MU(32)_t181/16: aggregate in [+1.730725429, +1.730725429] CERTIFIED POSITIVE; in-regime True (max marg 0.28114); dichotomy True; 5s
+[E] exact MU(32)_t4: aggregate in [+1.018477406, +1.018477406] CERTIFIED POSITIVE; in-regime True (max marg 0.27862); dichotomy True; 5s
+[E] exact search_best_n8_t181/16: aggregate in [+0.166100824, +0.166100824] CERTIFIED POSITIVE; in-regime True (max marg 0.36657); dichotomy True; 0s
+done in 181s; checkpoints in /home/user/math-lab/problems/union-closed/data

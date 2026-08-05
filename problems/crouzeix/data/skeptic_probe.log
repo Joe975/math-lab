@@ -1,0 +1,9 @@
+stalls seed=300010 below2-max  v512=1.967643 best512=1.971659 ascent=+0.004016 ASCENT indep 1.967643->1.971659
+stalls seed=604002 below2-max  v512=1.960260 best512=1.961277 ascent=+0.001018 ASCENT indep 1.960260->1.961277
+stalls seed=406004 below2-max  v512=1.958842 best512=1.968867 ascent=+0.010025 ASCENT indep 1.958842->1.968867
+stalls seed=504010 below2-max  v512=1.781167 best512=1.803043 ascent=+0.021875 ASCENT indep 1.781167->1.803043
+maxima seed=403004 one-exact   v512=1.000000 best512=1.000000 ascent=+0.000000 NO-ASCENT
+maxima seed=603009 one-exact   v512=1.000000 best512=1.000000 ascent=+0.000000 NO-ASCENT
+stallcheck seed=400000 stall       v512=1.474585 best512=1.527199 ascent=+0.052614 ASCENT indep 1.474585->1.527199
+stallcheck seed=403000 stall       v512=1.639940 best512=1.873681 ascent=+0.233741 ASCENT indep 1.639940->1.873681
+stallcheck seed=405000 stall       v512=1.959037 best512=1.964929 ascent=+0.005892 ASCENT indep 1.959037->1.964929

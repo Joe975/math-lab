@@ -1,6 +1,6 @@
 {
-  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings \u2014 findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
-  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there \u2014 that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
+  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings — findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
+  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there — that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
   "fields": {
     "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
     "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
@@ -28,6 +28,10 @@
       "field": "logic-methodology",
       "description": "Map where and why a known technique provably stops, to direct later attempts around the obstruction."
     },
+    "basin-classification": {
+      "field": "computation",
+      "description": "Attribute each multi-start endpoint to a structure class via structural fingerprints and re-optimization probes, so landscape claims quantify basins rather than isolated values."
+    },
     "bitmask-backtracking": {
       "field": "computation",
       "description": "Depth-first search over labelings/assignments with bitset state for constant-time constraint checks."
@@ -51,6 +55,10 @@
     "certified-box-coverage": {
       "field": "computation",
       "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
+    },
+    "certified-enclosure": {
+      "field": "computation",
+      "description": "Turn a float optimization endpoint into a proven bound by rounding to a rational point and certifying the objective there with rigorous directed-rounding enclosures."
     },
     "certified-interval-inequality": {
       "field": "analysis",
@@ -152,6 +160,10 @@
       "field": "extremal-combinatorics",
       "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
     },
+    "machine-checked-formalization": {
+      "field": "logic-methodology",
+      "description": "State a skeptic-confirmed proof step in a proof assistant (Lean 4 + mathlib) and have the kernel accept a sorry-free proof; the informal-to-formal statement bridge is reviewed separately per docs/FORMALIZE.md."
+    },
     "mordell-qr-obstruction": {
       "field": "number-theory",
       "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."
@@ -163,6 +175,14 @@
     "nauty-geng": {
       "field": "computation",
       "description": "Canonical isomorph-free graph generation via nauty/geng as the enumeration backbone."
+    },
+    "nonsmooth-maximization": {
+      "field": "analysis",
+      "description": "Locally maximize a nonsmooth (norm/eigenvalue/max-type) objective with derivative-free methods, using an explicit escape-probe test to separate genuine local maxima from optimizer stalls."
+    },
+    "optimization-landscape-census": {
+      "field": "computation",
+      "description": "Map the local-maximum landscape of an objective by multi-start local optimization from designed start families, classifying every endpoint rather than reporting only the best value."
     },
     "out-of-sample-prediction": {
       "field": "logic-methodology",

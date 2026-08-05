@@ -70,13 +70,25 @@ refute**. Not "check this" — *try to kill it*. The skeptic must:
   of one program agreeing tells you nothing about whether the program is right;
 - check that headline constants come from the actual extremum, not from where a
   search grid happened to stop;
-- verify that cited sources say what they are claimed to say.
+- verify that cited sources say what they are claimed to say;
+- **check claimed novelty against the literature.** Search for the statement
+  and its neighborhood before any record calls a finding *new*. Rediscovering
+  a published result is a fine outcome — blind-mode rediscovery is calibration
+  data this lab wants — but it is recorded as a rediscovery, with the
+  citation. The failure mode is the October 2025 "GPT-5 solved ten Erdős
+  problems" episode: real derivations, already in the literature, announced
+  as new.
 
 If the skeptic finds something, that finding is recorded, and the original
 record is **left as written**. See `problems/union-closed/attempts/004-*` for
 what a good skeptic pass looks like: it confirmed the main interface, refuted a
 mini-theorem, corrected a headline constant, and flagged a data file that could
 not be reproduced.
+
+For a proof-shaped claim that survives the skeptic and is load-bearing, there
+is one rung above this: a machine-checked certificate (`docs/FORMALIZE.md`,
+status `FORMALIZED`). Optional and expensive — reserve it for steps many later
+records will lean on, and read the bridge caveat there first.
 
 ### 5. Write it up
 
