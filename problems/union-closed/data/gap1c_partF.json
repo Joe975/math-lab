@@ -1,0 +1,80 @@
+{
+ "rows": [
+  {
+   "agg_hi_float": 1.8446690053408297,
+   "agg_lo_float": 1.8446690053408297,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "mm",
+   "max_marg_float": 0.31777018538674157,
+   "mm_hi": "-0.022254658205655785176",
+   "mm_hi_float": -0.022254658205655784,
+   "mm_lo": "-0.022254658205655785177",
+   "mm_lo_float": -0.022254658205655784,
+   "n": 7,
+   "name": "mm_witness_t181/16",
+   "t": "181/16",
+   "verdict": "CERTIFIED NEGATIVE (KILL)"
+  },
+  {
+   "agg_hi_float": -0.0007598651858441661,
+   "agg_lo_float": -0.0007598651858441661,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "mm",
+   "max_marg_float": 0.30866648372421185,
+   "mm_hi": "-0.000381941148389669057",
+   "mm_hi_float": -0.00038194114838966905,
+   "mm_lo": "-0.000381941148389669058",
+   "mm_lo_float": -0.00038194114838966905,
+   "n": 96,
+   "name": "mm_theta*_n96_t4",
+   "t": "4",
+   "verdict": "CERTIFIED NEGATIVE (KILL)"
+  },
+  {
+   "agg_hi_float": -0.02422590867196798,
+   "agg_lo_float": -0.02422590867196798,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "mm",
+   "max_marg_float": 0.30718971680164464,
+   "mm_hi": "-0.000222999891309132913",
+   "mm_hi_float": -0.0002229998913091329,
+   "mm_lo": "-0.000222999891309132914",
+   "mm_lo_float": -0.0002229998913091329,
+   "n": 160,
+   "name": "mm_theta*_n160_t4",
+   "t": "4",
+   "verdict": "CERTIFIED NEGATIVE (KILL)"
+  },
+  {
+   "agg_hi": "+0.002092188746927237207",
+   "agg_hi_float": 0.002092188746927237,
+   "agg_lo": "+0.002092188746927237206",
+   "agg_lo_float": 0.002092188746927237,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "plain",
+   "max_marg_float": 0.2682492610858563,
+   "n": 96,
+   "name": "window_theta*_n96_t51/50",
+   "t": "51/50",
+   "verdict": "CERTIFIED POSITIVE"
+  },
+  {
+   "agg_hi": "+0.001802171374037480778",
+   "agg_hi_float": 0.0018021713740374809,
+   "agg_lo": "+0.001802171374037480777",
+   "agg_lo_float": 0.0018021713740374809,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "plain",
+   "max_marg_float": 0.2679866363283877,
+   "n": 160,
+   "name": "window_theta*_n160_t51/50",
+   "t": "51/50",
+   "verdict": "CERTIFIED POSITIVE"
+  }
+ ]
+}

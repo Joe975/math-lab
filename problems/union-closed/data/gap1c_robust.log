@@ -1,0 +1,33 @@
+[      0s] [A] witness plain aggregate (lam 3.5): +1.844754 (013 certified +1.844669)
+[      0s] [A] census_mm plain-agg cross-check: +1.844754 (diff 2.22e-16)
+[      3s] [A] theta* ladder n=96 lam=2 plain aggregate: -0.000759865 (016 certified -0.000759865)
+[      3s] [A] Plackett round-trip on 12 witness rows: max |z_rho(x,y,OR) - z~| = 1.55e-15
+[      3s] [A] secant vs derivative (dl=1e-3): 0.000027704 vs 0.000027709 (rel diff 2.0e-04)
+[      3s] [A] MM padding invariance MU(20,1) vs witness: diff 0.00e+00
+[      3s] [A] anchors ALL PASS
+[      3s] [R] product Bern(0.3)^6 lam=2.0: MM_sec +8.3e-17
+[      3s] [R] product Bern(0.38)^8 lam=1.0: MM_sec -2.2e-16
+[      3s] [R] d0_bern          lam=1.0: MM_sec -0.00097 MM_der +0.00456 (mm 0.407)
+[      3s] [R] d0_bern          lam=2.0: MM_sec +0.00322 MM_der +0.04635 (mm 0.728)
+[      4s] [R] bern_mix         lam=1.0: MM_sec +0.00038 MM_der +0.01584 (mm 0.399)
+[      4s] [R] bern_mix         lam=2.0: MM_sec +0.00116 MM_der +0.02122 (mm 0.574)
+[      4s] [R] smoothed_slice   lam=1.0: MM_sec +0.00619 MM_der +0.32113 (mm 0.376)
+[      4s] [R] smoothed_slice   lam=2.0: MM_sec +0.00702 MM_der +0.59011 (mm 0.377)
+[      4s] [R] random_dense_0   lam=1.0: MM_sec +0.00069 MM_der +0.00904 (mm 0.608)
+[      4s] [R] random_dense_0   lam=2.0: MM_sec +0.00196 MM_der +0.02658 (mm 0.712)
+[      4s] [R] random_dense_1   lam=1.0: MM_sec +0.00044 MM_der +0.00554 (mm 0.629)
+[      4s] [R] random_dense_1   lam=2.0: MM_sec +0.00135 MM_der +0.01749 (mm 0.739)
+[      4s] [R] random_dense_2   lam=1.0: MM_sec +0.00069 MM_der +0.00953 (mm 0.624)
+[      4s] [R] random_dense_2   lam=2.0: MM_sec +0.00234 MM_der +0.03207 (mm 0.760)
+[      4s] [R] witness 20 x 3% perturbations: 0 failures; MM_sec in [-0.02279, -0.02182]
+[      4s] [R] 2-digit tidy witness: MM_sec -0.02227 (mm 0.3130)
+[      4s] [R] witness lam=0.25: MM_sec +0.000528 MM_der +0.033373 MM_abs +0.145812
+[      4s] [R] witness lam=0.50: MM_sec +0.000621 MM_der +0.046193 MM_abs +0.291883
+[      4s] [R] witness lam=1.00: MM_sec -0.000784 MM_der +0.011516 MM_abs +0.587524
+[      4s] [R] witness lam=1.50: MM_sec -0.004413 MM_der -0.094206 MM_abs +0.892665
+[      4s] [R] witness lam=2.00: MM_sec -0.009679 MM_der -0.249432 MM_abs +1.212369
+[      4s] [R] witness lam=2.50: MM_sec -0.015293 MM_der -0.437215 MM_abs +1.550706
+[      4s] [R] witness lam=3.00: MM_sec -0.019812 MM_der -0.649582 MM_abs +1.921317
+[      4s] [R] witness lam=3.50: MM_sec -0.022255 MM_der -0.895542 MM_abs +2.354328
+[      4s] [R] witness lam=4.00: MM_sec -0.022395 MM_der -1.210599 MM_abs +2.909588
+[      4s] [R] witness lam=5.00: MM_sec -0.017772 MM_der -1.369865 MM_abs +3.564213

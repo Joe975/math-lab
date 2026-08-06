@@ -11,6 +11,30 @@ out, and no cron trigger is active. Nothing is half-finished: every line is
 written up, and the queue below is a list of starting points rather than
 abandoned work.
 
+**2026-08-06, one line (attempt 018, skeptic-confirmed 019): Gap 1's
+margin-modulated candidate is REFUTED in both signed readings at n = 7 —
+by 007's own 10-atom witness, the instance it was invented to survive.**
+The h-sensitivity weighting of 007 lead 2 splits into three precise
+readings; the assembly-exact secant form is certified negative
+(−0.02225465820566 at the exactly-rational tilt t = 181/16, in-regime,
+dichotomy exact — the skeptic's from-scratch engine, different census and
+different enclosure kit, matches to width 5.9e-30) on the same tables
+where the plain aggregate is certified +1.844669. Mechanism: the
+sensitivity weight is signed, and in the record regime the surplus
+histories' realized both-zero probabilities sit past the entropy peak
+(z̃ > 1/2), so the modulation flips the aggregate's biggest positive
+terms — it kills the surplus, not the deficit it was designed to
+down-weight. What survives of Gap 1: the unsigned |σ|-weighted control
+(positive on everything tried, including 016's three certified kill
+instances; softest point +0.0101 at a free-support n = 8 endpoint) and
+the λ-window-restricted control (positive across the θ-re-optimized
+ladder genre to n = 320, with the first-order protection a₁(n)·n GROWING
+4.7 → 18.1 and the joint (θ, λ) attack converging to the trivial λ → 0
+boundary). Also settled: 016 lead 3 — the raw-weight ladder does NOT
+cross through n = 320. Five corrections in 019, two substantive (raw
+ladder MM signs flip on the n ≥ 96 dilution branch; a wrong golden-ratio
+aside), neither load-bearing.
+
 **2026-08-04, two cycles.** First (Astra follow-through): a
 literature-novelty check joined the skeptic pass, the formalization lane
 (`docs/FORMALIZE.md`, status `FORMALIZED`) went in above `VERIFIED`, the
@@ -132,7 +156,7 @@ problems with no attempts (queue 18–19; run blind).
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 done | high | next: 2-connected C16-free test (lead 2); n=26 is a ~16h run |
-| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a′) refuted (007/013); AGGREGATED control certified positive to n = 32 (014/015) but refuted at large n (016/017, certified n = 96–160) → live: margin-modulated control, λ ≲ c/n restricted variant, δ-linear tax budget, corrected assembly budgets (012); plus three sweep leads (010) |
+| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a′) refuted (007/013); AGGREGATED control refuted at large n (016/017); margin-modulated control refuted in both signed readings at n = 7 (018/019, certified) → live: unsigned \|σ\|-control (attack it at free supports n = 10–16, 018 lead 1), λ ≲ c/n window variant (survives the ladder to n = 320; hunt a₁-degenerate near-product families, 018 lead 4), assembly-requirement restatement (018 lead 2), δ-linear tax budget + corrected assembly budgets (012); plus three sweep leads (010) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
@@ -147,7 +171,7 @@ problems with no attempts (queue 18–19; run blind).
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] ~~Probe the aggregated control at n ≳ 20~~ **DONE twice, independently, in 014/015 and 016/017** — positive to n = 32 with the margin growing, then negative at n = 96–160 on the MU(n,r) unit ladder. The ∀λ aggregated control is dead; the boundary-positivity program 014 proposed is off for it. The surviving Gap-1 candidates, probe-first per standing policy: (i) **margin-modulated OR control** — run the certified probe on the MU(n,r) ladder genre FIRST (it is the reusable adversary; 017's independent engine `uc_agg_ctrl_skeptic.py` certifies), then the killer genres from 007/013 and 014's battery (a one-line weight change there); only if it survives n ≳ 96 does proof effort start (007's Gram/Frobenius machinery). (ii) **λ-restricted variant**: the control restricted to the workable window λ ≲ 4.847/(n−3) (the 009/011 λ-window law) — 016's violation lives at λ ∈ [2, 2.5] and its family is positive at λ ≤ 1.5, so this variant is genuinely untested; probe the ladder AT the window boundary across n before anything else. Two structural questions from 014/015 keep their value under either candidate and are cheap: settle the equality-set converse for λ > 0, and map the near-zero slice-direction dip (+1.4e-7 at n ≈ 48, recovers by 64) over p × layer-ratio × n ≤ 96. Mind 015's R1 (fitted orders dip to d^1.39 at λ ≥ 0.5), so no Hessian-style argument gives a finite-d positivity radius on its own. Any claimed bound → skeptic review before ledger entry.
+1. [union-closed] ~~Probe both surviving Gap-1 candidates against the ladder adversary~~ **DONE in 018/019** — (i) the margin-modulated control is REFUTED in both signed readings at n = 7 by 007's own witness (certified −0.0222546582 at t = 181/16; the sensitivity weight is signed and kills the surplus, not the hidden deficit), and (ii) the λ-window-restricted control SURVIVES the θ-re-optimized ladder to n = 320 with a₁(n)·n growing. The replacement program, probe-first: (a) **attack the unsigned |σ|-control at free supports n = 10–16** seeded from 018's +0.0101 endpoint (`gap1c_partC.json` best_free, 2500+ steps, atom-count mutations) — kill it or find its floor; (b) **hunt a₁-degenerate families for the window variant** (018 lead 4): near-product families along 014's slice-direction dip scaled with n, evaluated at λ_win(n) = 4.847/(n−3) — products are a₁'s equality set, so this is the window candidate's most dangerous direction; (c) **restate what the assembly actually needs** now that the per-history secant form is certified negative on the witness (018 lead 2 = 016 lead 5): derive the coordinate-level or λ-integrated inequality the 008/012 assembly requires and test it with 018's census engine. If (a) and (b) both come back positive, first-order proof effort starts with 018 lead 3 (closed-form lower bound on the ladder's a₁). Two cheap structural questions from 014/015 keep their value: the equality-set converse for λ > 0, and the slice-direction dip map. Any claimed bound → skeptic review before ledger entry.
 2. [union-closed] Rebuild the assembly budgets per 012's corrections: the tax is δ-LINEAR (restate B2), the τ_half step needs s₀ ≤ 0.0843, corrected δ₀ ≈ 0.004. The open question is whether ANY n-uniform budget object exists — 008's conditional theorem survives structurally; its constants need the corrected inputs, and the budget census machinery (uc_pert.py + uc_pert_skeptic.py's orbit engine) is ready.
 3. [union-closed] Sweep leads from 010, one per cycle: (i) pairwise-closure LP/degree-2 SOS certification on the n ≤ 4 census (all 4958 families) — kill: certified bound converges to ≈ 0.382; (ii) union-transfer-operator eigenvalue field — test log-supermodularity of λ_C on the n ≤ 5 census (pre-check the total-positivity records first); (iii) bipartite-MIS decomposition — geng census to n = 12, connectivity of extremals, compositionality across 1- and 2-cuts. Kill conditions recorded in 010.
 4. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
@@ -166,7 +190,7 @@ problems with no attempts (queue 18–19; run blind).
 17. [maxwell-equilibria] Three-positive-charge census hunting the open 4-vs-6 gap: after 15's strata map, target the strata boundaries (where counts jump) with unequal charges. Win condition kept in view by every run: any configuration certified with ≥ 5 isolated equilibria refutes the conjectured max 4 and is a result people have sought since 1873 — it must survive verify_equilibria.py and be reported as requiring escalation. Equal-magnitude configurations are settled (Tsai 2015, max 4) — spend no effort there.
 18. [almost-mathieu] **Run blind.** Rational-flux gap census, all p/q with q ≤ 30: certify every gap open except the even-q central touching (re-derives van Mouche / Choi–Elliott–Yui in range; expected `VERIFIED`, scope = the q range), then the golden-mean convergent table — exact minimal-gap widths and q·|σ| along Fibonacci p/q as far as tooling reaches, against the (unproven) Thouless constant 32C/π. Onboarding smoke runs: q·|σ| = 9.2509 / 9.3199 / 9.3608 at q = 13 / 21 / 34 vs 9.3299 conjectured. Every record re-verified with `verify_bands.py` before ledger entry. Kill condition: if exact arithmetic stalls before q ≈ 100 even with a C kernel to the same contract, record the wall — no asymptotic claims from small denominators.
 19. [three-phase-conductivity] **Run blind.** Two-phase ground truth first: rank-2 laminates attaining the 2D HS bounds exactly in ℚ, duality checks, series/parallel forms (expected `VERIFIED`, harness validation). Then the three-phase attainability map: fixed rational (σ₁,σ₂,σ₃), rational grid on the fraction simplex, bounded-rank laminate optimization (float screen, exact certification), gap-to-HS charted per cell (`MAP`/`EVIDENCE`, scoped by rank + direction set + grid). Nesi/Cherkaev improved bounds enter as marked transcriptions cross-checked against the papers' examples before anything is killed against them. Kill condition: bounded-rank optima plateauing strictly inside bounds across the whole grid = one negative-map record, then cap the budget.
-20. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]); extend the raw-weight ladder past n = 128 (certified +0.157 at 96 — does it also eventually cross?); and re-run the 016 ladder at the λ-window boundary as the first data point for queue item 1(ii).
+20. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]). ~~Extend the raw-weight ladder past n = 128~~ and ~~re-run the ladder at the λ-window boundary~~ **DONE in 018** — the raw ladder does NOT cross through n = 320 (decaying along each dilution branch, min +0.104 at n = 256; the 016 kill is entirely the re-weighting), and the window boundary is positive at every n ≤ 320 tried, θ re-optimized there included.
 
 ## Verified results
 
@@ -545,7 +569,58 @@ problems with no attempts (queue 18–19; run blind).
   equality-set structure is what makes the λ-restricted variant the
   live question.
 
+- **[union-closed] Margin-modulated OR control REFUTED in both signed
+  readings at n = 7 (skeptic-confirmed)** (2026-08-06, attempts 018+019):
+  007 lead 2's "h-sensitivity-weighted" candidate splits into three
+  precise statements; the assembly-exact secant form
+  E[h₂(z̃) − h₂(z_{2^λ}(x̃, ỹ))] and the derivative-at-target form are
+  both negative on 007's own 10-atom witness — the instance the weighting
+  was invented to survive — with the secant form certified float-free at
+  t = 181/16 (MM_sec = −0.0222546582…, in-regime, dichotomy exact, the
+  first certified enclosure of a nonlinear census functional in the
+  library: dyadic-bisection Plackett roots + directed-log₂ binary
+  entropy, margin-pair cached). 019 re-certified from scratch (own
+  census from 007 §1's prose, exact-rational Newton with symbolically
+  sign-checked brackets, interval-squaring log₂ — no shared code) to
+  width 5.9e-30, matching; re-derived the secant identity, the
+  product-measure zero, and the degenerate-history invariance by hand;
+  confirmed no natural signed variant survives (realized-OR weighting
+  dies too, −1.458); and newly certified the 2-digit tidy witness
+  (−0.0222736748). Perturbation-stable (20/20 at 3%, plus 40/40 on the
+  skeptic's fresh seeds), violating for every λ ∈ [1, 5] (crossing
+  λ ≈ 0.83, 019 C4). Mechanism: the weight is signed and the surplus
+  histories sit past the entropy peak. Survivors, EVIDENCE-scoped: the
+  unsigned |σ|-weighted control (positive everywhere tried incl. 016's
+  certified kill instances; θ re-optimized against it, transfers RISING
+  with n; softest +0.0101 at a free n = 8 endpoint — only 3 of 8 free
+  climbs ended in-regime, 019) and the λ-window-restricted control
+  (positive at λ_win, λ_win/2, λ_win/4 across raw and θ\* ladders
+  n ≤ 320, θ re-optimized at window λ, joint (θ, λ) climb converging to
+  the trivial λ → 0 boundary; a₁(n)·n grows 4.7 → 18.1 θ\*, ≈ 66 raw).
+  016 lead 3 settled: the raw-weight ladder never crosses through
+  n = 320 (min +0.104 at n = 256). Corrections of record (019): raw
+  ladder MM signs flip positive on the n ≥ 96 dilution branch (018's
+  "negative at every n" is θ\*-only); the golden-ratio aside is false
+  as stated (ρ = 1 crossing at marginal 1 − 2^{−1/2}, not (3−√5)/2);
+  witness MM_sec crossing λ ≈ 0.83 not ≲ 0.7; §F certificates landed
+  after review close (not covered by 019); runtime understated.
+
 ## Insights / cross-problem notes
+
+- Signed sensitivity weights backfire (2026-08-06, union-closed 018/019):
+  weighting a deviation control by the derivative of the gain it feeds
+  does not neutralize an adversary that hides its deficit at degenerate
+  margins — the derivative is SIGNED, and in the record regime the
+  surplus histories sit on the decreasing side of the entropy curve, so
+  the modulation flips the control's biggest positive terms instead of
+  suppressing the deficit. Salvaging positivity needs the unsigned
+  weight, which decouples the functional from the chain rule it was
+  meant to serve — a modulated control can be plausible-looking and
+  assembly-irrelevant at the same time. Same cycle, tooling note: a
+  NONLINEAR census functional (algebraic root + entropy per history) is
+  certifiable at ladder scale by enclosing the root with dyadic
+  bisection and caching by the margin pair — unit exchangeability
+  collapses thousands of rows to a handful of enclosures.
 
 - Blind mode, data point #3 (2026-08-04, crouzeix 001/002): with prior
   art physically absent, the census blind-rediscovered both known

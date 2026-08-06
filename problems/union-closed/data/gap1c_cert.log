@@ -1,0 +1,12 @@
+[      0s] [A] witness plain aggregate (lam 3.5): +1.844754 (013 certified +1.844669)
+[      0s] [A] census_mm plain-agg cross-check: +1.844754 (diff 2.22e-16)
+[      2s] [A] theta* ladder n=96 lam=2 plain aggregate: -0.000759865 (016 certified -0.000759865)
+[      2s] [A] Plackett round-trip on 12 witness rows: max |z_rho(x,y,OR) - z~| = 1.55e-15
+[      2s] [A] secant vs derivative (dl=1e-3): 0.000027704 vs 0.000027709 (rel diff 2.0e-04)
+[      2s] [A] MM padding invariance MU(20,1) vs witness: diff 0.00e+00
+[      2s] [A] anchors ALL PASS
+[      7s] [F] exact MM mm_witness_t181/16: MM_sec in [-2.225465821e-02, -2.225465821e-02] CERTIFIED NEGATIVE (KILL); plain in [+1.844669, +1.844669]; in-regime True; dich True; rows 12 (12 distinct margins); 4s
+[   1443s] [F] exact MM mm_theta*_n96_t4: MM_sec in [-3.819411484e-04, -3.819411484e-04] CERTIFIED NEGATIVE (KILL); plain in [-0.000760, -0.000760]; in-regime True; dich True; rows 368 (368 distinct margins); 1436s
+[   5513s] [F] exact MM mm_theta*_n160_t4: MM_sec in [-2.229998913e-04, -2.229998913e-04] CERTIFIED NEGATIVE (KILL); plain in [-0.024226, -0.024226]; in-regime True; dich True; rows 624 (624 distinct margins); 4069s
+[   5653s] [F] exact plain window_theta*_n96_t51/50: agg in [+2.092188747e-03, +2.092188747e-03] CERTIFIED POSITIVE; in-regime True; dich True; 140s
+[   6120s] [F] exact plain window_theta*_n160_t51/50: agg in [+1.802171374e-03, +1.802171374e-03] CERTIFIED POSITIVE; in-regime True; dich True; 467s

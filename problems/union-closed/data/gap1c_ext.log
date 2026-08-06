@@ -1,0 +1,6 @@
+[     54s] [E] raw ladder n=160: honest min agg +0.190168 (dil 80.0, mm 0.261)
+[    154s] [E] raw ladder n=192: honest min agg +0.150420 (dil 80.0, mm 0.296)
+[    358s] [E] raw ladder n=224: honest min agg +0.123176 (dil 80.0, mm 0.330)
+[    699s] [E] raw ladder n=256: honest min agg +0.103745 (dil 80.0, mm 0.362)
+[   1125s] [E] raw ladder n=288: honest min agg +0.213646 (dil 160.0, mm 0.259)
+[   1749s] [E] raw ladder n=320: honest min agg +0.180537 (dil 160.0, mm 0.252)

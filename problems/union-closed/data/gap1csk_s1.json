@@ -1,0 +1,31 @@
+{
+ "product_anchor": {
+  "plain_exact_zero": true,
+  "width": 9.339369011143012e-30,
+  "zero_in": true
+ },
+ "tidy": {
+  "deg_zero_ok": true,
+  "dich_ok": true,
+  "in_regime": true,
+  "max_marg": 0.3129834963071075,
+  "mm_hi": -0.022273674819994822,
+  "mm_lo": -0.022273674819994822,
+  "verdict": "CERTIFIED NEGATIVE"
+ },
+ "witness": {
+  "agg_hi": 1.8446690053408297,
+  "agg_lo": 1.8446690053408297,
+  "deg_zero_ok": true,
+  "dich_ok": true,
+  "in_regime": true,
+  "max_marg": 0.31777018538674157,
+  "mm_hi": "-2.225465820565578415e-02",
+  "mm_lo": "-2.225465820565578415e-02",
+  "mm_lo_str": "-10202624923862705339657959575/458448960643656010139491366619",
+  "n_rows": 12,
+  "overlaps_018_cert": true,
+  "verdict": "CERTIFIED NEGATIVE",
+  "width": 5.885365816786243e-30
+ }
+}
