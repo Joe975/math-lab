@@ -1,0 +1,50 @@
+[      0s] [A] witness plain aggregate (lam 3.5): +1.844754 (013 certified +1.844669)
+[      0s] [A] census_mm plain-agg cross-check: +1.844754 (diff 2.22e-16)
+[      2s] [A] theta* ladder n=96 lam=2 plain aggregate: -0.000759865 (016 certified -0.000759865)
+[      2s] [A] Plackett round-trip on 12 witness rows: max |z_rho(x,y,OR) - z~| = 1.55e-15
+[      2s] [A] secant vs derivative (dl=1e-3): 0.000027704 vs 0.000027709 (rel diff 2.0e-04)
+[      2s] [A] MM padding invariance MU(20,1) vs witness: diff 0.00e+00
+[      2s] [A] anchors ALL PASS
+[      2s] [B] witness (n=7, lam=3.5): plain +1.8448  MM_sec -0.022255  MM_der -0.895542  MM_abs +2.354328
+[      3s] [B] raw     ladder n= 16 lam=2: plain +0.633033  MM_sec -5.702361e-03  MM_der -2.390113e-01  MM_abs +1.239965e+00  (mm 0.242)
+[      3s] [B] raw     ladder n= 32 lam=2: plain +0.353040  MM_sec -4.382961e-03  MM_der -3.915036e-01  MM_abs +1.156959e+00  (mm 0.283)
+[      3s] [B] raw     ladder n= 48 lam=2: plain +0.239794  MM_sec -3.782969e-03  MM_der -5.373214e-01  MM_abs +1.085607e+00  (mm 0.322)
+[      3s] [B] raw     ladder n= 64 lam=2: plain +0.180142  MM_sec -3.400008e-03  MM_der -6.193039e-01  MM_abs +1.071119e+00  (mm 0.359)
+[      6s] [B] raw     ladder n= 96 lam=2: plain +1.163014  MM_sec +6.719528e-03  MM_der +9.856109e-01  MM_abs +1.514688e+00  (mm 0.311)
+[     12s] [B] raw     ladder n=128 lam=2: plain +0.986210  MM_sec +6.054830e-03  MM_der +9.701218e-01  MM_abs +1.503923e+00  (mm 0.307)
+[     25s] [B] raw     ladder n=160 lam=2: plain +0.828164  MM_sec +5.245485e-03  MM_der +9.523977e-01  MM_abs +1.495748e+00  (mm 0.304)
+[     25s] [B] theta*  ladder n= 16 lam=2: plain +0.296990  MM_sec -2.415558e-03  MM_der -1.766320e-01  MM_abs +9.641139e-01  (mm 0.311)
+[     25s] [B] theta*  ladder n= 32 lam=2: plain +0.116826  MM_sec -1.184227e-03  MM_der -1.755895e-01  MM_abs +9.650983e-01  (mm 0.310)
+[     25s] [B] theta*  ladder n= 48 lam=2: plain +0.057832  MM_sec -7.813112e-04  MM_der -1.745147e-01  MM_abs +9.660837e-01  (mm 0.310)
+[     26s] [B] theta*  ladder n= 64 lam=2: plain +0.028503  MM_sec -5.812057e-04  MM_der -1.734073e-01  MM_abs +9.670700e-01  (mm 0.309)
+[     28s] [B] theta*  ladder n= 96 lam=2: plain -0.000760  MM_sec -3.819411e-04  MM_der -1.710923e-01  MM_abs +9.690449e-01  (mm 0.309)
+[     34s] [B] theta*  ladder n=128 lam=2: plain -0.015406  MM_sec -2.825735e-04  MM_der -1.686405e-01  MM_abs +9.710224e-01  (mm 0.308)
+[     51s] [B] theta*  ladder n=160 lam=2: plain -0.024226  MM_sec -2.229999e-04  MM_der -1.660474e-01  MM_abs +9.730018e-01  (mm 0.307)
+[     54s] [B] theta* ladder n=96 lam=0.5: plain +0.023912  MM_sec -3.660909e-05  MM_abs +1.987985e-01
+[     57s] [B] theta* ladder n=96 lam=1.0: plain +0.025207  MM_sec -1.443052e-04  MM_abs +4.189173e-01
+[     60s] [B] theta* ladder n=96 lam=1.5: plain +0.013163  MM_sec -2.798722e-04  MM_abs +6.606552e-01
+[     63s] [B] theta* ladder n=96 lam=2.0: plain -0.000760  MM_sec -3.819411e-04  MM_abs +9.690449e-01
+[     66s] [B] theta* ladder n=96 lam=2.5: plain -0.005632  MM_sec -4.120991e-04  MM_abs +1.381158e+00
+[     69s] [B] theta* ladder n=96 lam=3.0: plain +0.953119  MM_sec -5.992615e-03  MM_abs +2.362848e+00
+[     72s] [B] theta* ladder n=96 lam=3.5: plain +1.016433  MM_sec -8.051331e-03  MM_abs +2.915241e+00
+[    148s] [C] MM theta-opt n=48 lam=2.0: MM_abs +2.462548e-01 MM_sec -5.344705e-04 plain +0.4691 (mm 0.363)
+[    149s] [C]   MM theta(2.0) at n=64: MM_abs +2.387101e-01 MM_sec -4.267747e-04 plain +0.4487 (mm 0.364)
+[    152s] [C]   MM theta(2.0) at n=96: MM_abs +1.003748e+00 MM_sec -5.378083e-03 plain +0.5818 (mm 0.247)
+[    159s] [C]   MM theta(2.0) at n=128: MM_abs +1.055445e+00 MM_sec -4.350515e-03 plain +0.5057 (mm 0.242)
+[    177s] [C]   MM theta(2.0) at n=160: MM_abs +1.094052e+00 MM_sec -3.574522e-03 plain +0.4455 (mm 0.237)
+[    255s] [C] MM theta-opt n=48 lam=3.5: MM_abs +6.393336e-02 MM_sec -1.513089e-04 plain +2.4560 (mm 0.041)
+[    256s] [C]   MM theta(3.5) at n=64: MM_abs +1.410008e-01 MM_sec -8.540340e-05 plain +2.5294 (mm 0.043)
+[    259s] [C]   MM theta(3.5) at n=96: MM_abs +1.464061e-01 MM_sec -5.831230e-05 plain +2.5775 (mm 0.044)
+[    267s] [C]   MM theta(3.5) at n=128: MM_abs +1.524140e-01 MM_sec -4.511369e-05 plain +2.5953 (mm 0.046)
+[    283s] [C]   MM theta(3.5) at n=160: MM_abs +1.590280e-01 MM_sec -3.741645e-05 plain +2.6011 (mm 0.048)
+[    284s] [C] free climb n=8 lam=1.0: endpoint MM_abs +1.615935e-01 MM_sec -2.839242e-03 (mm 0.342)
+[    284s] [C] free climb n=8 lam=2.0: endpoint MM_abs +1.007614e-02 MM_sec -8.327292e-05 (mm 0.153)
+[    285s] [C] free climb n=8 lam=3.5: endpoint MM_abs +4.053895e-01 MM_sec -8.747597e-03 (mm 0.164)
+[    285s] [C] free climb n=8 lam=2.0: endpoint MM_abs +3.194872e+00 MM_sec +2.347615e-03 (mm 0.471)
+[    286s] [C] free climb n=8 lam=3.5: endpoint MM_abs +5.921476e+00 MM_sec +8.776165e-02 (mm 0.663)
+[    287s] [C] free climb n=8 lam=1.0: endpoint MM_abs +1.180410e+00 MM_sec +7.575692e-03 (mm 0.384)
+[    287s] [C] free climb n=8 lam=2.0: endpoint MM_abs +2.889770e+00 MM_sec +4.204783e-02 (mm 0.495)
+[    288s] [C] free climb n=8 lam=3.5: endpoint MM_abs +5.716586e+00 MM_sec +2.406190e-02 (mm 0.643)
+[    289s] [D] theta*  n= 48 window lam=0.1077: A(lw) +1.005266e-02  A(lw/2) +5.167597e-03  a1 +9.85895e-02  a2 -4.89563e-02  a1*n +4.732
+[    297s] [D] theta*  n= 96 window lam=0.0521: A(lw) +3.747072e-03  A(lw/2) +1.912097e-03  a1 +7.48602e-02  a2 -5.69841e-02  a1*n +7.187
+[    353s] [D] theta*  n=160 window lam=0.0309: A(lw) +1.943220e-03  A(lw/2) +9.858886e-04  a1 +6.47953e-02  a2 -6.00627e-02  a1*n +10.367

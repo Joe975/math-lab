@@ -1,0 +1,14 @@
+{
+ "all_ok": true,
+ "kill_repro_agg": -0.000759865185986192,
+ "ok_cross": true,
+ "ok_kill_repro": true,
+ "ok_padding": true,
+ "ok_roundtrip": true,
+ "ok_secant_deriv": true,
+ "ok_witness": true,
+ "witness_agg": 1.8447543150919639,
+ "witness_mm_abs": 2.3543277749368867,
+ "witness_mm_der": -0.8955419815884347,
+ "witness_mm_sec": -0.022255048835182943
+}

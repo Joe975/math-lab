@@ -596,6 +596,49 @@
         "252 atoms not 253"
       ],
       "note": "Decisive check per the 2026-07-31 verification standard: 014's certificates reused 013's exact engine and enclosures, so this review removes the shared-code risk with a third census written from 007 section 1's prose and a structurally different certified log2 enclosure (dyadic interval squaring; ln 2 from the exact series sum 1/(k 2^k)). Free anchors verified exactly: OR/t = 1 at i = n (005 Prop 1) on every instance, and including the i = n term keeps every kill negative. Union-closure of the support is correctly NOT a hypothesis (the control quantifies over all mu; 007's witness was not union-closed either) -- checked and recorded so the scope is explicit. Precedent followed from 013/007: the reviewed entry (014) is not modified."
+    },
+    {
+      "id": "018",
+      "file": "attempts/018-surviving-controls-vs-ladder.md",
+      "date": "2026-08-06",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "chain-rule-assembly"
+      ],
+      "one_line": "Triage of the two post-016 Gap-1 candidates against the ladder adversary: the margin-modulated OR control is REFUTED in both signed readings already at n = 7 by 007's own witness (secant form certified -0.0222546582 at t = 181/16, in-regime -- the h-sensitivity weight is signed and kills the surplus histories, not the hidden deficit), while the unsigned |sigma|-weighted variant and the lambda-window-restricted control survive theta-re-optimized ladders, free-support climbs and joint (theta, lambda) attacks, with the window margin's first-order coefficient a1(n)*n GROWING in n.",
+      "range": "Witness kill certified exact at t = 181/16 (dyadic-bisection Plackett-root enclosures, directed log2 entropy enclosures), perturbation-stable 20/20 at 3%, 2-digit tidy, violating for every lambda in [1, 5]; MM variants measured on raw and theta* ladders n <= 160 (incl. 016's three certified kill instances), theta re-optimized against MM_abs at n = 48 with transfers to 160, 8 free-support climbs at n = 8; window probe at lam = 4.847/(n-3), /2, /4 on ladders n <= 320 with theta re-optimized at window lambda and a joint (theta, lam <= window) climb at n = 96",
+      "refuted_by": null,
+      "gaps": [
+        "abs-sensitivity-or-control",
+        "lambda-restricted-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "margin-modulated",
+        "MM_sec",
+        "MM_der",
+        "MM_abs",
+        "secant form",
+        "Plackett sensitivity",
+        "h-sensitivity",
+        "sensitivity sign flip",
+        "z crosses 1/2",
+        "0.0222546582",
+        "uc_gap1_candidates",
+        "gap1c",
+        "a1(n)*n",
+        "window margin coefficient",
+        "abs-sensitivity-or-control"
+      ],
+      "note": "Settles 016 lead 1 negatively for the signed readings without needing the ladder: the sensitivity weighting fails on the witness itself while the plain aggregate is certified positive (+1.844669) on the same tables. The margin-modulated gap tag of 007/013/016 dies as stated; what replaces it is the unsigned variant (which decouples from the chain rule -- a proof of it would not feed the 008/012 assembly directly) and the window-restricted variant (016 lead 4 / 017 C2), both surviving as EVIDENCE. Certification of the kill uses the lab's first certified enclosure of a NONLINEAR census functional (Plackett root + binary entropy per history)."
     }
   ]
 }
