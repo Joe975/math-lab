@@ -138,24 +138,57 @@ of the definition.
 θ re-optimized against MM_abs (260 steps, marginal-penalized, n = 48,
 λ ∈ {2, 3.5}), then transferred to n = 64…160 with per-n dilution re-tune;
 free-support climbs at n = 8 against MM_abs (8 × 600 steps, witness-seeded
-and random-seeded, penalty 300); results:
+and random-seeded, penalty 300). **No violation of MM_abs anywhere:**
 
-- PENDING-C
+- θ-opt at λ = 2 ground MM_abs from ≈ +0.97 (θ\*) to **+0.246** at n = 48
+  — a 4× margin cut — but the transfers RISE with n: +0.239 (64), +1.004
+  (96), +1.055 (128), +1.094 (160). At λ = 3.5 the optimizer reached
+  +0.064 at n = 48, transfers again rising to +0.159 at n = 160. Unit
+  replication, the move that kills the plain aggregate, does not scale the
+  |σ|-weighted deficit — the weight suppresses exactly the near-degenerate
+  light-slice channel the ladder replicates.
+- Free-support climbs at n = 8: tightest in-regime endpoint **+0.0101**
+  (witness-seeded, λ = 2, max marginal 0.153) — a ~100× margin cut vs the
+  ladder values, still positive; the other seven endpoints +0.16…+5.9.
+  MM_sec at those endpoints ranges −8.7e-3…+8.8e-2 (both signs — the
+  free search finds the signed violation trivially, consistent with part B,
+  while the unsigned form resists).
 
 ### D. Candidate II inside the window (`gap1c_partD.json`)
 
 Ladder scans at λ = λ_win(n), λ_win/2 (and λ_win/4 for n < 224) for θ\*
 and raw weights, n ∈ {48, 96, 160, 224, 320}; θ re-optimized AT window λ
 (n = 48 and 96, 300 steps), transferred with per-n window λ up to n = 320;
-joint (θ, λ ≤ λ_win) climb at n = 96; small-λ coefficient fits:
+joint (θ, λ ≤ λ_win) climb at n = 96; small-λ coefficient fits.
+**Every window point positive, with the margin structure strengthening in
+n:**
 
-- PENDING-D
+- θ\* ladder at λ_win(n): +1.01e-2 (48), +3.75e-3 (96), +1.94e-3 (160),
+  +1.29e-3 (224), +8.52e-4 (320). The fitted expansion
+  A ≈ a₁λ + a₂λ² has a₂ < 0 (the crossing direction) but **a₁(n)·n
+  GROWS**: +4.7 (48) → +7.2 (96) → +10.4 (160) → +13.5 (224) → +18.1
+  (320), while |a₂| stays ≈ 0.06. At λ = c/n the first-order term a₁·c/n
+  beats the quadratic a₂c²/n² unless a₁·n → 0; it is doing the opposite.
+  Raw weights: same shape, a₁·n reaching ≈ 66.
+- θ re-optimized AT window λ: best the adversary managed is +5.49e-3
+  (n = 48, λ = 0.1077) and +1.02e-3 (n = 96, λ = 0.0521); both θ's
+  transferred with per-n window λ stay positive through n = 320
+  (+3.01e-4 and +1.97e-4).
+- Joint (θ, λ ≤ λ_win) climb at n = 96: the optimizer converged to the
+  λ → 0 boundary (endpoint +1.66e-5 at λ = 0.0008) — it can shrink A only
+  by shrinking λ toward the trivial zero, exactly the signature of
+  first-order (Theorem-C square) dominance inside the window; no interior
+  negative found.
 
 ### E. Raw-weight ladder extension, 016 lead 3 (`gap1c_partE.json`)
 
 Honest (dilution-swept minimum) raw-witness-weight ladder at λ = 2:
-
-- PENDING-E
++0.190 (160), +0.150 (192), +0.123 (224), +0.104 (256), then a dilution
+feasibility-branch jump (dil 80 → 160, as in 016 P6's n = 48/128
+artifacts) to +0.214 (288), +0.181 (320). **No crossing through n = 320**:
+the raw ladder decays along each dilution branch but stays positive — the
+016 kill really does need the re-optimized θ, quantifying how much of it
+is re-weighting (all of it, at these n) vs pure replication.
 
 ### F. Exact rational certification (`gap1c_partF.json`)
 
@@ -203,9 +236,23 @@ re-optimization was needed.
 adversary.**
 
 - **MM_abs** (the unsigned |σ|-weighted control): positive on everything
-  tried — PENDING-SCOPE-ABS
-- **λ-window-restricted control**: positive at every window point tried —
-  PENDING-SCOPE-WIN
+  tried — the witness (+2.354), raw and θ\* ladders n ≤ 160 at λ = 2
+  including 016's three certified kill instances (≈ +0.97), the λ-profile
+  at n = 96, θ re-optimized against it (floor +0.064 at n = 48, λ = 3.5,
+  transfers rising with n), and 8 free-support climbs at n = 8 (floor
+  +0.0101 in-regime). Scope: this battery only; the +0.0101 endpoint says
+  free supports at small n get 100× closer than any ladder — see lead 1.
+- **λ-window-restricted control** (A(μ, λ) ≥ 0 for λ ≤ 4.847/(n−3)):
+  positive at every window point tried — ladders (both weight sets) at
+  λ_win, λ_win/2, λ_win/4 for n ∈ {48, 96, 160, 224, 320}, θ re-optimized
+  at window λ at n ∈ {48, 96} with per-n-window transfers to 320, and a
+  joint (θ, λ) climb at n = 96 that converged to the trivial λ → 0
+  boundary. Structurally: a₁(n)·n grows (4.7 → 18.1 on θ\*, to ≈ 66 raw)
+  while |a₂| ≈ 0.06 stays flat, so on this genre the window shrinks
+  faster than the first-order protection decays. Scope: the MU(n, r)
+  ladder genre plus θ/λ climbs; nothing here bounds a₁ below for
+  arbitrary μ (see lead 4 — near-product families are where a₁ can
+  degenerate).
 
 **Not claimed:** no claim that MM_abs or the window-restricted control
 holds (finite battery, one adversary genre family plus free-support climbs
@@ -247,9 +294,31 @@ no adversarial tuning at all.
 restores positivity on everything tried — but it decouples the functional
 from the chain rule: |σ|·(log₂OR − λ) is no longer the derivative of any
 gain, so a proof of MM_abs ≥ 0 would not by itself feed the 008/012
-assembly. PENDING-WHY-ABS
+assembly. Mechanically, MM_abs resists the ladder because replication
+scales a deficit that the weight has already zeroed: the per-unit deficit
+history is the light slice, its margins are nearly degenerate, and
+|σ| → 0 there — so the Θ(n) deficit channel that kills the plain
+aggregate enters MM_abs with weight ≈ 0, and the O(1) surplus coordinates
+(healthy margins, large |σ|) dominate at every n. The adversary's only
+lever is grinding the surplus weights down at fixed n (hence the +0.246
+and +0.064 floors at n = 48, and the rising transfers), or abandoning the
+ladder geometry entirely (hence the +0.0101 free-support endpoint at
+n = 8 — the genuinely open direction).
 
-**Why the window survives the ladder (so far).** PENDING-WHY-WIN
+**Why the window survives the ladder (so far).** 016's crossing is a
+second-order-vs-first-order race: the ladder's aggregate is
+a₁(n)λ + a₂(n)λ² + O(λ³) with a₁ ≥ 0 (Theorem C's perfect square) and
+a₂ < 0, and the kill at λ ∈ [2, 2.5] lives where the quadratic term has
+room to win. Restricting to λ ≤ 4.847/(n−3) freezes that race iff
+a₁(n)·n stays bounded away from 0 — and on this genre it *grows*
+(the replicated units contribute first-order squares additively while the
+window shrinks). The joint climb's convergence to λ → 0 is the same fact
+seen from the optimizer's side: inside the window there is no interior
+minimum to exploit, only the trivial boundary zero. What this does NOT
+rule out: a family engineered so the first-order square itself degenerates
+(a₁ ~ 1/n² or faster) while a₂ < 0 — products are the equality set of a₁
+(014/015), so near-product families with negative curvature are the
+designated hunting ground (lead 4).
 
 Reusable:
 
@@ -270,7 +339,47 @@ Reusable:
 
 ## Leads generated
 
-PENDING-LEADS
+1. **Attack MM_abs where it is actually soft: free supports at n = 10–16
+   seeded from the +0.0101 endpoint.** The tightest MM_abs margin came not
+   from any ladder but from a witness-seeded free climb at n = 8
+   (`gap1c_partC.json` `best_free`, geometry saved). Re-run the anneal
+   with that endpoint as seed at n ∈ {10, 12, 16} with 2500+ steps and
+   coordinate-count mutations. Definite outcome: an in-regime MM_abs < 0
+   witness (killing the last margin-modulated reading), or a floor that
+   survives deep search and licenses partial-proof effort (the ≤4-atom
+   and first-order-in-λ subclass theorems of 007 should port).
+2. **Restate what the assembly actually needs, now that the secant form is
+   dead** (016 lead 5, sharpened). The chain-rule cost at a history IS the
+   secant quantity, and it is certified negative on the witness — so the
+   assembly cannot demand history-pointwise gain parity. Derive the
+   assembly's true requirement (presumably a coordinate-level or
+   λ-integrated inequality that tolerates per-history losses) and check it
+   on the witness and the θ\* ladder with this record's census. Deliverable
+   either way: a precise statement or a proof that no per-history
+   weighting can work (extend the part-R sign map into a no-go).
+3. **Prove a₁(MU(n, r), θ) ≥ c/n^{1−ε} — first-order window-safety for the
+   replication genre.** a₁ is computable from 007's first-order machinery
+   (perfect-square coefficient, one term per history); on the ladder the
+   units contribute additively. A closed-form lower bound on the ladder's
+   a₁ would upgrade candidate II's survival from EVIDENCE to a theorem
+   *for this genre*; failure to prove it locates exactly which histories'
+   squares can vanish. Both outcomes are informative and the computation
+   is n-parametric, not a search.
+4. **Hunt a₁-degenerate families: the near-product dip direction at window
+   λ.** Products are a₁'s equality set (014/015; the +6.4e-7 first-order
+   floor at n ≈ 48 is the smallest square seen). Build near-product
+   families along 014's slice-direction dip, scaled with n, and evaluate
+   A at λ_win(n): if A < 0 for some n, the window candidate dies exactly
+   where the plain control was weakest; if the dip's a₁ recovers (as it
+   did at fixed λ by n = 64), the window candidate survives its most
+   dangerous known direction. Cheap: reuse this record's engine unchanged.
+5. **Skeptic pass on this record** (mandatory before ledger status): the
+   exact MM certificate is the first certified nonlinear census functional
+   in the library — re-derive `exact_mm` from 007 §1 + the Plackett
+   quadratic with an independent enclosure kit (017's interval-squaring
+   log₂ is structurally different from 013's atanh kit used here), re-run
+   the witness and n = 96 certificates, and re-check the secant identity
+   h₂(z̃) = h₂(z_OR(x, y)) symbolically rather than by round-trip.
 
 ## References
 
