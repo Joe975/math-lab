@@ -1,0 +1,36 @@
+{
+ "rows": [
+  {
+   "agg_hi_float": 1.8446690053408297,
+   "agg_lo_float": 1.8446690053408297,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "mm",
+   "max_marg_float": 0.31777018538674157,
+   "mm_hi": "-0.022254658205655785176",
+   "mm_hi_float": -0.022254658205655784,
+   "mm_lo": "-0.022254658205655785177",
+   "mm_lo_float": -0.022254658205655784,
+   "n": 7,
+   "name": "mm_witness_t181/16",
+   "t": "181/16",
+   "verdict": "CERTIFIED NEGATIVE (KILL)"
+  },
+  {
+   "agg_hi_float": -0.0007598651858441661,
+   "agg_lo_float": -0.0007598651858441661,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "mm",
+   "max_marg_float": 0.30866648372421185,
+   "mm_hi": "-0.000381941148389669057",
+   "mm_hi_float": -0.00038194114838966905,
+   "mm_lo": "-0.000381941148389669058",
+   "mm_lo_float": -0.00038194114838966905,
+   "n": 96,
+   "name": "mm_theta*_n96_t4",
+   "t": "4",
+   "verdict": "CERTIFIED NEGATIVE (KILL)"
+  }
+ ]
+}
