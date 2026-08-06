@@ -639,6 +639,52 @@
         "abs-sensitivity-or-control"
       ],
       "note": "Settles 016 lead 1 negatively for the signed readings without needing the ladder: the sensitivity weighting fails on the witness itself while the plain aggregate is certified positive (+1.844669) on the same tables. The margin-modulated gap tag of 007/013/016 dies as stated; what replaces it is the unsigned variant (which decouples from the chain rule -- a proof of it would not feed the 008/012 assembly directly) and the window-restricted variant (016 lead 4 / 017 C2), both surviving as EVIDENCE. Certification of the kill uses the lab's first certified enclosure of a NONLINEAR census functional (Plackett root + binary entropy per history)."
+    },
+    {
+      "id": "019",
+      "file": "attempts/019-skeptic-review-of-018.md",
+      "date": "2026-08-06",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett"
+      ],
+      "one_line": "From-scratch re-certification confirms 018's headline: an independent exact kit (scaled-integer census from 007 section 1's prose, exact-rational Newton with sign-checked bracket for the Plackett root, own interval-squaring log2 enclosures) re-derives MM_sec in [-0.022254658205655785176146, -0.022254658205655785176145] on the witness at t = 181/16 -- negative, in-regime, dichotomy exact, strictly inside 018's enclosure -- with the secant identity, product-measure zero and degenerate-contribution-0 re-derived by hand and the tidy 2-digit witness newly certified (-0.02227); the realized-OR sensitivity variants 018 skipped were built and tested (signed dies on the witness at -1.458, unsigned survives), so no signed reading of 007 lead 2 survives; corrections are prose-level only.",
+      "leak_terms": [
+        "gap1csk",
+        "uc_gap1c_skeptic",
+        "sign-checked Newton bracket",
+        "realized-OR variant",
+        "MM_der_rlz",
+        "MM_abs_rlz",
+        "0.022254658205655785176",
+        "raw ladder branch flip",
+        "golden parenthetical"
+      ],
+      "verifies": "018",
+      "corrections": [
+        "018 part B's 'MM_sec is negative at every n in {16..160} (raw and theta* ladders), MM_der negative throughout' is contradicted by 018's own gap1c_partB.json: the raw ladder at n in {96, 128, 160} has MM_sec +6.7e-3/+6.1e-3/+5.2e-3 and MM_der ~ +0.95..0.99 (the tune_dil bisection switches dilution branch at n >= 96); correct scope is theta* at all n and raw at n <= 64 only",
+        "the golden-ratio parenthetical (twice: 'z_1(x,x) = x^2 crosses 1/2 exactly at the (3-sqrt5)/2 barrier') is false -- at the barrier x^2 equals the marginal itself (phi^2 = 1 - phi), not 1/2; the rho = 1 crossing is at marginal 1 - 2^{-1/2} ~ 0.2929 and the lambda = 3.5 crossing at ~ 0.3891 is lambda-dependent; the in-regime z = 1/2 straddling claim itself survives",
+        "section F ships a literal PENDING-F placeholder: only 1 of 4 --cert jobs (the witness MM cert) had landed at review time; the n = 96/160 MM certificates and t = 51/50 window certificates are absent from 018 and must not be cited from it",
+        "witness MM_sec 'positive only for lambda <~ 0.7' -- the crossing is between 0.8 and 0.9 (+4.95e-5 at 0.8, -3.2e-4 at 0.9)",
+        "runtime drift (cosmetic): record says ~35 min for parts A-D, log shows ~58 min"
+      ],
+      "range": "Witness MM_sec kill independently re-certified at t = 181/16 (enclosure width 5.9e-30, strictly inside 018's; exact marginals < 38271/100000; dichotomy and degenerate-row-zero checked as exact identities); tidy 2-digit witness newly certified negative; exact product-measure anchor (w = 3/7, n = 5, t = 4) contains 0 at width 9.3e-30 with plain aggregate exactly 0; float spot-checks on a spec-rebuilt ladder (own builder + own tune_dil): witness MM numbers, theta* n = 96 lam = 2 triple, window A at n = 96, all 10 part-D a1/a2 fits re-solved, perturbations 0/40 failures on fresh seeds; best_free endpoint re-evaluated (in-regime, nondegenerate); realized-OR variant zoo at two instances; searches themselves NOT re-run at scale (018's floors stay EVIDENCE); MM_der not separately certified (float only, as in 018)",
+      "refuted_by": null,
+      "gaps": [
+        "abs-sensitivity-or-control",
+        "lambda-restricted-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "note": "Decisive check per the lab standard: 018's certificate reused 013's atanh log2 kit and its own dyadic bisection; this review's kit shares neither (interval-squaring log2 re-implemented from 017's idea; exact Newton root with per-call symbolic bracket-sign identities F(xy) = (1-t)xy(1-x)(1-y) < 0 < min(x,y)(1-max(x,y))). Three structurally different kits now agree on the witness tables (013's aggregate, 018's MM, this one). The fork analysis is extended, not just checked: sensitivity-at-realized-OR readings were the natural loophole and they behave exactly as 018's signed/unsigned dichotomy predicts. Per precedent the reviewed record (018) is not modified."
     }
   ]
 }

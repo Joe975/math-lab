@@ -1,0 +1,40 @@
+[     0s] [S0] log2 enclosure: 67 cases + additivity, max width 9.1e-30, ok=True
+[     4s] [S0] Plackett Newton root: 60 random (x,y,t), max width 6.6e-49, round-trip OR/t = 1 to 1e-9, ok=True
+[     4s] [S0] h2 enclosure: 41 cases ok=True
+[     4s] [S0] MU(7,1) from spec == 007 witness atom-for-atom: True
+[     4s] [S1] witness t=181/16 MM_sec in [-2.225465820565578e-02, -2.225465820565578e-02] width 5.9e-30  CERTIFIED NEGATIVE
+[     4s] [S1]   plain aggregate in [+1.844669005341, +1.844669005341] (013/018: +1.844669005)
+[     4s] [S1]   max marginal 0.3177701854 (exact < 38271/100000: True); dichotomy exact True; degenerate rows contribute 0 exactly True; rows 12 (12 distinct margins)
+[     4s] [S1]   overlap with 018's enclosure [-0.022254658205655785177, ...176]: True
+[     5s] [S1] tidy 2-digit witness t=181/16: MM_sec in [-2.227367482e-02, -2.227367482e-02] CERTIFIED NEGATIVE (max marg 0.3130, in-regime True)
+[     5s] [S1] product anchor (w=3/7, n=5, t=4): MM_sec enclosure contains 0: True (width 9.3e-30); plain aggregate exactly 0: True
+[     5s] [S2] witness (n=7, lam=3.5) variant zoo:
+[     5s] [S2]   plain          +1.844754
+[     5s] [S2]   mm_sec         -0.022255
+[     5s] [S2]   mm_der         -0.895542
+[     5s] [S2]   mm_abs         +2.354328
+[     5s] [S2]   mm_der_rlz     -1.458123
+[     5s] [S2]   mm_abs_rlz     +2.132730
+[     5s] [S2]   mm_absrho_rlz  +1.808150
+[     8s] [S2] theta* ladder n=96 lam=2 variant zoo:
+[     8s] [S2]   plain          -7.598652e-04
+[     8s] [S2]   mm_sec         -3.819411e-04
+[     8s] [S2]   mm_der         -1.710923e-01
+[     8s] [S2]   mm_abs         +9.690449e-01
+[     8s] [S2]   mm_der_rlz     -4.351719e-01
+[     8s] [S2]   mm_abs_rlz     +9.339568e-01
+[     8s] [S2]   mm_absrho_rlz  +8.801585e-01
+[     8s] [S2] witness MM_sec near the crossing: 0.60:+5.18e-04  0.70:+3.29e-04  0.75:+2.00e-04  0.80:+4.95e-05  0.90:-3.21e-04
+[     8s] [S3] witness floats: MM_abs +2.354328 (018 +2.354328 True), MM_der -0.895542 (018 -0.895542 True), MM_sec -0.022255 (018 -0.022255 True)
+[    10s] [S3] theta* ladder n=96 lam=2 (own tune_dil, dil=31.622777): plain -0.000760 (018 -0.000760), MM_sec -3.819411e-04 (018 -3.819e-4), MM_abs +0.969045 (018 +0.969), mm 0.309, ok=True
+[    12s] [S3] raw ladder n=96 lam=2 (own tune_dil, dil=251.4867): plain +1.163014, MM_sec +6.719528e-03, MM_der +9.856109e-01  <-- MM_sec/MM_der POSITIVE at n=96 (018 checkpoint agrees; 018 PROSE says negative at every n)
+[    12s] [S3] raw ladder n=64 lam=2: MM_sec -3.400008e-03 (negative branch, 018 -3.400e-3)
+[    14s] [S3] theta* window n=96 lam=0.052118: A +3.747072e-03 (018 +3.747e-3, ok=True), mm 0.269
+[    14s] [S3] a1/a2 fit re-solve (theta*): n=48:a1*n=+4.732  n=96:a1*n=+7.187  n=160:a1*n=+10.367  n=224:a1*n=+13.499  n=320:a1*n=+18.127
+[    14s] [S3] all 10 stored (a1, a2) rows re-derive: True; a1*n growth on theta* rows: [4.73, 7.19, 10.37, 13.5, 18.13]
+[    14s] [S3] perturbations seed=7: 0/20 failures, MM_sec in [-0.02295, -0.02164]
+[    14s] [S3] perturbations seed=424242: 0/20 failures, MM_sec in [-0.02258, -0.02165]
+[    14s] [S4] best_free endpoint (n=8, lam=2.0): my MM_abs +1.007614e-02 (018 +1.007614e-02), MM_sec -8.327292e-05, max marg 0.153275 (in-regime True), dich True, H 1.019 bits, match=True
+[    14s] [S4] golden parenthetical: at marginal 0.381966, x = 0.618034, x^2 = 0.381966 = the marginal itself (phi identity), NOT 1/2; z_1(x,x) = 1/2 at marginal 0.292893
+[    14s] [S4] z_t(x,x) = 1/2 at lam=3.5 happens at element marginal 0.389113 (lambda-dependent; equals 0.38197 for no stated reason)
+[    14s] done
