@@ -206,7 +206,36 @@ endpoints (straddle-guarded at z = 1/2), all sums exact rationals:
       digit-for-digit, an internal anchor computed from the same tables)
       max marginal < 38271/100000 exactly; degeneracy dichotomy exact.
 
-- PENDING-F
+The remaining four jobs (completed AFTER 019's review closed — see the
+scope note below):
+
+    θ* ladder n = 96, t = 4 (λ = 2, 016's kill instance; 188 atoms,
+    368 nondegenerate rows):
+      MM_sec ∈ [−3.819411484e-4, −3.819411484e-4]   CERTIFIED NEGATIVE
+      plain aggregate ∈ [−0.000760, −0.000760] (= 016's kill, re-derived
+      from the same tables), in-regime, dichotomy exact       (1436 s)
+    θ* ladder n = 160, t = 4 (tidy rational weights, 624 rows):
+      MM_sec ∈ [−2.229998913e-4, −2.229998913e-4]   CERTIFIED NEGATIVE
+      plain ∈ [−0.024226, −0.024226], in-regime, dich exact   (4069 s)
+    window points, t = 51/50 (λ = log₂(51/50) ≈ 0.0286, strictly inside
+    the window at both n), θ* window-tuned ladders:
+      n = 96:  agg ∈ [+2.092188747e-3, +2.092188747e-3]  CERT. POSITIVE
+      n = 160: agg ∈ [+1.802171374e-3, +1.802171374e-3]  CERT. POSITIVE
+      both in-regime, dichotomy exact                    (140 s, 467 s)
+
+So the secant-form kill is certified not only on the witness but on the
+ladder at n = 96 and 160 (the MM_sec float values of part B bracketed
+digit-for-digit), and candidate II's survival has certified in-window
+anchors at kill-scale n at an exactly-rational tilt.
+
+**Scope note (019 C3):** the independent skeptic pass (019) closed while
+only the witness certificate had landed; the four certificates above are
+therefore NOT covered by 019's re-verification. 019 did independently
+reproduce the underlying float values (θ\* n = 96 triple, window
+A(λ_win) at n = 96) with its own spec-rebuilt evaluator, but the exact
+enclosures in this block await a future skeptic. The headline REFUTED
+status rests only on the witness certificate, which 019 re-certified
+from scratch to width 5.9e-30.
 
 Robustness of the kill (part R, `gap1c_partR.json`): 20/20 independent 3%
 weight perturbations keep MM_sec < 0 in-regime (range −0.0228…−0.0218);

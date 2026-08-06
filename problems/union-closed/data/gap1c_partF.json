@@ -61,6 +61,20 @@
    "name": "window_theta*_n96_t51/50",
    "t": "51/50",
    "verdict": "CERTIFIED POSITIVE"
+  },
+  {
+   "agg_hi": "+0.001802171374037480778",
+   "agg_hi_float": 0.0018021713740374809,
+   "agg_lo": "+0.001802171374037480777",
+   "agg_lo_float": 0.0018021713740374809,
+   "dich_ok": true,
+   "in_regime": true,
+   "kind": "plain",
+   "max_marg_float": 0.2679866363283877,
+   "n": 160,
+   "name": "window_theta*_n160_t51/50",
+   "t": "51/50",
+   "verdict": "CERTIFIED POSITIVE"
   }
  ]
 }
