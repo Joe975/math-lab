@@ -2,13 +2,47 @@
 
 The lab's agent fan-out has always been priced in director-class attention:
 `docs/IDEATE.md` caps a sweep at three to six lenses because each lens costs
-a full agent. A cheap external reasoning model (currently `gpt-5.6-luna`,
-$0.20/$1.20 per 1M tokens) changes that arithmetic — a thirty-worker sweep
-costs pennies. What it does *not* change is who is accountable for the
-output. This file is the protocol for using bulk workers without corrupting
-the dataset the repo exists to produce.
+a full agent. A cheap external reasoning model changes that arithmetic — a
+thirty-worker sweep costs pennies. What it does *not* change is who is
+accountable for the output. This file is the protocol for using bulk workers
+without corrupting the dataset the repo exists to produce.
 
 The tool is `scripts/swarm.py`; run `python scripts/swarm.py --help`.
+
+## Providers
+
+Two API families are wired in. The provider is inferred from the model name,
+so in practice `--model` is the only flag that matters; `--provider` exists
+for OpenAI-compatible proxies serving a Gemini model name.
+
+| provider | models       | key                              | default worker as of 2026-08      |
+|----------|--------------|----------------------------------|-----------------------------------|
+| `openai` | `gpt-*`      | `OPENAI_API_KEY`                 | `gpt-5.6-luna` — $0.20/$1.20 per 1M |
+| `gemini` | `gemini-*`, `gemma-*` | `GEMINI_API_KEY`, else `GEMINI_KEY` | `gemini-3.7-flash` — $0.75/$3.75 per 1M |
+
+**Use `gemini-3.7-flash` on the Gemini side.** It is the current Flash release
+(2026-08-13), it is the tier Google tuned for coding and multi-step agent
+work — which is what a skeptic re-implementation brief actually asks for —
+and its $0.75/$3.75 is introductory pricing through 2026-12-31 (it doubles on
+2027-01-01, at which point this line needs revisiting). `gemini-3.1-flash-lite`
+($0.25/$1.50) remains the floor tier for pure breadth work where the return is
+a paragraph rather than a program. Step-up on the OpenAI side is
+`gpt-5.6-terra` ($2/$12).
+
+`--effort` maps onto Gemini's `thinkingLevel` under the same four names; not
+every model supports every level (`minimal` is refused by `gemini-3.7-flash`
+with a 400 naming it). Three operational notes from the Gemini side:
+`503 UNAVAILABLE / high demand` is routine on a just-released model and is
+absorbed by the retry ladder; thinking tokens bill at the output rate, so
+`status` folds them into the output count; and a **free-tier** key throttles
+hard (5 requests/min, with the wait in a `google.rpc.RetryInfo` in the error
+body rather than a `Retry-After` header — `swarm.py` honours it, capped at
+60s). If a sweep dies on 429 with `generate_content_free_tier_requests`, the
+key needs billing enabled, not more retries.
+
+**The two families are not interchangeable, and that is the point.** Which
+family drafted a return is a fact about how independent that return is —
+see the skeptic rule below.
 
 ## Division of labor
 
@@ -40,7 +74,17 @@ writes, or any claim that would enter the repo unverified.
   computations be re-run by a *different implementation* (`docs/CYCLE.md`,
   step 4). Having a different model family write that re-implementation is
   strictly stronger independence than a second agent of the same family.
-  Record which model wrote it in the verification note.
+  Record which model wrote it in the verification note. With two providers
+  available this is now a choice the director must make deliberately: if the
+  original computation was drafted by a `gpt-*` worker, the skeptic
+  re-implementation should be drafted by a `gemini-*` one, and vice versa.
+  A same-family skeptic pass is weaker evidence and the record must say so.
+- **Cross-family agreement as a triage signal, not a result.** Running the
+  same brief on both families and keeping only what both return is a cheap
+  filter on the discard pile. It is still a filter on *candidates*: two
+  families agreeing on a false claim is a documented failure mode (001's
+  false bijection claim was unanimous within one family), and agreement
+  never substitutes for step 4.
 - **Bulk triage.** Scoring a pile of candidate routes for "does this have a
   falsifiable first step" before the director reads them; classifying
   search-output anomalies; drafting variations on a construction.
@@ -68,7 +112,9 @@ attempt.
 ## Provenance
 
 - The attempt record names the external model and effort next to `mode`
-  (e.g. "workers: gpt-5.6-luna, effort low, 28 briefs").
+  (e.g. "workers: gpt-5.6-luna, effort low, 28 briefs"). When a record leans
+  on more than one family, name each and say which did what — the split is
+  the independence claim, so it has to be legible without opening the metas.
 - If a record leans on swarm output, commit the brief — the template and
   values file, or the prompt set — under `problems/<problem>/explore/`.
   Swarm output itself lives in `$MATHLAB_OUT/swarm/` (gitignored working
@@ -87,3 +133,10 @@ have solved the problem has made an error — that is what step 4 is for. At
 current prices generation is never the constraint; director filtering is.
 Scale the fan-out to what the director will actually read, not to what the
 budget allows.
+
+The provider choice has its own calibration. The floor tiers of the two
+families are within 25% of each other on price, so cost is not the reason to
+prefer one; independence is. Spend the cheap tier on breadth (ideation,
+triage, drafting variations) and reserve the step-up tiers for briefs where
+a wrong answer would cost director attention to detect — and keep the family
+that drafted a claim off that claim's verification.

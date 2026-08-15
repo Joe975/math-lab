@@ -1,0 +1,11 @@
+k= 2 counted=     1 maxflow=     1 ok
+k= 3 counted=     1 maxflow=     1 ok
+k= 4 counted=     3 maxflow=     3 ok
+k= 5 counted=     5 maxflow=     5 ok
+k= 6 counted=    11 maxflow=    11 ok
+k= 7 counted=    21 maxflow=    21 ok
+k= 8 counted=    43 maxflow=    43 ok
+k= 9 counted=    85 maxflow=    85 ok
+k=10 counted=   171 maxflow=   171 ok
+k=11 counted=   341 maxflow=   341 ok
+k=12 counted=   683 maxflow=   683 ok

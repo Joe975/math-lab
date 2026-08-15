@@ -1,0 +1,4 @@
+# one stance per line; each worker gets exactly one
+Write your own maximum-flow implementation and use the max-flow min-cut theorem on H_k directly. Do not use any shortcut specific to this graph.
+Reason from first principles about the structure of H_k to characterise which edges can appear in a minimum cut, then enumerate. Justify the characterisation before using it.
+Use whatever method you can justify. In addition, after the code block, state whether |S_k| appears to have a closed form in k, and if so give it and prove it.

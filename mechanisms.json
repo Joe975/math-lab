@@ -136,6 +136,10 @@
       "field": "algebra",
       "description": "Prove an infinite family of identities at one stroke by moving the family parameters into the exponent lattice: adjoin e^{i a alpha}, e^{i b beta} (or analogous parameter-indexed units) as independent formal Laurent variables, verify the identity once by exact polynomial subtraction in the enlarged ring, and specialize by ring homomorphism to every integer parameter value. Turns a hand geometric-series computation into a finite machine check; needs a short hand derivation that the geometric quantities equal the formal closed forms."
     },
+    "functional-graph-invariants": {
+      "field": "graph-theory",
+      "description": "Compute unlabelled structural invariants -- dominator tree, minimum directed cuts, treewidth -- on the digraph of an iterated map, and test whether any carries information the map does not already give. On a functional graph (out-degree one everywhere) the answer is usually no, and the collapse is provable rather than measured: unique forward orbits force the dominator tree to be the orbit tree, and one cycle plus a forest forces constant treewidth. Prices a graph-theoretic route before the machinery is built; the collapse is the deliverable."
+    },
     "girth-restriction": {
       "field": "graph-theory",
       "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
