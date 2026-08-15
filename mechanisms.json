@@ -160,6 +160,10 @@
       "field": "logic-methodology",
       "description": "Re-derive a computational claim with different code and, where possible, a different algorithm."
     },
+    "interval-chain-covering": {
+      "field": "number-theory",
+      "description": "Prove an existence statement by covering the target interval with an overlapping chain of parametric rational intervals, reducing the claim to elementary endpoint inequalities with a constructive floor-formula witness."
+    },
     "k-wise-union": {
       "field": "extremal-combinatorics",
       "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
