@@ -44,6 +44,10 @@ repo is uniquely able to produce.
   across one problem; `docs/RIPPLE.md` to scan a new result across problems.
   Session skills exist for each: `/ideate`, `/ripple`, `/mechanisms`,
   `/cycle`.
+- Bulk breadth work (high fan-out ideation, skeptic re-implementations,
+  triage) can be farmed to cheap external workers via `scripts/swarm.py`;
+  the director/worker protocol and its mode-discipline rules are in
+  `docs/SWARM.md`. Swarm returns are candidates, never results.
 
 ## Always
 
