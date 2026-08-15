@@ -79,17 +79,51 @@ def test_job_state_lifecycle(tmp_path):
     assert swarm.job_state(prompt, outdir) == "failed"
 
 
-def test_build_payload_shape():
-    payload = swarm.build_payload("gpt-5.6-luna", "hi", "low", 4096)
-    assert payload == {
+def test_provider_for_model_routes_by_name():
+    assert swarm.provider_for_model("gpt-5.6-luna") == "openai"
+    assert swarm.provider_for_model("gemini-3.1-flash-lite") == "gemini"
+    assert swarm.provider_for_model("gemma-4-31b-it") == "gemini"
+    # An unknown name must not guess Gemini: a proxy's model name belongs on
+    # the OpenAI-compatible path.
+    assert swarm.provider_for_model("some-proxy-model") == "openai"
+
+
+def test_resolve_provider_explicit_beats_inference():
+    """`--provider` is the escape hatch for an OpenAI-compatible Gemini proxy."""
+    assert swarm.resolve_provider("auto", "gemini-3.7-flash").name == "gemini"
+    assert swarm.resolve_provider("openai", "gemini-3.7-flash").name == "openai"
+
+
+def test_openai_payload_and_endpoint():
+    provider = swarm.PROVIDERS["openai"]
+    assert provider.payload("gpt-5.6-luna", "hi", "low", 4096) == {
         "model": "gpt-5.6-luna",
         "input": "hi",
         "reasoning": {"effort": "low"},
         "max_output_tokens": 4096,
     }
+    assert provider.endpoint("https://x/v1", "gpt-5.6-luna") == "https://x/v1/responses"
+    assert "Authorization" in provider.headers("k")
 
 
-def test_extract_text_ignores_non_text_items():
+def test_gemini_payload_and_endpoint():
+    provider = swarm.PROVIDERS["gemini"]
+    assert provider.payload("gemini-3.7-flash", "hi", "high", 4096) == {
+        "contents": [{"role": "user", "parts": [{"text": "hi"}]}],
+        "generationConfig": {
+            "maxOutputTokens": 4096,
+            "thinkingConfig": {"thinkingLevel": "high"},
+        },
+    }
+    # The model name rides in the path, not the body — a provider that got
+    # this wrong would silently bill the default model.
+    assert provider.endpoint("https://x/v1beta", "gemini-3.7-flash") == (
+        "https://x/v1beta/models/gemini-3.7-flash:generateContent"
+    )
+    assert provider.headers("k")["x-goog-api-key"] == "k"
+
+
+def test_openai_extract_text_ignores_non_text_items():
     resp = {
         "output": [
             {"type": "reasoning", "content": None},
@@ -103,12 +137,81 @@ def test_extract_text_ignores_non_text_items():
             },
         ]
     }
-    assert swarm.extract_text(resp) == "part one part two"
+    assert swarm.PROVIDERS["openai"].text(resp) == "part one part two"
+
+
+def test_gemini_extract_text_drops_thought_parts():
+    """Thought summaries are not the answer; a swarm return must be the answer."""
+    resp = {
+        "candidates": [
+            {
+                "finishReason": "STOP",
+                "content": {
+                    "parts": [
+                        {"text": "IGNORED", "thought": True},
+                        {"text": "part one "},
+                        {"text": "part two", "thoughtSignature": "opaque"},
+                    ]
+                },
+            }
+        ]
+    }
+    assert swarm.PROVIDERS["gemini"].text(resp) == "part one part two"
+
+
+def test_gemini_usage_bills_thoughts_as_output():
+    """Gemini's output price includes thinking tokens; leaving thoughtsTokenCount
+    out of the output bucket understates every sweep's cost."""
+    resp = {
+        "usageMetadata": {
+            "promptTokenCount": 30,
+            "candidatesTokenCount": 10,
+            "thoughtsTokenCount": 57,
+            "totalTokenCount": 97,
+        }
+    }
+    assert swarm.PROVIDERS["gemini"].usage(resp) == {
+        "input_tokens": 30,
+        "output_tokens": 67,
+    }
+
+
+def test_incomplete_detection_per_provider():
+    """Truncation must fail the job on both dialects, not land as a short draft."""
+    openai, gemini = swarm.PROVIDERS["openai"], swarm.PROVIDERS["gemini"]
+    assert openai.incomplete({"status": "completed"}) is None
+    assert openai.incomplete({"status": "incomplete"}) is not None
+
+    ok = {"candidates": [{"finishReason": "STOP", "content": {"parts": []}}]}
+    assert gemini.incomplete(ok) is None
+    truncated = {"candidates": [{"finishReason": "MAX_TOKENS"}]}
+    assert "MAX_TOKENS" in gemini.incomplete(truncated)
+    # A prompt-level block returns no candidate at all.
+    assert gemini.incomplete({"promptFeedback": {"blockReason": "SAFETY"}}) is not None
+
+
+def test_gemini_key_env_precedence(monkeypatch):
+    """GEMINI_KEY is what the lab environment injects; GEMINI_API_KEY is
+    Google's documented name and must win when both are present."""
+    provider = swarm.PROVIDERS["gemini"]
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.setenv("GEMINI_KEY", "from-lab")
+    assert provider.api_key() == "from-lab"
+    monkeypatch.setenv("GEMINI_API_KEY", "from-google")
+    assert provider.api_key() == "from-google"
+    monkeypatch.delenv("GEMINI_KEY", raising=False)
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    assert provider.api_key() is None
 
 
 def test_estimate_cost_known_and_unknown():
     known = {"gpt-5.6-luna": {"input_tokens": 1_000_000, "output_tokens": 1_000_000}}
     assert swarm.estimate_cost(known) == 0.20 + 1.20
+    mixed = {
+        "gpt-5.6-luna": {"input_tokens": 1_000_000, "output_tokens": 0},
+        "gemini-3.1-flash-lite": {"input_tokens": 0, "output_tokens": 1_000_000},
+    }
+    assert swarm.estimate_cost(mixed) == 0.20 + 1.50
     unknown = {"some-future-model": {"input_tokens": 5, "output_tokens": 5}}
     assert swarm.estimate_cost(unknown) is None
 
@@ -125,7 +228,8 @@ def test_cli_plan_then_dry_run_needs_no_key(tmp_path):
     values.write_text("alpha\nbeta\n", encoding="utf-8")
     jobdir = tmp_path / "jobs"
 
-    env = {k: v for k, v in os.environ.items() if k != "OPENAI_API_KEY"}
+    keys = {"OPENAI_API_KEY", "GEMINI_API_KEY", "GEMINI_KEY"}
+    env = {k: v for k, v in os.environ.items() if k not in keys}
 
     def run(*argv):
         return subprocess.run(
@@ -148,10 +252,17 @@ def test_cli_plan_then_dry_run_needs_no_key(tmp_path):
     assert "2 to run" in dry.stdout
     assert "would run 001-alpha.md" in dry.stdout
 
-    # A real run without a key must refuse before any network attempt.
+    # A real run without a key must refuse before any network attempt, and
+    # must name the key the chosen provider actually wants.
     wet = run("run", str(jobdir), "--out", str(tmp_path / "out"))
     assert wet.returncode == 2
     assert "OPENAI_API_KEY" in wet.stderr
+
+    wet_gemini = run("run", str(jobdir), "--out", str(tmp_path / "out"),
+                     "--model", "gemini-3.1-flash-lite")
+    assert wet_gemini.returncode == 2
+    assert "GEMINI_API_KEY" in wet_gemini.stderr
+    assert "OPENAI_API_KEY" not in wet_gemini.stderr
 
 
 def test_cli_status_on_partial_outdir(tmp_path):
