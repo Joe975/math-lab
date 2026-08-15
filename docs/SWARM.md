@@ -15,18 +15,30 @@ Two API families are wired in. The provider is inferred from the model name,
 so in practice `--model` is the only flag that matters; `--provider` exists
 for OpenAI-compatible proxies serving a Gemini model name.
 
-| provider | models       | key                              | cheap tier as of 2026-08          |
+| provider | models       | key                              | default worker as of 2026-08      |
 |----------|--------------|----------------------------------|-----------------------------------|
 | `openai` | `gpt-*`      | `OPENAI_API_KEY`                 | `gpt-5.6-luna` — $0.20/$1.20 per 1M |
-| `gemini` | `gemini-*`, `gemma-*` | `GEMINI_API_KEY`, else `GEMINI_KEY` | `gemini-3.1-flash-lite` — $0.25/$1.50 per 1M |
+| `gemini` | `gemini-*`, `gemma-*` | `GEMINI_API_KEY`, else `GEMINI_KEY` | `gemini-3.7-flash` — $0.75/$3.75 per 1M |
 
-Step-up tiers when a brief needs more than the floor: `gpt-5.6-terra`
-($2/$12) and `gemini-3.7-flash` ($0.75/$3.75). `--effort` maps onto Gemini's
-`thinkingLevel` under the same four names; not every model supports every
-level (`minimal` is refused by `gemini-3.7-flash` with a 400 naming it).
-Two operational notes from the Gemini side: `503 UNAVAILABLE / high demand`
-is routine and is absorbed by the retry ladder, and thinking tokens bill at
-the output rate, so `status` folds them into the output count.
+**Use `gemini-3.7-flash` on the Gemini side.** It is the current Flash release
+(2026-08-13), it is the tier Google tuned for coding and multi-step agent
+work — which is what a skeptic re-implementation brief actually asks for —
+and its $0.75/$3.75 is introductory pricing through 2026-12-31 (it doubles on
+2027-01-01, at which point this line needs revisiting). `gemini-3.1-flash-lite`
+($0.25/$1.50) remains the floor tier for pure breadth work where the return is
+a paragraph rather than a program. Step-up on the OpenAI side is
+`gpt-5.6-terra` ($2/$12).
+
+`--effort` maps onto Gemini's `thinkingLevel` under the same four names; not
+every model supports every level (`minimal` is refused by `gemini-3.7-flash`
+with a 400 naming it). Three operational notes from the Gemini side:
+`503 UNAVAILABLE / high demand` is routine on a just-released model and is
+absorbed by the retry ladder; thinking tokens bill at the output rate, so
+`status` folds them into the output count; and a **free-tier** key throttles
+hard (5 requests/min, with the wait in a `google.rpc.RetryInfo` in the error
+body rather than a `Retry-After` header — `swarm.py` honours it, capped at
+60s). If a sweep dies on 429 with `generate_content_free_tier_requests`, the
+key needs billing enabled, not more retries.
 
 **The two families are not interchangeable, and that is the point.** Which
 family drafted a return is a fact about how independent that return is —

@@ -46,6 +46,7 @@ import concurrent.futures
 import datetime
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -54,9 +55,13 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-# Cheapest reasoning tier on each provider's price ladder as of 2026-08.
+# Default worker on each provider as of 2026-08. On the OpenAI side that is
+# the cheapest reasoning tier; on the Gemini side it is the current Flash
+# release (gemini-3.7-flash, 2026-08-13), which is on introductory pricing at
+# roughly three times the flash-lite rate and is the tier tuned for the
+# code-writing briefs the swarm is actually given.
 DEFAULT_MODEL = "gpt-5.6-luna"
-DEFAULT_GEMINI_MODEL = "gemini-3.1-flash-lite"
+DEFAULT_GEMINI_MODEL = "gemini-3.7-flash"
 
 # $ per 1M tokens (input, output), standard tier, text prompts under 200k,
 # read off the OpenAI and Google pricing pages 2026-08. Gemini output prices
@@ -78,10 +83,31 @@ PROMPT_SUFFIXES = {".md", ".txt"}
 PLACEHOLDER = "{{value}}"
 # Same retry ladder the repo uses for git pushes.
 BACKOFFS = (2, 4, 8, 16)
+# Ceiling on a server-requested wait. Gemini free-tier quota windows ask for
+# ~30s; anything much past that is better handled by resuming the sweep.
+MAX_BACKOFF = 60
 
 
 class SwarmError(Exception):
     """A job-level failure worth recording, as opposed to a usage error."""
+
+
+def retry_hint_seconds(headers, detail: str) -> int | None:
+    """How long the server asked us to wait, from whichever channel it used.
+
+    OpenAI sends a `Retry-After` header. Google sends nothing in the headers
+    and puts a `google.rpc.RetryInfo` in the error body instead — and on a
+    free-tier key its quota window (30s) is longer than this module's whole
+    backoff ladder, so ignoring it turns a routine throttle into a dead job.
+    """
+    header = headers.get("Retry-After") if headers else None
+    if header and header.strip().isdigit():
+        return int(header.strip())
+    match = re.search(r'"retryDelay"\s*:\s*"(\d+(?:\.\d+)?)s"', detail)
+    if match:
+        # Round up: waking a hair early just burns another attempt.
+        return math.ceil(float(match.group(1)))
+    return None
 
 
 # --- pure helpers (unit-tested offline) -----------------------------------
@@ -332,6 +358,19 @@ def resolve_provider(name: str, model: str) -> Provider:
     return PROVIDERS[provider_for_model(model) if name == "auto" else name]
 
 
+def resolve_target(provider_name: str, model: str | None) -> tuple[Provider, str]:
+    """(provider, model) from whichever of the two the caller actually gave.
+
+    `--provider gemini` with no `--model` has to land on the Gemini default,
+    not on the OpenAI one. Getting this wrong is silent and expensive in the
+    way that matters most here: a cross-family skeptic pass that quietly runs
+    on the same family it was meant to be independent of.
+    """
+    if model is None:
+        model = DEFAULT_GEMINI_MODEL if provider_name == "gemini" else DEFAULT_MODEL
+    return resolve_provider(provider_name, model), model
+
+
 def estimate_cost(usage_by_model: dict[str, dict[str, int]]) -> float | None:
     """Dollar estimate across models, or None if any model has no price row."""
     total = 0.0
@@ -376,9 +415,12 @@ def call_api(
             last = f"HTTP {e.code}: {detail}"
             if e.code != 429 and e.code < 500:
                 raise SwarmError(last) from None
-            retry_after = e.headers.get("Retry-After")
-            if retry_after and retry_after.isdigit() and backoff is not None:
-                backoff = max(backoff, int(retry_after))
+            hint = retry_hint_seconds(e.headers, detail)
+            if hint is not None and backoff is not None:
+                # Honour the server over our ladder, but never sleep past the
+                # cap: a job stuck behind a multi-minute quota should fail and
+                # be resumed later, not hold a worker slot.
+                backoff = min(max(backoff, hint), MAX_BACKOFF)
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
             last = f"{type(e).__name__}: {e}"
         if backoff is None:
@@ -497,7 +539,7 @@ def cmd_run(args) -> int:
             print(f"  would run {p.name} ({states[p]})")
         return 0
 
-    provider = resolve_provider(args.provider, args.model)
+    provider, args.model = resolve_target(args.provider, args.model)
     api_key = provider.api_key()
     if not api_key:
         print(f"error: {provider.key_hint()} is not set", file=sys.stderr)
@@ -532,7 +574,7 @@ def cmd_run(args) -> int:
 
 def cmd_one(args) -> int:
     prompt = sys.stdin.read() if args.prompt == "-" else args.prompt
-    provider = resolve_provider(args.provider, args.model)
+    provider, args.model = resolve_target(args.provider, args.model)
     api_key = provider.api_key()
     if not api_key:
         print(f"error: {provider.key_hint()} is not set", file=sys.stderr)
@@ -580,7 +622,12 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     def add_model_args(p):
-        p.add_argument("--model", default=DEFAULT_MODEL)
+        p.add_argument(
+            "--model",
+            default=None,
+            help=f"default: {DEFAULT_MODEL}, or {DEFAULT_GEMINI_MODEL} when "
+                 "--provider gemini is given without a model",
+        )
         p.add_argument(
             "--provider",
             default="auto",

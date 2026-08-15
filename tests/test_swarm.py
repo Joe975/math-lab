@@ -94,6 +94,21 @@ def test_resolve_provider_explicit_beats_inference():
     assert swarm.resolve_provider("openai", "gemini-3.7-flash").name == "openai"
 
 
+def test_resolve_target_picks_each_providers_own_default():
+    """`--provider gemini` with no `--model` must not fall to the OpenAI
+    default. That failure is silent, and it turns a cross-family skeptic pass
+    into a same-family one -- the exact thing the second provider is for."""
+    provider, model = swarm.resolve_target("gemini", None)
+    assert (provider.name, model) == ("gemini", swarm.DEFAULT_GEMINI_MODEL)
+    provider, model = swarm.resolve_target("openai", None)
+    assert (provider.name, model) == ("openai", swarm.DEFAULT_MODEL)
+    provider, model = swarm.resolve_target("auto", None)
+    assert (provider.name, model) == ("openai", swarm.DEFAULT_MODEL)
+    # An explicit model always wins over both defaults.
+    provider, model = swarm.resolve_target("auto", "gemini-3.1-flash-lite")
+    assert (provider.name, model) == ("gemini", "gemini-3.1-flash-lite")
+
+
 def test_openai_payload_and_endpoint():
     provider = swarm.PROVIDERS["openai"]
     assert provider.payload("gpt-5.6-luna", "hi", "low", 4096) == {
@@ -188,6 +203,24 @@ def test_incomplete_detection_per_provider():
     assert "MAX_TOKENS" in gemini.incomplete(truncated)
     # A prompt-level block returns no candidate at all.
     assert gemini.incomplete({"promptFeedback": {"blockReason": "SAFETY"}}) is not None
+
+
+def test_retry_hint_reads_both_channels():
+    """OpenAI throttles via a header, Google via RetryInfo in the error body.
+
+    Missing the body channel is not cosmetic: a free-tier Gemini quota window
+    is 30s, longer than the whole 2/4/8/16 ladder, so a throttle that should
+    cost one wait instead kills the job.
+    """
+    assert swarm.retry_hint_seconds({"Retry-After": "7"}, "") == 7
+    body = (
+        '{"error":{"code":429,"details":[{"@type":'
+        '"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"30s"}]}}'
+    )
+    assert swarm.retry_hint_seconds({}, body) == 30
+    # Fractional delays round up; waking early just burns an attempt.
+    assert swarm.retry_hint_seconds({}, '"retryDelay": "30.5s"') == 31
+    assert swarm.retry_hint_seconds({}, "no hint here") is None
 
 
 def test_gemini_key_env_precedence(monkeypatch):
