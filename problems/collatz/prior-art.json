@@ -1,7 +1,7 @@
 {
   "problem": "collatz",
   "route_status": "MAP",
-  "route_summary": "First sweep done (001, swarm-executed): the lens taxonomy has weak purchase — 17/22 reports collapse onto two classical families, both closed (residue-Lyapunov certificates killed at every finite memory by the -1 tower; cycle-equation sieving no purchase beyond known bounds). Parity-entropy barrier certified. One nonstandard lead queued: graph-structure census of truncated Collatz digraphs.",
+  "route_summary": "First sweep done (001, swarm-executed): the lens taxonomy has weak purchase -- 17/22 reports collapse onto two classical families, both closed (residue-Lyapunov certificates killed at every finite memory by the -1 tower; cycle-equation sieving no purchase beyond known bounds). Parity-entropy barrier certified. 001's one nonstandard lead -- the graph-structure census -- is now CLOSED by 002: the map being a function forces every unlabelled graph invariant to be constant or closed-form, so the whole graph-decomposition family is priced out by a one-paragraph argument. Live leads are now the labelled/dynamical ones only: the escape-fraction anomaly (002 lead 2), survivor-decay and tilted-moment maps (001 leads 2-3).",
   "attempts": [
     {
       "id": "001",
@@ -13,7 +13,7 @@
         "field-lens-sweep",
         "barrier-analysis"
       ],
-      "one_line": "Swarm sweep (11 lenses x 2 stances, 22 gpt-5.6-luna workers, $0.084): 17/22 routes collapse to two classical families — residue-Lyapunov certificates KILLED at every finite memory (-1 tower, re-derived exact to L=200), cycle-equation sieve no purchase; parity-uniformity entropy barrier certified k<=16 after correcting a false worker claim; 3 leads, best: dominator/treewidth census of truncated Collatz digraphs.",
+      "one_line": "Swarm sweep (11 lenses x 2 stances, 22 gpt-5.6-luna workers, $0.084): 17/22 routes collapse to two classical families \u2014 residue-Lyapunov certificates KILLED at every finite memory (-1 tower, re-derived exact to L=200), cycle-equation sieve no purchase; parity-uniformity entropy barrier certified k<=16 after correcting a false worker claim; 3 leads, best: dominator/treewidth census of truncated Collatz digraphs.",
       "leak_terms": [
         "minus-one tower",
         "-1 self-loop",
@@ -28,6 +28,36 @@
       "gaps": [
         "Family-A kill covers bounded-lookahead finite-memory certificates over residue states only; magnitude-carrying or unbounded-adaptive certificates are untouched",
         "all literature attributions are [T]-grade worker/director memory; the lead-1 novelty claim (no dominator-theoretic Collatz work) needs the literature check before an attempt leans on it"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-graph-structure-census.md",
+      "date": "2026-08-15",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "functional-graph-invariants",
+        "barrier-analysis",
+        "exhaustive-enumeration"
+      ],
+      "one_line": "Queue item 21 CLOSED: all three unlabelled invariants on the truncated Collatz digraph are degenerate because the map is a function -- dominator tree IS the orbit tree (idom(v)=T(v), checked to B=2^18), treewidth is exactly 2 for every B, and the min cut is |S_k| = (2^{k-1}-(-1)^{k-1})/3 = J_{k-1} ~ 2^k/6, decided by the one-step inequality 3r+1>2^{k+1} with no dynamics in it; B drops out of the cut entirely. Closed form proved, machine-checked k<=22, max-flow k<=12, and reproduced by 3 independent gemini-3.7-flash implementations (one of which supplied a cleaner proof).",
+      "leak_terms": [
+        "functional-graph collapse",
+        "out-degree-one barrier",
+        "dominator tree is the orbit tree",
+        "treewidth exactly 2",
+        "Jacobsthal interface",
+        "one-step crossing inequality",
+        "in-degree-zero crossings",
+        "escape-fraction anomaly"
+      ],
+      "verifies": "001",
+      "refuted_by": null,
+      "gaps": [
+        "The collapse is proved for UNLABELLED invariants on the forward functional digraph only; labelled/weighted objects on the same graph (transfer operators, 001 lead 3's tilted moments) are untouched and this is not evidence about them",
+        "The escape-fraction by-product (non-monotone, drop at k=12->13, plateau ~0.404 to k=22) is measured and brute-force confirmed but unexplained; lead 2",
+        "All literature attributions remain [T]-grade: the novelty pre-step was web search only, no PDFs read, so 'no dominator-theoretic Collatz work exists' is a negative search result, not a survey"
       ]
     }
   ]
