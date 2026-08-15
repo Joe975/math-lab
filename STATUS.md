@@ -11,6 +11,19 @@ out, and no cron trigger is active. Nothing is half-finished: every line is
 written up, and the queue below is a list of starting points rather than
 abandoned work.
 
+**2026-08-15, one line (collatz 001): first attempt on Collatz — a
+swarm-executed ideation sweep (22 external gpt-5.6-luna workers, 11 field
+lenses × 2 stances, $0.084; protocol in `docs/SWARM.md`, new this cycle)
+finds the lens taxonomy has weak purchase: 17/22 reports collapse onto two
+classical families, both now closed** — finite-memory residue-Lyapunov
+certificates are killed at every modulus by an exact re-derivation of the
+−1-tower obstruction (`barrier_checks.py`, L ≤ 200, classical root Terras
+1976), and cycle-equation sieving offers nothing beyond the recorded
+cycle-bound limitation. The parity-uniformity entropy barrier is certified
+(k ≤ 16) after correcting a false worker claim (bijection holds for the
+shortened map only). Best surviving lead, queued: a dominator/treewidth
+census of truncated Collatz digraphs — the sweep's one nonstandard framing.
+
 **2026-08-06, one line (attempt 018, skeptic-confirmed 019): Gap 1's
 margin-modulated candidate is REFUTED in both signed readings at n = 7 —
 by 007's own 10-atom witness, the instance it was invented to survive.**
@@ -161,7 +174,7 @@ problems with no attempts (queue 18–19; run blind).
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
-| Collatz | queued | low (long shot) | failed-approach taxonomy; cycle-bound frontier |
+| Collatz | first sweep done (001, MAP) | low (long shot) | next: graph-structure census of truncated digraphs (001 lead 1, queue 21); residue-Lyapunov and cycle-sieve families closed by 001's certified barriers |
 | Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007) | high | next: parametric sufficiency + birth-law theorem (queue 11); coverage conjecture + sampler blind spot (queue 12); Lean lane: L1 + the full Laurent block FORMALIZED (009–012); the geometry bridge stays informal by design |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
@@ -178,7 +191,7 @@ problems with no attempts (queue 18–19; run blind).
 5. [lonely-runner] k=9 near-tight scan: reuse lonely_runner.py (threshold near 1/9, feasibility analysis first — 8-tuples grow fast; consider restricting to accelerations/near-APs of known structures plus a bounded full scan).
 6. [singmaster] Diophantine curve table: which equations C(n,j)=C(m,k) (small j<k) are resolved vs open, per the census lead that all in-range coincidences come from known families.
 7. [erdos-gyarfas] Cycle-spectrum realizability census from the n≤20/22/24 data (which length-sets occur?) — standalone interest.
-8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification).
+8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification). Seed material now exists: 001's Family A/B closures and certified barriers, plus its [T]-grade reference list to verify.
 9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
 10. [crouzeix] **Hunt the intermediate-maxima basins** (from 001/002's recorded gap; informed — the blind census is spent). Seed local maximization AT Overton's published intermediate configurations (ratios ≈ 1.185 and ≈ 1.433 at n = 3; re-derive the seeds from arXiv:2105.14176's descriptions, not the [L] transcriptions) and map their basins with the 001 pipeline + 002's equal-sample escape probe: are they genuine local maxima under this design's probe standard, and how do their basins sit relative to the 001 start families that never found them? Falsifiable either way, and either outcome sharpens the landscape SPECULATION ({1, 2}-only) recorded in 001.
 11. [billiards-triangles] **Parametric sufficiency + the birth side** (from 005/008 and 006/007, 2026-07-31): (i) prove a parametric positive lower bound on the *generic* fan-gate margins along the universal segment (α,β) = (90/a − t, 90(a−1)/(a(b+1)) + 2t), t ∈ (0, 1/4] — each margin is a 3–5-term trig polynomial with the fan index entering linearly via the prefix maps; this is the ONLY missing piece for death(W(a,b)) = γ_d(a,b) at ALL (a,b). Mind the 3-fold degenerate death corner: the gate-(2a+2) margin (identity I4) also vanishes there — a naive 2-margin Taylor route silently misses it (005). (ii) Prove the birth law γ_birth(a,b) = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION; survives out-of-sample at the sampler floor incl. a > 2b+3 members) with the same gate machinery — which gate pair binds at the birth edge — and produce exact birth brackets from below (NONE exist for any member; all float births share a one-sided floor bias). Windows-touch (birth(W(a+1,a)) = death(W(a,a))) then makes the family staircase fully algebraic. Cheap side task: measure the a = 1 column, still untouched.
@@ -191,6 +204,7 @@ problems with no attempts (queue 18–19; run blind).
 18. [almost-mathieu] **Run blind.** Rational-flux gap census, all p/q with q ≤ 30: certify every gap open except the even-q central touching (re-derives van Mouche / Choi–Elliott–Yui in range; expected `VERIFIED`, scope = the q range), then the golden-mean convergent table — exact minimal-gap widths and q·|σ| along Fibonacci p/q as far as tooling reaches, against the (unproven) Thouless constant 32C/π. Onboarding smoke runs: q·|σ| = 9.2509 / 9.3199 / 9.3608 at q = 13 / 21 / 34 vs 9.3299 conjectured. Every record re-verified with `verify_bands.py` before ledger entry. Kill condition: if exact arithmetic stalls before q ≈ 100 even with a C kernel to the same contract, record the wall — no asymptotic claims from small denominators.
 19. [three-phase-conductivity] **Run blind.** Two-phase ground truth first: rank-2 laminates attaining the 2D HS bounds exactly in ℚ, duality checks, series/parallel forms (expected `VERIFIED`, harness validation). Then the three-phase attainability map: fixed rational (σ₁,σ₂,σ₃), rational grid on the fraction simplex, bounded-rank laminate optimization (float screen, exact certification), gap-to-HS charted per cell (`MAP`/`EVIDENCE`, scoped by rank + direction set + grid). Nesi/Cherkaev improved bounds enter as marked transcriptions cross-checked against the papers' examples before anything is killed against them. Kill condition: bounded-rank optima plateauing strictly inside bounds across the whole grid = one negative-map record, then cap the budget.
 20. [union-closed] **Push the kill's frontier** (cheap, from 016 leads): direct θ-optimization of the MU ladder at target n to find the minimal violating n (currently bracketed (32, 96]). ~~Extend the raw-weight ladder past n = 128~~ and ~~re-run the ladder at the λ-window boundary~~ **DONE in 018** — the raw ladder does NOT cross through n = 320 (decaying along each dilution branch, min +0.104 at n = 256; the 016 kill is entirely the re-weighting), and the window boundary is positive at every n ≤ 320 tried, θ re-optimized there included.
+21. [collatz] **Graph-structure census of truncated Collatz digraphs** (001 lead 1; long-shot minority share — take at most one collatz item per cycle). For B = 2^12 … 2^24 build G_B with escape sink: dominator tree from 1, minimum directed cuts separating [1, 2^k] from orbits exceeding 2^{k+1}, treewidth bounds via flow-cutter; track growth in B and report cut composition by residue class (001's unlabeled-invariant barrier: label-free structure has no purchase, so keep the arithmetic labels). Falsifiable dichotomy: interface size |S_k| bounded vs growing — growth is a recorded no-go with rates, boundedness earns a follow-up. Pre-step: literature-check the novelty flag on dominator/treewidth Collatz work (001 gap 2). Secondary, same visit if cheap: 001 leads 2–3 (survivor-decay map k ≤ 20, A ≤ 120; tilted-moment map K = 24, L = 20), both EVIDENCE-scoped calibration.
 
 ## Verified results
 

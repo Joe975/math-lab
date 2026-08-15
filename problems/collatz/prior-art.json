@@ -1,6 +1,34 @@
 {
   "problem": "collatz",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Queued but never worked. No prior art, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "MAP",
+  "route_summary": "First sweep done (001, swarm-executed): the lens taxonomy has weak purchase — 17/22 reports collapse onto two classical families, both closed (residue-Lyapunov certificates killed at every finite memory by the -1 tower; cycle-equation sieving no purchase beyond known bounds). Parity-entropy barrier certified. One nonstandard lead queued: graph-structure census of truncated Collatz digraphs.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-ideation-sweep-fields.md",
+      "date": "2026-08-15",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "field-lens-sweep",
+        "barrier-analysis"
+      ],
+      "one_line": "Swarm sweep (11 lenses x 2 stances, 22 gpt-5.6-luna workers, $0.084): 17/22 routes collapse to two classical families — residue-Lyapunov certificates KILLED at every finite memory (-1 tower, re-derived exact to L=200), cycle-equation sieve no purchase; parity-uniformity entropy barrier certified k<=16 after correcting a false worker claim; 3 leads, best: dominator/treewidth census of truncated Collatz digraphs.",
+      "leak_terms": [
+        "minus-one tower",
+        "-1 self-loop",
+        "residue-Lyapunov no-go",
+        "parity-uniformity barrier",
+        "mono-handle",
+        "survivor-decay map",
+        "dominator interface census",
+        "tilted-moment map"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "Family-A kill covers bounded-lookahead finite-memory certificates over residue states only; magnitude-carrying or unbounded-adaptive certificates are untouched",
+        "all literature attributions are [T]-grade worker/director memory; the lead-1 novelty claim (no dominator-theoretic Collatz work) needs the literature check before an attempt leans on it"
+      ]
+    }
+  ]
 }
