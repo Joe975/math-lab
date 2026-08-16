@@ -419,6 +419,45 @@
         "skeptic-pass-pending (this record; queue top)",
         "birth-edge-touching-open (strictness at theta_birth itself, mirror of 004 C2)"
       ]
+    },
+    {
+      "id": "016",
+      "file": "attempts/016-skeptic-review-of-015.md",
+      "date": "2026-08-16",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "symbolic-trig-closed-form",
+        "sign-constant-progression-pigeonhole",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Skeptic pass on 015 (confirmed with corrections) AND the queued main task done: all seven S-lemmas plus the tau row are re-derived from scratch (drafts never read - they are not in the repo) and PROVEN for all a >= b >= 1, a >= 2 at k = 1/2, so the window law window(W(a,b)) = (gamma_birth, gamma_d) and, via 013/014, coverage of (90,180) hold for ALL members - closing queue 11. T2 confirmed (with a one-line simplification of the a.alpha >= 90 branch: n = a gives sin(z_a) = -sin((b+1)beta) > 0 directly); N1 confirmed by a new derivative-free proof ((2b+1)cos(at)cos((2b+1)t) > ab.sin(90/a) via tan u >= u and sin(nx) <= n sin x); tau collapses to the closed form R = -4 sin(th) sin(a.al) sin((b+1)be), so tau != 0 is automatic at every alive point. Two record errors found, neither load-bearing: 015 SS1's s=0 C-image identity is -N1 not -N1-N2, and 015 SS4 overclaims - the death-segment BC0 (= N4) row is never evaluated by wmargins_certify.py (loop starts at j=1, no N4 leg); the row is true via 005's I4 and is certified exactly here (n4leg) for all 104 members a <= 14, and 015 SS5's reduction table is missing that N4-death family. Margin system independently validated: 1200/1200 sign agreements with 002's geometry, fresh 62-member exact ring bijection, 32 proof-step inequalities scanned to a = 3000 with zero violations, 453k-sample T2 adversarial scan clean.",
+      "leak_terms": [
+        "wmsk015",
+        "AC0 = -N1 not -N1-N2",
+        "death BC0 never certified",
+        "n4leg",
+        "R = -4 sin(th) sin(a al) sin((b+1) be)",
+        "seven S-lemmas proven",
+        "coverage closes for all obtuse angles",
+        "birth core sin(al) sin(H-(a-b)t)",
+        "phi1 = c - A/2 + (b+3-a)t"
+      ],
+      "verifies": "015",
+      "corrections": [
+        "015 SS1: 'the s=0 C-image margin is -N1-N2 (I1)' is false - the margin is exactly -N1 (max |AC0 + N1| = 3.2e-16 over 4000 random segment points; matches plaw_suffice's I1). Nothing downstream damaged",
+        "015 SS4: 'every margin sign on BOTH segments is certified in exact rational interval arithmetic' is overstated - wmargins_certify.py never evaluates the death-segment BC0 row (death B-fan C loop is range(1,b), no N4 leg; W(5,3)'s death_fan_leaves=13 vs 14 fan rows is the fingerprint). The row is true (BC0 = N4, I4's all-positive segment form) and is now certified exactly for all a <= 14 by wmsk015 n4leg; the a <= 14 window theorem stands",
+        "015 SS5: the reduction table is missing the N4-death family (a P row via I4 + rational ranges), and the '9 elementary lemma families' / 'seven S-rows' counts do not reconcile with the table's own 8 S rows (7 fan lemmas + tau) plus the omitted N4"
+      ],
+      "range": "seven S-lemmas + tau + N1 + N4 + B-BA + AB_a proven for all a >= b >= 1, a >= 2, death and birth segments, t in (0, 22.5/(a(b+1))] (k = 1/2; D-AB/D-BC proofs reach k = 1); T2 re-derived in full for all (a,b); every proof step machine-scanned over all (a,b) with a <= 40 (96 t-points each) plus 20,000 random members to a = 3000, zero violations; margin system validated against 002's independent corridor geometry at 1200 random triangles a <= 12 and by exact ring bijection on 62 fresh members (union with 015: 67); T2 adversarial scan 453,605 beyond-wall candidates incl. 360-degree higher branches, zero alive; death BC0 = N4 certified exactly (ring identity + rational ranges) for all 104 members a <= 14. NOT covered: formal all-(a,b) endpoint bookkeeping (015's narrow SPECULATION stands, now 67-member exact + geometry-validated); this record's own proofs await their skeptic pass; a = 1 column; window endpoints; 007-C2 pointwise caveat",
+      "gaps": [
+        "skeptic-pass-pending (this record's seven proofs; attack surface pre-registered in lead 1)",
+        "endpoint-bookkeeping-not-formal-for-all-ab (lead 2; the last SPECULATION under the coverage chain)",
+        "birth-edge-touching-open (mirror of 004 C2)",
+        "a-equals-1-column-unmeasured"
+      ]
     }
   ]
 }
