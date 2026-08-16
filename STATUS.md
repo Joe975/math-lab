@@ -11,6 +11,32 @@ out, and no cron trigger is active. Nothing is half-finished: every line is
 written up, and the queue below is a list of starting points rather than
 abandoned work.
 
+**2026-08-16 HEADLINE (billiards 015): queue 11 broken open — the birth
+law's mechanism is found and its necessity half is PROVEN for all (a,b),
+and the full window law is EXACT for every member with a ≤ 14.** Every
+gate margin of W(a,b) now has a closed form (one sinusoid around one of
+two pivots; ring-verified bijectively). The birth edge is the N2/PB
+double wall meeting at (α,β) = (90/a, 90/(b+1)) — 006's SPECULATION
+birth law is the second corner of a two-wall system, windows-touch is a
+one-line identity, and 013's Diophantine condition is literally
+θ ∈ (θ_d, θ_birth). Birth-side necessity (alive ⟹ θ < θ_birth, hence
+γ > γ_birth) is proven for ALL a ≥ b ≥ 1, a ≥ 2 by a five-step
+sign-constant-progression pigeonhole — no case tree, no intervals
+(swarm-drafted, director re-derived with one repair). Sufficiency: two
+canonical segments realize every θ in the window, certified in exact
+interval arithmetic for all 104 members a ≤ 14 (float-verified to
+a = 60, 1,829 members; the death segment's alive range ends at the
+sharp wall t* = 45/(a(b+1)), explaining 005's ρ=2 uniformity).
+**Coverage of (90°, 180°) is now a theorem for every γ whose 013
+witness has a ≤ 14, and for ALL obtuse γ it is conditional on exactly
+seven elementary fan-margin lemmas** — each numerically bulletproof,
+each with a swarm-drafted proof awaiting director/skeptic re-derivation
+(five others, including the hardest two — parametric N1 and the T2
+pigeonhole — are already director-verified). Verifying those seven
+(≤ 2 pages of elementary trig each) closes the coverage conjecture; it
+is the queue's new top item. Swarm: 13 drafts, ≈ $0.16, protocol per
+`docs/SWARM.md`.
+
 **2026-08-16, one line (billiards 014): 013's coverage Diophantine lemma
 is skeptic-CONFIRMED — the proof, the constructive witness, and the
 checker all survive an adversarial pass** (every step re-derived by hand
@@ -217,7 +243,7 @@ problems with no attempts (queue 18–19; run blind).
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | first sweep done (001, MAP) | low (long shot) | next: graph-structure census of truncated digraphs (001 lead 1, queue 21); residue-Lyapunov and cycle-sieve families closed by 001's certified barriers |
-| Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007); coverage Diophantine sublemma PROVEN (013, skeptic-confirmed 014) | high | next: parametric sufficiency + birth-law theorem (queue 11) — now the SOLE blocker for conditional coverage; sampler blind spot + minimal-witness staircase (queue 12); Lean lane: L1 + the full Laurent block FORMALIZED (009–012); the geometry bridge stays informal by design |
+| Triangular billiards | WINDOW LAW EXACT for all a ≤ 14 (015): birth necessity PROVEN all (a,b) (N2/PB double-wall corner + progression pigeonhole), both window halves certified; death law closed (005/008); coverage sublemma PROVEN (013/014). Coverage of (90°,180°) is a THEOREM for every γ with a ≤ 14 witness, conditional on 7 fan-margin lemmas beyond | high | next: **verify the seven S-lemmas of 015 §5 + skeptic pass on 015** (queue 11) — completing them closes the coverage conjecture; extend certified sweep past a = 14; formalize T2 (Lean lane: L1 + Laurent block already FORMALIZED, 009–012); sampler blind spot + minimal-witness staircase (queue 12) |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
@@ -236,7 +262,7 @@ problems with no attempts (queue 18–19; run blind).
 8. [collatz] Failed-approach taxonomy page (library showcase; pure writing + citation verification). Seed material now exists: 001's Family A/B closures and certified barriers, plus its [T]-grade reference list to verify.
 9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
 10. [crouzeix] **Hunt the intermediate-maxima basins** (from 001/002's recorded gap; informed — the blind census is spent). Seed local maximization AT Overton's published intermediate configurations (ratios ≈ 1.185 and ≈ 1.433 at n = 3; re-derive the seeds from arXiv:2105.14176's descriptions, not the [L] transcriptions) and map their basins with the 001 pipeline + 002's equal-sample escape probe: are they genuine local maxima under this design's probe standard, and how do their basins sit relative to the 001 start families that never found them? Falsifiable either way, and either outcome sharpens the landscape SPECULATION ({1, 2}-only) recorded in 001.
-11. [billiards-triangles] **Parametric sufficiency + the birth side** (from 005/008 and 006/007, 2026-07-31): (i) prove a parametric positive lower bound on the *generic* fan-gate margins along the universal segment (α,β) = (90/a − t, 90(a−1)/(a(b+1)) + 2t), t ∈ (0, 1/4] — each margin is a 3–5-term trig polynomial with the fan index entering linearly via the prefix maps; this is the ONLY missing piece for death(W(a,b)) = γ_d(a,b) at ALL (a,b). Mind the 3-fold degenerate death corner: the gate-(2a+2) margin (identity I4) also vanishes there — a naive 2-margin Taylor route silently misses it (005). (ii) Prove the birth law γ_birth(a,b) = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION; survives out-of-sample at the sampler floor incl. a > 2b+3 members) with the same gate machinery — which gate pair binds at the birth edge — and produce exact birth brackets from below (NONE exist for any member; all float births share a one-sided floor bias). Windows-touch (birth(W(a+1,a)) = death(W(a,a))) then makes the family staircase fully algebraic. Cheap side task: measure the a = 1 column, still untouched.
+11. [billiards-triangles] ~~Parametric sufficiency + the birth side~~ **BROKEN OPEN in 015** (2026-08-16) — closed forms for every gate margin; birth law = the N2/PB double wall at (90/a, 90/(b+1)), its necessity half PROVEN for all (a,b); window law EXACT (certified) for all 104 members a ≤ 14; both laws' sufficiency for ALL (a,b) reduced to seven elementary fan-margin lemmas, each with a swarm-drafted proof. **Replacement, the lab's top item: (i) re-derive/refute the seven S-lemmas of 015 §5** (each ≤ 2 pages of elementary trig; the drafts' claimed ranges cover k = 1/2) **as part of the skeptic pass on 015** — attack surface listed in 015 lead 1; completing them closes the coverage conjecture for ALL obtuse angles. (ii) Formalize T2 (five elementary steps, mathlib-friendly — 015 lead 3). (iii) Extend the certified sweep past a = 14 (pure compute, 015 lead 2). (iv) Cheap side tasks: the a = 1 column (does T2's span bound close at a = 1?); birth-edge touching strictness (mirror of 004 C2).
 12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): ~~006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed.~~ **The Diophantine sublemma is PROVEN in 013** (2026-08-15; elementary interval-chain proof, no continued fractions, constructive witness verified exactly for every rational with denominator ≤ 300 in two arithmetic layers; **skeptic-CONFIRMED in 014**, 2026-08-16 — proof, witness, and checker all survive; two non-load-bearing prose errors of record: the γ = 144° spot-check's W(4,3) is wrong (witness is W(11,2)), and the Step 2 I(q−1,q) parenthetical asserts a false inclusion). Coverage of (90°, 180°) is now conditional SOLELY on the birth/window law (queue 11); the minimal-witness/word-length staircase (continued-fraction structure) remains open as 013 lead 3. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
 14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
@@ -511,6 +537,36 @@ problems with no attempts (queue 18–19; run blind).
   statements only; the geometry bridge (unfolding = closed form) is
   permanently carried by 005/008's informal cross-checks.
 
+- **[billiards-triangles] Window law exact for a ≤ 14; birth necessity
+  proven for all (a,b); margins in closed form** (2026-08-16, attempt
+  015, skeptic pass pending): every distinct gate margin of W(a,b) is
+  pivot ± sidelength·sin(linear form) — 2a+2b+2 margins, ring-verified
+  as an exact bijection for 25 members — turning the alive criterion
+  into an explicit sinusoid system. The birth edge is the N2/PB double
+  wall meeting at (90/a, 90/(b+1)): 006's birth law is a corner, like
+  the death law, and 013's Diophantine condition is literally
+  θ ∈ (θ_d, θ_birth). PROVEN for all a ≥ b ≥ 1, a ≥ 2 (elementary,
+  five steps, no intervals): alive ⟹ aα < 90 and (b+1)β < 90, hence
+  θ < θ_birth — the A-fan margins force 2a all-negative sines along an
+  arithmetic progression (step < 90°), pinning it to one component and
+  bounding its span; the B-fan margins interleave to give
+  sin(aα+rβ) > 0 for every r ∈ [−(b−1), b], killing the (b+1)β ≥ 360
+  branch (worker-drafted, director re-derived, Step-5 branch repaired).
+  Sufficiency: the death segment (ρ=2, whose alive range ends at the
+  sharp wall t* = 45/(a(b+1)) — the window midpoint, explaining 005's
+  ρ=2 uniformity) and the birth diagonal segment jointly realize every
+  θ in the window; certified in exact interval arithmetic for all 104
+  members a ≤ 14 (N1 by derivative+bisection, τ ≠ 0 included), float-
+  verified to a = 60 with zero failures plus a 468k-sample adversarial
+  scan above θ_birth (zero alive). Result: window(W(a,b)) =
+  (γ_birth, γ_d) EXACTLY for every a ≤ 14 — closing 006/007's float
+  births into exact statements — and coverage of (90°, 180°) is a
+  theorem for every γ whose 013-witness has a ≤ 14, conditional beyond
+  that on exactly seven remaining fan-margin lemmas (worker-drafted,
+  SPECULATION until re-derived; five of twelve, including parametric
+  N1 and the T2 pigeonhole, are director-verified). Swarm: 13 drafts,
+  gpt-5.6-luna + gemini-3.7-flash, ≈ $0.16.
+
 - **[billiards-triangles] The coverage Diophantine lemma PROVEN
   (skeptic-confirmed)** (2026-08-15/16, attempts 013+014): for every
   t ∈ (0,1) there exist integers a, b ≥ 1 with a+b < t·a(b+1) < a+b+1 —
@@ -686,6 +742,21 @@ problems with no attempts (queue 18–19; run blind).
   after review close (not covered by 019); runtime understated.
 
 ## Insights / cross-problem notes
+
+- Prove the lattice, not the inequalities (2026-08-16, billiards 015):
+  when a family of trig-margin conditions shares a lattice structure
+  (fan index linear in the angles), the global statement is a
+  pigeonhole about sign-constant arithmetic progressions — one span
+  bound replaces 2a+2b interval estimates, and the "hard case tree"
+  evaporates. New mechanism tag
+  `sign-constant-progression-pigeonhole`; candidate reuse: rotation-
+  number window arguments in almost-mathieu (015 lead 6). Same cycle,
+  swarm calibration data point: 13 proof drafts for ≈ $0.16, the two
+  hardest (parametric N1, the T2 case tree) both survived full
+  re-derivation — with one repair the draft made findable — while a
+  worker "REFUTED" verdict was a correct catch of a sign-convention
+  gap in the brief. Drafting is now cheap; director re-derivation is
+  the bottleneck, exactly as SWARM.md prices it.
 
 - Signed sensitivity weights backfire (2026-08-06, union-closed 018/019):
   weighting a deviation control by the derivative of the gain it feeds
