@@ -224,6 +224,10 @@
       "field": "number-theory",
       "description": "Cover all instances by congruence classes, each settled by its own identity or argument."
     },
+    "sign-constant-progression-pigeonhole": {
+      "field": "analysis",
+      "description": "Exclude higher rotation branches by pigeonhole: if every term of an arithmetic progression of angles (step < half-period) has the same sinusoid sign, all terms lie in one sign component, bounding the progression's total span by the component length; a hypothesis forcing endpoints into different components is contradictory. Turns families of trig-margin inequalities with a lattice structure into one span bound, replacing per-case interval estimates."
+    },
     "sinkhorn": {
       "field": "probability",
       "description": "Sinkhorn/IPF scaling to construct or normalize couplings with prescribed marginals numerically."

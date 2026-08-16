@@ -363,6 +363,62 @@
         "birth-law-still-speculation (coverage conjecture inherits it; queue 11 is the sole blocker)",
         "minimal-witness-staircase-open (constructive witness provably suboptimal, up to x15 in a+b on 006's grid; continued-fraction law still unproven)"
       ]
+    },
+    {
+      "id": "014",
+      "file": "attempts/014-skeptic-review-of-013.md",
+      "date": "2026-08-16",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "interval-chain-covering",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Skeptic pass on 013 (confirmed with corrections): the coverage Diophantine lemma, its proof, its constructive witness, and the committed checker all survive - every step re-derived by hand incl. the strictness edge cases and a cleaner minimal-a0 closure of the union-endpoint worry, a from-scratch implementation written from the record's formulas alone reproduces every count (27,397 Farey witnesses, 21,539 overlap pairs, x15.33/x1.88 overshoot) and diffs witness-for-witness with zero mismatches, the novelty label holds after two fresh searches - but two prose errors are corrected: the gamma=144 spot-check names W(4,3), which is not a witness there (the checker itself says W(11,2); W(4,3) is never the constructive witness for any t), and the Step 2 parenthetical's inclusion I(q-1,q) in (1/q,2/q) is false (the interval is disjoint from it, lower endpoint exactly 2/q). Neither is load-bearing; queue 12's Diophantine side is closed for real.",
+      "leak_terms": [
+        "cdsk_review",
+        "W(4,3) is never the constructive witness",
+        "gamma=144 is W(11,2)",
+        "I(q-1,q) disjoint",
+        "minimal a0 argument",
+        "3,196 boundary rationals"
+      ],
+      "verifies": "013",
+      "range": "all four proof steps re-derived by hand from 013's prose incl. both integer edge cases (1/t integer, (q-1)/(qt-1) integer) and the automatic a >= q; union argument re-proven via minimal-a0 and machine-checked at 27,810 points incl. every lower endpoint a in [q, q+80], q <= 60; independent implementation (written before reading the committed code) re-runs every numbered check with different structure and seeds, zero failures; witness diff on all 27,397 reduced rationals r <= 300, zero mismatches; committed selftest re-run green (73,542 checks); novelty re-searched with two disjoint queries. NOT re-examined: 006's birth/window law (stays SPECULATION), the pointwise-vs-arc question (007 C2 stands), the minimal-witness staircase (open, 013 lead 3)",
+      "gaps": []
+    },
+    {
+      "id": "015",
+      "file": "attempts/015-window-law-margin-system.md",
+      "date": "2026-08-16",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "symbolic-trig-closed-form",
+        "sign-constant-progression-pigeonhole",
+        "certified-interval-inequality",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Queue 11 broken open: every W(a,b) gate margin has a closed form (pivot +/- sidelength*sin(linear form); ring-verified bijectively, 25 members), the birth edge is the N2/PB double wall at (90/a, 90/(b+1)) so 006's birth law gamma_birth = 180 - 90(a+b+1)/(a(b+1)) is the second corner of a two-wall system - and birth-side NECESSITY (alive => theta < theta_birth) is PROVEN for all a >= b >= 1, a >= 2 by a five-step sign-constant-progression pigeonhole (worker-drafted, director re-derived with one repair); with 005's death necessity the window is contained in the law for every member. Sufficiency: two canonical segments (death rho=2, birth diagonal) jointly realize every theta in the window; certified in exact interval arithmetic for ALL 104 members a <= 14 - the full window law EXACT for that range - float-verified to a = 60 (1,829 members, zero failures) with the sharp wall t* = 45/(a(b+1)) explaining 005's rho=2 uniformity. Remaining for ALL (a,b): seven elementary fan-margin lemmas, each with a swarm-drafted proof (SPECULATION until re-derived; N1 - the hardest - and four more ARE director-verified). Coverage of (90,180) via 013 is now a theorem for every gamma whose witness has a <= 14, and conditional on exactly those seven lemmas beyond.",
+      "leak_terms": [
+        "wmargins",
+        "N2/PB double wall",
+        "birth corner (90/a, 90/(b+1))",
+        "t* = 45/(a(b+1))",
+        "sign-constant progression",
+        "2a+2b+2 distinct margins",
+        "seven S-lemmas",
+        "window EXACT a <= 14"
+      ],
+      "range": "closed forms exact-ring-verified (bijection onto the engine's distinct diffs) for 25 members to W(15,7); T2 birth necessity proven for all a >= b >= 1, a >= 2 (elementary, no intervals; worker draft re-derived in full, Step-5 m>=1 branch repaired by the director); window = (gamma_birth, gamma_d) exact for all 104 members a <= 14 by certified interval arithmetic on both canonical segments (t in (0, 22.5/(a(b+1))], N1 via derivative+bisection, tau nonzero certified); float evidence to a = 60 both segments + 3,200-pair window coverage + 468k-sample adversarial birth-side scan, zero anomalies; 5 of 12 parametric lemma families director-verified (N1 k=1/2 incl. its N1'(0) sub-lemma, T2, AB_a, B-BA, rational ranges), 7 remain worker-drafted SPECULATION with claimed ranges covering k = 1/2. NOT: coverage as a theorem beyond a <= 14; arcs-as-intervals (007 C2 stands); a = 1 column; window endpoints",
+      "gaps": [
+        "seven-fan-margin-lemmas-worker-drafted-unverified (S-rows of section 5; each <= 2 pages elementary trig; verifying all seven closes coverage for ALL obtuse angles)",
+        "closed-form-endpoint-bookkeeping-not-formalized-for-all-ab (25-member exact check + hand derivation; do the 4-variable-ring pass like plaw_general did for I1-I4)",
+        "skeptic-pass-pending (this record; queue top)",
+        "birth-edge-touching-open (strictness at theta_birth itself, mirror of 004 C2)"
+      ]
     }
   ]
 }
