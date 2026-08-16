@@ -363,6 +363,31 @@
         "birth-law-still-speculation (coverage conjecture inherits it; queue 11 is the sole blocker)",
         "minimal-witness-staircase-open (constructive witness provably suboptimal, up to x15 in a+b on 006's grid; continued-fraction law still unproven)"
       ]
+    },
+    {
+      "id": "014",
+      "file": "attempts/014-skeptic-review-of-013.md",
+      "date": "2026-08-16",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "interval-chain-covering",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Skeptic pass on 013 (confirmed with corrections): the coverage Diophantine lemma, its proof, its constructive witness, and the committed checker all survive - every step re-derived by hand incl. the strictness edge cases and a cleaner minimal-a0 closure of the union-endpoint worry, a from-scratch implementation written from the record's formulas alone reproduces every count (27,397 Farey witnesses, 21,539 overlap pairs, x15.33/x1.88 overshoot) and diffs witness-for-witness with zero mismatches, the novelty label holds after two fresh searches - but two prose errors are corrected: the gamma=144 spot-check names W(4,3), which is not a witness there (the checker itself says W(11,2); W(4,3) is never the constructive witness for any t), and the Step 2 parenthetical's inclusion I(q-1,q) in (1/q,2/q) is false (the interval is disjoint from it, lower endpoint exactly 2/q). Neither is load-bearing; queue 12's Diophantine side is closed for real.",
+      "leak_terms": [
+        "cdsk_review",
+        "W(4,3) is never the constructive witness",
+        "gamma=144 is W(11,2)",
+        "I(q-1,q) disjoint",
+        "minimal a0 argument",
+        "3,196 boundary rationals"
+      ],
+      "verifies": "013",
+      "range": "all four proof steps re-derived by hand from 013's prose incl. both integer edge cases (1/t integer, (q-1)/(qt-1) integer) and the automatic a >= q; union argument re-proven via minimal-a0 and machine-checked at 27,810 points incl. every lower endpoint a in [q, q+80], q <= 60; independent implementation (written before reading the committed code) re-runs every numbered check with different structure and seeds, zero failures; witness diff on all 27,397 reduced rationals r <= 300, zero mismatches; committed selftest re-run green (73,542 checks); novelty re-searched with two disjoint queries. NOT re-examined: 006's birth/window law (stays SPECULATION), the pointwise-vs-arc question (007 C2 stands), the minimal-witness staircase (open, 013 lead 3)",
+      "gaps": []
     }
   ]
 }

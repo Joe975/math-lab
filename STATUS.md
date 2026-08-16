@@ -3,13 +3,29 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-08-04)
+## TL;DR (updated 2026-08-16)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
 out, and no cron trigger is active. Nothing is half-finished: every line is
 written up, and the queue below is a list of starting points rather than
 abandoned work.
+
+**2026-08-16, one line (billiards 014): 013's coverage Diophantine lemma
+is skeptic-CONFIRMED — the proof, the constructive witness, and the
+checker all survive an adversarial pass** (every step re-derived by hand
+including the strictness edge cases and a cleaner minimal-a₀ closure of
+the union-endpoint worry; a from-scratch implementation written from the
+record's formulas alone reproduces every count and diffs
+witness-for-witness with zero mismatches on all 27,397 Farey rationals;
+novelty label holds after two fresh searches). Two prose errors
+corrected, neither load-bearing: the γ = 144° spot-check names W(4,3),
+which is not a witness there (the committed checker itself says W(11,2);
+W(4,3) is *never* the constructive witness for any t), and Step 2's
+parenthetical inclusion I(q−1,q) ⊂ (1/q, 2/q) is false (the interval is
+disjoint from it, lower endpoint exactly 2/q). Queue 12's Diophantine
+side is now closed for real; the sole blocker for conditional coverage
+of (90°, 180°) remains the birth/window theorem (queue 11).
 
 **2026-08-15, one line (collatz 002): 001's one nonstandard lead — the
 graph-structure census of truncated Collatz digraphs, queue item 21 — is
@@ -201,7 +217,7 @@ problems with no attempts (queue 18–19; run blind).
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
 | Graceful trees | census done (n≤14) | low | possible next: mine the symmetric-spider seed; lobster verification at larger n |
 | Collatz | first sweep done (001, MAP) | low (long shot) | next: graph-structure census of truncated digraphs (001 lead 1, queue 21); residue-Lyapunov and cycle-sieve families closed by 001's certified barriers |
-| Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007); coverage Diophantine sublemma PROVEN (013, skeptic pending) | high | next: parametric sufficiency + birth-law theorem (queue 11) — now the SOLE blocker for conditional coverage; skeptic pass on 013 + sampler blind spot (queue 12); Lean lane: L1 + the full Laurent block FORMALIZED (009–012); the geometry bridge stays informal by design |
+| Triangular billiards | death law CLOSED both sides: parametric necessity all (a,b), death = γ_d exactly for 20 members (005/008); 135° stall dissolved, birth law + exact-135 certificates (006/007); coverage Diophantine sublemma PROVEN (013, skeptic-confirmed 014) | high | next: parametric sufficiency + birth-law theorem (queue 11) — now the SOLE blocker for conditional coverage; sampler blind spot + minimal-witness staircase (queue 12); Lean lane: L1 + the full Laurent block FORMALIZED (009–012); the geometry bridge stays informal by design |
 | Mahler in ℝ⁴ | census done blind (skeptic-confirmed) | medium | next: close k=12–20 (falsifiable: no proper mask with P<11); run the same pipeline on {0,±1}³ for the n=3 spectrum comparison |
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
@@ -221,7 +237,7 @@ problems with no attempts (queue 18–19; run blind).
 9. [graceful-trees] Mine the symmetric-spider seed (LpH?GCAO??_@?A genre) at n = 15-16 targeted; lobster verification at larger n.
 10. [crouzeix] **Hunt the intermediate-maxima basins** (from 001/002's recorded gap; informed — the blind census is spent). Seed local maximization AT Overton's published intermediate configurations (ratios ≈ 1.185 and ≈ 1.433 at n = 3; re-derive the seeds from arXiv:2105.14176's descriptions, not the [L] transcriptions) and map their basins with the 001 pipeline + 002's equal-sample escape probe: are they genuine local maxima under this design's probe standard, and how do their basins sit relative to the 001 start families that never found them? Falsifiable either way, and either outcome sharpens the landscape SPECULATION ({1, 2}-only) recorded in 001.
 11. [billiards-triangles] **Parametric sufficiency + the birth side** (from 005/008 and 006/007, 2026-07-31): (i) prove a parametric positive lower bound on the *generic* fan-gate margins along the universal segment (α,β) = (90/a − t, 90(a−1)/(a(b+1)) + 2t), t ∈ (0, 1/4] — each margin is a 3–5-term trig polynomial with the fan index entering linearly via the prefix maps; this is the ONLY missing piece for death(W(a,b)) = γ_d(a,b) at ALL (a,b). Mind the 3-fold degenerate death corner: the gate-(2a+2) margin (identity I4) also vanishes there — a naive 2-margin Taylor route silently misses it (005). (ii) Prove the birth law γ_birth(a,b) = 180 − 90(a+b+1)/(a(b+1)) (SPECULATION; survives out-of-sample at the sampler floor incl. a > 2b+3 members) with the same gate machinery — which gate pair binds at the birth edge — and produce exact birth brackets from below (NONE exist for any member; all float births share a one-sided floor bias). Windows-touch (birth(W(a+1,a)) = death(W(a,a))) then makes the family staircase fully algebraic. Cheap side task: measure the a = 1 column, still untouched.
-12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): ~~006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed.~~ **The Diophantine sublemma is PROVEN in 013** (2026-08-15; elementary interval-chain proof, no continued fractions, constructive witness verified exactly for every rational with denominator ≤ 300 in two arithmetic layers; **skeptic pass still pending** — lead 1 of 013 lists the attack surface, take it before any ledger entry). Coverage of (90°, 180°) is now conditional SOLELY on the birth/window law (queue 11); the minimal-witness/word-length staircase (continued-fraction structure) remains open as 013 lead 3. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
+12. [billiards-triangles] **The coverage conjecture, and the sampler blind spot** (from 006/007, 2026-07-31; absorbs the old pinch-gap item — its motivating gap [135.000°, 135.049°] is CLOSED, W(4,3) is certified alive inside it): ~~006 reduced "every obtuse angle has an alive W member" to an elementary Diophantine statement (unproven; float-checked at 157 + 25 arcs over 90.5°–165°, zero failures). Prove it, using the birth law as a labelled input where needed.~~ **The Diophantine sublemma is PROVEN in 013** (2026-08-15; elementary interval-chain proof, no continued fractions, constructive witness verified exactly for every rational with denominator ≤ 300 in two arithmetic layers; **skeptic-CONFIRMED in 014**, 2026-08-16 — proof, witness, and checker all survive; two non-load-bearing prose errors of record: the γ = 144° spot-check's W(4,3) is wrong (witness is W(11,2)), and the Step 2 I(q−1,q) parenthetical asserts a false inclusion). Coverage of (90°, 180°) is now conditional SOLELY on the birth/window law (queue 11); the minimal-witness/word-length staircase (continued-fraction structure) remains open as 013 lead 3. Note the certificates so far are POINTWISE (007's C2): window-interval continuity on sub-arcs is float + SPECULATION law only, and per-triangle coverage of a whole arc is a different (open) question — the windows are x-slivers at the corners. Separately falsifiable (007 lead): every sampler in use accumulates only at the 90/j window edges, so an interior-pinch alive window would hide from ALL current designs — build one targeted interior-accumulation test before trusting any negative screen again.
 13. [mahler-4d] Close the {0,±1}⁴ universe: k = 12–20 pairs (~30M orbits at k=12, improper fraction already 77% at k=9). Falsifiable: no proper mask with k ≥ 12 has P < 11. Needs the improper-detection shortcut or a streaming canonicalizer; see 001 lead 1. Cheap side quest, same pipeline: the {0,±1}³ census for the n=3 spectrum comparison (13 pairs, trivial) — does the non-Hanner gap grow or shrink with n?
 14. [billiards-triangles] Coverage self-test: re-derive the acute and right-triangle cases as a scoped attempt record. Low value now that the harness self-test covers Fagnano and the orthic geometry and 001 mapped the obtuse side — take it only if something turns up that the certificate machinery cannot express.
 15. [maxwell-equilibria] **Run blind.** First attempt: certified counts for structured 3-charge families beyond the harness self-test knowns — collinear with unequal charges (does the count stay 2 or drop?), isoceles families, a coarse (shape × charge-ratio) sweep. Deliverable is the count strata map, `EVIDENCE` scoped by grid and region. Every complete count must pass the index-sum identity; treat a violation as a harness bug, not a finding.
@@ -494,6 +510,30 @@ problems with no attempts (queue 18–19; run blind).
   anticipated obstruction never materialized. Scope: the ring-model
   statements only; the geometry bridge (unfolding = closed form) is
   permanently carried by 005/008's informal cross-checks.
+
+- **[billiards-triangles] The coverage Diophantine lemma PROVEN
+  (skeptic-confirmed)** (2026-08-15/16, attempts 013+014): for every
+  t ∈ (0,1) there exist integers a, b ≥ 1 with a+b < t·a(b+1) < a+b+1 —
+  proved by an elementary overlapping-interval-chain argument (fixing
+  q = b+1, the intervals I(a,q) chain-overlap exactly for a ≥ q and
+  union to (1/q, 2/q); no continued fractions needed), with the
+  constructive witness q = ⌊1/t⌋+1, a = ⌊(q−1)/(qt−1)⌋+1 verified
+  exactly for all 27,397 reduced rationals with denominator ≤ 300 in
+  two independent arithmetic layers, 2,494 boundary adversaries, and
+  denominators to 2·10⁵⁰. The skeptic (014) re-derived every step by
+  hand (both integer edge cases in the strictness bookkeeping; a
+  cleaner minimal-a₀ closure of the union-endpoint question),
+  re-implemented the checker from the record's formulas alone before
+  reading the committed code (all counts reproduced; witness diff on
+  the full Farey sweep: zero mismatches), and re-searched the
+  literature (nothing found; stays labelled elementary/likely
+  folklore). Corrections of record (014): the γ = 144° spot-check's
+  W(4,3) is not a witness there (constructive witness W(11,2), minimal
+  (6,3)/(4,5); W(4,3) is never the constructive witness for any t),
+  and Step 2's I(q−1,q) ⊂ (1/q, 2/q) parenthetical is false (the
+  interval is disjoint, lower endpoint exactly 2/q). Billiards
+  meaning stays conditional on 006's SPECULATION birth/window law
+  (queue 11); the lemma itself is unconditional.
 
 - **[union-closed] i-AGGREGATED odds-ratio control REFUTED at large n
   (skeptic-confirmed)** (2026-08-04, attempts 016+017): the control —
