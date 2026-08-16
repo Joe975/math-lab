@@ -337,6 +337,32 @@
       "verifies": "011",
       "range": "statement fidelity of all 23 theorems in formal/BilliardsFormal/LaurentBlock.lean checked against 005 (ii)-A Steps 2-4 and plaw_general.closed_forms definition by definition; every theorem re-proven symbolically in an independent stdlib ring with i as a formal Laurent variable (half_word_letters re-composed by symbolic iteration for a,b <= 3); Lean-to-005 mapping float-checked at 200 random (a,b,alpha,beta), a <= 12, 30 quantities; cheat scan over all four project .lean files; rebuild = rm -rf .lake/build + lake build (8658 jobs, green, LaurentBlock re-elaborated 41 s) in a fresh session with the pinned toolchain and mathlib cache; own axiom audit of all 23 theorems from an own scratch file. NOT audited: the geometry bridge (permanent certificate scope, carried by 005/008), Lemmas C/D and the analytic layer, mathlib internals, the Lean kernel",
       "gaps": []
+    },
+    {
+      "id": "013",
+      "file": "attempts/013-coverage-diophantine-lemma.md",
+      "date": "2026-08-15",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "interval-chain-covering",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "The coverage Diophantine sublemma of 006 is closed: every t in (0,1) admits integers a,b >= 1 with a+b < t.a(b+1) < a+b+1, by an elementary overlapping-interval-chain proof (no continued fractions needed) with constructive witness q = floor(1/t)+1, a = floor((q-1)/(qt-1))+1, b = q-1 - so, conditional SOLELY on the SPECULATION birth/window law of 006, every obtuse angle lies strictly inside some W(a,b) window; the load-bearing open problem for coverage is now entirely the birth theorem (queue 11).",
+      "leak_terms": [
+        "coverage_diophantine",
+        "floor((q-1)/(qt-1))",
+        "chain touches at a = q-1",
+        "union (1/q, 2/q)",
+        "73,542 exact checks",
+        "x15.33 of minimal"
+      ],
+      "range": "proof re-derived step by step from an unverified external handoff (each equivalence machine-checked exactly); constructive witness verified for ALL 27,397 reduced rationals with denominator <= 300 in two independent arithmetic layers (formula-free integer brute force cross-checks denominator <= 60), 2,494 exact window-endpoint adversaries, denominators to 2e50, 2,000 random rationals to 1e40; consistency: witness at gamma = 135 is exactly 006's certified W(5,2). Lemma is unconditional; billiards meaning is conditional on the unproven birth law. Novelty searched, none found - recorded as elementary/likely folklore, not new mathematics",
+      "gaps": [
+        "skeptic-pass-pending (proof not yet adversarially reviewed; lead 1 lists the attack surface)",
+        "birth-law-still-speculation (coverage conjecture inherits it; queue 11 is the sole blocker)",
+        "minimal-witness-staircase-open (constructive witness provably suboptimal, up to x15 in a+b on 006's grid; continued-fraction law still unproven)"
+      ]
     }
   ]
 }
