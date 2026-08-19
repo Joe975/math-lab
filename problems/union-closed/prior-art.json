@@ -971,6 +971,36 @@
     "mutual-information-tax"
    ],
    "note": "Kill attempt failed informatively: branches whose degenerate limits are comonotone-like (cost-free) cannot go negative at the edge -- a design principle for Gap 3. Latent-mixing has no ST = 0 lemma yet (EM's proof breaks on differing labels); conjectured ST = O(p_lo n) is SPECULATION. Reviewer pass queued now covers 025-027."
+  },
+  {
+   "id": "028",
+   "file": "attempts/028-recipe-v2.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "LIVE",
+   "mechanism": [
+    "coupling",
+    "block-adaptive-coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax"
+   ],
+   "one_line": "Recipe v2 stated and battery-tested: the whole mixture side collapses to one q-parametrized latent-mixing family (q = P_light recovers adaptive-block, a delta_0 light component recovers 025's empty-mixing with its EM lemma and coverage proof, optimized q dominates half-mixing), generic/slice measures keep the lambda-swept Sinkhorn branch; (TAX at p) v2 re-posed against it survives the full 19-instance hard-instance battery of record (020 kill geometries, 023 floors, 025/026 sliver and block kills, 027 lo/hi probes) with margins >= +0.068; new battery numbers independently re-evaluated (cr_chain, ST ~ 1e-15).",
+   "leak_terms": [
+    "uc_recipe_v2",
+    "recipe_v2",
+    "recipe v2",
+    "G-mix",
+    "G-gen",
+    "19/19",
+    "+0.06790",
+    "latent-mixing family"
+   ],
+   "range": "Battery of 19 instances, n <= 16, the stated genres only; latent-mixing measured (not proved) away from its EM specialization; H-scaled envelope c <= 0.0387 carried over from 025; no totality claim (genre detection and >= 3 components stay Gap 3)",
+   "gaps": [
+    "recipe-totality",
+    "mutual-information-tax"
+   ],
+   "note": "The route's current statement; any future recipe edit should re-run the battery. Reviewer pass queued covers 025-028."
   }
  ]
 }

@@ -1,0 +1,138 @@
+{
+ "rows": [
+  {
+   "instance": "windowkill",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.8004718718564177,
+   "positive": true
+  },
+  {
+   "instance": "mmabskill",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.4013159037600249,
+   "positive": true
+  },
+  {
+   "instance": "floor:windowkill",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.2231651840505462,
+   "positive": true
+  },
+  {
+   "instance": "floor:mmabskill",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.07420321965917331,
+   "positive": true
+  },
+  {
+   "instance": "floor:mmabskill_n6",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.10132647638657843,
+   "positive": true
+  },
+  {
+   "instance": "floor:random0",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.1262152565683916,
+   "positive": true
+  },
+  {
+   "instance": "floor:random1",
+   "genre": "G-gen",
+   "branch": "sinkhorn-sweep",
+   "CR": 0.19693929986984537,
+   "positive": true
+  },
+  {
+   "instance": "sliver n=2",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.07417307507051674,
+   "positive": true
+  },
+  {
+   "instance": "sliver n=6",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.0717747053733645,
+   "positive": true
+  },
+  {
+   "instance": "sliver n=16",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.06790144366472906,
+   "positive": true
+  },
+  {
+   "instance": "2block n=4",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.29023978924071314,
+   "positive": true
+  },
+  {
+   "instance": "2block n=8",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.707645006315939,
+   "positive": true
+  },
+  {
+   "instance": "3block n=4",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.39002076437131317,
+   "positive": true
+  },
+  {
+   "instance": "3block n=6",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 0.6929688470181778,
+   "positive": true
+  },
+  {
+   "instance": "3block n=8",
+   "genre": "G-mix",
+   "branch": "latent(EM)",
+   "CR": 1.0058358224097304,
+   "positive": true
+  },
+  {
+   "instance": "lo/hi p_lo=1e-05 n=2",
+   "genre": "G-mix",
+   "branch": "latent-mixing",
+   "CR": 0.22095774682309233,
+   "positive": true
+  },
+  {
+   "instance": "lo/hi p_lo=1e-05 n=6",
+   "genre": "G-mix",
+   "branch": "latent-mixing",
+   "CR": 1.1892989160474152,
+   "positive": true
+  },
+  {
+   "instance": "lo/hi p_lo=1e-03 n=4",
+   "genre": "G-mix",
+   "branch": "latent-mixing",
+   "CR": 0.6622907443793355,
+   "positive": true
+  },
+  {
+   "instance": "lo/hi tightest(027)",
+   "genre": "G-mix",
+   "branch": "latent-mixing",
+   "CR": 0.2189552411918485,
+   "positive": true
+  }
+ ],
+ "all_positive": true
+}
