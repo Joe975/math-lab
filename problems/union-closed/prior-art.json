@@ -907,6 +907,38 @@
    ],
    "refuted_by": null,
    "note": "Refutes the recipe's branch assignments, not Gap 2's candidate: with the corrected assignment (empty-mixing, optimized q) no in-regime CR <= 0 instance is known. Lemmas EM/EM-coverage are same-session skeptic-passed (uc_branch_skeptic.py, implementation-level); reviewer-level pass pending per the 024 standard."
+  },
+  {
+   "id": "026",
+   "file": "attempts/026-gap2-branch-kills-certified.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "REFUTED",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "certified-enclosure",
+    "coupling",
+    "block-adaptive-coupling",
+    "mutual-information-tax"
+   ],
+   "one_line": "Dual-kit exact-rational certification of the 025 branch kills and repairs: CR_halfmix certified negative at in-regime sliver instances n = 2, 6, 16 (P1 = 16/25, ph = 1987/2000, 1997/2000, 19993/20000; H(mu) certified > 0.968), block iid-given-k Gain certified negative at n = 8 on the 2block/3block mixtures (CR < 0 via 009 fact (i)), and both repairs certified positive (q = 1/2 sliver rescues +0.067..0.073; 3block empty-mixing rescue +0.693 modulo Lemma EM); every log2 evaluated by BOTH audited kits (022 digit-extraction and 016 atanh-series) with enclosures intersected -- zero disagreements over 98 calls, widths <= 2.5e-32.",
+   "leak_terms": [
+    "uc_branch_certify",
+    "branch_certify",
+    "dual-kit",
+    "1987/2000",
+    "19993/20000",
+    "-2.267927906e-3",
+    "-7.940026768e-1",
+    "+6.929688470e-1"
+   ],
+   "range": "Six instances certified (three half-mixing sliver points, two block mixtures at n = 8, one empty-mixing rescue at n = 6) plus three repair values; nothing certified beyond these -- 025's grids and families remain float-level; same-session with 025 (implementation-level only, reviewer pass queued covers both)",
+   "gaps": [
+    "recipe-totality",
+    "mutual-information-tax"
+   ],
+   "verifies": "025",
+   "note": "C3 leans on 009 fact (i) (CR <= Gain, 011-verified) as a lemma; C4 leans on Lemma EM (025, reviewer pass pending). Dual-kit intersection pattern recommended as default for future certifications."
   }
  ]
 }
