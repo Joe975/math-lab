@@ -1043,6 +1043,72 @@
     "6.4e-13 not 4e-15"
    ],
    "note": "Discharges the queue-(a') reviewer pass over 025-028 at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether this meets the 024 fresh-session bar is left to the human owner. Lemmas EM/EM-coverage are hereby reviewer-re-derived (025's own upgrade criterion), with the n in {1,2} legs remaining float-level as always stated. Verifies 026, 027 and 028 as well (schema allows one verifies id; 025 carries the load-bearing lemmas). No numerical claim in any of the four records moved."
+  },
+  {
+   "id": "030",
+   "file": "attempts/030-latent-k-mixing.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "coupling",
+    "block-adaptive-coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "adversarial-verification",
+    "independent-reimplementation"
+   ],
+   "one_line": "K-component latent-mixing defined (label-coupling matrix Q, diagonal = adaptive products, off-diagonal independent; symmetric-transfer parametrization, deterministic ascent) and positive on all 15 in-regime K=3 battery rows with CR*/H in [0.043, 0.395]; anchors to 027's K=2 values exactly; strictly beats the fused-s-law EM construction on the degeneration probe (+0.404 vs +0.352); and the near-psi rows expose a proved mini-theorem (HU-mix): for mixtures with every component in [1/4, 1/2], CR = n - H(mu) exactly, giving the first proved H-scaled floor CR >= (1-h(pbar))/h(pbar) * H(mu) = 0.0417*H at the working cap.",
+   "leak_terms": [
+    "uc_latentK",
+    "latentK",
+    "HU-mix",
+    "transfer parametrization",
+    "0.04303",
+    "0.041739",
+    "n - H identity",
+    "near-psi pinning"
+   ],
+   "range": "K = 3 exchangeable components, n <= 6, 15-row battery + K = 2 anchor + degeneration probe at p_light down to 1e-4; skeptic rebuilt all couplings and reproduced every value to 1e-9; HU-mix theorem proved by hand, numerics to 6e-14; float-level throughout",
+   "gaps": [
+    "recipe-totality",
+    "mutual-information-tax"
+   ],
+   "note": "Transfers help exactly where components leave [1/4,1/2] (inside it the diagonal already attains E h(z) = 1). Reviewer batch: 029 covers 025-028; this record joins the next one."
+  },
+  {
+   "id": "031",
+   "file": "attempts/031-half-union-coupling.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "LIVE",
+   "mechanism": [
+    "coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "adversarial-verification",
+    "independent-reimplementation",
+    "entropy-method"
+   ],
+   "one_line": "The half-union coupling -- per history cell push the conditional union marginal to 1/2 within Frechet bounds; total, closed-form, lambda-free; the per-history totalization of Sawin's max-entropy-coupling ingredient -- beats the lambda-swept Sinkhorn branch on every G-gen hard instance of record (sharpest floor 0.0742 -> 0.0822, mmabskill_n6 0.101 -> 0.301), reads the crash family as a flat n-independent +0.199, stays positive on all fixed-seed scans and descents at marginal caps up to 0.49 and on slices to n = 300 at w0/n up to 0.48, with the attacked floor tracking the product-extremal constant (1-h(pbar))/h(pbar) from above at every cap -- writing down conjecture (HU-TAX): CR_HU >= (1-h(pbar))/h(pbar) * H(mu), equality at products (SPECULATION); optimized K-mixing still beats HU on 3/5 structured mixtures, and order-min stayed positive with a 4x order spread at mmabskill.",
+   "leak_terms": [
+    "uc_hu_probe",
+    "half-union",
+    "HU coupling",
+    "HU-TAX",
+    "hu_probe",
+    "0.0822",
+    "clip(1/2)",
+    "+0.19919",
+    "order spread",
+    "0.3382"
+   ],
+   "range": "Full 023/024 floor set, crash family n <= 17, 300+4x200 fixed-seed random supports (n <= 6, <= 14 atoms, delta_0-projected) at caps 0.38271..0.49, pattern-search descents from worst starts, slice DP to n = 300 at w0/n in {0.36..0.48} (two independent DP implementations), coordinate-order enumeration at n <= 5 (120-sample at n = 6); all float-level; skeptic (recursive-descent builder + natural-log evaluator) reproduced everything, exit 0",
+   "gaps": [
+    "mutual-information-tax",
+    "recipe-totality"
+   ],
+   "note": "(HU-TAX) proved only on the [1/4,1/2]-component sub-genre (030's HU-mix); if proved for all pbar < 1/2 it is Frankl via licensing -- treat every use as SPECULATION. Novelty gate: per-coordinate idea is Sawin 2211.11504's max-entropy coupling / 009's adaptive rule; the clamped per-history totalization and the sweeps are this record's contribution."
   }
  ]
 }
