@@ -39,6 +39,9 @@ repo is uniquely able to produce.
 - Recording it: `docs/attempt-template.md`, schema in
   `docs/prior-art.schema.json`, full rules in `CONTRIBUTING.md`.
 - Current state and the queue: `STATUS.md`.
+- Formalization (Lean 4 certificates for skeptic-confirmed, load-bearing
+  proof steps): `docs/FORMALIZE.md`, status `FORMALIZED`. Expensive; use
+  deliberately.
 - Cross-pollination (informed side only): `python scripts/mechanisms.py
   gaps <problem>` for untried field lenses; `docs/IDEATE.md` to sweep fields
   across one problem; `docs/RIPPLE.md` to scan a new result across problems.
@@ -47,7 +50,33 @@ repo is uniquely able to produce.
 - Bulk breadth work (high fan-out ideation, skeptic re-implementations,
   triage) can be farmed to cheap external workers via `scripts/swarm.py`;
   the director/worker protocol and its mode-discipline rules are in
-  `docs/SWARM.md`. Swarm returns are candidates, never results.
+  `docs/SWARM.md` (session skill: `/swarm`). Swarm returns are candidates,
+  never results.
+- Bounded autonomous runs: a **human-opened persistence window**
+  (`/continuity`, rules in `GUIDANCE.md`) pre-authorizes rolling from line
+  to line with scheduled encouragement pings until the window closes. The
+  verification bar does not change inside a window.
+
+## Environment setup (fresh containers / web sessions)
+
+A fresh session container is missing three things the docs otherwise assume:
+
+- **`pytest` is not preinstalled.** `pip install pytest` once, before the
+  test run below.
+- **nauty's `geng` is not preinstalled** (graph generation for
+  erdos-gyarfas and graceful-trees): `apt-get install -y nauty`.
+- **Lean is not preinstalled.** Only the `docs/FORMALIZE.md` lane needs it;
+  install `elan` deliberately when running that lane, not as routine setup.
+
+`cc` is present and the C kernels build as-is (commands in the README).
+
+**External LLM workers** (`scripts/swarm.py`): remote sessions carry two
+provider keys, `OPENAI_API_KEY` and `GEMINI_KEY` — the latter is the
+nonstandard name; `swarm.py` reads it as the fallback for `GEMINI_API_KEY`.
+Both provider endpoints are reachable through the session's HTTPS proxy.
+Sanity check before a big sweep:
+`python scripts/swarm.py one "Reply OK." --model gemini-3.7-flash` (and once
+with the default `gpt-*` model).
 
 ## Always
 

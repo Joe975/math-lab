@@ -26,4 +26,6 @@ sit outside that document.
   entry, `STATUS.md` TL;DR reflects the new state, `python -m pytest
   tests/ -q` passes, and the work is committed and pushed. Stop after the
   cycle — do not roll into the next queue item unprompted (standing
-  guidance in `GUIDANCE.md`).
+  guidance in `GUIDANCE.md`) — unless a human-opened persistence window
+  (`/continuity`, `GUIDANCE.md` 2026-08-19) is active, in which case
+  rolling on inside the window is pre-authorized.
