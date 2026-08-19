@@ -1109,6 +1109,44 @@
     "recipe-totality"
    ],
    "note": "(HU-TAX) proved only on the [1/4,1/2]-component sub-genre (030's HU-mix); if proved for all pbar < 1/2 it is Frankl via licensing -- treat every use as SPECULATION. Novelty gate: per-coordinate idea is Sawin 2211.11504's max-entropy coupling / 009's adaptive rule; the clamped per-history totalization and the sweeps are this record's contribution."
+  },
+  {
+   "id": "033",
+   "file": "attempts/033-hu-attack-and-certify.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "REFUTED",
+   "mechanism": [
+    "coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "adversarial-verification",
+    "exact-rational-arithmetic",
+    "certified-enclosure",
+    "independent-reimplementation"
+   ],
+   "one_line": "The order quantifier in (HU-TAX) breaks: a joint (mu, coordinate-order) adversarial campaign against the half-union coupling finds a CERTIFIED order-dependent violation at marginal cap 9/20 -- a 6-atom n=4 witness (max marginal 0.44990, H = 2.527) where exactly 1 of 24 orders gives CR_HU certified in [., -8.048e-3] while identity (+0.0148) and best order (+0.257) stay positive -- with the full-order-min floor crossing zero in (0.44, 0.45] on the attack family; at the working cap 0.38271 the same campaign finds nothing (17 starts, global floor +0.04198 tracking the product extremal +0.04174), and the two sharpest G-gen floors are now certified single-kit (both kits alone): CR_HU > 0 and CR_HU >= H/25 at the rationalized windowkill/mmabskill instances. (HU-TAX) must be re-posed with an order convention; for-all-orders is dead above ~0.44, identity/best-order forms unrefuted everywhere tested.",
+   "leak_terms": [
+    "uc_hu_attack",
+    "hu_attack",
+    "uc_hu_certify",
+    "hu_certify",
+    "order kill",
+    "-8.048433087e-3",
+    "0.44990",
+    "(0,1,3,2)",
+    "H/25",
+    "+8.223788945e-2",
+    "917000",
+    "1/24 orders"
+   ],
+   "range": "Campaign: n <= 6, caps 0.38271 and 0.45, 17 starts, pattern-search weight moves + atom add/drop + greedy-swap order pool; full 24-order enumeration at n = 4 (witness + cap trace 0.39..0.45); certificates: the two rationalized floor instances (positive, >= H/25) and the rationalized witness under order (0,1,3,2) (negative), each under both kits separately; floors are upper bounds on the true inf; witness violation independently confirmed by the 025-skeptic evaluator stack before certification",
+   "gaps": [
+    "mutual-information-tax",
+    "recipe-totality"
+   ],
+   "verifies": "031",
+   "note": "The kill needed both weapons: descent-built mu AND 1-of-24 orders. Recipe-facing (best-order) conjecture untouched; (b2) is now 'all-orders CR_HU >= 0 at p <= 0.38271' plus best-order positivity above. Witness dissection = the minimal concrete instance of the 031 averaging problem. Joins the next reviewer batch with 030/031."
   }
  ]
 }
