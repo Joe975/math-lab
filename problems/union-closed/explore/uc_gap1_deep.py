@@ -883,14 +883,14 @@ def rplus_pen(mu: dict[int, float], n: int, lam: float) -> float:
         for xa in xs:
             for xb in xs:
                 zt = z_plackett(xa, xb, rho)
-                if zt >= 0.5 - 0.01:
-                    pen += 10.0 * (zt - (0.5 - 0.01)) + 0.1
+                if zt >= 0.485:
+                    pen += 10.0 * (zt - 0.485) + 0.1
     return pen
 
 
 def part_f() -> dict:
     out = {"designs": [], "verified": [], "certs": []}
-    lam_design = 0.5
+    lam_design = math.log2(7 / 5)
     trials = 8 if not FAST else 2
     steps = 3000 if not FAST else 100
     rows = []
@@ -953,7 +953,7 @@ def part_f() -> dict:
                 f"(mm {ev['max_marginal']:.3f})")
         out["verified"].append(ver)
         # exact certification incl. certified z < 1/2 per history
-        for t in (Fraction(3, 2), Fraction(2, 1)):
+        for t in (Fraction(7, 5),):
             lam = math.log2(t)
             pi, resid = ORA.sinkhorn(mu, lam)
             u = {A: math.sqrt(pi[(A, A)] / 2.0 ** (lam * bin(A).count("1")))
