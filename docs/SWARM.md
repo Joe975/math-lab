@@ -31,7 +31,9 @@ a paragraph rather than a program. Step-up on the OpenAI side is
 
 `--effort` maps onto Gemini's `thinkingLevel` under the same four names; not
 every model supports every level (`minimal` is refused by `gemini-3.7-flash`
-with a 400 naming it). Three operational notes from the Gemini side:
+with a 400 naming it, and by `gpt-5.6-luna` with a 400 `unsupported_value`
+on `reasoning.effort` — on both current defaults the floor is `low`, which
+is also the CLI default). Three operational notes from the Gemini side:
 `503 UNAVAILABLE / high demand` is routine on a just-released model and is
 absorbed by the retry ladder; thinking tokens bill at the output rate, so
 `status` folds them into the output count; and a **free-tier** key throttles
