@@ -4,7 +4,39 @@ Human-set direction for the lab. `docs/CYCLE.md` has agents read this at the
 start of every cycle, and **it overrides the queue** where the two disagree —
 so it has to describe how things actually are, not how they once were.
 
-## Current guidance (2026-08-04)
+## Current guidance (2026-08-19)
+
+Everything below still stands. This section changes the **operating
+posture** — how long we keep pushing — not the calibration bar, which is
+unchanged and non-negotiable.
+
+**Persistence windows.** The stop-after-one-cycle rule (2026-07-26) exists
+because no orchestrator was collecting results, not because continuation is
+undesirable. When the human opens a **window** — an explicit request naming
+a duration, e.g. `/continuity 3h` — continuous operation inside it is
+pre-authorized: finish a line, write it up, commit, and roll straight into
+the next queue item without asking. The window itself is the request;
+per-step approval is not needed and should not be sought. At the deadline:
+finish write-ups, update the ledger, commit, push, stop. Windows are only
+ever human-opened; an agent never opens or extends one on its own.
+
+**Encouragement cadence.** Within a window, scheduled nudges (default every
+15 minutes) telling the agent to keep going are part of the protocol, not
+noise. Current reporting on the 2025–26 AI-assisted mathematics results
+(Quanta, 2026-08-03, on the Erdős-problem wave) is that persistence —
+repeated iteration and positive framing after the initial problem statement,
+with verification as the gate — is a large part of what works. Treat a nudge
+as license to continue the current line or pull the next queue item, not as
+a request for a status report to a human.
+
+**Optimism is about effort, not claims.** Pursue `LIVE` routes vigorously;
+prefer one more concrete step on a live route over stopping early to await
+direction. The calibration rules stay exactly as written: nothing enters
+the ledger without adversarial verification, and a breakthrough claim is
+still almost certainly an error. The window changes how long we keep
+pushing, never what we accept as true.
+
+## Previous guidance (2026-08-04)
 
 Everything in the 2026-07-26 section below still stands — operating mode,
 public-repo posture, and the calibration rules. This section adds direction

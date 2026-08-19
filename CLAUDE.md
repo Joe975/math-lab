@@ -52,6 +52,10 @@ repo is uniquely able to produce.
   the director/worker protocol and its mode-discipline rules are in
   `docs/SWARM.md` (session skill: `/swarm`). Swarm returns are candidates,
   never results.
+- Bounded autonomous runs: a **human-opened persistence window**
+  (`/continuity`, rules in `GUIDANCE.md`) pre-authorizes rolling from line
+  to line with scheduled encouragement pings until the window closes. The
+  verification bar does not change inside a window.
 
 ## Environment setup (fresh containers / web sessions)
 
