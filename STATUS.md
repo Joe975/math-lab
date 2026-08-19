@@ -146,6 +146,33 @@ ledger directly. Method note the skeptic forced: float tie-breaking made
 the "canonical" order implementation-dependent (exactly equal conditional
 entropies do occur); any future canonical rule needs an explicit
 tolerance tie-break, and the residual non-equivariance must be stated.**
+**034 (fresh-context reviewer on 030/031/033) — batch VERIFIED, with one
+real refutation of the conjecture: (HU-TAX at p̄) as stated in 031 is
+FALSE for every p̄ < 1/4**, and the counterexample is 031's own claimed
+equality case. For μ = Bern(p)^⊗n every HU cell has x = y = 1−p, so
+z = min(max(1/2, 1−2p), 1−p); below p = 1/4 the Fréchet floor 1−2p
+exceeds 1/2, the clamp fires, z = 1−2p, and CR_HU/H = (h(2p)−h(p))/h(p)
+falls strictly short of (1−h(p))/h(p) by n(1−h(2p)) bits (smallest
+witness p = 1/5, n = 1: 0.249022 vs 0.278072 — re-derived by the author).
+It is order-independent, so it also hits the identity- and best-order
+forms 033 left standing. **Fix: pose (HU-TAX) on p̄ ∈ [1/4, 1/2) with
+c*(p̄) = (h(min(2p̄,1))−h(p̄))/h(p̄)**, which coincides with the old
+constant exactly on that range. Nothing load-bearing moves: every sweep
+tests the cap form at p̄ ≥ 0.38271 > 1/4, and 030's HU-mix hypothesis
+forces p̄ ≥ 1/4 by itself. Root cause worth remembering: 031/033 always
+compared against (1−h(cap))/h(cap) and never against the *instance's own*
+marginal. Everything else survived 43/43 attacked checks (HU-mix and
+HU-notax re-derived by hand — the [1/4,1/2] hypothesis is exactly the
+Fréchet-feasibility condition for z = 1/2; all six scripts reproduce
+byte-identically; the order-kill exact to the last digit; certificates
+land inside both kits at 60 digits, each kit certifying alone; a
+STRONGER adversary — min over all n! orders at every descent step —
+still finds nothing at the working cap, floor +0.043284). Reporting
+corrections logged in 034: several 031 §2 / 030 numbers were quoted from
+the wrong run or over-rounded, 031's "120-order sample at n = 6" was
+actually a perm[0]=0 sub-family (full 720 redone, same conclusion), both
+index `range` fields overstate skeptic coverage, and 033's parts B/C/E
+shipped without committed code.**
 Also: the deep-anneal
 float negatives at near-empty supports are certified ARTIFACTS (exact
 recomputation flips −24.5 to +23.4) — 007's underflow lesson confirmed a
