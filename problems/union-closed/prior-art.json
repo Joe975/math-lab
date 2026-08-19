@@ -868,6 +868,45 @@
     "non-per-history-bridge"
    ],
    "note": "Also verifies 022 (its verifier re-audited fresh, re-run byte-identical) and 023 qualitatively (schema allows one 'verifies' id; 020 is the finding under confirmation). Reviewer independence: fresh session, no shared state with the 020/022/023 director, no swarm. The corrected engine practice for future CR adversaries: stable job seeds + record PYTHONHASHSEED, on top of 023's own H >= eps lead."
+  },
+  {
+   "id": "025",
+   "file": "attempts/025-gap2-branch-no-gos.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "REFUTED",
+   "mechanism": [
+    "coupling",
+    "block-adaptive-coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "adversarial-verification",
+    "independent-reimplementation"
+   ],
+   "one_line": "Both non-Sinkhorn branches of the 009 recipe fail as stated, in-regime: half-mixing (q = P1/2) has CR < 0 instances at every n (ph -> 1 sliver, margins ~1.5e-2, two independent implementations agree to 4e-15), and the iid-given-k block coupling is Theta(n)-negative on any mixture with a component above psi = (3-sqrt5)/2 (a component-wise threshold; adaptive variant flatlines at CR = 0 exactly on all-above-half mixtures); one repair covers both -- the extended mixing lemma (ST = 0 for arbitrary eps-joints and arbitrary s-laws) plus concavity gives sup_q CR > 0 on the whole in-regime {0}u[1/2,1) genre (proved except two float-level 1-D sweeps at n = 1, 2), and empty-mixing also rescues every constructed block failure; floor pre-work: 023's in-regime endpoints have CR/H in [0.0387, 0.0834].",
+   "leak_terms": [
+    "uc_branch_attack",
+    "branch_attack",
+    "empty-mixing",
+    "eps-mixing",
+    "EM lemma",
+    "EM-coverage",
+    "surprisal criterion",
+    "psi component threshold",
+    "0.23458",
+    "0.78591",
+    "0.0387",
+    "q = P1/2 sliver",
+    "0.61729",
+    "-0.01532"
+   ],
+   "range": "Half-mixing: failure family constructed at n = 1..100 (analytic mechanism, closed form + full-history evaluator), in-regime grid 98521 pts/n at n in {1,2,4,8,16}; block: exchangeable mixtures, gains to n = 40 (profile arithmetic, cross-checked by direct enumeration at n = 8, 12), full-history CR at n <= 8 (iid) / n <= 10 (adaptive); coverage lemma float-level on two 200001-pt boundary sweeps; all float-level, exact certification queued",
+   "gaps": [
+    "recipe-totality",
+    "mutual-information-tax"
+   ],
+   "refuted_by": null,
+   "note": "Refutes the recipe's branch assignments, not Gap 2's candidate: with the corrected assignment (empty-mixing, optimized q) no in-regime CR <= 0 instance is known. Lemmas EM/EM-coverage are same-session skeptic-passed (uc_branch_skeptic.py, implementation-level); reviewer-level pass pending per the 024 standard."
   }
  ]
 }
