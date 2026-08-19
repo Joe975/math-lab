@@ -800,6 +800,41 @@
     "non-per-history-bridge"
    ],
    "note": "First use of the drafted-verifier skeptic pattern: spec -> cross-family worker writes the whole verifier -> director audits -> run unmodified. Per docs/SWARM.md this is stronger implementation independence than a same-family rewrite; the residual gap (same director, same session) is stated in the record and left for a fresh-session pass."
+  },
+  {
+   "id": "023",
+   "file": "attempts/023-gap2-first-adversarial-pass.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "coupling",
+    "overlap-tilt",
+    "sinkhorn",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "exact-rational-arithmetic",
+    "certified-enclosure"
+   ],
+   "one_line": "First adversarial pass on Gap 2: free-support anneals seeded at the exact geometries that killed Gap 1 grind sup_lambda CR from +0.40/+0.80 to floors +0.074..+0.22 but find NO in-regime violation (the only negative is the degenerate H->0 corner where CR->0 correctly, so any quantitative TAX statement must scale with H(mu)); side result: the signed sensitivity form -- the lambda-integrated condition's integrand -- is certified negative at t in {6/5, 3/2} on all three 020 witnesses, closing 020's last float-level piece.",
+   "leak_terms": [
+    "uc_cr_attack",
+    "cr_attack",
+    "sup_lam CR",
+    "0.0742",
+    "H->0 corner",
+    "H-scaled floor",
+    "signed num certified",
+    "integrand certified negative"
+   ],
+   "range": "7 anneal jobs, n <= 6, <= 14 atoms, 1200 steps each, lambda grid {0.05..3.5}, Sinkhorn branch of the 009 recipe only (block-adaptive and half-mixing branches not exercised); signed-form certificates at two rational tilts per witness, enclosure widths < 1e-14",
+   "refuted_by": null,
+   "gaps": [
+    "mutual-information-tax",
+    "recipe-totality",
+    "non-per-history-bridge"
+   ],
+   "note": "Gap 2 is now the route's sole surviving bridge and has earned proof effort (lead 1: CR >= c(p) H(mu) on the generic genre). The degenerate-H escape is an engine lesson: future CR adversaries need an H(mu) >= eps constraint."
   }
  ]
 }

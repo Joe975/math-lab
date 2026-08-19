@@ -1,0 +1,6 @@
+census done 2.4s
+rows 4795 distinct ORs 2457 time 45.3s
+SUM A in [-2.561642e-07, -2.561642e-07]  (mean approx [-3.666287e-08, -3.666287e-08])
+max_marg 0.257466 in_regime True dich True
+t = 25/24, lambda = 0.058894, lamwin(8) = 0.9694 -> in-window True
+VERDICT: CERTIFIED NEGATIVE

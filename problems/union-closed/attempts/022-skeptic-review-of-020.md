@@ -128,8 +128,17 @@ bridge family, and the natural next target for proof effort.
 
 The m = 2 block tensor of the window-kill measure (225 atoms), frozen at
 t = 25/24 (λ ≈ 0.0589 < λ_win(8) = 0.9694), aggregate certified by the
-exact census path (log₂-enclosure cache over distinct OR values):
-result recorded in `data/gap1deep_tensor_cert.txt` — see Outcome.
+exact census path (log₂-enclosure cache over 2,457 distinct OR values,
+4,795 nondegenerate tables, dyadic directed accumulation at 2^-240 to
+keep denominators bounded — the naive exact sum stalls on denominator
+blowup, a practical note for future large-support certificates):
+
+    A(sum) ∈ [−2.561642e-7, −2.561642e-7]   CERTIFIED NEGATIVE
+    max marginal 0.257466 (in-regime exact), dichotomy exact.
+
+Full transcript: `data/gap1deep_tensor_cert.txt`. The window kill now
+has certified instances at n = 4 AND n = 8, both deep inside their
+windows.
 
 ## Outcome
 
