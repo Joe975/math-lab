@@ -28,6 +28,8 @@ Parts:
   P4  the 033 order-kill: witness rebuilt from data/hu_attack.json, all
       24 orders enumerated, per-coordinate ledger dissection, and an
       own min-over-all-24-orders descent for the cap trace / crossing.
+  P7  own working-cap campaign whose objective is the min over ALL
+      n! coordinate orders (033's used a greedy 1-3 order pool).
   P5  high-precision (decimal, 60 digits) exact-rational recomputation
       of the three 033 certificates, checked against the committed
       enclosures; plus the rationalization total-variation claim.
@@ -223,7 +225,7 @@ def part1():
           and max(vals) - min(vals) < 1e-12,
           f"spread {max(vals) - min(vals):.1e}, value {vals[0]:.8f}")
     say()
-    for p, n in ((0.3, 5), (0.38271, 6), (0.45, 5), (0.25, 4), (0.2, 4)):
+    for p, n in ((0.3, 5), (0.38271, 6), (0.45, 5), (0.25, 4)):
         mu = {a: p ** bin(a).count("1") * (1 - p) ** (n - bin(a).count("1"))
               for a in range(1 << n)}
         r = evaluate(n, hu_joint(n, mu))
@@ -512,6 +514,27 @@ def part4():
           all(len(s) == 1 for s in det.values()),
           f"{len(det)} co-histories, max branching "
           f"{max(len(s) for s in det.values())}")
+    # 031 section 5(ii): order ranges at the floor instances.  031 used a
+    # "120-order sample" at n = 6, which is itertools.islice(perms, 120)
+    # = exactly the 120 orders fixing perm[0] = 0, not a sample; redone
+    # here as a FULL enumeration (24 / 120 / 720 orders).
+    say("   full order enumeration at the five floor instances "
+        "(24 / 120 / 720 orders):")
+    ck = json.loads((DATA / "hu_probe.json").read_text())["D_orders"]
+    ckd = {r["seed"]: r for r in ck}
+    allpos = True
+    for name, nn, m, _ in floor_instances():
+        vs = [evaluate(nn, hu_joint(nn, permute(nn, m, p)))["CR"]
+              for p in itertools.permutations(range(nn))]
+        lo, hi = min(vs), max(vs)
+        agree = (abs(lo - ckd[name]["min"]) < 1e-9
+                 and abs(hi - ckd[name]["max"]) < 1e-9)
+        allpos &= lo > 0
+        say(f"     {name:14s} n={nn}: CR in [{lo:+.5f}, {hi:+.5f}] "
+            f"over {math.factorial(nn)} orders; 031 range "
+            f"{'reproduced' if agree else 'DIFFERS'}")
+    check("031 section 5(ii): min over ALL orders > 0 at every floor "
+          "instance (n = 6 done in full, not islice-120)", allpos)
     # own min-over-all-24-orders descent: the cap trace / crossing
     say("   own all-24-order descent from the random0 endpoint:")
     start = [x for x in floor_instances() if x[0] == "random0"][0]
@@ -679,6 +702,102 @@ def part5():
     say()
 
 
+# ===================================================================== P6
+def part6():
+    """REFUTATION found by this pass: (HU-TAX at pbar) of 031 is false
+    for every pbar < 1/4, and the witness is the very measure the record
+    names as its equality case, Bern(pbar)^{tensor n}.
+
+    For a product Bern(p)^n the HU cell values are constant, x = y = 1-p,
+    so z = min(max(1/2, 1-2p), 1-p) and
+        CR_HU = n (h(z) - h(p)),  H = n h(p).
+    For p in [1/4, 1/2] the clamp is idle, z = 1/2, CR = n(1-h(p)) and
+    (HU-TAX) holds with equality -- as 031 says.  For p < 1/4 the Frechet
+    floor bites, z = 1-2p, and
+        CR_HU/H = (h(2p) - h(p))/h(p)  <  (1 - h(p))/h(p)
+    strictly, because h(2p) < 1 for every p < 1/4.  The deficit is
+    n(1 - h(2p)) bits and is order-independent (products are
+    exchangeable), so identity-order and best-order forms fall too.
+    """
+    say("P6. Reviewer refutation: (HU-TAX at pbar) for pbar < 1/4")
+    bad = []
+    for p in (0.05, 0.10, 0.15, 0.20, 0.24, 0.25, 0.30, 0.38271):
+        n = 4
+        mu = {a: p ** bin(a).count("1") * (1 - p) ** (n - bin(a).count("1"))
+              for a in range(1 << n)}
+        r = evaluate(n, hu_joint(n, mu))
+        rhs = (1 - hb(p)) / hb(p) * r["H"]
+        z = min(max(0.5, 1 - 2 * p), 1 - p)
+        say(f"   p={p:<8g} z={z:.4f}  CR_HU={r['CR']:+.6f}  "
+            f"(1-h)/h*H={rhs:+.6f}  CR-RHS={r['CR'] - rhs:+.6f}  "
+            f"predicted n(h(2p)-h(p))={n * (hb(min(2 * p, 1.0)) - hb(p)):+.6f}")
+        if r["CR"] < rhs - 1e-12:
+            bad.append(p)
+        # closed form for the product
+        assert abs(r["CR"] - n * (hb(z) - hb(p))) < 1e-12
+    check("(HU-TAX at pbar) violated by Bern(pbar)^4 exactly for pbar < 1/4",
+          bad == [0.05, 0.10, 0.15, 0.20, 0.24],
+          f"violating pbar: {bad}")
+    # exact-rational instance: p = 1/5, n = 1, deficit = 1 - h(2/5)
+    p = Fraction(1, 5)
+    mu = {0: 1 - p, 1: p}
+    cr, H = exact_hu_cr(1, mu)
+    rhs = (Decimal(1) - H) / H * H
+    check("exact (60-digit) n=1 witness at pbar=1/5: CR_HU < (1-h)/h * H",
+          cr < rhs,
+          f"CR={cr:.12f} vs RHS={rhs:.12f}; deficit "
+          f"{float(rhs - cr):.6f} = 1-h(2/5) = {1 - hb(0.4):.6f}")
+    say("   => the sharp product constant is (h(min(2p,1))-h(p))/h(p),")
+    say("      which equals (1-h(p))/h(p) only on [1/4, 1/2).")
+    say()
+
+
+# ===================================================================== P7
+def project(n, mu, cap):
+    """delta_0 projection into regime, as in 031/033's scans."""
+    m = norm(mu)
+    fm = maxmarg(n, m)
+    if fm >= cap - 0.005:
+        al = 1.0 - (cap - 0.005) / fm
+        m = {a: w * (1 - al) for a, w in m.items()}
+        m[0] = m.get(0, 0.0) + al
+    return norm(m)
+
+
+def part7():
+    """A strictly stronger order adversary than 033's at the working cap.
+    033's campaign minimized over a greedy order POOL (1-3 orders per
+    start, log in data/hu_attack.json); here the objective is the min
+    over ALL n! orders at every step of the descent."""
+    say("P7. Own campaign at the working cap 0.38271, objective = min "
+        "over ALL n! orders")
+    cap = 0.38271
+    starts = [(nm, n, mu) for nm, n, mu, _ in floor_instances()]
+    row, wmu = witness_from_checkpoint()
+    starts.append(("033witness", 4, wmu))
+    import random as _r
+    for seed in range(6):
+        rng = _r.Random(934000 + seed)
+        n = rng.choice([4, 5])
+        k = rng.randint(4, min(10, 1 << n))
+        supp = rng.sample(range(1 << n), k)
+        starts.append((f"rseed{seed}", n,
+                       {a: math.exp(rng.uniform(-2.0, 2.0)) for a in supp}))
+    gmin, worst = 1e9, None
+    for nm, n, mu in starts:
+        v = own_descent(n, project(n, mu, cap), cap, rounds=60)
+        say(f"   {nm:14s} n={n}: all-order floor = "
+            + ("infeasible" if v is None else f"{v:+.6f}"))
+        if v is not None and v < gmin:
+            gmin, worst = v, nm
+    ext = (1 - hb(cap)) / hb(cap)
+    check(f"no all-order violation at the working cap; floor above the "
+          f"product extremal {ext:.6f}",
+          gmin > ext, f"global floor {gmin:+.6f} at {worst} "
+          f"(033's pooled-order campaign floor: +0.04198)")
+    say()
+
+
 def main():
     say("Attempt 034 reviewer pass: independent re-implementation "
         "(030 / 031 / 033)")
@@ -688,6 +807,8 @@ def main():
     part3()
     part4()
     part5()
+    part6()
+    part7()
     say("=" * 70)
     if FAILS:
         say(f"REFUTATIONS: {len(FAILS)}")

@@ -1149,6 +1149,54 @@
    "note": "The kill needed both weapons: descent-built mu AND 1-of-24 orders. Recipe-facing (best-order) conjecture untouched; (b2) is now 'all-orders CR_HU >= 0 at p <= 0.38271' plus best-order positivity above. Witness dissection = the minimal concrete instance of the 031 averaging problem. Joins the next reviewer batch with 030/031."
   },
   {
+   "id": "034",
+   "file": "attempts/034-reviewer-pass-030-031-033.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "VERIFIED_WITH_CORRECTIONS",
+   "mechanism": [
+    "adversarial-verification",
+    "independent-reimplementation",
+    "coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "exact-rational-arithmetic",
+    "certified-enclosure",
+    "entropy-method"
+   ],
+   "one_line": "Reviewer pass on 030/031/033 (fresh-context subagent, no shared conversation state, spawned from the author session -- independence level stated in the record): HU-mix and HU-notax re-derive by hand and hold (including the z = x+y-1 branch of the sign analysis and the tightness of the [1/4,1/2] hypothesis), all six scripts reproduce byte-identically with both skeptics at exit 0, all 43 independently re-implemented values agree (third-path HU builder, own evaluator/DP/optimizer, own 60-digit recomputation of all three certificates), the order-kill is confirmed exactly (1 of 24 orders, (0,1,3,2), CR = -0.00804843, max marginal 0.449899) and a strictly stronger all-orders adversary still finds nothing at the working cap (floor +0.043284); but (HU-TAX at pbar) as stated is REFUTED for every pbar < 1/4 by its own claimed equality case Bern(pbar)^n, where the Frechet floor forces z = 1-2p and the sharp constant is (h(2p)-h(p))/h(p) < (1-h(p))/h(p) -- deficit exactly n(1-h(2pbar)) bits, order-independent, verified at 60 digits.",
+   "corrections": [
+    "031's (HU-TAX at pbar) is false for every pbar < 1/4: Bern(pbar)^n -- the record's own stated equality case -- has CR_HU = n(h(2pbar)-h(pbar)) < n(1-h(pbar)) because the Frechet floor 1-2p exceeds 1/2 below p = 1/4, so the clamp fires and E h(z) < 1; smallest witness pbar = 1/5, n = 1 (CR 0.249022 vs RHS 0.278072, deficit 1-h(2/5) = 0.029049, exact). The conjecture must be posed for pbar in [1/4, 1/2) (where the clamp is idle -- exactly 030's hypothesis) with the sharp product constant c*(p) = (h(min(2p,1))-h(p))/h(p); the cap-form used by every sweep, and 030's HU-mix (whose hypothesis forces pbar >= 1/4), are untouched. The kill is order-independent, so it also hits the identity-order and best-order forms 033 left standing",
+    "031 section 2's scan numbers are not in its own checkpoint: worst CR/H is +0.045578 not +0.0496, and the three descent floors are +0.045578/+0.045578/+0.042367 not +0.0429/+0.0430 (+0.0429 is section 1's mmabskill ratio); the descents also do not start 'from the floor endpoints' -- scan_and_descend descends from the three worst random-support scan results. Not reproducible at 40, 100 or 300 scans. The qualitative claim (floors sit just above the product extremal +0.041739 and cannot be pushed below) survives",
+    "030's degeneration triple '+0.4037/+0.3970/+0.3950' quotes uc_latentK_skeptic's fixed-t01 = 0.22 evaluations, not the optimizer: latentK_probe.json records CR_opt = +0.40370/+0.40316/+0.40375 (independently reproduced here). Conservative error; the claim of beating the fused 2-block EM limit (+0.3523253, re-derived independently) stands with margin >= +0.05",
+    "030's 'CR/H = 0.04303 exactly, constant in n' is constant only to five decimals: the checkpoint's near-psi rows are 0.043030634 / 0.043031978 / 0.043033317 at n = 2/4/6, strictly increasing (the identity CR = n - H(mu) is what is exact; H is not exactly linear in n). The skeptic's own tolerance is 2e-4, so it could not have caught the word",
+    "index-range scope words wider than the skeptics: 030's 'reproduced every value' covers 10 of 15 battery rows (n in {2,6} only), no K = 2 anchor row, and the degeneration rows only at a fixed suboptimal transfer; 031's 'reproduced everything' covers the floors, crash, four slice points, one n = 8 cross-check and the product identity -- not the scans, descents, cap sweeps, head-to-head or order enumeration",
+    "031's '120-order sample at n = 6' is itertools.islice(permutations, 120) = exactly the orders fixing perm[0] = 0, a sub-family and not a sample; redone here as a full 720-order enumeration, which reproduces the same min/max (+0.260712 / +0.482824) and stays positive, as do full enumerations at all five floor instances",
+    "uc_hu_certify.py's comment says WITNESS is 'already permuted by its violating order (0,1,3,2)' but WITNESS is byte-identical to the unpermuted hu_attack.json row and the code permutes it; since (0,1,3,2) is an involution, an auditor trusting the comment would certify the wrong measure (CR +0.0148, positive). Code correct, comment wrong",
+    "033's part B 24-order enumeration, part C cap trace and part E ledgers ship without code ('follow-up traces') -- the same class 029 flagged in 028; all three reproduce here and uc_reviewer034_reimpl.py now commits code for them",
+    "minor: 031's 'two independent DP implementations agreeing to 2e-3 at n = 300' quotes the assertion tolerance, not the agreement (observed ~1e-4; this pass ~1e-5); 031's claim that the Sawin framing was 'checked against the public abstract' overstates what the abstract can support -- it confirms author/title/(3-sqrt5)/2 but says nothing about couplings, so the ingredient-level attribution rests entirely on 003's [L] transcription"
+   ],
+   "range": "Hand re-derivations of HU-mix (Frechet feasibility [max(0,1-2p),1-p] contains 1/2 iff p in [1/4,1/2]; posterior-mixture step; U ~ Unif(2^[n]) confirmed as H(U) = n to 1e-12; subadditivity chain) and HU-notax (sigma-field argument, all four cell branches of the sign analysis incl. z = x+y-1) in full; all six 030/031/033 scripts re-run unmodified with byte-identical checkpoints and both skeptics at exit 0; 43 independent re-implementation checks with no shared code (third-path HU builder by direct pair-product; own chain-rule evaluator; own 2-D slice DP at n = 100/300 cross-checked against own mask enumeration at n = 8; own latent-K builder + own shrinking-box optimizer on two battery rows and all three degeneration rows; own fused-EM re-derivation; full order enumerations 24/120/720 at the five floor instances; the 033 witness rebuilt from the checkpoint with all 24 orders, ledgers and the determinacy of coordinate 2; own all-24-order descent reproducing 033's seven-cap trace to four decimals; own all-n!-order working-cap campaign from 12 starts, floor +0.043284; all three certificates recomputed at 60 digits via Decimal.ln, inside both kits' enclosures, rationalization TV measured 2e-14..5e-14). Searches and grids NOT re-run at scale beyond the committed engines' own re-execution; everything float-level except the certificate leg",
+   "gaps": [
+    "mutual-information-tax",
+    "recipe-totality"
+   ],
+   "refuted_by": null,
+   "verifies": "031",
+   "leak_terms": [
+    "uc_reviewer034",
+    "reviewer034",
+    "quarter threshold",
+    "h(2p) - h(p)",
+    "sub-quarter product kill",
+    "0.045578 not 0.0496",
+    "islice-120",
+    "all-order working-cap floor",
+    "c*(p) two-branch constant"
+   ],
+   "note": "Discharges STATUS queue 1(f) (reviewer batch 2 over 030/031/033) at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether that meets the 024 fresh-session bar is for the human owner to judge. Verifies 030 and 033 as well (schema allows one verifies id; 031 carries the conjecture and the coupling). The one refutation is a quantifier correction, not a numerical one: no measured value in any of the three records moved. 035 landed concurrently from the author session and is out of this pass's scope."
+  },
+  {
    "id": "035",
    "file": "attempts/035-canonical-order-hu.md",
    "date": "2026-08-19",
