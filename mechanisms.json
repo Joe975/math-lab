@@ -1,284 +1,288 @@
 {
-  "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings — findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
-  "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there — that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
-  "fields": {
-    "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
-    "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
-    "computation": "Exhaustive or structured search, enumeration infrastructure, exact arithmetic, SAT/solver methods.",
-    "dynamics": "Iteration, orbits, transfer operators, ergodic and symbolic-dynamics viewpoints.",
-    "extremal-combinatorics": "Extremal set systems and structures, shifting/compression, stability, local-global arguments.",
-    "geometry-topology": "Geometric, topological and lattice-point viewpoints; view-obstruction and covering-space framings.",
-    "graph-theory": "Structural graph theory: connectivity, girth, cycle structure, decompositions, minors.",
-    "information-theory": "Entropy, KL divergence, information inequalities and entropy-functional arguments.",
-    "logic-methodology": "Meta-level machinery: verification protocol, barrier maps, completeness arguments. Not itself an attack lens.",
-    "number-theory": "Congruences, quadratic residues, Diophantine equations, multiplicative structure.",
-    "operator-theory": "Spectral theory, numerical ranges, functional calculus, non-normal operator behaviour.",
-    "probability": "Random structures, couplings, dependence engineering, concentration, statistical modelling of exact data."
+ "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings \u2014 findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
+ "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there \u2014 that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
+ "fields": {
+  "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
+  "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
+  "computation": "Exhaustive or structured search, enumeration infrastructure, exact arithmetic, SAT/solver methods.",
+  "dynamics": "Iteration, orbits, transfer operators, ergodic and symbolic-dynamics viewpoints.",
+  "extremal-combinatorics": "Extremal set systems and structures, shifting/compression, stability, local-global arguments.",
+  "geometry-topology": "Geometric, topological and lattice-point viewpoints; view-obstruction and covering-space framings.",
+  "graph-theory": "Structural graph theory: connectivity, girth, cycle structure, decompositions, minors.",
+  "information-theory": "Entropy, KL divergence, information inequalities and entropy-functional arguments.",
+  "logic-methodology": "Meta-level machinery: verification protocol, barrier maps, completeness arguments. Not itself an attack lens.",
+  "number-theory": "Congruences, quadratic residues, Diophantine equations, multiplicative structure.",
+  "operator-theory": "Spectral theory, numerical ranges, functional calculus, non-normal operator behaviour.",
+  "probability": "Random structures, couplings, dependence engineering, concentration, statistical modelling of exact data."
+ },
+ "mechanisms": {
+  "adversarial-verification": {
+   "field": "logic-methodology",
+   "description": "Skeptic pass whose default stance is refute: attack each claim of an existing record independently."
   },
-  "mechanisms": {
-    "adversarial-verification": {
-      "field": "logic-methodology",
-      "description": "Skeptic pass whose default stance is refute: attack each claim of an existing record independently."
-    },
-    "aut-normalization": {
-      "field": "algebra",
-      "description": "Quotient counts or searches by the automorphism group so symmetric objects are not over-weighted."
-    },
-    "barrier-analysis": {
-      "field": "logic-methodology",
-      "description": "Map where and why a known technique provably stops, to direct later attempts around the obstruction."
-    },
-    "basin-classification": {
-      "field": "computation",
-      "description": "Attribute each multi-start endpoint to a structure class via structural fingerprints and re-optimization probes, so landscape claims quantify basins rather than isolated values."
-    },
-    "bitmask-backtracking": {
-      "field": "computation",
-      "description": "Depth-first search over labelings/assignments with bitset state for constant-time constraint checks."
-    },
-    "block-adaptive-coupling": {
-      "field": "probability",
-      "description": "Couplings whose joint law is chosen per structural block of the instance rather than globally."
-    },
-    "bridge-block-analysis": {
-      "field": "graph-theory",
-      "description": "Decompose near-counterexamples by bridges/2-connected blocks to locate where the required structure lives."
-    },
-    "c-kernel": {
-      "field": "computation",
-      "description": "Hot inner loop reimplemented as a small C program driven by a Python harness."
-    },
-    "canonical-cell-enumeration": {
-      "field": "computation",
-      "description": "Partition the search domain into canonical cells enumerated exactly once, giving a completeness guarantee."
-    },
-    "certified-box-coverage": {
-      "field": "computation",
-      "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
-    },
-    "certified-enclosure": {
-      "field": "computation",
-      "description": "Turn a float optimization endpoint into a proven bound by rounding to a rational point and certifying the objective there with rigorous directed-rounding enclosures."
-    },
-    "certified-interval-inequality": {
-      "field": "analysis",
-      "description": "Prove a one-variable analytic inequality rigorously by splitting into an endpoint-algebra zone, an adaptive rational-interval bisection zone, and a derivative-sign zone near a vanishing endpoint; all enclosures exact-rational, single evaluations only."
-    },
-    "chain-rule-assembly": {
-      "field": "information-theory",
-      "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
-    },
-    "class-enrichment": {
-      "field": "probability",
-      "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
-    },
-    "class-restricted-minima": {
-      "field": "extremal-combinatorics",
-      "description": "Track extremal values within structural subclasses, not just globally, to see which class carries the extremum."
-    },
-    "collision-search": {
-      "field": "computation",
-      "description": "Hash or sort a generated set to find repeated values (coincidences) rather than testing pairs."
-    },
-    "completeness-argument": {
-      "field": "logic-methodology",
-      "description": "Prove the enumeration covered everything in range, so absence of hits is a theorem about the range."
-    },
-    "conditionally-iid": {
-      "field": "probability",
-      "description": "Model dependent pairs as iid conditional on a latent variable, to interpolate between iid and adversarial."
-    },
-    "coupling": {
-      "field": "probability",
-      "description": "Construct a joint distribution with prescribed marginals so a quantity of interest becomes comparable pathwise."
-    },
-    "cycle-spectrum": {
-      "field": "graph-theory",
-      "description": "Compute the full set of cycle lengths per graph and reason about which spectra are realizable."
-    },
-    "entropy-functional-reweighting": {
-      "field": "information-theory",
-      "description": "Replace Shannon entropy by a reweighted or penalized functional and re-derive the base inequality."
-    },
-    "entropy-method": {
-      "field": "information-theory",
-      "description": "Gilmer-style argument: bound the entropy of a combined random object against the entropies of its parts."
-    },
-    "exact-rational-arithmetic": {
-      "field": "computation",
-      "description": "Certified exact computation over Q (fractions, directed rounding, rigorous enclosures) replacing floating point in verification, so that a numeric claim becomes a rational identity or a certified inequality."
-    },
-    "exact-rational-ml": {
-      "field": "computation",
-      "description": "Exact rational arithmetic for extremal quantities, so ties and strict inequalities are decided without float error."
-    },
-    "exhaustive-enumeration": {
-      "field": "computation",
-      "description": "Generate every object in a finite range and test the property directly."
-    },
-    "exhaustive-labeling-count": {
-      "field": "computation",
-      "description": "Count all valid labelings per object exactly, not just decide existence."
-    },
-    "exhaustive-small-family-search": {
-      "field": "computation",
-      "description": "Brute-force all instances at tiny size to anchor conjectured constants and find minimal examples."
-    },
-    "exhaustive-speed-tuple-scan": {
-      "field": "computation",
-      "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
-    },
-    "field-lens-sweep": {
-      "field": "logic-methodology",
-      "description": "Cross-field ideation sweep: apply untried field lenses to one problem in parallel to generate candidate attack routes; output is a MAP of triaged leads and recorded no-purchase verdicts (docs/IDEATE.md)."
-    },
-    "formal-parameter-specialization": {
-      "field": "algebra",
-      "description": "Prove an infinite family of identities at one stroke by moving the family parameters into the exponent lattice: adjoin e^{i a alpha}, e^{i b beta} (or analogous parameter-indexed units) as independent formal Laurent variables, verify the identity once by exact polynomial subtraction in the enlarged ring, and specialize by ring homomorphism to every integer parameter value. Turns a hand geometric-series computation into a finite machine check; needs a short hand derivation that the geometric quantities equal the formal closed forms."
-    },
-    "functional-graph-invariants": {
-      "field": "graph-theory",
-      "description": "Compute unlabelled structural invariants -- dominator tree, minimum directed cuts, treewidth -- on the digraph of an iterated map, and test whether any carries information the map does not already give. On a functional graph (out-degree one everywhere) the answer is usually no, and the collapse is provable rather than measured: unique forward orbits force the dominator tree to be the orbit tree, and one cycle plus a forest forces constant treewidth. Prices a graph-theoretic route before the machinery is built; the collapse is the deliverable."
-    },
-    "girth-restriction": {
-      "field": "graph-theory",
-      "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
-    },
-    "gram-mass-pairing": {
-      "field": "analysis",
-      "description": "Recast an averaged inequality as a Frobenius pairing of a PSD Gram mass matrix against a deficit matrix, so spectral conditions on the deficit decide the bound and their failure modes locate counterexamples."
-    },
-    "group-orbit-enumeration": {
-      "field": "algebra",
-      "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
-    },
-    "implicit-function-theorem": {
-      "field": "analysis",
-      "description": "Existence/uniqueness/smoothness of implicitly-defined objects (fixed points, scaling potentials) in a parameter, with quantitative resolvent bounds."
-    },
-    "independent-reimplementation": {
-      "field": "logic-methodology",
-      "description": "Re-derive a computational claim with different code and, where possible, a different algorithm."
-    },
-    "interval-chain-covering": {
-      "field": "number-theory",
-      "description": "Prove an existence statement by covering the target interval with an overlapping chain of parametric rational intervals, reducing the claim to elementary endpoint inequalities with a constructive floor-formula witness."
-    },
-    "k-wise-union": {
-      "field": "extremal-combinatorics",
-      "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
-    },
-    "machine-checked-formalization": {
-      "field": "logic-methodology",
-      "description": "State a skeptic-confirmed proof step in a proof assistant (Lean 4 + mathlib) and have the kernel accept a sorry-free proof; the informal-to-formal statement bridge is reviewed separately per docs/FORMALIZE.md."
-    },
-    "mordell-qr-obstruction": {
-      "field": "number-theory",
-      "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."
-    },
-    "mutual-information-tax": {
-      "field": "information-theory",
-      "description": "Bound the conditional mutual information a dependent coupling spends against the per-coordinate entropy gains it buys; the route survives iff gains exceed the tax."
-    },
-    "nauty-geng": {
-      "field": "computation",
-      "description": "Canonical isomorph-free graph generation via nauty/geng as the enumeration backbone."
-    },
-    "nonsmooth-maximization": {
-      "field": "analysis",
-      "description": "Locally maximize a nonsmooth (norm/eigenvalue/max-type) objective with derivative-free methods, using an explicit escape-probe test to separate genuine local maxima from optimizer stalls."
-    },
-    "optimization-landscape-census": {
-      "field": "computation",
-      "description": "Map the local-maximum landscape of an objective by multi-start local optimization from designed start families, classifying every endpoint rather than reporting only the best value."
-    },
-    "out-of-sample-prediction": {
-      "field": "logic-methodology",
-      "description": "Test a conjectured law on family members it was not fitted to, computed before comparison, so that agreement is evidence and disagreement is refutation rather than refitting."
-    },
-    "overlap-tilt": {
-      "field": "probability",
-      "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
-    },
-    "perturbative-expansion": {
-      "field": "analysis",
-      "description": "Expand a functional around an exactly-solved point (product measure, equality case) and control the remainder with explicit second-order budgets."
-    },
-    "plackett": {
-      "field": "probability",
-      "description": "Plackett-family copulas: one-parameter odds-ratio control of dependence with fixed marginals."
-    },
-    "polynomial-identities": {
-      "field": "number-theory",
-      "description": "Parametric algebraic identities that settle every instance in a residue class at once."
-    },
-    "representation-count-mining": {
-      "field": "number-theory",
-      "description": "Compute exact representation/solution counts per instance and mine the table for structural patterns."
-    },
-    "representation-count-statistics": {
-      "field": "probability",
-      "description": "Treat exact counts as a dataset: normalize for size, then test which structural covariates explain the variance."
-    },
-    "residue-class-covering": {
-      "field": "number-theory",
-      "description": "Cover all instances by congruence classes, each settled by its own identity or argument."
-    },
-    "sign-constant-progression-pigeonhole": {
-      "field": "analysis",
-      "description": "Exclude higher rotation branches by pigeonhole: if every term of an arithmetic progression of angles (step < half-period) has the same sinusoid sign, all terms lie in one sign component, bounding the progression's total span by the component length; a hypothesis forcing endpoints into different components is contradictory. Turns families of trig-margin inequalities with a lattice structure into one span bound, replacing per-case interval estimates."
-    },
-    "sinkhorn": {
-      "field": "probability",
-      "description": "Sinkhorn/IPF scaling to construct or normalize couplings with prescribed marginals numerically."
-    },
-    "size-normalized-selection": {
-      "field": "probability",
-      "description": "Compare instances against size-matched controls so magnitude effects are not read as structural effects."
-    },
-    "slice-parallelism": {
-      "field": "computation",
-      "description": "Split an enumeration into independent restartable slices with per-slice checkpoint files."
-    },
-    "smoothing-insensitive-functional": {
-      "field": "information-theory",
-      "description": "Study functionals unchanged by small-mass smoothing of the law, and what any such functional can or cannot see."
-    },
-    "spectrum-gap-analysis": {
-      "field": "analysis",
-      "description": "Examine the set of achieved objective values for gaps and accumulation points, not just the extremum."
-    },
-    "structure-class-design-search": {
-      "field": "dynamics",
-      "description": "Invert a proven structural mechanism into a design tool: parametrize the structure class the mechanism applies to, enumerate the class, derive each member's governing invariant (symbolically where the mechanism factors, numerically where it does not), and hunt for members whose invariant lands in a target range."
-    },
-    "symbolic-trig-closed-form": {
-      "field": "algebra",
-      "description": "Recast an iterated geometric construction in an exact division-free symbolic domain (here Laurent polynomials in half-angle exponentials over Q(i)) so that the quantities of interest become closed-form trigonometric polynomials whose factorizations expose the law being sought."
-    },
-    "tightness-census": {
-      "field": "extremal-combinatorics",
-      "description": "Enumerate all near-extremal instances in range to see whether tightness is isolated or part of a family."
-    },
-    "total-positivity": {
-      "field": "probability",
-      "description": "TP2/MTP2 and log-supermodularity structure: four-function and Cauchy-Schwarz cross-ratio inequalities, closure under conditioning and marginalization."
-    },
-    "unfolding-word-census": {
-      "field": "dynamics",
-      "description": "Enumerate symbolic bounce words, reduce them by symmetry, and certify periodic billiard orbits by unfolding each word to a translation and intersecting the resulting corridor over a parameter box."
-    },
-    "up-sets": {
-      "field": "extremal-combinatorics",
-      "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
-    },
-    "volume-product-census": {
-      "field": "geometry-topology",
-      "description": "Enumerate convex bodies over a structured vertex universe and compute Mahler volume products, with exact rational recomputation near the extremum and explicit equality-case certificates."
-    },
-    "weighted-kl": {
-      "field": "information-theory",
-      "description": "Replace entropy differences by c-weighted KL divergences to a reference law and tune c."
-    }
+  "aut-normalization": {
+   "field": "algebra",
+   "description": "Quotient counts or searches by the automorphism group so symmetric objects are not over-weighted."
+  },
+  "barrier-analysis": {
+   "field": "logic-methodology",
+   "description": "Map where and why a known technique provably stops, to direct later attempts around the obstruction."
+  },
+  "basin-classification": {
+   "field": "computation",
+   "description": "Attribute each multi-start endpoint to a structure class via structural fingerprints and re-optimization probes, so landscape claims quantify basins rather than isolated values."
+  },
+  "bitmask-backtracking": {
+   "field": "computation",
+   "description": "Depth-first search over labelings/assignments with bitset state for constant-time constraint checks."
+  },
+  "block-adaptive-coupling": {
+   "field": "probability",
+   "description": "Couplings whose joint law is chosen per structural block of the instance rather than globally."
+  },
+  "bridge-block-analysis": {
+   "field": "graph-theory",
+   "description": "Decompose near-counterexamples by bridges/2-connected blocks to locate where the required structure lives."
+  },
+  "c-kernel": {
+   "field": "computation",
+   "description": "Hot inner loop reimplemented as a small C program driven by a Python harness."
+  },
+  "canonical-cell-enumeration": {
+   "field": "computation",
+   "description": "Partition the search domain into canonical cells enumerated exactly once, giving a completeness guarantee."
+  },
+  "certified-box-coverage": {
+   "field": "computation",
+   "description": "Cover a parameter region by boxes on which a claim is certified by exact or validated arithmetic, and treat the geometry of the uncovered remainder as a first-class deliverable."
+  },
+  "certified-enclosure": {
+   "field": "computation",
+   "description": "Turn a float optimization endpoint into a proven bound by rounding to a rational point and certifying the objective there with rigorous directed-rounding enclosures."
+  },
+  "certified-interval-inequality": {
+   "field": "analysis",
+   "description": "Prove a one-variable analytic inequality rigorously by splitting into an endpoint-algebra zone, an adaptive rational-interval bisection zone, and a derivative-sign zone near a vanishing endpoint; all enclosures exact-rational, single evaluations only."
+  },
+  "chain-rule-assembly": {
+   "field": "information-theory",
+   "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
+  },
+  "class-enrichment": {
+   "field": "probability",
+   "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
+  },
+  "class-restricted-minima": {
+   "field": "extremal-combinatorics",
+   "description": "Track extremal values within structural subclasses, not just globally, to see which class carries the extremum."
+  },
+  "collision-search": {
+   "field": "computation",
+   "description": "Hash or sort a generated set to find repeated values (coincidences) rather than testing pairs."
+  },
+  "completeness-argument": {
+   "field": "logic-methodology",
+   "description": "Prove the enumeration covered everything in range, so absence of hits is a theorem about the range."
+  },
+  "conditionally-iid": {
+   "field": "probability",
+   "description": "Model dependent pairs as iid conditional on a latent variable, to interpolate between iid and adversarial."
+  },
+  "coupling": {
+   "field": "probability",
+   "description": "Construct a joint distribution with prescribed marginals so a quantity of interest becomes comparable pathwise."
+  },
+  "cycle-spectrum": {
+   "field": "graph-theory",
+   "description": "Compute the full set of cycle lengths per graph and reason about which spectra are realizable."
+  },
+  "entropy-functional-reweighting": {
+   "field": "information-theory",
+   "description": "Replace Shannon entropy by a reweighted or penalized functional and re-derive the base inequality."
+  },
+  "entropy-method": {
+   "field": "information-theory",
+   "description": "Gilmer-style argument: bound the entropy of a combined random object against the entropies of its parts."
+  },
+  "exact-rational-arithmetic": {
+   "field": "computation",
+   "description": "Certified exact computation over Q (fractions, directed rounding, rigorous enclosures) replacing floating point in verification, so that a numeric claim becomes a rational identity or a certified inequality."
+  },
+  "exact-rational-ml": {
+   "field": "computation",
+   "description": "Exact rational arithmetic for extremal quantities, so ties and strict inequalities are decided without float error."
+  },
+  "exhaustive-enumeration": {
+   "field": "computation",
+   "description": "Generate every object in a finite range and test the property directly."
+  },
+  "exhaustive-labeling-count": {
+   "field": "computation",
+   "description": "Count all valid labelings per object exactly, not just decide existence."
+  },
+  "exhaustive-small-family-search": {
+   "field": "computation",
+   "description": "Brute-force all instances at tiny size to anchor conjectured constants and find minimal examples."
+  },
+  "exhaustive-speed-tuple-scan": {
+   "field": "computation",
+   "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
+  },
+  "field-lens-sweep": {
+   "field": "logic-methodology",
+   "description": "Cross-field ideation sweep: apply untried field lenses to one problem in parallel to generate candidate attack routes; output is a MAP of triaged leads and recorded no-purchase verdicts (docs/IDEATE.md)."
+  },
+  "formal-parameter-specialization": {
+   "field": "algebra",
+   "description": "Prove an infinite family of identities at one stroke by moving the family parameters into the exponent lattice: adjoin e^{i a alpha}, e^{i b beta} (or analogous parameter-indexed units) as independent formal Laurent variables, verify the identity once by exact polynomial subtraction in the enlarged ring, and specialize by ring homomorphism to every integer parameter value. Turns a hand geometric-series computation into a finite machine check; needs a short hand derivation that the geometric quantities equal the formal closed forms."
+  },
+  "functional-graph-invariants": {
+   "field": "graph-theory",
+   "description": "Compute unlabelled structural invariants -- dominator tree, minimum directed cuts, treewidth -- on the digraph of an iterated map, and test whether any carries information the map does not already give. On a functional graph (out-degree one everywhere) the answer is usually no, and the collapse is provable rather than measured: unique forward orbits force the dominator tree to be the orbit tree, and one cycle plus a forest forces constant treewidth. Prices a graph-theoretic route before the machinery is built; the collapse is the deliverable."
+  },
+  "girth-restriction": {
+   "field": "graph-theory",
+   "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
+  },
+  "gram-mass-pairing": {
+   "field": "analysis",
+   "description": "Recast an averaged inequality as a Frobenius pairing of a PSD Gram mass matrix against a deficit matrix, so spectral conditions on the deficit decide the bound and their failure modes locate counterexamples."
+  },
+  "group-orbit-enumeration": {
+   "field": "algebra",
+   "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
+  },
+  "implicit-function-theorem": {
+   "field": "analysis",
+   "description": "Existence/uniqueness/smoothness of implicitly-defined objects (fixed points, scaling potentials) in a parameter, with quantitative resolvent bounds."
+  },
+  "independent-reimplementation": {
+   "field": "logic-methodology",
+   "description": "Re-derive a computational claim with different code and, where possible, a different algorithm."
+  },
+  "interval-chain-covering": {
+   "field": "number-theory",
+   "description": "Prove an existence statement by covering the target interval with an overlapping chain of parametric rational intervals, reducing the claim to elementary endpoint inequalities with a constructive floor-formula witness."
+  },
+  "k-wise-union": {
+   "field": "extremal-combinatorics",
+   "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
+  },
+  "machine-checked-formalization": {
+   "field": "logic-methodology",
+   "description": "State a skeptic-confirmed proof step in a proof assistant (Lean 4 + mathlib) and have the kernel accept a sorry-free proof; the informal-to-formal statement bridge is reviewed separately per docs/FORMALIZE.md."
+  },
+  "mordell-qr-obstruction": {
+   "field": "number-theory",
+   "description": "Use quadratic-residue conditions to characterize which residue classes a covering-congruence argument can reach."
+  },
+  "mutual-information-tax": {
+   "field": "information-theory",
+   "description": "Bound the conditional mutual information a dependent coupling spends against the per-coordinate entropy gains it buys; the route survives iff gains exceed the tax."
+  },
+  "nauty-geng": {
+   "field": "computation",
+   "description": "Canonical isomorph-free graph generation via nauty/geng as the enumeration backbone."
+  },
+  "nonsmooth-maximization": {
+   "field": "analysis",
+   "description": "Locally maximize a nonsmooth (norm/eigenvalue/max-type) objective with derivative-free methods, using an explicit escape-probe test to separate genuine local maxima from optimizer stalls."
+  },
+  "optimization-landscape-census": {
+   "field": "computation",
+   "description": "Map the local-maximum landscape of an objective by multi-start local optimization from designed start families, classifying every endpoint rather than reporting only the best value."
+  },
+  "out-of-sample-prediction": {
+   "field": "logic-methodology",
+   "description": "Test a conjectured law on family members it was not fitted to, computed before comparison, so that agreement is evidence and disagreement is refutation rather than refitting."
+  },
+  "overlap-tilt": {
+   "field": "probability",
+   "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
+  },
+  "perturbative-expansion": {
+   "field": "analysis",
+   "description": "Expand a functional around an exactly-solved point (product measure, equality case) and control the remainder with explicit second-order budgets."
+  },
+  "plackett": {
+   "field": "probability",
+   "description": "Plackett-family copulas: one-parameter odds-ratio control of dependence with fixed marginals."
+  },
+  "polynomial-identities": {
+   "field": "number-theory",
+   "description": "Parametric algebraic identities that settle every instance in a residue class at once."
+  },
+  "representation-count-mining": {
+   "field": "number-theory",
+   "description": "Compute exact representation/solution counts per instance and mine the table for structural patterns."
+  },
+  "representation-count-statistics": {
+   "field": "probability",
+   "description": "Treat exact counts as a dataset: normalize for size, then test which structural covariates explain the variance."
+  },
+  "residue-class-covering": {
+   "field": "number-theory",
+   "description": "Cover all instances by congruence classes, each settled by its own identity or argument."
+  },
+  "sensitivity-kernel-design": {
+   "field": "analysis",
+   "description": "Design adversarial instances from the non-positive-semidefinite directions of a weight kernel: when a candidate functional is a kernel-weighted Gram form, scan the kernel for PSD failures and realize the violating configuration in an actual measure."
+  },
+  "sign-constant-progression-pigeonhole": {
+   "field": "analysis",
+   "description": "Exclude higher rotation branches by pigeonhole: if every term of an arithmetic progression of angles (step < half-period) has the same sinusoid sign, all terms lie in one sign component, bounding the progression's total span by the component length; a hypothesis forcing endpoints into different components is contradictory. Turns families of trig-margin inequalities with a lattice structure into one span bound, replacing per-case interval estimates."
+  },
+  "sinkhorn": {
+   "field": "probability",
+   "description": "Sinkhorn/IPF scaling to construct or normalize couplings with prescribed marginals numerically."
+  },
+  "size-normalized-selection": {
+   "field": "probability",
+   "description": "Compare instances against size-matched controls so magnitude effects are not read as structural effects."
+  },
+  "slice-parallelism": {
+   "field": "computation",
+   "description": "Split an enumeration into independent restartable slices with per-slice checkpoint files."
+  },
+  "smoothing-insensitive-functional": {
+   "field": "information-theory",
+   "description": "Study functionals unchanged by small-mass smoothing of the law, and what any such functional can or cannot see."
+  },
+  "spectrum-gap-analysis": {
+   "field": "analysis",
+   "description": "Examine the set of achieved objective values for gaps and accumulation points, not just the extremum."
+  },
+  "structure-class-design-search": {
+   "field": "dynamics",
+   "description": "Invert a proven structural mechanism into a design tool: parametrize the structure class the mechanism applies to, enumerate the class, derive each member's governing invariant (symbolically where the mechanism factors, numerically where it does not), and hunt for members whose invariant lands in a target range."
+  },
+  "symbolic-trig-closed-form": {
+   "field": "algebra",
+   "description": "Recast an iterated geometric construction in an exact division-free symbolic domain (here Laurent polynomials in half-angle exponentials over Q(i)) so that the quantities of interest become closed-form trigonometric polynomials whose factorizations expose the law being sought."
+  },
+  "tightness-census": {
+   "field": "extremal-combinatorics",
+   "description": "Enumerate all near-extremal instances in range to see whether tightness is isolated or part of a family."
+  },
+  "total-positivity": {
+   "field": "probability",
+   "description": "TP2/MTP2 and log-supermodularity structure: four-function and Cauchy-Schwarz cross-ratio inequalities, closure under conditioning and marginalization."
+  },
+  "unfolding-word-census": {
+   "field": "dynamics",
+   "description": "Enumerate symbolic bounce words, reduce them by symmetry, and certify periodic billiard orbits by unfolding each word to a translation and intersecting the resulting corridor over a parameter box."
+  },
+  "up-sets": {
+   "field": "extremal-combinatorics",
+   "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
+  },
+  "volume-product-census": {
+   "field": "geometry-topology",
+   "description": "Enumerate convex bodies over a structured vertex universe and compute Mahler volume products, with exact rational recomputation near the extremum and explicit equality-case certificates."
+  },
+  "weighted-kl": {
+   "field": "information-theory",
+   "description": "Replace entropy differences by c-weighted KL divergences to a reference law and tune c."
   }
+ }
 }

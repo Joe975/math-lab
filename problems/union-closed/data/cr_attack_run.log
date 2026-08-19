@@ -1,0 +1,9 @@
+[     2s] windowkill   n=4: best sup_lam CR +2.231652e-01 (gain +2.3589e-01, H 2.675, mf 0.383, 8 atoms)
+[     3s] windowkill_n6 n=6: best sup_lam CR -9.508478e-16 (gain +1.4763e-14, H 0.000, mf 0.000, 4 atoms)
+[     4s] mmabskill    n=5: best sup_lam CR +7.420322e-02 (gain +3.1725e-01, H 1.918, mf 0.383, 4 atoms)
+[     7s] mmabskill_n6 n=6: best sup_lam CR +1.013265e-01 (gain +5.2230e-01, H 2.333, mf 0.382, 7 atoms)
+[     9s] random0      n=4: best sup_lam CR +1.262153e-01 (gain +4.8565e-01, H 2.418, mf 0.383, 6 atoms)
+[    16s] random1      n=5: best sup_lam CR +1.969393e-01 (gain +5.8443e-01, H 2.833, mf 0.383, 11 atoms)
+[    25s] random2: no in-regime endpoint
+[    37s] random3: no in-regime endpoint
+[    37s] GLOBAL BEST sup_lam CR -9.508478e-16 (windowkill_n6, n=6)

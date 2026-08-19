@@ -1,0 +1,56 @@
+[      0s] start (FAST=False)
+[      1s] [A] n=10 lam=1.0 bestfree  : best MM_abs -2.261142e+00 (mm 0.000, 9 atoms)
+[      4s] [A] n=10 lam=1.0 frustrated: best MM_abs -5.816775e-14 (mm 0.081, 21 atoms)
+[     13s] [A] n=10 lam=1.0 random: no in-regime point
+[     17s] [A] n=10 lam=2.0 bestfree  : best MM_abs -7.105455e-15 (mm 0.000, 5 atoms)
+[     26s] [A] n=10 lam=2.0 frustrated: best MM_abs -6.400560e-03 (mm 0.346, 34 atoms)
+[     46s] [A] n=10 lam=2.0 random: no in-regime point
+[     53s] [A] n=10 lam=3.5 bestfree  : best MM_abs -3.552714e-15 (mm 0.000, 4 atoms)
+[     58s] [A] n=10 lam=3.5 frustrated: best MM_abs +9.223015e-08 (mm 0.015, 7 atoms)
+[     80s] [A] n=10 lam=3.5 random: no in-regime point
+[     98s] [A] n=12 lam=1.0 bestfree  : best MM_abs -1.754057e-15 (mm 0.020, 6 atoms)
+[    108s] [A] n=12 lam=1.0 frustrated: best MM_abs +1.904879e-02 (mm 0.342, 15 atoms)
+[    117s] [A] n=12 lam=1.0 random: no in-regime point
+[    120s] [A] n=12 lam=2.0 bestfree  : best MM_abs -4.000000e+00 (mm 0.000, 6 atoms)
+[    122s] [A] n=12 lam=2.0 frustrated: best MM_abs -1.776357e-15 (mm 0.008, 4 atoms)
+[    136s] [A] n=12 lam=2.0 random: no in-regime point
+[    137s] [A] n=12 lam=3.5 bestfree  : best MM_abs -1.750000e+01 (mm 0.000, 5 atoms)
+[    194s] [A] n=12 lam=3.5 frustrated: best MM_abs +7.410856e-01 (mm 0.382, 84 atoms)
+[    239s] [A] n=12 lam=3.5 random: no in-regime point
+[    240s] [A] n=14 lam=1.0 bestfree  : best MM_abs -6.975760e+00 (mm 0.000, 17 atoms)
+[    242s] [A] n=14 lam=1.0 frustrated: best MM_abs +2.597500e-12 (mm 0.079, 4 atoms)
+[    252s] [A] n=14 lam=1.0 random: no in-regime point
+[    254s] [A] n=14 lam=2.0 bestfree  : best MM_abs -1.603205e+00 (mm 0.000, 13 atoms)
+[    256s] [A] n=14 lam=2.0 frustrated: best MM_abs -1.776357e-15 (mm 0.008, 5 atoms)
+[    266s] [A] n=14 lam=2.0 random: no in-regime point
+[    268s] [A] n=14 lam=3.5 bestfree  : best MM_abs -2.450000e+01 (mm 0.000, 7 atoms)
+[    319s] [A] n=14 lam=3.5 frustrated: best MM_abs +1.795972e+00 (mm 0.382, 89 atoms)
+[    385s] [A] n=14 lam=3.5 random: no in-regime point
+[    386s] [A] n=16 lam=1.0 bestfree  : best MM_abs -7.105427e-15 (mm 0.000, 4 atoms)
+[    397s] [A] n=16 lam=1.0 frustrated: best MM_abs +1.430529e-02 (mm 0.366, 29 atoms)
+[    406s] [A] n=16 lam=1.0 random: no in-regime point
+[    407s] [A] n=16 lam=2.0 bestfree  : best MM_abs -7.105427e-15 (mm 0.000, 4 atoms)
+[    417s] [A] n=16 lam=2.0 frustrated: best MM_abs +2.466834e-02 (mm 0.345, 17 atoms)
+[    427s] [A] n=16 lam=2.0 random: no in-regime point
+[    475s] [A] n=16 lam=3.5 bestfree  : best MM_abs -1.776357e-15 (mm 0.080, 5 atoms)
+[    634s] [A] n=16 lam=3.5 frustrated: best MM_abs +3.001892e+00 (mm 0.379, 158 atoms)
+[    766s] [A] n=16 lam=3.5 random: no in-regime point
+[    766s] [A] GLOBAL BEST MM_abs -2.450000e+01 at n=14 lam=3.5 (bestfree)
+[    766s] [B1] blk3 trial 2: cancel 2.1e-14 nonprod 0.000 a2 -5.8709e-13 margs ['0.019', '0.000', '0.000']
+[    766s] [B1] blk3 trial 3: cancel 1.9e-34 nonprod 0.162 a2 +1.3312e-03 margs ['0.248', '0.318', '0.151']
+[    766s] [B1] blk3 trial 5: cancel 7.7e-34 nonprod 0.763 a2 +2.3622e-02 margs ['0.224', '0.289', '0.220']
+[    767s] [B1] free4 trial 1: cancel 6.9e-33 nonprod 0.910 a2 +1.4883e-02 margs ['0.248', '0.089', '0.117', '0.210']
+[    768s] [B2] blk3: a2 descent +1.3312e-03 -> +4.6973e-08
+[    768s] [B2] blk3 scan: A/lam^2 = +4.625e-08 +4.631e-08 +4.644e-08 +4.671e-08 +4.724e-08 +4.830e-08
+[    769s] [B2] blk3: a2 descent +2.3622e-02 -> +6.8517e-09
+[    769s] [B2] blk3 scan: A/lam^2 = +6.684e-09 +6.688e-09 +6.716e-09 +6.784e-09 +6.921e-09 +7.205e-09
+[    772s] [B2] free4: NEGATIVE a2 -7.2848e-07 at step 95
+[    772s] [B2] free4: NEGATIVE a2 -7.9509e-07 at step 98
+[    772s] [B2] free4: NEGATIVE a2 -4.3253e-06 at step 102
+[    772s] [B2] free4: NEGATIVE a2 -5.3415e-06 at step 110
+[    772s] [B2] free4: NEGATIVE a2 -1.2146e-05 at step 112
+[    772s] [B2] free4: a2 descent +1.4883e-02 -> -1.2146e-05
+[    772s] [B2] free4 scan: A/lam^2 = -2.007e-05 -1.937e-05 -1.795e-05 -1.507e-05 -9.175e-06 +3.194e-06
+[    772s] [B3] m=2 n=8 lam=0.9694: A +1.39799e-04 (mm 0.257)
+[    772s] [B3] m=2 n=8 lam=0.0600: A -3.75494e-08 (mm 0.257)
+[    772s] done

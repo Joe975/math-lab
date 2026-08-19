@@ -3,7 +3,59 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-08-16)
+## TL;DR (updated 2026-08-19)
+
+**2026-08-19 HEADLINE (union-closed 020/021): GAP 1 CLOSES — every
+odds-ratio-control candidate is REFUTED, certified, and the whole
+per-history-weighting family is ruled out.** A dual-family LLM swarm
+(gpt-5.6-luna + gemini-3.7-flash, 26 briefs, ≈ $0.21, protocol
+`docs/SWARM.md`) drafted attack directions; two cross-family convergences
+supplied the designs, and every kill was implemented and certified by the
+director in exact rational arithmetic. (i) The unsigned |σ|-weighted
+control — the last margin-modulated reading — fails at n = 4 (7 atoms)
+and n = 5 at healthy margins inside the λ-window: its first-order
+coefficient is a sensitivity-kernel-weighted Gram form, the kernel is NOT
+PSD in-regime (diagonal collapses at the z = 1/2 kink), and realizing the
+violating margin pair with anti-aligned future biases gives certified
+MM_abs < 0 with the plain aggregate certified positive on the same
+tables. (ii) The λ-window-restricted aggregated control dies at n = 4:
+prefix-signed cancellation (Σ_a ν(a)D_a = 0 at every coordinate, far from
+products) admits measures with certified-negative λ² coefficient —
+A < 0 certified at three rational tilts λ ≈ 0.07–0.11 ≪ λ_win(4),
+marginals ≤ 0.2575, tensor-extending float-negative in-window at
+n = 8, 12. (iii) The assembly's true aggregate requirement (the secant
+condition, identified independently by both swarm families) is certified
+violated inside the window, and R₊-pure certified witnesses rule out
+EVERY per-history weight compatible with the chain rule. With
+005/006 + 007/013 + 016/017 + 018/019, every stated form of Gap 1 is now
+dead; the route stays LIVE with Gap 2 (mutual-information tax) as the
+surviving bridge and a precise no-go boundary for what any new bridge
+must avoid. **Skeptic pass 022 ran the same day (cross-family
+drafted-verifier pattern): a gemini-3.7-flash-drafted exact verifier —
+own digit-extraction log₂, own bisection, own census, zero shared code,
+audited then run unmodified — reproduces all 12 certificates
+digit-for-digit including the three R₊-purity legs; zero corrections.
+The window kill is additionally certified at n = 8 (225-atom tensor,
+t = 25/24, λ = 0.059 ≪ window 0.969, A certified in
+[−2.5616e-7, −2.5616e-7]). And Gap 2's CR > 0 candidate SURVIVES: +0.40/
++0.80 on the kill geometries (022), then a seeded adversarial pass (023)
+grinds it only to floors +0.074…+0.22 with no in-regime violation — the
+sole "negative" is the degenerate H(μ) → 0 corner where CR → 0 correctly,
+so any quantitative TAX statement must scale with H(μ). The signed/
+λ-integrated per-history form is certified negative at two rational
+tilts per witness (023), closing 020's last float-level piece. Gap 2 is
+the route's sole surviving bridge and has earned H-scaled proof effort.
+Residual for a fresh session: reviewer-level independence (022/023 were
+same-session; scope caveats are in the records).** Also: the deep-anneal
+float negatives at near-empty supports are certified ARTIFACTS (exact
+recomputation flips −24.5 to +23.4) — 007's underflow lesson confirmed a
+second time. A parallel dual-provider ideation sweep (021, MAP) sharpened
+the queued transfer-operator lead with an exact eigenfunction identity
+(coordinate frequencies ARE eigenvalues of T_μ), settled number theory
+no-purchase by cross-family agreement, and killed two idea-shapes inline
+with an explicit 5-member family.
+
+## Previous TL;DR (2026-08-16)
 
 **Open for contributions. No automated loop is currently running** — the hourly
 cycle that produced these records was stopped once its in-flight work closed
@@ -269,7 +321,7 @@ problems with no attempts (queue 18–19; run blind).
 | Problem | Status | Budget | Active line |
 |---|---|---|---|
 | Erdős–Gyárfás | n=24 done | high | next: 2-connected C16-free test (lead 2); n=26 is a ~16h run |
-| Union-closed (Frankl) | ROUTE LIVE (verified) | high | gap (a′) refuted (007/013); AGGREGATED control refuted at large n (016/017); margin-modulated control refuted in both signed readings at n = 7 (018/019, certified) → live: unsigned \|σ\|-control (attack it at free supports n = 10–16, 018 lead 1), λ ≲ c/n window variant (survives the ladder to n = 320; hunt a₁-degenerate near-product families, 018 lead 4), assembly-requirement restatement (018 lead 2), δ-linear tax budget + corrected assembly budgets (012); plus three sweep leads (010) |
+| Union-closed (Frankl) | ROUTE LIVE; **GAP 1 FULLY CLOSED (020, certified; 022 cross-family implementation-level skeptic: confirmed, zero corrections; fresh-session reviewer pass still queued)** | high | every odds-ratio control dead: pointwise (005), per-i (007), aggregated (016), margin-modulated signed (018), unsigned \|σ\| (020), λ-window-restricted (020); per-history weightings ruled out by R₊-pure witnesses (020) → live: Gap 2 mutual-information tax (009/011 — first step: run 020's witnesses against CR/TAX/ST), non-per-history bridges (020 lead 3), corrected assembly budgets (012); sweep leads: transfer-operator eigenfunction sharpening + strong-Rayleigh feasibility + Möbius/zeta LP stats (021, merging into 010's queue items) |
 | Erdős–Straus | 601 resolved | medium | next: prove the identity-poor mechanism (why QR classes force low f) |
 | Singmaster | census done | medium | next: Diophantine curve table (search-deeper is now low value) |
 | Lonely runner | k=8 done | medium | next: k=9 scan (k=8 likely settled by Rosenfeld preprint) |
@@ -284,7 +336,7 @@ problems with no attempts (queue 18–19; run blind).
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] ~~Probe both surviving Gap-1 candidates against the ladder adversary~~ **DONE in 018/019** — (i) the margin-modulated control is REFUTED in both signed readings at n = 7 by 007's own witness (certified −0.0222546582 at t = 181/16; the sensitivity weight is signed and kills the surplus, not the hidden deficit), and (ii) the λ-window-restricted control SURVIVES the θ-re-optimized ladder to n = 320 with a₁(n)·n growing. The replacement program, probe-first: (a) **attack the unsigned |σ|-control at free supports n = 10–16** seeded from 018's +0.0101 endpoint (`gap1c_partC.json` best_free, 2500+ steps, atom-count mutations) — kill it or find its floor; (b) **hunt a₁-degenerate families for the window variant** (018 lead 4): near-product families along 014's slice-direction dip scaled with n, evaluated at λ_win(n) = 4.847/(n−3) — products are a₁'s equality set, so this is the window candidate's most dangerous direction; (c) **restate what the assembly actually needs** now that the per-history secant form is certified negative on the witness (018 lead 2 = 016 lead 5): derive the coordinate-level or λ-integrated inequality the 008/012 assembly requires and test it with 018's census engine. If (a) and (b) both come back positive, first-order proof effort starts with 018 lead 3 (closed-form lower bound on the ladder's a₁). Two cheap structural questions from 014/015 keep their value: the equality-set converse for λ > 0, and the slice-direction dip map. Any claimed bound → skeptic review before ledger entry.
+1. [union-closed] ~~Attack both surviving Gap-1 candidates (unsigned |σ|-control; λ-window variant; assembly restatement)~~ **DONE in 020 — ALL REFUTED, certified** (see TL;DR; swarm-guided designs, director-certified; 018's queue items (a), (b), (c) all settled negatively: the |σ|-control dies via the non-PSD sensitivity kernel at n = 4–5, the window variant dies via a₁-cancellation measures with negative a₂ at n = 4, and the assembly's aggregate secant requirement is violated in-window, with R₊-pure witnesses ruling out every chain-rule-compatible per-history weighting). ~~Replacement (a) skeptic pass, (b) Gap-2 check, (c) n = 8 tensor certificate~~ **(a)–(c) DONE in 022 same-day** — cross-family drafted-verifier skeptic confirms all 12 certificates digit-for-digit with zero corrections (implementation independence: different model family, different log₂ algorithm, zero shared code; reviewer independence still open — 022 was same-session), the n = 8 tensor is certified in-window, and **Gap 2's CR > 0 candidate survives both kill geometries at margins +0.40/+0.80**. New replacement, in order — items (b') and (c) already executed same-day in 023 (the CR adversarial pass found NO violation: floors +0.074…+0.22 at every H-bounded in-regime endpoint seeded at the kill geometries, and the signed/integrand form is certified negative at two rational tilts per witness): (a) **fresh-session reviewer pass on 020/022/023** (narrow: re-run `uc_gap1_skeptic_gemini.py` on the committed frozen inputs, spot-audit the program, re-derive the R₊ reduction, re-run `uc_cr_attack.py` — an afternoon, not a rebuild); (b) **proof effort on (TAX at p), H-scaled** (023 lead 1): target CR ≥ c(p)·H(μ) on the generic genre, test battery = 023's floor instances (sharpest: +0.0742 at n = 5, 4 atoms); pre-step per 023 lead 2: exercise the recipe's block-adaptive and half-mixing branches adversarially first; (c) exact certification path for CR (mechanical now: 022 log₂ kit + the tensor certificate's dyadic-accumulation pattern); (d) map the a₁-cancellation manifold (020 lead 5: closed-form a₂ on the manifold would settle the every-n tensor claim without computation).
 2. [union-closed] Rebuild the assembly budgets per 012's corrections: the tax is δ-LINEAR (restate B2), the τ_half step needs s₀ ≤ 0.0843, corrected δ₀ ≈ 0.004. The open question is whether ANY n-uniform budget object exists — 008's conditional theorem survives structurally; its constants need the corrected inputs, and the budget census machinery (uc_pert.py + uc_pert_skeptic.py's orbit engine) is ready.
 3. [union-closed] Sweep leads from 010, one per cycle: (i) pairwise-closure LP/degree-2 SOS certification on the n ≤ 4 census (all 4958 families) — kill: certified bound converges to ≈ 0.382; (ii) union-transfer-operator eigenvalue field — test log-supermodularity of λ_C on the n ≤ 5 census (pre-check the total-positivity records first); (iii) bipartite-MIS decomposition — geng census to n = 12, connectivity of extremals, compositionality across 1- and 2-cuts. Kill conditions recorded in 010.
 4. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.
@@ -307,6 +359,26 @@ problems with no attempts (queue 18–19; run blind).
 21. [collatz] ~~Graph-structure census of truncated Collatz digraphs~~ **DONE in 002 — REFUTED, and the whole graph-decomposition family is priced out with it.** Out-degree one makes `G_B` a forest plus one triangle, so: dominator tree = orbit tree (checked to B = 2^18), treewidth = 2 for every B, and the min cut is `|S_k| = J_{k−1} ~ 2^k/6` in closed form, set by `3r+1 > 2^{k+1}` alone with B dropping out. Novelty pre-step (001 gap 2) discharged: no dominator/treewidth Collatz work found, but the inverted-graph-is-a-tree fact is classical (Wirsching; Ebert arXiv:1905.07575 [T]), which explains the empty literature better than novelty does. **Do not rebuild the flow-cutter plan** — no truncated Collatz digraph has treewidth other than 2. Replacements, both from 002: (a) **explain the escape-fraction anomaly** — map `#{n ≤ 2^k : max orbit > 2^{k+1}}/2^k` to k ≤ 26 and find the mechanism for the k = 12→13 drop (0.609 → 0.379) and the ~0.404 plateau; falsifiable either as a window-alignment artifact with an exact description or as a real density worth stating, and it is the only part of the census with dynamical content; (b) **close the graph family with a reason** — the one un-killed variant is the reverse map (out-degree > 1); compute the density of binary-branching vertices in the reverse tree on [1, 2^k], k ≤ 24, against the 1/3 that `n ≡ 4 (mod 6)` forces. Expected kill; if it is not 1/3 the shape carries arithmetic and the family reopens.
 
 ## Verified results
+
+- **[union-closed] Gap 1 fully closed: both surviving candidates REFUTED
+  and the per-history-weighting family ruled out (skeptic pass
+  pending)** (2026-08-19, attempt 020): the unsigned |σ|-weighted
+  control is certified negative in-regime at n = 4 (7 atoms, t = 6/5 and
+  3/2) and n = 5 — deficit at healthy margins via the non-PSD
+  sensitivity kernel, plain aggregate certified positive on the same
+  tables; the λ-window-restricted aggregated control is certified
+  negative at n = 4 at three rational tilts (λ ≈ 0.070–0.111, window
+  4.85, marginals ≤ 0.2575) on an a₁-cancellation measure (cancellation
+  residuals ≤ 1.7e-16, non-product score 0.91), float-extending
+  in-window to n = 8, 12 by block tensoring; the aggregate secant
+  condition (the assembly's true requirement, identified convergently by
+  both swarm families) is certified violated in-window at n = 4, 5; and
+  three R₊-pure witnesses (every Plackett target certified < 1/2) with
+  certified-negative σ-weighted census close the whole compatibility
+  class. Enclosure widths < 1e-14 throughout; dichotomy exact; deep-anneal
+  near-empty float negatives certified to be artifacts (sign flips under
+  exact recomputation). Attack directions swarm-drafted (gpt-5.6-luna +
+  gemini-3.7-flash, 12 briefs); all mathematics director-verified.
 
 - **[erdos-gyarfas] Cubic baseline n ≤ 20** (2026-07-25, attempt 001):
   every connected cubic graph on 4–20 vertices contains a cycle of length
@@ -1085,6 +1157,25 @@ problems with no attempts (queue 18–19; run blind).
   nested intervals, zero disagreement).
 
 ## Dead ends
+
+- **[union-closed] The entire per-history odds-ratio-control family
+  (Gap 1, all restatements)** (2026-08-19, attempt 020; skeptic pass
+  pending): dead — pointwise (005), per-i averaged (007), i-aggregated
+  ∀λ (016), margin-modulated signed (018), unsigned |σ|-weighted (020),
+  and λ-window-restricted (020) all carry certified in-regime
+  counterexamples, and R₊-pure certified witnesses rule out EVERY weight
+  function that equals the sensitivity where it is positive (the
+  chain-rule compatibility class). Two reusable obstructions: (i) any
+  margin-dependent weight turns the first-order coefficient into a
+  kernel-weighted Gram form, and the sensitivity kernel is NOT PSD
+  in-regime (diagonal collapses at the z = 1/2 kink) — so weighting
+  cannot be "shaped" out of trouble; (ii) first-order (Theorem-C)
+  protection is voidable by prefix-signed cancellation on measures far
+  from products, where the λ² coefficient has no sign protection. Killed
+  as stated for per-history weightings of log₂OR deviations; NOT killed:
+  coordinate-level budgets with cross-history structure, λ-integrated
+  forms with weights outside the compatibility class, and Gap 2's
+  chain-rule assembly value (009/011).
 
 - **[collatz] Unlabelled graph invariants on the forward Collatz digraph**
   (2026-08-15, attempt 002): dead, and dead for *any* iterated map, not
