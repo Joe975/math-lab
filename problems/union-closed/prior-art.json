@@ -939,6 +939,38 @@
    ],
    "verifies": "025",
    "note": "C3 leans on 009 fact (i) (CR <= Gain, 011-verified) as a lemma; C4 leans on Lemma EM (025, reviewer pass pending). Dual-kit intersection pattern recommended as default for future certifications."
+  },
+  {
+   "id": "027",
+   "file": "attempts/027-adaptive-cell-attack.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "block-adaptive-coupling",
+    "coupling",
+    "chain-rule-assembly",
+    "mutual-information-tax",
+    "adversarial-verification",
+    "independent-reimplementation"
+   ],
+   "one_line": "The last uncharted branch cell (adaptive block on in-regime lo/hi product mixtures) survives a 510-instance deterministic kill scan -- its degenerate limit is comonotone (CR = 0), approached from above, so the 025 fixed-cost sliver mechanism cannot bite -- but CR/H(mu) -> 0 as p_lo -> 0 at bounded H (measured to CR/H = 1e-5), so the adaptive assignment cannot carry any H-scaled floor there; a new latent-mixing family (component labels coupled with free both-lo probability q, generalizing 025's empty-mixing) holds CR >= +0.22..+1.19 across the same instances and converges to the EM closed-form limit (delta <= 3e-4 at p_lo = 1e-5).",
+   "leak_terms": [
+    "uc_adaptive_cell",
+    "adaptive_cell",
+    "latent-mixing",
+    "latmix",
+    "comonotone limit",
+    "+0.00084",
+    "CR/H collapse",
+    "1e-5 probe"
+   ],
+   "range": "n <= 6 scan (refinement n <= 8), two exchangeable components, p_lo in [1e-5, 0.38], p_hi in [0.55, 0.999], in-regime grid of 510 instances plus a 15-point scaling probe; skeptic rebuilt all couplings from 009's verbal rule and reproduced every value to 1e-9 with the independent cr_chain evaluator; float-level throughout",
+   "gaps": [
+    "recipe-totality",
+    "mutual-information-tax"
+   ],
+   "note": "Kill attempt failed informatively: branches whose degenerate limits are comonotone-like (cost-free) cannot go negative at the edge -- a design principle for Gap 3. Latent-mixing has no ST = 0 lemma yet (EM's proof breaks on differing labels); conjectured ST = O(p_lo n) is SPECULATION. Reviewer pass queued now covers 025-027."
   }
  ]
 }
