@@ -1,0 +1,13 @@
+mmabs_kill_0_t3_2            mine=-3.4038105394e-03 cert=[-3.403811e-03] inside=True meta_match=True => OK
+mmabs_kill_0_t6_5            mine=-2.9225421258e-03 cert=[-2.922542e-03] inside=True meta_match=True => OK
+mmabs_kill_1_t3_2            mine=-1.0013481226e-03 cert=[-1.001348e-03] inside=True meta_match=True => OK
+mmabs_kill_1_t6_5            mine=-2.1436307016e-03 cert=[-2.143631e-03] inside=True meta_match=True => OK
+mmabs_kill_2_t3_2            mine=-1.7841902271e-03 cert=[-1.784190e-03] inside=True meta_match=True => OK
+mmabs_kill_2_t6_5            mine=-2.8847050517e-03 cert=[-2.884705e-03] inside=True meta_match=True => OK
+window_kill_t21_20           mine=-1.5768431282e-07 cert=[-1.576843e-07] inside=True meta_match=True => OK
+window_kill_t16_15           mine=-1.8727462072e-07 cert=[-1.872746e-07] inside=True meta_match=True => OK
+window_kill_t27_25           mine=-1.6526804756e-07 cert=[-1.652680e-07] inside=True meta_match=True => OK
+rplus_nogo_0_t7_5            mine=-2.0682096628e-03 cert=[-2.068210e-03] inside=True meta_match=True => OK
+rplus_nogo_1_t7_5            mine=-1.7774764895e-03 cert=[-1.777476e-03] inside=True meta_match=True => OK
+rplus_nogo_2_t7_5            mine=-3.6932652729e-04 cert=[-3.693265e-04] inside=True meta_match=True => OK
+ALL OK

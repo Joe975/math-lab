@@ -835,6 +835,39 @@
     "non-per-history-bridge"
    ],
    "note": "Gap 2 is now the route's sole surviving bridge and has earned proof effort (lead 1: CR >= c(p) H(mu) on the generic genre). The degenerate-H escape is an engine lesson: future CR adversaries need an H(mu) >= eps constraint."
+  },
+  {
+   "id": "024",
+   "file": "attempts/024-fresh-session-reviewer-pass.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "VERIFIED_WITH_CORRECTIONS",
+   "mechanism": [
+    "adversarial-verification",
+    "independent-reimplementation",
+    "exact-rational-arithmetic",
+    "certified-enclosure"
+   ],
+   "one_line": "Fresh-session reviewer pass on the Gap-1 closure batch: all 12 certificates reproduce byte-for-byte and land inside a third from-spec-only reimplementation, the verifier audit and both hand re-derivations (weight identity, R+ reduction) check out, and Gap 2's survival is confirmed on three fresh adversarial trajectories -- discharging 022's reviewer-independence residual; one reporting-level correction: 023's CR engine is NOT deterministic (string-hash seeding), its checkpoint is not regenerable, and the +0.0742 floor is trajectory-specific (this pass saw +0.0697).",
+   "leak_terms": [
+    "uc_reviewer024",
+    "reviewer024",
+    "third-path",
+    "hash-seed nondeterminism",
+    "0.0697"
+   ],
+   "verifies": "020",
+   "range": "Re-run + third-path check of all 12 frozen witnesses (data/gap1deep_witnesses.json) at their rational tilts; verifier audit of uc_gap1_skeptic_gemini.py in full; three fresh uc_cr_attack.py trajectories (n <= 6, Sinkhorn branch only); nothing new certified -- this pass adds reviewer-level independence to existing certificates",
+   "refuted_by": null,
+   "corrections": [
+    "023: 'deterministic' is false for uc_cr_attack.py -- job seeds use hash(name) on a str, randomized per interpreter run; data/cr_attack.json is not regenerable; the 'sharpest floor +0.0742' is trajectory-specific (floors +0.0697..+0.0776 observed across four independent runs, all positive)"
+   ],
+   "gaps": [
+    "mutual-information-tax",
+    "recipe-totality",
+    "non-per-history-bridge"
+   ],
+   "note": "Also verifies 022 (its verifier re-audited fresh, re-run byte-identical) and 023 qualitatively (schema allows one 'verifies' id; 020 is the finding under confirmation). Reviewer independence: fresh session, no shared state with the 020/022/023 director, no swarm. The corrected engine practice for future CR adversaries: stable job seeds + record PYTHONHASHSEED, on top of 023's own H >= eps lead."
   }
  ]
 }
