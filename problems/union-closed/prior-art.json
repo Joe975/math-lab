@@ -760,6 +760,46 @@
    "refuted_by": null,
    "gaps": [],
    "note": "Swarm-executed per docs/SWARM.md: 7 lenses x {gpt-5.6-luna, gemini-3.7-flash} at effort low, ~$0.06. Cross-family convergence used as a triage axis for the first time on an ideation sweep; both inline kills verified by hand by the director before recording."
+  },
+  {
+   "id": "022",
+   "file": "attempts/022-skeptic-review-of-020.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "adversarial-verification",
+    "independent-reimplementation",
+    "exact-rational-arithmetic",
+    "certified-enclosure",
+    "coupling",
+    "overlap-tilt",
+    "sinkhorn",
+    "plackett"
+   ],
+   "one_line": "Cross-family skeptic pass on 020: a gemini-3.7-flash-drafted verifier (own digit-extraction log2 with directed dyadic rounding, own bisection, own census, zero shared code, audited then run unmodified) reproduces all 12 certificates digit-for-digit including the three R+-purity legs; the weight identity and R+ reduction re-derived by hand; the window kill extended to a certified n=8 in-window tensor instance; and Gap 2's CR > 0 candidate SURVIVES both kill geometries with margins 0.40-0.80.",
+   "leak_terms": [
+    "uc_gap1_skeptic_gemini",
+    "swarm022",
+    "digit-extraction",
+    "two-track rounding",
+    "gap1deep_witnesses",
+    "tensor_n8",
+    "CR survives",
+    "0.7985",
+    "0.4003",
+    "drafted-verifier pattern"
+   ],
+   "verifies": "020",
+   "range": "All 12 frozen witness instances (data/gap1deep_witnesses.json) re-certified at their rational tilts, enclosure widths below print precision, mixed-zero-table count 0 throughout; n=8 tensor aggregate certified at t = 25/24; Gap-2 check is float-level (Sinkhorn marginal deviation <= 2.3e-15) at a 10-point lambda sweep. Same-session review: implementation independence achieved (different model family, different algorithms), fresh-session reviewer independence still queued.",
+   "refuted_by": null,
+   "corrections": [],
+   "gaps": [
+    "mutual-information-tax",
+    "recipe-totality",
+    "non-per-history-bridge"
+   ],
+   "note": "First use of the drafted-verifier skeptic pattern: spec -> cross-family worker writes the whole verifier -> director audits -> run unmodified. Per docs/SWARM.md this is stronger implementation independence than a same-family rewrite; the residual gap (same director, same session) is stated in the record and left for a fresh-session pass."
   }
  ]
 }
