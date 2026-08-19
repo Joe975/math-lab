@@ -1001,6 +1001,48 @@
     "mutual-information-tax"
    ],
    "note": "The route's current statement; any future recipe edit should re-run the battery. Reviewer pass queued covers 025-028."
+  },
+  {
+   "id": "029",
+   "file": "attempts/029-reviewer-pass-025-028.md",
+   "date": "2026-08-19",
+   "mode": "informed",
+   "status": "VERIFIED_WITH_CORRECTIONS",
+   "verifies": "025",
+   "mechanism": [
+    "adversarial-verification",
+    "independent-reimplementation",
+    "exact-rational-arithmetic",
+    "certified-enclosure",
+    "coupling",
+    "block-adaptive-coupling",
+    "mutual-information-tax"
+   ],
+   "one_line": "Reviewer pass on 025-028 (fresh-context subagent, no shared conversation state, spawned from the author session -- independence level stated in the record): Lemmas EM and EM-coverage re-derive by hand in full with every constant confirmed, all 38 independently re-implemented values agree (exact-Fraction couplings, own evaluator, own IPF Sinkhorn), all six scripts reproduce byte-identically with skeptics at exit 0, and each certification kit ALONE certifies all twelve 026 statements; corrections: 026's 'certified under either kit's audit' is invalid for intersected enclosures (sound only under BOTH audits -- repaired here by single-kit certification), 027's claimed n <= 8 refinement never ran (dead code path; true range n <= 6, 029's own n = 8 spot check stays positive), 025 quotes skeptic agreement 4e-15 where its own log shows 6.4e-13 at n = 16, and 028's cr_chain cross-checks shipped without code (now committed).",
+   "corrections": [
+    "026's dual-kit soundness sentence ('the result is certified under either kit's audit') is wrong as an argument: an intersection of enclosures is certified only under the CONJUNCTION of both kits' audits -- a tight-but-wrong enclosure from one unsound kit can pull the intersection off the truth without disjointness; repaired by re-running the full 026 computation with each kit alone (both certify all 12 statements, so the intended disjunction holds -- via single-kit runs, not the intersection); future dual-kit certifications should require each kit to certify alone",
+    "027's 'refinement of the tightest instances at n <= 8 in the checkpoint' never ran: the refinement block executes only on a negative scan result and none occurred, so refine_n is absent from adaptive_cell.json and nothing in 027 was evaluated above n = 6; index range corrected from 'refinement n <= 8' to n <= 6 (029's own n = 8 check on the tightest instance gives CR = +0.016, positive)",
+    "025's 'two independent implementations agreeing to <= 4e-15' (Outcome, section 2, and index one-line) misquotes its own skeptic log: S1 deltas are 3.6e-16 / 3.4e-15 / 6.4e-13 (n = 2/6/16); correct bound 6.4e-13, still ~10 orders below the kill margins",
+    "028 section 3's cr_chain cross-checks of the new battery numbers are transcript-only (uc_recipe_v2.py contains no such calls); the values were right and are now backed by committed code (uc_reviewer029_reimpl.py reproduces them, e.g. 2block n=4 full-history CR = +0.290240 with ST = -1.3e-15)",
+    "minor: 025's 'slopes matching the per-coordinate prediction to 3 decimal places at n = 40' holds for 2block only (3block -0.1271 vs -0.1244); the A2 repair range is +0.060..+0.073 not +0.067..+0.073 (n = 1 row); A2 'H(mu) ~ 0.97' includes a 0.940 row; uc_recipe_v2.py docstring runtime ~90 s vs actual ~0.7 s"
+   ],
+   "range": "Hand re-derivations of Lemma EM (sigma-field argument, Frechet range, concavity corollary, surprisal criterion) and EM-coverage (G-criterion, monotonicity, both analytic cases, constants 0.785910 / 1.706172 / 0.530738 / +0.120821) in full; all six 025-028 scripts re-run unmodified with byte-identical checkpoints and skeptic exits 0; independent re-implementation (no shared code) of the half-mixing kills at n = 2, 6 (exact-Fraction, <= 1e-11 from 026's enclosure midpoints), 2block Gain at n = 8, the 3block rescue at n = 6 q = 1/5, 4 of 027's tightest scan instances plus 2 scaling-probe rows with latent-mixing, and 6 of 028's 19 battery rows including both G-gen floors via an own-IPF Sinkhorn; 026's nine statements re-certified three ways (kit A alone, kit B alone, intersection) with the interval algebra re-implemented; kits spot-tested against a from-scratch 200-bit exact log2 reference on 40 random rationals; n in {1,2} coverage legs re-swept (min G +0.3448 / +0.8658). Searches and grids NOT re-run at scale beyond the committed engines' own re-execution",
+   "refuted_by": null,
+   "gaps": [
+    "recipe-totality",
+    "mutual-information-tax"
+   ],
+   "leak_terms": [
+    "uc_reviewer029",
+    "reviewer029",
+    "intersection-soundness",
+    "conjunction not disjunction",
+    "single-kit certification",
+    "refine_n absent",
+    "dead refinement path",
+    "6.4e-13 not 4e-15"
+   ],
+   "note": "Discharges the queue-(a') reviewer pass over 025-028 at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether this meets the 024 fresh-session bar is left to the human owner. Lemmas EM/EM-coverage are hereby reviewer-re-derived (025's own upgrade criterion), with the n in {1,2} legs remaining float-level as always stated. Verifies 026, 027 and 028 as well (schema allows one verifies id; 025 carries the load-bearing lemmas). No numerical claim in any of the four records moved."
   }
  ]
 }

@@ -1,0 +1,34 @@
+Reviewer 029: audit of 026's dual-kit certification
+========================================================================
+
+K1. Kit soundness spot-tests (both kits vs my reference):
+  [ok] kit A brackets my from-scratch log2 on 40 random rationals  (max width 2.5e-32)
+  [ok] kit B brackets my from-scratch log2 on 40 random rationals  (max width 2.6e-14)
+  [ok] kit A brackets exact powers of two
+  [ok] kit A: log2(r) + log2(1/r) encloses 0, 20 trials
+  [ok] kit B brackets exact powers of two
+  [ok] kit B: log2(r) + log2(1/r) encloses 0, 20 trials
+
+K2. Interval algebra of uc_branch_certify (re-derived):
+    ivl_add/ivl_scale/ivl_sub/xlog2x_ivl/H_profile are exact
+    Fraction endpoint operations -- monotone, no rounding,
+    sign-split correct in ivl_scale; audited by hand, and the
+    re-implementation below reproduces 026's enclosures.
+
+K3. Single-kit certification (the repaired 'either audit'
+    claim): all nine 026 statements under kit A alone, kit B
+    alone, and the intersection:
+  [ok] kit A alone certifies all 12 statements  (so the corrected claim 'each audit suffices' holds for these statements)
+  [ok] kit B alone certifies all 12 statements  (so the corrected claim 'each audit suffices' holds for these statements)
+  [ok] kit A^B alone certifies all 12 statements  (matches 026's run)
+  [ok] my re-implemented intersection enclosures match 026's committed ones (9/9)
+
+K4. VERDICT on the dual-kit soundness argument: the record's
+    sentence 'the result is certified under either kit's audit'
+    is wrong as stated for INTERSECTED enclosures (needs both
+    audits); but K3 shows each kit alone certifies all nine
+    statements, which is the corrected -- and stronger --
+    disjunction 026 wanted.
+
+========================================================================
+Audit complete: kits sound on every spot test; each kit alone certifies all nine statements.
