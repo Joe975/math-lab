@@ -1421,6 +1421,38 @@
         "order-rule ceiling c*"
       ],
       "note": "Upgrades 038's n=6/7 story from 'descent stalled' to 'anneal saturated an identified extremal family'. The two equality families of (HU-TAX) -- products (independent) and diagonals (perfectly correlated) -- sit at opposite correlation extremes and both hit c*(pbar) exactly; lead 1 (the interpolation path between them) is the natural falsification test, and lead 2 records the per-cell proof shape both boundary patterns suggest. Joins reviewer batch 3 with 036/037/038."
+    },
+    {
+      "id": "041",
+      "file": "attempts/041-interp-paths.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Falsification sweep between (HU-TAX)'s two equality families finds NO dip: along both interpolation paths -- the convex mixture product->diagonal and the two-component product-mixture path that stays inside the recipe's latent-mixing genre -- the margin CR_HU/H - c*(p) is zero exactly at the endpoints (the proved equality cases, matched at every n up to 64 via an exact count-pair DP for exchangeable product mixtures) and strictly positive in the interior, GROWING with n (interior min at p=0.49: +2.2e-4 -> +9.1e-3 on the convex path, +1.4e-7 -> +8.7e-6 on the product-mixture path, n=2 -> 64), over 1968 grid points spanning n in {2..64} and caps up to 0.49 with zero negatives; on this evidence products and diagonals are locally rigid, isolated equality cases, not edges of a flat region.",
+      "range": "Two paths x n in {2,4,8,16,32,64} x p in {0.30, 0.38271, 0.45, 0.49} x 41-point grids plus 21-point refinements at each path's global minimum; exact count-pair DP for K <= 3 product mixtures, cross-checked vs the general evaluator at n <= 6 (<= 1e-10, marginals exact) and vs the rollout order for exchangeability (<= 1e-12); skeptic re-scores 50 sampled small-n margins through the independent 037 stack and verifies the closed-form endpoint identities at every n (the large-n DP validation); all float-level; non-exchangeable interpolations and n > 64 untested",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_interp",
+        "hu_interp",
+        "interpolation path",
+        "count-pair DP",
+        "interior margin grows",
+        "locally rigid equality",
+        "no valley between families",
+        "block-tensor equality"
+      ],
+      "note": "Settles 040 lead 1 positively for the two exchangeable paths at every n tested; the conjectured bound is locally reinforced between its equality cases, which is the shape 040 lead 2's per-cell argument wants. New lead: HU's CR is additive over independent blocks, so tensor products of diagonals and Bern(p) factors are further equality cases -- the equality set is a family of block-tensors, and symmetry-breaking perturbations BETWEEN blocks are the next falsification surface. Joins the next reviewer batch."
     }
   ]
 }

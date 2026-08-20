@@ -204,6 +204,24 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**041 (same day): the interpolation test comes back clean — no dip
+between the two equality families.** Along both paths (the convex
+product→diagonal mixture, and a two-component product-mixture path
+inside the latent-mixing genre), evaluated by an exact count-pair DP
+for exchangeable product mixtures to n = 64: margins are zero exactly
+at the endpoints (both proved equality cases, matched at every n),
+strictly positive in the interior, and GROWING with n — 1968 grid
+points, caps to 0.49, zero negatives. Products and diagonals look
+locally rigid and isolated. New structural note: CR_HU is additive
+over independent blocks, so block-tensors of diagonals and Bern(p)
+factors form a whole FAMILY of equality cases — the next
+falsification surface is symmetry-breaking perturbations between
+blocks. Reviewer batch 3 (039) DONE: 037/038 confirmed with three
+reporting-level corrections (the roll-descent skip set was 2×n=6 +
+crash8 at n=8, which has never been roll-descended — queued; 037 lead
+4's "near-product attractor" premise corrected to the maximally-
+correlated pair, independently corroborating 040's diagonal; ROLL-DOM
+carries a benign (n−1)·1e-12 float-tolerance slack).**
 **036 (2026-08-20, reviewer pass on 035 — genuinely fresh session, not
 spawned from the author's, so the 029/034 independence caveat does not
 apply): 035 stands in full.** An own from-prose implementation (exact
