@@ -1526,6 +1526,43 @@
         "padded diagonal equality"
       ],
       "note": "Discharges the queue's reviewer-batch item for 041/042. Independence disclosure, per the 029/034/039 precedent: fresh-context subagent with zero shared conversation state, but spawned from the author session with the review brief, same model family -- one level below 036's genuinely-fresh bar; whether that meets the 024 fresh-session bar is for the human owner to judge. Verifies 042 as well (schema allows one verifies id; 041 is the batch's lead record and verifies clean, corrections attach to 042's part-B narrative). No conclusion of either record changes: zero violations confirmed and strengthened via own-constant re-checks; the corrected picture leaves the family-convergence story with two counter-instances (lead: the correlated-block stall measures are the closest off-family points of record). Per precedent the reviewed records are not modified."
+    },
+    {
+      "id": "044",
+      "file": "attempts/044-ownconst-audit.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Executing the 043 audit caveat window-wide finds the kill the weaker violation flag hid for four records: re-scoring all 212 stored endpoints against c*(own max marginal) under rollout exposes ONE violation -- the D_bestorder_cap_0.497 endpoint bred against the BEST-ORDER oracle and never before scored under rollout -- a 9-atom n=4 measure at max marginal exactly 0.49500 with CR_roll certified negative (-9.597e-4, each kit alone, 60-digit rollout fixed point confirmed, 18 of 24 orders negative, rollout ranking 13/24 on its own kill) while the best order is certified positive (+1.610e-2): rollout-order HU positivity is REFUTED above cap ~0.495, so HU with the rollout order cannot by itself deliver Frankl -- canonical rescued 0.45 and died at 0.49 (035), rollout rescued 0.49 and dies at 0.495, and best-order positivity (which survives this witness and every endpoint of record; census min own-margin +4.5e-2 over 1200 instances) is now the only unrefuted for-all-mu positivity statement on the HU line, exactly as 038's sandwich framing anticipated.",
+      "range": "212 stored endpoints across hu_order2/hu_rollcensus/hu_roll_anneal/hu_blocks/hu_canon re-scored under rollout vs c*(own fmax) (211 clear, family-saturated anneal endpoints at exactly 0); the 1200-instance 038 census regenerated and re-scored (zero violations, min +4.49e-2); the kill confirmed by both float stacks to 1e-12 before certification, then certified on the limit_denominator(1e7) rationalization under each kit alone with exact marginal < 497/1000 and the positive best-order control; rollout's crossing bracketed only as (0.49, 0.495] by these families; best-order HU not attacked here (lead 1)",
+      "refuted_by": null,
+      "refutes": "037",
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_ownconst",
+        "hu_ownconst",
+        "own-constant audit",
+        "own-constant sweep",
+        "transfer attack",
+        "-9.596936657e-4",
+        "0.49500 witness",
+        "rank 13/24 on its own kill",
+        "rollout crossing (0.49, 0.495]",
+        "defended cap 0.49"
+      ],
+      "note": "The audit lesson lands twice: (i) violation flags must test CR/H < c*(own fmax), not CR/H < 0 -- the weaker flag sat on this kill inside 037's own committed checkpoint; (ii) endpoints bred against one objective must be re-scored under every standing rule before a survival claim is recorded (transfer attacks are free) -- adopted as a standing skeptic step. Recipe v3 carries rollout-HU to a defended cap of 0.49; [0.49, 1/2) currently belongs to no rule; 038 lead 2 (best-order positivity) is the line's main conjecture, with lead 1 here the direct attack on it at caps 0.495-0.499. Joins the next reviewer batch."
     }
   ]
 }
