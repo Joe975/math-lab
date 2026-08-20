@@ -1,0 +1,140 @@
+{
+ "witnesses": [
+  {
+   "witness": "rollrescue-floor:random0-n4",
+   "n": 4,
+   "cap": "49/100",
+   "roll_seq": [
+    3,
+    1,
+    2,
+    0
+   ],
+   "max_marginal": 0.48989665879682104,
+   "fixed_point_60dig": true,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 0.1507474125012177,
+     "CR_hi": 0.1507474125012177,
+     "H_lo": 2.5810930352290185,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 0.1507474125012177,
+     "CR_hi": 0.15074741250121834,
+     "H_lo": 2.5810930352290185,
+     "certifies": true
+    }
+   }
+  },
+  {
+   "witness": "rollrescue-seed4-n5",
+   "n": 5,
+   "cap": "49/100",
+   "roll_seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "max_marginal": 0.48816493028807795,
+   "fixed_point_60dig": true,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 0.034954491461296124,
+     "CR_hi": 0.034954491461296124,
+     "H_lo": 2.251417075142337,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 0.034954491461296124,
+     "CR_hi": 0.034954491461296124,
+     "H_lo": 2.251417075142337,
+     "certifies": true
+    }
+   }
+  },
+  {
+   "witness": "rollfloor-0.49-product4",
+   "n": 4,
+   "cap": "49/100",
+   "roll_seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "max_marginal": 0.48966213066725733,
+   "fixed_point_60dig": true,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 0.002714371933833176,
+     "CR_hi": 0.002714371933833176,
+     "H_lo": 3.9958054052444756,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 0.002714371933829286,
+     "CR_hi": 0.002714371933838738,
+     "H_lo": 3.9958054052444756,
+     "certifies": true
+    }
+   }
+  },
+  {
+   "witness": "rollfloor-0.497-seed2",
+   "n": 4,
+   "cap": "497/1000",
+   "roll_seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "max_marginal": 0.49642217953914564,
+   "fixed_point_60dig": true,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 3.6935614402448566e-05,
+     "CR_hi": 3.6935614402448566e-05,
+     "H_lo": 0.9999630643855976,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 3.6935614343329515e-05,
+     "CR_hi": 3.693561440298015e-05,
+     "H_lo": 0.999963064385597,
+     "certifies": true
+    }
+   }
+  },
+  {
+   "witness": "rollfloor-0.499-sharp:C_roll_cap_0.497:seed0",
+   "n": 4,
+   "cap": "499/1000",
+   "roll_seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "max_marginal": 0.49897977166118246,
+   "fixed_point_60dig": true,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 3.0033061225310122e-06,
+     "CR_hi": 3.0033061225310122e-06,
+     "H_lo": 0.9999969966938774,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 3.0033060518005572e-06,
+     "CR_hi": 3.0033061231768685e-06,
+     "H_lo": 0.9999969966938769,
+     "certifies": true
+    }
+   }
+  }
+ ]
+}

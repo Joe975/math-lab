@@ -1270,6 +1270,46 @@
         "0.101419 vs 0.101583"
       ],
       "note": "Discharges the queue's reviewer-batch-3 item for 035 at a strictly higher independence level than 029/034 (fresh session, zero shared state, not spawned from the author session). One design observation extracted for 035 lead 1: the 033 witness has an exact greedy tie at step 2 and the lowest-index break picks the second-best of the two greedy-compatible orders (+0.101419 vs +0.101583) -- an order rule should break ties by the surplus objective, not by index. Per precedent the reviewed record (035) is not modified."
+    },
+    {
+      "id": "037",
+      "file": "attempts/037-rollout-order-hu.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "LIVE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The ROLLOUT order rule (pick the coordinate maximising full CR with canonical completion -- the surplus/deficit ledger scored to the end; still a function of (mu, revealed set), so a genuine total coupling) passes 035's discriminating test exactly as the mechanism claim predicts: greedy-surplus dies where canonical died (worst of 120 orders on the n=5 kill, fresh descents kill it at caps 0.49/0.497), while rollout lands on the best order of all three record witnesses, is positive on all 51 canonical-descent endpoints, survives fresh and hostile-seeded descents at caps 0.49/0.497/0.499 with zero violations and floors tracking the product extremal from above (+0.000679/+0.000037/+0.0000030), and the best-order oracle ceiling stays positive too (n <= 5); five instances certified positive under each kit alone -- both 035 kill measures rescued and all three cap floors -- with a new 60-digit rollout fixed-point check on the rationalized measure that caught roll(mu_Q) != roll(mu_float) at the 0.499 floor (rationalization makes the four step-0 scores exactly equal) before it shipped.",
+      "range": "Witness battery with full order enumeration (24/24/120); all 51 committed 035 endpoints re-scored under four rules; fresh descents 17 starts per cap against surp (0.49, 0.497) and roll (0.49, 0.497; the three n=6 starts skipped for roll -- budget); hostile-seeded roll descents at 0.49/0.497/0.499 from the canonical/surp kill measures and sharpest endpoints (n <= 5); best-order-oracle descents at 0.49/0.497 (n <= 5, reduced rounds); certificates on limit_denominator(1e7) rationalizations, each kit alone, with the 60-digit fixed-point order check; all floors are upper bounds on the true inf; float-level except the certificate leg; nothing at n > 6",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_order2",
+        "hu_order2",
+        "rollout order",
+        "roll rule",
+        "surp rule",
+        "canst",
+        "step surplus",
+        "cell ledger",
+        "best-order ceiling",
+        "fixed-point check",
+        "+0.000679",
+        "+0.000037",
+        "+3.003306123e-6",
+        "greed is the failure"
+      ],
+      "note": "Sharpens 035's mechanism statement: non-greediness is the load-bearing property, not the scoring currency -- surp is greedy in exactly the currency 035 lead 1 suggested and dies identically to canonical. The [0.45, 1/2) interval 035 said 'needs a different object' now has a candidate object. Certification-pattern upgrade (from 036's review): derive the certified order from the rationalized measure and verify it as a 60-digit fixed point -- 035's certificates were confirmed safe on this point after the fact; here it is a construction-time check. Skeptic: nats-based rule re-implementations + the pre-existing independent evaluator stack, exit 0. Joins the next reviewer batch with 036."
     }
   ]
 }
