@@ -188,6 +188,22 @@ The proof target is now the sandwich CR_best ≥ CR_roll ≥ CR_canon:
 best-order positivity measured (037 D), the right inequality proved,
 roll the constructive middle. Reviewer batch 3 (036/037/038 +
 ROLL-DOM re-derivation) queued.**
+**040 (same day): the stronger n ≥ 6 adversary 038 asked for — anneal
+with structural moves + embedded 035-kill seeds — finds ZERO kills at
+n = 6 (caps 0.49/0.497) and n = 7 (0.49), landing ~60× below 038's
+stalled floors, and converges from random supports onto a closed-form
+attractor: the two-point diagonal μ_p = (1−p)δ_∅ ⊕ p·δ_S.** The DIAG
+identity (proved, elementary, order-free: CR_HU = h(max(1/2, 1−2p)) −
+h(p), H = h(p), any order, any n; measured floor matched to 2e-13)
+makes CR/H equal 034's corrected constant c\*(p̄) on both branches —
+so **(HU-TAX) has a second equality family** at the opposite
+correlation extreme from products, and **no order rule, best-order
+oracle included, can guarantee more than c\*(p̄)·H** — 037 lead 3
+closed analytically, order engineering has hit its provable ceiling
+and rollout empirically saturates it. New leads: the
+product↔diagonal interpolation path as a falsification test; a
+per-cell argument between the two known boundary patterns as the
+proof shape for (HU-TAX, roll form).**
 **036 (2026-08-20, reviewer pass on 035 — genuinely fresh session, not
 spawned from the author's, so the 029/034 independence caveat does not
 apply): 035 stands in full.** An own from-prose implementation (exact

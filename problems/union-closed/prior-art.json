@@ -1345,6 +1345,82 @@
         "canon>roll: 0"
       ],
       "note": "Refutes 037 lead 3's optimistic reading (roll is often far from best on typical measures) while strengthening the survival story (0 negatives in 1200 + provable domination of canonical). Reframes 037 lead 2 as the sandwich: best-order positivity (measured) >= roll (constructive) >= canonical (proved floor at [1/4,1/2] genre via 030). Novelty gate: (ROLL-DOM) is the standard Bertsekas rollout monotonicity argument applied to HU orders -- recorded as a transcription, not a new result. Joins the next reviewer batch with 036/037."
+    },
+    {
+      "id": "039",
+      "file": "attempts/039-reviewer-pass-036-037-038.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "037",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Reviewer pass on the rollout batch (037, 038; 036's script audited as a load-bearing dependency of 037's certify): everything load-bearing survives -- all five committed pipelines re-run byte-identically at skeptic exit 0; a fourth independent HU/CR implementation (memoized history-tree recursion, nats, 60-digit Decimal/Fraction certificate leg) reproduces the full witness table, every C/C2/D/B-endpoint and P2/P3 row, all five certificates inside both kits' exact enclosures with the rationalized-measure rollout orders re-derived under fully-rationalized 60-digit scoring (stronger than the committed fixed-point check, whose completions are float-derived), 48 of 1200 census rows fully re-scored and all summaries recomputed, and (ROLL-DOM) re-derived by hand with its recursion hinges verified on the committed code (canon_rank <= roll_rank on all 1200 rows); corrections are reporting-level: the roll-skipped starts are two n=6 plus one n=8 (crash8 -- never roll-descended, contra 038's 'the three starts 037 skipped'), and 037 lead 4's 0.499 endpoint is NOT exactly-exchangeable -- rationalization zeroes the 8.1e-11 atom, leaving a two-atom maximally-correlated measure (stabilizer 6 of 24) that pinches the same (1-h(q))/h(q) constant as the product extremal.",
+      "corrections": [
+        "037 'roll descents skipped the three n = 6 starts' and 038 'the three starts 037 skipped plus four fresh hostile seeds': the part-C skip filter is n > 5 and catches two n=6 starts plus one n=8 start (crash8); 038 P2's filter is n == 6, so only the two n=6 starts were re-run (its 6 rows are 2 + 4, and its range field's '6 starts each: the three 037 skipped plus fresh seeds' is internally inconsistent) -- crash8 (n=8) has never been descended under the rollout rule at any cap",
+        "037 lead 4's premise 'the 0.499 endpoint rationalizes to an exactly-exchangeable measure' is false: limit_denominator(1e7) sends the 8.1e-11 atom to weight exactly 0, leaving the two-atom measure {0000: ~0.501, 1101: ~0.499} with coordinate-1 marginal exactly 0 and stabilizer S3 on {0,2,3} (order 6 of 24); the 4-way step-0 tie is real (verified exactly, and the ~1.6e-10 unrationalized gap and roll(mu_float) != roll(mu_Q) both confirm 037 part E), but the binding adversary is a maximally-correlated pair, not (near-)product -- the (HU-TAX) equality structure at high caps has at least two extremal families both pinching (1-h(q))/h(q)",
+        "clarification to 038 P4, not an error: (ROLL-DOM) is proved for the exact rules; the shipped implementations break 1e-12-near-ties by lowest index, so the float invariant is CR_roll >= CR_canon - (n-1)*1e-12 - evaluation noise (worst observed inversion -4.4e-15 on a perturbed-exchangeable stress instance) -- nine orders below the smallest recorded floor and invisible in all 1200 census rows"
+      ],
+      "range": "All five 037/038 scripts re-run unmodified (three checkpoints byte-identical, both skeptics exit 0); independent from-prose re-implementation of HU/CR and all four order rules: the three-witness table with full 24/24/120 enumerations (sequences, CRs, ranks), every hu_order2.json C_*/C2_*/D_* and B_endpoints value, every hu_rollcensus.json P2_*/P3_* endpoint (own rollout at n=6 and 7), 48 of 1200 census rows regenerated and fully re-scored plus all summary fields recomputed from stored rows, all five certificates recomputed at 60 digits inside both kits' exact enclosures with exact side-conditions and the rationalized rollout orders re-derived at 60-digit scores AND completions, (ROLL-DOM) hinge property-tests on the committed functions (203 instances) plus a 150-instance tie-tolerance stress; the descents, sweeps, and census loops themselves NOT re-run beyond the committed engines' byte-identical re-execution",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_reviewer039",
+        "reviewer039",
+        "crash8 never roll-descended",
+        "two-atom attractor",
+        "stabilizer 6 of 24",
+        "correlated pair extremal",
+        "fully-rationalized fixed point",
+        "history-tree evaluator",
+        "-4.4e-15"
+      ],
+      "note": "Discharges the queue's reviewer-batch item for 037/038. Independence disclosure, per the 029/034 precedent: fresh-context subagent with zero shared conversation state, but spawned from the author session with the review brief, same model family -- one level below 036's genuinely-fresh bar; whether that meets the 024 fresh-session bar is for the human owner to judge. Verifies 038 as well (schema allows one verifies id; 037 carries the rules and certificates under test), and re-ran 036's committed script (exit 0) while auditing its hu_cr as 037-certify's imported scorer -- that import mildly erodes 036's independence for future reviews, noted in the record. No conclusion of 037/038 changes; correction 2 sharpens 037 lead 4 rather than killing it (which of the two extremal families does the descent select as cap -> 1/2?). Per precedent the reviewed records are not modified."
+    },
+    {
+      "id": "040",
+      "file": "attempts/040-roll-anneal-n6.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "A genuinely stronger adversary against rollout-HU (simulated annealing with atom add/drop/transfer moves plus embedded 035-kill seeds, then descent polish) finds ZERO violations at n=6 (caps 0.49/0.497) and n=7 (0.49), landing ~60x below 038's stalled descent floors -- and the attractor it converges onto is identified and closed-form: the two-point diagonal measure (1-p)delta_empty + p delta_S, whose DIAG identity (proved, elementary, order-free: CR_HU = h(max(1/2,1-2p)) - h(p), H = h(p), any order, any n; floor matched to 2e-13) makes CR/H equal 034's corrected product constant c*(pbar) on both branches -- so (HU-TAX) has a SECOND equality family at the opposite correlation extreme from products, and NO order rule (best-order oracle included) can guarantee more than c*(pbar)*H at cap pbar, closing 037 lead 3 analytically.",
+      "range": "Anneal 4000 steps per run at n=6 (6 runs per cap at 0.49/0.497: two embedded 035-kill tensor seeds + four random supports), 1200 steps at n=7 (6 runs at 0.49), each polished by 035's pattern descent; every endpoint re-scored by the independent 037-skeptic stack, all in-regime; DIAG identity verified numerically at p in {0.05..0.4999} x n in {2,4,6} x sampled orders to 1e-12, proved same-session (reviewer re-derivation joins the 036-038 batch); the 0.497 floor (+0.000180) is NOT family-saturated (diagonal value at p=0.494 is 0.000104); nothing at n > 7; floors are upper bounds on the true inf",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_roll_anneal",
+        "hu_roll_anneal",
+        "roll anneal",
+        "DIAG identity",
+        "two-point diagonal",
+        "diagonal equality family",
+        "second equality family",
+        "+0.000488",
+        "+0.000180",
+        "ceiling pinned",
+        "order-rule ceiling c*"
+      ],
+      "note": "Upgrades 038's n=6/7 story from 'descent stalled' to 'anneal saturated an identified extremal family'. The two equality families of (HU-TAX) -- products (independent) and diagonals (perfectly correlated) -- sit at opposite correlation extremes and both hit c*(pbar) exactly; lead 1 (the interpolation path between them) is the natural falsification test, and lead 2 records the per-cell proof shape both boundary patterns suggest. Joins reviewer batch 3 with 036/037/038."
     }
   ]
 }
