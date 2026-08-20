@@ -1,0 +1,35 @@
+Skeptic pass on uc_adaptive_cell_attack.py
+======================================================================
+
+S1. The ten tightest scan instances (claimed CR > 0):
+  [ok] p_lo=0.001, p_hi=0.85, P_hi=0.42, n=2  (CR=+0.000842 vs engine +0.000842)
+  [ok] p_lo=0.001, p_hi=0.999, P_hi=0.3, n=2  (CR=+0.000939 vs engine +0.000939)
+  [ok] p_lo=0.001, p_hi=0.7, P_hi=0.42, n=2  (CR=+0.001249 vs engine +0.001249)
+  [ok] p_lo=0.001, p_hi=0.99, P_hi=0.3, n=2  (CR=+0.001545 vs engine +0.001545)
+  [ok] p_lo=0.001, p_hi=0.85, P_hi=0.42, n=4  (CR=+0.001632 vs engine +0.001632)
+  [ok] p_lo=0.001, p_hi=0.55, P_hi=0.42, n=2  (CR=+0.001776 vs engine +0.001776)
+  [ok] p_lo=0.001, p_hi=0.95, P_hi=0.3, n=2  (CR=+0.001779 vs engine +0.001779)
+  [ok] p_lo=0.003, p_hi=0.999, P_hi=0.3, n=2  (CR=+0.001996 vs engine +0.001996)
+  [ok] p_lo=0.001, p_hi=0.85, P_hi=0.3, n=2  (CR=+0.002051 vs engine +0.002051)
+  [ok] p_lo=0.001, p_hi=0.999, P_hi=0.2, n=2  (CR=+0.002143 vs engine +0.002143)
+
+S2. Scaling probe rows (adaptive CR -> 0, latent-mix holds):
+  [ok] adaptive CR at p_lo=1e-05, n=2  (CR=+0.0000084, H=1.424)
+  [ok] latent-mix CR at p_lo=1e-05, n=2, q=0.30  (CR=+0.22098 vs engine +0.22098, marg_dev=1.4e-17)
+  [ok] adaptive CR at p_lo=1e-05, n=6  (CR=+0.0000256, H=2.519)
+  [ok] latent-mix CR at p_lo=1e-05, n=6, q=0.16  (CR=+1.18930 vs engine +1.18930, marg_dev=0.0e+00)
+  [ok] adaptive CR at p_lo=1e-03, n=2  (CR=+0.0008422, H=1.428)
+  [ok] latent-mix CR at p_lo=1e-03, n=2, q=0.30  (CR=+0.21891 vs engine +0.21891, marg_dev=1.1e-16)
+  [ok] adaptive CR at p_lo=1e-03, n=6  (CR=+0.0060984, H=2.557)
+  [ok] latent-mix CR at p_lo=1e-03, n=6, q=0.16  (CR=+1.16759 vs engine +1.16759, marg_dev=0.0e+00)
+
+S3. EM limits by brute-force entropy difference:
+  [ok] EM limit at n=2  (+0.22100 vs engine +0.22100)
+  [ok] latent-mix(p_lo=1e-5) -> EM limit, n=2  (delta=-2.5e-05)
+  [ok] EM limit at n=4  (+0.67587 vs engine +0.67587)
+  [ok] latent-mix(p_lo=1e-5) -> EM limit, n=4  (delta=-1.4e-04)
+  [ok] EM limit at n=6  (+1.18959 vs engine +1.18959)
+  [ok] latent-mix(p_lo=1e-5) -> EM limit, n=6  (delta=-2.9e-04)
+
+======================================================================
+No refutation found.

@@ -1,0 +1,62 @@
+Reviewer 029: independent re-implementation vs 025/026/027/028
+========================================================================
+
+R1. Half-mixing CR at one violating instance per n in {2, 6}
+    (exact-Fraction couplings at 026's rational instances; my
+    own evaluator; vs 025 floats AND 026 certified enclosures):
+  [ok] n=2: CR < 0, in-regime, ST = 0, matches 025 + 026  (CR=-0.002267927906 certmid=-0.002267927906 ST=+1.1e-16)
+  [ok] n=2: q=1/2 repair positive, matches 026  (CR=+0.073075033229 certmid=+0.073075033229)
+  [ok] n=6: CR < 0, in-regime, ST = 0, matches 025 + 026  (CR=-0.007133120856 certmid=-0.007133120856 ST=+2.2e-16)
+  [ok] n=6: q=1/2 repair positive, matches 026  (CR=+0.070953077915 certmid=+0.070953077915)
+
+    025 A2 family spot checks (float instances, my evaluator):
+  [ok] A2 n=1: CR_hm reproduces and < 0  (mine=-0.029388 engine=-0.029388)
+  [ok] A2 n=2: CR_hm reproduces and < 0  (mine=-0.015386 engine=-0.015386)
+  [ok] A2 n=6: CR_hm reproduces and < 0  (mine=-0.015321 engine=-0.015321)
+  [ok] A2 n=16: closed-form CR_hm reproduces and < 0  (mine=-0.015321 engine=-0.015321)
+  [ok] A2 n=100: closed-form CR_hm reproduces and < 0  (mine=-0.015321 engine=-0.015321)
+
+R2. Block Gain at n = 8, 2block (exact-Fraction mixture, my
+    entropies by direct 2^n enumeration; vs 025 float + 026):
+  [ok] 2block Gain(n=8) < 0, matches 025 float and 026 enclosure  (mine=-0.7940026768 cert=-0.7940026768)
+  [ok] 2block full-history CR <= Gain (ST >= 0) and CR < 0  (CR=-0.79400 gain=-0.79400 ST=-4.44e-16)
+
+R3. Empty-mixing rescue, 3block n = 6, q = 1/5 (exact-Fraction
+    coupling from the EM definition; my evaluator):
+  [ok] rescue CR > 0, ST = 0 (Lemma EM), matches 025 B3 + 026 C4  (CR=+0.692968847018 certmid=+0.692968847018 ST=+4.4e-16)
+
+R4. Lemma EM stress (my builders): ST = 0 on fresh arbitrary
+    (eps-joint, s-law) instances never run by 025/026:
+  [ok] ST = 0 on 3 fresh EM instances (incl. non-product s-law)  (max |ST| = 8.88e-16)
+
+R5. EM-coverage boundary sweep, n in {1, 2} (my own G):
+  [ok] min G > 0 on n=1 boundary (my 20001-pt grid)  (min=+0.344848 engine=+0.344848)
+  [ok] min G > 0 on n=2 boundary (my 20001-pt grid)  (min=+0.865786 engine=+0.865786)
+  [ok] case-(3) constants: h(2M)=0.78591, ratio=1.7062, max(-xlog2x)=0.53074, margin=+0.1208  (0.785910 1.706172 0.530738 +0.120821)
+  [ok] psi root identity 2p-p^2 = 1-p at (3-sqrt5)/2 (exact algebra)
+
+R6. 027 spot checks (my adaptive builder + evaluator):
+  [ok] scan p_lo=0.001, p_hi=0.85, P_hi=0.42, n=2: CR > 0, reproduces  (mine=+0.00084221 engine=+0.00084221)
+  [ok] scan p_lo=0.001, p_hi=0.999, P_hi=0.3, n=2: CR > 0, reproduces  (mine=+0.00093919 engine=+0.00093919)
+  [ok] scan p_lo=0.001, p_hi=0.7, P_hi=0.42, n=2: CR > 0, reproduces  (mine=+0.00124926 engine=+0.00124926)
+  [ok] scan p_lo=0.001, p_hi=0.99, P_hi=0.3, n=2: CR > 0, reproduces  (mine=+0.00154548 engine=+0.00154548)
+  [ok] tightest instance at n=3: adaptive CR > 0 (029's own refinement -- absent from 027's checkpoint)  (CR=+0.001217)
+  [ok] tightest instance at n=8: adaptive CR > 0 (029's own refinement -- absent from 027's checkpoint)  (CR=+0.016046)
+  [ok] probe p_lo=1e-05 n=6: adaptive CR reproduces, CR/H tiny  (CR=+0.0000256 CR/H=1.0e-05)
+  [ok] probe p_lo=1e-05 n=6: latent-mixing CR reproduces  (mine=+1.189299 engine=+1.189299 marg_dev=0.0e+00)
+  [ok] probe p_lo=1e-03 n=6: adaptive CR reproduces, CR/H tiny  (CR=+0.0060984 CR/H=2.4e-03)
+  [ok] probe p_lo=1e-03 n=6: latent-mixing CR reproduces  (mine=+1.167589 engine=+1.167589 marg_dev=0.0e+00)
+  [ok] EM p_lo=0 limit at n=2 reproduces  (mine=+0.221002 engine=+0.221002)
+  [ok] EM p_lo=0 limit at n=6 reproduces  (mine=+1.189593 engine=+1.189593)
+
+R7. 028 battery sample (6 rows, my implementations):
+  [ok] sliver n=2 battery row  (mine=+0.074173 battery=+0.074173)
+  [ok] sliver n=16 battery row  (mine=+0.067901 battery=+0.067901)
+  [ok] 2block n=4 battery row  (mine=+0.290240 battery=+0.290240)
+  [ok] 3block n=8 battery row  (mine=+1.005836 battery=+1.005836)
+  [ok] 2block n=4 full-history CR at q* matches closed form, ST = 0  (CR=+0.290240 ST=-1.3e-15)
+  [ok] floor:mmabskill battery row (my own IPF)  (mine=+0.074203 battery=+0.074203)
+  [ok] floor:windowkill battery row (my own IPF)  (mine=+0.223165 battery=+0.223165)
+
+========================================================================
+No numerical refutation: every re-implemented value agrees.

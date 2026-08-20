@@ -1,0 +1,66 @@
+{
+ "instances": [
+  {
+   "instance": "windowkill",
+   "n": 4,
+   "atoms": 8,
+   "cells": 22,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 0.30897282718349395,
+     "CR_hi": 0.30897282718349395,
+     "H_lo": 2.6751234351679023,
+     "ratio_stat_lo": 0.20196788977677788,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 0.30897282718349384,
+     "CR_hi": 0.308972827183504,
+     "H_lo": 2.6751234351679023,
+     "ratio_stat_lo": 0.20196788977677776,
+     "certifies": true
+    }
+   }
+  },
+  {
+   "instance": "mmabskill",
+   "n": 5,
+   "atoms": 4,
+   "cells": 38,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": 0.0822378894477529,
+     "CR_hi": 0.0822378894477529,
+     "H_lo": 1.917762110552247,
+     "ratio_stat_lo": 0.005527405025663014,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": 0.08223788944769804,
+     "CR_hi": 0.08223788944775338,
+     "H_lo": 1.9177621105522467,
+     "ratio_stat_lo": 0.005527405025605956,
+     "certifies": true
+    }
+   }
+  },
+  {
+   "instance": "033-witness-order-0132",
+   "n": 4,
+   "kits": {
+    "A_digit_extraction": {
+     "CR_lo": -0.00804843308704745,
+     "CR_hi": -0.00804843308704745,
+     "H_lo": 2.5269545887528024,
+     "certifies": true
+    },
+    "B_atanh_series": {
+     "CR_lo": -0.008048433087047792,
+     "CR_hi": -0.008048433087009678,
+     "H_lo": 2.5269545887528024,
+     "certifies": true
+    }
+   }
+  }
+ ]
+}

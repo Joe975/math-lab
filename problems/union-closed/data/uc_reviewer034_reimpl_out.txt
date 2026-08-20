@@ -1,0 +1,104 @@
+Attempt 034 reviewer pass: independent re-implementation (030 / 031 / 033)
+======================================================================
+P1. HU rebuilt (direct pair-product), own evaluator
+  [ok] floor:windowkill    n=4: CR_HU = +0.3090  (CR=+0.308973 (031 sweep +0.2232), mdev=0e+00)
+  [ok] floor:windowkill    HU-notax T_A = T_B = 0 and ledger  (T_A=-8.88e-16 T_B=-4.44e-16 ledger-CR=-9.99e-16)
+  [ok] floor:mmabskill     n=5: CR_HU = +0.0822  (CR=+0.082238 (031 sweep +0.0742), mdev=0e+00)
+  [ok] floor:mmabskill     HU-notax T_A = T_B = 0 and ledger  (T_A=+2.22e-16 T_B=+2.22e-16 ledger-CR=+1.11e-16)
+  [ok] floor:mmabskill_n6  n=6: CR_HU = +0.3007  (CR=+0.300707 (031 sweep +0.1013), mdev=0e+00)
+  [ok] floor:mmabskill_n6  HU-notax T_A = T_B = 0 and ledger  (T_A=+4.44e-16 T_B=+4.44e-16 ledger-CR=+9.44e-16)
+  [ok] floor:random0       n=4: CR_HU = +0.1563  (CR=+0.156293 (031 sweep +0.1262), mdev=0e+00)
+  [ok] floor:random0       HU-notax T_A = T_B = 0 and ledger  (T_A=+4.44e-16 T_B=+4.44e-16 ledger-CR=+4.72e-16)
+  [ok] floor:random1       n=5: CR_HU = +0.2991  (CR=+0.299133 (031 sweep +0.1969), mdev=0e+00)
+  [ok] floor:random1       HU-notax T_A = T_B = 0 and ledger  (T_A=+0.00e+00 T_B=+4.44e-16 ledger-CR=+6.11e-16)
+
+   crash n=5: CR=0.1991938932 H=1.762489 ratio=0.113019 ST=+5.17e-01
+  [ok] crash family n=5..17: CR_HU = +0.19919 flat in n  (spread 0.0e+00, value 0.19919389)
+
+  [ok] Bern(0.3)^5: CR_HU = n(1-h(p)) = 0.593546  (CR=0.593545504)
+  [ok] Bern(0.38271)^6: CR_HU = n(1-h(p)) = 0.240399  (CR=0.240398727)
+  [ok] Bern(0.45)^5: CR_HU = n(1-h(p)) = 0.036128  (CR=0.036127730)
+  [ok] Bern(0.25)^4: CR_HU = n(1-h(p)) = 0.754888  (CR=0.754887502)
+  [ok] constant (1-h(0.38271))/h(0.38271) = 0.041739  (0.041738779)
+   (1-h(0.381))/h(0.381) = 0.04302996  [030 near-psi ratio anchor]
+
+P2. Slice DP (own 2-D implementation)
+  [ok] n=8 w0=3: own DP == own mask build  (DP +0.730833517 vs masks +0.730833517)
+  [ok] n=100 w0/n=0.4: 031 claims +4.542  (own DP +4.54163, CR/H = 0.04859, per-coord 0.04542)
+  [ok] n=300 w0/n=0.4: 031 claims +11.071  (own DP +11.07108, CR/H = 0.03859, per-coord 0.03690)
+  [ok] 0.40-series slope ~ 0.032 >= product slope 1-h(0.40) = 0.029  (slope 0.03178)
+
+P3. K-component latent-mixing (own builder + own optimizer)
+  [ok] lo+mid+hi n=4: 030 CR* = +0.83345  (own optimum +0.833447 (t={'01': 0.2981, '02': 0.1025, '12': 0.0}), H=2.7601 CR/H=0.30196)
+  [ok] near-psi n=6: 030 CR* = +0.24755  (own optimum +0.247547 (t={'01': 0.0, '02': 0.0, '12': 0.0}), H=5.7525 CR/H=0.04303)
+  [ok] HU-mix identity at near-psi n=2: CR = n - H(mu)  (CR=0.082510778 n-H=0.082510778 CR/H=0.04303063 H_U=2.000000000(=n?))
+  [ok] HU-mix identity at near-psi n=4: CR = n - H(mu)  (CR=0.165026496 n-H=0.165026496 CR/H=0.04303198 H_U=4.000000000(=n?))
+  [ok] HU-mix identity at near-psi n=6: CR = n - H(mu)  (CR=0.247547130 n-H=0.247547130 CR/H=0.04303332 H_U=6.000000000(=n?))
+  [ok] EM fused 2-block limit = +0.35233 (own re-derivation)  (+0.3523253)
+  [ok] degeneration p_light=1e-02: K=3 optimum beats EM  (own +0.40370 vs EM +0.35233; 030 checkpoint CR_opt +0.40370, 030 prose +0.4037/+0.3970/+0.3950)
+  [ok] degeneration p_light=1e-03: K=3 optimum beats EM  (own +0.40316 vs EM +0.35233; 030 checkpoint CR_opt +0.40316, 030 prose +0.4037/+0.3970/+0.3950)
+  [ok] degeneration p_light=1e-04: K=3 optimum beats EM  (own +0.40375 vs EM +0.35233; 030 checkpoint CR_opt +0.40375, 030 prose +0.4037/+0.3970/+0.3950)
+
+P4. The 033 order-kill, rebuilt from data/hu_attack.json
+   start=floor:random0 n=4 atoms=6 worst_order=[0, 1, 3, 2] floor=-0.003185 orders_tried=2
+  [ok] exactly 1 of 24 orders gives CR_HU < 0  (negative orders: [(0, 1, 3, 2)])
+  [ok] the negative order is (0, 1, 3, 2)  ([(0, 1, 3, 2)])
+  [ok] bad-order CR_HU = -0.00805  (-0.00804843 (ratio -0.003185))
+  [ok] identity CR = +0.0148, best order = +0.2567 (ratio +0.1016)  (identity +0.014765, best +0.256696 (ratio +0.101583))
+  [ok] max marginal < 9/20 (= 0.44990) and H = 2.5270  (maxmarg 0.449899, H 2.526955)
+   ledger identity  : +0.0073  +0.0443  +0.0072  -0.0440   -> +0.0148
+   ledger (0,1,3,2) : +0.0073  +0.0443  -0.0596  +0.0000   -> -0.0080
+  [ok] 033 part E: coordinate 2 is a function of the other three  (6 co-histories, max branching 1)
+   full order enumeration at the five floor instances (24 / 120 / 720 orders):
+     windowkill     n=4: CR in [+0.29510, +0.31640] over 24 orders; 031 range reproduced
+     mmabskill      n=5: CR in [+0.08224, +0.33820] over 120 orders; 031 range reproduced
+     mmabskill_n6   n=6: CR in [+0.26071, +0.48282] over 720 orders; 031 range reproduced
+     random0        n=4: CR in [+0.11798, +0.33987] over 24 orders; 031 range reproduced
+     random1        n=5: CR in [+0.28084, +0.44369] over 120 orders; 031 range reproduced
+  [ok] 031 section 5(ii): min over ALL orders > 0 at every floor instance (n = 6 done in full, not islice-120)
+   own all-24-order descent from the random0 endpoint:
+     cap 0.39: floor min-over-24 CR/H = +0.042592
+     cap 0.40: floor min-over-24 CR/H = +0.027792
+     cap 0.41: floor min-over-24 CR/H = +0.028190
+     cap 0.42: floor min-over-24 CR/H = +0.029894
+     cap 0.43: floor min-over-24 CR/H = +0.004852
+     cap 0.44: floor min-over-24 CR/H = +0.000853
+     cap 0.45: floor min-over-24 CR/H = -0.003185
+  [ok] crossing of the all-orders floor lies in (0.44, 0.45]  (0.44 -> +0.000853, 0.45 -> -0.003185)
+
+P5. Certificates recomputed at 60 digits (Decimal ln), against data/hu_certify.json
+  [ok] windowkill: CR_HU inside both kits' enclosures, > H/25  (CR=0.308972827184 H=2.675123435 H/25=0.107004937, rationalization TV=5.42e-14)
+  [ok] mmabskill: CR_HU inside both kits' enclosures, > H/25  (CR=0.082237889448 H=1.917762111 H/25=0.076710484, rationalization TV=1.96e-14)
+  [ok] 033 witness: CR_HU < 0 at 60 digits, inside both enclosures, marginals < 9/20 exactly  (CR=-0.008048433087, kit hi=-8.048433087e-03, maxmarg=0.449899, TV=2.18e-14)
+
+P6. Reviewer refutation: (HU-TAX at pbar) for pbar < 1/4
+   p=0.05     z=0.9000  CR_HU=+0.730395  (1-h)/h*H=+2.854412  CR-RHS=-2.124018  predicted n(h(2p)-h(p))=+0.730395
+   p=0.1      z=0.8000  CR_HU=+1.011730  (1-h)/h*H=+2.124018  CR-RHS=-1.112288  predicted n(h(2p)-h(p))=+1.011730
+   p=0.15     z=0.7000  CR_HU=+1.085802  (1-h)/h*H=+1.560639  CR-RHS=-0.474836  predicted n(h(2p)-h(p))=+1.085802
+   p=0.2      z=0.6000  CR_HU=+0.996090  (1-h)/h*H=+1.112288  CR-RHS=-0.116198  predicted n(h(2p)-h(p))=+0.996090
+   p=0.24     z=0.5200  CR_HU=+0.815221  (1-h)/h*H=+0.819839  CR-RHS=-0.004618  predicted n(h(2p)-h(p))=+0.815221
+   p=0.25     z=0.5000  CR_HU=+0.754888  (1-h)/h*H=+0.754888  CR-RHS=-0.000000  predicted n(h(2p)-h(p))=+0.754888
+   p=0.3      z=0.5000  CR_HU=+0.474836  (1-h)/h*H=+0.474836  CR-RHS=+0.000000  predicted n(h(2p)-h(p))=+0.358639
+   p=0.38271  z=0.5000  CR_HU=+0.160266  (1-h)/h*H=+0.160266  CR-RHS=-0.000000  predicted n(h(2p)-h(p))=-0.696093
+  [ok] (HU-TAX at pbar) violated by Bern(pbar)^4 exactly for pbar < 1/4  (violating pbar: [0.05, 0.1, 0.15, 0.2, 0.24])
+  [ok] exact (60-digit) n=1 witness at pbar=1/5: CR_HU < (1-h)/h * H  (CR=0.249022499567 vs RHS=0.278071905113; deficit 0.029049 = 1-h(2/5) = 0.029049)
+   => the sharp product constant is (h(min(2p,1))-h(p))/h(p),
+      which equals (1-h(p))/h(p) only on [1/4, 1/2).
+
+P7. Own campaign at the working cap 0.38271, objective = min over ALL n! orders
+   windowkill     n=4: all-order floor = +0.048513
+   mmabskill      n=5: all-order floor = +0.043284
+   mmabskill_n6   n=6: all-order floor = +0.097005
+   random0        n=4: all-order floor = +0.050883
+   random1        n=5: all-order floor = +0.102092
+   033witness     n=4: all-order floor = +0.049873
+   rseed0         n=5: all-order floor = +0.124161
+   rseed1         n=5: all-order floor = +0.179066
+   rseed2         n=5: all-order floor = +0.128187
+   rseed3         n=4: all-order floor = +0.199132
+   rseed4         n=4: all-order floor = +0.117966
+   rseed5         n=4: all-order floor = +0.121941
+  [ok] no all-order violation at the working cap; floor above the product extremal 0.041739  (global floor +0.043284 at mmabskill (033's pooled-order campaign floor: +0.04198))
+
+======================================================================
+No refutation found.

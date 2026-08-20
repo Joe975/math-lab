@@ -53,7 +53,127 @@ and both hand re-derivations check out; Gap 2 survives three fresh
 adversarial trajectories (floors +0.0697…+0.30, zero in-regime
 violations). One reporting-level correction: 023's CR engine is NOT
 deterministic (string-hash job seeding) — its checkpoint is not
-regenerable and the "+0.0742 sharpest floor" is trajectory-specific.** Also: the deep-anneal
+regenerable and the "+0.0742 sharpest floor" is trajectory-specific.**
+**Same-day follow-up (025): the recipe's two non-Sinkhorn branches — which
+no adversary had ever exercised (023 lead 2) — both FAIL as stated,
+in-regime: half-mixing (q = P₁/2) goes CR < 0 at every n on a p_h → 1
+sliver (margins ~1.5e-2, two independent implementations to 4e-15), and
+the iid-given-k block coupling is Θ(n)-negative on any mixture with a
+component above ψ = (3−√5)/2 — the AHS constant resurfacing as a
+component-wise coupling threshold (the adaptive variant instead flatlines
+at CR = 0 exactly on all-above-half mixtures, failing strictness). One
+repair covers both: the extended mixing lemma (ST = 0 for arbitrary
+ε-joints AND arbitrary s-laws) plus concavity of w ↦ H(wδ∅ ⊕ (1−w)ν)
+gives sup_q CR > 0 on the entire in-regime {0}∪[1/2,1) genre — proved
+except two float-level 1-D boundary sweeps (n = 1, 2) — and ∅-mixing also
+rescues every constructed block failure (+0.69 where Sinkhorn manages
++0.22). So Gap 2's candidate survives its third adversarial pass, but Gap
+3's recipe draft is refuted-and-corrected; the branch-assignment rule
+("never iid-couple above-ψ mass"; the surprisal criterion for ∅-mixing)
+is now sharp. Floor pre-work for the proof effort: 023's in-regime
+endpoints have CR/H ∈ [0.0387, 0.0834], and the anneal was grinding CR,
+not H — so any CR ≥ c·H target has c ≤ 0.0387. Lemmas EM/EM-coverage are
+same-session skeptic-passed; reviewer pass pending (024 standard).
+Same-window follow-ups (026, 027, 028): the 025 kills and repairs are now CERTIFIED in
+exact arithmetic at six rational instances (half-mixing CR < 0 at
+n = 2/6/16 with H(μ) > 0.968 certified; block Gain < 0 at n = 8; both
+rescues positive), every log₂ evaluated by BOTH audited kits (022
+digit-extraction ∩ 016 atanh-series, 98 calls, zero disagreements,
+widths ≤ 2.5e-32) — the dual-kit intersection is now the recommended
+default for certifications.** **Reviewer pass 029 (same day, fresh-context
+subagent — independence caveat in the record): 025–028 all survive with
+reporting-level corrections only; EM/EM-coverage re-derived by hand, every
+re-implemented number agrees, and the dual-kit soundness argument is
+corrected — an intersected enclosure is certified under BOTH audits, not
+either, so 029 re-certified all twelve 026 statements with each kit alone
+(both pass); require single-kit certification, and use intersection as a
+consistency check, in future certifications.**
+**Round-2 window follow-ups (030/031): the ≥ 3-component hole in the
+mixture branch closes — K-component latent-mixing (label-coupling matrix
+Q; adaptive is the diagonal) is positive on the whole K = 3 battery,
+strictly beats fusing components into one s-law, and its near-ψ rows
+expose the first PROVED H-scaled floor (mini-theorem HU-mix: every
+component in [1/4, 1/2] ⟹ CR = n − H(μ) exactly ⟹ CR ≥
+(1−h(p̄))/h(p̄)·H(μ) = 0.0417·H at the cap). Totalizing that m = 1/2 rule
+per-history gives the HALF-UNION coupling (031, LIVE): total, closed-form,
+λ-free, zero first tax on both sides (proved) — it beats the λ-swept
+Sinkhorn branch on every G-gen hard instance of record (sharpest floor
+0.0742 → 0.0822; mmabskill_n6 0.101 → 0.301), reads the crash family as a
+flat n-independent +0.199, and stays positive on all fixed-seed scans,
+descents, and slices (n ≤ 300, w0/n ≤ 0.48) at marginal caps up to 0.49,
+the attacked floor tracking the product-extremal constant
+(1−h(p̄))/h(p̄) from above at every cap. Conjecture (HU-TAX), SPECULATION:
+CR_HU ≥ (1−h(p̄))/h(p̄)·H(μ) with equality at products — proved only on
+the HU-mix sub-genre; if it held for all p̄ < 1/2 it would be Frankl via
+licensing, so treat accordingly. K-mixing still beats HU on 3/5
+structured mixtures (recipe v3 keeps two branches), and HU's coordinate
+order is a free lever (4× spread at mmabskill, order-min positive
+everywhere checked).**
+**033 — the order quantifier breaks, and the floor is certified:** a joint
+(μ, order) adversarial campaign finds NO violation at the working cap
+(17 starts, global floor CR_HU/H = +0.04198 vs product extremal +0.04174),
+but at cap 9/20 it produces a CERTIFIED order-dependent kill — a 6-atom
+n = 4 witness (max marginal 0.44990, H = 2.527) where exactly 1 of 24
+orders gives CR_HU certified in [·, −8.048e-3] while identity (+0.0148)
+and best order (+0.257) stay positive; the full-order-min floor crosses
+zero in (0.44, 0.45] on that family. Dissection: the bad order reveals the
+witness's deterministic coordinate LAST, wasting a surplus-sterile slot
+(30 cells contributing exactly 0) while the ambiguous coordinate pays its
+deficit earlier — canonical-order heuristic: reveal (near-)deterministic
+coordinates first. So **(HU-TAX) must be re-posed with an order
+convention**: for-all-orders is dead above ≈ 0.44; identity- and
+best-order forms are unrefuted everywhere tested (n = 5 endpoints: 0 of
+120 orders negative). Also certified single-kit (029 standard, both kits
+alone): CR_HU > 0 and CR_HU ≥ H/25 at the two sharpest floor instances.**
+**035 — the canonical rule works, and still isn't enough:** turning 033's
+dissection into a definition (canonical order = greedily reveal the
+most-predictable remaining coordinate; a function of μ and the revealed
+SET only, so still a genuine total closed-form coupling) scores 033's
+killer witness at +0.1014 (rank 23/24, certified positive) and keeps the
+weight-descent floor positive at cap 0.38271 (+0.041983) and at 0.45
+(+0.001703) — exactly where the for-all-orders form died. But
+canonical-HU is itself **REFUTED at cap 49/100**, certified under each
+kit alone: n = 4 (6 atoms, max marginal 0.48990) with CR_HU ∈
+[·, −3.795e-2] and **tie-free**, hence labelling-independent; n = 5 with
+CR_HU ∈ [·, −2.889e-2], where the canonical rule picks the *worst* of
+120 orders. Since 0.49 < 1/2, **HU with canonical order cannot by itself
+deliver Frankl** — its reach is now bounded above by measurement
+(< 0.49) as the 030 sub-genre theorem bounds it below by proof. Mechanism:
+greedy conditional-entropy minimisation banks predictability early, but CR
+needs surplus cells late, and the two objectives diverge as marginals
+approach 1/2 — so any fix must be non-greedy or score the surplus/deficit
+ledger directly. Method note the skeptic forced: float tie-breaking made
+the "canonical" order implementation-dependent (exactly equal conditional
+entropies do occur); any future canonical rule needs an explicit
+tolerance tie-break, and the residual non-equivariance must be stated.**
+**034 (fresh-context reviewer on 030/031/033) — batch VERIFIED, with one
+real refutation of the conjecture: (HU-TAX at p̄) as stated in 031 is
+FALSE for every p̄ < 1/4**, and the counterexample is 031's own claimed
+equality case. For μ = Bern(p)^⊗n every HU cell has x = y = 1−p, so
+z = min(max(1/2, 1−2p), 1−p); below p = 1/4 the Fréchet floor 1−2p
+exceeds 1/2, the clamp fires, z = 1−2p, and CR_HU/H = (h(2p)−h(p))/h(p)
+falls strictly short of (1−h(p))/h(p) by n(1−h(2p)) bits (smallest
+witness p = 1/5, n = 1: 0.249022 vs 0.278072 — re-derived by the author).
+It is order-independent, so it also hits the identity- and best-order
+forms 033 left standing. **Fix: pose (HU-TAX) on p̄ ∈ [1/4, 1/2) with
+c*(p̄) = (h(min(2p̄,1))−h(p̄))/h(p̄)**, which coincides with the old
+constant exactly on that range. Nothing load-bearing moves: every sweep
+tests the cap form at p̄ ≥ 0.38271 > 1/4, and 030's HU-mix hypothesis
+forces p̄ ≥ 1/4 by itself. Root cause worth remembering: 031/033 always
+compared against (1−h(cap))/h(cap) and never against the *instance's own*
+marginal. Everything else survived 43/43 attacked checks (HU-mix and
+HU-notax re-derived by hand — the [1/4,1/2] hypothesis is exactly the
+Fréchet-feasibility condition for z = 1/2; all six scripts reproduce
+byte-identically; the order-kill exact to the last digit; certificates
+land inside both kits at 60 digits, each kit certifying alone; a
+STRONGER adversary — min over all n! orders at every descent step —
+still finds nothing at the working cap, floor +0.043284). Reporting
+corrections logged in 034: several 031 §2 / 030 numbers were quoted from
+the wrong run or over-rounded, 031's "120-order sample at n = 6" was
+actually a perm[0]=0 sub-family (full 720 redone, same conclusion), both
+index `range` fields overstate skeptic coverage, and 033's parts B/C/E
+shipped without committed code.**
+Also: the deep-anneal
 float negatives at near-empty supports are certified ARTIFACTS (exact
 recomputation flips −24.5 to +23.4) — 007's underflow lesson confirmed a
 second time. A parallel dual-provider ideation sweep (021, MAP) sharpened
@@ -343,7 +463,7 @@ problems with no attempts (queue 18–19; run blind).
 
 ## Attempt queue (next cycles pull from the top)
 
-1. [union-closed] ~~Attack both surviving Gap-1 candidates (unsigned |σ|-control; λ-window variant; assembly restatement)~~ **DONE in 020 — ALL REFUTED, certified** (see TL;DR; swarm-guided designs, director-certified; 018's queue items (a), (b), (c) all settled negatively: the |σ|-control dies via the non-PSD sensitivity kernel at n = 4–5, the window variant dies via a₁-cancellation measures with negative a₂ at n = 4, and the assembly's aggregate secant requirement is violated in-window, with R₊-pure witnesses ruling out every chain-rule-compatible per-history weighting). ~~Replacement (a) skeptic pass, (b) Gap-2 check, (c) n = 8 tensor certificate~~ **(a)–(c) DONE in 022 same-day** — cross-family drafted-verifier skeptic confirms all 12 certificates digit-for-digit with zero corrections (implementation independence: different model family, different log₂ algorithm, zero shared code; reviewer independence still open — 022 was same-session), the n = 8 tensor is certified in-window, and **Gap 2's CR > 0 candidate survives both kill geometries at margins +0.40/+0.80**. New replacement, in order — items (b') and (c) already executed same-day in 023 (the CR adversarial pass found NO violation: floors +0.074…+0.22 at every H-bounded in-regime endpoint seeded at the kill geometries, and the signed/integrand form is certified negative at two rational tilts per witness): ~~(a) **fresh-session reviewer pass on 020/022/023**~~ **DONE in 024** — everything load-bearing confirmed (byte-identical re-run + third-path reimplementation inside every enclosure; verifier audit and both hand re-derivations sound; three fresh CR trajectories, zero violations); one reporting-level correction: 023's engine is nondeterministic (string-hash seeding), so its floors are per-trajectory (observed +0.0697…+0.0776 across four runs) and future CR engines need stable seeds + recorded `PYTHONHASHSEED` alongside the H ≥ ε guard; (b) **proof effort on (TAX at p), H-scaled** (023 lead 1): target CR ≥ c(p)·H(μ) on the generic genre, test battery = the floor instances from 023/024 runs (sharpest observed: +0.0697 at n = 6, 4 atoms — per-trajectory, see 024); pre-step per 023 lead 2: exercise the recipe's block-adaptive and half-mixing branches adversarially first; (c) exact certification path for CR (mechanical now: 022 log₂ kit + the tensor certificate's dyadic-accumulation pattern); (d) map the a₁-cancellation manifold (020 lead 5: closed-form a₂ on the manifold would settle the every-n tensor claim without computation).
+1. [union-closed] ~~Attack both surviving Gap-1 candidates (unsigned |σ|-control; λ-window variant; assembly restatement)~~ **DONE in 020 — ALL REFUTED, certified** (see TL;DR; swarm-guided designs, director-certified; 018's queue items (a), (b), (c) all settled negatively: the |σ|-control dies via the non-PSD sensitivity kernel at n = 4–5, the window variant dies via a₁-cancellation measures with negative a₂ at n = 4, and the assembly's aggregate secant requirement is violated in-window, with R₊-pure witnesses ruling out every chain-rule-compatible per-history weighting). ~~Replacement (a) skeptic pass, (b) Gap-2 check, (c) n = 8 tensor certificate~~ **(a)–(c) DONE in 022 same-day** — cross-family drafted-verifier skeptic confirms all 12 certificates digit-for-digit with zero corrections (implementation independence: different model family, different log₂ algorithm, zero shared code; reviewer independence still open — 022 was same-session), the n = 8 tensor is certified in-window, and **Gap 2's CR > 0 candidate survives both kill geometries at margins +0.40/+0.80**. New replacement, in order — items (b') and (c) already executed same-day in 023 (the CR adversarial pass found NO violation: floors +0.074…+0.22 at every H-bounded in-regime endpoint seeded at the kill geometries, and the signed/integrand form is certified negative at two rational tilts per witness): ~~(a) **fresh-session reviewer pass on 020/022/023**~~ **DONE in 024** — everything load-bearing confirmed (byte-identical re-run + third-path reimplementation inside every enclosure; verifier audit and both hand re-derivations sound; three fresh CR trajectories, zero violations); one reporting-level correction: 023's engine is nondeterministic (string-hash seeding), so its floors are per-trajectory (observed +0.0697…+0.0776 across four runs) and future CR engines need stable seeds + recorded `PYTHONHASHSEED` alongside the H ≥ ε guard; ~~pre-step per 023 lead 2: exercise the recipe's block-adaptive and half-mixing branches adversarially first~~ **DONE in 025 — both branches REFUTED as stated, and repaired**: half-mixing dies in-regime at every n (p_h → 1 sliver), iid-block dies Θ(n) via the component-wise ψ threshold, adaptive-block flatlines at CR = 0 on all-above-half mixtures; the extended mixing lemma (EM: ST = 0 for arbitrary ε-joints and s-laws) + concavity covers the whole genre with optimized q (proved except two float 1-D sweeps). New sub-items, in order: ~~(a') **fresh-session reviewer pass on EM/EM-coverage + the 025 kills** (024 standard; until then the lemmas are candidate-VERIFIED)~~ **DONE in 029 (covering 025–028) — everything load-bearing survives: EM/EM-coverage re-derived by hand in full (every constant confirmed: 0.785910 / 1.706172 / 0.530738 / +0.120821), all 38 independently re-implemented values agree (exact-Fraction couplings, own evaluator, own IPF Sinkhorn; half-mixing kills ≤ 1e-11 from 026's enclosure midpoints), all six scripts reproduce byte-identically with skeptics at exit 0, and each certification kit ALONE certifies all twelve 026 statements. Corrections, reporting-level only: 026's "certified under either kit's audit" is invalid for intersected enclosures (sound under the conjunction only; repaired by single-kit certification — future dual-kit certs should require each kit to pass alone), 027's claimed n ≤ 8 refinement never ran (dead code path; true range n ≤ 6, 029's own n = 8 spot check stays positive), 025's "4e-15 agreement" is 6.4e-13 at n = 16, 028's cr_chain cross-checks were transcript-only (now backed by committed code). Independence caveat stated in the record: fresh-context subagent, zero shared session state, but spawned from the author session, same model family — whether that meets the 024 bar is for the human to judge;** ~~(b') **restate the recipe (Gap 3) with the corrected assignments** and re-pose (TAX at p) against it~~ **DONE in 028 — Recipe v2: the whole mixture side is one q-parametrized latent-mixing family (adaptive-block, ∅-mixing, and half-mixing are all specializations), generic/slice keeps the λ-sweep; (TAX at p) v2 survives the full 19-instance battery of record with margins ≥ +0.068 (`uc_recipe_v2.py` is the standing battery — re-run it on any recipe edit). Gap 3 correspondingly narrows to: genre detection, and ≥ 3-component latent-mixing (028 lead 2);** (b) **proof effort on (TAX at p), H-scaled** (023 lead 1) — **reframed by 030/031**: the target is now conjecture (HU-TAX): CR_HU ≥ (1−h(p̄))/h(p̄)·H(μ) for the explicit half-union coupling (total, closed-form, T_A = T_B = 0 proved), PROVED on the all-components-in-[1/4,1/2] mixture sub-genre (HU-mix, 030), tight at products, and consistent with every attack at caps up to 0.49; the open inequality is the per-cell surplus/deficit averaging stated in 031 §Why-it-failed (deficit cells = histories dragging a conditional below 1/2). Sub-steps: ~~(b1) adversarial campaign against HU as primary target incl. coordinate-order adversary~~ **DONE in 033 — no violation at the working cap; certified order-dependent kill at cap 9/20, (HU-TAX) now needs an order convention**; (b2) prove CR_HU ≥ 0 in-regime first (031 lead 2); ~~(b3) exact certification of CR_HU at the floor instances — single-kit per 029~~ **DONE in 033 (both kits alone; CR_HU ≥ H/25 certified at the two sharpest floors, and the order-kill certified negative)**; (b4) swarm brief for averaging-scheme drafts if it resists (031 lead 5); (c) exact certification path for CR (mechanical now: 022 log₂ kit + the tensor certificate's dyadic-accumulation pattern) — ~~extend to one 025 kill per family~~ **branch kills + repairs DONE in 026 (dual-kit, six instances)**; still open for CR of general Sinkhorn couplings (needs certified h(z) sums over a fitted coupling, not just closed forms); (d) map the a₁-cancellation manifold (020 lead 5: closed-form a₂ on the manifold would settle the every-n tensor claim without computation); ~~(e) the uncovered branch cell: mixtures with both below-half and above-ψ components (adaptive-block positive on the one family tested at n ≤ 10; prove or kill — 025 lead 4)~~ **DONE in 027 — no kill (510-instance in-regime scan, CR > 0 throughout: the adaptive coupling's degenerate limit is comonotone, approached from above, so the fixed-cost sliver mechanism cannot bite), but CR/H(μ) → 0 as p_lo → 0 at bounded H (measured to 1e-5) — the adaptive assignment cannot carry any H-scaled floor on this cell; the new latent-mixing family (labels coupled, free both-lo probability q — the continuous closure of ∅-mixing) holds CR ≥ +0.22…+1.19 there and converges to the EM limit. Recipe v2 (b') now has all its inputs; new lead: prove adaptive CR ≥ 0 on the cell / an ST = O(p_lo·n) bound for latent-mixing (027 leads 1-2); ~~028 lead 2: ≥ 3-component latent-mixing~~ **DONE in 030** (positive on the K = 3 battery, anchors to 027, beats the fused-EM construction; near-ψ rows yield the HU-mix theorem); ~~(f) reviewer batch 2: fresh-session pass on 030/031/033 (HU-mix, HU-notax, the order-kill witness, the sweeps) per the 029/024 standard~~ **DONE in 034 (a first attempt this window died at its session limit with nothing committed; 034 is a clean re-run). Everything load-bearing survives — HU-mix and HU-notax re-derived by hand in full (the [1/4, 1/2] hypothesis is exactly the Fréchet-feasibility condition, and the sign analysis' z = x+y−1 branch checks out), all six scripts reproduce byte-identically with both skeptics at exit 0, all 43 independently re-implemented values agree (third-path HU builder, own evaluator/DP/optimizer, all three certificates recomputed at 60 digits inside both kits' enclosures), the order-kill is confirmed exactly (1 of 24 orders, (0,1,3,2), CR = −0.00804843), and a strictly stronger all-n!-orders adversary at the working cap still finds nothing (floor +0.043284 from 12 starts). ONE REFUTATION: **(HU-TAX at p̄) as stated is false for every p̄ < 1/4** — its own claimed equality case Bern(p̄)^⊗n violates it, because below 1/4 the Fréchet floor 1−2p exceeds 1/2, the clamp fires, and the sharp product constant is (h(2p̄)−h(p̄))/h(p̄) < (1−h(p̄))/h(p̄); deficit exactly n(1−h(2p̄)) bits, order-independent, so it hits the identity- and best-order forms too. Re-pose (HU-TAX) on p̄ ∈ [1/4, 1/2) — exactly where the clamp is idle, which is also 030's hypothesis; the cap-form every sweep tests, and HU-mix, are untouched, and no measured value in the three records moved. Reporting corrections: 031 §2's worst scan ratio is +0.045578 not +0.0496 and its descent floors are +0.045578/+0.045578/+0.042367 not +0.0429/+0.0430 (and those descents start from the worst random-scan supports, not the floor endpoints); 030's degeneration triple quotes the skeptic's fixed-transfer point instead of the optimizer (+0.40370/+0.40316/+0.40375); 030's near-ψ CR/H is constant only to five decimals (0.0430306→0.0430333, increasing in n) though the identity CR = n − H(μ) is exact; 031's '120-order sample at n = 6' is the perm[0]=0 sub-family, not a sample (full 720 enumeration redone here, same min/max, still positive); uc_hu_certify.py's WITNESS comment claims a permutation the data does not carry (code right, comment wrong, and (0,1,3,2) is an involution); 033's parts B/C/E shipped without code (all three reproduce; code now committed as `uc_reviewer034_reimpl.py`). Independence caveat as in 029: fresh-context subagent, zero shared session state, spawned from the author session, same model family — the human judges whether that meets the 024 bar.** ~~canonical-order rule (now mandatory above ≈ 0.44)~~ **DONE in 035 — the rule rescues 0.45 but is REFUTED at 0.49 (certified), bounding HU's reach below 1/2.** Live leads: (i) non-greedy order rules scoring the surplus/deficit ledger directly — the 035 n = 5 kill, where canonical picks the worst of 120 orders, is the discriminating test; (ii) bracket the canonical threshold at caps 0.46–0.48 with n ≥ 5 full enumeration; (iii) measure best-order HU's ceiling (it survives both 035 kills) to bound what ANY order rule could achieve; (iv) prove all-orders CR_HU ≥ 0 at p̄ ≤ 0.38271; (v) recipe v3 should carry canonical-HU only to a defended cap (0.45 on current evidence) — the interval [0.45, 1/2) needs a different object.**
 2. [union-closed] Rebuild the assembly budgets per 012's corrections: the tax is δ-LINEAR (restate B2), the τ_half step needs s₀ ≤ 0.0843, corrected δ₀ ≈ 0.004. The open question is whether ANY n-uniform budget object exists — 008's conditional theorem survives structurally; its constants need the corrected inputs, and the budget census machinery (uc_pert.py + uc_pert_skeptic.py's orbit engine) is ready.
 3. [union-closed] Sweep leads from 010, one per cycle: (i) pairwise-closure LP/degree-2 SOS certification on the n ≤ 4 census (all 4958 families) — kill: certified bound converges to ≈ 0.382; (ii) union-transfer-operator eigenvalue field — test log-supermodularity of λ_C on the n ≤ 5 census (pre-check the total-positivity records first); (iii) bipartite-MIS decomposition — geng census to n = 12, connectivity of extremals, compositionality across 1- and 2-cuts. Kill conditions recorded in 010.
 4. [erdos-straus] Prove the identity-poverty mechanism: why does QR-class membership mod 840 force fewer Type I covering congruences? Start from 001's obstruction analysis + 002's rate data; target a theorem "f(p) ≥ g(N_typeI(p))" or a disproof.

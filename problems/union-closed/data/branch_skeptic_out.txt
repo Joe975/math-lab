@@ -1,0 +1,42 @@
+Skeptic pass on uc_branch_attack.py (independent implementation)
+======================================================================
+
+S1. Headline half-mixing refutation instances (004 verbal build):
+  [ok] CR_halfmix(n=2, ph=0.9935, P1=0.64) < 0 in-regime  (CR=-0.002268, maxmarg=0.3577, H=0.9832)
+  [ok]   matches engine value at n=2  (delta=3.60e-16)
+  [ok] CR_halfmix(n=6, ph=0.9985, P1=0.64) < 0 in-regime  (CR=-0.007133, maxmarg=0.3595, H=0.9777)
+  [ok]   matches engine value at n=6  (delta=-3.35e-15)
+  [ok] CR_halfmix(n=16, ph=0.9996530032777935, P1=0.64) < 0 in-regime  (CR=-0.015321, maxmarg=0.3599, H=0.9685)
+  [ok]   matches engine value at n=16  (delta=6.37e-13)
+
+S2. Extended-HM lemma (ST = 0) on independently built eps-mixing
+    couplings, incl. a mixture s-law; and iid-coupling rescue:
+  [ok] ST = 0 for arbitrary (eps,s) mixing couplings  (max |ST| = 5.66e-15)
+  [ok] iid coupling rescues (n=2) without Sinkhorn  (CR_iid=+0.04618)
+  [ok] iid coupling rescues (n=6) without Sinkhorn  (CR_iid=+0.04371)
+  [ok] 3block empty-mixing rescue value reproduces  (CR=+0.692969 vs engine +0.692969)
+
+S3. Block-branch gains by direct mask enumeration (no profile
+    arithmetic), n = 8 and 12:
+  [ok] 2block gain(n=8) reproduces and is negative  (gain=-0.79400 vs engine -0.79400)
+  [ok] 2block gain(n=12) reproduces and is negative  (gain=-1.19100 vs engine -1.19100)
+  [ok] 3block gain(n=8) reproduces and is negative  (gain=-1.05043 vs engine -1.05043)
+  [ok] 3block gain(n=12) reproduces and is negative  (gain=-1.57206 vs engine -1.57206)
+  [ok] hi+lo gain(n=8) reproduces and is negative  (gain=-0.30349 vs engine -0.30349)
+  [ok] hi+lo gain(n=12) reproduces and is negative  (gain=-0.56218 vs engine -0.56218)
+  [ok] comonotone CR = 0 exactly  (CR=-4.81e-15)
+
+S4. Coverage-lemma boundary: sign of F'(P1) by central
+    difference of brute-force entropy, n in {1, 2}:
+  [ok] F'(P1) < 0 on the whole n=1 boundary grid  (1001/1001 negative)
+  [ok] F'(P1) < 0 on the whole n=2 boundary grid  (1001/1001 negative)
+  [ok] case-(3) constants and n>=3 margin > 0  (h(2M)=0.785910, max(-xlogx)=0.530738, margin=+0.1208)
+
+S5. psi sign flip: root of h((1-p)^2) = h(p):
+  [ok] root equals (3-sqrt5)/2  (root=0.381966011250105)
+
+S6. Floor-ratio table: recompute CR/H from cr_attack.json:
+  [ok] min CR/H over H-bounded endpoints matches engine table  (min = 0.0387 at mmabskill)
+
+======================================================================
+No refutation found: every load-bearing number reproduces under an independent implementation.
