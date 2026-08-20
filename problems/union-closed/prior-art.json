@@ -1,1237 +1,1275 @@
 {
- "problem": "union-closed",
- "route_status": "LIVE",
- "route_summary": "Dependent-coupling interface survives every known counterexample genre; model ceiling 0.4315 vs published record 0.38271. No bound claimed; three labeled proof gaps.",
- "attempts": [
-  {
-   "id": "001",
-   "file": "attempts/001-entropy-barrier-map.md",
-   "date": "2026-07-25",
-   "mode": "informed",
-   "status": "MAP",
-   "mechanism": [
-    "entropy-method",
-    "barrier-analysis",
-    "exhaustive-small-family-search",
-    "k-wise-union",
-    "up-sets"
-   ],
-   "one_line": "Mapped the entropy-method frontier and the (3-sqrt5)/2 barrier; established the n<=4 exhaustive baseline; produced candidate ideas A-D.",
-   "refuted_by": null,
-   "gaps": [],
-   "leak_terms": [
-    "k-wise union",
-    "idea A",
-    "idea B",
-    "idea C",
-    "idea D",
-    "p(c) ladder"
-   ]
-  },
-  {
-   "id": "002",
-   "file": "attempts/002-weighted-kl-ladder.md",
-   "date": "2026-07-25",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "weighted-kl",
-    "entropy-functional-reweighting",
-    "smoothing-insensitive-functional"
-   ],
-   "one_line": "The weighted-KL ladder is dead for every c >= 0, killed by Sawin geometric mixtures; generalizes to a no-go covering all smoothing-insensitive functionals.",
-   "refuted_by": "sawin-geometric-mixtures",
-   "gaps": [],
-   "leak_terms": [
-    "weighted-KL",
-    "weighted KL ladder",
-    "smoothing-insensitive"
-   ]
-  },
-  {
-   "id": "003",
-   "file": "attempts/003-dependent-couplings.md",
-   "date": "2026-07-26",
-   "mode": "informed",
-   "status": "LIVE",
-   "superseded_by": "004",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett",
-    "conditionally-iid",
-    "block-adaptive-coupling"
-   ],
-   "one_line": "Overlap-biased couplings separate every adversary that killed the KL ladder; evades the 002 no-go by being smoothing-sensitive. No bound claimed.",
-   "refuted_by": null,
-   "gaps": [
-    "plackett-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "overlap-tilt",
-    "overlap-biased",
-    "Sinkhorn",
-    "Plackett",
-    "dependent coupling",
-    "conditionally-iid"
-   ]
-  },
-  {
-   "id": "004",
-   "file": "attempts/004-skeptic-review-of-003.md",
-   "date": "2026-07-26",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "003",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "coupling",
-    "overlap-tilt"
-   ],
-   "one_line": "Independent re-implementation confirms 003's interface and separations are real; corrects the recipe ceiling to 0.431496 and refutes 003's mini-theorem (e) as stated.",
-   "refuted_by": null,
-   "gaps": [
-    "plackett-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "corrections": [
-    "mini-theorem (e) bracket positivity is false as stated; restated, with the {0} u [1/2,1) genre covered by a half-mixing coupling",
-    "single-parameter recipe ceiling is 0.431496 in closed form, not 0.445 (grid-floor artifact)",
-    "one non-reproducible data file; several overstated sentences"
-   ],
-   "leak_terms": [
-    "0.4315",
-    "0.431496",
-    "half-mixing",
-    "mini-theorem"
-   ]
-  },
-  {
-   "id": "005",
-   "file": "attempts/005-odds-ratio-control-refuted.md",
-   "date": "2026-07-30",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "plackett",
-    "sinkhorn",
-    "total-positivity",
-    "barrier-analysis"
-   ],
-   "one_line": "The Gap-1 pointwise odds-ratio control [1, 2^lambda] is false both ways: Cauchy-Schwarz forces OR >= 2^lambda on diagonal histories, and an explicit 4-atom family crashes OR to 2^{lambda(3-n)}; sharp range and MTP2 one-sided partial result proved. Route stays LIVE with Gap 1 restated.",
-   "leak_terms": [
-    "odds-ratio crash",
-    "crash family",
-    "future-overlap discrepancy",
-    "over-diagonalizes",
-    "2^{lambda(3-n)}",
-    "averaged-odds-ratio-control",
-    "OR census",
-    "uc_odds_ratio"
-   ],
-   "refuted_by": null,
-   "gaps": [
-    "averaged-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ]
-  },
-  {
-   "id": "006",
-   "file": "attempts/006-skeptic-review-of-005.md",
-   "date": "2026-07-30",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "005",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "total-positivity"
-   ],
-   "one_line": "Independent re-implementation and hand re-derivation confirm all six propositions of 005 including the crash identity at lambdas 005 never ran; the Karlin-Rinott step is checked against the literature and re-proved via Ahlswede-Daykin; corrections are minor (Prop 2 equality-iff needs lambda > 0, two part-B reporting slips, docstring bugs); the restated averaged-control gap survives its own first falsifiable test.",
-   "corrections": [
-    "Prop 2 equality characterization ('equality iff proportional slices') is false at lambda = 0, where OR = 1 identically for every mu; the iff needs lambda > 0",
-    "part-B prose misreports its checkpoint: the 1.0000000011 minimum is the i<n figure, not 'all diagonal histories'; median per-trial minimum excess is 5.2e-4, not 5.4e-4",
-    "uc_odds_ratio.py docstring errors: part F says 'OR >= 1' where code and record prove OR >= 2^lambda; part G says overall deviation scales like delta where the data show delta^2",
-    "'about 83% of history mass' is the lambda = 0.5 figure; it is 81% at lambda = 1.5"
-   ],
-   "refuted_by": null,
-   "gaps": [
-    "averaged-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "M_i census",
-    "averaged control survives crash",
-    "family-dependent delta-squared onset",
-    "uc_or_skeptic"
-   ]
-  },
-  {
-   "id": "007",
-   "file": "attempts/007-averaged-or-control.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "plackett",
-    "sinkhorn",
-    "total-positivity",
-    "gram-mass-pairing"
-   ],
-   "one_line": "The restated Gap-1 averaged control M_i >= lambda is made well-posed (forced degeneracy bookkeeping), proved for four structured subclasses, then refuted in the record-relevant regime by an explicit perturbation-stable 10-atom mu (marginals <= 0.318) with M_5 = lambda - 0.122; the i-aggregated form survives and becomes the new gap.",
-   "range": "444-instance census plus clamped adversarial searches at n <= 8, lambda in [0.05, 6]; witness verified by two independent engines to 1e-14, stable under 3% perturbation and 2-digit rounding, violating for every lambda >= 0.03 on the same mu",
-   "refuted_by": null,
-   "gaps": [
-    "aggregated-or-control",
-    "margin-modulated-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "two-prefix witness",
-    "light slice",
-    "light-slice",
-    "10-atom witness",
-    "0.122033",
-    "dilution invariance",
-    "Gram mass pairing",
-    "gram-mass-pairing",
-    "2x2-minor control",
-    "cell floor",
-    "degeneracy dichotomy",
-    "aggregated-or-control",
-    "uc_or_avg",
-    "or_avg_part"
-   ],
-   "methodological_lesson": "Cross-engine agreement is not independence when both engines share IEEE arithmetic: a 1e-299 atom made u(A)u(B) underflow to exact zero in one diagonal cell, and both implementations plus the Sinkhorn round-trip agreed on the resulting fake violation; a parameter sweep of the suspect light atom toward its boundary was what exposed it. Guard adopted: cell-floor diagnostic plus dynamic-range clamping in searches.",
-   "note": "Settles 005 lead 1 negatively (005's SPECULATION label was accurate; nothing in 005/006 needs correction). Route stays LIVE: this kills a candidate bridge, not the interface. Partial positives now proved: M_i >= lambda for supports of <= 4 atoms, for potential-MTP2 mu, at i in {1, n}, and to first order in lambda (perfect-square coefficient), the last modulo the standard Sinkhorn-smoothness step."
-  },
-  {
-   "id": "008",
-   "file": "attempts/008-perturbative-assembly.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "LIVE",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett",
-    "perturbative-expansion",
-    "implicit-function-theorem"
-   ],
-   "one_line": "Closes the missing smoothness step in 005 Prop 6 (quantitative IFT, explicit fixed-n budget 924*min(p,1-p)^{-3n}*delta^2), runs the perturbative assembly end-to-end (positive on every marginal-capped instance to delta=0.2, n<=9), and shows the pointwise delta^2 OR budget is NOT n-uniform (deviation grows ~0.3 bits/coordinate at fixed delta) while the coordinate-averaged downward budget flattens; conditional n-uniform assembly theorem with every budget labelled by its gap.",
-   "range": "Exact couplings at n <= 9; delta <= 0.2; directions crash / zero-prefix embedded crash / delta_empty / Bernoulli mixtures / slice / pm-mixture; (p, rho) = (0.383, 1.06|1.20) and (0.30, 2.0); 78 assembly runs, 80 budget-census fits; proofs (Lemmas A-C, Theorem P6', conditional theorem) are for all n but pending skeptic pass",
-   "refuted_by": null,
-   "gaps": [
-    "averaged-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality",
-    "sinkhorn-tv-stability"
-   ],
-   "leak_terms": [
-    "perturbative assembly",
-    "capped delta-ball",
-    "downward budget",
-    "centered-overlap",
-    "zero-prefix embedded crash",
-    "n-uniform budget",
-    "uc_pert",
-    "Theorem P6",
-    "tau_half",
-    "budget census"
-   ],
-   "note": "Sub-results at different confidence levels inside one record: the Prop-6 closure is a written-out proof (VERIFIED pending independent skeptic pass); the lead-3 assembly check and the non-uniformity of the pointwise budget are EVIDENCE at n <= 9; the assembly theorem is CONDITIONAL on budgets (B1)-(B4) with n-uniform constants, of which (B1) is the perturbative form of gap a-prime and (B2) of gap b. 005's leads 3 and 4 are distinct (the task line conflated them); both were run."
-  },
-  {
-   "id": "009",
-   "file": "attempts/009-mutual-information-tax.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "EVIDENCE",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "chain-rule-assembly",
-    "mutual-information-tax"
-   ],
-   "one_line": "Gap 2 made precise as a chain-rule assembly statement (TAX at p) and probed: it survives all four adversary genres, is smoothing-sensitive on 002's own certificates, the pure slice tilt is provably tax-free, the half-mixing coupling provably loses nothing to chain-rule certification, and a previously unnamed second tax (measured ~0.40 log2 n on slices) is identified as the binding loss channel.",
-   "range": "Crash family n<=11, lambda in [-1,3]; half-mixing genre n<=14 at two parameter points; Sawin certificate gadgets n<=60000 (block recipe, rigorous bound); CL pure slice n<=80, lambda in [0,3], p in {0.42, 0.3823}. Finite-n, finite-grid EVIDENCE only; mini-lemmas SL/HM proved but not yet skeptic-reviewed.",
-   "refuted_by": null,
-   "gaps": [
-    "averaged-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality",
-    "second-tax-scaling"
-   ],
-   "leak_terms": [
-    "chain-rule assembly value",
-    "second tax",
-    "(TAX at p)",
-    "tax-free slice",
-    "uc_mitax",
-    "0.40 log2 n",
-    "lambda-window narrowing",
-    "CR = Gain identically"
-   ],
-   "note": "Deliberately the smallest-budget line of the cycle: a probe, not a campaign. The expected outcome was a precise obstruction; instead the candidate survived everywhere tested and the losses were localized (T_A vs ST, by genre)."
-  },
-  {
-   "id": "010",
-   "file": "attempts/010-ideation-sweep-fields.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "MAP",
-   "mechanism": [
-    "field-lens-sweep",
-    "barrier-analysis"
-   ],
-   "one_line": "First ideation sweep (6 field lenses): 3 queue-worthy routes (pairwise-closure LP certification, union-transfer-operator eigenvalue field, bipartite MIS decomposition), 6 secondary, 5 no-purchase verdicts incl. a proven product-weight no-go killing the multiplicative toolbox.",
-   "leak_terms": [
-    "field-lens sweep",
-    "coatom eigenvalue",
-    "union transfer operator",
-    "eigenvalue field",
-    "log-supermodular lambda",
-    "product-weight no-go",
-    "pairwise-closure LP",
-    "union-injection Hall",
-    "union-escape graph",
-    "MIS share r(G)",
-    "crosscut truncation"
-   ],
-   "refuted_by": null,
-   "gaps": []
-  },
-  {
-   "id": "011",
-   "file": "attempts/011-skeptic-review-of-009.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "009",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "chain-rule-assembly",
-    "mutual-information-tax"
-   ],
-   "one_line": "Independent re-implementation (recursion engine, natural-log Sinkhorn, direct-MI cross-checks) confirms 009 in full: mini-lemmas SL and HM re-derived by hand and now VERIFIED, all headline numbers reproduce to <= 1.4e-10, the crash lambda-window sharpens to the law lam_max*(n-3) -> 4.8475, the ST ~ 0.40 log2 n fit survives extension to n = 240 and two new p, and the untested tilt-on-Sawin cell closes positive at n <= 300; corrections are reporting-level (grid-edge suprema quoted as suprema, mixed-p 'increasing margin', slice-ratio scope, a measured 1e-5 lgamma floor behind part D's 'exactly', and an unstated m_k = 1/2 legality hypothesis p_k >= 1-1/sqrt(2) in the block bound, verified to hold on every instance used).",
-   "corrections": [
-    "slice sup_lambda CR values at p ~ 0.42 are grid-edge values; true suprema sit at lambda ~ 4-5 and are larger (e.g. +1.4655 vs reported +1.0199 at n=80, w0=34); 'increasing margin in n' conflates p = 0.4167 and p = 0.425 rows -- at fixed p the margin is cleanly increasing",
-    "Outcome scope 'p in {0.42, 0.3823}' overstates: slice ratios actually run are {0.4167, 0.425, 0.3833, 0.3875}; p = 0.3823 itself was never tested",
-    "part D's 'H(mu) computed exactly' has a measured ~4e-6 absolute lgamma floor at n = 60000 (harmless at the +2418 scale)",
-    "the part-D block bound's m_k = 1/2 choice needs the unstated hypothesis p_k >= 1-1/sqrt(2) ~ 0.29289; holds on all instances used but would fail silently on mixtures with a component marginal below it"
-   ],
-   "refuted_by": null,
-   "gaps": [
-    "averaged-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality",
-    "second-tax-scaling"
-   ],
-   "leak_terms": [
-    "uc_mitax_skeptic",
-    "mitaxsk",
-    "lambda-window law",
-    "4.847/(n-3)",
-    "0.405 log2 n",
-    "tilt-CR on Sawin",
-    "recursion engine",
-    "most conservative assembly",
-    "m_k legality"
-   ]
-  },
-  {
-   "id": "012",
-   "file": "attempts/012-skeptic-review-of-008.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "008",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "perturbative-expansion",
-    "implicit-function-theorem"
-   ],
-   "one_line": "Line-by-line re-derivation and two independent engines (incl. an orbit-symmetrized census that reaches n = 32) confirm 008's Theorem P6' closure of the Prop-6 smoothness gap, the 78-run assembly table, the calibration block, and the centered-kernel closed form; but the conditional theorem's constants fail (box-uniform tau_half is analytically false at 008's own s0 = 0.10, ceiling s0 <= 0.0843; delta_0 = 0.022 should be <= 0.0079 by 008's own formula, ~0.004 corrected), and the extended census reverses the flattening reading: the averaged downward OR budget's increments stop shrinking and start growing past n ~ 22 (claimed limits 0.07/0.3 passed by n = 16/10, delta^2-coefficient verified stable in delta at n = 32), killing budget (B1) as stated at evidence level by 008's own lead-1 criterion, while the tax budget (B2) is first-order in delta, not quadratic, in every observable window.",
-   "corrections": [
-    "conditional theorem's 'G nondecreasing in tau up to tau_half on the box' is analytically false at (p, rho, s0) = (0.383, 1.2, 0.10): (x0+s0)^2 = 0.5141 > 1/2 and z > xy for rho > 1, so tau_half(corner) = 0; the claimed P2d numerical check does not exist in uc_pert.py; repair requires s0 <= x_c - x0 = 0.0843 with re-measured constants",
-    "delta_0 ~ 0.022 does not follow from 008's stated formula: the code drops the ||G||_box/s0^2 c3 term (||G||_box = 0.1456, never computed by 008 -> delta_0 = 0.0079); the off-box charge needs the global sup(-G) = 0.487, not ||G||_box; M_tau must include the tau < 0 side (0.0838 vs 0.0592); c3 is ~4.7 not 2.5; fully corrected delta_0 ~ 0.004",
-    "the averaged downward budget does NOT flatten: at (0.383, 1.2) the delta->0 coefficient rises 0.065 (n=9) -> 0.104 (n=32) with increasing increments; at (0.30, 1.0) it passes the claimed 0.3 limit at n = 10 and reaches >= 1.24 by n = 32 (the fixed-delta turnover is a delta-saturation artifact); (B1) with n-uniform constant is dead at EVIDENCE level per 008's own lead-1 falsification criterion",
-    "the tax is first-order in delta (halving ratios -> 2), not O(delta^2), in every observable window at large n; fixed-delta tax/delta^2 exceeds the instantiated c2 = 0.01 by 10x at n = 32; (B2) must be restated as a linear-in-delta budget (absolute tax stays tiny, so end-to-end positivity is not threatened)",
-    "'worst in-class net = +0.0003 (slice n=5 delta=0.2)' is out of class by 008's own capped flag; true worst in-class min-net is ~ +0.00105 (rho=1.06 crash n=6 delta=0.02)",
-    "P6' constant chase: the stated step 'using m0 <= 1/2' yields 831, not 924 (924 corresponds to m0 <= 1; bound valid either way); the 'measured c ~ 0.6' looseness illustration ignores 008's own census worst case c ~ 20.6"
-   ],
-   "range": "Hand re-derivation of Lemmas A-C and Theorem P6' in full; P6' bound stress-tested on 120 instances (n <= 6, five directions incl. delta_full and half-empty, delta up to the theorem boundary 0.5, zero violations); Lemma B checked at interior delta; 78-run table spot-verified to 5e-6 and 104-run capped-negative hunt (rho in {1.045, 1.06, 1.20}, n <= 9, delta <= 0.2, incl. the half-empty direction with marginals exactly p) found none; budget census re-run and extended to n = 32 on the crash direction via an orbit-symmetrized engine (n <= 9 values reproduce 008 to all printed digits), with delta -> 0 stability verified at n = 32 down to delta = 0.003125 for the downward budget (clean delta^2) and shown NOT to hold for the tax (delta-linear); conditional-theorem constants recomputed on 008's grid plus tau < 0 and global domains",
-   "gaps": [
-    "averaged-odds-ratio-control",
-    "mutual-information-tax",
-    "recipe-totality",
-    "sinkhorn-tv-stability"
-   ],
-   "leak_terms": [
-    "uc_pert_skeptic",
-    "pertsk",
-    "orbit engine",
-    "budget growth resumes",
-    "delta-linear tax",
-    "s0 ceiling 0.0843",
-    "tau_half corner",
-    "corrected delta0",
-    "n = 32 census"
-   ]
-  },
-  {
-   "id": "013",
-   "file": "attempts/013-skeptic-review-of-007.md",
-   "date": "2026-07-31",
-   "mode": "informed",
-   "status": "VERIFIED",
-   "verifies": "007",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "gram-mass-pairing"
-   ],
-   "one_line": "Exact rational arithmetic (Fraction end-to-end, certified log2 enclosures) confirms 007 in full: the 10-atom witness's violation is certified float-free at rational tilts spanning lambda ~ 0.0144..5 including exactly rational lambda = 2, 3, 4 (positive at small t exactly where Theorem C forces it), both invariances hold as exact rational identities, the aggregate is certified positive (+1.844669) and survives witness-seeded two-coordinate attacks, all four partial theorems re-derive by hand, and the refutation even survives the conjecture-friendliest alternative bookkeeping (degenerate histories scored at lambda: still -0.067); no corrections, one cosmetic runtime discrepancy.",
-   "range": "Witness certified at 12 exact rational tilt parameters (fixed-u family t = 101/100 .. 32 plus rationalized-refit measures at lambda = 1, 2, 3 within 9.2e-16 of the witness mu); enclosure widths < 1e-40; own 96-instance battery + 21-endpoint aggregate hunt at n <= 7; Theorem B probed on 500 random <= 4-atom instances; hand re-derivations of section 1, Lemmas G/M, Theorems A/B/C and both invariances",
-   "refuted_by": null,
-   "gaps": [
-    "aggregated-or-control",
-    "margin-modulated-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "oravgsk",
-    "uc_or_avg_skeptic",
-    "exact rational witness",
-    "convention robustness",
-    "surrogate-lambda",
-    "1.844669",
-    "minor ratio 6.68"
-   ],
-   "note": "Decisive check: 007's confessed vulnerability (both engines share IEEE floats; its first witnesses were shared-underflow artifacts) is closed by re-verifying the witness in exact rational arithmetic with directed-rounding log2 enclosures. At t = 4 and t = 16 the refutation of M_i >= lambda is a fully rational statement with lambda = 2, 4 exactly. New strengthening beyond 007: the violation does not hinge on the conditioning-out convention (degenerate histories scored at exactly lambda still give M_5 - lambda = -0.067, certified). Nuance: exact certificates at lambda = 1, 2, 3 are for rationalized-refit measures within 9.2e-16 of the witness mu, not the identical rational mu. Theorem C's smoothness step is analogous to but not literally discharged by 008's P6-prime (P6-prime is d/d-mu at fixed lambda; Theorem C needs d/d-lambda at fixed mu)."
-  },
-  {
-   "id": "014",
-   "file": "attempts/014-aggregated-or-probe-large-n.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "EVIDENCE",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "exact-rational-arithmetic",
-    "group-orbit-enumeration"
-   ],
-   "one_line": "The queue-mandated large-n probe of the restated gap: the i-aggregated OR control survives to n = 32 certified (15 exact-rational certificates, tightest +5.99e-7) and to n = 64 on float trends -- 0 violations in ~1780 instances spanning every known adversary genre plus aggregate-objective hill-climbs; product measures are its exact equality set, all perturbative departures are quadratically upward, the minimum margin GROWS with n on every structured family (no 012-style reversal), and the one decaying direction dips to +1.4e-7 at n ~ 48 then recovers.",
-   "range": "n in {10,14,20,24,28,32} across 14 orbit families x 10-point lambda grids in [0.079, 5] (840 instances) + 432 perturbative instances around the product boundary + trend runs to n = 64 + 426 sparse structured instances (witness genre re-laid-out per n, multi-gadget stacks, crash/mirror) + 82 climb endpoints at n <= 24; 15 certificates in exact rational arithmetic at tilts 181/16, 4 (lambda = 2 exactly), 271/256, enclosure widths <= 5.9e-12",
-   "refuted_by": null,
-   "gaps": [
-    "aggregated-or-control",
-    "margin-modulated-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "uc_or_agg_probe",
-    "or_agg_probe",
-    "aggregate survives n=32",
-    "equality boundary at products",
-    "product equality set",
-    "slice-direction dip",
-    "271/256",
-    "0.001201865",
-    "5.99e-7",
-    "dyadic compaction",
-    "witness-at-n",
-    "gadget stack"
-   ],
-   "note": "Probe only, per the queue's ordering (012's budget-growth reversal was the standing warning; it was looked for and not found in the aggregate, including on 012's own crash-mixture genre). Sign of the aggregate shown convention-robust under 013's surrogate-lambda bookkeeping (numerator unchanged, denominator grows). Certificates are for quantized refit measures at exact rational tilts (013 R2 scope). Proof effort on the aggregated control is now justified by the queue's own criterion; lead 1 (product-boundary Hessian) is the entry point. Superseded where they differ by 016/017 (merged from a parallel cycle): the same control is certified NEGATIVE on a unit-replicated ladder at n = 96-160, so the n <= 32 positivity recorded here is a small-n fact, not a licence for proof effort on the forall-n statement. The two searches are consistent -- 016 also finds nothing negative at n <= 32.",
-   "superseded_by": "016"
-  },
-  {
-   "id": "015",
-   "file": "attempts/015-skeptic-review-of-014.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "014",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "group-orbit-enumeration"
-   ],
-   "one_line": "Independent re-implementation (digit-extraction log2 bracket instead of the atanh kit, integer-scaled exact rows, own orbit derivation and Sinkhorn) confirms 014 in full: five certificates incl. the softest +5.99e-7 and the fully rational t = 4 point re-certified on identical exact inputs with no disagreement, kit sound by hand and by 437-case cross-bracketing, orbit formulas cross-checked at n = 8-9 with exactly zero within-class OR spread, the n ~ 48 dip reproduced digit-for-digit and shown robust off-grid, and ~116 new adversary instances (witness-direction off the product boundary, marginals pushed to 0.3827, lambda below the grid floor) all positive; corrections are reporting-level (part-P order range is d^1.39-d^2.06 on its own checkpoint, not d^1.85-d^2.06; 'products are the exact equality set' claims an unproven converse that is false at lambda = 0; stale docstring runtimes; 1820 not ~1780 instances).",
-   "corrections": [
-    "part P 'fitted order d^1.85-d^2.06 in every direction' misreports its own checkpoint: 19 of 72 fitted cells lie below 1.85, minimum d^1.39 (n=32, full direction, lambda=0.5, in-regime); successive-halving orders climb back toward 2 as d -> 0, so the qualitative quadratic-upward reading survives but the quoted range is a grid-edge artifact, and the cubic term is large at lambda >= 0.5 (lead-1 consequence recorded)",
-    "'product measures are the exact equality set' proves only the forward inclusion; the converse is untested and false outright at lambda = 0 (A = 0 for every mu), needing the same lambda > 0 proviso 006 added to 005 Prop 2; no downstream use is affected",
-    "uc_or_agg_probe.py docstring runtimes (O ~ 40-80 min, E ~ 10-30 min) are stale; actual O ~ 146 s, E ~ 113 s (the record's own times are right)",
-    "the Outcome's '~1780 float instances' should be 1820 (840+432+40+426+82)"
-   ],
-   "refuted_by": null,
-   "gaps": [
-    "aggregated-or-control",
-    "margin-modulated-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "oragg_sk2",
-    "uc_or_agg_skeptic2",
-    "digit-extraction bracket",
-    "log2_bracket",
-    "d^1.39",
-    "equality-set converse",
-    "cubic remainder",
-    "witness-direction boundary attack",
-    "6.4e-7 first-order floor"
-   ],
-   "note": "Decisive check: 014's unreviewed enclosure kit is re-derived by hand and beaten against a from-scratch certifier using a different algorithm (binary digit extraction with directed integer shifts; exact integer masses so the aggregate denominator is exact); the five re-certifications agree with 014's enclosures at width 1.1e-14, including on the identical quantized refit measures. New floor observed: the lambda -> 0 first-order coefficient at the dip point is +6.4e-7 (n = 48), the smallest Theorem-C square seen anywhere; lead 2 should track that coefficient, not A at fixed lambda."
-  },
-  {
-   "id": "016",
-   "file": "attempts/016-aggregated-control-probe-large-n.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett",
-    "gram-mass-pairing",
-    "exact-rational-arithmetic"
-   ],
-   "one_line": "Large-n probe of the restated Gap 1 kills it: unit-replicating the 10-atom witness genre (r crash units sharing one block marker) with re-optimized shared weights drives the i-aggregated control negative past n ~ 90, certified float-free at t = 4 (n = 96 and 160, marginals <= 0.309); the n <= 32 space stays positive everywhere searched.",
-   "leak_terms": [
-    "unit replication",
-    "multi-unit witness ladder",
-    "MU(n,r)",
-    "theta-star ladder",
-    "aggregate crossing",
-    "O(1) surplus corridor",
-    "0.024226",
-    "-0.000759865",
-    "uc_agg_ctrl_probe",
-    "aggprobe"
-   ],
-   "range": "Free-support seeded climbs n <= 32 (58 climbs round 1, deep annealed round 2) plus permutation orbits: 0 violations; unit-symmetric ladder evaluated to n = 160 (raw witness weights: positive through n = 128, min +0.157; optimized theta*: float crossing in (88, 96], -0.0242 at n = 160, 20/20 perturbations stay negative); exact rational certificates at t = 181/16 and t = 4, enclosure widths < 1e-18",
-   "refuted_by": null,
-   "gaps": [
-    "margin-modulated-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "note": "Settles queue item 1's probe-first branch negatively: the aggregated control is certified positive at n <= 32 on everything searched, so proof effort there was exactly the small-n trap 012 warned about. The kill is convention-robust (scoring degenerate histories at lambda only grows the denominator, never the numerator). Route stays LIVE; Gap 1 falls to the margin-modulated candidate (007 lead 2), which this record's ladder family must now be run against. Recorded as 016/017 (not 014/015) and on engines uc_agg_ctrl_probe*.py / uc_agg_ctrl_skeptic.py: this line ran in parallel with 014/015, which took the 014/015 slots and the uc_or_agg_probe.py name first. The two are independent and compatible -- 014 certifies the aggregate positive at n <= 32, which is exactly where this record finds nothing either; the kill lives past n ~ 90."
-  },
-  {
-   "id": "017",
-   "file": "attempts/017-skeptic-review-of-016.md",
-   "date": "2026-08-04",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "016",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "gram-mass-pairing"
-   ],
-   "one_line": "From-scratch third implementation of the aggregate (scaled-integer census plus an interval-squaring log2 enclosure, nothing shared with the probe engines) confirms 014's kill: all three certificates re-derive with matching digits (n=96 in [-0.000759865185844166092, -0.000759865185844166079], n=128 -0.0154057269, n=160 -0.0242259093, all t=4, marginals certified below 0.38271, dichotomy exact), the anchors and positive controls re-certify (+1.844669005 witness; raw-weight ladder at n=96 upgraded to certified +0.157131854664), and the convention-robustness proof re-derives; corrections: the n=128 instance has 252 atoms not 253, and P4's claim that the violating lambda-window sits where 009/011's lambda-window law puts the workable range is wrong (at n=96 the law gives lambda_max ~ 0.052 vs the violation at lambda in [2, 2.5]), so the lambda-restricted restatement joins the margin-modulated control as a live Gap-1 candidate.",
-   "corrections": [
-    "n = 128 tidy certificate instance has 252 atoms (2r+8, r=122), not the 253 stated in 014's certification block and Outcome table",
-    "P4's 'violating window sits exactly at moderate lambda where 009/011's lambda-window law puts the workable range' is false at every violating n: lambda_max ~ 4.847/(n-3) ~ 0.052 at n = 96 while the violation lives at lambda in [2, 2.5] and the same family is positive at lambda <= 1.5 -- the kill closes the unrestricted for-all-lambda gap only, and the lambda-restricted (lambda <~ c/n) restatement is untouched by this family"
-   ],
-   "range": "Kill certificates independently re-derived at n = 96 (188 atoms), 128 (252 atoms), 160 (316 atoms), all at t = 4 exactly, enclosure widths <= 1.3e-20; witness anchor at t = 181/16; P3-best n = 32 and raw-witness ladder n = 96 positives certified; padding invariance MU(20,1)/MU(32,1) verified as exact rational identity; alternative-bookkeeping aggregate certified negative at all three n; MU builder cross-checked atom-for-atom against the probe's; 014's float-only side claims (crossing in (88,96], 20/20 perturbations, P4 window edges) reconciled against checkpoints but not certified; n <= 32 search completeness not re-run (stays EVIDENCE)",
-   "refuted_by": null,
-   "gaps": [
-    "margin-modulated-or-control",
-    "lambda-restricted-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "aggsk15",
-    "uc_agg_ctrl_skeptic",
-    "interval-squaring enclosure",
-    "0.157131854664",
-    "lambda-window disjointness",
-    "252 atoms not 253"
-   ],
-   "note": "Decisive check per the 2026-07-31 verification standard: 014's certificates reused 013's exact engine and enclosures, so this review removes the shared-code risk with a third census written from 007 section 1's prose and a structurally different certified log2 enclosure (dyadic interval squaring; ln 2 from the exact series sum 1/(k 2^k)). Free anchors verified exactly: OR/t = 1 at i = n (005 Prop 1) on every instance, and including the i = n term keeps every kill negative. Union-closure of the support is correctly NOT a hypothesis (the control quantifies over all mu; 007's witness was not union-closed either) -- checked and recorded so the scope is explicit. Precedent followed from 013/007: the reviewed entry (014) is not modified."
-  },
-  {
-   "id": "018",
-   "file": "attempts/018-surviving-controls-vs-ladder.md",
-   "date": "2026-08-06",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "chain-rule-assembly"
-   ],
-   "one_line": "Triage of the two post-016 Gap-1 candidates against the ladder adversary: the margin-modulated OR control is REFUTED in both signed readings already at n = 7 by 007's own witness (secant form certified -0.0222546582 at t = 181/16, in-regime -- the h-sensitivity weight is signed and kills the surplus histories, not the hidden deficit), while the unsigned |sigma|-weighted variant and the lambda-window-restricted control survive theta-re-optimized ladders, free-support climbs and joint (theta, lambda) attacks, with the window margin's first-order coefficient a1(n)*n GROWING in n.",
-   "range": "Witness kill certified exact at t = 181/16 (dyadic-bisection Plackett-root enclosures, directed log2 entropy enclosures), perturbation-stable 20/20 at 3%, 2-digit tidy, violating for every lambda in [1, 5]; MM variants measured on raw and theta* ladders n <= 160 (incl. 016's three certified kill instances), theta re-optimized against MM_abs at n = 48 with transfers to 160, 8 free-support climbs at n = 8; window probe at lam = 4.847/(n-3), /2, /4 on ladders n <= 320 with theta re-optimized at window lambda and a joint (theta, lam <= window) climb at n = 96",
-   "refuted_by": null,
-   "gaps": [
-    "abs-sensitivity-or-control",
-    "lambda-restricted-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "leak_terms": [
-    "margin-modulated",
-    "MM_sec",
-    "MM_der",
-    "MM_abs",
-    "secant form",
-    "Plackett sensitivity",
-    "h-sensitivity",
-    "sensitivity sign flip",
-    "z crosses 1/2",
-    "0.0222546582",
-    "uc_gap1_candidates",
-    "gap1c",
-    "a1(n)*n",
-    "window margin coefficient",
-    "abs-sensitivity-or-control"
-   ],
-   "note": "Settles 016 lead 1 negatively for the signed readings without needing the ladder: the sensitivity weighting fails on the witness itself while the plain aggregate is certified positive (+1.844669) on the same tables. The margin-modulated gap tag of 007/013/016 dies as stated; what replaces it is the unsigned variant (which decouples from the chain rule -- a proof of it would not feed the 008/012 assembly directly) and the window-restricted variant (016 lead 4 / 017 C2), both surviving as EVIDENCE. Certification of the kill uses the lab's first certified enclosure of a NONLINEAR census functional (Plackett root + binary entropy per history)."
-  },
-  {
-   "id": "019",
-   "file": "attempts/019-skeptic-review-of-018.md",
-   "date": "2026-08-06",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett"
-   ],
-   "one_line": "From-scratch re-certification confirms 018's headline: an independent exact kit (scaled-integer census from 007 section 1's prose, exact-rational Newton with sign-checked bracket for the Plackett root, own interval-squaring log2 enclosures) re-derives MM_sec in [-0.022254658205655785176146, -0.022254658205655785176145] on the witness at t = 181/16 -- negative, in-regime, dichotomy exact, strictly inside 018's enclosure -- with the secant identity, product-measure zero and degenerate-contribution-0 re-derived by hand and the tidy 2-digit witness newly certified (-0.02227); the realized-OR sensitivity variants 018 skipped were built and tested (signed dies on the witness at -1.458, unsigned survives), so no signed reading of 007 lead 2 survives; corrections are prose-level only.",
-   "leak_terms": [
-    "gap1csk",
-    "uc_gap1c_skeptic",
-    "sign-checked Newton bracket",
-    "realized-OR variant",
-    "MM_der_rlz",
-    "MM_abs_rlz",
-    "0.022254658205655785176",
-    "raw ladder branch flip",
-    "golden parenthetical"
-   ],
-   "verifies": "018",
-   "corrections": [
-    "018 part B's 'MM_sec is negative at every n in {16..160} (raw and theta* ladders), MM_der negative throughout' is contradicted by 018's own gap1c_partB.json: the raw ladder at n in {96, 128, 160} has MM_sec +6.7e-3/+6.1e-3/+5.2e-3 and MM_der ~ +0.95..0.99 (the tune_dil bisection switches dilution branch at n >= 96); correct scope is theta* at all n and raw at n <= 64 only",
-    "the golden-ratio parenthetical (twice: 'z_1(x,x) = x^2 crosses 1/2 exactly at the (3-sqrt5)/2 barrier') is false -- at the barrier x^2 equals the marginal itself (phi^2 = 1 - phi), not 1/2; the rho = 1 crossing is at marginal 1 - 2^{-1/2} ~ 0.2929 and the lambda = 3.5 crossing at ~ 0.3891 is lambda-dependent; the in-regime z = 1/2 straddling claim itself survives",
-    "section F ships a literal PENDING-F placeholder: only 1 of 4 --cert jobs (the witness MM cert) had landed at review time; the n = 96/160 MM certificates and t = 51/50 window certificates are absent from 018 and must not be cited from it",
-    "witness MM_sec 'positive only for lambda <~ 0.7' -- the crossing is between 0.8 and 0.9 (+4.95e-5 at 0.8, -3.2e-4 at 0.9)",
-    "runtime drift (cosmetic): record says ~35 min for parts A-D, log shows ~58 min"
-   ],
-   "range": "Witness MM_sec kill independently re-certified at t = 181/16 (enclosure width 5.9e-30, strictly inside 018's; exact marginals < 38271/100000; dichotomy and degenerate-row-zero checked as exact identities); tidy 2-digit witness newly certified negative; exact product-measure anchor (w = 3/7, n = 5, t = 4) contains 0 at width 9.3e-30 with plain aggregate exactly 0; float spot-checks on a spec-rebuilt ladder (own builder + own tune_dil): witness MM numbers, theta* n = 96 lam = 2 triple, window A at n = 96, all 10 part-D a1/a2 fits re-solved, perturbations 0/40 failures on fresh seeds; best_free endpoint re-evaluated (in-regime, nondegenerate); realized-OR variant zoo at two instances; searches themselves NOT re-run at scale (018's floors stay EVIDENCE); MM_der not separately certified (float only, as in 018)",
-   "refuted_by": null,
-   "gaps": [
-    "abs-sensitivity-or-control",
-    "lambda-restricted-or-control",
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "note": "Decisive check per the lab standard: 018's certificate reused 013's atanh log2 kit and its own dyadic bisection; this review's kit shares neither (interval-squaring log2 re-implemented from 017's idea; exact Newton root with per-call symbolic bracket-sign identities F(xy) = (1-t)xy(1-x)(1-y) < 0 < min(x,y)(1-max(x,y))). Three structurally different kits now agree on the witness tables (013's aggregate, 018's MM, this one). The fork analysis is extended, not just checked: sensitivity-at-realized-OR readings were the natural loophole and they behave exactly as 018's signed/unsigned dichotomy predicts. Per precedent the reviewed record (018) is not modified."
-  },
-  {
-   "id": "020",
-   "file": "attempts/020-gap1-closed-swarm-guided.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "gram-mass-pairing",
-    "perturbative-expansion",
-    "sensitivity-kernel-design"
-   ],
-   "one_line": "Both surviving Gap-1 candidates die certified: the unsigned |sigma|-weighted control fails at n=4-5 via non-PSD sensitivity-kernel design (healthy margins, in-window), the lambda-window aggregated control fails at n=4 via a1-cancellation measures with negative a2 (marginals <= 0.2575), the assembly's aggregate secant requirement is violated in-window, and certified R+-pure witnesses rule out every chain-rule-compatible per-history weighting; attack directions drafted by a dual-family LLM swarm, all verification by the director.",
-   "leak_terms": [
-    "uc_gap1_deep",
-    "gap1deep",
-    "sensitivity kernel",
-    "kernel non-PSD",
-    "kink",
-    "a1 cancellation",
-    "prefix-signed cancellation",
-    "cancellation manifold",
-    "R+ no-go",
-    "R+-pure",
-    "window kill",
-    "0.2575",
-    "0.1100587",
-    "5.256144e-8",
-    "selector class",
-    "model_c1",
-    "exact_mm_abs",
-    "absw_enclosure",
-    "swarm020_attack",
-    "non-per-history-bridge"
-   ],
-   "range": "Certified kills at n = 4 (7-15 atoms) and n = 5 at rational tilts t in {6/5, 21/20, 16/15, 27/25, 7/5, 3/2, 2}, enclosure widths < 1e-14, in-regime exact, dichotomy exact; tensor extension to n = 8, 12 and the lambda-integrated variant's negativity are float-level; deep anneals at n <= 16 with the crash-corner float negatives shown to be artifacts by exact sign-flip",
-   "refuted_by": null,
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality",
-    "non-per-history-bridge"
-   ],
-   "note": "Skeptic pass pending (queue). Swarm provenance: 12 attack briefs, gpt-5.6-luna + gemini-3.7-flash, effort medium, ~$0.15; two cross-family convergences (kernel Gram form; prefix-signed cancellation) supplied the designs; one worker formula error (sigma_0 denominator) caught by director validation. Part-A near-empty float negatives are certified artifacts (exact recomputation flips -24.5 to +23.4), re-confirming 007's underflow lesson."
-  },
-  {
-   "id": "021",
-   "file": "attempts/021-ideation-sweep-dual-provider.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "MAP",
-   "mechanism": [
-    "field-lens-sweep",
-    "barrier-analysis"
-   ],
-   "one_line": "Second ideation sweep, seven lenses x two model families (14 workers): union-transfer-operator lead sharpened by an exact eigenfunction identity (coordinate frequencies are eigenvalues), Mobius/zeta LP statistics and a strong-Rayleigh feasibility question queued, number theory no-purchase by cross-family agreement, and two idea-shapes killed inline by the explicit family 2^{1,2} u {[6]}.",
-   "leak_terms": [
-    "swarm020_ideation",
-    "eigenfunction identity",
-    "coordinate eigenvalue",
-    "union transfer operator T_mu",
-    "strong-Rayleigh feasibility",
-    "fiber matching",
-    "Phi_q majorization",
-    "2^{1,2} u {[6]}",
-    "dual-provider sweep"
-   ],
-   "refuted_by": null,
-   "gaps": [],
-   "note": "Swarm-executed per docs/SWARM.md: 7 lenses x {gpt-5.6-luna, gemini-3.7-flash} at effort low, ~$0.06. Cross-family convergence used as a triage axis for the first time on an ideation sweep; both inline kills verified by hand by the director before recording."
-  },
-  {
-   "id": "022",
-   "file": "attempts/022-skeptic-review-of-020.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "VERIFIED",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "plackett"
-   ],
-   "one_line": "Cross-family skeptic pass on 020: a gemini-3.7-flash-drafted verifier (own digit-extraction log2 with directed dyadic rounding, own bisection, own census, zero shared code, audited then run unmodified) reproduces all 12 certificates digit-for-digit including the three R+-purity legs; the weight identity and R+ reduction re-derived by hand; the window kill extended to a certified n=8 in-window tensor instance; and Gap 2's CR > 0 candidate SURVIVES both kill geometries with margins 0.40-0.80.",
-   "leak_terms": [
-    "uc_gap1_skeptic_gemini",
-    "swarm022",
-    "digit-extraction",
-    "two-track rounding",
-    "gap1deep_witnesses",
-    "tensor_n8",
-    "CR survives",
-    "0.7985",
-    "0.4003",
-    "drafted-verifier pattern"
-   ],
-   "verifies": "020",
-   "range": "All 12 frozen witness instances (data/gap1deep_witnesses.json) re-certified at their rational tilts, enclosure widths below print precision, mixed-zero-table count 0 throughout; n=8 tensor aggregate certified at t = 25/24; Gap-2 check is float-level (Sinkhorn marginal deviation <= 2.3e-15) at a 10-point lambda sweep. Same-session review: implementation independence achieved (different model family, different algorithms), fresh-session reviewer independence still queued.",
-   "refuted_by": null,
-   "corrections": [],
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality",
-    "non-per-history-bridge"
-   ],
-   "note": "First use of the drafted-verifier skeptic pattern: spec -> cross-family worker writes the whole verifier -> director audits -> run unmodified. Per docs/SWARM.md this is stronger implementation independence than a same-family rewrite; the residual gap (same director, same session) is stated in the record and left for a fresh-session pass."
-  },
-  {
-   "id": "023",
-   "file": "attempts/023-gap2-first-adversarial-pass.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "EVIDENCE",
-   "mechanism": [
-    "coupling",
-    "overlap-tilt",
-    "sinkhorn",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "exact-rational-arithmetic",
-    "certified-enclosure"
-   ],
-   "one_line": "First adversarial pass on Gap 2: free-support anneals seeded at the exact geometries that killed Gap 1 grind sup_lambda CR from +0.40/+0.80 to floors +0.074..+0.22 but find NO in-regime violation (the only negative is the degenerate H->0 corner where CR->0 correctly, so any quantitative TAX statement must scale with H(mu)); side result: the signed sensitivity form -- the lambda-integrated condition's integrand -- is certified negative at t in {6/5, 3/2} on all three 020 witnesses, closing 020's last float-level piece.",
-   "leak_terms": [
-    "uc_cr_attack",
-    "cr_attack",
-    "sup_lam CR",
-    "0.0742",
-    "H->0 corner",
-    "H-scaled floor",
-    "signed num certified",
-    "integrand certified negative"
-   ],
-   "range": "7 anneal jobs, n <= 6, <= 14 atoms, 1200 steps each, lambda grid {0.05..3.5}, Sinkhorn branch of the 009 recipe only (block-adaptive and half-mixing branches not exercised); signed-form certificates at two rational tilts per witness, enclosure widths < 1e-14",
-   "refuted_by": null,
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality",
-    "non-per-history-bridge"
-   ],
-   "note": "Gap 2 is now the route's sole surviving bridge and has earned proof effort (lead 1: CR >= c(p) H(mu) on the generic genre). The degenerate-H escape is an engine lesson: future CR adversaries need an H(mu) >= eps constraint."
-  },
-  {
-   "id": "024",
-   "file": "attempts/024-fresh-session-reviewer-pass.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "certified-enclosure"
-   ],
-   "one_line": "Fresh-session reviewer pass on the Gap-1 closure batch: all 12 certificates reproduce byte-for-byte and land inside a third from-spec-only reimplementation, the verifier audit and both hand re-derivations (weight identity, R+ reduction) check out, and Gap 2's survival is confirmed on three fresh adversarial trajectories -- discharging 022's reviewer-independence residual; one reporting-level correction: 023's CR engine is NOT deterministic (string-hash seeding), its checkpoint is not regenerable, and the +0.0742 floor is trajectory-specific (this pass saw +0.0697).",
-   "leak_terms": [
-    "uc_reviewer024",
-    "reviewer024",
-    "third-path",
-    "hash-seed nondeterminism",
-    "0.0697"
-   ],
-   "verifies": "020",
-   "range": "Re-run + third-path check of all 12 frozen witnesses (data/gap1deep_witnesses.json) at their rational tilts; verifier audit of uc_gap1_skeptic_gemini.py in full; three fresh uc_cr_attack.py trajectories (n <= 6, Sinkhorn branch only); nothing new certified -- this pass adds reviewer-level independence to existing certificates",
-   "refuted_by": null,
-   "corrections": [
-    "023: 'deterministic' is false for uc_cr_attack.py -- job seeds use hash(name) on a str, randomized per interpreter run; data/cr_attack.json is not regenerable; the 'sharpest floor +0.0742' is trajectory-specific (floors +0.0697..+0.0776 observed across four independent runs, all positive)"
-   ],
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality",
-    "non-per-history-bridge"
-   ],
-   "note": "Also verifies 022 (its verifier re-audited fresh, re-run byte-identical) and 023 qualitatively (schema allows one 'verifies' id; 020 is the finding under confirmation). Reviewer independence: fresh session, no shared state with the 020/022/023 director, no swarm. The corrected engine practice for future CR adversaries: stable job seeds + record PYTHONHASHSEED, on top of 023's own H >= eps lead."
-  },
-  {
-   "id": "025",
-   "file": "attempts/025-gap2-branch-no-gos.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "block-adaptive-coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "adversarial-verification",
-    "independent-reimplementation"
-   ],
-   "one_line": "Both non-Sinkhorn branches of the 009 recipe fail as stated, in-regime: half-mixing (q = P1/2) has CR < 0 instances at every n (ph -> 1 sliver, margins ~1.5e-2, two independent implementations agree to 4e-15), and the iid-given-k block coupling is Theta(n)-negative on any mixture with a component above psi = (3-sqrt5)/2 (a component-wise threshold; adaptive variant flatlines at CR = 0 exactly on all-above-half mixtures); one repair covers both -- the extended mixing lemma (ST = 0 for arbitrary eps-joints and arbitrary s-laws) plus concavity gives sup_q CR > 0 on the whole in-regime {0}u[1/2,1) genre (proved except two float-level 1-D sweeps at n = 1, 2), and empty-mixing also rescues every constructed block failure; floor pre-work: 023's in-regime endpoints have CR/H in [0.0387, 0.0834].",
-   "leak_terms": [
-    "uc_branch_attack",
-    "branch_attack",
-    "empty-mixing",
-    "eps-mixing",
-    "EM lemma",
-    "EM-coverage",
-    "surprisal criterion",
-    "psi component threshold",
-    "0.23458",
-    "0.78591",
-    "0.0387",
-    "q = P1/2 sliver",
-    "0.61729",
-    "-0.01532"
-   ],
-   "range": "Half-mixing: failure family constructed at n = 1..100 (analytic mechanism, closed form + full-history evaluator), in-regime grid 98521 pts/n at n in {1,2,4,8,16}; block: exchangeable mixtures, gains to n = 40 (profile arithmetic, cross-checked by direct enumeration at n = 8, 12), full-history CR at n <= 8 (iid) / n <= 10 (adaptive); coverage lemma float-level on two 200001-pt boundary sweeps; all float-level, exact certification queued",
-   "gaps": [
-    "recipe-totality",
-    "mutual-information-tax"
-   ],
-   "refuted_by": null,
-   "note": "Refutes the recipe's branch assignments, not Gap 2's candidate: with the corrected assignment (empty-mixing, optimized q) no in-regime CR <= 0 instance is known. Lemmas EM/EM-coverage are same-session skeptic-passed (uc_branch_skeptic.py, implementation-level); reviewer-level pass pending per the 024 standard."
-  },
-  {
-   "id": "026",
-   "file": "attempts/026-gap2-branch-kills-certified.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "coupling",
-    "block-adaptive-coupling",
-    "mutual-information-tax"
-   ],
-   "one_line": "Dual-kit exact-rational certification of the 025 branch kills and repairs: CR_halfmix certified negative at in-regime sliver instances n = 2, 6, 16 (P1 = 16/25, ph = 1987/2000, 1997/2000, 19993/20000; H(mu) certified > 0.968), block iid-given-k Gain certified negative at n = 8 on the 2block/3block mixtures (CR < 0 via 009 fact (i)), and both repairs certified positive (q = 1/2 sliver rescues +0.067..0.073; 3block empty-mixing rescue +0.693 modulo Lemma EM); every log2 evaluated by BOTH audited kits (022 digit-extraction and 016 atanh-series) with enclosures intersected -- zero disagreements over 98 calls, widths <= 2.5e-32.",
-   "leak_terms": [
-    "uc_branch_certify",
-    "branch_certify",
-    "dual-kit",
-    "1987/2000",
-    "19993/20000",
-    "-2.267927906e-3",
-    "-7.940026768e-1",
-    "+6.929688470e-1"
-   ],
-   "range": "Six instances certified (three half-mixing sliver points, two block mixtures at n = 8, one empty-mixing rescue at n = 6) plus three repair values; nothing certified beyond these -- 025's grids and families remain float-level; same-session with 025 (implementation-level only, reviewer pass queued covers both)",
-   "gaps": [
-    "recipe-totality",
-    "mutual-information-tax"
-   ],
-   "verifies": "025",
-   "note": "C3 leans on 009 fact (i) (CR <= Gain, 011-verified) as a lemma; C4 leans on Lemma EM (025, reviewer pass pending). Dual-kit intersection pattern recommended as default for future certifications."
-  },
-  {
-   "id": "027",
-   "file": "attempts/027-adaptive-cell-attack.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "EVIDENCE",
-   "mechanism": [
-    "block-adaptive-coupling",
-    "coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "adversarial-verification",
-    "independent-reimplementation"
-   ],
-   "one_line": "The last uncharted branch cell (adaptive block on in-regime lo/hi product mixtures) survives a 510-instance deterministic kill scan -- its degenerate limit is comonotone (CR = 0), approached from above, so the 025 fixed-cost sliver mechanism cannot bite -- but CR/H(mu) -> 0 as p_lo -> 0 at bounded H (measured to CR/H = 1e-5), so the adaptive assignment cannot carry any H-scaled floor there; a new latent-mixing family (component labels coupled with free both-lo probability q, generalizing 025's empty-mixing) holds CR >= +0.22..+1.19 across the same instances and converges to the EM closed-form limit (delta <= 3e-4 at p_lo = 1e-5).",
-   "leak_terms": [
-    "uc_adaptive_cell",
-    "adaptive_cell",
-    "latent-mixing",
-    "latmix",
-    "comonotone limit",
-    "+0.00084",
-    "CR/H collapse",
-    "1e-5 probe"
-   ],
-   "range": "n <= 6 scan (refinement n <= 8), two exchangeable components, p_lo in [1e-5, 0.38], p_hi in [0.55, 0.999], in-regime grid of 510 instances plus a 15-point scaling probe; skeptic rebuilt all couplings from 009's verbal rule and reproduced every value to 1e-9 with the independent cr_chain evaluator; float-level throughout",
-   "gaps": [
-    "recipe-totality",
-    "mutual-information-tax"
-   ],
-   "note": "Kill attempt failed informatively: branches whose degenerate limits are comonotone-like (cost-free) cannot go negative at the edge -- a design principle for Gap 3. Latent-mixing has no ST = 0 lemma yet (EM's proof breaks on differing labels); conjectured ST = O(p_lo n) is SPECULATION. Reviewer pass queued now covers 025-027."
-  },
-  {
-   "id": "028",
-   "file": "attempts/028-recipe-v2.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "LIVE",
-   "mechanism": [
-    "coupling",
-    "block-adaptive-coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax"
-   ],
-   "one_line": "Recipe v2 stated and battery-tested: the whole mixture side collapses to one q-parametrized latent-mixing family (q = P_light recovers adaptive-block, a delta_0 light component recovers 025's empty-mixing with its EM lemma and coverage proof, optimized q dominates half-mixing), generic/slice measures keep the lambda-swept Sinkhorn branch; (TAX at p) v2 re-posed against it survives the full 19-instance hard-instance battery of record (020 kill geometries, 023 floors, 025/026 sliver and block kills, 027 lo/hi probes) with margins >= +0.068; new battery numbers independently re-evaluated (cr_chain, ST ~ 1e-15).",
-   "leak_terms": [
-    "uc_recipe_v2",
-    "recipe_v2",
-    "recipe v2",
-    "G-mix",
-    "G-gen",
-    "19/19",
-    "+0.06790",
-    "latent-mixing family"
-   ],
-   "range": "Battery of 19 instances, n <= 16, the stated genres only; latent-mixing measured (not proved) away from its EM specialization; H-scaled envelope c <= 0.0387 carried over from 025; no totality claim (genre detection and >= 3 components stay Gap 3)",
-   "gaps": [
-    "recipe-totality",
-    "mutual-information-tax"
-   ],
-   "note": "The route's current statement; any future recipe edit should re-run the battery. Reviewer pass queued covers 025-028."
-  },
-  {
-   "id": "029",
-   "file": "attempts/029-reviewer-pass-025-028.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "verifies": "025",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "coupling",
-    "block-adaptive-coupling",
-    "mutual-information-tax"
-   ],
-   "one_line": "Reviewer pass on 025-028 (fresh-context subagent, no shared conversation state, spawned from the author session -- independence level stated in the record): Lemmas EM and EM-coverage re-derive by hand in full with every constant confirmed, all 38 independently re-implemented values agree (exact-Fraction couplings, own evaluator, own IPF Sinkhorn), all six scripts reproduce byte-identically with skeptics at exit 0, and each certification kit ALONE certifies all twelve 026 statements; corrections: 026's 'certified under either kit's audit' is invalid for intersected enclosures (sound only under BOTH audits -- repaired here by single-kit certification), 027's claimed n <= 8 refinement never ran (dead code path; true range n <= 6, 029's own n = 8 spot check stays positive), 025 quotes skeptic agreement 4e-15 where its own log shows 6.4e-13 at n = 16, and 028's cr_chain cross-checks shipped without code (now committed).",
-   "corrections": [
-    "026's dual-kit soundness sentence ('the result is certified under either kit's audit') is wrong as an argument: an intersection of enclosures is certified only under the CONJUNCTION of both kits' audits -- a tight-but-wrong enclosure from one unsound kit can pull the intersection off the truth without disjointness; repaired by re-running the full 026 computation with each kit alone (both certify all 12 statements, so the intended disjunction holds -- via single-kit runs, not the intersection); future dual-kit certifications should require each kit to certify alone",
-    "027's 'refinement of the tightest instances at n <= 8 in the checkpoint' never ran: the refinement block executes only on a negative scan result and none occurred, so refine_n is absent from adaptive_cell.json and nothing in 027 was evaluated above n = 6; index range corrected from 'refinement n <= 8' to n <= 6 (029's own n = 8 check on the tightest instance gives CR = +0.016, positive)",
-    "025's 'two independent implementations agreeing to <= 4e-15' (Outcome, section 2, and index one-line) misquotes its own skeptic log: S1 deltas are 3.6e-16 / 3.4e-15 / 6.4e-13 (n = 2/6/16); correct bound 6.4e-13, still ~10 orders below the kill margins",
-    "028 section 3's cr_chain cross-checks of the new battery numbers are transcript-only (uc_recipe_v2.py contains no such calls); the values were right and are now backed by committed code (uc_reviewer029_reimpl.py reproduces them, e.g. 2block n=4 full-history CR = +0.290240 with ST = -1.3e-15)",
-    "minor: 025's 'slopes matching the per-coordinate prediction to 3 decimal places at n = 40' holds for 2block only (3block -0.1271 vs -0.1244); the A2 repair range is +0.060..+0.073 not +0.067..+0.073 (n = 1 row); A2 'H(mu) ~ 0.97' includes a 0.940 row; uc_recipe_v2.py docstring runtime ~90 s vs actual ~0.7 s"
-   ],
-   "range": "Hand re-derivations of Lemma EM (sigma-field argument, Frechet range, concavity corollary, surprisal criterion) and EM-coverage (G-criterion, monotonicity, both analytic cases, constants 0.785910 / 1.706172 / 0.530738 / +0.120821) in full; all six 025-028 scripts re-run unmodified with byte-identical checkpoints and skeptic exits 0; independent re-implementation (no shared code) of the half-mixing kills at n = 2, 6 (exact-Fraction, <= 1e-11 from 026's enclosure midpoints), 2block Gain at n = 8, the 3block rescue at n = 6 q = 1/5, 4 of 027's tightest scan instances plus 2 scaling-probe rows with latent-mixing, and 6 of 028's 19 battery rows including both G-gen floors via an own-IPF Sinkhorn; 026's nine statements re-certified three ways (kit A alone, kit B alone, intersection) with the interval algebra re-implemented; kits spot-tested against a from-scratch 200-bit exact log2 reference on 40 random rationals; n in {1,2} coverage legs re-swept (min G +0.3448 / +0.8658). Searches and grids NOT re-run at scale beyond the committed engines' own re-execution",
-   "refuted_by": null,
-   "gaps": [
-    "recipe-totality",
-    "mutual-information-tax"
-   ],
-   "leak_terms": [
-    "uc_reviewer029",
-    "reviewer029",
-    "intersection-soundness",
-    "conjunction not disjunction",
-    "single-kit certification",
-    "refine_n absent",
-    "dead refinement path",
-    "6.4e-13 not 4e-15"
-   ],
-   "note": "Discharges the queue-(a') reviewer pass over 025-028 at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether this meets the 024 fresh-session bar is left to the human owner. Lemmas EM/EM-coverage are hereby reviewer-re-derived (025's own upgrade criterion), with the n in {1,2} legs remaining float-level as always stated. Verifies 026, 027 and 028 as well (schema allows one verifies id; 025 carries the load-bearing lemmas). No numerical claim in any of the four records moved."
-  },
-  {
-   "id": "030",
-   "file": "attempts/030-latent-k-mixing.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "EVIDENCE",
-   "mechanism": [
-    "coupling",
-    "block-adaptive-coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "adversarial-verification",
-    "independent-reimplementation"
-   ],
-   "one_line": "K-component latent-mixing defined (label-coupling matrix Q, diagonal = adaptive products, off-diagonal independent; symmetric-transfer parametrization, deterministic ascent) and positive on all 15 in-regime K=3 battery rows with CR*/H in [0.043, 0.395]; anchors to 027's K=2 values exactly; strictly beats the fused-s-law EM construction on the degeneration probe (+0.404 vs +0.352); and the near-psi rows expose a proved mini-theorem (HU-mix): for mixtures with every component in [1/4, 1/2], CR = n - H(mu) exactly, giving the first proved H-scaled floor CR >= (1-h(pbar))/h(pbar) * H(mu) = 0.0417*H at the working cap.",
-   "leak_terms": [
-    "uc_latentK",
-    "latentK",
-    "HU-mix",
-    "transfer parametrization",
-    "0.04303",
-    "0.041739",
-    "n - H identity",
-    "near-psi pinning"
-   ],
-   "range": "K = 3 exchangeable components, n <= 6, 15-row battery + K = 2 anchor + degeneration probe at p_light down to 1e-4; skeptic rebuilt all couplings and reproduced every value to 1e-9; HU-mix theorem proved by hand, numerics to 6e-14; float-level throughout",
-   "gaps": [
-    "recipe-totality",
-    "mutual-information-tax"
-   ],
-   "note": "Transfers help exactly where components leave [1/4,1/2] (inside it the diagonal already attains E h(z) = 1). Reviewer batch: 029 covers 025-028; this record joins the next one."
-  },
-  {
-   "id": "031",
-   "file": "attempts/031-half-union-coupling.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "LIVE",
-   "mechanism": [
-    "coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "adversarial-verification",
-    "independent-reimplementation",
-    "entropy-method"
-   ],
-   "one_line": "The half-union coupling -- per history cell push the conditional union marginal to 1/2 within Frechet bounds; total, closed-form, lambda-free; the per-history totalization of Sawin's max-entropy-coupling ingredient -- beats the lambda-swept Sinkhorn branch on every G-gen hard instance of record (sharpest floor 0.0742 -> 0.0822, mmabskill_n6 0.101 -> 0.301), reads the crash family as a flat n-independent +0.199, stays positive on all fixed-seed scans and descents at marginal caps up to 0.49 and on slices to n = 300 at w0/n up to 0.48, with the attacked floor tracking the product-extremal constant (1-h(pbar))/h(pbar) from above at every cap -- writing down conjecture (HU-TAX): CR_HU >= (1-h(pbar))/h(pbar) * H(mu), equality at products (SPECULATION); optimized K-mixing still beats HU on 3/5 structured mixtures, and order-min stayed positive with a 4x order spread at mmabskill.",
-   "leak_terms": [
-    "uc_hu_probe",
-    "half-union",
-    "HU coupling",
-    "HU-TAX",
-    "hu_probe",
-    "0.0822",
-    "clip(1/2)",
-    "+0.19919",
-    "order spread",
-    "0.3382"
-   ],
-   "range": "Full 023/024 floor set, crash family n <= 17, 300+4x200 fixed-seed random supports (n <= 6, <= 14 atoms, delta_0-projected) at caps 0.38271..0.49, pattern-search descents from worst starts, slice DP to n = 300 at w0/n in {0.36..0.48} (two independent DP implementations), coordinate-order enumeration at n <= 5 (120-sample at n = 6); all float-level; skeptic (recursive-descent builder + natural-log evaluator) reproduced everything, exit 0",
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "note": "(HU-TAX) proved only on the [1/4,1/2]-component sub-genre (030's HU-mix); if proved for all pbar < 1/2 it is Frankl via licensing -- treat every use as SPECULATION. Novelty gate: per-coordinate idea is Sawin 2211.11504's max-entropy coupling / 009's adaptive rule; the clamped per-history totalization and the sweeps are this record's contribution."
-  },
-  {
-   "id": "033",
-   "file": "attempts/033-hu-attack-and-certify.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "adversarial-verification",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "independent-reimplementation"
-   ],
-   "one_line": "The order quantifier in (HU-TAX) breaks: a joint (mu, coordinate-order) adversarial campaign against the half-union coupling finds a CERTIFIED order-dependent violation at marginal cap 9/20 -- a 6-atom n=4 witness (max marginal 0.44990, H = 2.527) where exactly 1 of 24 orders gives CR_HU certified in [., -8.048e-3] while identity (+0.0148) and best order (+0.257) stay positive -- with the full-order-min floor crossing zero in (0.44, 0.45] on the attack family; at the working cap 0.38271 the same campaign finds nothing (17 starts, global floor +0.04198 tracking the product extremal +0.04174), and the two sharpest G-gen floors are now certified single-kit (both kits alone): CR_HU > 0 and CR_HU >= H/25 at the rationalized windowkill/mmabskill instances. (HU-TAX) must be re-posed with an order convention; for-all-orders is dead above ~0.44, identity/best-order forms unrefuted everywhere tested.",
-   "leak_terms": [
-    "uc_hu_attack",
-    "hu_attack",
-    "uc_hu_certify",
-    "hu_certify",
-    "order kill",
-    "-8.048433087e-3",
-    "0.44990",
-    "(0,1,3,2)",
-    "H/25",
-    "+8.223788945e-2",
-    "917000",
-    "1/24 orders"
-   ],
-   "range": "Campaign: n <= 6, caps 0.38271 and 0.45, 17 starts, pattern-search weight moves + atom add/drop + greedy-swap order pool; full 24-order enumeration at n = 4 (witness + cap trace 0.39..0.45); certificates: the two rationalized floor instances (positive, >= H/25) and the rationalized witness under order (0,1,3,2) (negative), each under both kits separately; floors are upper bounds on the true inf; witness violation independently confirmed by the 025-skeptic evaluator stack before certification",
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "verifies": "031",
-   "note": "The kill needed both weapons: descent-built mu AND 1-of-24 orders. Recipe-facing (best-order) conjecture untouched; (b2) is now 'all-orders CR_HU >= 0 at p <= 0.38271' plus best-order positivity above. Witness dissection = the minimal concrete instance of the 031 averaging problem. Joins the next reviewer batch with 030/031."
-  },
-  {
-   "id": "034",
-   "file": "attempts/034-reviewer-pass-030-031-033.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "VERIFIED_WITH_CORRECTIONS",
-   "mechanism": [
-    "adversarial-verification",
-    "independent-reimplementation",
-    "coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "entropy-method"
-   ],
-   "one_line": "Reviewer pass on 030/031/033 (fresh-context subagent, no shared conversation state, spawned from the author session -- independence level stated in the record): HU-mix and HU-notax re-derive by hand and hold (including the z = x+y-1 branch of the sign analysis and the tightness of the [1/4,1/2] hypothesis), all six scripts reproduce byte-identically with both skeptics at exit 0, all 43 independently re-implemented values agree (third-path HU builder, own evaluator/DP/optimizer, own 60-digit recomputation of all three certificates), the order-kill is confirmed exactly (1 of 24 orders, (0,1,3,2), CR = -0.00804843, max marginal 0.449899) and a strictly stronger all-orders adversary still finds nothing at the working cap (floor +0.043284); but (HU-TAX at pbar) as stated is REFUTED for every pbar < 1/4 by its own claimed equality case Bern(pbar)^n, where the Frechet floor forces z = 1-2p and the sharp constant is (h(2p)-h(p))/h(p) < (1-h(p))/h(p) -- deficit exactly n(1-h(2pbar)) bits, order-independent, verified at 60 digits.",
-   "corrections": [
-    "031's (HU-TAX at pbar) is false for every pbar < 1/4: Bern(pbar)^n -- the record's own stated equality case -- has CR_HU = n(h(2pbar)-h(pbar)) < n(1-h(pbar)) because the Frechet floor 1-2p exceeds 1/2 below p = 1/4, so the clamp fires and E h(z) < 1; smallest witness pbar = 1/5, n = 1 (CR 0.249022 vs RHS 0.278072, deficit 1-h(2/5) = 0.029049, exact). The conjecture must be posed for pbar in [1/4, 1/2) (where the clamp is idle -- exactly 030's hypothesis) with the sharp product constant c*(p) = (h(min(2p,1))-h(p))/h(p); the cap-form used by every sweep, and 030's HU-mix (whose hypothesis forces pbar >= 1/4), are untouched. The kill is order-independent, so it also hits the identity-order and best-order forms 033 left standing",
-    "031 section 2's scan numbers are not in its own checkpoint: worst CR/H is +0.045578 not +0.0496, and the three descent floors are +0.045578/+0.045578/+0.042367 not +0.0429/+0.0430 (+0.0429 is section 1's mmabskill ratio); the descents also do not start 'from the floor endpoints' -- scan_and_descend descends from the three worst random-support scan results. Not reproducible at 40, 100 or 300 scans. The qualitative claim (floors sit just above the product extremal +0.041739 and cannot be pushed below) survives",
-    "030's degeneration triple '+0.4037/+0.3970/+0.3950' quotes uc_latentK_skeptic's fixed-t01 = 0.22 evaluations, not the optimizer: latentK_probe.json records CR_opt = +0.40370/+0.40316/+0.40375 (independently reproduced here). Conservative error; the claim of beating the fused 2-block EM limit (+0.3523253, re-derived independently) stands with margin >= +0.05",
-    "030's 'CR/H = 0.04303 exactly, constant in n' is constant only to five decimals: the checkpoint's near-psi rows are 0.043030634 / 0.043031978 / 0.043033317 at n = 2/4/6, strictly increasing (the identity CR = n - H(mu) is what is exact; H is not exactly linear in n). The skeptic's own tolerance is 2e-4, so it could not have caught the word",
-    "index-range scope words wider than the skeptics: 030's 'reproduced every value' covers 10 of 15 battery rows (n in {2,6} only), no K = 2 anchor row, and the degeneration rows only at a fixed suboptimal transfer; 031's 'reproduced everything' covers the floors, crash, four slice points, one n = 8 cross-check and the product identity -- not the scans, descents, cap sweeps, head-to-head or order enumeration",
-    "031's '120-order sample at n = 6' is itertools.islice(permutations, 120) = exactly the orders fixing perm[0] = 0, a sub-family and not a sample; redone here as a full 720-order enumeration, which reproduces the same min/max (+0.260712 / +0.482824) and stays positive, as do full enumerations at all five floor instances",
-    "uc_hu_certify.py's comment says WITNESS is 'already permuted by its violating order (0,1,3,2)' but WITNESS is byte-identical to the unpermuted hu_attack.json row and the code permutes it; since (0,1,3,2) is an involution, an auditor trusting the comment would certify the wrong measure (CR +0.0148, positive). Code correct, comment wrong",
-    "033's part B 24-order enumeration, part C cap trace and part E ledgers ship without code ('follow-up traces') -- the same class 029 flagged in 028; all three reproduce here and uc_reviewer034_reimpl.py now commits code for them",
-    "minor: 031's 'two independent DP implementations agreeing to 2e-3 at n = 300' quotes the assertion tolerance, not the agreement (observed ~1e-4; this pass ~1e-5); 031's claim that the Sawin framing was 'checked against the public abstract' overstates what the abstract can support -- it confirms author/title/(3-sqrt5)/2 but says nothing about couplings, so the ingredient-level attribution rests entirely on 003's [L] transcription"
-   ],
-   "range": "Hand re-derivations of HU-mix (Frechet feasibility [max(0,1-2p),1-p] contains 1/2 iff p in [1/4,1/2]; posterior-mixture step; U ~ Unif(2^[n]) confirmed as H(U) = n to 1e-12; subadditivity chain) and HU-notax (sigma-field argument, all four cell branches of the sign analysis incl. z = x+y-1) in full; all six 030/031/033 scripts re-run unmodified with byte-identical checkpoints and both skeptics at exit 0; 43 independent re-implementation checks with no shared code (third-path HU builder by direct pair-product; own chain-rule evaluator; own 2-D slice DP at n = 100/300 cross-checked against own mask enumeration at n = 8; own latent-K builder + own shrinking-box optimizer on two battery rows and all three degeneration rows; own fused-EM re-derivation; full order enumerations 24/120/720 at the five floor instances; the 033 witness rebuilt from the checkpoint with all 24 orders, ledgers and the determinacy of coordinate 2; own all-24-order descent reproducing 033's seven-cap trace to four decimals; own all-n!-order working-cap campaign from 12 starts, floor +0.043284; all three certificates recomputed at 60 digits via Decimal.ln, inside both kits' enclosures, rationalization TV measured 2e-14..5e-14). Searches and grids NOT re-run at scale beyond the committed engines' own re-execution; everything float-level except the certificate leg",
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "refuted_by": null,
-   "verifies": "031",
-   "leak_terms": [
-    "uc_reviewer034",
-    "reviewer034",
-    "quarter threshold",
-    "h(2p) - h(p)",
-    "sub-quarter product kill",
-    "0.045578 not 0.0496",
-    "islice-120",
-    "all-order working-cap floor",
-    "c*(p) two-branch constant"
-   ],
-   "note": "Discharges STATUS queue 1(f) (reviewer batch 2 over 030/031/033) at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether that meets the 024 fresh-session bar is for the human owner to judge. Verifies 030 and 033 as well (schema allows one verifies id; 031 carries the conjecture and the coupling). The one refutation is a quantifier correction, not a numerical one: no measured value in any of the three records moved. 035 landed concurrently from the author session and is out of this pass's scope."
-  },
-  {
-   "id": "035",
-   "file": "attempts/035-canonical-order-hu.md",
-   "date": "2026-08-19",
-   "mode": "informed",
-   "status": "REFUTED",
-   "mechanism": [
-    "coupling",
-    "chain-rule-assembly",
-    "mutual-information-tax",
-    "adversarial-verification",
-    "exact-rational-arithmetic",
-    "certified-enclosure",
-    "independent-reimplementation"
-   ],
-   "one_line": "Canonical-order HU (greedy most-predictable-first; a function of mu and the revealed SET only, so still a genuine total closed-form coupling) does exactly what 033's dissection predicted -- it scores the 033 order-kill witness at +0.1014, rank 23/24, certified positive, and its weight-descent floor stays positive at cap 0.38271 (+0.041983) and 0.45 (+0.001703) where the for-all-orders form died -- but it is itself REFUTED at cap 49/100: two witnesses with CR_HU certified negative under each kit alone (n=4, 6 atoms, max marginal 0.48990, CR in [., -3.795e-2], TIE-FREE hence labelling-independent; n=5, CR in [., -2.889e-2], where the canonical rule picks the WORST of 120 orders). Since 0.49 < 1/2, HU with canonical order cannot by itself deliver Frankl. Skeptic caught a real defect en route: float tie-breaking made the 'canonical' order implementation-dependent (exactly equal conditional entropies do occur); fixed with a tolerance tie-break, with the residual non-equivariance stated.",
-   "leak_terms": [
-    "uc_hu_canon",
-    "hu_canon",
-    "canonical order",
-    "most-predictable-first",
-    "-3.795264395e-2",
-    "-2.888851676e-2",
-    "0.48990",
-    "tie trace",
-    "TIE_TOL",
-    "+0.001703",
-    "rank 23/24"
-   ],
-   "range": "Weight-descent: 17 starts per cap at 0.38271/0.45/0.49, n <= 6, order re-derived by the rule at every candidate; fixed-seed sweeps 120 instances per cap at 0.45/0.49 with full order enumeration (n <= 4); certificates: the two cap-0.49 kills (negative) and the cap-0.45 rescue (positive), each under both kits separately, on limit_denominator(1e7) rationalizations; floors are upper bounds on the true inf and the 0.49 threshold is not claimed exact",
-   "gaps": [
-    "mutual-information-tax",
-    "recipe-totality"
-   ],
-   "refutes": "031",
-   "note": "Bounds HU's reach from above by measurement (< 0.49) as the 030 sub-genre theorem bounds it from below by proof. Mechanism of the failure: greedy conditional-entropy minimisation banks predictability early but CR needs surplus cells late, and the objectives diverge as marginals approach 1/2. Best-order HU survives both kills but is an oracle, not a recipe. Joins the next reviewer batch."
-  }
- ]
+  "problem": "union-closed",
+  "route_status": "LIVE",
+  "route_summary": "Dependent-coupling interface survives every known counterexample genre; model ceiling 0.4315 vs published record 0.38271. No bound claimed; three labeled proof gaps.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-entropy-barrier-map.md",
+      "date": "2026-07-25",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "entropy-method",
+        "barrier-analysis",
+        "exhaustive-small-family-search",
+        "k-wise-union",
+        "up-sets"
+      ],
+      "one_line": "Mapped the entropy-method frontier and the (3-sqrt5)/2 barrier; established the n<=4 exhaustive baseline; produced candidate ideas A-D.",
+      "refuted_by": null,
+      "gaps": [],
+      "leak_terms": [
+        "k-wise union",
+        "idea A",
+        "idea B",
+        "idea C",
+        "idea D",
+        "p(c) ladder"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-weighted-kl-ladder.md",
+      "date": "2026-07-25",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "weighted-kl",
+        "entropy-functional-reweighting",
+        "smoothing-insensitive-functional"
+      ],
+      "one_line": "The weighted-KL ladder is dead for every c >= 0, killed by Sawin geometric mixtures; generalizes to a no-go covering all smoothing-insensitive functionals.",
+      "refuted_by": "sawin-geometric-mixtures",
+      "gaps": [],
+      "leak_terms": [
+        "weighted-KL",
+        "weighted KL ladder",
+        "smoothing-insensitive"
+      ]
+    },
+    {
+      "id": "003",
+      "file": "attempts/003-dependent-couplings.md",
+      "date": "2026-07-26",
+      "mode": "informed",
+      "status": "LIVE",
+      "superseded_by": "004",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "conditionally-iid",
+        "block-adaptive-coupling"
+      ],
+      "one_line": "Overlap-biased couplings separate every adversary that killed the KL ladder; evades the 002 no-go by being smoothing-sensitive. No bound claimed.",
+      "refuted_by": null,
+      "gaps": [
+        "plackett-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "overlap-tilt",
+        "overlap-biased",
+        "Sinkhorn",
+        "Plackett",
+        "dependent coupling",
+        "conditionally-iid"
+      ]
+    },
+    {
+      "id": "004",
+      "file": "attempts/004-skeptic-review-of-003.md",
+      "date": "2026-07-26",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "003",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt"
+      ],
+      "one_line": "Independent re-implementation confirms 003's interface and separations are real; corrects the recipe ceiling to 0.431496 and refutes 003's mini-theorem (e) as stated.",
+      "refuted_by": null,
+      "gaps": [
+        "plackett-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "corrections": [
+        "mini-theorem (e) bracket positivity is false as stated; restated, with the {0} u [1/2,1) genre covered by a half-mixing coupling",
+        "single-parameter recipe ceiling is 0.431496 in closed form, not 0.445 (grid-floor artifact)",
+        "one non-reproducible data file; several overstated sentences"
+      ],
+      "leak_terms": [
+        "0.4315",
+        "0.431496",
+        "half-mixing",
+        "mini-theorem"
+      ]
+    },
+    {
+      "id": "005",
+      "file": "attempts/005-odds-ratio-control-refuted.md",
+      "date": "2026-07-30",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "plackett",
+        "sinkhorn",
+        "total-positivity",
+        "barrier-analysis"
+      ],
+      "one_line": "The Gap-1 pointwise odds-ratio control [1, 2^lambda] is false both ways: Cauchy-Schwarz forces OR >= 2^lambda on diagonal histories, and an explicit 4-atom family crashes OR to 2^{lambda(3-n)}; sharp range and MTP2 one-sided partial result proved. Route stays LIVE with Gap 1 restated.",
+      "leak_terms": [
+        "odds-ratio crash",
+        "crash family",
+        "future-overlap discrepancy",
+        "over-diagonalizes",
+        "2^{lambda(3-n)}",
+        "averaged-odds-ratio-control",
+        "OR census",
+        "uc_odds_ratio"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ]
+    },
+    {
+      "id": "006",
+      "file": "attempts/006-skeptic-review-of-005.md",
+      "date": "2026-07-30",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "005",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "total-positivity"
+      ],
+      "one_line": "Independent re-implementation and hand re-derivation confirm all six propositions of 005 including the crash identity at lambdas 005 never ran; the Karlin-Rinott step is checked against the literature and re-proved via Ahlswede-Daykin; corrections are minor (Prop 2 equality-iff needs lambda > 0, two part-B reporting slips, docstring bugs); the restated averaged-control gap survives its own first falsifiable test.",
+      "corrections": [
+        "Prop 2 equality characterization ('equality iff proportional slices') is false at lambda = 0, where OR = 1 identically for every mu; the iff needs lambda > 0",
+        "part-B prose misreports its checkpoint: the 1.0000000011 minimum is the i<n figure, not 'all diagonal histories'; median per-trial minimum excess is 5.2e-4, not 5.4e-4",
+        "uc_odds_ratio.py docstring errors: part F says 'OR >= 1' where code and record prove OR >= 2^lambda; part G says overall deviation scales like delta where the data show delta^2",
+        "'about 83% of history mass' is the lambda = 0.5 figure; it is 81% at lambda = 1.5"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "M_i census",
+        "averaged control survives crash",
+        "family-dependent delta-squared onset",
+        "uc_or_skeptic"
+      ]
+    },
+    {
+      "id": "007",
+      "file": "attempts/007-averaged-or-control.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "plackett",
+        "sinkhorn",
+        "total-positivity",
+        "gram-mass-pairing"
+      ],
+      "one_line": "The restated Gap-1 averaged control M_i >= lambda is made well-posed (forced degeneracy bookkeeping), proved for four structured subclasses, then refuted in the record-relevant regime by an explicit perturbation-stable 10-atom mu (marginals <= 0.318) with M_5 = lambda - 0.122; the i-aggregated form survives and becomes the new gap.",
+      "range": "444-instance census plus clamped adversarial searches at n <= 8, lambda in [0.05, 6]; witness verified by two independent engines to 1e-14, stable under 3% perturbation and 2-digit rounding, violating for every lambda >= 0.03 on the same mu",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "two-prefix witness",
+        "light slice",
+        "light-slice",
+        "10-atom witness",
+        "0.122033",
+        "dilution invariance",
+        "Gram mass pairing",
+        "gram-mass-pairing",
+        "2x2-minor control",
+        "cell floor",
+        "degeneracy dichotomy",
+        "aggregated-or-control",
+        "uc_or_avg",
+        "or_avg_part"
+      ],
+      "methodological_lesson": "Cross-engine agreement is not independence when both engines share IEEE arithmetic: a 1e-299 atom made u(A)u(B) underflow to exact zero in one diagonal cell, and both implementations plus the Sinkhorn round-trip agreed on the resulting fake violation; a parameter sweep of the suspect light atom toward its boundary was what exposed it. Guard adopted: cell-floor diagnostic plus dynamic-range clamping in searches.",
+      "note": "Settles 005 lead 1 negatively (005's SPECULATION label was accurate; nothing in 005/006 needs correction). Route stays LIVE: this kills a candidate bridge, not the interface. Partial positives now proved: M_i >= lambda for supports of <= 4 atoms, for potential-MTP2 mu, at i in {1, n}, and to first order in lambda (perfect-square coefficient), the last modulo the standard Sinkhorn-smoothness step."
+    },
+    {
+      "id": "008",
+      "file": "attempts/008-perturbative-assembly.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "LIVE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "perturbative-expansion",
+        "implicit-function-theorem"
+      ],
+      "one_line": "Closes the missing smoothness step in 005 Prop 6 (quantitative IFT, explicit fixed-n budget 924*min(p,1-p)^{-3n}*delta^2), runs the perturbative assembly end-to-end (positive on every marginal-capped instance to delta=0.2, n<=9), and shows the pointwise delta^2 OR budget is NOT n-uniform (deviation grows ~0.3 bits/coordinate at fixed delta) while the coordinate-averaged downward budget flattens; conditional n-uniform assembly theorem with every budget labelled by its gap.",
+      "range": "Exact couplings at n <= 9; delta <= 0.2; directions crash / zero-prefix embedded crash / delta_empty / Bernoulli mixtures / slice / pm-mixture; (p, rho) = (0.383, 1.06|1.20) and (0.30, 2.0); 78 assembly runs, 80 budget-census fits; proofs (Lemmas A-C, Theorem P6', conditional theorem) are for all n but pending skeptic pass",
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "sinkhorn-tv-stability"
+      ],
+      "leak_terms": [
+        "perturbative assembly",
+        "capped delta-ball",
+        "downward budget",
+        "centered-overlap",
+        "zero-prefix embedded crash",
+        "n-uniform budget",
+        "uc_pert",
+        "Theorem P6",
+        "tau_half",
+        "budget census"
+      ],
+      "note": "Sub-results at different confidence levels inside one record: the Prop-6 closure is a written-out proof (VERIFIED pending independent skeptic pass); the lead-3 assembly check and the non-uniformity of the pointwise budget are EVIDENCE at n <= 9; the assembly theorem is CONDITIONAL on budgets (B1)-(B4) with n-uniform constants, of which (B1) is the perturbative form of gap a-prime and (B2) of gap b. 005's leads 3 and 4 are distinct (the task line conflated them); both were run."
+    },
+    {
+      "id": "009",
+      "file": "attempts/009-mutual-information-tax.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Gap 2 made precise as a chain-rule assembly statement (TAX at p) and probed: it survives all four adversary genres, is smoothing-sensitive on 002's own certificates, the pure slice tilt is provably tax-free, the half-mixing coupling provably loses nothing to chain-rule certification, and a previously unnamed second tax (measured ~0.40 log2 n on slices) is identified as the binding loss channel.",
+      "range": "Crash family n<=11, lambda in [-1,3]; half-mixing genre n<=14 at two parameter points; Sawin certificate gadgets n<=60000 (block recipe, rigorous bound); CL pure slice n<=80, lambda in [0,3], p in {0.42, 0.3823}. Finite-n, finite-grid EVIDENCE only; mini-lemmas SL/HM proved but not yet skeptic-reviewed.",
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "second-tax-scaling"
+      ],
+      "leak_terms": [
+        "chain-rule assembly value",
+        "second tax",
+        "(TAX at p)",
+        "tax-free slice",
+        "uc_mitax",
+        "0.40 log2 n",
+        "lambda-window narrowing",
+        "CR = Gain identically"
+      ],
+      "note": "Deliberately the smallest-budget line of the cycle: a probe, not a campaign. The expected outcome was a precise obstruction; instead the candidate survived everywhere tested and the losses were localized (T_A vs ST, by genre)."
+    },
+    {
+      "id": "010",
+      "file": "attempts/010-ideation-sweep-fields.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "field-lens-sweep",
+        "barrier-analysis"
+      ],
+      "one_line": "First ideation sweep (6 field lenses): 3 queue-worthy routes (pairwise-closure LP certification, union-transfer-operator eigenvalue field, bipartite MIS decomposition), 6 secondary, 5 no-purchase verdicts incl. a proven product-weight no-go killing the multiplicative toolbox.",
+      "leak_terms": [
+        "field-lens sweep",
+        "coatom eigenvalue",
+        "union transfer operator",
+        "eigenvalue field",
+        "log-supermodular lambda",
+        "product-weight no-go",
+        "pairwise-closure LP",
+        "union-injection Hall",
+        "union-escape graph",
+        "MIS share r(G)",
+        "crosscut truncation"
+      ],
+      "refuted_by": null,
+      "gaps": []
+    },
+    {
+      "id": "011",
+      "file": "attempts/011-skeptic-review-of-009.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "009",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Independent re-implementation (recursion engine, natural-log Sinkhorn, direct-MI cross-checks) confirms 009 in full: mini-lemmas SL and HM re-derived by hand and now VERIFIED, all headline numbers reproduce to <= 1.4e-10, the crash lambda-window sharpens to the law lam_max*(n-3) -> 4.8475, the ST ~ 0.40 log2 n fit survives extension to n = 240 and two new p, and the untested tilt-on-Sawin cell closes positive at n <= 300; corrections are reporting-level (grid-edge suprema quoted as suprema, mixed-p 'increasing margin', slice-ratio scope, a measured 1e-5 lgamma floor behind part D's 'exactly', and an unstated m_k = 1/2 legality hypothesis p_k >= 1-1/sqrt(2) in the block bound, verified to hold on every instance used).",
+      "corrections": [
+        "slice sup_lambda CR values at p ~ 0.42 are grid-edge values; true suprema sit at lambda ~ 4-5 and are larger (e.g. +1.4655 vs reported +1.0199 at n=80, w0=34); 'increasing margin in n' conflates p = 0.4167 and p = 0.425 rows -- at fixed p the margin is cleanly increasing",
+        "Outcome scope 'p in {0.42, 0.3823}' overstates: slice ratios actually run are {0.4167, 0.425, 0.3833, 0.3875}; p = 0.3823 itself was never tested",
+        "part D's 'H(mu) computed exactly' has a measured ~4e-6 absolute lgamma floor at n = 60000 (harmless at the +2418 scale)",
+        "the part-D block bound's m_k = 1/2 choice needs the unstated hypothesis p_k >= 1-1/sqrt(2) ~ 0.29289; holds on all instances used but would fail silently on mixtures with a component marginal below it"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "second-tax-scaling"
+      ],
+      "leak_terms": [
+        "uc_mitax_skeptic",
+        "mitaxsk",
+        "lambda-window law",
+        "4.847/(n-3)",
+        "0.405 log2 n",
+        "tilt-CR on Sawin",
+        "recursion engine",
+        "most conservative assembly",
+        "m_k legality"
+      ]
+    },
+    {
+      "id": "012",
+      "file": "attempts/012-skeptic-review-of-008.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "008",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "perturbative-expansion",
+        "implicit-function-theorem"
+      ],
+      "one_line": "Line-by-line re-derivation and two independent engines (incl. an orbit-symmetrized census that reaches n = 32) confirm 008's Theorem P6' closure of the Prop-6 smoothness gap, the 78-run assembly table, the calibration block, and the centered-kernel closed form; but the conditional theorem's constants fail (box-uniform tau_half is analytically false at 008's own s0 = 0.10, ceiling s0 <= 0.0843; delta_0 = 0.022 should be <= 0.0079 by 008's own formula, ~0.004 corrected), and the extended census reverses the flattening reading: the averaged downward OR budget's increments stop shrinking and start growing past n ~ 22 (claimed limits 0.07/0.3 passed by n = 16/10, delta^2-coefficient verified stable in delta at n = 32), killing budget (B1) as stated at evidence level by 008's own lead-1 criterion, while the tax budget (B2) is first-order in delta, not quadratic, in every observable window.",
+      "corrections": [
+        "conditional theorem's 'G nondecreasing in tau up to tau_half on the box' is analytically false at (p, rho, s0) = (0.383, 1.2, 0.10): (x0+s0)^2 = 0.5141 > 1/2 and z > xy for rho > 1, so tau_half(corner) = 0; the claimed P2d numerical check does not exist in uc_pert.py; repair requires s0 <= x_c - x0 = 0.0843 with re-measured constants",
+        "delta_0 ~ 0.022 does not follow from 008's stated formula: the code drops the ||G||_box/s0^2 c3 term (||G||_box = 0.1456, never computed by 008 -> delta_0 = 0.0079); the off-box charge needs the global sup(-G) = 0.487, not ||G||_box; M_tau must include the tau < 0 side (0.0838 vs 0.0592); c3 is ~4.7 not 2.5; fully corrected delta_0 ~ 0.004",
+        "the averaged downward budget does NOT flatten: at (0.383, 1.2) the delta->0 coefficient rises 0.065 (n=9) -> 0.104 (n=32) with increasing increments; at (0.30, 1.0) it passes the claimed 0.3 limit at n = 10 and reaches >= 1.24 by n = 32 (the fixed-delta turnover is a delta-saturation artifact); (B1) with n-uniform constant is dead at EVIDENCE level per 008's own lead-1 falsification criterion",
+        "the tax is first-order in delta (halving ratios -> 2), not O(delta^2), in every observable window at large n; fixed-delta tax/delta^2 exceeds the instantiated c2 = 0.01 by 10x at n = 32; (B2) must be restated as a linear-in-delta budget (absolute tax stays tiny, so end-to-end positivity is not threatened)",
+        "'worst in-class net = +0.0003 (slice n=5 delta=0.2)' is out of class by 008's own capped flag; true worst in-class min-net is ~ +0.00105 (rho=1.06 crash n=6 delta=0.02)",
+        "P6' constant chase: the stated step 'using m0 <= 1/2' yields 831, not 924 (924 corresponds to m0 <= 1; bound valid either way); the 'measured c ~ 0.6' looseness illustration ignores 008's own census worst case c ~ 20.6"
+      ],
+      "range": "Hand re-derivation of Lemmas A-C and Theorem P6' in full; P6' bound stress-tested on 120 instances (n <= 6, five directions incl. delta_full and half-empty, delta up to the theorem boundary 0.5, zero violations); Lemma B checked at interior delta; 78-run table spot-verified to 5e-6 and 104-run capped-negative hunt (rho in {1.045, 1.06, 1.20}, n <= 9, delta <= 0.2, incl. the half-empty direction with marginals exactly p) found none; budget census re-run and extended to n = 32 on the crash direction via an orbit-symmetrized engine (n <= 9 values reproduce 008 to all printed digits), with delta -> 0 stability verified at n = 32 down to delta = 0.003125 for the downward budget (clean delta^2) and shown NOT to hold for the tax (delta-linear); conditional-theorem constants recomputed on 008's grid plus tau < 0 and global domains",
+      "gaps": [
+        "averaged-odds-ratio-control",
+        "mutual-information-tax",
+        "recipe-totality",
+        "sinkhorn-tv-stability"
+      ],
+      "leak_terms": [
+        "uc_pert_skeptic",
+        "pertsk",
+        "orbit engine",
+        "budget growth resumes",
+        "delta-linear tax",
+        "s0 ceiling 0.0843",
+        "tau_half corner",
+        "corrected delta0",
+        "n = 32 census"
+      ]
+    },
+    {
+      "id": "013",
+      "file": "attempts/013-skeptic-review-of-007.md",
+      "date": "2026-07-31",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "verifies": "007",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "gram-mass-pairing"
+      ],
+      "one_line": "Exact rational arithmetic (Fraction end-to-end, certified log2 enclosures) confirms 007 in full: the 10-atom witness's violation is certified float-free at rational tilts spanning lambda ~ 0.0144..5 including exactly rational lambda = 2, 3, 4 (positive at small t exactly where Theorem C forces it), both invariances hold as exact rational identities, the aggregate is certified positive (+1.844669) and survives witness-seeded two-coordinate attacks, all four partial theorems re-derive by hand, and the refutation even survives the conjecture-friendliest alternative bookkeeping (degenerate histories scored at lambda: still -0.067); no corrections, one cosmetic runtime discrepancy.",
+      "range": "Witness certified at 12 exact rational tilt parameters (fixed-u family t = 101/100 .. 32 plus rationalized-refit measures at lambda = 1, 2, 3 within 9.2e-16 of the witness mu); enclosure widths < 1e-40; own 96-instance battery + 21-endpoint aggregate hunt at n <= 7; Theorem B probed on 500 random <= 4-atom instances; hand re-derivations of section 1, Lemmas G/M, Theorems A/B/C and both invariances",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "oravgsk",
+        "uc_or_avg_skeptic",
+        "exact rational witness",
+        "convention robustness",
+        "surrogate-lambda",
+        "1.844669",
+        "minor ratio 6.68"
+      ],
+      "note": "Decisive check: 007's confessed vulnerability (both engines share IEEE floats; its first witnesses were shared-underflow artifacts) is closed by re-verifying the witness in exact rational arithmetic with directed-rounding log2 enclosures. At t = 4 and t = 16 the refutation of M_i >= lambda is a fully rational statement with lambda = 2, 4 exactly. New strengthening beyond 007: the violation does not hinge on the conditioning-out convention (degenerate histories scored at exactly lambda still give M_5 - lambda = -0.067, certified). Nuance: exact certificates at lambda = 1, 2, 3 are for rationalized-refit measures within 9.2e-16 of the witness mu, not the identical rational mu. Theorem C's smoothness step is analogous to but not literally discharged by 008's P6-prime (P6-prime is d/d-mu at fixed lambda; Theorem C needs d/d-lambda at fixed mu)."
+    },
+    {
+      "id": "014",
+      "file": "attempts/014-aggregated-or-probe-large-n.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "exact-rational-arithmetic",
+        "group-orbit-enumeration"
+      ],
+      "one_line": "The queue-mandated large-n probe of the restated gap: the i-aggregated OR control survives to n = 32 certified (15 exact-rational certificates, tightest +5.99e-7) and to n = 64 on float trends -- 0 violations in ~1780 instances spanning every known adversary genre plus aggregate-objective hill-climbs; product measures are its exact equality set, all perturbative departures are quadratically upward, the minimum margin GROWS with n on every structured family (no 012-style reversal), and the one decaying direction dips to +1.4e-7 at n ~ 48 then recovers.",
+      "range": "n in {10,14,20,24,28,32} across 14 orbit families x 10-point lambda grids in [0.079, 5] (840 instances) + 432 perturbative instances around the product boundary + trend runs to n = 64 + 426 sparse structured instances (witness genre re-laid-out per n, multi-gadget stacks, crash/mirror) + 82 climb endpoints at n <= 24; 15 certificates in exact rational arithmetic at tilts 181/16, 4 (lambda = 2 exactly), 271/256, enclosure widths <= 5.9e-12",
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_or_agg_probe",
+        "or_agg_probe",
+        "aggregate survives n=32",
+        "equality boundary at products",
+        "product equality set",
+        "slice-direction dip",
+        "271/256",
+        "0.001201865",
+        "5.99e-7",
+        "dyadic compaction",
+        "witness-at-n",
+        "gadget stack"
+      ],
+      "note": "Probe only, per the queue's ordering (012's budget-growth reversal was the standing warning; it was looked for and not found in the aggregate, including on 012's own crash-mixture genre). Sign of the aggregate shown convention-robust under 013's surrogate-lambda bookkeeping (numerator unchanged, denominator grows). Certificates are for quantized refit measures at exact rational tilts (013 R2 scope). Proof effort on the aggregated control is now justified by the queue's own criterion; lead 1 (product-boundary Hessian) is the entry point. Superseded where they differ by 016/017 (merged from a parallel cycle): the same control is certified NEGATIVE on a unit-replicated ladder at n = 96-160, so the n <= 32 positivity recorded here is a small-n fact, not a licence for proof effort on the forall-n statement. The two searches are consistent -- 016 also finds nothing negative at n <= 32.",
+      "superseded_by": "016"
+    },
+    {
+      "id": "015",
+      "file": "attempts/015-skeptic-review-of-014.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "014",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "group-orbit-enumeration"
+      ],
+      "one_line": "Independent re-implementation (digit-extraction log2 bracket instead of the atanh kit, integer-scaled exact rows, own orbit derivation and Sinkhorn) confirms 014 in full: five certificates incl. the softest +5.99e-7 and the fully rational t = 4 point re-certified on identical exact inputs with no disagreement, kit sound by hand and by 437-case cross-bracketing, orbit formulas cross-checked at n = 8-9 with exactly zero within-class OR spread, the n ~ 48 dip reproduced digit-for-digit and shown robust off-grid, and ~116 new adversary instances (witness-direction off the product boundary, marginals pushed to 0.3827, lambda below the grid floor) all positive; corrections are reporting-level (part-P order range is d^1.39-d^2.06 on its own checkpoint, not d^1.85-d^2.06; 'products are the exact equality set' claims an unproven converse that is false at lambda = 0; stale docstring runtimes; 1820 not ~1780 instances).",
+      "corrections": [
+        "part P 'fitted order d^1.85-d^2.06 in every direction' misreports its own checkpoint: 19 of 72 fitted cells lie below 1.85, minimum d^1.39 (n=32, full direction, lambda=0.5, in-regime); successive-halving orders climb back toward 2 as d -> 0, so the qualitative quadratic-upward reading survives but the quoted range is a grid-edge artifact, and the cubic term is large at lambda >= 0.5 (lead-1 consequence recorded)",
+        "'product measures are the exact equality set' proves only the forward inclusion; the converse is untested and false outright at lambda = 0 (A = 0 for every mu), needing the same lambda > 0 proviso 006 added to 005 Prop 2; no downstream use is affected",
+        "uc_or_agg_probe.py docstring runtimes (O ~ 40-80 min, E ~ 10-30 min) are stale; actual O ~ 146 s, E ~ 113 s (the record's own times are right)",
+        "the Outcome's '~1780 float instances' should be 1820 (840+432+40+426+82)"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "aggregated-or-control",
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "oragg_sk2",
+        "uc_or_agg_skeptic2",
+        "digit-extraction bracket",
+        "log2_bracket",
+        "d^1.39",
+        "equality-set converse",
+        "cubic remainder",
+        "witness-direction boundary attack",
+        "6.4e-7 first-order floor"
+      ],
+      "note": "Decisive check: 014's unreviewed enclosure kit is re-derived by hand and beaten against a from-scratch certifier using a different algorithm (binary digit extraction with directed integer shifts; exact integer masses so the aggregate denominator is exact); the five re-certifications agree with 014's enclosures at width 1.1e-14, including on the identical quantized refit measures. New floor observed: the lambda -> 0 first-order coefficient at the dip point is +6.4e-7 (n = 48), the smallest Theorem-C square seen anywhere; lead 2 should track that coefficient, not A at fixed lambda."
+    },
+    {
+      "id": "016",
+      "file": "attempts/016-aggregated-control-probe-large-n.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "gram-mass-pairing",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Large-n probe of the restated Gap 1 kills it: unit-replicating the 10-atom witness genre (r crash units sharing one block marker) with re-optimized shared weights drives the i-aggregated control negative past n ~ 90, certified float-free at t = 4 (n = 96 and 160, marginals <= 0.309); the n <= 32 space stays positive everywhere searched.",
+      "leak_terms": [
+        "unit replication",
+        "multi-unit witness ladder",
+        "MU(n,r)",
+        "theta-star ladder",
+        "aggregate crossing",
+        "O(1) surplus corridor",
+        "0.024226",
+        "-0.000759865",
+        "uc_agg_ctrl_probe",
+        "aggprobe"
+      ],
+      "range": "Free-support seeded climbs n <= 32 (58 climbs round 1, deep annealed round 2) plus permutation orbits: 0 violations; unit-symmetric ladder evaluated to n = 160 (raw witness weights: positive through n = 128, min +0.157; optimized theta*: float crossing in (88, 96], -0.0242 at n = 160, 20/20 perturbations stay negative); exact rational certificates at t = 181/16 and t = 4, enclosure widths < 1e-18",
+      "refuted_by": null,
+      "gaps": [
+        "margin-modulated-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "note": "Settles queue item 1's probe-first branch negatively: the aggregated control is certified positive at n <= 32 on everything searched, so proof effort there was exactly the small-n trap 012 warned about. The kill is convention-robust (scoring degenerate histories at lambda only grows the denominator, never the numerator). Route stays LIVE; Gap 1 falls to the margin-modulated candidate (007 lead 2), which this record's ladder family must now be run against. Recorded as 016/017 (not 014/015) and on engines uc_agg_ctrl_probe*.py / uc_agg_ctrl_skeptic.py: this line ran in parallel with 014/015, which took the 014/015 slots and the uc_or_agg_probe.py name first. The two are independent and compatible -- 014 certifies the aggregate positive at n <= 32, which is exactly where this record finds nothing either; the kill lives past n ~ 90."
+    },
+    {
+      "id": "017",
+      "file": "attempts/017-skeptic-review-of-016.md",
+      "date": "2026-08-04",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "016",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "gram-mass-pairing"
+      ],
+      "one_line": "From-scratch third implementation of the aggregate (scaled-integer census plus an interval-squaring log2 enclosure, nothing shared with the probe engines) confirms 014's kill: all three certificates re-derive with matching digits (n=96 in [-0.000759865185844166092, -0.000759865185844166079], n=128 -0.0154057269, n=160 -0.0242259093, all t=4, marginals certified below 0.38271, dichotomy exact), the anchors and positive controls re-certify (+1.844669005 witness; raw-weight ladder at n=96 upgraded to certified +0.157131854664), and the convention-robustness proof re-derives; corrections: the n=128 instance has 252 atoms not 253, and P4's claim that the violating lambda-window sits where 009/011's lambda-window law puts the workable range is wrong (at n=96 the law gives lambda_max ~ 0.052 vs the violation at lambda in [2, 2.5]), so the lambda-restricted restatement joins the margin-modulated control as a live Gap-1 candidate.",
+      "corrections": [
+        "n = 128 tidy certificate instance has 252 atoms (2r+8, r=122), not the 253 stated in 014's certification block and Outcome table",
+        "P4's 'violating window sits exactly at moderate lambda where 009/011's lambda-window law puts the workable range' is false at every violating n: lambda_max ~ 4.847/(n-3) ~ 0.052 at n = 96 while the violation lives at lambda in [2, 2.5] and the same family is positive at lambda <= 1.5 -- the kill closes the unrestricted for-all-lambda gap only, and the lambda-restricted (lambda <~ c/n) restatement is untouched by this family"
+      ],
+      "range": "Kill certificates independently re-derived at n = 96 (188 atoms), 128 (252 atoms), 160 (316 atoms), all at t = 4 exactly, enclosure widths <= 1.3e-20; witness anchor at t = 181/16; P3-best n = 32 and raw-witness ladder n = 96 positives certified; padding invariance MU(20,1)/MU(32,1) verified as exact rational identity; alternative-bookkeeping aggregate certified negative at all three n; MU builder cross-checked atom-for-atom against the probe's; 014's float-only side claims (crossing in (88,96], 20/20 perturbations, P4 window edges) reconciled against checkpoints but not certified; n <= 32 search completeness not re-run (stays EVIDENCE)",
+      "refuted_by": null,
+      "gaps": [
+        "margin-modulated-or-control",
+        "lambda-restricted-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "aggsk15",
+        "uc_agg_ctrl_skeptic",
+        "interval-squaring enclosure",
+        "0.157131854664",
+        "lambda-window disjointness",
+        "252 atoms not 253"
+      ],
+      "note": "Decisive check per the 2026-07-31 verification standard: 014's certificates reused 013's exact engine and enclosures, so this review removes the shared-code risk with a third census written from 007 section 1's prose and a structurally different certified log2 enclosure (dyadic interval squaring; ln 2 from the exact series sum 1/(k 2^k)). Free anchors verified exactly: OR/t = 1 at i = n (005 Prop 1) on every instance, and including the i = n term keeps every kill negative. Union-closure of the support is correctly NOT a hypothesis (the control quantifies over all mu; 007's witness was not union-closed either) -- checked and recorded so the scope is explicit. Precedent followed from 013/007: the reviewed entry (014) is not modified."
+    },
+    {
+      "id": "018",
+      "file": "attempts/018-surviving-controls-vs-ladder.md",
+      "date": "2026-08-06",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "chain-rule-assembly"
+      ],
+      "one_line": "Triage of the two post-016 Gap-1 candidates against the ladder adversary: the margin-modulated OR control is REFUTED in both signed readings already at n = 7 by 007's own witness (secant form certified -0.0222546582 at t = 181/16, in-regime -- the h-sensitivity weight is signed and kills the surplus histories, not the hidden deficit), while the unsigned |sigma|-weighted variant and the lambda-window-restricted control survive theta-re-optimized ladders, free-support climbs and joint (theta, lambda) attacks, with the window margin's first-order coefficient a1(n)*n GROWING in n.",
+      "range": "Witness kill certified exact at t = 181/16 (dyadic-bisection Plackett-root enclosures, directed log2 entropy enclosures), perturbation-stable 20/20 at 3%, 2-digit tidy, violating for every lambda in [1, 5]; MM variants measured on raw and theta* ladders n <= 160 (incl. 016's three certified kill instances), theta re-optimized against MM_abs at n = 48 with transfers to 160, 8 free-support climbs at n = 8; window probe at lam = 4.847/(n-3), /2, /4 on ladders n <= 320 with theta re-optimized at window lambda and a joint (theta, lam <= window) climb at n = 96",
+      "refuted_by": null,
+      "gaps": [
+        "abs-sensitivity-or-control",
+        "lambda-restricted-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "margin-modulated",
+        "MM_sec",
+        "MM_der",
+        "MM_abs",
+        "secant form",
+        "Plackett sensitivity",
+        "h-sensitivity",
+        "sensitivity sign flip",
+        "z crosses 1/2",
+        "0.0222546582",
+        "uc_gap1_candidates",
+        "gap1c",
+        "a1(n)*n",
+        "window margin coefficient",
+        "abs-sensitivity-or-control"
+      ],
+      "note": "Settles 016 lead 1 negatively for the signed readings without needing the ladder: the sensitivity weighting fails on the witness itself while the plain aggregate is certified positive (+1.844669) on the same tables. The margin-modulated gap tag of 007/013/016 dies as stated; what replaces it is the unsigned variant (which decouples from the chain rule -- a proof of it would not feed the 008/012 assembly directly) and the window-restricted variant (016 lead 4 / 017 C2), both surviving as EVIDENCE. Certification of the kill uses the lab's first certified enclosure of a NONLINEAR census functional (Plackett root + binary entropy per history)."
+    },
+    {
+      "id": "019",
+      "file": "attempts/019-skeptic-review-of-018.md",
+      "date": "2026-08-06",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett"
+      ],
+      "one_line": "From-scratch re-certification confirms 018's headline: an independent exact kit (scaled-integer census from 007 section 1's prose, exact-rational Newton with sign-checked bracket for the Plackett root, own interval-squaring log2 enclosures) re-derives MM_sec in [-0.022254658205655785176146, -0.022254658205655785176145] on the witness at t = 181/16 -- negative, in-regime, dichotomy exact, strictly inside 018's enclosure -- with the secant identity, product-measure zero and degenerate-contribution-0 re-derived by hand and the tidy 2-digit witness newly certified (-0.02227); the realized-OR sensitivity variants 018 skipped were built and tested (signed dies on the witness at -1.458, unsigned survives), so no signed reading of 007 lead 2 survives; corrections are prose-level only.",
+      "leak_terms": [
+        "gap1csk",
+        "uc_gap1c_skeptic",
+        "sign-checked Newton bracket",
+        "realized-OR variant",
+        "MM_der_rlz",
+        "MM_abs_rlz",
+        "0.022254658205655785176",
+        "raw ladder branch flip",
+        "golden parenthetical"
+      ],
+      "verifies": "018",
+      "corrections": [
+        "018 part B's 'MM_sec is negative at every n in {16..160} (raw and theta* ladders), MM_der negative throughout' is contradicted by 018's own gap1c_partB.json: the raw ladder at n in {96, 128, 160} has MM_sec +6.7e-3/+6.1e-3/+5.2e-3 and MM_der ~ +0.95..0.99 (the tune_dil bisection switches dilution branch at n >= 96); correct scope is theta* at all n and raw at n <= 64 only",
+        "the golden-ratio parenthetical (twice: 'z_1(x,x) = x^2 crosses 1/2 exactly at the (3-sqrt5)/2 barrier') is false -- at the barrier x^2 equals the marginal itself (phi^2 = 1 - phi), not 1/2; the rho = 1 crossing is at marginal 1 - 2^{-1/2} ~ 0.2929 and the lambda = 3.5 crossing at ~ 0.3891 is lambda-dependent; the in-regime z = 1/2 straddling claim itself survives",
+        "section F ships a literal PENDING-F placeholder: only 1 of 4 --cert jobs (the witness MM cert) had landed at review time; the n = 96/160 MM certificates and t = 51/50 window certificates are absent from 018 and must not be cited from it",
+        "witness MM_sec 'positive only for lambda <~ 0.7' -- the crossing is between 0.8 and 0.9 (+4.95e-5 at 0.8, -3.2e-4 at 0.9)",
+        "runtime drift (cosmetic): record says ~35 min for parts A-D, log shows ~58 min"
+      ],
+      "range": "Witness MM_sec kill independently re-certified at t = 181/16 (enclosure width 5.9e-30, strictly inside 018's; exact marginals < 38271/100000; dichotomy and degenerate-row-zero checked as exact identities); tidy 2-digit witness newly certified negative; exact product-measure anchor (w = 3/7, n = 5, t = 4) contains 0 at width 9.3e-30 with plain aggregate exactly 0; float spot-checks on a spec-rebuilt ladder (own builder + own tune_dil): witness MM numbers, theta* n = 96 lam = 2 triple, window A at n = 96, all 10 part-D a1/a2 fits re-solved, perturbations 0/40 failures on fresh seeds; best_free endpoint re-evaluated (in-regime, nondegenerate); realized-OR variant zoo at two instances; searches themselves NOT re-run at scale (018's floors stay EVIDENCE); MM_der not separately certified (float only, as in 018)",
+      "refuted_by": null,
+      "gaps": [
+        "abs-sensitivity-or-control",
+        "lambda-restricted-or-control",
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "note": "Decisive check per the lab standard: 018's certificate reused 013's atanh log2 kit and its own dyadic bisection; this review's kit shares neither (interval-squaring log2 re-implemented from 017's idea; exact Newton root with per-call symbolic bracket-sign identities F(xy) = (1-t)xy(1-x)(1-y) < 0 < min(x,y)(1-max(x,y))). Three structurally different kits now agree on the witness tables (013's aggregate, 018's MM, this one). The fork analysis is extended, not just checked: sensitivity-at-realized-OR readings were the natural loophole and they behave exactly as 018's signed/unsigned dichotomy predicts. Per precedent the reviewed record (018) is not modified."
+    },
+    {
+      "id": "020",
+      "file": "attempts/020-gap1-closed-swarm-guided.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "gram-mass-pairing",
+        "perturbative-expansion",
+        "sensitivity-kernel-design"
+      ],
+      "one_line": "Both surviving Gap-1 candidates die certified: the unsigned |sigma|-weighted control fails at n=4-5 via non-PSD sensitivity-kernel design (healthy margins, in-window), the lambda-window aggregated control fails at n=4 via a1-cancellation measures with negative a2 (marginals <= 0.2575), the assembly's aggregate secant requirement is violated in-window, and certified R+-pure witnesses rule out every chain-rule-compatible per-history weighting; attack directions drafted by a dual-family LLM swarm, all verification by the director.",
+      "leak_terms": [
+        "uc_gap1_deep",
+        "gap1deep",
+        "sensitivity kernel",
+        "kernel non-PSD",
+        "kink",
+        "a1 cancellation",
+        "prefix-signed cancellation",
+        "cancellation manifold",
+        "R+ no-go",
+        "R+-pure",
+        "window kill",
+        "0.2575",
+        "0.1100587",
+        "5.256144e-8",
+        "selector class",
+        "model_c1",
+        "exact_mm_abs",
+        "absw_enclosure",
+        "swarm020_attack",
+        "non-per-history-bridge"
+      ],
+      "range": "Certified kills at n = 4 (7-15 atoms) and n = 5 at rational tilts t in {6/5, 21/20, 16/15, 27/25, 7/5, 3/2, 2}, enclosure widths < 1e-14, in-regime exact, dichotomy exact; tensor extension to n = 8, 12 and the lambda-integrated variant's negativity are float-level; deep anneals at n <= 16 with the crash-corner float negatives shown to be artifacts by exact sign-flip",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality",
+        "non-per-history-bridge"
+      ],
+      "note": "Skeptic pass pending (queue). Swarm provenance: 12 attack briefs, gpt-5.6-luna + gemini-3.7-flash, effort medium, ~$0.15; two cross-family convergences (kernel Gram form; prefix-signed cancellation) supplied the designs; one worker formula error (sigma_0 denominator) caught by director validation. Part-A near-empty float negatives are certified artifacts (exact recomputation flips -24.5 to +23.4), re-confirming 007's underflow lesson."
+    },
+    {
+      "id": "021",
+      "file": "attempts/021-ideation-sweep-dual-provider.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "field-lens-sweep",
+        "barrier-analysis"
+      ],
+      "one_line": "Second ideation sweep, seven lenses x two model families (14 workers): union-transfer-operator lead sharpened by an exact eigenfunction identity (coordinate frequencies are eigenvalues), Mobius/zeta LP statistics and a strong-Rayleigh feasibility question queued, number theory no-purchase by cross-family agreement, and two idea-shapes killed inline by the explicit family 2^{1,2} u {[6]}.",
+      "leak_terms": [
+        "swarm020_ideation",
+        "eigenfunction identity",
+        "coordinate eigenvalue",
+        "union transfer operator T_mu",
+        "strong-Rayleigh feasibility",
+        "fiber matching",
+        "Phi_q majorization",
+        "2^{1,2} u {[6]}",
+        "dual-provider sweep"
+      ],
+      "refuted_by": null,
+      "gaps": [],
+      "note": "Swarm-executed per docs/SWARM.md: 7 lenses x {gpt-5.6-luna, gemini-3.7-flash} at effort low, ~$0.06. Cross-family convergence used as a triage axis for the first time on an ideation sweep; both inline kills verified by hand by the director before recording."
+    },
+    {
+      "id": "022",
+      "file": "attempts/022-skeptic-review-of-020.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "plackett"
+      ],
+      "one_line": "Cross-family skeptic pass on 020: a gemini-3.7-flash-drafted verifier (own digit-extraction log2 with directed dyadic rounding, own bisection, own census, zero shared code, audited then run unmodified) reproduces all 12 certificates digit-for-digit including the three R+-purity legs; the weight identity and R+ reduction re-derived by hand; the window kill extended to a certified n=8 in-window tensor instance; and Gap 2's CR > 0 candidate SURVIVES both kill geometries with margins 0.40-0.80.",
+      "leak_terms": [
+        "uc_gap1_skeptic_gemini",
+        "swarm022",
+        "digit-extraction",
+        "two-track rounding",
+        "gap1deep_witnesses",
+        "tensor_n8",
+        "CR survives",
+        "0.7985",
+        "0.4003",
+        "drafted-verifier pattern"
+      ],
+      "verifies": "020",
+      "range": "All 12 frozen witness instances (data/gap1deep_witnesses.json) re-certified at their rational tilts, enclosure widths below print precision, mixed-zero-table count 0 throughout; n=8 tensor aggregate certified at t = 25/24; Gap-2 check is float-level (Sinkhorn marginal deviation <= 2.3e-15) at a 10-point lambda sweep. Same-session review: implementation independence achieved (different model family, different algorithms), fresh-session reviewer independence still queued.",
+      "refuted_by": null,
+      "corrections": [],
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality",
+        "non-per-history-bridge"
+      ],
+      "note": "First use of the drafted-verifier skeptic pattern: spec -> cross-family worker writes the whole verifier -> director audits -> run unmodified. Per docs/SWARM.md this is stronger implementation independence than a same-family rewrite; the residual gap (same director, same session) is stated in the record and left for a fresh-session pass."
+    },
+    {
+      "id": "023",
+      "file": "attempts/023-gap2-first-adversarial-pass.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "overlap-tilt",
+        "sinkhorn",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "exact-rational-arithmetic",
+        "certified-enclosure"
+      ],
+      "one_line": "First adversarial pass on Gap 2: free-support anneals seeded at the exact geometries that killed Gap 1 grind sup_lambda CR from +0.40/+0.80 to floors +0.074..+0.22 but find NO in-regime violation (the only negative is the degenerate H->0 corner where CR->0 correctly, so any quantitative TAX statement must scale with H(mu)); side result: the signed sensitivity form -- the lambda-integrated condition's integrand -- is certified negative at t in {6/5, 3/2} on all three 020 witnesses, closing 020's last float-level piece.",
+      "leak_terms": [
+        "uc_cr_attack",
+        "cr_attack",
+        "sup_lam CR",
+        "0.0742",
+        "H->0 corner",
+        "H-scaled floor",
+        "signed num certified",
+        "integrand certified negative"
+      ],
+      "range": "7 anneal jobs, n <= 6, <= 14 atoms, 1200 steps each, lambda grid {0.05..3.5}, Sinkhorn branch of the 009 recipe only (block-adaptive and half-mixing branches not exercised); signed-form certificates at two rational tilts per witness, enclosure widths < 1e-14",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality",
+        "non-per-history-bridge"
+      ],
+      "note": "Gap 2 is now the route's sole surviving bridge and has earned proof effort (lead 1: CR >= c(p) H(mu) on the generic genre). The degenerate-H escape is an engine lesson: future CR adversaries need an H(mu) >= eps constraint."
+    },
+    {
+      "id": "024",
+      "file": "attempts/024-fresh-session-reviewer-pass.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure"
+      ],
+      "one_line": "Fresh-session reviewer pass on the Gap-1 closure batch: all 12 certificates reproduce byte-for-byte and land inside a third from-spec-only reimplementation, the verifier audit and both hand re-derivations (weight identity, R+ reduction) check out, and Gap 2's survival is confirmed on three fresh adversarial trajectories -- discharging 022's reviewer-independence residual; one reporting-level correction: 023's CR engine is NOT deterministic (string-hash seeding), its checkpoint is not regenerable, and the +0.0742 floor is trajectory-specific (this pass saw +0.0697).",
+      "leak_terms": [
+        "uc_reviewer024",
+        "reviewer024",
+        "third-path",
+        "hash-seed nondeterminism",
+        "0.0697"
+      ],
+      "verifies": "020",
+      "range": "Re-run + third-path check of all 12 frozen witnesses (data/gap1deep_witnesses.json) at their rational tilts; verifier audit of uc_gap1_skeptic_gemini.py in full; three fresh uc_cr_attack.py trajectories (n <= 6, Sinkhorn branch only); nothing new certified -- this pass adds reviewer-level independence to existing certificates",
+      "refuted_by": null,
+      "corrections": [
+        "023: 'deterministic' is false for uc_cr_attack.py -- job seeds use hash(name) on a str, randomized per interpreter run; data/cr_attack.json is not regenerable; the 'sharpest floor +0.0742' is trajectory-specific (floors +0.0697..+0.0776 observed across four independent runs, all positive)"
+      ],
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality",
+        "non-per-history-bridge"
+      ],
+      "note": "Also verifies 022 (its verifier re-audited fresh, re-run byte-identical) and 023 qualitatively (schema allows one 'verifies' id; 020 is the finding under confirmation). Reviewer independence: fresh session, no shared state with the 020/022/023 director, no swarm. The corrected engine practice for future CR adversaries: stable job seeds + record PYTHONHASHSEED, on top of 023's own H >= eps lead."
+    },
+    {
+      "id": "025",
+      "file": "attempts/025-gap2-branch-no-gos.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "block-adaptive-coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Both non-Sinkhorn branches of the 009 recipe fail as stated, in-regime: half-mixing (q = P1/2) has CR < 0 instances at every n (ph -> 1 sliver, margins ~1.5e-2, two independent implementations agree to 4e-15), and the iid-given-k block coupling is Theta(n)-negative on any mixture with a component above psi = (3-sqrt5)/2 (a component-wise threshold; adaptive variant flatlines at CR = 0 exactly on all-above-half mixtures); one repair covers both -- the extended mixing lemma (ST = 0 for arbitrary eps-joints and arbitrary s-laws) plus concavity gives sup_q CR > 0 on the whole in-regime {0}u[1/2,1) genre (proved except two float-level 1-D sweeps at n = 1, 2), and empty-mixing also rescues every constructed block failure; floor pre-work: 023's in-regime endpoints have CR/H in [0.0387, 0.0834].",
+      "leak_terms": [
+        "uc_branch_attack",
+        "branch_attack",
+        "empty-mixing",
+        "eps-mixing",
+        "EM lemma",
+        "EM-coverage",
+        "surprisal criterion",
+        "psi component threshold",
+        "0.23458",
+        "0.78591",
+        "0.0387",
+        "q = P1/2 sliver",
+        "0.61729",
+        "-0.01532"
+      ],
+      "range": "Half-mixing: failure family constructed at n = 1..100 (analytic mechanism, closed form + full-history evaluator), in-regime grid 98521 pts/n at n in {1,2,4,8,16}; block: exchangeable mixtures, gains to n = 40 (profile arithmetic, cross-checked by direct enumeration at n = 8, 12), full-history CR at n <= 8 (iid) / n <= 10 (adaptive); coverage lemma float-level on two 200001-pt boundary sweeps; all float-level, exact certification queued",
+      "gaps": [
+        "recipe-totality",
+        "mutual-information-tax"
+      ],
+      "refuted_by": null,
+      "note": "Refutes the recipe's branch assignments, not Gap 2's candidate: with the corrected assignment (empty-mixing, optimized q) no in-regime CR <= 0 instance is known. Lemmas EM/EM-coverage are same-session skeptic-passed (uc_branch_skeptic.py, implementation-level); reviewer-level pass pending per the 024 standard."
+    },
+    {
+      "id": "026",
+      "file": "attempts/026-gap2-branch-kills-certified.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "block-adaptive-coupling",
+        "mutual-information-tax"
+      ],
+      "one_line": "Dual-kit exact-rational certification of the 025 branch kills and repairs: CR_halfmix certified negative at in-regime sliver instances n = 2, 6, 16 (P1 = 16/25, ph = 1987/2000, 1997/2000, 19993/20000; H(mu) certified > 0.968), block iid-given-k Gain certified negative at n = 8 on the 2block/3block mixtures (CR < 0 via 009 fact (i)), and both repairs certified positive (q = 1/2 sliver rescues +0.067..0.073; 3block empty-mixing rescue +0.693 modulo Lemma EM); every log2 evaluated by BOTH audited kits (022 digit-extraction and 016 atanh-series) with enclosures intersected -- zero disagreements over 98 calls, widths <= 2.5e-32.",
+      "leak_terms": [
+        "uc_branch_certify",
+        "branch_certify",
+        "dual-kit",
+        "1987/2000",
+        "19993/20000",
+        "-2.267927906e-3",
+        "-7.940026768e-1",
+        "+6.929688470e-1"
+      ],
+      "range": "Six instances certified (three half-mixing sliver points, two block mixtures at n = 8, one empty-mixing rescue at n = 6) plus three repair values; nothing certified beyond these -- 025's grids and families remain float-level; same-session with 025 (implementation-level only, reviewer pass queued covers both)",
+      "gaps": [
+        "recipe-totality",
+        "mutual-information-tax"
+      ],
+      "verifies": "025",
+      "note": "C3 leans on 009 fact (i) (CR <= Gain, 011-verified) as a lemma; C4 leans on Lemma EM (025, reviewer pass pending). Dual-kit intersection pattern recommended as default for future certifications."
+    },
+    {
+      "id": "027",
+      "file": "attempts/027-adaptive-cell-attack.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "block-adaptive-coupling",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The last uncharted branch cell (adaptive block on in-regime lo/hi product mixtures) survives a 510-instance deterministic kill scan -- its degenerate limit is comonotone (CR = 0), approached from above, so the 025 fixed-cost sliver mechanism cannot bite -- but CR/H(mu) -> 0 as p_lo -> 0 at bounded H (measured to CR/H = 1e-5), so the adaptive assignment cannot carry any H-scaled floor there; a new latent-mixing family (component labels coupled with free both-lo probability q, generalizing 025's empty-mixing) holds CR >= +0.22..+1.19 across the same instances and converges to the EM closed-form limit (delta <= 3e-4 at p_lo = 1e-5).",
+      "leak_terms": [
+        "uc_adaptive_cell",
+        "adaptive_cell",
+        "latent-mixing",
+        "latmix",
+        "comonotone limit",
+        "+0.00084",
+        "CR/H collapse",
+        "1e-5 probe"
+      ],
+      "range": "n <= 6 scan (refinement n <= 8), two exchangeable components, p_lo in [1e-5, 0.38], p_hi in [0.55, 0.999], in-regime grid of 510 instances plus a 15-point scaling probe; skeptic rebuilt all couplings from 009's verbal rule and reproduced every value to 1e-9 with the independent cr_chain evaluator; float-level throughout",
+      "gaps": [
+        "recipe-totality",
+        "mutual-information-tax"
+      ],
+      "note": "Kill attempt failed informatively: branches whose degenerate limits are comonotone-like (cost-free) cannot go negative at the edge -- a design principle for Gap 3. Latent-mixing has no ST = 0 lemma yet (EM's proof breaks on differing labels); conjectured ST = O(p_lo n) is SPECULATION. Reviewer pass queued now covers 025-027."
+    },
+    {
+      "id": "028",
+      "file": "attempts/028-recipe-v2.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "LIVE",
+      "mechanism": [
+        "coupling",
+        "block-adaptive-coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Recipe v2 stated and battery-tested: the whole mixture side collapses to one q-parametrized latent-mixing family (q = P_light recovers adaptive-block, a delta_0 light component recovers 025's empty-mixing with its EM lemma and coverage proof, optimized q dominates half-mixing), generic/slice measures keep the lambda-swept Sinkhorn branch; (TAX at p) v2 re-posed against it survives the full 19-instance hard-instance battery of record (020 kill geometries, 023 floors, 025/026 sliver and block kills, 027 lo/hi probes) with margins >= +0.068; new battery numbers independently re-evaluated (cr_chain, ST ~ 1e-15).",
+      "leak_terms": [
+        "uc_recipe_v2",
+        "recipe_v2",
+        "recipe v2",
+        "G-mix",
+        "G-gen",
+        "19/19",
+        "+0.06790",
+        "latent-mixing family"
+      ],
+      "range": "Battery of 19 instances, n <= 16, the stated genres only; latent-mixing measured (not proved) away from its EM specialization; H-scaled envelope c <= 0.0387 carried over from 025; no totality claim (genre detection and >= 3 components stay Gap 3)",
+      "gaps": [
+        "recipe-totality",
+        "mutual-information-tax"
+      ],
+      "note": "The route's current statement; any future recipe edit should re-run the battery. Reviewer pass queued covers 025-028."
+    },
+    {
+      "id": "029",
+      "file": "attempts/029-reviewer-pass-025-028.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "025",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "block-adaptive-coupling",
+        "mutual-information-tax"
+      ],
+      "one_line": "Reviewer pass on 025-028 (fresh-context subagent, no shared conversation state, spawned from the author session -- independence level stated in the record): Lemmas EM and EM-coverage re-derive by hand in full with every constant confirmed, all 38 independently re-implemented values agree (exact-Fraction couplings, own evaluator, own IPF Sinkhorn), all six scripts reproduce byte-identically with skeptics at exit 0, and each certification kit ALONE certifies all twelve 026 statements; corrections: 026's 'certified under either kit's audit' is invalid for intersected enclosures (sound only under BOTH audits -- repaired here by single-kit certification), 027's claimed n <= 8 refinement never ran (dead code path; true range n <= 6, 029's own n = 8 spot check stays positive), 025 quotes skeptic agreement 4e-15 where its own log shows 6.4e-13 at n = 16, and 028's cr_chain cross-checks shipped without code (now committed).",
+      "corrections": [
+        "026's dual-kit soundness sentence ('the result is certified under either kit's audit') is wrong as an argument: an intersection of enclosures is certified only under the CONJUNCTION of both kits' audits -- a tight-but-wrong enclosure from one unsound kit can pull the intersection off the truth without disjointness; repaired by re-running the full 026 computation with each kit alone (both certify all 12 statements, so the intended disjunction holds -- via single-kit runs, not the intersection); future dual-kit certifications should require each kit to certify alone",
+        "027's 'refinement of the tightest instances at n <= 8 in the checkpoint' never ran: the refinement block executes only on a negative scan result and none occurred, so refine_n is absent from adaptive_cell.json and nothing in 027 was evaluated above n = 6; index range corrected from 'refinement n <= 8' to n <= 6 (029's own n = 8 check on the tightest instance gives CR = +0.016, positive)",
+        "025's 'two independent implementations agreeing to <= 4e-15' (Outcome, section 2, and index one-line) misquotes its own skeptic log: S1 deltas are 3.6e-16 / 3.4e-15 / 6.4e-13 (n = 2/6/16); correct bound 6.4e-13, still ~10 orders below the kill margins",
+        "028 section 3's cr_chain cross-checks of the new battery numbers are transcript-only (uc_recipe_v2.py contains no such calls); the values were right and are now backed by committed code (uc_reviewer029_reimpl.py reproduces them, e.g. 2block n=4 full-history CR = +0.290240 with ST = -1.3e-15)",
+        "minor: 025's 'slopes matching the per-coordinate prediction to 3 decimal places at n = 40' holds for 2block only (3block -0.1271 vs -0.1244); the A2 repair range is +0.060..+0.073 not +0.067..+0.073 (n = 1 row); A2 'H(mu) ~ 0.97' includes a 0.940 row; uc_recipe_v2.py docstring runtime ~90 s vs actual ~0.7 s"
+      ],
+      "range": "Hand re-derivations of Lemma EM (sigma-field argument, Frechet range, concavity corollary, surprisal criterion) and EM-coverage (G-criterion, monotonicity, both analytic cases, constants 0.785910 / 1.706172 / 0.530738 / +0.120821) in full; all six 025-028 scripts re-run unmodified with byte-identical checkpoints and skeptic exits 0; independent re-implementation (no shared code) of the half-mixing kills at n = 2, 6 (exact-Fraction, <= 1e-11 from 026's enclosure midpoints), 2block Gain at n = 8, the 3block rescue at n = 6 q = 1/5, 4 of 027's tightest scan instances plus 2 scaling-probe rows with latent-mixing, and 6 of 028's 19 battery rows including both G-gen floors via an own-IPF Sinkhorn; 026's nine statements re-certified three ways (kit A alone, kit B alone, intersection) with the interval algebra re-implemented; kits spot-tested against a from-scratch 200-bit exact log2 reference on 40 random rationals; n in {1,2} coverage legs re-swept (min G +0.3448 / +0.8658). Searches and grids NOT re-run at scale beyond the committed engines' own re-execution",
+      "refuted_by": null,
+      "gaps": [
+        "recipe-totality",
+        "mutual-information-tax"
+      ],
+      "leak_terms": [
+        "uc_reviewer029",
+        "reviewer029",
+        "intersection-soundness",
+        "conjunction not disjunction",
+        "single-kit certification",
+        "refine_n absent",
+        "dead refinement path",
+        "6.4e-13 not 4e-15"
+      ],
+      "note": "Discharges the queue-(a') reviewer pass over 025-028 at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether this meets the 024 fresh-session bar is left to the human owner. Lemmas EM/EM-coverage are hereby reviewer-re-derived (025's own upgrade criterion), with the n in {1,2} legs remaining float-level as always stated. Verifies 026, 027 and 028 as well (schema allows one verifies id; 025 carries the load-bearing lemmas). No numerical claim in any of the four records moved."
+    },
+    {
+      "id": "030",
+      "file": "attempts/030-latent-k-mixing.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "block-adaptive-coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "K-component latent-mixing defined (label-coupling matrix Q, diagonal = adaptive products, off-diagonal independent; symmetric-transfer parametrization, deterministic ascent) and positive on all 15 in-regime K=3 battery rows with CR*/H in [0.043, 0.395]; anchors to 027's K=2 values exactly; strictly beats the fused-s-law EM construction on the degeneration probe (+0.404 vs +0.352); and the near-psi rows expose a proved mini-theorem (HU-mix): for mixtures with every component in [1/4, 1/2], CR = n - H(mu) exactly, giving the first proved H-scaled floor CR >= (1-h(pbar))/h(pbar) * H(mu) = 0.0417*H at the working cap.",
+      "leak_terms": [
+        "uc_latentK",
+        "latentK",
+        "HU-mix",
+        "transfer parametrization",
+        "0.04303",
+        "0.041739",
+        "n - H identity",
+        "near-psi pinning"
+      ],
+      "range": "K = 3 exchangeable components, n <= 6, 15-row battery + K = 2 anchor + degeneration probe at p_light down to 1e-4; skeptic rebuilt all couplings and reproduced every value to 1e-9; HU-mix theorem proved by hand, numerics to 6e-14; float-level throughout",
+      "gaps": [
+        "recipe-totality",
+        "mutual-information-tax"
+      ],
+      "note": "Transfers help exactly where components leave [1/4,1/2] (inside it the diagonal already attains E h(z) = 1). Reviewer batch: 029 covers 025-028; this record joins the next one."
+    },
+    {
+      "id": "031",
+      "file": "attempts/031-half-union-coupling.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "LIVE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation",
+        "entropy-method"
+      ],
+      "one_line": "The half-union coupling -- per history cell push the conditional union marginal to 1/2 within Frechet bounds; total, closed-form, lambda-free; the per-history totalization of Sawin's max-entropy-coupling ingredient -- beats the lambda-swept Sinkhorn branch on every G-gen hard instance of record (sharpest floor 0.0742 -> 0.0822, mmabskill_n6 0.101 -> 0.301), reads the crash family as a flat n-independent +0.199, stays positive on all fixed-seed scans and descents at marginal caps up to 0.49 and on slices to n = 300 at w0/n up to 0.48, with the attacked floor tracking the product-extremal constant (1-h(pbar))/h(pbar) from above at every cap -- writing down conjecture (HU-TAX): CR_HU >= (1-h(pbar))/h(pbar) * H(mu), equality at products (SPECULATION); optimized K-mixing still beats HU on 3/5 structured mixtures, and order-min stayed positive with a 4x order spread at mmabskill.",
+      "leak_terms": [
+        "uc_hu_probe",
+        "half-union",
+        "HU coupling",
+        "HU-TAX",
+        "hu_probe",
+        "0.0822",
+        "clip(1/2)",
+        "+0.19919",
+        "order spread",
+        "0.3382"
+      ],
+      "range": "Full 023/024 floor set, crash family n <= 17, 300+4x200 fixed-seed random supports (n <= 6, <= 14 atoms, delta_0-projected) at caps 0.38271..0.49, pattern-search descents from worst starts, slice DP to n = 300 at w0/n in {0.36..0.48} (two independent DP implementations), coordinate-order enumeration at n <= 5 (120-sample at n = 6); all float-level; skeptic (recursive-descent builder + natural-log evaluator) reproduced everything, exit 0",
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "note": "(HU-TAX) proved only on the [1/4,1/2]-component sub-genre (030's HU-mix); if proved for all pbar < 1/2 it is Frankl via licensing -- treat every use as SPECULATION. Novelty gate: per-coordinate idea is Sawin 2211.11504's max-entropy coupling / 009's adaptive rule; the clamped per-history totalization and the sweeps are this record's contribution."
+    },
+    {
+      "id": "033",
+      "file": "attempts/033-hu-attack-and-certify.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "independent-reimplementation"
+      ],
+      "one_line": "The order quantifier in (HU-TAX) breaks: a joint (mu, coordinate-order) adversarial campaign against the half-union coupling finds a CERTIFIED order-dependent violation at marginal cap 9/20 -- a 6-atom n=4 witness (max marginal 0.44990, H = 2.527) where exactly 1 of 24 orders gives CR_HU certified in [., -8.048e-3] while identity (+0.0148) and best order (+0.257) stay positive -- with the full-order-min floor crossing zero in (0.44, 0.45] on the attack family; at the working cap 0.38271 the same campaign finds nothing (17 starts, global floor +0.04198 tracking the product extremal +0.04174), and the two sharpest G-gen floors are now certified single-kit (both kits alone): CR_HU > 0 and CR_HU >= H/25 at the rationalized windowkill/mmabskill instances. (HU-TAX) must be re-posed with an order convention; for-all-orders is dead above ~0.44, identity/best-order forms unrefuted everywhere tested.",
+      "leak_terms": [
+        "uc_hu_attack",
+        "hu_attack",
+        "uc_hu_certify",
+        "hu_certify",
+        "order kill",
+        "-8.048433087e-3",
+        "0.44990",
+        "(0,1,3,2)",
+        "H/25",
+        "+8.223788945e-2",
+        "917000",
+        "1/24 orders"
+      ],
+      "range": "Campaign: n <= 6, caps 0.38271 and 0.45, 17 starts, pattern-search weight moves + atom add/drop + greedy-swap order pool; full 24-order enumeration at n = 4 (witness + cap trace 0.39..0.45); certificates: the two rationalized floor instances (positive, >= H/25) and the rationalized witness under order (0,1,3,2) (negative), each under both kits separately; floors are upper bounds on the true inf; witness violation independently confirmed by the 025-skeptic evaluator stack before certification",
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "verifies": "031",
+      "note": "The kill needed both weapons: descent-built mu AND 1-of-24 orders. Recipe-facing (best-order) conjecture untouched; (b2) is now 'all-orders CR_HU >= 0 at p <= 0.38271' plus best-order positivity above. Witness dissection = the minimal concrete instance of the 031 averaging problem. Joins the next reviewer batch with 030/031."
+    },
+    {
+      "id": "034",
+      "file": "attempts/034-reviewer-pass-030-031-033.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "entropy-method"
+      ],
+      "one_line": "Reviewer pass on 030/031/033 (fresh-context subagent, no shared conversation state, spawned from the author session -- independence level stated in the record): HU-mix and HU-notax re-derive by hand and hold (including the z = x+y-1 branch of the sign analysis and the tightness of the [1/4,1/2] hypothesis), all six scripts reproduce byte-identically with both skeptics at exit 0, all 43 independently re-implemented values agree (third-path HU builder, own evaluator/DP/optimizer, own 60-digit recomputation of all three certificates), the order-kill is confirmed exactly (1 of 24 orders, (0,1,3,2), CR = -0.00804843, max marginal 0.449899) and a strictly stronger all-orders adversary still finds nothing at the working cap (floor +0.043284); but (HU-TAX at pbar) as stated is REFUTED for every pbar < 1/4 by its own claimed equality case Bern(pbar)^n, where the Frechet floor forces z = 1-2p and the sharp constant is (h(2p)-h(p))/h(p) < (1-h(p))/h(p) -- deficit exactly n(1-h(2pbar)) bits, order-independent, verified at 60 digits.",
+      "corrections": [
+        "031's (HU-TAX at pbar) is false for every pbar < 1/4: Bern(pbar)^n -- the record's own stated equality case -- has CR_HU = n(h(2pbar)-h(pbar)) < n(1-h(pbar)) because the Frechet floor 1-2p exceeds 1/2 below p = 1/4, so the clamp fires and E h(z) < 1; smallest witness pbar = 1/5, n = 1 (CR 0.249022 vs RHS 0.278072, deficit 1-h(2/5) = 0.029049, exact). The conjecture must be posed for pbar in [1/4, 1/2) (where the clamp is idle -- exactly 030's hypothesis) with the sharp product constant c*(p) = (h(min(2p,1))-h(p))/h(p); the cap-form used by every sweep, and 030's HU-mix (whose hypothesis forces pbar >= 1/4), are untouched. The kill is order-independent, so it also hits the identity-order and best-order forms 033 left standing",
+        "031 section 2's scan numbers are not in its own checkpoint: worst CR/H is +0.045578 not +0.0496, and the three descent floors are +0.045578/+0.045578/+0.042367 not +0.0429/+0.0430 (+0.0429 is section 1's mmabskill ratio); the descents also do not start 'from the floor endpoints' -- scan_and_descend descends from the three worst random-support scan results. Not reproducible at 40, 100 or 300 scans. The qualitative claim (floors sit just above the product extremal +0.041739 and cannot be pushed below) survives",
+        "030's degeneration triple '+0.4037/+0.3970/+0.3950' quotes uc_latentK_skeptic's fixed-t01 = 0.22 evaluations, not the optimizer: latentK_probe.json records CR_opt = +0.40370/+0.40316/+0.40375 (independently reproduced here). Conservative error; the claim of beating the fused 2-block EM limit (+0.3523253, re-derived independently) stands with margin >= +0.05",
+        "030's 'CR/H = 0.04303 exactly, constant in n' is constant only to five decimals: the checkpoint's near-psi rows are 0.043030634 / 0.043031978 / 0.043033317 at n = 2/4/6, strictly increasing (the identity CR = n - H(mu) is what is exact; H is not exactly linear in n). The skeptic's own tolerance is 2e-4, so it could not have caught the word",
+        "index-range scope words wider than the skeptics: 030's 'reproduced every value' covers 10 of 15 battery rows (n in {2,6} only), no K = 2 anchor row, and the degeneration rows only at a fixed suboptimal transfer; 031's 'reproduced everything' covers the floors, crash, four slice points, one n = 8 cross-check and the product identity -- not the scans, descents, cap sweeps, head-to-head or order enumeration",
+        "031's '120-order sample at n = 6' is itertools.islice(permutations, 120) = exactly the orders fixing perm[0] = 0, a sub-family and not a sample; redone here as a full 720-order enumeration, which reproduces the same min/max (+0.260712 / +0.482824) and stays positive, as do full enumerations at all five floor instances",
+        "uc_hu_certify.py's comment says WITNESS is 'already permuted by its violating order (0,1,3,2)' but WITNESS is byte-identical to the unpermuted hu_attack.json row and the code permutes it; since (0,1,3,2) is an involution, an auditor trusting the comment would certify the wrong measure (CR +0.0148, positive). Code correct, comment wrong",
+        "033's part B 24-order enumeration, part C cap trace and part E ledgers ship without code ('follow-up traces') -- the same class 029 flagged in 028; all three reproduce here and uc_reviewer034_reimpl.py now commits code for them",
+        "minor: 031's 'two independent DP implementations agreeing to 2e-3 at n = 300' quotes the assertion tolerance, not the agreement (observed ~1e-4; this pass ~1e-5); 031's claim that the Sawin framing was 'checked against the public abstract' overstates what the abstract can support -- it confirms author/title/(3-sqrt5)/2 but says nothing about couplings, so the ingredient-level attribution rests entirely on 003's [L] transcription"
+      ],
+      "range": "Hand re-derivations of HU-mix (Frechet feasibility [max(0,1-2p),1-p] contains 1/2 iff p in [1/4,1/2]; posterior-mixture step; U ~ Unif(2^[n]) confirmed as H(U) = n to 1e-12; subadditivity chain) and HU-notax (sigma-field argument, all four cell branches of the sign analysis incl. z = x+y-1) in full; all six 030/031/033 scripts re-run unmodified with byte-identical checkpoints and both skeptics at exit 0; 43 independent re-implementation checks with no shared code (third-path HU builder by direct pair-product; own chain-rule evaluator; own 2-D slice DP at n = 100/300 cross-checked against own mask enumeration at n = 8; own latent-K builder + own shrinking-box optimizer on two battery rows and all three degeneration rows; own fused-EM re-derivation; full order enumerations 24/120/720 at the five floor instances; the 033 witness rebuilt from the checkpoint with all 24 orders, ledgers and the determinacy of coordinate 2; own all-24-order descent reproducing 033's seven-cap trace to four decimals; own all-n!-order working-cap campaign from 12 starts, floor +0.043284; all three certificates recomputed at 60 digits via Decimal.ln, inside both kits' enclosures, rationalization TV measured 2e-14..5e-14). Searches and grids NOT re-run at scale beyond the committed engines' own re-execution; everything float-level except the certificate leg",
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "refuted_by": null,
+      "verifies": "031",
+      "leak_terms": [
+        "uc_reviewer034",
+        "reviewer034",
+        "quarter threshold",
+        "h(2p) - h(p)",
+        "sub-quarter product kill",
+        "0.045578 not 0.0496",
+        "islice-120",
+        "all-order working-cap floor",
+        "c*(p) two-branch constant"
+      ],
+      "note": "Discharges STATUS queue 1(f) (reviewer batch 2 over 030/031/033) at the independence level stated in the record: fresh context and zero shared session state, but spawned from the author's session with the review brief, same model family -- whether that meets the 024 fresh-session bar is for the human owner to judge. Verifies 030 and 033 as well (schema allows one verifies id; 031 carries the conjecture and the coupling). The one refutation is a quantifier correction, not a numerical one: no measured value in any of the three records moved. 035 landed concurrently from the author session and is out of this pass's scope."
+    },
+    {
+      "id": "035",
+      "file": "attempts/035-canonical-order-hu.md",
+      "date": "2026-08-19",
+      "mode": "informed",
+      "status": "REFUTED",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "independent-reimplementation"
+      ],
+      "one_line": "Canonical-order HU (greedy most-predictable-first; a function of mu and the revealed SET only, so still a genuine total closed-form coupling) does exactly what 033's dissection predicted -- it scores the 033 order-kill witness at +0.1014, rank 23/24, certified positive, and its weight-descent floor stays positive at cap 0.38271 (+0.041983) and 0.45 (+0.001703) where the for-all-orders form died -- but it is itself REFUTED at cap 49/100: two witnesses with CR_HU certified negative under each kit alone (n=4, 6 atoms, max marginal 0.48990, CR in [., -3.795e-2], TIE-FREE hence labelling-independent; n=5, CR in [., -2.889e-2], where the canonical rule picks the WORST of 120 orders). Since 0.49 < 1/2, HU with canonical order cannot by itself deliver Frankl. Skeptic caught a real defect en route: float tie-breaking made the 'canonical' order implementation-dependent (exactly equal conditional entropies do occur); fixed with a tolerance tie-break, with the residual non-equivariance stated.",
+      "leak_terms": [
+        "uc_hu_canon",
+        "hu_canon",
+        "canonical order",
+        "most-predictable-first",
+        "-3.795264395e-2",
+        "-2.888851676e-2",
+        "0.48990",
+        "tie trace",
+        "TIE_TOL",
+        "+0.001703",
+        "rank 23/24"
+      ],
+      "range": "Weight-descent: 17 starts per cap at 0.38271/0.45/0.49, n <= 6, order re-derived by the rule at every candidate; fixed-seed sweeps 120 instances per cap at 0.45/0.49 with full order enumeration (n <= 4); certificates: the two cap-0.49 kills (negative) and the cap-0.45 rescue (positive), each under both kits separately, on limit_denominator(1e7) rationalizations; floors are upper bounds on the true inf and the 0.49 threshold is not claimed exact",
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "refutes": "031",
+      "note": "Bounds HU's reach from above by measurement (< 0.49) as the 030 sub-genre theorem bounds it from below by proof. Mechanism of the failure: greedy conditional-entropy minimisation banks predictability early but CR needs surplus cells late, and the objectives diverge as marginals approach 1/2. Best-order HU survives both kills but is an oracle, not a recipe. Joins the next reviewer batch."
+    },
+    {
+      "id": "036",
+      "file": "attempts/036-reviewer-pass-035.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "035",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Fresh-session reviewer pass on 035 (genuinely fresh session, not spawned from the author's -- the 029/034 caveat does not apply): everything load-bearing survives -- own from-prose HU/CR/greedy-rule implementation (exact Fraction cells, 60-digit Decimal entropies, 1e-40 tie detection) reproduces all 51 descent endpoints' orders and floors, both order enumerations, and all three certificates inside both kits' exact enclosures, with all three 035 scripts re-running byte-identically at skeptic exit 0; the certify scripts' float-derived canonical orders are confirmed to be canonical for the rationalized measures too; corrections are reporting-level and one is favorable: the n=5 kill's step-0 tie is between two exactly-deterministic coordinates, so it is labelling-INDEPENDENT in fact (CR identical across all 120 relabels at 60 digits) and the cap-0.49 refutation carries no labelling caveat, while part D's order-enumeration numbers (16/24, 60/120, both best-order values) were transcript-only and are now backed by committed code.",
+      "corrections": [
+        "035 part E's 'the n=5 kill has one tie at step 0 and is therefore labelling-dependent in principle' does not apply to this witness: the tie is between coordinates 1 and 3, both with marginal exactly 0 (deterministic), so swapping them leaves the coupling itself unchanged and the canonical CR is identical on all 120 relabels (max deviation 0 at 60-digit precision); both cap-0.49 kills are labelling-independent and the refutation needs no labelling qualifier",
+        "035 part D's order-enumeration claims (n=4: 16 of 24 orders negative, best +0.1507; n=5: 60 of 120 negative, canonical is the worst order, best +0.0350) shipped without committed code -- the same class 029 flagged in 028 and 034 flagged in 033 parts B/C/E; all four reproduce here (best CR +0.15075 / +0.03495) and uc_reviewer036_reimpl.py now commits the enumeration"
+      ],
+      "range": "All three 035 scripts re-run unmodified (checkpoints byte-identical, skeptic exit 0); independent from-prose re-implementation of the HU coupling, CR, and the greedy rule with exact-profile plus 1e-40 Decimal tie detection: all 51 descent-endpoint rows (orders, floors, global floors, violation lists, product-extremal constants), the 033-witness 24-order and both kill enumerations (24 and 120 orders), the 24-relabel equivariance check, and 60-digit recomputation of all three certificates on the same limit_denominator(1e7) rationalizations, each inside both kits' exact enclosures with exact marginal and H side-conditions; canonical orders of the rationalized measures re-derived and shown equal to the certified (float-derived) orders; hand re-derivations of the clip identity, coupling well-posedness, and the deterministic-coordinate invariance argument; the descents and sweeps themselves NOT re-run beyond the committed engines' byte-identical re-execution",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_reviewer036",
+        "reviewer036",
+        "labelling-independent in fact",
+        "deterministic tie pair",
+        "rationalized canonical order",
+        "tie-break costs value",
+        "0.101419 vs 0.101583"
+      ],
+      "note": "Discharges the queue's reviewer-batch-3 item for 035 at a strictly higher independence level than 029/034 (fresh session, zero shared state, not spawned from the author session). One design observation extracted for 035 lead 1: the 033 witness has an exact greedy tie at step 2 and the lowest-index break picks the second-best of the two greedy-compatible orders (+0.101419 vs +0.101583) -- an order rule should break ties by the surplus objective, not by index. Per precedent the reviewed record (035) is not modified."
+    }
+  ]
 }
