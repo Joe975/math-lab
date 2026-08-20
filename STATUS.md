@@ -204,6 +204,22 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**042 (same day): the equality set is a whole combinatorial family,
+and it resists attack at its own boundary.** CR_HU is additive over
+independent blocks for every order (short proof in the record), so
+every tensor of diagonal blocks and Bern(p) factors at common p sits
+at CR/H = c\*(p) exactly (verified to 4.4e-16, both c\* branches,
+non-contiguous interleavings included). Anneal attacks seeded AT the
+equality points find zero violations and only slide along the family
+toward the cap. Close-outs done: crash8 is positive under rollout at
+both caps (the last never-descended start), and the 0.497 floor is
+now family-saturated at c\*(0.494) — every attacked cap's floor sits
+on the diagonal family. **The proof-shaped target is now sharp:
+CR_HU/H ≥ c\*(p̄) with equality iff block-tensor.** No cheap
+close-outs remain on the HU line; next moves are proof-shaped (the
+equality characterization; 038's sandwich; 031's b2) or need n > 8
+engine work. Reviewer batch 4 (041/042: the count-pair DP, the
+additivity proof, the attack endpoints) queued.
 **041 (same day): the interpolation test comes back clean — no dip
 between the two equality families.** Along both paths (the convex
 product→diagonal mixture, and a two-component product-mixture path
