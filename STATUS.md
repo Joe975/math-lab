@@ -204,6 +204,20 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**045 (window close): best-order HU SURVIVES its direct attack at caps
+0.495/0.497/0.499** — 67 oracle-objective descents (n ≤ 5, full
+enumeration per candidate, hostile-seeded with the 044 kill witness,
+037's D endpoints, and off-family perturbations, every endpoint
+own-constant flagged): zero kills, zero sharp violations, and the
+binding endpoints saturate c\*(own fmax) to 3e-9 — the 042 equality
+family is the oracle adversary's ATTRACTOR (off-family perturbations
+descend back onto it), exactly the (HU-TAX, best-order) shape. **038
+lead 2 is promoted to the line's main conjecture (SPECULATION):
+max-order CR_HU ≥ c\*(p̄)·H(μ), equality exactly on the block-tensor
+family.** Weak points stated: descent-only adversary (040's anneal
+not yet ported to the oracle objective) and n ≤ 5. First proof probe
+queued: the n = 2-block case via the 041 count-pair DP — an
+honest-sized hand calculation. Reviewer batch 5 (044/045) queued.**
 **044 (window close): the own-constant audit finds the kill the weaker
 flag hid — ROLLOUT-order HU is REFUTED at cap 0.497, certified.**
 Executing 043's audit caveat window-wide (all 212 stored endpoints +

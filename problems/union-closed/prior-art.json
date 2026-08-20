@@ -1563,6 +1563,39 @@
         "defended cap 0.49"
       ],
       "note": "The audit lesson lands twice: (i) violation flags must test CR/H < c*(own fmax), not CR/H < 0 -- the weaker flag sat on this kill inside 037's own committed checkpoint; (ii) endpoints bred against one objective must be re-scored under every standing rule before a survival claim is recorded (transfer attacks are free) -- adopted as a standing skeptic step. Recipe v3 carries rollout-HU to a defended cap of 0.49; [0.49, 1/2) currently belongs to no rule; 038 lead 2 (best-order positivity) is the line's main conjecture, with lead 1 here the direct attack on it at caps 0.495-0.499. Joins the next reviewer batch."
+    },
+    {
+      "id": "045",
+      "file": "attempts/045-bestorder-attack.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The direct attack on best-order HU -- the line's last unrefuted positivity statement -- at the caps where both fixed rules died: 67 weight-descents on the max-over-all-orders CR/H at caps 0.495/0.497/0.499 (n <= 5, full enumeration inside the objective, hostile-seeded with the 044 kill witness, the sharpest 037 D endpoints, and equality-family members perturbed off-family, every endpoint flagged against c*(own fmax) per the 044 lesson) find ZERO kills and ZERO sharp violations; the binding endpoints saturate their own constant to 3e-9 -- the 042 equality family is the oracle adversary's attractor (off-family perturbations descend BACK onto it, own-margin exactly 0), which is precisely the (HU-TAX, best-order) shape; the 044 rollout-kill witness is comfortably positive under best-order (+3.07e-3); 038 lead 2 is promoted to the line's main conjecture (SPECULATION): max-order CR_HU >= c*(pbar) H(mu) with equality exactly on the block-tensor family.",
+      "range": "Caps 0.495/0.497/0.499, n <= 5 only (enumeration cost), 21/23/23 descents per cap with 035's move set (the 040 anneal NOT ported to the oracle objective -- queued as lead 1); floors are stall points except the family-saturated ones; no certificates this round (the binding family values are 042's certified ones); skeptic re-derived every endpoint's ratio/fmax/margin by full enumeration through the independent stack, exit 0",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_bestorder",
+        "hu_bestorder",
+        "best-order attack",
+        "oracle attack",
+        "family attractor",
+        "own-margin 2.7e-9",
+        "+2.190730e-4",
+        "+1.295407e-4",
+        "main conjecture promotion"
+      ],
+      "note": "Survival earned against the same families and transfer seeds that killed canonical (035) and rollout (044), with the equality family visibly binding under the oracle -- but the record's own weak points are stated: descent-only adversary and n <= 5. Leads: port the 040 anneal to the oracle objective; sampled-order n = 6 attack; and the first proof probe -- max-order CR_HU >= c*(pbar)H on n = 2 blocks via the 041 count-pair DP, an honest-sized hand calculation. Joins the next reviewer batch with 044."
     }
   ]
 }
