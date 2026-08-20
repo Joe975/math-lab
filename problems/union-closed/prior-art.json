@@ -1311,6 +1311,40 @@
         "greed is the failure"
       ],
       "note": "Sharpens 035's mechanism statement: non-greediness is the load-bearing property, not the scoring currency -- surp is greedy in exactly the currency 035 lead 1 suggested and dies identically to canonical. The [0.45, 1/2) interval 035 said 'needs a different object' now has a candidate object. Certification-pattern upgrade (from 036's review): derive the certified order from the rationalized measure and verify it as a 60-digit fixed point -- 035's certificates were confirmed safe on this point after the fact; here it is a construction-time check. Skeptic: nats-based rule re-implementations + the pre-existing independent evaluator stack, exit 0. Joins the next reviewer batch with 036."
+    },
+    {
+      "id": "038",
+      "file": "attempts/038-roll-census-and-n6.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Census of the rollout rule (300 random in-regime instances per block at n in {4,5}, caps 0.45/0.49, full order enumeration alongside): rollout is NOT a best-order proxy (exactly best only 39-60%, worst rank 7/24, worst gap 0.207*H -- 037's witnesses were descent products, not typical), but it never went negative (0 of 1200, including 5 instances where some order IS negative) and canonical strictly beats it on 0 of 1200 -- the latter now PROVED as mini-theorem (ROLL-DOM): CR_roll >= CR_canon for every mu, a transcription of the classical rollout improvement property needing only that the completion policy is a deterministic set-function, so every canonical positive of record transfers to rollout wholesale; n=6 descents (caps 0.49/0.497) and n=7 spot descents (0.49) find zero violations, with the honest caveat that the descent visibly stalls above n=5 (floors 40x the n<=5 values -- 'no kill found', not 'sharp floor').",
+      "range": "1200 census instances (300 per block, n in {4,5} x caps {0.45,0.49}, random supports 3-14 atoms, delta_0-projected, full 24/120-order enumeration per instance, canonical ranked alongside); n=6 rollout descents at caps 0.49/0.497 (6 starts each: the three 037 skipped plus fresh seeds, rounds<=120); n=7 spot descents at 0.49 (3 starts, rounds<=50); all float-level, nothing certified this round (037's certificates stand; no sharp new floor to certify); (ROLL-DOM) proved same-session, reviewer re-derivation queued with the 036/037 batch",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_rollcensus",
+        "hu_rollcensus",
+        "roll census",
+        "ROLL-DOM",
+        "rollout improvement property",
+        "not a best-order proxy",
+        "0.207",
+        "sandwich CR_best >= CR_roll >= CR_canon",
+        "worst-gap seeds",
+        "canon>roll: 0"
+      ],
+      "note": "Refutes 037 lead 3's optimistic reading (roll is often far from best on typical measures) while strengthening the survival story (0 negatives in 1200 + provable domination of canonical). Reframes 037 lead 2 as the sandwich: best-order positivity (measured) >= roll (constructive) >= canonical (proved floor at [1/4,1/2] genre via 030). Novelty gate: (ROLL-DOM) is the standard Bertsekas rollout monotonicity argument applied to HU orders -- recorded as a transcription, not a new result. Joins the next reviewer batch with 036/037."
     }
   ]
 }

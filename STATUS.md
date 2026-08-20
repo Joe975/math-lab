@@ -171,6 +171,23 @@ derived from the certified measure. The [0.45, 1/2) interval 035 said
 rollout form) at n = 6–7; best-order positivity as the proof target
 (weaker than any fixed rule, and what part D actually measures); a
 roll-vs-best-order census; the near-product descent attractor.**
+**038 (same day): the census answers — rollout is NOT a best-order
+proxy (exactly best only 39–60% of 1200 random in-regime instances,
+worst gap 0.207·H; 037's exact-best witnesses were descent products,
+not typical), but it never went negative once (including the 5
+instances where some order IS negative), and canonical strictly beat
+it on 0 of 1200 — the latter now PROVED as mini-theorem (ROLL-DOM):
+CR_roll ≥ CR_canon for every μ (the classical rollout improvement
+property — needs only that the completion policy is a deterministic
+set-function; recorded as a transcription per the novelty gate), so
+every canonical positive of record transfers to rollout wholesale.
+n = 6 descents (caps 0.49/0.497) and n = 7 spot descents (0.49): zero
+violations, with the honest caveat that the descent stalls above
+n = 5 (floors 40× the n ≤ 5 values — "no kill found", not "sharp").
+The proof target is now the sandwich CR_best ≥ CR_roll ≥ CR_canon:
+best-order positivity measured (037 D), the right inequality proved,
+roll the constructive middle. Reviewer batch 3 (036/037/038 +
+ROLL-DOM re-derivation) queued.**
 **036 (2026-08-20, reviewer pass on 035 — genuinely fresh session, not
 spawned from the author's, so the 029/034 independence caveat does not
 apply): 035 stands in full.** An own from-prose implementation (exact
