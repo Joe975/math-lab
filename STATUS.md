@@ -210,16 +210,29 @@ independent blocks for every order (short proof in the record), so
 every tensor of diagonal blocks and Bern(p) factors at common p sits
 at CR/H = c\*(p) exactly (verified to 4.4e-16, both c\* branches,
 non-contiguous interleavings included). Anneal attacks seeded AT the
-equality points find zero violations and only slide along the family
-toward the cap. Close-outs done: crash8 is positive under rollout at
-both caps (the last never-descended start), and the 0.497 floor is
-now family-saturated at c\*(0.494) — every attacked cap's floor sits
-on the diagonal family. **The proof-shaped target is now sharp:
+equality points find zero violations. ~~and only slide along the
+family toward the cap … every attacked cap's floor sits on the
+diagonal family~~ **corrected by 043: the two polish-improved
+endpoints are 8-atom correlated-block measures NEAR the family, above
+their own constant by ~1.4e-5 — the adversary stalls near the family,
+it does not converge onto it; the family-saturation statement holds
+only for the projection-bounded anneals.** Close-outs done: crash8 is
+positive under rollout at both caps (the last never-descended start),
+and the 0.497 anneal floor is family-saturated at c\*(0.494). **The proof-shaped target is now sharp:
 CR_HU/H ≥ c\*(p̄) with equality iff block-tensor.** No cheap
 close-outs remain on the HU line; next moves are proof-shaped (the
 equality characterization; 038's sandwich; 031's b2) or need n > 8
-engine work. Reviewer batch 4 (041/042: the count-pair DP, the
-additivity proof, the attack endpoints) queued.
+engine work. **Reviewer batch 4 DONE in 043 (fresh-context
+subagent, 029/034-level independence caveat in the record): 041
+survives in full — the count-pair DP collapse and the every-order
+block additivity both re-derive by hand, 132 sampled rows to 1e-9 at
+n up to 64, all four pipelines byte-identical; 042's numbers all
+survive but its part-B narrative overclaimed (correction above), and
+one audit caveat is standing: the engines' violation flags test
+CR/H < 0, weaker than CR/H < c\*(own marginal) — 043 re-checked every
+STORED endpoint of 042 against its own constant (all clear), but
+intermediate anneal candidates were never own-constant-checked, and
+the other rollout checkpoints (037/038/040) deserve the same sweep.**
 **041 (same day): the interpolation test comes back clean — no dip
 between the two equality families.** Along both paths (the convex
 product→diagonal mixture, and a two-component product-mixture path

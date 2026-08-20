@@ -1487,6 +1487,45 @@
         "equality iff block-tensor"
       ],
       "note": "Settles 041 lead 1's verify-then-perturb: verified, and the perturbations found nothing. The extremal landscape after 040/041/042: every adversary of record converges onto the block-tensor family from every seeding tried, and the margin grows in every off-family direction measured. The proof-shaped target is now sharp: CR_HU/H >= c*(p) with equality iff block-tensor (lead 1). No cheap close-outs remain on the HU line. Joins the next reviewer batch with 041."
+    },
+    {
+      "id": "043",
+      "file": "attempts/043-reviewer-pass-041-042.md",
+      "date": "2026-08-20",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "verifies": "041",
+      "mechanism": [
+        "adversarial-verification",
+        "independent-reimplementation",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Reviewer pass on the interpolation/block-tensor batch (041, 042): everything load-bearing survives -- 041's count-pair-DP collapse and 042's every-order block additivity (plus 040's DIAG identity) re-derived by hand and both correct as recorded, a fifth independent HU/CR implementation (posterior-pair state, own no-pruning count DP) reproduces 132 sampled interp rows to 1e-9 at n up to 64, all of 042 part A through non-contiguous interleavings and the clamp branch to 1e-12, and every B/C endpoint to 1e-8 with all four pipelines re-running byte-identically at skeptic exit 0; corrections land on 042's part-B narrative: the two POLISHED attack endpoints (floors +0.000364 and +0.0000610) are NOT single diagonals and NOT on the equality family -- they are 8-atom equal-marginal measures with pairwise-CORRELATED blocks sitting +1.4e-5 ABOVE c*(own marginal), the '+0.000364 = c*(0.4887)' match is spurious (c*(0.4887) = 3.686e-4), and 'every endpoint ON the family' holds only for the three unpolished rows (one of which is a diagonal padded by two marginal-0 coordinates, so the equality set also extends beyond the common-p family as stated).",
+      "corrections": [
+        "042 part B / outcome: 'the polished endpoints are single diagonals at p closer to the cap -- e.g. +0.000364 = c*(0.4887)' and 'every endpoint ON the family' are false for the two campaigns where the polish improved (cap 0.49 and 0.497, n=6, d2xd2xd2): those endpoints are 8-atom measures on the block support with equal marginals (0.489001 / 0.495947) but pairwise-correlated blocks (P(both on) 0.238143 vs product 0.239122), CR/H - c*(own marginal) = +1.47e-5 / +1.36e-5 > 0, and c*(0.4887) = 3.686e-4 != 3.639e-4; the three unpolished endpoints are exact family members",
+        "clarification: the cap-0.49 part-B floor +0.000364 is a descent stall point, not a family value -- it undercuts the anneal's family-saturated floor c*(0.487) = +0.000488 only because the polish is not projection-bounded; 'every attacked cap's floor sits on the diagonal family' survives in the anneal-with-projection sense (040, C_sat497) only",
+        "audit note, not an error in the records: the committed B/C 'violations' flag tests floor < 0, weaker than (HU-TAX)'s CR/H >= c*(own max marginal); re-checked every stored endpoint against its own constant here (all >= 0 to float noise), but intermediate anneal candidates are unchecked and future attacks should instrument the own-constant margin directly"
+      ],
+      "range": "Hand re-derivations: 041's count-pair collapse for K-product mixtures incl. q in {0,1} components and the H formula; 042's block additivity for every revelation order incl. interleavings, the DIAG identity, and the c*(p) tensor corollary. Independent re-implementation (no imports from the reviewed stack): 132 of 1968 hu_interp rows (n in {2,8,64}, p in {0.38271,0.49}, both paths) to 1e-9, all summaries recomputed from stored rows, DP-vs-atom and exchangeability cross-checks at n <= 6, 5 own-built tensor cases x 4 orders to 1e-12, every hu_blocks B/C endpoint re-scored via own rollout to 1e-8 plus own-constant margins, C_sat497 == c*(0.494) to 1e-12; all four committed pipelines re-run unmodified with byte-identical checkpoints and both skeptics exit 0; the anneal/polish searches not re-run seed-for-seed beyond that",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_reviewer043",
+        "reviewer043",
+        "correlated-block stall",
+        "off-family endpoint",
+        "own-constant margin flag",
+        "posterior-pair evaluator",
+        "padded diagonal equality"
+      ],
+      "note": "Discharges the queue's reviewer-batch item for 041/042. Independence disclosure, per the 029/034/039 precedent: fresh-context subagent with zero shared conversation state, but spawned from the author session with the review brief, same model family -- one level below 036's genuinely-fresh bar; whether that meets the 024 fresh-session bar is for the human owner to judge. Verifies 042 as well (schema allows one verifies id; 041 is the batch's lead record and verifies clean, corrections attach to 042's part-B narrative). No conclusion of either record changes: zero violations confirmed and strengthened via own-constant re-checks; the corrected picture leaves the family-convergence story with two counter-instances (lead: the correlated-block stall measures are the closest off-family points of record). Per precedent the reviewed records are not modified."
     }
   ]
 }
