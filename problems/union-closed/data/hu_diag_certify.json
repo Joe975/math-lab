@@ -1,0 +1,31 @@
+{
+ "n": 6,
+ "p": 0.38264784277954517,
+ "p_exact": "2047143/5349940",
+ "z_star": 0.5,
+ "essential": true,
+ "kits": {
+  "A_digit_extraction": {
+   "CR_lo": 0.04010933599587845,
+   "CR_hi": 0.04010933599587845,
+   "target_lo": 0.04010933599587845,
+   "target_hi": 0.04010933599587845,
+   "margin_lo": -4.930380657631324e-32,
+   "margin_hi": 4.930380657631324e-32,
+   "H_lo": 0.9598906640041216,
+   "equality_certified": true,
+   "positive_certified": true
+  },
+  "B_atanh_series": {
+   "CR_lo": 0.04010933599587845,
+   "CR_hi": 0.04010933599587845,
+   "target_lo": 0.04010933599587845,
+   "target_hi": 0.04010933599587845,
+   "margin_lo": -5.047108151368549e-19,
+   "margin_hi": 5.047108151368549e-19,
+   "H_lo": 0.9598906640041216,
+   "equality_certified": true,
+   "positive_certified": true
+  }
+ }
+}

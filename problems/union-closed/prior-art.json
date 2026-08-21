@@ -1933,6 +1933,38 @@
         "2933 moves rejected"
       ],
       "note": "Also the first demonstration that the equality family is reachable in ESSENTIAL form at n >= 6 -- 042 predicted diagonals are extremal at every n, and this is the first adversary to land on one at that size. Leads: quote every floor with an adversary-strength note (054 and 055 differ by five orders of magnitude on the same quantity, so the search and its budget are part of the claim); point the constrained anneal at the caps above 0.497 that 045 only reached with descents; and certify the n = 6 diagonal endpoint as an exact equality instance via the 042 identity at p = 0.3826."
+    },
+    {
+      "id": "056",
+      "file": "attempts/056-diag-certify.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "verifies": "055",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "The n = 6 endpoint reached by the constrained anneal of 055 is certified an EXACT equality instance under each kit alone: rationalized to p = 2047143/5349940, all six coordinate marginals equal p exactly (so it is genuinely 6-dimensional, not a smaller instance embedded in six coordinates -- the failure mode 052 found across the route), CR_HU - c*(p)H is enclosed in [-4.930e-32, +4.930e-32] under kit A and [-5.047e-19, +5.047e-19] under kit B (both containing 0), and CR_HU is certified positive at +0.040109336 with H > 0.9599. So 042's diagonal identity is attained in ESSENTIAL form at n = 6, 055's float +6.26e-13 is exact equality rather than a small gap, and the essential floor at n = 6 is exactly 0 -- meaning any future floor claim above 0 at that size describes the search, not the problem.",
+      "range": "One instance: the 055 A_n6_cap_0.49 sharpest endpoint, rationalized by limit_denominator(1e7), certified under each kit separately with the marginal equality checked exactly in rationals. Nothing certified at n = 7 (055's endpoint there is +2.484e-04 and is not on the family), and no block-tensor equality instance is certified here",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_diag_certify",
+        "hu_diag_certify",
+        "essential equality at n=6",
+        "2047143/5349940",
+        "4.930e-32",
+        "+0.040109336",
+        "exact equality not a gap"
+      ],
+      "note": "Closes a gap the window kept re-opening: five times a float near zero was read as meaning something and three of those readings were wrong (a vanishing constant, a vanishing coverage, two vanishing dimensions, a stall). Here the near-zero number means exactly what it appeared to -- and certification is the only way to tell the two cases apart, which is the transferable point. Leads: certify a block-tensor equality instance at n = 6 to confirm the essential equality set is the full family there, and decide whether the n = 7 endpoint misses the family because the anneal did not converge or because the family is harder to reach at that size."
     }
   ]
 }

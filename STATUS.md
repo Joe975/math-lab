@@ -204,6 +204,20 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**056 (same day): the n = 6 equality endpoint, certified exact.**
+055's diagonal endpoint rationalizes to p = 2047143/5349940 with **all
+six marginals equal to p exactly** (genuinely 6-dimensional, not an
+embedded smaller instance), and CR_HU − c\*(p)·H is enclosed in
+**[−4.9e-32, +4.9e-32]** under kit A and [−5.0e-19, +5.0e-19] under
+kit B — both containing 0, so **042's diagonal identity is attained in
+essential form at n = 6** and 055's +6.26e-13 is exact equality, not a
+small gap. CR itself certified positive (+0.040109336, H > 0.9599).
+Consequence: **the essential floor at n = 6 is exactly 0**, so any
+future floor claim above 0 at that size describes the search, not the
+problem. This also closes a gap the window kept re-opening — five
+times a float near zero was read as meaning something and three of
+those readings were wrong; certification is the only way to tell the
+cases apart.**
 **055 (same day, correction to 054): a weak adversary's stall is not a
 floor.** Re-running 040's anneal with essentiality enforced inside
 move acceptance (2,933 moves rejected for it, so it was actively
