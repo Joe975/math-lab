@@ -1783,6 +1783,40 @@
         "honest n=3 floor"
       ],
       "note": "Third degeneracy caught in one window and the same shape as the other two: an adversary minimising a margin finds the cheapest way to make it vanish, and 046 section G caught a vanishing constant (q -> 1/2), 046 section G-prime a vanishing coverage (depth-first B&B), and this a vanishing dimension. Standing lesson proposed: descent campaigns on this route carry an explicit non-degeneracy constraint and report the fraction of draws it rejects, alongside 044's own-constant flag and the scale-free margin. Lead: re-audit the 037/038/040/045 descent campaigns for support collapse -- the diagnostic is three lines and would either confirm those floors or correct several at once."
+    },
+    {
+      "id": "052",
+      "file": "attempts/052-effdim-audit.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "adversarial-verification",
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax"
+      ],
+      "one_line": "Effective-dimension audit of every descent endpoint the route has recorded, prompted by 051: of 328 stored endpoints, 96 (29.3%) have a coordinate with marginal exactly 0 and so live at a smaller n than their label, and of the 27 HEADLINE floors that the records actually quote, 11 are quoted at a higher n than the instance uses -- most severely the n = 7 anneal floor of 040, which is a TWO-dimensional instance (and which explains why that run reported exactly the same +0.000488 as its n = 6 counterpart: it was the same instance). Positivity and kill claims are untouched, since every endpoint is still a valid in-regime instance and a certified negative CR at effective n is still certified; what is affected is dimension labelling, so the claims to have probed n = 6 and n = 7 rest on fewer genuinely high-dimensional endpoints than the records imply. Atom count is explicitly NOT used as a criterion -- a diagonal has two atoms and is genuinely n-dimensional -- a mistake this audit made on its first pass and corrected before recording.",
+      "corrections": [
+        "11 of 27 recorded headline floors quote a higher n than their endpoint uses: hu_attack cap_0.38271 (4 -> 2), hu_canon B_cap_0.38271 (4 -> 3), hu_order2 C_surp_cap_0.49 and 0.497 (5 -> 3), hu_order2 C_roll_cap_0.497 and C2_roll_cap_0.497 (4 -> 3), hu_roll_anneal A_n6_cap_0.497 (6 -> 4), hu_roll_anneal A_n7_cap_0.49 (7 -> 2), hu_rollcensus P2_cap_0.49 (6 -> 5) and P2_cap_0.497 (6 -> 4), hu_n3_census D_cap_0.45 (3 -> 2). The affected records are 033, 035, 037, 038, 040 and 050; each is left as written per the repo rule. No positivity or kill claim changes -- only the dimension the floor is evidence about"
+      ],
+      "range": "Pure re-analysis of all committed hu_*.json checkpoints: 328 endpoints across 27 blocks from campaigns 033, 035, 037, 038, 040, 042, 045 and 050. Criterion is marginals only (a coordinate with marginal exactly 0 is absent); min marginal below 0.05 but nonzero is reported separately as near-degenerate (33 endpoints) and not folded in. No new search, no certificates",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_effdim",
+        "hu_effdim",
+        "effective dimension",
+        "absent coordinate",
+        "11 of 27",
+        "29.3%",
+        "n=7 is effectively n=2",
+        "dimension labelling"
+      ],
+      "note": "Fourth cheap-escape caught in this window and the widest: a vanishing constant (046 section G), a vanishing coverage (046 section G-prime), a vanishing dimension in one campaign (051), and a vanishing dimension across most campaigns at once (here). The honest state: the conjecture has never been violated at any effective dimension, but the evidence at n >= 6 is thinner than the record implies. Leads: re-run the 040 anneal and the 038 P2/P3 blocks under the 051 essentiality constraint (expect the floors to rise as they did at n = 3, +2.6e-09 -> +1.8e-05; whether they stay positive is the falsifiable part), and decide whether the adversary prefers degenerate faces because they ARE the extremal structure -- if so, the equality families of 042 are incomplete."
     }
   ]
 }

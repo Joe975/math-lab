@@ -103,12 +103,16 @@ _DHALF = Decimal(1) / Decimal(2)
 
 
 def h_dec(q):
-    """Binary entropy in bits at a rational q, to the ambient precision."""
+    """Binary entropy in bits at a rational q, to the ambient precision.
+    The reflection q -> 1-q is done exactly in Fraction arithmetic so
+    that h is accurate at both ends."""
     if q <= 0 or q >= 1:
         return Decimal(0)
-    z = Decimal(q.numerator) / Decimal(q.denominator)
-    o = Decimal(1) - z
-    return -(z * z.ln() + o * o.ln()) / Decimal(2).ln()
+    a = q if q <= Fraction(1, 2) else 1 - q
+    b = 1 - a
+    da = Decimal(a.numerator) / Decimal(a.denominator)
+    db = Decimal(b.numerator) / Decimal(b.denominator)
+    return -(da * da.ln() + db * db.ln()) / Decimal(2).ln()
 
 
 # ----------------------------------------------- own HU evaluator (exact)
@@ -127,40 +131,61 @@ def _cond_zero(n, mu, hist, i):
 
 def hu_cr(n, mu, order, dec=True):
     """CR = sum_i E[h(z_i)] - H(mu) for the half-union coupling under
-    the given revelation order.  Exact rational cell arithmetic; h() in
-    Decimal if dec else float.  Returns (CR, H)."""
-    ent = h_dec if dec else (lambda q: h(float(q)))
-    zero = Decimal(0) if dec else 0.0
-    # state: {(histA_tuple, histB_tuple): weight}
-    state = {((), ()): Fraction(1)}
-    S = zero
+    the given revelation order (031/009).  dec=True: exact rational
+    cells with h() in 80-digit Decimal.  dec=False: float throughout.
+    Returns (CR, H)."""
+    if dec:
+        ent, half, one = h_dec, Fraction(1, 2), Fraction(1)
+        m = {a: (w if isinstance(w, Fraction) else Fraction(w))
+             for a, w in mu.items()}
+        S = Decimal(0)
+        wcast = (lambda w: Decimal(w.numerator) / Decimal(w.denominator))
+    else:
+        ent, half, one = (lambda q: h(q)), 0.5, 1.0
+        m = {a: float(w) for a, w in mu.items()}
+        S = 0.0
+        wcast = (lambda w: w)
+    memo = {}
+
+    def cond_zero(hist, i):
+        k = (hist, i)
+        if k in memo:
+            return memo[k]
+        tot = zero = (Fraction(0) if dec else 0.0)
+        for a, w in m.items():
+            if all(((a >> c) & 1) == b for c, b in hist):
+                tot += w
+                if not ((a >> i) & 1):
+                    zero += w
+        v = (zero / tot if tot else (Fraction(0) if dec else 0.0))
+        memo[k] = v
+        return v
+
+    state = {((), ()): (Fraction(1) if dec else 1.0)}
     for step, i in enumerate(order):
         nxt = {}
+        pref = order[:step]
         for (ha, hb), w in state.items():
-            da = dict(zip(order[:step], ha))
-            db = dict(zip(order[:step], hb))
-            x, _ = _cond_zero(n, mu, da, i)
-            y, _ = _cond_zero(n, mu, db, i)
-            z = min(max(Fraction(1, 2), x + y - 1), x, y)
-            S += ent(z) * (Decimal(w.numerator) / Decimal(w.denominator)
-                           if dec else float(w))
+            x = cond_zero(tuple(zip(pref, ha)), i)
+            y = cond_zero(tuple(zip(pref, hb)), i)
+            z = min(max(half, x + y - one), x, y)
+            S += ent(z) * wcast(w)
             for (ba, bb), cw in (((0, 0), z), ((0, 1), x - z),
                                  ((1, 0), y - z),
-                                 ((1, 1), 1 - x - y + z)):
+                                 ((1, 1), one - x - y + z)):
                 if cw <= 0:
                     continue
                 k = (ha + (ba,), hb + (bb,))
-                nxt[k] = nxt.get(k, Fraction(0)) + w * cw
+                nxt[k] = nxt.get(k, 0) + w * cw
         state = nxt
-    H = zero
-    for w in mu.values():
+    H = Decimal(0) if dec else 0.0
+    for w in m.values():
         if w > 0:
             if dec:
-                dw = Decimal(w.numerator) / Decimal(w.denominator)
+                dw = wcast(w)
                 H += -dw * dw.ln() / Decimal(2).ln()
             else:
-                fw = float(w)
-                H += -fw * math.log(fw) / LOG2
+                H += -w * math.log(w) / LOG2
     return S - H, H
 
 
@@ -588,8 +613,19 @@ def r4():
                    for s in itertools.permutations(range(n))), reverse=True)
     negs = sum(1 for v, _ in vals if v < 0)
     rank = 1 + [s for _, s in vals].index(seq)
-    check("044 B: 18 of 24 orders negative, rollout ranks 13/24",
-          negs == 18 and rank == 13, f"{negs} negative, rollout rank {rank}")
+    rank = min(i for i, (v, _) in enumerate(vals, 1)
+               if abs(v - float(cr_roll)) < 1e-15)
+    tie = sum(1 for v, _ in vals if abs(v - float(cr_roll)) < 1e-15)
+    check("044 B: 18 of the 24 orders are negative", negs == 18)
+    check("CORRECTION 044: \"rollout ranks 13/24\" is not reproducible - "
+          "rollout sits in a 6-way exact tie at ranks 7-12 by descending "
+          "CR (13 is the tie block's position counting from the WORST "
+          "end, under which rollout is ABOVE the median, not \"worse "
+          "than the middle\")",
+          rank == 7 and tie == 6 and 24 - 12 + 1 == 13,
+          f"descending rank of the tie block 7-12 ({tie} orders tied at "
+          f"{float(cr_roll):+.6e}); 6 orders strictly better, 12 strictly "
+          "worse")
     return muQ, n
 
 
@@ -597,59 +633,72 @@ def r4():
 def r5(muQ, n4):
     print("\nR5. 045: every hu_bestorder.json endpoint re-scored.")
     bo = json.loads((DATA / "hu_bestorder.json").read_text())
-    caps = [k for k in bo if k.startswith("cap_")]
     quoted = {"cap_0.495": 2.190730e-4, "cap_0.497": 2.190730e-4,
               "cap_0.499": 1.295407e-4}
-    worst_dev = 0.0
-    kills = 0
-    sharp = 0
+    worst_dev = worst_own = 0.0
+    kills = sharp = rows_seen = 0
     floors = {}
-    rows_seen = 0
     stall_min = None
-    for cap in sorted(caps):
+    stall_rows = 0
+    fam0 = []
+    kill_rows = {}
+    for cap in sorted(k for k in bo if k.startswith("cap_")):
         fl = None
         for row in bo[cap]["rows"]:
             n = row["n"]
-            mu = {int(s, 2): Fraction(w).limit_denominator(10 ** 9)
-                  for s, w in row["mu"].items()}
+            mu = {int(s, 2): w for s, w in row["mu"].items() if w > 0}
             tot = sum(mu.values())
-            mu = {a: w / tot for a, w in mu.items() if w > 0}
+            mu = {a: w / tot for a, w in mu.items()}
             rows_seen += 1
-            best = max(float(hu_cr(n, mu, s, dec=False)[0])
-                       for s in itertools.permutations(range(n)))
-            _, H = hu_cr(n, mu, (0, 1), dec=False)
-            ratio = best / float(H)
+            vals = [float(hu_cr(n, mu, s, dec=False)[0])
+                    for s in itertools.permutations(range(n))]
+            H = float(hu_cr(n, mu, tuple(range(n)), dec=False)[1])
+            ratio = max(vals) / H
             fmax = max(marginals(n, mu))
-            margin = ratio - cstar(fmax)
-            worst_dev = max(worst_dev, abs(ratio - row["ratio"]))
+            own = ratio - cstar(fmax)
+            worst_dev = max(worst_dev, abs(ratio - row["floor"]))
+            worst_own = max(worst_own, abs(own - row["own_margin"]))
             if ratio < 0:
                 kills += 1
-            if margin < -1e-9:
+            if own < -1e-9:
                 sharp += 1
-            if stall_min is None or abs(margin) < abs(stall_min):
-                stall_min = margin
+            if 1e-12 < abs(own) < 1e-8:
+                stall_rows += 1
+                if stall_min is None or abs(own) < abs(stall_min):
+                    stall_min = own
+            if row["start"].startswith("family(('d', 4)"):
+                fam0.append(own)
+            if row["start"] == "044kill":
+                kill_rows[cap] = ratio
             fl = ratio if fl is None else min(fl, ratio)
         floors[cap] = fl
-    check(f"045: all {rows_seen} endpoint rows re-scored by full order "
-          "enumeration through this file's evaluator", worst_dev < 1e-9,
-          f"max |ratio - checkpoint| {worst_dev:.2e}")
+    check(f"045: all {rows_seen} endpoint rows re-scored by full "
+          "24/120-order enumeration through this file's evaluator",
+          worst_dev < 1e-9 and worst_own < 1e-9,
+          f"max |ratio - checkpoint floor| {worst_dev:.2e}, "
+          f"max |own margin - checkpoint| {worst_own:.2e}")
     check("045: zero kills (ratio < 0) at every cap", kills == 0)
-    check("045: zero sharp violations (ratio < c*(own fmax))", sharp == 0)
-    ok = all(abs(floors[c] - quoted[c]) < 5e-10 for c in quoted
-             if c in floors)
-    check("045: the three quoted global floors reproduce", ok,
+    check("045: zero sharp violations (ratio < c*(own fmax))", sharp == 0,
+          "and the checkpoint's kill / sharp lists are empty: "
+          + str(all(not bo[c]["kills"] and not bo[c]["sharp_violations"]
+                    for c in bo)))
+    check("045: the three quoted global floors reproduce",
+          all(abs(floors[c] - quoted[c]) < 5e-10 for c in quoted),
           ", ".join(f"{c} {floors[c]:+.6e}" for c in sorted(floors)))
-    check("045 obs 1: some endpoint saturates its own constant to ~1e-9",
-          stall_min is not None and abs(stall_min) < 1e-8,
-          f"smallest |own margin| {stall_min:+.2e}")
-    # obs 3: the 044 witness under best order, after descent
-    best = max(float(hu_cr(4, muQ, s, dec=False)[0])
-               for s in itertools.permutations(range(4)))
-    _, H = hu_cr(4, muQ, (0, 1), dec=False)
-    check("045 obs 3: the 044 kill witness is positive under best order "
-          "(pre-descent)", best / float(H) > 0,
-          f"ratio {best / float(H):+.3e} (record: +3.07e-3 after further "
-          "descent)")
+    check("045 obs 1: several endpoints saturate their own constant to "
+          "+2.7e-9", stall_rows >= 5 and abs(stall_min) < 3e-9,
+          f"{stall_rows} rows with 1e-12 < |own margin| < 1e-8, smallest "
+          f"{stall_min:+.2e}")
+    check("045 obs 2: the (d,4)-family perturbation returns to own "
+          "margin EXACTLY 0 at every cap",
+          bool(fam0) and all(abs(v) < 1e-15 for v in fam0),
+          f"{fam0}")
+    check("045 obs 3: the 044 kill witness is comfortably positive under "
+          "best order; the quoted +3.07e-3 is the cap-0.499 row (it is "
+          "+5.13e-3 at caps 0.495 and 0.497)",
+          abs(kill_rows["cap_0.499"] - 3.071221e-3) < 1e-9
+          and abs(kill_rows["cap_0.495"] - 5.132345e-3) < 1e-9,
+          ", ".join(f"{c} {v:+.6e}" for c, v in sorted(kill_rows.items())))
 
 
 # ============================================================== R6
@@ -890,41 +939,62 @@ def r8():
         t = min(x - 0.5, 1 - x)
         return negB, t * (2 * psi(p0 + p1) - psi(2 * p0) - psi(2 * p1)), t
 
-    # P2: the boundary identity, in EXACT rational/Decimal arithmetic
-    bad = []
+    # P2: the boundary identity, in EXACT rational/Decimal arithmetic.
+    # Own derivation at (p0, p1) = (0, 1/2): Delta = 2h(1/2) - h(0) - h(1/2)
+    # = 1, so C = t; and -B = x h(0)[c*(q)-c*(0)] + (1-x) h(1/2)[c*(q) -
+    # c*(1/2)] = q c*(q) since h(0) = 0, h(1/2) = 1, c*(1/2) = 0.  Hence
+    # ratio = t/(q c*(q)), which is 1/c*(q) ONLY when t = q, i.e. q <= 1/4.
+    small, large = [], []
     for qs in ("1/10", "1/100", "1/1000", "1/10000", "1/100000",
-               "1/1000000", "7/23"):
+               "1/1000000", "1/4", "1/5"):
         q = Fraction(qs)
-        x = 1 - q
-        # C = t*Delta at (p0, p1) = (0, 1/2): Delta = 2h(1/2)-h(0)-h(1/2) = 1
-        t = min(x - Fraction(1, 2), 1 - x)
-        Cv = t * 1
-        # -B = x h(0)[c*(q)-c*(0)] + (1-x) h(1/2)[c*(q) - c*(1/2)]
-        #    = q * c*(q)   since h(0) = 0, h(1/2) = 1, c*(1/2) = 0
+        t = min(1 - q - Fraction(1, 2), q)
         cq = (h_dec(max(Fraction(1, 2), 1 - 2 * q)) - h_dec(q)) / h_dec(q)
-        negB = (Decimal(q.numerator) / Decimal(q.denominator)) * cq
-        ratio = (Decimal(Cv.numerator) / Decimal(Cv.denominator)) / negB
-        if abs(ratio - 1 / cq) > Decimal("1e-60") or t != q:
-            bad.append((qs, float(ratio), float(1 / cq)))
-    check("048 P2: ratio(q, p0=0, p1=1/2) = 1/c*(q) EXACTLY (own "
-          "derivation: C = t = q, -B = q c*(q)), to 60 digits",
-          not bad, f"{bad}")
+        ratio = (Decimal(t.numerator) / Decimal(t.denominator)) / (
+            (Decimal(q.numerator) / Decimal(q.denominator)) * cq)
+        small.append((qs, t == q, abs(ratio - 1 / cq) < Decimal("1e-60")))
+    for qs in ("7/23", "3/10", "2/5", "9/20"):
+        q = Fraction(qs)
+        t = min(1 - q - Fraction(1, 2), q)
+        cq = (h_dec(max(Fraction(1, 2), 1 - 2 * q)) - h_dec(q)) / h_dec(q)
+        ratio = (Decimal(t.numerator) / Decimal(t.denominator)) / (
+            (Decimal(q.numerator) / Decimal(q.denominator)) * cq)
+        pred = (Decimal((Fraction(1, 2) - q).numerator)
+                / Decimal((Fraction(1, 2) - q).denominator)) / (
+            (Decimal(q.numerator) / Decimal(q.denominator)) * cq)
+        large.append((qs, float(ratio), float(1 / cq),
+                      abs(ratio - pred) < Decimal("1e-60"), float(ratio) > 1))
+    check("048 P2: ratio(q, p0=0, p1=1/2) = 1/c*(q) EXACTLY for q <= 1/4 "
+          "(own derivation: C = t = q, -B = q c*(q)), to 60 digits",
+          all(a and b for _, a, b in small), f"{small}")
+    check("CORRECTION 048 P2: the identity is stated unqualified but "
+          "holds only for q <= 1/4 - above that t = 1/2 - q < q and the "
+          "ratio at (0,1/2) is (1/2-q)/(q c*(q)), not 1/c*(q); the "
+          "record's table only goes up to q = 0.1",
+          all(exact and abs(r - inv) > 1e-6 for _, r, inv, exact, _ in large),
+          "; ".join(f"q={a}: ratio {b:.5f} vs 1/c* {c:.5f}"
+                    for a, b, c, _, _ in large))
+    check("048 P2: the corner configuration still satisfies L1 strictly "
+          "at those q (the record's conclusion survives its proof)",
+          all(g for *_, g in large))
     check("048 P2: the six quoted table rows reproduce",
           all(abs(r["ratio"] - r["inv_cstar"]) < 1e-12
               and abs(r["ratio"] - 1 / cstar(r["q"])) < 1e-9
               for r in d["P2_extremal"]))
-    # c*(q) < 1 on (0,1/2) so the configuration satisfies L1 strictly
+    # c*(q) < 1 on (0,1/2) and -> 1 only logarithmically
     ok = all(cstar(q) < 1 for q in [1e-8, 1e-4, 0.01, 0.1, 0.25, 0.3,
                                     0.45, 0.499])
-    lim = abs(cstar(1e-12) - 1) < 1e-2
-    check("048 P2: c*(q) < 1 on (0,1/2) and c*(q) -> 1 as q -> 0, so the "
-          "corner value 1/c*(q) > 1 falls to 1 only in the limit",
-          ok and lim, f"c*(1e-12) = {cstar(1e-12):.6f}")
-    check("REPORTING 048: \"the branch infimum is exactly 1\" is NOT a "
-          "consequence of the verified identity alone - the identity "
-          "gives inf <= 1; inf >= 1 IS branch L1, which the same record "
-          "lists as NOT PROVED", True,
-          "logged as a scope caveat, not a computational failure")
+    def cstar_exact(q):
+        return (h_dec(max(Fraction(1, 2), 1 - 2 * q)) - h_dec(q)) / h_dec(q)
+    seq = [cstar_exact(Fraction(1, 10 ** k)) for k in (3, 6, 12, 24, 100)]
+    slow = all(seq[i] < seq[i + 1] < 1 for i in range(len(seq) - 1))
+    lograte = abs(float(1 - seq[-1])
+                  - 1 / (100 * math.log2(10))) < 0.02
+    check("048 P2: c*(q) < 1 on (0,1/2), and c*(q) -> 1 only "
+          "logarithmically (1 - c*(q) ~ 1/log2(1/q))",
+          ok and slow and lograte,
+          "c* at q = 1e-3, 1e-6, 1e-12, 1e-24, 1e-100: "
+          + ", ".join(f"{v:.5f}" for v in seq))
     # P1: own descent-free sampling floor
     rng = random.Random(4911)
     lo = None

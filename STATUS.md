@@ -204,6 +204,24 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**052 (same day, audit across the whole route): 11 of 27 recorded
+floors are quoted at a higher n than the instance uses.** Following
+051's lead into every committed checkpoint: of 328 stored descent
+endpoints, **96 (29.3%) have a coordinate with marginal exactly 0** —
+they live at a smaller n than their label — and of the 27 headline
+floors the records actually quote, **11 overstate the dimension**. The
+sharpest: **040's "n = 7" anneal floor is a TWO-dimensional
+instance**, which also explains why that run reported exactly the same
++0.000488 as its n = 6 counterpart — it was the same instance both
+times. Affected records: 033, 035, 037, 038, 040, 050 (all left as
+written per the repo rule). **Nothing about positivity or the kills
+changes** — every endpoint is a valid in-regime instance and a
+certified negative CR at effective n is still certified — but **the
+route's evidence at n ≥ 6 is thinner than the record implies**, and
+recovering it needs essentiality-constrained reruns (queued). Note the
+audit's own first pass used atom count as a criterion, which is wrong
+(a diagonal has two atoms and is genuinely n-dimensional); corrected
+to marginals-only before recording.**
 **051 (same day, self-correction to 050): the n = 3 descents saturated
 by DEGENERATING.** 050 part D read its "+0.000000, zero violations" as
 the equality family binding; the endpoints are in fact n = 1 instances
