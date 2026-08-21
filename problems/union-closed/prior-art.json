@@ -1865,6 +1865,38 @@
         "reviewer049 375 versus 5698"
       ],
       "note": "Independence caveat, as in 029/034/039/043: fresh-context subagent with zero shared conversation state, but spawned from the author's session with a reviewing brief and the same model family -- whether that meets 024's fresh-session bar is for the human owner to judge. Commissioned as 049 (hence uc_reviewer049_reimpl.py); 050-052 were committed while it ran, so new_attempt.py assigned 053 and 049 is an unused id. The re-implementation imports none of the reviewed engines or either certification kit. Standing proposal from the batch: three of the eight corrections would have been caught by requiring every skeptic to sample at least one region its engine does not, and to say which."
+    },
+    {
+      "id": "054",
+      "file": "attempts/054-essential-highn.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The falsifiable question 052 posed, answered in the safe direction: re-running the high-n campaigns under 051's essentiality constraint (every coordinate keeps marginal >= 0.03, so the adversary cannot leave the dimension it was launched in) leaves every floor positive and RAISES all of them -- rollout at n = 6 goes +0.030430 -> +0.091924 (cap 0.49) and +0.053740 -> +0.079948 (cap 0.497), rollout at n = 7 goes +0.099692 -> +0.135386, and a best-order spot check at n = 6 gives +0.074824 -- with zero violations and zero endpoints losing a coordinate. So the previously-degenerate high-n claims were not hiding a violation, and the four cheap escapes this window catalogued were all making the conjecture look HARDER to defend than it is, never easier. Also re-checks 053's correction (ii) independently: with t = min(1/2-q, q) the boundary ratio is t/(q c*(q)), which grows above q = 1/4 (4.95 at 0.3, 70.7 at 0.49), so the L1 infimum is still approached only as q -> 0.",
+      "range": "Rollout descents at n = 6 (6 starts per cap at 0.49 and 0.497) and n = 7 (4 starts at 0.49), plus a best-order SPOT CHECK at n = 6 (one start, 12 rounds, all 720 orders enumerated per candidate -- stated as a spot check, not a campaign, because the objective costs 720 CR evaluations per candidate). Essentiality threshold 0.03 is a stated choice. Float-level throughout: no certificates this round. 040's anneal has no constrained counterpart yet",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_essential_highn",
+        "hu_essential_highn",
+        "essential high-n",
+        "+0.091924",
+        "+0.135386",
+        "floors rise",
+        "no coordinate lost",
+        "safe direction"
+      ],
+      "note": "Closes 052 lead 1 for the 038 campaigns. The direction of the shift is the content: in every case the honest floor is higher than the degenerate one, so the degeneracies manufactured near-misses rather than hiding violations -- the opposite would have been far more serious. Remaining: a real best-order campaign at n = 6 (the spot check needs 8-17 starts, which needs branch-and-bound over orders to afford), an essentiality-constrained rerun of 040's anneal (the source of the worst overstatement, n = 7 -> effective n = 2), and folding the essentiality check into the standing harness so campaigns cannot regress."
     }
   ]
 }

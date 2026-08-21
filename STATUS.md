@@ -204,6 +204,22 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**054 (same day): the high-n floors, re-run with no degenerate escape
+— every one RISES, none crosses.** 052's falsifiable question answered
+in the safe direction: under 051's essentiality constraint (every
+coordinate keeps marginal ≥ 0.03) rollout at n = 6 goes
++0.030430 → **+0.091924** (cap 0.49) and +0.053740 → **+0.079948**
+(0.497), rollout at n = 7 goes +0.099692 → **+0.135386**, and a
+best-order spot check at n = 6 gives **+0.074824** — zero violations,
+and zero endpoints lost a coordinate. So the previously-degenerate
+high-n claims were not hiding a violation, and **all four cheap
+escapes this window catalogued made the conjecture look harder to
+defend than it is, never easier** — the opposite would have been far
+more serious. Also re-checked here: 053's correction (ii) does not
+disturb L1, since the boundary ratio t/(q·c\*(q)) *grows* above
+q = 1/4 (4.95 at 0.3, 70.7 at 0.49). Remaining thin spots: the n = 6
+best-order figure is one short start, and 040's anneal still has no
+constrained rerun.**
 **053 (reviewer batch 5 over 044–048; fresh-context subagent,
 029/034 caveat): VERIFIED, with TWO MATHEMATICAL corrections.**
 Nothing is refuted — all ten pipelines re-run with six checkpoints
