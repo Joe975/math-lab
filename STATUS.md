@@ -204,6 +204,24 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**055 (same day, correction to 054): a weak adversary's stall is not a
+floor.** Re-running 040's anneal with essentiality enforced inside
+move acceptance (2,933 moves rejected for it, so it was actively
+binding) gives floors **+6.26e-13** at n = 6 cap 0.49, +2.079e-04 at
+0.497 and +2.484e-04 at n = 7 — zero violations, zero endpoints losing
+a coordinate — and the sharpest endpoint converges to a **diagonal**
+{∅: 0.6174, full: 0.3826}, every marginal 0.3826: a genuinely
+6-dimensional member of 042's equality family, so margin 0 there is
+*expected*, not a violation. **This corrects 054**: its constrained
+figures (+0.091924, +0.079948, +0.135386) are descent stall points,
+not floors — the anneal reaches five orders of magnitude lower under
+the same constraint. Fifth instance this window of one lesson in a new
+dress, and the two failure modes point opposite ways: degeneracy makes
+floors look too small, stalling makes them look too large, so both
+need checking before a floor is quoted as evidence. Also the first
+time any adversary has landed on the equality family in **essential**
+form at n ≥ 6. Standing lead: quote every floor with the search and
+budget that produced it.**
 **054 (same day): the high-n floors, re-run with no degenerate escape
 — every one RISES, none crosses.** 052's falsifiable question answered
 in the safe direction: under 051's essentiality constraint (every

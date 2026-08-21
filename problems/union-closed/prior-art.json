@@ -1897,6 +1897,42 @@
         "safe direction"
       ],
       "note": "Closes 052 lead 1 for the 038 campaigns. The direction of the shift is the content: in every case the honest floor is higher than the degenerate one, so the degeneracies manufactured near-misses rather than hiding violations -- the opposite would have been far more serious. Remaining: a real best-order campaign at n = 6 (the spot check needs 8-17 starts, which needs branch-and-bound over orders to afford), an essentiality-constrained rerun of 040's anneal (the source of the worst overstatement, n = 7 -> effective n = 2), and folding the essentiality check into the standing harness so campaigns cannot regress."
+    },
+    {
+      "id": "055",
+      "file": "attempts/055-anneal-essential.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "refutes": "054",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Re-running the 040 anneal with essentiality enforced inside move acceptance (2,933 moves rejected for it, so the constraint was actively binding) gives floors +6.26e-13 at n = 6 cap 0.49, +2.079e-04 at 0.497 and +2.484e-04 at n = 7 -- zero violations, zero endpoints losing a coordinate -- and the sharpest endpoint converges to a DIAGONAL {empty: 0.6174, full: 0.3826} with every marginal 0.3826, i.e. a genuinely 6-dimensional member of the 042 equality family, so margin 0 there is expected rather than a violation. That corrects 054: its constrained figures (+0.091924, +0.079948, +0.135386) are descent STALL POINTS, not floors -- the anneal reaches five orders of magnitude lower under the same constraint. Fifth instance this window of one lesson in a new dress: a weak adversary's stall is not a floor, and where degeneracy made floors look too small, stalling makes them look too large.",
+      "corrections": [
+        "054 reports essentiality-constrained floors of +0.091924 (n = 6 cap 0.49), +0.079948 (n = 6 cap 0.497) and +0.135386 (n = 7 cap 0.49) and reads them as the honest floors. They are stall points of a pattern-search descent: the constrained anneal here reaches +6.26e-13 at n = 6 cap 0.49, five orders of magnitude lower, on a genuinely 6-dimensional instance. 054's comparison against the DEGENERATE recorded floors still holds in direction; what does not hold is treating its numbers as floors"
+      ],
+      "range": "3 anneals x 900 steps per block at n = 6 (caps 0.49, 0.497) and n = 7 (cap 0.49), essentiality threshold 0.03 enforced in move acceptance; comparison against the 040 checkpoint with each recorded endpoint labelled admissible or excluded (two of three have min marginal exactly 0 and are excluded, so those rows are not like-for-like). Float-level: no certificates this round, nothing above cap 0.497, and no campaign larger than stated",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_anneal_essential",
+        "hu_anneal_essential",
+        "constrained anneal",
+        "stall is not a floor",
+        "+6.26e-13",
+        "diagonal at n=6",
+        "0.3826",
+        "2933 moves rejected"
+      ],
+      "note": "Also the first demonstration that the equality family is reachable in ESSENTIAL form at n >= 6 -- 042 predicted diagonals are extremal at every n, and this is the first adversary to land on one at that size. Leads: quote every floor with an adversary-strength note (054 and 055 differ by five orders of magnitude on the same quantity, so the search and its budget are part of the claim); point the constrained anneal at the caps above 0.497 that 045 only reached with descents; and certify the n = 6 diagonal endpoint as an exact equality instance via the 042 identity at p = 0.3826."
     }
   ]
 }
