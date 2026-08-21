@@ -1105,6 +1105,224 @@ def r8():
           "cosmetic: 'at_corner' means the (0,1/2) corner only")
 
 
+# ============================================================== R9
+def r9():
+    print("\nR9. 044's own-constant audit, re-audited; 046 G and the "
+          "grid provenance.")
+    own = json.loads((DATA / "hu_ownconst.json").read_text())
+    A, Bc = own["A_endpoints"], own["B_census"]
+    negs = [r for r in A["rows"] if r["own_margin"] < 0]
+    zeros = [r for r in A["rows"] if abs(r["own_margin"]) < 1e-15]
+    check("044 A: 212 stored endpoints, exactly ONE own-constant "
+          "violation, and it is the D_bestorder_cap_0.497 / "
+          "floor:windowkill row",
+          len(A["rows"]) == 212 and len(negs) == 1
+          and negs[0]["src"].endswith("D_bestorder_cap_0.497:"
+                                      "floor:windowkill"),
+          f"{len(negs)} negative, {len(zeros)} exactly at 0 "
+          f"(family-saturated), min {A['min_margin']:+.3e}")
+    anneal_min = min(r["own_margin"] for r in A["rows"]
+                     if "anneal" in r["src"])
+    check("CORRECTION 044 A: the endpoints at EXACTLY 0 are the "
+          "hu_blocks.json block-tensor rows, not \"the family-saturated "
+          "anneal endpoints\" as the record says - the closest anneal "
+          "endpoint sits at +1.5e-11, near the family but not on it",
+          all("blocks" in r["src"] for r in zeros)
+          and 0 < anneal_min < 1e-10,
+          f"zero rows: {[r['src'] for r in zeros]}; smallest anneal "
+          f"margin {anneal_min:+.2e}")
+    check("044 C: the 1200-instance census has zero violations and "
+          "minimum own margin +4.49e-2",
+          Bc["count"] == 1200 and Bc["negatives"] == 0
+          and abs(Bc["min_margin"] - 0.0448543) < 1e-6,
+          f"min {Bc['min_margin']:+.6f}")
+    # independent re-audit of every hu_order2.json endpoint under an own
+    # rollout derivation and an own evaluator
+    o2 = json.loads((DATA / "hu_order2.json").read_text())
+    bysrc = {r["src"]: r for r in A["rows"]}
+    worst = 0.0
+    n_rows = 0
+    my_negs = []
+    for sec, blk in o2.items():
+        if not (isinstance(blk, dict) and "rows" in blk):
+            continue
+        for row in blk["rows"]:
+            src = f"hu_order2.json:{sec}:{row['start']}"
+            if src not in bysrc:
+                continue
+            n = row["n"]
+            mu = {int(a, 2): w for a, w in row["mu"].items() if w > 0}
+            tot = sum(mu.values())
+            mu = {a: w / tot for a, w in mu.items()}
+            seq = order_roll(n, mu)
+            cr, H = hu_cr(n, mu, seq, dec=False)
+            fmax = max(marginals(n, mu))
+            m = float(cr) / float(H) - cstar(fmax)
+            worst = max(worst, abs(m - bysrc[src]["own_margin"]))
+            n_rows += 1
+            if m < 0:
+                my_negs.append((src, m))
+    check(f"044 A: all {n_rows} hu_order2.json endpoints re-audited with "
+          "an own rollout derivation and an own evaluator", worst < 1e-9,
+          f"max |own margin - checkpoint| {worst:.2e}")
+    check("044 A: the re-audit finds exactly the same single violation",
+          len(my_negs) == 1
+          and my_negs[0][0].endswith("D_bestorder_cap_0.497:"
+                                     "floor:windowkill"),
+          f"{[(a.split(':', 1)[1], f'{b:+.3e}') for a, b in my_negs]}")
+    # 046 G: the q -> 1/2 boundary family
+    rows = []
+    for eps in (0.2, 0.01, 1e-6):
+        mu = {1: 0.5 - eps, 2: 0.5 - eps, 0: 2 * eps}
+        cr, H = hu_cr(2, mu, (0, 1), dec=False)
+        q = max(marginals(2, mu))
+        rows.append((eps, float(cr) / float(H) - cstar(q)))
+    mu = {1: 0.5, 2: 0.5}
+    cr0, H0 = hu_cr(2, mu, (0, 1), dec=False)
+    check("046 G: along {{1}:1/2-eps, {2}:1/2-eps, empty:2eps} the RATIO "
+          "margin is strictly positive and vanishes only in the limit "
+          "(+7.10e-2 / +2.10e-3 / +7.7e-11)",
+          all(v > 0 for _, v in rows)
+          and abs(rows[0][1] - 7.10e-2) < 5e-5
+          and abs(rows[1][1] - 2.10e-3) < 5e-6
+          and abs(rows[2][1] - 7.7e-11) < 5e-13,
+          "; ".join(f"eps={e:g}: {v:+.4e}" for e, v in rows))
+    check("046 G: at eps = 0 (two disjoint singletons at marginal 1/2) "
+          "CR = 0 exactly while c*(1/2) = 0, so the bound is tight "
+          "trivially", abs(float(cr0)) < 1e-15 and cstar(0.5) == 0.0,
+          f"CR {float(cr0):+.1e}, H {float(H0):.3f}")
+    # the "1.38M-point grid" provenance
+    src = (HERE / "uc_hu_n2_skeptic.py").read_text()
+    m = re.search(r"S4\.[^\n]*\n\s*N = (\d+)", src)
+    N = int(m.group(1)) if m else None
+    committed = (N - 1) * (N + 1) ** 2 if N else None
+    check("CORRECTION 046 A/B: the quoted \"1.38M-point grid\" is not "
+          "the committed skeptic's grid - S4 sweeps N = 60, i.e. "
+          f"{committed:,} points; 1,379,840 = 110 x 112 x 112 is the "
+          "N = 111 grid of a superseded run (the record's own part C "
+          "quotes the committed grid's worst value, -6.9e-16)",
+          N == 60 and committed == 219539 and 110 * 112 * 112 == 1379840,
+          f"committed grid N = {N} ({committed:,} points)")
+
+
+
+# ============================================================== R10
+def r10():
+    """046 G': the DFS-vs-largest-box-first coverage lesson.  The
+    committed engine's numbers were re-run byte-identically outside this
+    file; the DFS figures it quotes are transcript-only, so they are
+    corroborated here with a float-enclosure B&B of the same geometry
+    (same root box, same longest-edge split, same minimum edge) at a
+    smaller budget.  This is a coverage experiment, not a certificate."""
+    print("\nR10. 046 G': depth-first is not coverage (float surrogate).")
+    import heapq as _hq
+
+    def hrange(lo, hi):
+        if lo > hi:
+            lo, hi = hi, lo
+        top = 1.0 if lo <= 0.5 <= hi else max(h(lo), h(hi))
+        return (min(h(lo), h(hi)) - 1e-12, top + 1e-12)
+
+    def imul(a, b):
+        pr = [a[0] * b[0], a[0] * b[1], a[1] * b[0], a[1] * b[1]]
+        return (min(pr), max(pr))
+
+    def iclipI(X, Y):
+        s0, s1 = X[0] + Y[0] - 1, X[1] + Y[1] - 1
+        return (min(max(0.5, s0), X[0], Y[0]), min(max(0.5, s1), X[1], Y[1]))
+
+    def Fencl(X, U0, U1):
+        F0 = (1 - X[1], 1 - X[0])
+        F1 = (X[0] * (1 - U0[1]) + (1 - X[1]) * (1 - U1[1]),
+              X[1] * (1 - U0[0]) + (1 - X[0]) * (1 - U1[0]))
+        Q = (max(F0[0], F1[0]), max(F0[1], F1[1]))
+        if Q[0] >= 0.5 or Q[1] <= 0:
+            return None
+        Qc = (max(Q[0], 0.0), min(Q[1], 0.5))
+        Z = (max(0.5, 1 - 2 * Qc[1]), max(0.5, 1 - 2 * Qc[0]))
+        hZ, hQ = hrange(*Z), hrange(*Qc)
+        Z0 = iclipI(X, X)
+        S = hrange(*Z0)
+        W = {(0, 0): Z0, (0, 1): (X[0] - Z0[1], X[1] - Z0[0]),
+             (1, 0): (X[0] - Z0[1], X[1] - Z0[0]),
+             (1, 1): (1 - 2 * X[1] + Z0[0], 1 - 2 * X[0] + Z0[1])}
+        U = {0: U0, 1: U1}
+        for (a, b), w in W.items():
+            wc = (max(w[0], 0.0), max(w[1], 0.0))
+            zc = iclipI(U[a], U[b])
+            pr = imul(wc, hrange(*zc))
+            S = (S[0] + pr[0], S[1] + pr[1])
+        Hb = hrange(X[0], X[1])
+        for wI, uI in ((X, U0), ((1 - X[1], 1 - X[0]), U1)):
+            pr = imul(wI, hrange(uI[0], uI[1]))
+            Hb = (Hb[0] + pr[0], Hb[1] + pr[1])
+        CR = (S[0] - Hb[1], S[1] - Hb[0])
+        A = imul(CR, hQ)
+        B = imul((hZ[0] - hQ[1], hZ[1] - hQ[0]), Hb)
+        return (A[0] - B[1], A[1] - B[0])
+
+    root = ((0.5, 1.0), (0.0, 1.0), (0.0, 1.0))
+    min_edge, budget = 1 / 512, 200000
+
+    def vol(b):
+        return ((b[0][1] - b[0][0]) * (b[1][1] - b[1][0])
+                * (b[2][1] - b[2][0]))
+
+    out = {}
+    for mode in ("dfs", "largest"):
+        q = [root]
+        heap = [(-vol(root), 0, root)]
+        cnt = 0
+        vc = vo = vr = 0.0
+        proc = 0
+        while proc < budget:
+            if mode == "dfs":
+                if not q:
+                    break
+                box = q.pop()
+            else:
+                if not heap:
+                    break
+                box = _hq.heappop(heap)[2]
+            proc += 1
+            F = Fencl(*box)
+            if F is None:
+                vo += vol(box)
+                continue
+            if F[0] > 0:
+                vc += vol(box)
+                continue
+            w = [b[1] - b[0] for b in box]
+            if max(w) <= min_edge:
+                vr += vol(box)
+                continue
+            k = w.index(max(w))
+            mid = (box[k][0] + box[k][1]) / 2
+            for half in ((box[k][0], mid), (mid, box[k][1])):
+                nb = list(box)
+                nb[k] = half
+                nb = tuple(nb)
+                cnt += 1
+                if mode == "dfs":
+                    q.append(nb)
+                else:
+                    _hq.heappush(heap, (-vol(nb), cnt, nb))
+        left = (sum(vol(b) for b in q) if mode == "dfs"
+                else sum(vol(b) for _, _, b in heap))
+        out[mode] = (vc, vo, vr, left)
+    check("046 G': at an equal budget a depth-first queue certifies a "
+          "negligible fraction of the box and leaves nearly all of it "
+          "unprocessed, while largest-box-first covers it - the "
+          "record's method lesson is reproduced qualitatively",
+          out["dfs"][0] / 0.5 < 0.01 < 0.3 < out["largest"][0] / 0.5
+          and out["dfs"][3] / 0.5 > 0.9,
+          f"budget {budget}: DFS certified {100 * out['dfs'][0] / .5:.3f}% "
+          f"unprocessed {100 * out['dfs'][3] / .5:.1f}%; largest-first "
+          f"certified {100 * out['largest'][0] / .5:.1f}% unprocessed "
+          f"{100 * out['largest'][3] / .5:.1f}%")
+
+
+
 def main():
     r1()
     r2()
@@ -1114,6 +1332,8 @@ def main():
     r6()
     r7()
     r8()
+    r9()
+    r10()
     print()
     if FAILS:
         print(f"FAILED CHECKS: {len(FAILS)}")

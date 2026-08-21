@@ -1817,6 +1817,54 @@
         "dimension labelling"
       ],
       "note": "Fourth cheap-escape caught in this window and the widest: a vanishing constant (046 section G), a vanishing coverage (046 section G-prime), a vanishing dimension in one campaign (051), and a vanishing dimension across most campaigns at once (here). The honest state: the conjecture has never been violated at any effective dimension, but the evidence at n >= 6 is thinner than the record implies. Leads: re-run the 040 anneal and the 038 P2/P3 blocks under the 051 essentiality constraint (expect the floors to rise as they did at n = 3, +2.6e-09 -> +1.8e-05; whether they stay positive is the falsifiable part), and decide whether the adversary prefers degenerate faces because they ARE the extremal structure -- if so, the equality families of 042 are incomplete."
+    },
+    {
+      "id": "053",
+      "file": "attempts/053-reviewer-pass-044-048.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "entropy-method",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Reviewer batch 5 over 044-048, default stance refute: all six committed checkpoints re-run BYTE-IDENTICALLY and all four skeptics exit 0; the 044 kill is recomputed at 50+ digits by an independent exact evaluator (CR_roll = -0.0009596936656816684080411, inside both kits' enclosures), its rollout order re-derived from the 035/037 rules, its witness confirmed already present in 037's committed checkpoint, and all 120 hu_order2 endpoints re-audited to 6.4e-16 finding the same single violation; 045's 67 endpoints, 046's B&B accounting and part-E/G numbers, 047's dichotomy census (needing both = 0) and 048's minimiser table all reproduce through independently written code -- but eight corrections follow, two of them mathematical: 046's Lemma N2-CONC is tight not only at p_a = p_b but on the whole region min(p_a,p_b) >= 1/4 where psi is constant (worked instance (0.30, 0.40)), and 048's boundary identity ratio(q,0,1/2) = 1/c*(q) holds only for q <= 1/4, since ratio = min(1/2-q, q)/(q c*(q)) (4.94930 vs 7.42395 at q = 0.3), a gap that survived its skeptic because engine and skeptic both sampled only q <= 0.2.",
+      "range": "All five records audited against the committed checkpoints; ten pipelines re-run (uc_hu_ownconst, uc_hu_ownconst_certify, uc_hu_bestorder(+skeptic), uc_hu_n2(+skeptic, 819 s), uc_hu_n2_dichotomy(+skeptic), uc_hu_L1(+skeptic)) with hu_ownconst / hu_ownconst_certify / hu_bestorder / hu_n2 / hu_n2_dichotomy / hu_L1 byte-identical; the five hand statements (N2-ONE-BAD, N2-ONE-ABOVE, N2-CONC and its averaging step, the exact decomposition in BOTH cases, the L1 boundary identity) re-derived from scratch before reading the records' arguments; the 044 certificate recomputed in exact rationals with 80-digit Decimal entropies (neither repo kit) and checked for containment in both kits' enclosures; 045's 67 endpoints re-scored by full 24/120-order enumeration (max deviation 7.2e-16); 046/047/048's censuses re-run on this reviewer's own samplers and grids. Not reviewed: 049-052 (written concurrently), anything at n >= 3, and the transcript-only DFS figures of 046 G' (corroborated only qualitatively by a float-enclosure surrogate).",
+      "corrections": [
+        "046's Lemma N2-CONC states equality in s(p_a,p_b) >= (G(p_a)+G(p_b))/2 holds iff p_a = p_b; that clause is false. psi(t) = h(min(1/2,t)) is CONSTANT on [1/2, infinity), so the bound is also tight whenever min(p_a,p_b) >= 1/4 with p_a != p_b -- e.g. p_a = 0.30, p_b = 0.40, where both sides equal 0.073879 exactly. The inequality itself, the averaging step over the cells, and every use made of the lemma survive; the sharpness clause does not, and 048's 'concavity is tight only at p0 = p1' inherits the imprecision. Corrected clause, verified on 200,000 pairs: equality iff p_a = p_b OR min(p_a,p_b) >= 1/4.",
+        "048's boundary identity ratio(q, p0=0, p1=1/2) = 1/c*(q) is stated unqualified but holds only for q <= 1/4. Own derivation: at that configuration Delta = 1 so C = t = min(1/2-q, q) and -B = q c*(q), hence ratio = min(1/2-q, q)/(q c*(q)), which equals 1/c*(q) only while t = q. At q = 0.3 the ratio is 4.94930 against 1/c*(0.3) = 7.42395. The engine tabulates six values q <= 0.1 and the skeptic tests q <= 0.2, so neither probed the failing range. Everything the record concludes from the identity (the corner satisfies L1 strictly; the infimum-1 story at q -> 0) survives.",
+        "046 F's own correction of 034 over-reaches: the mis-stated constant (h(min(2p,1))-h(p))/h(p) is NEGATIVE only above p = 1/3, not above p = 1/4 (h(2p) = h(p) iff 3p = 1). On (1/4, 1/3) it is positive but too small -- +0.101737 against the correct +0.134707 at p = 0.30 -- so it is wrong there without being vacuous. The correction's substance stands: the stated form differs from the computed one above 1/4, and no computation uses it (17 c*/z*/sigma definitions in explore/ all compute the max(1/2, 1-2p) form; the sole repo-wide occurrence of the wrong form is a diagnostic print in uc_reviewer034_reimpl.py:733 that feeds no checkpoint).",
+        "047's 'A >= 0 and C >= 0, so only B can be negative' and its entire census are CASE-A ONLY (the engine draws p0, p1 in (0,1/2)); the index's range field says so but the record's part A and its 'the deficit structure at n = 2 is now completely determined' do not. Outside Case A -- 50.2% of in-regime measures under the uniform (x,u0,u1) parametrization -- the ledger interaction C = t*Delta is negative on 63% of sampled points and 047's closed-form A+B+C is not the margin at all (deviation up to 0.5), because Delta must be read as the ledger form, not the psi closed form. The n = 2 conjecture is not endangered there: the margin stays >= 0 over 200,000 Case-B samples (worst +1.6e-5).",
+        "048 P3's 'every tight configuration has t = 1-x = q (375 versus 0)' quotes a --fast run: the committed checkpoint says 5,698 versus 0, reproduced exactly by an own full re-run of the same generator. The qualitative claim is unaffected.",
+        "046's 'worst margin 0 over a 1.38M-point grid' (parts A and B, and this index's one_line and range) describes a superseded skeptic: the committed uc_hu_n2_skeptic.py sweeps N = 60, i.e. 219,539 points, worst -6.939e-16 -- which is exactly what 046 part C quotes as -6.9e-16. 1,379,840 = 110 x 112 x 112 is the N = 111 grid; part A's -6.7e-16 matches neither committed run.",
+        "044's 'rollout ranks 13/24 on its own kill' is not reproducible under a best-to-worst ranking: all six orders revealing coordinate 1 first give exactly the same CR (-9.596936657e-4), so rollout sits in a six-way tie at descending ranks 7-12. 13 is that block's position counting from the WORST end, under which rollout is above the median -- the opposite of the record's gloss 'worse than the middle'. The kill itself is unaffected (18 of 24 orders negative, confirmed).",
+        "044's parenthetical that the endpoints at exactly 0 are 'the family-saturated anneal endpoints' misattributes them: the three exactly-zero rows are hu_blocks.json block-tensor rows (B_attack:[(d,2),(d,2)], B_attack:[(d,3),(d,3)] to 5e-20, C_sat497), while the closest hu_roll_anneal endpoint sits at +1.53e-11. The audit's substance (211 of 212 clear) is unaffected.",
+        "Reporting nits: 047's parts B and C are different samples, so 42,575 deficit cases and 7,435 + 34,650 = 42,085 do not reconcile as the prose implies; 046 part E's 'identity verified to 2.6e-15 over 99,970 in-regime samples' corresponds to no committed check (the identity is true -- 6.5e-16 here over both cases -- but the committed cross-check is 047's skeptic S1, 2.89e-15 over 30,000 samples); 045's '+3.07e-3' for the 044 witness is the cap-0.499 row, +5.13e-3 at caps 0.495/0.497."
+      ],
+      "refuted_by": null,
+      "verifies": "046",
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_reviewer049_reimpl",
+        "reviewer049 N2-CONC tightness clause",
+        "reviewer049 min(p_a,p_b) >= 1/4 equality region",
+        "reviewer049 L1 boundary identity only for q <= 1/4",
+        "reviewer049 c* stated form negative only above 1/3",
+        "reviewer049 rollout six-way tie ranks 7-12",
+        "reviewer049 Case-B scope of the dichotomy",
+        "reviewer049 1.38M grid provenance",
+        "reviewer049 375 versus 5698"
+      ],
+      "note": "Independence caveat, as in 029/034/039/043: fresh-context subagent with zero shared conversation state, but spawned from the author's session with a reviewing brief and the same model family -- whether that meets 024's fresh-session bar is for the human owner to judge. Commissioned as 049 (hence uc_reviewer049_reimpl.py); 050-052 were committed while it ran, so new_attempt.py assigned 053 and 049 is an unused id. The re-implementation imports none of the reviewed engines or either certification kit. Standing proposal from the batch: three of the eight corrections would have been caught by requiring every skeptic to sample at least one region its engine does not, and to say which."
     }
   ]
 }
