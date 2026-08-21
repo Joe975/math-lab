@@ -1965,6 +1965,36 @@
         "exact equality not a gap"
       ],
       "note": "Closes a gap the window kept re-opening: five times a float near zero was read as meaning something and three of those readings were wrong (a vanishing constant, a vanishing coverage, two vanishing dimensions, a stall). Here the near-zero number means exactly what it appeared to -- and certification is the only way to tell the two cases apart, which is the transferable point. Leads: certify a block-tensor equality instance at n = 6 to confirm the essential equality set is the full family there, and decide whether the n = 7 endpoint misses the family because the anneal did not converge or because the family is harder to reach at that size."
+    },
+    {
+      "id": "057",
+      "file": "attempts/057-n7-equality.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "A seeded control settles what the n = 7 gap of 055 meant: placed ON the equality family, the constrained anneal STAYS there at n = 7 (margins -2.1e-15 and -2.7e-15 after 900 steps, float noise on a quantity certified exactly 0 at n = 6 in 056) exactly as it does at n = 6, so the family is a stable attractor at that size and the essential floor at n = 7 is 0. Unseeded and given 3x the budget (2,700 steps, three runs) the anneal still does not find it, improving only from +2.484e-04 to +1.840e-04. So the n = 7 gap is search convergence, not structure -- reading (i) of the two 056 posed -- and the positive n = 7 numbers on record describe the search rather than the problem. Technique worth keeping: when an adversary fails to reach a known target, seeding it at the target separates cannot-get-there from did-not-get-there, and those have opposite consequences.",
+      "range": "The 042 diagonal identity checked at n = 6 and 7 for p in {0.3826, 0.45, 0.487} (float, margin 0.000e+00); four seeded anneals at 900 steps (n = 6 and 7, two p each); three unseeded anneals at 2,700 steps at n = 7 cap 0.49, all essential. Float-level throughout -- no certificate at n = 7, though the 042 identity argument certified in 056 applies verbatim; nothing above cap 0.49 at n = 7; and only that 3x the budget fails, not that no budget succeeds",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n7_equality",
+        "hu_n7_equality",
+        "seeded control",
+        "stable attractor at n=7",
+        "+1.840e-04",
+        "search convergence not structure",
+        "cannot-get-there vs did-not-get-there"
+      ],
+      "note": "Sixth time this window that a near-zero number, or a failure to reach zero, needed a second measurement to interpret; the through-line is now explicit -- on this route no extremal number means anything until something independent says which of its possible meanings applies. Leads: seed every future high-n campaign at the equality family as a control run alongside the unseeded search (it costs one anneal and says whether a positive floor is real), and test whether the n = 6 to n = 7 difficulty jump is pure volume by adding a collapse-toward-a-diagonal move, which the current move set never proposes."
     }
   ]
 }

@@ -204,6 +204,23 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**057 (same day): the n = 7 gap is search convergence, not structure.**
+A seeded control settles what 055's n = 7 number meant: placed **on**
+the equality family, the constrained anneal **stays** at n = 7
+(margins −2.1e-15, −2.7e-15 after 900 steps — float noise on a
+quantity certified exactly 0 at n = 6 in 056), exactly as at n = 6. So
+the family is a stable attractor at that size and **the essential
+floor at n = 7 is 0**. Unseeded with 3× the budget (2,700 steps ×3)
+the anneal still does not find it, improving only +2.484e-04 →
++1.840e-04. The positive n = 7 numbers on record therefore describe
+the search, not the problem. **Technique worth keeping:** when an
+adversary fails to reach a known target, seed it *at* the target —
+that separates "cannot get there" from "did not get there", and the
+two have opposite consequences. Sixth time this window a near-zero
+number (or a failure to reach zero) needed a second measurement to
+interpret; the through-line is explicit now — **on this route no
+extremal number means anything until something independent says which
+of its meanings applies.**
 **056 (same day): the n = 6 equality endpoint, certified exact.**
 055's diagonal endpoint rationalizes to p = 2047143/5349940 with **all
 six marginals equal to p exactly** (genuinely 6-dimensional, not an
