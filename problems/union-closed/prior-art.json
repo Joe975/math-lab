@@ -2026,6 +2026,35 @@
         "move set not volume"
       ],
       "note": "Method result worth carrying: an adversary that cannot construct the known extremal family in one move will systematically overstate floors, so the collapse move belongs in the standing anneal and any newly discovered extremal family should be checked against the move set the same way. This is also the cleanest instance of the window pattern and the first where the fix was constructive rather than a caveat -- the matched control both interpreted the number and repaired the instrument that produced it. Leads: re-run the 045 best-order caps 0.495-0.499 with the augmented anneal (that campaign used descents only and those caps are closest to the boundary), and audit the move set against 042's block tensors, which are not reachable in one collapse move either."
+    },
+    {
+      "id": "059",
+      "file": "attempts/059-bestorder-anneal.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "The promoted conjecture put to the strongest adversary this route has built -- the essentiality-constrained anneal with the 058 collapse move, against the best-order objective with full order enumeration per candidate -- at the caps closest to 1/2 that 045 could only reach with descents: ZERO violations in 15 anneals across caps 0.495/0.497/0.499 at n = 4 and 0.495/0.499 at n = 5, and at the hardest cap tested (0.499, within 0.001 of the boundary) the anneal lands exactly on the equality family (-3.220e-15, float noise around the value certified exactly 0 in 056). Across this window the adversary was strengthened four times and each time the floors moved downward onto the family and never through it -- the signature a true conjecture with a known extremal family should produce.",
+      "range": "15 anneals: 3 x 1500 steps at n = 4 for caps 0.495/0.497/0.499 (24 orders per candidate) and 3 x 750 steps at n = 5 for caps 0.495/0.499 (120 orders per candidate), essentiality enforced with the collapse move enabled. All three of the 045 endpoints at these caps have min marginal exactly 0 and are excluded by essentiality, so the anneal-versus-descent comparison is not like-for-like and is labelled so in the checkpoint. Float-level: no certificate here, nothing at n >= 6 for the best-order objective, nothing above cap 0.499",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_bestorder_anneal",
+        "hu_bestorder_anneal",
+        "-3.220e-15",
+        "zero violations at 0.499",
+        "equality reached at the hardest cap",
+        "strongest adversary"
+      ],
+      "note": "The substance behind 'the promoted conjecture survives' is now stronger than the absence of counterexamples: four successive strengthenings of the adversary (own-constant flagging, essentiality, annealing, the collapse move) each moved the recorded floors down onto the equality family and never through it. What remains open is unchanged -- no proof at any n >= 2, and the best-order objective is untested at n >= 6 beyond a single spot check. Leads: best-order at n = 6 with rollout as a cheap lower bound and order enumeration only near the floor; certify the cap-0.499 equality endpoint by the 056 route; and a cap sweep toward 1/2 where c* -> 0 and the scale-free form of 046 section G becomes mandatory."
     }
   ]
 }

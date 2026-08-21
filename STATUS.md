@@ -204,6 +204,24 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**059 (same day): the promoted conjecture vs the strongest adversary
+yet, at the caps closest to 1/2 — ZERO violations.** Pointing the
+essentiality-constrained anneal with 058's collapse move at the
+best-order objective (full order enumeration per candidate) at the
+caps 045 could only reach with descents: **0 violations in 15
+anneals** across caps 0.495/0.497/0.499 at n = 4 and 0.495/0.499 at
+n = 5 — and at the hardest cap tested, **0.499**, the anneal lands
+**exactly on the equality family** (−3.220e-15, float noise around the
+value certified exactly 0 in 056). All three of 045's endpoints at
+these caps are excluded by essentiality (min marginal 0), so the
+comparison is labelled not-like-for-like. **The shape of the whole
+window's evidence:** the adversary was strengthened four times
+(own-constant flagging, essentiality, annealing, the collapse move)
+and each time the floors moved *downward onto* the equality family and
+never through it — the signature a true conjecture with a known
+extremal family should produce. Still open and unchanged: no proof at
+any n ≥ 2, and the best-order objective is untested at n ≥ 6 beyond a
+single spot check.**
 **058 (same day): the n = 7 difficulty was a MISSING MOVE, not
 volume — and one move fixes it.** The anneal's move set never proposes
 a diagonal directly (reaching {∅, full} from a ten-atom support needs
