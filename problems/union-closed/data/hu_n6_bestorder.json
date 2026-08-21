@@ -1,0 +1,29 @@
+{
+ "A_n6_cap_0.49": {
+  "checked": 3000,
+  "lower_bound_sufficed": 3000,
+  "enumeration_needed": 0,
+  "violations": 0,
+  "min_margin": 0.014945546631096882,
+  "min_source": "rollout-suffices",
+  "agreements": null
+ },
+ "B_n6_cap_0.497": {
+  "checked": 3000,
+  "lower_bound_sufficed": 3000,
+  "enumeration_needed": 0,
+  "violations": 0,
+  "min_margin": 0.0373266329030743,
+  "min_source": "rollout-suffices",
+  "agreements": null
+ },
+ "C_n5_control": {
+  "checked": 1000,
+  "lower_bound_sufficed": 1000,
+  "enumeration_needed": 0,
+  "violations": 0,
+  "min_margin": 0.04378060990530092,
+  "min_source": "enumerated",
+  "agreements": 1000
+ }
+}

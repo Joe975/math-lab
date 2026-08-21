@@ -204,6 +204,22 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**063 (same day): best-order at n = 6 made affordable — 6,000
+instances, zero violations, no enumeration needed.** n = 6 previously
+had one spot check because the objective costs 720 CR evaluations per
+candidate. The observation that retires the cost: **rollout
+lower-bounds best-order**, so whenever the rollout margin is already
+≥ 0 the best-order bound holds with no enumeration. Across 3,000
+instances per cap at 0.49 and 0.497 the lower bound sufficed on
+**100%**, the enumeration was never needed, zero violations, min
+own-constant margins **+0.014946** and **+0.037327**; an n = 5 control
+enumerating all 120 orders confirms the shortcut never disagrees
+(1,000/1,000). The route now has census evidence with no violation at
+**every size from n = 2 to 7**. The 100% sufficiency is itself
+informative — on random essential measures rollout already clears the
+conjectured bound, matching 038's finding that it is often though not
+always the best order. Open mathematics unchanged: no proof at any
+n ≥ 2, obstruction mapped in 046–048.**
 **062 (same day): the two live headline floors, recomputed clean —
 one sound, one 20% off.** Discharging 061's lead: of the two flagged
 blocks still feeding live claims (`hu_order2` D_bestorder at caps 0.49

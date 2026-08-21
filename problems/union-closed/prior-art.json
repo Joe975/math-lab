@@ -2148,6 +2148,35 @@
         "endpoint hygiene closed"
       ],
       "note": "Closes the endpoint-hygiene thread opened by 051: 061 supplies the gate, this supplies the one live restatement it implied. The calibration is worth keeping -- the route conclusions were robust to a third of its endpoints being mislabelled precisely because no conclusion rested on a single sharpest number. Open mathematics unchanged: no proof at any n >= 2, the n = 2 obstruction mapped in 046-048, and the best-order objective untested at n >= 6 beyond a spot check."
+    },
+    {
+      "id": "063",
+      "file": "attempts/063-n6-bestorder.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "Best-order at n = 6 -- the size that previously had a single spot check -- made affordable by one observation: rollout LOWER-BOUNDS best-order, so whenever the rollout margin is already non-negative the best-order bound holds with no enumeration at all. Across 6,000 essential in-regime instances at caps 0.49 and 0.497 the lower bound sufficed on 100% of them, the 720-order enumeration was never needed, there are zero violations, and the min own-constant margins are +0.014946 and +0.037327; an n = 5 control that enumerates all 120 orders regardless confirms the shortcut never disagrees (1,000 of 1,000). So the expensive objective was never the obstacle, and the route now has census evidence with no violation at every size from n = 2 to 7.",
+      "range": "3,000 essential in-regime instances per cap at n = 6 (0.49 and 0.497) plus a 1,000-instance n = 5 control with full 120-order enumeration; essentiality enforced and margins judged against each instance own constant. This is a random CENSUS, not an adversarial campaign -- no descent or anneal floor at n = 6 best-order is claimed. Float-level, no certificates, nothing above cap 0.497",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n6_bestorder",
+        "hu_n6_bestorder",
+        "rollout lower bound",
+        "100% sufficed",
+        "+0.014946",
+        "no enumeration needed"
+      ],
+      "note": "The sufficiency fraction is itself the interesting statistic: at exactly 100% over 7,000 instances, rollout on random essential measures is not merely close to best-order but already clears the conjectured bound, consistent with the 038 census finding that rollout is often though not always the best order. Leads: run an adversarial campaign (not a census) at n = 6 best-order by annealing on the ROLLOUT margin and enumerating orders only at the endpoint, which buys an adversarial n = 6 floor at roughly rollout cost; and watch the sufficiency fraction, since any instance where rollout is negative but best-order is not would be the first separation of the two statements at n >= 6."
     }
   ]
 }
