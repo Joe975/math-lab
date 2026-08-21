@@ -204,6 +204,25 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**060 (same day, correction to 059 — found while certifying its own
+endpoint): the caps constrained only the START.** Admissibility in
+these campaigns is max marginal < 1/2, so the adversary wanders freely
+to small marginals — and 059's "equality at cap 0.499" endpoint has
+its own max marginal **0.0360**, not 0.499. Four of five sharpest
+endpoints had drifted off their caps; the ones that stayed have floors
+three orders larger. Re-running with a **marginal floor**
+(max marginal ≥ cap − 0.005) gives the route's first genuinely
+near-boundary best-order numbers: **zero violations** with marginals
+pinned in [0.492, 0.500], and at cap 0.495 the adversary reaches the
+equality family **inside the band** (floor exactly 0, at the diagonal
+{∅: 0.5082, full: 0.4918}); the positive floors at 0.497/0.499 are
+budget artifacts, since diagonals exist at every p. **This is 044's
+own-constant lesson one level up** — applied to the search *region*
+instead of the constant — and it is the third leaked constraint after
+dimension (052) and essentiality (051), each caught only by inspecting
+endpoints. Standing lead: one harness check that every recorded
+endpoint satisfies its campaign's stated region would have caught all
+three.**
 **059 (same day): the promoted conjecture vs the strongest adversary
 yet, at the caps closest to 1/2 — ZERO violations.** Pointing the
 essentiality-constrained anneal with 058's collapse move at the

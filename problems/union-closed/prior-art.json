@@ -2055,6 +2055,40 @@
         "strongest adversary"
       ],
       "note": "The substance behind 'the promoted conjecture survives' is now stronger than the absence of counterexamples: four successive strengthenings of the adversary (own-constant flagging, essentiality, annealing, the collapse move) each moved the recorded floors down onto the equality family and never through it. What remains open is unchanged -- no proof at any n >= 2, and the best-order objective is untested at n >= 6 beyond a single spot check. Leads: best-order at n = 6 with rollout as a cheap lower bound and order enumeration only near the floor; certify the cap-0.499 equality endpoint by the 056 route; and a cap sweep toward 1/2 where c* -> 0 and the scale-free form of 046 section G becomes mandatory."
+    },
+    {
+      "id": "060",
+      "file": "attempts/060-nearboundary.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "refutes": "059",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "Same-day correction to 059, found while certifying its endpoint: the campaign caps constrain only the instances a run STARTS from -- admissibility is max marginal < 1/2 -- so the adversary is free to wander to small marginals, and the equality endpoint 059 reports at cap 0.499 has its own max marginal at 0.0360, not 0.499. Four of five sharpest endpoints had drifted off their caps, while those that stayed have floors three orders of magnitude larger. Re-running with a marginal FLOOR (max marginal >= cap - 0.005) gives the route's first genuinely near-boundary best-order numbers: zero violations with marginals pinned in [0.492, 0.500], and at cap 0.495 the adversary reaches the equality family INSIDE the band (floor exactly 0, at the diagonal {empty: 0.5082, full: 0.4918}); the positive floors at 0.497/0.499 are budget artifacts since diagonals exist at every p.",
+      "corrections": [
+        "059 headlines that at cap 0.499, the hardest tested, the anneal lands exactly on the equality family. The endpoint in question has own max marginal 0.0360, so that run did not test the boundary at all -- the cap bounds only the starting instances. 059's zero-violation result stands as a statement about the in-regime space at large; its boundary claim does not. The drift is visible in 059's own checkpoint: sharpest endpoints at own marginals 0.4846 (cap 0.497), 0.0360 (0.499), 0.0930 (n=5 cap 0.495) and 0.0390 (n=5 cap 0.499)"
+      ],
+      "range": "Three anneals per block at n = 4 (caps 0.495/0.497/0.499, 1500 steps, 24 orders per candidate) and n = 5 (cap 0.499, 750 steps, 120 orders), with essentiality AND a marginal floor of cap - 0.005 enforced in admissibility; every endpoint verified to have stayed in the band. Float-level: no certificates, nothing at n >= 6, and 12 anneals do not exhaust the near-boundary region",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_nearboundary",
+        "hu_nearboundary",
+        "marginal floor",
+        "cap constrains only the start",
+        "0.0360 not 0.499",
+        "in-band diagonal",
+        "0.4918"
+      ],
+      "note": "The same error 044 named, one level up: 044 established that margins must be judged against the instance own constant rather than the campaign cap, and this is that mistake applied to the search REGION rather than the constant. Three constraints have now leaked in this route -- dimension (052), essentiality (051), and the cap (here) -- each caught only by inspecting endpoints. Standing lead: a single harness check that every recorded endpoint satisfies its campaign stated region would have caught all three. Next: push the band toward 1/2 (caps 0.4995, 0.4999), where c* -> 0 and the scale-free form of 046 section G becomes mandatory."
     }
   ]
 }
