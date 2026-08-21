@@ -1672,6 +1672,44 @@
         "first-coordinate slack"
       ],
       "note": "Advances 046 from 'the pair interaction is load-bearing' to 'it is load-bearing exactly when the first coordinate carries the max marginal, and then it suffices alone'. Mechanism reading: at q = f0 the slack A is zero by construction (nothing to donate) so the surplus must come from the coupling's own pair structure -- which is why 031's averaging schemes failed, since averaging destroys exactly that term. Both branches remain unproved; the only tight corner is x -> 1 (the n = 1 degeneration, where t, B and C vanish together), so a proof can be crude elsewhere and should expand in (1-x) there. Joins the next reviewer batch with 046."
+    },
+    {
+      "id": "048",
+      "file": "attempts/048-l1-ratio-form.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "entropy-method",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Branch L1 of 047, taken into scale-free form: the ratio C/(-B) has no tight interior point (sampled floor 1.1492 over 600,000 branch samples; a skeptic descent that actively minimises it bottoms at 1.0881), the boundary configuration (p0,p1) = (0,1/2) evaluates to EXACTLY 1/c*(q) (verified to 2.2e-16), so the branch infimum is exactly 1 and is approached only as q -> 0 and only LOGARITHMICALLY -- there is no polynomial corner to expand, which corrects 047 lead 1. Two further structure results: at every tight configuration t = 1-x = q (375 versus 0 among ratio < 1.5 cases), so L1 reads q*Delta >= -B; and the natural c*-free simplification is useless -- t*Delta dominates the c*-free bound on 0 of 600,000 samples, so c* is essential. Along the extremal the whole statement collapses to h(2q) <= 2h(q).",
+      "range": "Branch L1 only (q = f0), 600,000 sampled branch points per part with fixed seeds; the boundary identity at six values of q; the fixed-q minimiser located on a 140x140 mesh at seven values of q (corner (0,1/2) for q <= 0.03, interior above, independently re-classified by the skeptic on a 90x90 mesh); the ratio floor attacked by a minimising descent. All float-level: no certificates, no proof of L1, nothing outside the branch, and the interior minima are mesh minima",
+      "corrections": [
+        "047 lead 1 advises expanding in (1-x) at x -> 1 as the tight corner of L1. That is the ABSOLUTE margin C + B, which vanishes there only because both terms do -- the same trap 046 section G recorded at the q -> 1/2 boundary. In the scale-free ratio there is no polynomial corner: the approach to the infimum 1 is logarithmic in q (c*(q) = h(2q)/h(q) - 1 with h(2q)/h(q) -> 2 like 1 + 1/log2(1/q)). The simplification actually worth having is P3: at every tight configuration t = 1-x = q"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_L1",
+        "hu_L1",
+        "ratio form",
+        "1/c*(q) identity",
+        "logarithmic corner",
+        "1.0881",
+        "1.1492",
+        "h(2q) <= 2h(q)",
+        "c* is essential",
+        "two regimes of the minimiser"
+      ],
+      "note": "The negative result is the useful one: L1 has infimum exactly 1, so no argument with slack to spare can prove it -- every bound must be asymptotically sharp as q -> 0. That kills the crude-bound family outright (P4) and explains why 046's concavity route could not suffice: concavity is tight only at p0 = p1, whereas L1's extremal is (0,1/2), maximally unequal. Along that extremal the statement collapses to h(2q) <= 2h(q), elementary and true; the open part is everything off it. Joins the next reviewer batch with 046/047."
     }
   ]
 }

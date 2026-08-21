@@ -204,6 +204,26 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**048 (same day): branch L1 in scale-free form — the infimum is exactly
+1, and it is approached logarithmically.** Working 047's L1 in the
+ratio C/(−B) instead of the absolute margin: no tight interior point
+(sampled floor 1.1492 over 600k branch samples; a descent that
+actively minimises the ratio bottoms at 1.0881), and the boundary
+configuration (p₀,p₁) = (0,½) evaluates to **exactly 1/c\*(q)**
+(verified to 2.2e-16). Since c\*(q) < 1 always and → 1 as q → 0, the
+branch infimum is **exactly 1**, attained nowhere and approached only
+logarithmically — so **no argument with slack to spare can prove L1**,
+and there is no polynomial corner to expand. Two more structure
+results: at every tight configuration **t = 1−x = q** (375 vs 0 among
+ratio < 1.5 cases), so L1 reads q·Δ ≥ −B; and the natural c\*-free
+simplification is useless — t·Δ dominates it on **0 of 600,000**
+samples, so c\* is essential. Along the extremal the whole statement
+collapses to **h(2q) ≤ 2h(q)**, elementary and true; the open part is
+everything off it. **Corrects 047 lead 1** (its "expand at x → 1"
+advice was about the absolute margin — the same trap 046 §G recorded
+at the other boundary), and explains why 046's concavity route could
+not suffice: concavity is tight at p₀ = p₁, but L1's extremal is
+(0,½), maximally unequal.**
 **047 (same day): the n = 2 target splits into a DICHOTOMY.** Writing
 046's inequality as A + B + C ≥ 0 (A = first-coordinate slack,
 B = diagonal ledger, C = pair interaction; A, C ≥ 0 by proved sign
