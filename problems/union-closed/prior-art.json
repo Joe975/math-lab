@@ -1596,6 +1596,48 @@
         "main conjecture promotion"
       ],
       "note": "Survival earned against the same families and transfer seeds that killed canonical (035) and rollout (044), with the equality family visibly binding under the oracle -- but the record's own weak points are stated: descent-only adversary and n <= 5. Leads: port the 040 anneal to the oracle objective; sampled-order n = 6 attack; and the first proof probe -- max-order CR_HU >= c*(pbar)H on n = 2 blocks via the 041 count-pair DP, an honest-sized hand calculation. Joins the next reviewer batch with 044."
+    },
+    {
+      "id": "046",
+      "file": "attempts/046-n2-proof-probe.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "entropy-method",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The n = 2 case of the promoted best-order conjecture, taken as far as it goes: the closed form reproduces the general evaluator to 2.4e-15, the ORDER QUANTIFIER IS VACUOUS at n = 2 (the identity order alone meets the bound everywhere, worst margin 0 over a 1.38M-point grid, attained at products -- in contrast to n >= 4 where the order choice is decisive), the equality set is exactly products + diagonals + the n = 1 degenerations (each a hand identity, re-checked under both kits alone), and exact-rational branch-and-bound certifies 88.4% of the in-regime volume with ZERO residue (nothing resisted refinement; the rest is unfinished budget). Two lemmas are proved by hand -- N2-ONE-BAD (at most one conditional can be out of regime, so deficit cells contribute exactly 0) and N2-CONC (concavity of psi(t) = h(min(1/2,t)) gives the sharp cell-wise bound, tight iff the two conditionals agree) -- and together they reduce the theorem to a scalar inequality that is FALSE on 21.3% of the region while the original margin is positive there: an exact decomposition identity (verified to 2.6e-15) shows the discarded pair-interaction term t*Delta, t = min(x-1/2, 1-x), is load-bearing, so no argument that averages the cell interaction away can prove even n = 2.",
+      "range": "n = 2 only, arbitrary dependence (three parameters x, u0, u1); closed form checked on 19,886 in-regime samples and a 1.38M-point grid; equality identities at 24 rational points under each kit alone; branch-and-bound at budget 2,000,000 boxes, minimum edge 1/512, largest-box-first, in exact rational interval arithmetic under kit B with volume accounting (certified 0.235977, out-of-regime 0.233095, residue 0, unprocessed 0.030930 of root volume 0.5); the reduction test on 400,000 Case-A points; transversal local probes at eps = 1e-2 and 1e-3; everything else float-level. No theorem is claimed at n = 2 and nothing is claimed at n >= 3",
+      "corrections": [
+        "034's stated constant c*(pbar) = (h(min(2pbar,1)) - h(pbar))/h(pbar), repeated in 037's Leads section and in STATUS.md, is wrong for every pbar > 1/4 and is NEGATIVE there (-0.181287 at 0.38271, -0.527591 at 0.45, -0.858519 at 0.49), which as written would make (HU-TAX) vacuous on exactly the range 034 re-posed it for. The constant every engine computes, and which reproduces every recorded number (+0.041739 at 0.38271, +0.007278 at 0.45, +0.000289 at 0.49, +0.0000260 at 0.497), is (h(max(1/2, 1-2pbar)) - h(pbar))/h(pbar). Prose-only: no computation in 030-045 evaluated the stated form, so no measured value moves. Root cause: the p < 1/4 branch (h(2p), where the Frechet floor binds) was written as if it were the general formula, with min(.,1) guarding the wrong endpoint",
+        "this record's own first two certification runs used a depth-first queue and reported a residue volume without the unprocessed volume beside it, which read as near-complete coverage; measured, depth-first had certified 0.045% of the box and left 99.8% unprocessed at a 2,000,000-box budget. Fixed here by a largest-box-first queue, and the lesson is recorded: a certified sweep must report certified / out-of-regime / residue / unprocessed volumes together or quote no fraction at all"
+      ],
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n2",
+        "hu_n2",
+        "N2-ONE-BAD",
+        "N2-CONC",
+        "pair-interaction term",
+        "t*Delta",
+        "order quantifier vacuous",
+        "21.3% reduction failure",
+        "88.4% certified",
+        "two disjoint singletons",
+        "largest-box-first"
+      ],
+      "note": "Confirms at n = 2 that the difficulty in (HU-TAX) is neither the order quantifier (empty here, essential at n >= 4 per 033/035/044) nor the deficit cells (they contribute exactly 0 here) but the averaging of the pair interaction -- 031's recorded obstruction, now isolated to a two-variable function on a three-parameter box, with the exact target inequality written out in lead 1. Also finds a fourth, LIMITING equality structure at the q -> 1/2 boundary (two disjoint singletons at marginals 1/2, where CR = 0 and c* = 0 together): the absolute margin CR - c*(q)H degenerates there, so a descent on it drifts to the boundary and reports vanishing margins that are not near-violations -- the mirror of 023's H -> 0 corner lesson, and a guard every future (HU-TAX) adversary needs. Joins the next reviewer batch."
     }
   ]
 }

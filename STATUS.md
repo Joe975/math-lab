@@ -204,6 +204,38 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**046 (2026-08-21): the n = 2 case — the order quantifier is vacuous,
+and the pair interaction is where the proof lives.** Taking 045's
+promoted conjecture to the smallest nontrivial size: at n = 2 the
+identity order alone meets the bound everywhere (worst margin 0 over
+1.38M grid points, attained at products), so **the order quantifier
+that is decisive at n ≥ 4 is empty at n = 2**; the equality set is
+exactly products + diagonals + the n = 1 degenerations (hand
+identities, re-checked under each kit alone); and exact-rational
+branch-and-bound certifies **88.4% of the in-regime volume with zero
+residue** — nothing resisted refinement, the remainder is unfinished
+budget. Two lemmas fall by hand — **N2-ONE-BAD** (at most one
+conditional can be out of regime, so deficit cells contribute exactly
+0) and **N2-CONC** (concavity of ψ(t) = h(min(1/2,t)) gives the sharp
+cell-wise bound, tight iff the conditionals agree) — and together they
+reduce the theorem to a scalar inequality that is **false on 21.3% of
+the region** while the true margin is positive there. An exact
+decomposition (verified to 2.6e-15) names the culprit: the discarded
+**pair-interaction term t·Δ**, t = min(x−1/2, 1−x). So 031's averaging
+obstruction is now isolated to a two-variable function on a
+three-parameter box, with the target inequality written out
+explicitly. **Two corrections:** (i) 034's *stated* constant
+`(h(min(2p̄,1))−h(p̄))/h(p̄)` — repeated in 037 and in this file — is
+wrong for every p̄ > 1/4 and negative there, which as written would
+make (HU-TAX) vacuous on exactly the range 034 re-posed it for; every
+engine and every recorded number uses
+`(h(max(1/2,1−2p̄))−h(p̄))/h(p̄)`, so nothing measured moves; (ii) this
+record's own first certification runs quoted a residue volume without
+the unprocessed volume beside it — depth-first B&B had covered 0.045%
+of the box, not the ~98% the framing implied. Also: a fourth,
+*limiting* equality at the q → 1/2 boundary (two disjoint singletons),
+where the absolute margin degenerates because both sides vanish — the
+mirror of 023's H → 0 lesson, and a guard future adversaries need.**
 **045 (window close): best-order HU SURVIVES its direct attack at caps
 0.495/0.497/0.499** — 67 oracle-objective descents (n ≤ 5, full
 enumeration per candidate, hostile-seeded with the 044 kill witness,
