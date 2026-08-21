@@ -2206,6 +2206,35 @@
         "adversarial n=6 best-order"
       ],
       "note": "Sharper than the 063 census at both caps, as a campaign should be (-3.0e-14 vs +0.014946 at 0.49; +3.2e-03 vs +0.037327 at 0.497). The new technical fact is the vanishing gap: the expensive objective and its cheap lower bound agree exactly at the binding configurations, so annealing on rollout and enumerating once at the end gives the same floor at 1/720 the cost per candidate. Leads: push the construction to n = 7 and 8 (rollout cost is now the only cost, and a single 40,320-order endpoint enumeration is still affordable), and collect any instance where the gap is positive AND the rollout margin negative, which would be the first separation of the two statements in the region that matters."
+    },
+    {
+      "id": "065",
+      "file": "attempts/065-n78-campaign.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "Best-order campaigns at n = 7 and n = 8, where domination removes the enumeration entirely: since the best-order margin dominates the rollout margin pointwise, a non-negative ROLLOUT floor is already a proof that the best-order floor is non-negative, so no order enumeration is needed at any point and it is performed only to measure the surrogate slack. At cap 0.49 the n = 7 campaign REACHES the equality family (rollout floor -4.485301e-14, with the 5,040-order endpoint enumeration confirming the gap is exactly 0 at all three endpoints, as at n = 6) and n = 8 stalls at +5.996704e-02 on half the budget with no enumeration performed. Zero violations at both. The cost of testing the promoted conjecture is now independent of the order count, so the barrier that confined this statement to n <= 5 is gone.",
+      "range": "Three anneals per size at cap 0.49: n = 7 at 900 steps with a 5,040-order endpoint enumeration, n = 8 at 450 steps with none. Essentiality enforced, collapse move enabled, margins against each instance own constant. Float-level, no certificates, nothing above cap 0.49 at these sizes, and the n = 8 figure is a half-budget stall rather than a floor (the 055 lesson applies)",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n78_campaign",
+        "hu_n78_campaign",
+        "domination removes enumeration",
+        "-4.485301e-14",
+        "+5.996704e-02",
+        "ladder at cap 0.49"
+      ],
+      "note": "Closes the window with the best-order statement -- the route last unrefuted for-all-mu positivity claim -- tested adversarially at every size from 2 to 8 with no violation anywhere, and with the cost barrier removed by an observation rather than by compute. The gap between best-order and rollout vanishes at the binding endpoints at n = 7 as at n = 6, now measured at two sizes. Leads: n = 9 and 10 are reachable by the same route since only the rollout evaluation costs anything, and giving n = 8 a full budget would test whether every size converges to the equality family -- if so, that becomes a statement worth trying to prove rather than to test. Open mathematics unchanged from 046-048."
     }
   ]
 }

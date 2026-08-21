@@ -204,6 +204,23 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**065 (window close): n = 7 and 8 best-order — domination removes the
+enumeration entirely.** Since best-order dominates rollout pointwise,
+a non-negative **rollout** floor already proves the best-order floor
+non-negative, so no order enumeration is needed at any point (it is
+run only to measure slack). At cap 0.49: **n = 7 reaches the equality
+family** (−4.485e-14, with the 5,040-order endpoint enumeration
+confirming the gap is exactly 0 at all three endpoints, as at n = 6);
+**n = 8 stalls at +0.0600** on half the budget with no enumeration
+performed. Zero violations at both. **The cost of testing the promoted
+conjecture is now independent of the order count**, so the barrier
+that confined this statement to n ≤ 5 is gone, and n = 9–10 are
+reachable by the same route. The window therefore closes with the
+best-order statement tested adversarially at **every size from 2 to
+8** with no violation anywhere. Open mathematics unchanged from
+046–048: no proof at any n ≥ 2, the n = 2 obstruction isolated to a
+two-variable inequality of infimum exactly 1, with the pair-interaction
+term identified as what no averaging argument can discard.**
 **064 (window close): the first ADVERSARIAL best-order result at
 n = 6 — reaches the equality family, zero violations.** Annealing on
 the *rollout* margin (one order per candidate instead of 720) and
