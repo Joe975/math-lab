@@ -1638,6 +1638,40 @@
         "largest-box-first"
       ],
       "note": "Confirms at n = 2 that the difficulty in (HU-TAX) is neither the order quantifier (empty here, essential at n >= 4 per 033/035/044) nor the deficit cells (they contribute exactly 0 here) but the averaging of the pair interaction -- 031's recorded obstruction, now isolated to a two-variable function on a three-parameter box, with the exact target inequality written out in lead 1. Also finds a fourth, LIMITING equality structure at the q -> 1/2 boundary (two disjoint singletons at marginals 1/2, where CR = 0 and c* = 0 together): the absolute margin CR - c*(q)H degenerates there, so a descent on it drifts to the boundary and reports vanishing margins that are not near-violations -- the mirror of 023's H -> 0 corner lesson, and a guard every future (HU-TAX) adversary needs. Joins the next reviewer batch."
+    },
+    {
+      "id": "047",
+      "file": "attempts/047-n2-dichotomy.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "entropy-method",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The n = 2 target of 046, written as A + B + C >= 0 (A = first-coordinate slack, B = diagonal ledger, C = pair interaction; A, C >= 0 by proved sign lemmas so only B can be negative) exposes a DICHOTOMY: over 42,575 deficit cases every single one is covered by A alone or by C alone, none needs both and none fails, so the n = 2 Case-A theorem is exactly 'B < 0 implies max(A, C) >= -B'; the split is by which coordinate carries the maximum marginal -- when q = f0 the slack A vanishes identically and the pair interaction alone covers on all 7,435 cases, giving branch L1 as the smallest unproved statement on the HU line, stated in two variables. A third structural lemma falls by hand (N2-ONE-ABOVE: at most one conditional marginal can exceed q, since their x-weighted mean is f1 <= q), completing the deficit structure begun by 046's N2-ONE-BAD; the decomposition itself is verified to 2.9e-15 against an independent history-recursion evaluator, and a skeptic descent that actively maximises the shortfall bottoms out at +4.3e-07.",
+      "range": "n = 2, Case A (both conditionals in regime), 200,000 in-regime samples per part with fixed seeds; dichotomy census on 42,575 deficit cases; split census by dominant marginal (7,435 at q = f0 / 34,650 at q = f1); tightness minima on both branches plus a skeptic descent on the shortfall; the decomposition identity cross-checked on 30,000 samples against a from-scratch evaluator. All float-level: no certificates this round, no proof of either branch, nothing at n >= 3",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n2_dichotomy",
+        "hu_n2_dichotomy",
+        "N2-ONE-ABOVE",
+        "the dichotomy",
+        "branch L1",
+        "max(A,C) >= -B",
+        "42575 deficit cases",
+        "needing both: 0",
+        "first-coordinate slack"
+      ],
+      "note": "Advances 046 from 'the pair interaction is load-bearing' to 'it is load-bearing exactly when the first coordinate carries the max marginal, and then it suffices alone'. Mechanism reading: at q = f0 the slack A is zero by construction (nothing to donate) so the surplus must come from the coupling's own pair structure -- which is why 031's averaging schemes failed, since averaging destroys exactly that term. Both branches remain unproved; the only tight corner is x -> 1 (the n = 1 degeneration, where t, B and C vanish together), so a proof can be crude elsewhere and should expand in (1-x) there. Joins the next reviewer batch with 046."
     }
   ]
 }

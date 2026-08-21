@@ -204,6 +204,25 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**047 (same day): the n = 2 target splits into a DICHOTOMY.** Writing
+046's inequality as A + B + C ≥ 0 (A = first-coordinate slack,
+B = diagonal ledger, C = pair interaction; A, C ≥ 0 by proved sign
+lemmas, so only B can go negative): over **42,575 deficit cases every
+one is covered by A alone or by C alone — none needs both, none
+fails**, so the n = 2 Case-A theorem is exactly *B < 0 ⟹
+max(A, C) ≥ −B*. The split is by which coordinate carries the maximum
+marginal: **when q = f₀ the slack A vanishes identically and the pair
+interaction alone covers, on all 7,435 such cases** — branch **L1**,
+now the smallest unproved statement on the HU line and stated in two
+variables. A third lemma falls by hand (**N2-ONE-ABOVE**: at most one
+conditional can exceed q, since their x-weighted mean is f₁ ≤ q),
+completing the deficit structure begun by 046's N2-ONE-BAD. The
+decomposition is verified to 2.9e-15 against an independent evaluator
+and a skeptic descent maximising the shortfall bottoms out at
++4.3e-07. Mechanism: at q = f₀ there is nothing for the first
+coordinate to donate, so the surplus must come from the coupling's own
+pair structure — which is precisely why 031's averaging schemes
+failed. Only tight corner: x → 1, where t, B and C vanish together.**
 **046 (2026-08-21): the n = 2 case — the order quantifier is vacuous,
 and the pair interaction is where the proof lives.** Taking 045's
 promoted conjecture to the smallest nontrivial size: at n = 2 the
