@@ -2177,6 +2177,35 @@
         "no enumeration needed"
       ],
       "note": "The sufficiency fraction is itself the interesting statistic: at exactly 100% over 7,000 instances, rollout on random essential measures is not merely close to best-order but already clears the conjectured bound, consistent with the 038 census finding that rollout is often though not always the best order. Leads: run an adversarial campaign (not a census) at n = 6 best-order by annealing on the ROLLOUT margin and enumerating orders only at the endpoint, which buys an adversarial n = 6 floor at roughly rollout cost; and watch the sufficiency fraction, since any instance where rollout is negative but best-order is not would be the first separation of the two statements at n >= 6."
+    },
+    {
+      "id": "064",
+      "file": "attempts/064-n6-campaign.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "The first ADVERSARIAL best-order result at n = 6, made affordable by annealing on the rollout margin (one order per candidate rather than 720) and enumerating all 720 orders only at the endpoint -- valid because best-order dominates rollout pointwise, so a non-negative rollout floor already proves the best-order floor non-negative. Four anneals x 1,200 steps per cap: at 0.49 the campaign REACHES the equality family (floor -3.031e-14 at a diagonal with marginal 0.0403, float noise around the value certified exactly 0 in 056) and at 0.497 it stalls at +3.203e-03, with zero violations at both. The endpoint gaps between best-order and rollout are exactly 0 at the sharpest endpoints, so the cheap surrogate loses nothing where it binds -- which is what makes n >= 6 tractable at all.",
+      "range": "Four anneals x 1,200 steps per cap at n = 6, caps 0.49 and 0.497, essentiality enforced with the collapse move enabled, objective = rollout margin with a single 720-order enumeration at each endpoint. Float-level: no certificates (the diagonal endpoint is float, though the 056 identity applies verbatim), nothing above cap 0.497, and 8 anneals do not exhaust the space",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n6_campaign",
+        "hu_n6_campaign",
+        "anneal on the surrogate",
+        "-3.031e-14",
+        "vanishing gap",
+        "adversarial n=6 best-order"
+      ],
+      "note": "Sharper than the 063 census at both caps, as a campaign should be (-3.0e-14 vs +0.014946 at 0.49; +3.2e-03 vs +0.037327 at 0.497). The new technical fact is the vanishing gap: the expensive objective and its cheap lower bound agree exactly at the binding configurations, so annealing on rollout and enumerating once at the end gives the same floor at 1/720 the cost per candidate. Leads: push the construction to n = 7 and 8 (rollout cost is now the only cost, and a single 40,320-order endpoint enumeration is still affordable), and collect any instance where the gap is positive AND the rollout margin negative, which would be the first separation of the two statements in the region that matters."
     }
   ]
 }

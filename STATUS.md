@@ -204,6 +204,18 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**064 (window close): the first ADVERSARIAL best-order result at
+n = 6 — reaches the equality family, zero violations.** Annealing on
+the *rollout* margin (one order per candidate instead of 720) and
+enumerating all 720 only at the endpoint — valid because best-order
+dominates rollout pointwise: at cap 0.49 the campaign **reaches the
+equality family** (floor −3.031e-14 at a diagonal, float noise around
+the value certified exactly 0 in 056); at 0.497 it stalls at
++3.203e-03; zero violations at both, and sharper than 063's census at
+both. The new technical fact: **the best-order/rollout gap is exactly
+0 at the sharpest endpoints**, so the cheap surrogate loses nothing
+where it binds — which is what makes n ≥ 6 tractable at all. Leads:
+the same construction now reaches n = 7 and 8 at rollout cost.**
 **063 (same day): best-order at n = 6 made affordable — 6,000
 instances, zero violations, no enumeration needed.** n = 6 previously
 had one spot check because the objective costs 720 CR evaluations per
