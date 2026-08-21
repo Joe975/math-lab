@@ -204,6 +204,33 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**053 (reviewer batch 5 over 044–048; fresh-context subagent,
+029/034 caveat): VERIFIED, with TWO MATHEMATICAL corrections.**
+Nothing is refuted — all ten pipelines re-run with six checkpoints
+byte-identical, four skeptics at exit 0, and 044's certificate holds
+at 50+ digits under an independent exact evaluator, with the witness
+confirmed already present in 037's committed checkpoint. But two
+corrections are real mathematics, not reporting: **(i) 046's Lemma
+N2-CONC tightness clause is FALSE** — ψ(t) = h(min(1/2,t)) is constant
+on [1/2,∞), so equality also holds whenever min(p₀,p₁) ≥ 1/4 with
+p₀ ≠ p₁ (at (0.30, 0.40) both sides are 0.073879 exactly); the
+inequality and its averaging step are correct, the clause should read
+"iff p₀ = p₁ **or** min(p₀,p₁) ≥ 1/4". **(ii) 048's boundary identity
+ratio(q,0,½) = 1/c\*(q) holds only for q ≤ 1/4** — since
+t = min(½−q, q), the identity needs t = q; at q = 0.3 the ratio is
+4.94930, not 7.42395. The engine tabulated q ≤ 0.1 and the skeptic
+tested q ≤ 0.2, so the gap survived the skeptic pass. All conclusions
+drawn from both survive. Further: **046 §F's own correction
+over-reaches** (the mis-stated constant is negative only above 1/3,
+not 1/4 — on (1/4,1/3) it is positive but wrong); 047's "only B can be
+negative" is Case-A only; 048 P3's "375 vs 0" came from a `--fast`
+run (true: 5,698 vs 0); 046's "1.38M-point grid" quotes a superseded
+skeptic (committed sweep: 219,539 points, which §C states correctly);
+and 044's "rollout ranks 13/24" is not reproducible — six orders tie
+exactly at the certified value, putting rollout at ranks 7–12, i.e.
+above the median rather than "worse than the middle". The c\* audit's
+direction (b) is clean: all 17 definitions in `explore/` use the
+correct form and the one wrong occurrence feeds no checkpoint.**
 **052 (same day, audit across the whole route): 11 of 27 recorded
 floors are quoted at a higher n than the instance uses.** Following
 051's lead into every committed checkpoint: of 328 stored descent
