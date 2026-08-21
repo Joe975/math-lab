@@ -1745,6 +1745,44 @@
         "equality saturation at n=3"
       ],
       "note": "Bounds 046 from above: the n = 2 vacuity was tempting to read as the start of a pattern and is not one -- one extra coordinate restores order-dependence, which fits 046's own mechanism (N2-ONE-BAD used that both conditionals out of regime forces f1 > 1/2, and that argument has no analogue after a length-2 history). A proof strategy built on the n = 2 lemmas (046/047/048) therefore needs new ingredients at n = 3, not just more algebra. What grows stronger is best-order positivity, now measured at every size 2 through 7, always with the equality family binding and never crossed. Joins the next reviewer batch."
+    },
+    {
+      "id": "051",
+      "file": "attempts/051-n3-essential.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "refutes": "050",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "Same-day self-correction to 050 part D: its best-order descents at n = 3 reached min own-constant margin +0.000000 not by finding an n = 3 extremal but by DEGENERATING -- both sharpest endpoints have an atom driven to weight 0 and at most two coordinates carrying mass, i.e. they are n = 1 instances embedded in n = 3 where equality is automatic. Re-running under an essentiality constraint (every coordinate marginal >= 0.05, at least 4 atoms above 1e-3; not vacuous, it rejects 659 of 3000 random draws) gives the honest n = 3 best-order floor: +0.000018 at cap 0.45 and +0.000249 at cap 0.49 over 20 descents, three orders of magnitude above the degenerate 2.6e-09, still strictly positive, and the sharpest endpoint certified > 0 under each kit alone (CR_HU in [+3.691112270e-05, .]). 050's census, order-quantifier finding and certified negative witness are untouched -- they do not involve the part-D descents.",
+      "corrections": [
+        "050 part D reports min own-constant margin +0.000000 with 0 violations and reads the saturation as the equality family binding, consistent with 042. The endpoints are degenerate: cap 0.45 has coordinate marginals [0.4462, 0.0, 0.0] with 2 live atoms and cap 0.49 has [0.4895, 0.4895, 0.0] with 2 live atoms, so both are n = 1 faces where the bound holds with equality automatically. Every number 050 quotes is correct; the reading is not. The corrected sentence: the descent escapes to the n = 1 face rather than finding an n = 3 near-extremal"
+      ],
+      "range": "The two sharpest 050 part-D endpoints audited from the committed checkpoint; 10 essential-support descents per cap at 0.45 and 0.49 (n = 3, essentiality thresholds 0.05 marginal and 4 atoms above 1e-3, stated as a choice); one certificate on a limit_denominator(1e7) rationalization under each kit alone. Float-level otherwise; 20 descents is not an exhaustive adversary and nothing is claimed above cap 0.49",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n3_essential",
+        "hu_n3_essential",
+        "essentiality constraint",
+        "degenerate face",
+        "n=1 face escape",
+        "+3.691112270e-05",
+        "659 of 3000",
+        "honest n=3 floor"
+      ],
+      "note": "Third degeneracy caught in one window and the same shape as the other two: an adversary minimising a margin finds the cheapest way to make it vanish, and 046 section G caught a vanishing constant (q -> 1/2), 046 section G-prime a vanishing coverage (depth-first B&B), and this a vanishing dimension. Standing lesson proposed: descent campaigns on this route carry an explicit non-degeneracy constraint and report the fraction of draws it rejects, alongside 044's own-constant flag and the scale-free margin. Lead: re-audit the 037/038/040/045 descent campaigns for support collapse -- the diagnostic is three lines and would either confirm those floors or correct several at once."
     }
   ]
 }

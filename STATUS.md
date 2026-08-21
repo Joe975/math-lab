@@ -204,6 +204,26 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**051 (same day, self-correction to 050): the n = 3 descents saturated
+by DEGENERATING.** 050 part D read its "+0.000000, zero violations" as
+the equality family binding; the endpoints are in fact n = 1 instances
+embedded in n = 3 (marginals [0.4462, 0, 0] and [0.4895, 0.4895, 0],
+two live atoms each), where equality is automatic — the descent
+escaped to a degenerate face. Under an essentiality constraint (every
+coordinate marginal ≥ 0.05, ≥ 4 atoms above 1e-3; it rejects 659 of
+3000 random draws, so it is not vacuous) the honest n = 3 best-order
+floor is **+0.000018 at cap 0.45 and +0.000249 at cap 0.49** — three
+orders of magnitude above the degenerate value, still positive, and
+the sharpest endpoint **certified > 0 under each kit alone**
+(+3.691112270e-05). 050's census, order-quantifier finding and
+certified negative witness are untouched. **Third degeneracy caught in
+this window, all the same shape** — a vanishing constant (046 §G), a
+vanishing coverage (046 §G′), a vanishing dimension (here): an
+adversary minimising a margin finds the cheapest way to make it
+vanish. Standing lesson proposed: descent campaigns carry an explicit
+non-degeneracy constraint and report its rejection rate, alongside
+044's own-constant flag and the scale-free margin. Lead: re-audit the
+037/038/040/045 campaigns for support collapse.**
 **050 (same day): n = 3 — the size the route skipped — and the vacuity
 is special to n = 2.** Best-order positivity SURVIVES at n = 3
 (0 violations across 4,500 census instances with full order
