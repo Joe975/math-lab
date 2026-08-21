@@ -1,0 +1,286 @@
+{
+ "endpoints": 393,
+ "flagged": 135,
+ "by_rule": {
+  "R4_drifted_off_cap": 8,
+  "R1_absent_coordinate": 96,
+  "R2_below_essentiality": 31
+ },
+ "blocks": [
+  {
+   "source": "hu_anneal_essential.json:A_n6_cap_0.49",
+   "cap": 0.49,
+   "clean": 1,
+   "flags": {
+    "R4_drifted_off_cap": 2
+   }
+  },
+  {
+   "source": "hu_anneal_essential.json:A_n6_cap_0.497",
+   "cap": 0.497,
+   "clean": 2,
+   "flags": {
+    "R4_drifted_off_cap": 1
+   }
+  },
+  {
+   "source": "hu_attack.json:cap_0.38271",
+   "cap": 0.38271,
+   "clean": 10,
+   "flags": {
+    "R1_absent_coordinate": 6,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_attack.json:cap_0.45",
+   "cap": 0.45,
+   "clean": 11,
+   "flags": {
+    "R1_absent_coordinate": 5,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_bestorder.json:cap_0.495",
+   "cap": 0.495,
+   "clean": 14,
+   "flags": {
+    "R2_below_essentiality": 3,
+    "R1_absent_coordinate": 4
+   }
+  },
+  {
+   "source": "hu_bestorder.json:cap_0.497",
+   "cap": 0.497,
+   "clean": 16,
+   "flags": {
+    "R2_below_essentiality": 3,
+    "R1_absent_coordinate": 4
+   }
+  },
+  {
+   "source": "hu_bestorder.json:cap_0.499",
+   "cap": 0.499,
+   "clean": 16,
+   "flags": {
+    "R2_below_essentiality": 3,
+    "R1_absent_coordinate": 4
+   }
+  },
+  {
+   "source": "hu_bestorder_anneal.json:A_n4_cap_0.497",
+   "cap": 0.497,
+   "clean": 2,
+   "flags": {
+    "R4_drifted_off_cap": 1
+   }
+  },
+  {
+   "source": "hu_bestorder_anneal.json:A_n4_cap_0.499",
+   "cap": 0.499,
+   "clean": 2,
+   "flags": {
+    "R4_drifted_off_cap": 1
+   }
+  },
+  {
+   "source": "hu_bestorder_anneal.json:B_n5_cap_0.495",
+   "cap": 0.495,
+   "clean": 2,
+   "flags": {
+    "R4_drifted_off_cap": 1
+   }
+  },
+  {
+   "source": "hu_bestorder_anneal.json:B_n5_cap_0.499",
+   "cap": 0.499,
+   "clean": 1,
+   "flags": {
+    "R4_drifted_off_cap": 2
+   }
+  },
+  {
+   "source": "hu_blocks.json:B_attack",
+   "cap": null,
+   "clean": 4,
+   "flags": {
+    "R1_absent_coordinate": 1
+   }
+  },
+  {
+   "source": "hu_canon.json:B_cap_0.38271",
+   "cap": 0.38271,
+   "clean": 10,
+   "flags": {
+    "R1_absent_coordinate": 6,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_canon.json:B_cap_0.45",
+   "cap": 0.45,
+   "clean": 10,
+   "flags": {
+    "R1_absent_coordinate": 5,
+    "R2_below_essentiality": 2
+   }
+  },
+  {
+   "source": "hu_canon.json:B_cap_0.49",
+   "cap": 0.49,
+   "clean": 11,
+   "flags": {
+    "R1_absent_coordinate": 5,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_n3_census.json:D_cap_0.45",
+   "cap": 0.45,
+   "clean": 5,
+   "flags": {
+    "R1_absent_coordinate": 3
+   }
+  },
+  {
+   "source": "hu_n3_census.json:D_cap_0.49",
+   "cap": 0.49,
+   "clean": 5,
+   "flags": {
+    "R2_below_essentiality": 2,
+    "R1_absent_coordinate": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:C_surp_cap_0.49",
+   "cap": 0.49,
+   "clean": 11,
+   "flags": {
+    "R1_absent_coordinate": 5,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:C_surp_cap_0.497",
+   "cap": 0.497,
+   "clean": 12,
+   "flags": {
+    "R1_absent_coordinate": 4,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:C_roll_cap_0.49",
+   "cap": 0.49,
+   "clean": 8,
+   "flags": {
+    "R1_absent_coordinate": 5,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:C_roll_cap_0.497",
+   "cap": 0.497,
+   "clean": 9,
+   "flags": {
+    "R1_absent_coordinate": 4,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:D_bestorder_cap_0.49",
+   "cap": 0.49,
+   "clean": 8,
+   "flags": {
+    "R1_absent_coordinate": 5,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:D_bestorder_cap_0.497",
+   "cap": 0.497,
+   "clean": 9,
+   "flags": {
+    "R1_absent_coordinate": 4,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:C2_roll_cap_0.49",
+   "cap": 0.49,
+   "clean": 3,
+   "flags": {
+    "R1_absent_coordinate": 2,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_order2.json:C2_roll_cap_0.497",
+   "cap": 0.497,
+   "clean": 5,
+   "flags": {
+    "R1_absent_coordinate": 4,
+    "R2_below_essentiality": 3
+   }
+  },
+  {
+   "source": "hu_order2.json:C2_roll_cap_0.499",
+   "cap": 0.499,
+   "clean": 5,
+   "flags": {
+    "R1_absent_coordinate": 4,
+    "R2_below_essentiality": 3
+   }
+  },
+  {
+   "source": "hu_roll_anneal.json:A_n6_cap_0.49",
+   "cap": 0.49,
+   "clean": 5,
+   "flags": {
+    "R1_absent_coordinate": 1
+   }
+  },
+  {
+   "source": "hu_roll_anneal.json:A_n6_cap_0.497",
+   "cap": 0.497,
+   "clean": 3,
+   "flags": {
+    "R1_absent_coordinate": 3
+   }
+  },
+  {
+   "source": "hu_roll_anneal.json:A_n7_cap_0.49",
+   "cap": 0.49,
+   "clean": 2,
+   "flags": {
+    "R1_absent_coordinate": 4
+   }
+  },
+  {
+   "source": "hu_rollcensus.json:P2_cap_0.49",
+   "cap": 0.49,
+   "clean": 2,
+   "flags": {
+    "R1_absent_coordinate": 3,
+    "R2_below_essentiality": 1
+   }
+  },
+  {
+   "source": "hu_rollcensus.json:P2_cap_0.497",
+   "cap": 0.497,
+   "clean": 3,
+   "flags": {
+    "R1_absent_coordinate": 3
+   }
+  },
+  {
+   "source": "hu_rollcensus.json:P3_cap_0.49",
+   "cap": 0.49,
+   "clean": 2,
+   "flags": {
+    "R1_absent_coordinate": 1
+   }
+  }
+ ]
+}

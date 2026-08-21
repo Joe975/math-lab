@@ -2089,6 +2089,35 @@
         "0.4918"
       ],
       "note": "The same error 044 named, one level up: 044 established that margins must be judged against the instance own constant rather than the campaign cap, and this is that mistake applied to the search REGION rather than the constant. Three constraints have now leaked in this route -- dimension (052), essentiality (051), and the cap (here) -- each caught only by inspecting endpoints. Standing lead: a single harness check that every recorded endpoint satisfies its campaign stated region would have caught all three. Next: push the band toward 1/2 (caps 0.4995, 0.4999), where c* -> 0 and the scale-free form of 046 section G becomes mandatory."
+    },
+    {
+      "id": "061",
+      "file": "attempts/061-region-audit.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "coupling",
+        "mutual-information-tax"
+      ],
+      "one_line": "One committed check for all three constraints that leaked on this route (dimension in 052, essentiality in 051, the cap in 060), run over every stored endpoint: of 393 endpoints, 135 (34.4%) leave the region their own campaign declared -- 96 with an absent coordinate, 31 below the essentiality bar, 8 drifted off their cap. The decisive detail is which rule NEVER fires: R3, max marginal < 1/2, has zero violations, and it is the only one the engines enforce inside their objective functions rather than at the seed. So the principle is evidenced, not just asserted -- a constraint checked when a run starts will leak, a constraint checked inside the objective does not -- and the post-051 checkpoints, which were built that way, are clean while the pre-051 campaigns carry all 135 flags.",
+      "range": "Pure re-analysis of all committed hu_*.json checkpoints: 393 endpoints across every block that stores measures. Four rules (absent coordinate, essentiality 0.03, in-regime, cap drift beyond 0.02 -- the last deliberately loose so it flags only real drift). Blocks predating a rule are reported rather than excluded, since the output is a map of which numbers describe their claimed region, not a verdict on records written before the rule existed. No new search, no certificates",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_region_audit",
+        "hu_region_audit",
+        "region audit",
+        "34.4% flagged",
+        "R3 never fires",
+        "constraints inside the objective",
+        "393 endpoints"
+      ],
+      "note": "Seventh and last measurement-discipline finding of the window, and it generalises the other six -- a margin against the wrong constant (044), a vanishing constant (046 G), a vanishing coverage (046 G-prime), a vanishing dimension (051, 052), a stall read as a floor (055), a cap bounding only the start (060). The unifying repair is not more care but putting the constraint where the search cannot avoid it and auditing endpoints rather than intentions. No positivity or kill claim changes, since R3 is clean and every endpoint remains a valid in-regime instance. Leads: gate future campaigns on this check, and re-run the two hu_order2 D_bestorder blocks that feed 037/045 headline claims and carry R1 flags."
     }
   ]
 }

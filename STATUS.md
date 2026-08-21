@@ -204,6 +204,23 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**061 (same day): one check for all three leaked constraints — and it
+identifies the repair.** Auditing every stored endpoint against the
+region its own campaign declared: of **393 endpoints, 135 (34.4%)
+leave it** — 96 with an absent coordinate, 31 below the essentiality
+bar, 8 drifted off their cap. The decisive detail is which rule
+**never** fires: max marginal < 1/2, zero violations — and it is the
+only one the engines enforce **inside their objective functions**
+rather than at the seed. So the principle is evidenced rather than
+asserted: **a constraint checked when a run starts will leak; a
+constraint checked inside the objective does not.** The post-051
+checkpoints (built that way) are clean; all 135 flags sit in the
+pre-051 campaigns. No positivity or kill claim changes. This is the
+window's seventh measurement-discipline finding and generalises the
+other six — the unifying repair is not more care but **putting the
+constraint where the search cannot avoid it, and auditing endpoints
+rather than intentions.** The check is committed and takes seconds, so
+future campaigns can gate on it.**
 **060 (same day, correction to 059 — found while certifying its own
 endpoint): the caps constrained only the START.** Admissibility in
 these campaigns is max marginal < 1/2, so the adversary wanders freely
