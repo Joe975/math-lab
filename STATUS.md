@@ -204,6 +204,21 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**062 (same day): the two live headline floors, recomputed clean —
+one sound, one 20% off.** Discharging 061's lead: of the two flagged
+blocks still feeding live claims (`hu_order2` D_bestorder at caps 0.49
+and 0.497, which supply 037's and 045's best-order floors), the
+cap-0.49 floor **+6.942017e-04 is already clean** (product4, all
+marginals 0.4888) and needs no restatement, while the cap-0.497 floor
+**+2.190730e-04 comes from an endpoint with a coordinate absent**; the
+honest clean floor is **+2.632841e-04**. Both positive, both above
+c\*(0.497) = 2.6e-05, so **no qualitative claim moves** — the recorded
+number was simply 20% sharper than its region could justify. That is
+the window's calibration in one line: **the route's conclusions were
+robust to a third of its endpoints being mislabelled, because no
+conclusion ever rested on a single sharpest number.** Endpoint-hygiene
+thread (opened 051) now closed: 061 is the gate, 062 the one live
+restatement it implied.**
 **061 (same day): one check for all three leaked constraints — and it
 identifies the repair.** Auditing every stored endpoint against the
 region its own campaign declared: of **393 endpoints, 135 (34.4%)

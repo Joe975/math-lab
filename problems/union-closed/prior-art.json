@@ -2118,6 +2118,36 @@
         "393 endpoints"
       ],
       "note": "Seventh and last measurement-discipline finding of the window, and it generalises the other six -- a margin against the wrong constant (044), a vanishing constant (046 G), a vanishing coverage (046 G-prime), a vanishing dimension (051, 052), a stall read as a floor (055), a cap bounding only the start (060). The unifying repair is not more care but putting the constraint where the search cannot avoid it and auditing endpoints rather than intentions. No positivity or kill claim changes, since R3 is clean and every endpoint remains a valid in-regime instance. Leads: gate future campaigns on this check, and re-run the two hu_order2 D_bestorder blocks that feed 037/045 headline claims and carry R1 flags."
+    },
+    {
+      "id": "062",
+      "file": "attempts/062-bestorder-clean-floors.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "mechanism": [
+        "adversarial-verification",
+        "coupling",
+        "mutual-information-tax"
+      ],
+      "one_line": "Discharging 061 lead 2 -- the two flagged blocks that still feed live claims (hu_order2 D_bestorder at caps 0.49 and 0.497, which supply the best-order floors of 037 and 045) recomputed over clean endpoints only: at cap 0.49 the recorded floor +6.942017e-04 already comes from a clean endpoint (product4, all marginals 0.4888) and is sound, while at cap 0.497 the recorded +2.190730e-04 comes from a FLAGGED endpoint whose min marginal is exactly 0, and the honest clean floor is +2.632841e-04. Both are positive and both exceed c*(0.497) = 2.6e-05, so no qualitative claim moves -- the recorded number was 20% sharper than its claimed region could justify. Useful calibration: after seven measurement-discipline findings the live headline numbers are off by 20% in one place and correct in the other, because the conclusions never rested on a single sharpest number.",
+      "corrections": [
+        "the D_bestorder_cap_0.497 headline floor in hu_order2.json, +2.190730e-04, is produced by the seed0 endpoint whose min coordinate marginal is exactly 0 -- an absent coordinate, so the instance is effectively smaller than the n = 4 it is labelled with. Over the 9 endpoints that satisfy the region 061 checks, the floor is +2.632841e-04 (product4, marginals 0.4969). The cap-0.49 block needs no restatement: its recorded floor already comes from a clean endpoint"
+      ],
+      "range": "Re-minimisation over the clean subsets of two committed blocks (14 endpoints each, 6 and 5 flagged); no new search and no certificates. Says nothing about the other flagged blocks, which belong to superseded campaigns",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "clean-only floor",
+        "+2.632841e-04",
+        "D_bestorder_cap_0.497",
+        "20 percent sharper",
+        "endpoint hygiene closed"
+      ],
+      "note": "Closes the endpoint-hygiene thread opened by 051: 061 supplies the gate, this supplies the one live restatement it implied. The calibration is worth keeping -- the route conclusions were robust to a third of its endpoints being mislabelled precisely because no conclusion rested on a single sharpest number. Open mathematics unchanged: no proof at any n >= 2, the n = 2 obstruction mapped in 046-048, and the best-order objective untested at n >= 6 beyond a spot check."
     }
   ]
 }
