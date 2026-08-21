@@ -1995,6 +1995,37 @@
         "cannot-get-there vs did-not-get-there"
       ],
       "note": "Sixth time this window that a near-zero number, or a failure to reach zero, needed a second measurement to interpret; the through-line is now explicit -- on this route no extremal number means anything until something independent says which of its possible meanings applies. Leads: seed every future high-n campaign at the equality family as a control run alongside the unseeded search (it costs one anneal and says whether a positive floor is real), and test whether the n = 6 to n = 7 difficulty jump is pure volume by adding a collapse-toward-a-diagonal move, which the current move set never proposes."
+    },
+    {
+      "id": "058",
+      "file": "attempts/058-collapse-move.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "refutes": "057",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "adversarial-verification"
+      ],
+      "one_line": "One added move settles the question 057 posed and refutes its volume reading: the anneal move set never proposes a diagonal directly (reaching {empty, full} from a ten-atom support needs eight coordinated drops), so adding a single collapse-toward-a-diagonal move and re-running the same campaign with a same-code same-seed control gives -- WITH the move, all 3 runs at n = 7 reach the equality family (floor -1.227e-14, 3 of 3 endpoints are diagonals); WITHOUT it, none do (+2.300e-05, 0 of 3), at identical budget. The move also works at n = 6 without breaking what already worked. So the n = 7 difficulty was the move set, not the doubling volume, and one move closes a gap that tripling the budget did not.",
+      "range": "Three runs x 2,700 steps per block at cap 0.49 only, n = 7 (with move and matched control) and n = 6 (with move), essentiality enforced throughout. Float-level: no certificates, though the 056 identity applies verbatim to the diagonals found. Not tested at other caps, and reaching the conjectured extremal family says nothing about whether a lower point exists",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_collapse_move",
+        "hu_collapse_move",
+        "collapse move",
+        "matched control",
+        "-1.227e-14",
+        "3 of 3 diagonals",
+        "move set not volume"
+      ],
+      "note": "Method result worth carrying: an adversary that cannot construct the known extremal family in one move will systematically overstate floors, so the collapse move belongs in the standing anneal and any newly discovered extremal family should be checked against the move set the same way. This is also the cleanest instance of the window pattern and the first where the fix was constructive rather than a caveat -- the matched control both interpreted the number and repaired the instrument that produced it. Leads: re-run the 045 best-order caps 0.495-0.499 with the augmented anneal (that campaign used descents only and those caps are closest to the boundary), and audit the move set against 042's block tensors, which are not reachable in one collapse move either."
     }
   ]
 }

@@ -204,6 +204,23 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**058 (same day): the n = 7 difficulty was a MISSING MOVE, not
+volume — and one move fixes it.** The anneal's move set never proposes
+a diagonal directly (reaching {∅, full} from a ten-atom support needs
+eight coordinated drops), so 058 adds exactly one **collapse-toward-a-
+diagonal** move and re-runs 057's campaign with a same-code same-seed
+**control**: *with* the move all 3 runs at n = 7 reach the equality
+family (floor −1.227e-14, 3 of 3 endpoints diagonals); *without* it
+none do (+2.300e-05, 0 of 3), at identical budget. It works at n = 6
+too without breaking what worked. So one move closes a gap that
+tripling the budget did not, and **the essential floor at n = 7 is 0,
+now attained by an unseeded search**. Method result: an adversary that
+cannot construct the known extremal family in one move will
+systematically overstate floors — the collapse move belongs in the
+standing anneal, and every newly found extremal family should be
+checked against the move set the same way. The cleanest instance of
+this window's pattern, and the first where the fix was constructive
+rather than a caveat.**
 **057 (same day): the n = 7 gap is search convergence, not structure.**
 A seeded control settles what 055's n = 7 number meant: placed **on**
 the equality family, the constrained anneal **stays** at n = 7
