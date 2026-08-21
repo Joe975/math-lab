@@ -204,6 +204,24 @@ and rollout empirically saturates it. New leads: the
 product↔diagonal interpolation path as a falsification test; a
 per-cell argument between the two known boundary patterns as the
 proof shape for (HU-TAX, roll form).**
+**050 (same day): n = 3 — the size the route skipped — and the vacuity
+is special to n = 2.** Best-order positivity SURVIVES at n = 3
+(0 violations across 4,500 census instances with full order
+enumeration and 16 descents at caps 0.45/0.49, the descents saturating
+the equality bound at +0.000000 rather than crossing it); rollout too
+(2000/2000). So the promoted conjecture now has support at **every
+size the line has examined, n = 2 through 7**. But the order
+quantifier is **not** vacuous here: the identity order fails the
+own-constant bound at n = 3 (2 of 3000 at cap 0.49, min −0.00696), and
+at the sharpest witness — 4 atoms, max marginal exactly 0.485 — its CR
+is **certified negative** (−1.005300143e-2, each kit alone) while the
+best order is certified positive (+2.775518457e-1). So **046's
+vacuity is an accident of n = 2**, and n = 3 already behaves like
+n ≥ 4 — which fits 046's own mechanism, since N2-ONE-BAD leaned on
+"both conditionals out of regime forces f₁ > 1/2" and that has no
+analogue after a length-2 history. Consequence for the proof program:
+the n = 2 lemma stack (046/047/048) needs new ingredients at n = 3,
+not more algebra.**
 **048 (same day): branch L1 in scale-free form — the infimum is exactly
 1, and it is approached logarithmically.** Working 047's L1 in the
 ratio C/(−B) instead of the absolute margin: no tight interior point

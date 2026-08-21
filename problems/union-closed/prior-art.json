@@ -1710,6 +1710,41 @@
         "two regimes of the minimiser"
       ],
       "note": "The negative result is the useful one: L1 has infimum exactly 1, so no argument with slack to spare can prove it -- every bound must be asymptotically sharp as q -> 0. That kills the crude-bound family outright (P4) and explains why 046's concavity route could not suffice: concavity is tight only at p0 = p1, whereas L1's extremal is (0,1/2), maximally unequal. Along that extremal the statement collapses to h(2q) <= 2h(q), elementary and true; the open part is everything off it. Joins the next reviewer batch with 046/047."
+    },
+    {
+      "id": "050",
+      "file": "attempts/050-n3-census.md",
+      "date": "2026-08-21",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "coupling",
+        "chain-rule-assembly",
+        "mutual-information-tax",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "adversarial-verification",
+        "independent-reimplementation"
+      ],
+      "one_line": "The size this route had never examined: n = 3, judged against c*(own max marginal) per the 044 standard. Best-order positivity SURVIVES (0 violations across 4,500 census instances with full order enumeration and 16 descents at caps 0.45/0.49, the descents saturating the equality bound at +0.000000 rather than crossing it), and so does rollout (2000/2000) -- so the promoted conjecture now has support at every size the line has examined, n = 2 through 7. But the order quantifier is NOT vacuous here: the identity order fails the own-constant bound at n = 3 (2 of 3000 at cap 0.49, min margin -0.00696), and at the sharpest witness -- a 4-atom measure with max marginal exactly 0.485 -- its CR is certified NEGATIVE (-1.005300143e-2) under each kit alone while the best order is certified positive (+2.775518457e-1). So the vacuity 046 proved is special to n = 2, and n = 3 already behaves like n >= 4.",
+      "range": "n = 3 census 3,000 instances per cap at 0.45/0.49 with full 6-order enumeration, n = 4 contrast 1,500 per cap with 24 orders, 2,000 fresh instances per size for the quantifier measurement, 8 best-order descents per cap at n = 3; all float-level except the certified order-failure witness (both kits alone, exact marginal and H checks in rationals). No certificate for any positive result; nothing above cap 0.49 at n = 3; 16 descents is a thin adversary next to the 17-start campaigns of 033/035",
+      "refuted_by": null,
+      "gaps": [
+        "mutual-information-tax",
+        "recipe-totality"
+      ],
+      "leak_terms": [
+        "uc_hu_n3_census",
+        "hu_n3_census",
+        "hu_n3_certify",
+        "n=3 census",
+        "quantifier essential at n=3",
+        "-1.005300143e-2",
+        "0.485 witness",
+        "vacuity is special to n=2",
+        "equality saturation at n=3"
+      ],
+      "note": "Bounds 046 from above: the n = 2 vacuity was tempting to read as the start of a pattern and is not one -- one extra coordinate restores order-dependence, which fits 046's own mechanism (N2-ONE-BAD used that both conditionals out of regime forces f1 > 1/2, and that argument has no analogue after a length-2 history). A proof strategy built on the n = 2 lemmas (046/047/048) therefore needs new ingredients at n = 3, not just more algebra. What grows stronger is best-order positivity, now measured at every size 2 through 7, always with the equality family binding and never crossed. Joins the next reviewer batch."
     }
   ]
 }
