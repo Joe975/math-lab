@@ -18,6 +18,10 @@ outside that document.
   `GEMINI_KEY` (read as the fallback for `GEMINI_API_KEY`); both families
   work through the session proxy. `--effort minimal` is refused by both
   current default models — `low` (the CLI default) is the floor.
+- **A third, free family exists on the lab machine:** `--provider local`
+  hits llama-server on `localhost:1234` (Qwen3.8-27B as of 2026-08-25). Slow
+  (minutes per thinking job), private, no key; `--effort minimal` disables
+  thinking. Details in `docs/SWARM.md`.
 - **Family independence is the point of having two providers.** If one
   family drafted a claim, the skeptic re-implementation is drafted by the
   other, and the record names which family did what. A same-family skeptic

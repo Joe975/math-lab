@@ -321,3 +321,51 @@ def test_cli_status_on_partial_outdir(tmp_path):
     assert "1 done, 1 failed" in result.stdout
     assert "in=100 out=200" in result.stdout
     assert "HTTP 500" in result.stdout
+
+
+def test_local_provider_routes_payload_and_needs_no_key(monkeypatch):
+    """The local llama-server path: routed by name, chat/completions
+    dialect, thinking toggled by effort, and no API key required."""
+    assert swarm.provider_for_model("qwen3.8-27b") == "local"
+    assert swarm.provider_for_model("local") == "local"
+    assert swarm.provider_for_model("C:/models/Qwen3.8-27B-UD-Q4_K_XL.gguf") == "local"
+    provider, model = swarm.resolve_target("local", None)
+    assert (provider.name, model) == ("local", swarm.DEFAULT_LOCAL_MODEL)
+    monkeypatch.delenv("LOCAL_API_KEY", raising=False)
+    assert provider.api_key()  # placeholder, never None
+    assert provider.endpoint("http://h:1234/v1", "x") == "http://h:1234/v1/chat/completions"
+    body = provider.payload("qwen3.8-27b", "hi", "minimal", 4096)
+    assert body["messages"] == [{"role": "user", "content": "hi"}]
+    assert body["max_tokens"] == 4096
+    assert body["chat_template_kwargs"] == {"enable_thinking": False}
+    assert provider.payload("q", "hi", "low", 1)["chat_template_kwargs"] == {
+        "enable_thinking": True
+    }
+
+
+def test_local_provider_reads_response_and_flags_truncation():
+    provider = swarm.PROVIDERS["local"]
+    resp = {
+        "id": "chatcmpl-1",
+        "model": "C:/models/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "choices": [{
+            "finish_reason": "stop",
+            "message": {
+                "role": "assistant",
+                "reasoning_content": "let me think",
+                "content": "<think>inline thoughts</think>\nanswer",
+            },
+        }],
+        "usage": {"prompt_tokens": 10, "completion_tokens": 30},
+    }
+    assert provider.incomplete(resp) is None
+    assert provider.text(resp) == "answer"
+    assert provider.usage(resp) == {"input_tokens": 10, "output_tokens": 30}
+    # The meta must name the file the server actually loaded, not the flag.
+    assert provider.model_of(resp, "qwen3.8-27b").endswith(".gguf")
+    truncated = {"choices": [{"finish_reason": "length", "message": {"content": "par"}}]}
+    assert "length" in provider.incomplete(truncated)
+    # Budget spent entirely on thinking: stop with empty answer is a failure.
+    empty = {"choices": [{"finish_reason": "stop", "message": {"content": ""}}]}
+    assert provider.incomplete(empty) is not None
+    assert provider.incomplete({"error": {"message": "no slot"}}) is not None

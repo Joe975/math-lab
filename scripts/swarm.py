@@ -30,6 +30,7 @@ Two provider dialects are built in, picked from the model name unless
 
     openai   gpt-*      OPENAI_API_KEY   Responses API
     gemini   gemini-*   GEMINI_API_KEY   generateContent  (GEMINI_KEY also read)
+    local    qwen-*, local-*, *.gguf   (none)   chat/completions on llama-server
                         or gemma-*
 
 `<PROVIDER>_BASE_URL` overrides an endpoint for proxies or compatible
@@ -62,6 +63,9 @@ from pathlib import Path
 # code-writing briefs the swarm is actually given.
 DEFAULT_MODEL = "gpt-5.6-luna"
 DEFAULT_GEMINI_MODEL = "gemini-3.7-flash"
+# The local server serves whatever single model it was started with and
+# ignores the name; the meta records the file the server actually reports.
+DEFAULT_LOCAL_MODEL = "qwen3.8-27b"
 
 # $ per 1M tokens (input, output), standard tier, text prompts under 200k,
 # read off the OpenAI and Google pricing pages 2026-08. Gemini output prices
@@ -343,7 +347,86 @@ class GeminiProvider(Provider):
         return resp.get("responseId")
 
 
-PROVIDERS = {p.name: p for p in (OpenAIProvider(), GeminiProvider())}
+class LocalProvider(Provider):
+    """An OpenAI-compatible chat/completions server on this machine —
+    llama-server (see the `local-llm-server` skill) serving one GGUF model,
+    by default a Qwen3.8-27B on port 1234.
+
+    Free and private, so it is the breadth tier for sweeps whose returns
+    are paragraphs, and a third *family* for the skeptic rule. Qwen3-class
+    models think by default; `--effort minimal` switches thinking off via
+    the chat-template flag, every other level leaves it on. The server runs
+    one model per process and ignores the model name in the request, so
+    `model_of` reports the file the server names in the response — that,
+    not the CLI flag, is what lands in the meta.
+    """
+
+    name = "local"
+    default_base_url = "http://localhost:1234/v1"
+    key_envs = ("LOCAL_API_KEY",)
+
+    def api_key(self):
+        # No key is needed; a placeholder keeps the shared code path honest.
+        return super().api_key() or "none"
+
+    def endpoint(self, base_url, model):
+        return f"{base_url}/chat/completions"
+
+    def headers(self, api_key):
+        return {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+
+    def payload(self, model, prompt, effort, max_output_tokens):
+        return {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": max_output_tokens,
+            "chat_template_kwargs": {"enable_thinking": effort != "minimal"},
+        }
+
+    def _choice(self, resp: dict) -> dict:
+        choices = resp.get("choices") or []
+        return choices[0] if choices else {}
+
+    def incomplete(self, resp):
+        choice = self._choice(resp)
+        if not choice:
+            return json.dumps({"error": resp.get("error")}, indent=1)
+        reason = choice.get("finish_reason")
+        if reason == "stop" and self.text(resp).strip():
+            return None
+        # `length` is the common one: the model spent the budget thinking
+        # and never wrote the answer. A truncated draft fails like the
+        # other providers' incomplete responses do.
+        return json.dumps({"finish_reason": reason}, indent=1)
+
+    _THINK = re.compile(r"<think>.*?</think>\s*", re.S)
+
+    def text(self, resp):
+        """The answer only. llama-server splits reasoning into
+        `reasoning_content` by default; an inline <think> block (older
+        builds, or --reasoning-format none) is stripped as well."""
+        content = self._choice(resp).get("message", {}).get("content") or ""
+        return self._THINK.sub("", content)
+
+    def usage(self, resp):
+        usage = resp.get("usage", {})
+        # completion_tokens already includes the thinking tokens.
+        return {
+            "input_tokens": usage.get("prompt_tokens", 0),
+            "output_tokens": usage.get("completion_tokens", 0),
+        }
+
+    def model_of(self, resp, fallback):
+        return resp.get("model", fallback)
+
+    def response_id(self, resp):
+        return resp.get("id")
+
+
+PROVIDERS = {p.name: p for p in (OpenAIProvider(), GeminiProvider(), LocalProvider())}
 
 
 def provider_for_model(model: str) -> str:
@@ -351,6 +434,8 @@ def provider_for_model(model: str) -> str:
     which is also where an OpenAI-compatible proxy model name belongs."""
     if model.startswith(("gemini-", "gemma-")):
         return "gemini"
+    if model.startswith(("qwen", "local")) or model.endswith(".gguf"):
+        return "local"
     return "openai"
 
 
@@ -367,7 +452,10 @@ def resolve_target(provider_name: str, model: str | None) -> tuple[Provider, str
     on the same family it was meant to be independent of.
     """
     if model is None:
-        model = DEFAULT_GEMINI_MODEL if provider_name == "gemini" else DEFAULT_MODEL
+        model = {
+            "gemini": DEFAULT_GEMINI_MODEL,
+            "local": DEFAULT_LOCAL_MODEL,
+        }.get(provider_name, DEFAULT_MODEL)
     return resolve_provider(provider_name, model), model
 
 
@@ -625,8 +713,9 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument(
             "--model",
             default=None,
-            help=f"default: {DEFAULT_MODEL}, or {DEFAULT_GEMINI_MODEL} when "
-                 "--provider gemini is given without a model",
+            help=f"default: {DEFAULT_MODEL}; {DEFAULT_GEMINI_MODEL} under "
+                 f"--provider gemini; {DEFAULT_LOCAL_MODEL} under --provider "
+                 "local (the local server ignores the name anyway)",
         )
         p.add_argument(
             "--provider",
@@ -646,8 +735,9 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument(
             "--base-url",
             default=None,
-            help="default: $OPENAI_BASE_URL / $GEMINI_BASE_URL, else the "
-                 "provider's public endpoint",
+            help="default: $OPENAI_BASE_URL / $GEMINI_BASE_URL / "
+                 "$LOCAL_BASE_URL, else the provider's public endpoint "
+                 "(local: http://localhost:1234/v1)",
         )
 
     p = sub.add_parser("plan", help="expand template x values into prompt files")

@@ -19,6 +19,7 @@ for OpenAI-compatible proxies serving a Gemini model name.
 |----------|--------------|----------------------------------|-----------------------------------|
 | `openai` | `gpt-*`      | `OPENAI_API_KEY`                 | `gpt-5.6-luna` — $0.20/$1.20 per 1M |
 | `gemini` | `gemini-*`, `gemma-*` | `GEMINI_API_KEY`, else `GEMINI_KEY` | `gemini-3.7-flash` — $0.75/$3.75 per 1M |
+| `local`  | `qwen*`, `local*`, `*.gguf` | none (`LOCAL_API_KEY` optional) | whatever `llama-server` on `localhost:1234` has loaded — as of 2026-08-25 `Qwen3.8-27B-UD-Q4_K_XL`, $0 |
 
 **Use `gemini-3.7-flash` on the Gemini side.** It is the current Flash release
 (2026-08-13), it is the tier Google tuned for coding and multi-step agent
@@ -42,7 +43,24 @@ body rather than a `Retry-After` header — `swarm.py` honours it, capped at
 60s). If a sweep dies on 429 with `generate_content_free_tier_requests`, the
 key needs billing enabled, not more retries.
 
-**The two families are not interchangeable, and that is the point.** Which
+**The local family** is an OpenAI-compatible `chat/completions` server on
+the lab machine (llama-server; operating notes in the `local-llm-server`
+skill; override the address with `LOCAL_BASE_URL`). It costs nothing and
+sends nothing off the machine, which makes it the default breadth tier for
+sweeps whose returns are paragraphs, and a third family for the skeptic
+rule below. Three things differ from the paid providers. It is **slow**: a
+27B dense model on one GPU decodes at tens of tokens per second, shared
+across the server's slots, and Qwen3-class models think by default — budget
+minutes per thinking job, not seconds, and set `--max-output-tokens` high
+enough (16k) that the thinking does not eat the answer; `--effort minimal`
+turns thinking off for cheap triage. It serves **one model per process and
+ignores the model name in the request**, so the meta records the GGUF file
+the server actually named in the response, and that — not the `--model`
+flag — is the provenance. And it is a **smaller model**: expect more
+confidently wrong returns, and never let one of them near the record
+without the director's filter and step 4.
+
+**The families are not interchangeable, and that is the point.** Which
 family drafted a return is a fact about how independent that return is —
 see the skeptic rule below.
 

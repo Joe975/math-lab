@@ -70,6 +70,11 @@ A fresh session container is missing three things the docs otherwise assume:
 
 `cc` is present and the C kernels build as-is (commands in the README).
 
+**Local LLM workers** (`scripts/swarm.py --provider local`): on the lab
+machine, `llama-server` on `localhost:1234` (start/swap per the
+`local-llm-server` skill) is a free third worker family. Sanity check:
+`python scripts/swarm.py one "Reply OK." --provider local --effort minimal`.
+
 **External LLM workers** (`scripts/swarm.py`): remote sessions carry two
 provider keys, `OPENAI_API_KEY` and `GEMINI_KEY` — the latter is the
 nonstandard name; `swarm.py` reads it as the fallback for `GEMINI_API_KEY`.
