@@ -1,0 +1,153 @@
+{
+ "min_prime": 2,
+ "pass1_budget": 25000,
+ "pass2_budget": 3000000,
+ "rows": [
+  {
+   "m": 3,
+   "nodes": 2,
+   "pass1_seconds": 0.0,
+   "pass2_seconds": 0.0,
+   "count": 1,
+   "sets": [
+    [
+     2,
+     3,
+     5
+    ]
+   ],
+   "products": [
+    "30"
+   ],
+   "unresolved_after_pass1": 0,
+   "unresolved_final": [],
+   "status": "EXHAUSTIVE"
+  },
+  {
+   "m": 4,
+   "nodes": 5,
+   "pass1_seconds": 0.0,
+   "pass2_seconds": 0.0,
+   "count": 2,
+   "sets": [
+    [
+     2,
+     3,
+     7,
+     41
+    ],
+    [
+     2,
+     3,
+     11,
+     13
+    ]
+   ],
+   "products": [
+    "1722",
+    "858"
+   ],
+   "unresolved_after_pass1": 0,
+   "unresolved_final": [],
+   "status": "EXHAUSTIVE"
+  },
+  {
+   "m": 5,
+   "nodes": 12,
+   "pass1_seconds": 0.0,
+   "pass2_seconds": 0.0,
+   "count": 1,
+   "sets": [
+    [
+     2,
+     3,
+     11,
+     17,
+     59
+    ]
+   ],
+   "products": [
+    "66198"
+   ],
+   "unresolved_after_pass1": 0,
+   "unresolved_final": [],
+   "status": "EXHAUSTIVE"
+  },
+  {
+   "m": 6,
+   "nodes": 61,
+   "pass1_seconds": 0.0,
+   "pass2_seconds": 0.0,
+   "count": 2,
+   "sets": [
+    [
+     2,
+     3,
+     7,
+     43,
+     3041,
+     4447
+    ],
+    [
+     2,
+     3,
+     11,
+     23,
+     31,
+     47057
+    ]
+   ],
+   "products": [
+    "24423128562",
+    "2214408306"
+   ],
+   "unresolved_after_pass1": 0,
+   "unresolved_final": [],
+   "status": "EXHAUSTIVE"
+  },
+  {
+   "m": 7,
+   "nodes": 1775,
+   "pass1_seconds": 1.4,
+   "pass2_seconds": 0.0,
+   "count": 3,
+   "sets": [
+    [
+     2,
+     3,
+     7,
+     59,
+     163,
+     1381,
+     775807
+    ],
+    [
+     2,
+     3,
+     7,
+     71,
+     103,
+     61559,
+     29133437
+    ],
+    [
+     2,
+     3,
+     7,
+     71,
+     103,
+     67213,
+     713863
+    ]
+   ],
+   "products": [
+    "432749205173838",
+    "550843391309130318",
+    "14737133470010574"
+   ],
+   "unresolved_after_pass1": 0,
+   "unresolved_final": [],
+   "status": "EXHAUSTIVE"
+  }
+ ]
+}

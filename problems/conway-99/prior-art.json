@@ -1,7 +1,7 @@
 {
   "problem": "conway-99",
   "route_status": "MAP",
-  "route_summary": "One blind attempt. The forced local structure is fully worked out and validated against the two realised members of the lam=1,mu=2 family, reducing the problem to 3486 binary variables; the standard conditions then transmit almost nothing into the residual instance, and a plain propagating search cannot even reconstruct the known 243-vertex graph. Note that PROBLEM.md's eigenvalue multiplicities are wrong: they are 54 and 44, not 56 and 42.",
+  "route_summary": "Two blind attempts by the same agent in one cycle. 001 reduces the problem to 3486 binary variables via a validated local bijection and reports the obstruction it hit. 002 continues it under an assumed-symmetry construction directive and lands the one real elimination so far: no SEMIREGULAR automorphism of order 33 (exhaustive, double-verified); the stronger 'no order-33 automorphism at all' needs two unreviewed lemmas and is LIVE. Read 002's calibration-ceiling table before running any search here: every construction engine in both records fails its own positive control (none rebuilds the known 243-vertex graph), so none of their null results says anything about 99. PROBLEM.md's multiplicities were wrong (54 and 44, not 56 and 42) and have been corrected.",
   "attempts": [
     {
       "id": "001",
@@ -11,6 +11,7 @@
       "status": "MAP",
       "target_shape": "mixed",
       "push_rounds": 2,
+      "superseded_by": "002",
       "mechanism": [
         "local-structure-reduction",
         "constraint-propagation-search",
@@ -32,6 +33,7 @@
       ],
       "methodological_lesson": "The propagator initially omitted the mu-condition between a distance-2 vertex and a neighbour of v0, and the only thing that exposed it was a hand-derived lemma disagreeing with the machine closure. Deriving the same structural fact twice, by hand and by propagation, is what caught it; adding the missing layer constraints nearly doubled the forced structure.",
       "design_note": "The lam=1,mu=2 family contains two realised members, so this open problem admits a positive control in the same family. Running the identical search on the satisfiable k=22 instance is what stopped a fake obstruction being reported, and any future search here should be gated on that control first.",
+      "note": "Superseded only in its stopping rule, not its content: 001 stopped at the obstruction, and 002 shows that was the wrong rule for an object-shaped target. Everything 001 establishes still stands and 002 builds on it directly.",
       "leak_terms": [
         "partner-regular",
         "partner-regularity",
@@ -41,6 +43,46 @@
         "73 labelled solutions in 4 orbits",
         "cannot reconstruct BvLS",
         "fails its own positive control"
+      ]
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-assumed-symmetry-construction.md",
+      "date": "2026-07-27",
+      "mode": "blind",
+      "status": "MAP",
+      "target_shape": "object",
+      "push_rounds": 5,
+      "verifies": "001",
+      "mechanism": [
+        "orbit-matrix-search",
+        "assumed-symmetry-construction",
+        "difference-set-autocorrelation",
+        "simulated-annealing-construction",
+        "automorphism-order-restriction",
+        "isomorph-rejection",
+        "positive-control-calibration"
+      ],
+      "one_line": "Continues 001 by pushing at construction instead of stopping: rules out a semiregular order-33 automorphism outright via a forced-autocorrelation argument on the unique orbit matrix, proves (unreviewed) that an order-3 automorphism has 0 or 3 fixed points, and measures the calibration ceiling of four construction engines -- all of which turn out to sit far below n=99.",
+      "range": "VERIFIED and free of any unreviewed lemma: no semiregular order-33 automorphism (exhaustive over the unique orbit matrix and all 4096 diagonal choices, verified two independent ways), and the (1x33,6x11) orbit profile admits no orbit matrix at all (963673 nodes). The full 'no order-33 automorphism' claim additionally needs 001's L2 and this record's L5, both unreviewed, and the (2x33,3x11) profile's 6 orbit matrices were never lifted -- so that stronger statement is LIVE, not VERIFIED. Orbit-matrix enumeration terminated only at t=3; t >= 9 (Z_11, Z_9, Z_3, and the 15-orbit Z_7 profile) was never enumerated. All eight construction runs at 99 were terminated with no witness and are uncontrolled, so they establish no range.",
+      "gaps": [
+        "The (2x33,3x11) profile's 6 orbit matrices were never lifted; that profile is closed by the unreviewed L5 alone, so the complete order-33 statement is only as strong as L2 and L5.",
+        "L5 and its consequences (no order-27 element; order-9 actions are semiregular) are proofs given here without a skeptic pass.",
+        "Orders 2, 3, 6, 7, 9 and 11 are entirely untouched, as is the trivial-automorphism case, which is where the answer most likely lives.",
+        "The orbit-matrix enumeration is complete in principle but does not reach a first solution for t >= 9, so every semiregular order except 33 remains un-enumerated.",
+        "Every construction engine fails its own positive control: cyclic_anneal rebuilds n=27 at t=9 but not n=45; srg_anneal tops out at n=27; group_anneal cannot rebuild BvLS(243). All eight runs at 99 were terminated at wrap-up with no witness and no salvageable checkpoint. Best costs reached (target 0): Z_11 336 after 11x400k iters, Z_9 440 after 8x400k, Z_3 1448 after 1x300k, unrestricted 2546, pair-model 2460, group-orbit 2508/2653/2733. None is evidence of nonexistence."
+      ],
+      "methodological_lesson": "A second bug was caught the same way as 001's: an L5 check wrongly hardcoded the lam=1,mu=2 form 2f-2 of a counting identity and produced a false failure on a lam=2 graph, where the general form is deg_F(u)(1+lam-mu) + mu(f-1). Both bugs this cycle surfaced only because the same fact was derived twice, by hand and by machine, and the two disagreed -- not from testing outputs. Separately, the wrap-up forced an honest downgrade: the complete order-33 claim was initially reported as VERIFIED before auditing showed it inherits the status of two unreviewed lemmas, and only the semiregular sub-case is lemma-free.",
+      "design_note": "The reason Z_33 fell and nothing else did is structural and tells a successor exactly what to build: at t=3 the diagonal equations form a SQUARE system in the off-diagonal autocorrelations, so the diagonal sets determine everything else. At t=9 there are 9 diagonal equations against 36 unknown autocorrelations and the trick evaporates -- but the 81 off-diagonal equations are entirely unused, which is where a t>=4 successor should start.",
+      "leak_terms": [
+        "forced autocorrelation",
+        "no semiregular automorphism of order 33",
+        "order-3 automorphism has 0 or 3 fixed points",
+        "no automorphism of order 27",
+        "calibration ceiling",
+        "unique orbit matrix",
+        "half-integer autocorrelation",
+        "4050 killed by parity"
       ]
     }
   ]

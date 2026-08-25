@@ -1,0 +1,1389 @@
+[
+  {
+    "rotations": [
+      3
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt11)",
+    "unit_vectors": 18,
+    "mod2_residues": 9,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.1
+  },
+  {
+    "rotations": [
+      4
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt5)",
+    "unit_vectors": 18,
+    "mod2_residues": 7,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      7
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3)",
+    "unit_vectors": 60,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 12,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      9
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt35)",
+    "unit_vectors": 18,
+    "mod2_residues": 9,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      12
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt47)",
+    "unit_vectors": 12,
+    "mod2_residues": 6,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      13
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt17)",
+    "unit_vectors": 12,
+    "mod2_residues": 6,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      16
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt7)",
+    "unit_vectors": 12,
+    "mod2_residues": 6,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      19
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3)",
+    "unit_vectors": 12,
+    "mod2_residues": 6,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      21
+    ],
+    "words": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "s": 2,
+    "field": "Q(sqrt3, sqrt83)",
+    "unit_vectors": 12,
+    "mod2_residues": 6,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 0.0
+  },
+  {
+    "rotations": [
+      3,
+      4
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt11)",
+    "unit_vectors": 30,
+    "mod2_residues": 13,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 2.7
+  },
+  {
+    "rotations": [
+      3,
+      7
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt11)",
+    "unit_vectors": 126,
+    "mod2_residues": 36,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.2
+  },
+  {
+    "rotations": [
+      3,
+      9
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt11, sqrt35)",
+    "unit_vectors": 30,
+    "mod2_residues": 15,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.5
+  },
+  {
+    "rotations": [
+      3,
+      12
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt11, sqrt47)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      3,
+      13
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt11, sqrt17)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      3,
+      16
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt7, sqrt11)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.7
+  },
+  {
+    "rotations": [
+      3,
+      19
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt11)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.1
+  },
+  {
+    "rotations": [
+      3,
+      21
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt11, sqrt83)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.8
+  },
+  {
+    "rotations": [
+      4,
+      7
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5)",
+    "unit_vectors": 126,
+    "mod2_residues": 28,
+    "direct_sum_collisions": 156,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.1
+  },
+  {
+    "rotations": [
+      4,
+      9
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt7)",
+    "unit_vectors": 30,
+    "mod2_residues": 13,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.7
+  },
+  {
+    "rotations": [
+      4,
+      12
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt47)",
+    "unit_vectors": 24,
+    "mod2_residues": 10,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      4,
+      13
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt17)",
+    "unit_vectors": 24,
+    "mod2_residues": 10,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      4,
+      16
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt7)",
+    "unit_vectors": 24,
+    "mod2_residues": 10,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.5
+  },
+  {
+    "rotations": [
+      4,
+      19
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5)",
+    "unit_vectors": 24,
+    "mod2_residues": 10,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.2
+  },
+  {
+    "rotations": [
+      4,
+      21
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt83)",
+    "unit_vectors": 24,
+    "mod2_residues": 10,
+    "direct_sum_collisions": 0,
+    "capping_mu": null,
+    "capped": false,
+    "seconds": 3.7
+  },
+  {
+    "rotations": [
+      7,
+      9
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt35)",
+    "unit_vectors": 120,
+    "mod2_residues": 33,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.2
+  },
+  {
+    "rotations": [
+      7,
+      12
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt47)",
+    "unit_vectors": 102,
+    "mod2_residues": 24,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.0
+  },
+  {
+    "rotations": [
+      7,
+      13
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt17)",
+    "unit_vectors": 102,
+    "mod2_residues": 24,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.2
+  },
+  {
+    "rotations": [
+      7,
+      16
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt7)",
+    "unit_vectors": 102,
+    "mod2_residues": 24,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.1
+  },
+  {
+    "rotations": [
+      7,
+      19
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3)",
+    "unit_vectors": 132,
+    "mod2_residues": 33,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 2.8
+  },
+  {
+    "rotations": [
+      7,
+      21
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt83)",
+    "unit_vectors": 108,
+    "mod2_residues": 27,
+    "direct_sum_collisions": 156,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.3
+  },
+  {
+    "rotations": [
+      9,
+      12
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt35, sqrt47)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      9,
+      13
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt17, sqrt35)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.8
+  },
+  {
+    "rotations": [
+      9,
+      16
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt5, sqrt7)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      9,
+      19
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt35)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.2
+  },
+  {
+    "rotations": [
+      9,
+      21
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt35, sqrt83)",
+    "unit_vectors": 24,
+    "mod2_residues": 12,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.7
+  },
+  {
+    "rotations": [
+      12,
+      13
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt17, sqrt47)",
+    "unit_vectors": 18,
+    "mod2_residues": 9,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.7
+  },
+  {
+    "rotations": [
+      12,
+      16
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt7, sqrt47)",
+    "unit_vectors": 18,
+    "mod2_residues": 9,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.6
+  },
+  {
+    "rotations": [
+      12,
+      19
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt47)",
+    "unit_vectors": 18,
+    "mod2_residues": 9,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.1
+  },
+  {
+    "rotations": [
+      12,
+      21
+    ],
+    "words": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "s": 3,
+    "field": "Q(sqrt3, sqrt47, sqrt83)",
+    "unit_vectors": 18,
+    "mod2_residues": 9,
+    "direct_sum_collisions": 0,
+    "capping_mu": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "capped": true,
+    "seconds": 3.7
+  }
+]

@@ -91,8 +91,25 @@ def check_orbit_matrix(R, sizes, k, lam, mu):
 # enumeration for the semiregular case (all orbits the same size)
 # ---------------------------------------------------------------------------
 
+def canonical_form(R):
+    """Lexicographically smallest simultaneous row+column permutation of R.
+
+    Orbits carry no labels, so two orbit matrices related by a simultaneous
+    permutation describe the same structure.  Used to deduplicate results;
+    exhaustive over t! and therefore only for small t.
+    """
+    from itertools import permutations
+    t = len(R)
+    best = None
+    for p in permutations(range(t)):
+        cand = tuple(tuple(R[p[i]][p[j]] for j in range(t)) for i in range(t))
+        if best is None or cand < best:
+            best = cand
+    return best
+
+
 def enumerate_semiregular(m, k, lam, mu, n, diag_even=None, limit=None,
-                          progress=None):
+                          progress=None, sorted_diagonal=False):
     """All orbit matrices for a semiregular cyclic group of order m.
 
     n/m orbits, all of size m, so R is symmetric.  Rows are built one at a
@@ -185,6 +202,11 @@ def enumerate_semiregular(m, k, lam, mu, n, diag_even=None, limit=None,
         for v in range(lo, hi + 1):
             if i == j and diag_even and v % 2:
                 continue
+            # isomorph rejection: orbits are unlabelled, so we may insist the
+            # diagonal is non-increasing.  Every orbit matrix has such a
+            # relabelling, so this is complete, not a heuristic.
+            if i == j and sorted_diagonal and i > 0 and v > R[i - 1][i - 1]:
+                continue
             R[i][j] = v
             if i != j:
                 R[j][i] = v
@@ -240,6 +262,8 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--out", type=str, default=None)
     ap.add_argument("--progress", type=int, default=None)
+    ap.add_argument("--sorted-diagonal", action="store_true",
+                    help="isomorph rejection: insist the diagonal is non-increasing")
     args = ap.parse_args()
 
     n, k, lam, mu, m = args.n, args.k, args.lam, args.mu, args.m
@@ -255,7 +279,8 @@ def main():
               f"admissible traces: {[o['trace'] for o in tr['options']]}")
 
     sols, stats = enumerate_semiregular(m, k, lam, mu, n, limit=args.limit,
-                                        progress=args.progress)
+                                        progress=args.progress,
+                                        sorted_diagonal=args.sorted_diagonal)
     print(f"# search nodes: {stats['nodes']}")
     print(f"# orbit matrices found: {len(sols)}")
 

@@ -1,0 +1,242 @@
+[
+  {
+    "n": 7,
+    "field": "Q(sqrt3)",
+    "patch_norm": 13,
+    "vertices": 103,
+    "edges": 276,
+    "cross_copy_edges": 42,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 102,
+      "max_scaled_sqdist": 364,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 7,
+    "field": "Q(sqrt3)",
+    "patch_norm": 21,
+    "vertices": 157,
+    "edges": 444,
+    "cross_copy_edges": 60,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 154,
+      "max_scaled_sqdist": 588,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 7,
+    "field": "Q(sqrt3)",
+    "patch_norm": 28,
+    "vertices": 199,
+    "edges": 576,
+    "cross_copy_edges": 90,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 200,
+      "max_scaled_sqdist": 784,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 7,
+    "field": "Q(sqrt3)",
+    "patch_norm": 39,
+    "vertices": 283,
+    "edges": 816,
+    "cross_copy_edges": 114,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 286,
+      "max_scaled_sqdist": 1092,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 7,
+    "field": "Q(sqrt3)",
+    "patch_norm": 48,
+    "vertices": 319,
+    "edges": 912,
+    "cross_copy_edges": 114,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 323,
+      "max_scaled_sqdist": 1344,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 19,
+    "field": "Q(sqrt3)",
+    "patch_norm": 13,
+    "vertices": 109,
+    "edges": 276,
+    "cross_copy_edges": 6,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 203,
+      "max_scaled_sqdist": 988,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 19,
+    "field": "Q(sqrt3)",
+    "patch_norm": 21,
+    "vertices": 163,
+    "edges": 444,
+    "cross_copy_edges": 30,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 316,
+      "max_scaled_sqdist": 1596,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 19,
+    "field": "Q(sqrt3)",
+    "patch_norm": 28,
+    "vertices": 211,
+    "edges": 576,
+    "cross_copy_edges": 42,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 424,
+      "max_scaled_sqdist": 2128,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 19,
+    "field": "Q(sqrt3)",
+    "patch_norm": 39,
+    "vertices": 295,
+    "edges": 816,
+    "cross_copy_edges": 42,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 625,
+      "max_scaled_sqdist": 2964,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 19,
+    "field": "Q(sqrt3)",
+    "patch_norm": 48,
+    "vertices": 331,
+    "edges": 912,
+    "cross_copy_edges": 42,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 704,
+      "max_scaled_sqdist": 3648,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 37,
+    "field": "Q(sqrt3)",
+    "patch_norm": 13,
+    "vertices": 109,
+    "edges": 276,
+    "cross_copy_edges": 6,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 264,
+      "max_scaled_sqdist": 1924,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 37,
+    "field": "Q(sqrt3)",
+    "patch_norm": 21,
+    "vertices": 169,
+    "edges": 444,
+    "cross_copy_edges": 6,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 490,
+      "max_scaled_sqdist": 3108,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 37,
+    "field": "Q(sqrt3)",
+    "patch_norm": 28,
+    "vertices": 217,
+    "edges": 576,
+    "cross_copy_edges": 6,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 677,
+      "max_scaled_sqdist": 4144,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 37,
+    "field": "Q(sqrt3)",
+    "patch_norm": 39,
+    "vertices": 295,
+    "edges": 816,
+    "cross_copy_edges": 30,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 966,
+      "max_scaled_sqdist": 5772,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  },
+  {
+    "n": 37,
+    "field": "Q(sqrt3)",
+    "patch_norm": 48,
+    "vertices": 331,
+    "edges": 912,
+    "cross_copy_edges": 36,
+    "chi": 3,
+    "collapse": {
+      "scaled_sqdists_seen": 1121,
+      "max_scaled_sqdist": 7104,
+      "values_that_are_not_eisenstein_norms": [],
+      "failures": [],
+      "n_failures": 0
+    }
+  }
+]

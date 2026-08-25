@@ -1,0 +1,526 @@
+[
+  {
+    "n": 3,
+    "commensurable": false,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 54,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3
+    ],
+    "irrational_sqdists": 120
+  },
+  {
+    "n": 3,
+    "commensurable": false,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 61,
+    "edges": 150,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3
+    ],
+    "irrational_sqdists": 816
+  },
+  {
+    "n": 3,
+    "commensurable": false,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 109,
+    "edges": 282,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3
+    ],
+    "irrational_sqdists": 2712
+  },
+  {
+    "n": 3,
+    "commensurable": false,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 169,
+    "edges": 450,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3
+    ],
+    "irrational_sqdists": 6720
+  },
+  {
+    "n": 3,
+    "commensurable": false,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 217,
+    "edges": 582,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3
+    ],
+    "irrational_sqdists": 11088
+  },
+  {
+    "n": 4,
+    "commensurable": false,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 48,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      4
+    ],
+    "irrational_sqdists": 120
+  },
+  {
+    "n": 4,
+    "commensurable": false,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 61,
+    "edges": 150,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      4
+    ],
+    "irrational_sqdists": 816
+  },
+  {
+    "n": 4,
+    "commensurable": false,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 109,
+    "edges": 282,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      4
+    ],
+    "irrational_sqdists": 2712
+  },
+  {
+    "n": 4,
+    "commensurable": false,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 169,
+    "edges": 450,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      4
+    ],
+    "irrational_sqdists": 6720
+  },
+  {
+    "n": 4,
+    "commensurable": false,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 217,
+    "edges": 582,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      4
+    ],
+    "irrational_sqdists": 11088
+  },
+  {
+    "n": 7,
+    "commensurable": true,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 48,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      7
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 7,
+    "commensurable": true,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 55,
+    "edges": 144,
+    "cross_copy_edges": 24,
+    "sqdist_denominators": [
+      1,
+      7
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 7,
+    "commensurable": true,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 103,
+    "edges": 276,
+    "cross_copy_edges": 42,
+    "sqdist_denominators": [
+      1,
+      7
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 7,
+    "commensurable": true,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 157,
+    "edges": 444,
+    "cross_copy_edges": 60,
+    "sqdist_denominators": [
+      1,
+      7
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 7,
+    "commensurable": true,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 199,
+    "edges": 576,
+    "cross_copy_edges": 90,
+    "sqdist_denominators": [
+      1,
+      7
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 9,
+    "commensurable": false,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 48,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      3,
+      9
+    ],
+    "irrational_sqdists": 120
+  },
+  {
+    "n": 9,
+    "commensurable": false,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 61,
+    "edges": 144,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      3,
+      9
+    ],
+    "irrational_sqdists": 816
+  },
+  {
+    "n": 9,
+    "commensurable": false,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 109,
+    "edges": 282,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3,
+      9
+    ],
+    "irrational_sqdists": 2712
+  },
+  {
+    "n": 9,
+    "commensurable": false,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 169,
+    "edges": 450,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3,
+      9
+    ],
+    "irrational_sqdists": 6720
+  },
+  {
+    "n": 9,
+    "commensurable": false,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 217,
+    "edges": 582,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      3,
+      9
+    ],
+    "irrational_sqdists": 11088
+  },
+  {
+    "n": 12,
+    "commensurable": false,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 48,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      4,
+      12
+    ],
+    "irrational_sqdists": 120
+  },
+  {
+    "n": 12,
+    "commensurable": false,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 61,
+    "edges": 144,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      3,
+      4,
+      6,
+      12
+    ],
+    "irrational_sqdists": 816
+  },
+  {
+    "n": 12,
+    "commensurable": false,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 109,
+    "edges": 282,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      12
+    ],
+    "irrational_sqdists": 2712
+  },
+  {
+    "n": 12,
+    "commensurable": false,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 169,
+    "edges": 450,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      12
+    ],
+    "irrational_sqdists": 6720
+  },
+  {
+    "n": 12,
+    "commensurable": false,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 217,
+    "edges": 582,
+    "cross_copy_edges": 12,
+    "sqdist_denominators": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      12
+    ],
+    "irrational_sqdists": 11088
+  },
+  {
+    "n": 19,
+    "commensurable": true,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 48,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      19
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 19,
+    "commensurable": true,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 61,
+    "edges": 144,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      19
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 19,
+    "commensurable": true,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 109,
+    "edges": 276,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      19
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 19,
+    "commensurable": true,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 163,
+    "edges": 444,
+    "cross_copy_edges": 30,
+    "sqdist_denominators": [
+      1,
+      19
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 19,
+    "commensurable": true,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 211,
+    "edges": 576,
+    "cross_copy_edges": 42,
+    "sqdist_denominators": [
+      1,
+      19
+    ],
+    "irrational_sqdists": 0
+  },
+  {
+    "n": 21,
+    "commensurable": false,
+    "patch_norm": 3,
+    "patch_size": 13,
+    "vertices": 25,
+    "edges": 48,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      7,
+      21
+    ],
+    "irrational_sqdists": 120
+  },
+  {
+    "n": 21,
+    "commensurable": false,
+    "patch_norm": 7,
+    "patch_size": 31,
+    "vertices": 61,
+    "edges": 144,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "irrational_sqdists": 816
+  },
+  {
+    "n": 21,
+    "commensurable": false,
+    "patch_norm": 13,
+    "patch_size": 55,
+    "vertices": 109,
+    "edges": 276,
+    "cross_copy_edges": 6,
+    "sqdist_denominators": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "irrational_sqdists": 2712
+  },
+  {
+    "n": 21,
+    "commensurable": false,
+    "patch_norm": 21,
+    "patch_size": 85,
+    "vertices": 169,
+    "edges": 456,
+    "cross_copy_edges": 18,
+    "sqdist_denominators": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "irrational_sqdists": 6720
+  },
+  {
+    "n": 21,
+    "commensurable": false,
+    "patch_norm": 28,
+    "patch_size": 109,
+    "vertices": 217,
+    "edges": 588,
+    "cross_copy_edges": 18,
+    "sqdist_denominators": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "irrational_sqdists": 11088
+  }
+]

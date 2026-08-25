@@ -1,0 +1,51 @@
+{
+ "odd_only": true,
+ "min_entry": 3,
+ "rows": [
+  {
+   "len": 7,
+   "nodes": 7,
+   "seconds": 0.0,
+   "count": 0,
+   "sequences": [],
+   "all_prime": [],
+   "unresolved_count": 0
+  },
+  {
+   "len": 8,
+   "nodes": 14,
+   "seconds": 0.0,
+   "count": 0,
+   "sequences": [],
+   "all_prime": [],
+   "unresolved_count": 0
+  },
+  {
+   "len": 9,
+   "nodes": 28,
+   "seconds": 0.0,
+   "count": 0,
+   "sequences": [],
+   "all_prime": [],
+   "unresolved_count": 0
+  },
+  {
+   "len": 10,
+   "nodes": 108,
+   "seconds": 0.0,
+   "count": 0,
+   "sequences": [],
+   "all_prime": [],
+   "unresolved_count": 0
+  },
+  {
+   "len": 11,
+   "nodes": 1375,
+   "seconds": 0.42,
+   "count": 0,
+   "sequences": [],
+   "all_prime": [],
+   "unresolved_count": 0
+  }
+ ]
+}

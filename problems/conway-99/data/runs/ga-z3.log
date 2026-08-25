@@ -1,0 +1,7 @@
+# profile z3: cycle type [3] (33 cycles) on 99 points
+# pair orbits: 1617 (from C(99,2) = 4851 pairs)
+    restart 0: best 2733 (overall 2733)
+    restart 1: best 2838 (overall 2733)
+    restart 2: best 2898 (overall 2733)
+    restart 3: best 2799 (overall 2733)
+    restart 4: best 2841 (overall 2733)

@@ -1,0 +1,9 @@
+# Z_9-invariant search: n=99 t=11 k=14 lam=1 mu=2
+    restart 0: best 456 (overall 456)
+    restart 1: best 440 (overall 440)
+    restart 2: best 448 (overall 440)
+    restart 3: best 448 (overall 440)
+    restart 4: best 452 (overall 440)
+    restart 5: best 440 (overall 440)
+    restart 6: best 472 (overall 440)
+    restart 7: best 472 (overall 440)

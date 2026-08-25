@@ -34,6 +34,22 @@ could extend to a solution is discarded:
   P7  At r == 2 the larger of the two is forced by the smaller:
       1/p + 1/q - 1/(Npq) = a/b gives q = b(Np-1)/(N(ap-b)), so only p is
       searched, over the window b/a < p < 2b/a implied by q > p.
+  P8  At r == 2, a closed form that replaces that scan with a factorisation.
+      The remainder k - s is always a/N in lowest terms: writing it over N, the
+      numerator is kN - sum_i N/p_i, which mod p_j is -N/p_j, and N/p_j is
+      coprime to p_j because N is squarefree -- so the numerator is coprime to
+      every prime factor of N.  With b = N the last-two equation
+      Nq + Np - 1 = apq becomes apq - Np - Nq + 1 = 0, and multiplying by a
+      completes the rectangle:
+
+          (a*p - N) * (a*q - N) = N^2 - a.
+
+      So p and q come from the divisor pairs of N^2 - a, and the search cost
+      moves from scanning a window of width ~N/a to factoring one integer.
+      Both signs are tried, since the two factors need only share a sign.
+      P8 is complete exactly when N^2 - a factors; when it does not, the branch
+      is appended to ``unresolved`` rather than dropped, because silently
+      skipping it would turn a partial enumeration into a false "none exist".
 
 Standard library only, exact rational arithmetic (fractions.Fraction).
 """
@@ -41,6 +57,8 @@ Standard library only, exact rational arithmetic (fractions.Fraction).
 from fractions import Fraction
 
 from .conditions import is_prime, is_giuga_number
+from .factorint import factorize_full
+from .lasttwo import completions
 
 
 # --------------------------------------------------------------------------
@@ -113,16 +131,37 @@ class _Primes:
             self._limit *= 2
         self._ps = self._sieve(self._limit)
 
-    def upto(self, limit):
-        self._grow(limit)
-        lo, hi = 0, len(self._ps)
+    def _index_above(self, x, ps):
+        lo, hi = 0, len(ps)
         while lo < hi:                       # bisect without importing
             mid = (lo + hi) // 2
-            if self._ps[mid] <= limit:
+            if ps[mid] <= x:
                 lo = mid + 1
             else:
                 hi = mid
-        return self._ps[:lo]
+        return lo
+
+    def upto(self, limit):
+        """Every prime <= limit, as a fresh list."""
+        self._grow(limit)
+        return self._ps[:self._index_above(limit, self._ps)]
+
+    def between(self, low, high):
+        """Primes p with low < p <= high, without copying the list.
+
+        ``upto`` copies its prefix on every call, which at a limit of 8e6 costs
+        ~2.5 ms -- more than everything else a search node does. Growing the
+        sieve first and then capturing the list means a deeper call that grows
+        it again rebinds ``self._ps`` without disturbing this iteration, and the
+        captured list already covers everything up to ``high``.
+        """
+        self._grow(high)
+        ps = self._ps
+        i = self._index_above(low, ps)
+        n = self._index_above(high, ps)
+        while i < n:
+            yield ps[i]
+            i += 1
 
     def next_after(self, x, count):
         """The ``count`` smallest primes strictly greater than x."""
@@ -150,7 +189,10 @@ def k_upper_bound(m: int, min_prime: int = 2) -> int:
 
 
 def enumerate_by_prime_sets(m: int, min_prime: int = 2, k=None, on_node=None,
-                            use_p4: bool = True, use_p7: bool = True):
+                            use_p4: bool = True, use_p7: bool = True,
+                            use_p8: bool = False, unresolved=None,
+                            rho_budget: int = 400_000,
+                            window_cap: int = 2_000_000):
     """All sets of m distinct primes >= min_prime whose product is a Giuga number.
 
     Yields sorted tuples of primes.  ``k`` restricts to a single value of the
@@ -159,13 +201,22 @@ def enumerate_by_prime_sets(m: int, min_prime: int = 2, k=None, on_node=None,
     ``use_p4`` / ``use_p7`` switch off individual pruning rules.  Turning one
     off must not change the output -- only the cost.  That is the check that
     the rule was necessary rather than merely convenient.
+
+    ``use_p8`` replaces the last-two-primes scan with the factorisation closed
+    form, which is what makes larger factor counts reachable.  Pass a list as
+    ``unresolved`` to collect the branches whose N^2 - a did not factor; if that
+    list is non-empty the enumeration is complete only outside those branches,
+    and saying so is the caller's job.
     """
     ks = [k] if k is not None else list(range(1, k_upper_bound(m, min_prime) + 1))
     for kk in ks:
-        yield from _rec([], Fraction(0), 1, m, kk, min_prime - 1, on_node, use_p4, use_p7)
+        yield from _rec([], Fraction(0), 1, m, kk, min_prime - 1, on_node,
+                        use_p4, use_p7, use_p8, unresolved, rho_budget, window_cap)
 
 
-def _rec(chosen, s, N, m, k, last, on_node, use_p4=True, use_p7=True):
+def _rec(chosen, s, N, m, k, last, on_node, use_p4=True, use_p7=True,
+         use_p8=False, unresolved=None, rho_budget=400_000,
+         window_cap=2_000_000):
     if on_node is not None:
         on_node()
     r = m - len(chosen)
@@ -180,15 +231,27 @@ def _rec(chosen, s, N, m, k, last, on_node, use_p4=True, use_p7=True):
             if p > last and is_prime(p):
                 yield tuple(chosen + [p])
         return
+    if r == 2 and use_p8:                          # P8: last two, closed form
+        a, b = rem.numerator, rem.denominator
+        assert b == N, ("denominator lemma violated", chosen, rem)
+        pairs, complete = completions(last, N, a, window_cap=window_cap,
+                                      rho_budget=rho_budget, require_prime=True)
+        if not complete:
+            if unresolved is not None:
+                unresolved.append({
+                    "chosen": list(chosen), "N": N, "a": a, "M": N * N - a,
+                    "cofactor": factorize_full(N * N - a, budget=rho_budget)[1]})
+            return
+        for p, q in pairs:
+            yield tuple(chosen + [p, q])
+        return
     if r == 2 and use_p7:                          # P7: last two, q forced by p
         a, b = rem.numerator, rem.denominator
         # 1/p + 1/q - 1/(Npq) = a/b  =>  q = b(Np - 1) / (N(ap - b)),
         # so p > b/a; and q > p forces 2/p > a/b, so p < 2b/a.
         lo = b // a
         hi2 = (2 * b) // a
-        for p in PRIMES.upto(hi2):
-            if p <= last or p <= lo:
-                continue
+        for p in PRIMES.between(max(last, lo), hi2):
             den = N * (a * p - b)
             num = b * (N * p - 1)
             if den <= 0 or num % den:
@@ -201,13 +264,12 @@ def _rec(chosen, s, N, m, k, last, on_node, use_p4=True, use_p7=True):
         return
     hi = Fraction(r) / rem                         # P5: next prime < r/rem
     limit = hi.numerator // hi.denominator
-    for p in PRIMES.upto(limit):
-        if p <= last:
-            continue
+    for p in PRIMES.between(last, limit):
         if Fraction(p) >= hi:
             break
         yield from _rec(chosen + [p], s + Fraction(1, p), N * p, m, k, p,
-                        on_node, use_p4, use_p7)
+                        on_node, use_p4, use_p7, use_p8, unresolved, rho_budget,
+                        window_cap)
 
 
 def product(ps):

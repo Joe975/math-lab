@@ -1,7 +1,7 @@
 {
   "problem": "giuga",
   "route_status": "EVIDENCE",
-  "route_summary": "Open. One blind attempt re-derived the counterexample conditions from the power sum, recovered the small Giuga numbers with two independent enumerators, and pushed a reciprocal-sum relaxation of the conditions to a certified bound of more than 3355 prime factors and 10^10395 -- short of the published 3459-factor figure. That relaxation is capped at 8135 by an explicit witness set, so passing the published digit bound needs the exact divisibility conditions put back.",
+  "route_summary": "Open. Two blind attempts from one cycle: 001 relaxed the counterexample conditions to a reciprocal-sum problem and certified more than 3355 prime factors and 10^10395, with an explicit witness capping that whole family at 8135; 002 established that a counterexample is too large to be an object and went after the ones that are not -- odd Giuga numbers (none below 12 prime factors, and the count must be even) and Giuga sequences (complete to length 6). Read 001 for the bound, 002 for the objects and the closed forms that make any Giuga enumeration cheap.",
   "attempts": [
     {
       "id": "001",
@@ -30,7 +30,44 @@
         "8135-prime witness",
         "10^10395",
         "0.565846"
-      ]
+      ],
+      "target_shape": "mixed",
+      "push_rounds": 2,
+      "note": "target_shape is mixed: the deliverable was a lower bound (proof-shaped), but the most durable artifact was the 8135-prime ceiling witness, which is an object a checker settles. The two pushes past the first partial result were the product/digit objective and the explicit ceiling construction. Fields added after the record was written, when the schema gained them; the record prose is unchanged."
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-odd-giuga-construction.md",
+      "date": "2026-07-27",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "odd-giuga-number",
+        "giuga-sequences",
+        "prime-set-enumeration",
+        "closed-form-last-two",
+        "pollard-rho-factorisation",
+        "randomised-construction",
+        "parity-argument"
+      ],
+      "one_line": "A Giuga counterexample is object-shaped but provably enormous, so this went after the nearby objects that are not: no odd Giuga number below 12 prime factors, its factor count must be even, Giuga sequences complete to length 6, and a closed form (ap-N)(aq-N) = N^2-a that replaces the last-two-primes scan.",
+      "leak_terms": [
+        "1,059,471,340",
+        "0.998956",
+        "m >= 10 and even",
+        "prefixes settled completely"
+      ],
+      "target_shape": "object",
+      "push_rounds": 8,
+      "range": "Odd Giuga numbers exhausted at 9, 10, 11 prime factors and odd Giuga sequences at lengths 7-11, with no unresolved branches; Giuga sequences complete for lengths 3-6; the parity law proved for m <= 1411, where k = 1 is forced; the construction search settled 1,059,471,340 window integers across 1,099,847 prefixes at factor counts 3 to 61 on one seed, finding nothing.",
+      "gaps": [
+        "Nothing is claimed about whether an odd Giuga number exists; the construction search samples a vanishing fraction of prefixes.",
+        "Exhaustiveness beyond length 11 depends on N^2 - a factoring; branches that resist are reported but not resolved.",
+        "The parity law only bites while k = 1, i.e. m <= 1411; beyond that odd factor counts are not excluded.",
+        "Odd lengths 9 and 11 were searched before the parity law was found, and are vacuous -- the only real exclusion in that range is length 10.",
+        "The 8-prime-factor Giuga list and odd sequences of length 12 both did not finish; measured costs are in the record, and neither is reported as evidence of absence."
+      ],
+      "methodological_lesson": "Two rounds of compute went into odd factor counts that a two-line parity argument excludes for free. When a search comes back empty at several consecutive sizes, look for a reason those sizes are vacuous before paying for the next one."
     }
   ]
 }

@@ -1,0 +1,31 @@
+{
+ "min_prime": 3,
+ "fast": true,
+ "rho_budget": 400000,
+ "rows": [
+  {
+   "m": 9,
+   "nodes": 24,
+   "seconds": 0.04,
+   "found": [],
+   "unresolved_count": 0,
+   "unresolved": []
+  },
+  {
+   "m": 10,
+   "nodes": 94,
+   "seconds": 0.13,
+   "found": [],
+   "unresolved_count": 0,
+   "unresolved": []
+  },
+  {
+   "m": 11,
+   "nodes": 1265,
+   "seconds": 7.09,
+   "found": [],
+   "unresolved_count": 0,
+   "unresolved": []
+  }
+ ]
+}

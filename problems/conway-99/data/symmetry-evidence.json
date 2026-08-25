@@ -1,0 +1,217 @@
+{
+ "L5": {
+  "counting_identity": "sum_{x in N_F(u)} deg_F(x) = 2f - 2",
+  "degrees_in_Fix": [
+   2,
+   8
+  ],
+  "regular_degree_2_gives_f": 3,
+  "regular_degree_8_gives_f": 33,
+  "srg_33_8_1_2_fails": [
+   "integral-spectrum"
+  ],
+  "srg_33_8_1_2_feasible": false,
+  "statement": "an order-3 automorphism of an SRG(99,14,1,2) has 0 or 3 fixed points"
+ },
+ "admissible_orders": {
+  "no_prime_ge_13": "L2: a prime p > k/2 = 7 with a fixed point forces the identity, so p | 99; 99 = 3^2 * 11",
+  "order_11": "L2: fixed-point free, 9 orbits of 11",
+  "order_27": "L5: impossible (neither 99 nor 96 is divisible by 27)",
+  "order_3": "L5: 0 or 3 fixed points",
+  "order_33": "L5 + exhaustive: impossible (see z33 below)",
+  "order_7": "L3: exactly one fixed point, so orbits are 1 + 14x7",
+  "order_9": "L5: semiregular, 11 orbits of 9 (96 is not divisible by 9)"
+ },
+ "construction_attempts_at_99": {
+  "_note": "no witness found by any method. Every run below is UNCONTROLLED -- the engine could not rebuild a known graph at comparable scale -- so none of these stopping points is evidence of nonexistence. Recorded so the next attempt knows what was tried.",
+  "cyclic_anneal_Z11_t9": {
+   "best_cost": 336,
+   "control": "rebuilds (27,10,1,5) at t=9 in 16s; fails (45,12,3,3) at t=9",
+   "controlled": false,
+   "iters_per_restart": 400000,
+   "orbits": "9 x 11",
+   "restarts": 11
+  },
+  "cyclic_anneal_Z3_t33": {
+   "best_cost": 1448,
+   "controlled": false,
+   "iters_per_restart": 300000,
+   "orbits": "33 x 3",
+   "restarts": 1
+  },
+  "cyclic_anneal_Z9_t11": {
+   "best_cost": 440,
+   "controlled": false,
+   "iters_per_restart": 400000,
+   "orbits": "11 x 9",
+   "restarts": 8
+  },
+  "group_anneal_Z11": {
+   "best_cost": 2508,
+   "controlled": false,
+   "iters_per_restart": 60000,
+   "pair_orbits": 441,
+   "restarts": 3
+  },
+  "group_anneal_Z3": {
+   "best_cost": 2733,
+   "controlled": false,
+   "iters_per_restart": 60000,
+   "pair_orbits": 1617,
+   "restarts": 5
+  },
+  "group_anneal_Z7_one_fixed_point": {
+   "best_cost": 2653,
+   "controlled": false,
+   "iters_per_restart": 60000,
+   "pair_orbits": 693,
+   "restarts": 5
+  },
+  "orbit_matrix_enumeration_m_9_11_3": {
+   "note": "this method is complete rather than heuristic, so its failure is a tractability limit, not a null result",
+   "result": "no first solution reached in minutes; terminated"
+  },
+  "pair_anneal_in_pair_model": {
+   "best_cost": 2460,
+   "control": "k=22 positive control stalled at cost 23464",
+   "controlled": false,
+   "iters_per_restart": 1500000,
+   "restarts": 1
+  },
+  "positive_control_bvls243_group_anneal": {
+   "best_cost": 24729,
+   "iters_per_restart": 25000,
+   "note": "THE CONTROL ITSELF FAILED: this method cannot rebuild a graph that provably exists, which is why the rows above are marked uncontrolled",
+   "pair_orbits": 9801,
+   "restarts": 1,
+   "target_cost": 0
+  },
+  "srg_anneal_unrestricted": {
+   "best_cost": 2546,
+   "control": "ceiling n=27",
+   "controlled": false,
+   "iters_per_restart": 800000,
+   "restarts": 2
+  }
+ },
+ "controlled_results": {
+  "_note": "by contrast, these ARE gated on controls that passed",
+  "feasibility": "recovers the published verdict on eleven parameter sets, in both directions and for the right reason",
+  "pair_reduction": "machine-checked at every vertex of Paley(9), rook(3) and BvLS(243) -- 261 decompositions",
+  "z33_elimination": "orbit-matrix enumerator validated to contain the true orbit matrices of six real graph/automorphism pairs; autocorrelation argument verified two independent ways"
+ },
+ "orbit_matrices": {
+  "order33_z33_1x33_6x11": {
+   "nodes": 963673,
+   "orbit_matrices": 0,
+   "sizes": [
+    33,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11
+   ]
+  },
+  "order33_z33_2x33_3x11": {
+   "nodes": 19674,
+   "orbit_matrices": 6,
+   "sizes": [
+    33,
+    33,
+    11,
+    11,
+    11
+   ]
+  },
+  "semiregular_Z11": {
+   "note": "the backtracking search does not reach a first solution in minutes for t >= 9; this route is complete in principle but not in practice at this size",
+   "orbit_matrices": "enumeration did not terminate",
+   "orbits": "9 x 11"
+  },
+  "semiregular_Z3": {
+   "note": "the backtracking search does not reach a first solution in minutes for t >= 9; this route is complete in principle but not in practice at this size",
+   "orbit_matrices": "enumeration did not terminate",
+   "orbits": "33 x 3"
+  },
+  "semiregular_Z33": {
+   "matrices": [
+    [
+     [
+      2,
+      6,
+      6
+     ],
+     [
+      6,
+      2,
+      6
+     ],
+     [
+      6,
+      6,
+      2
+     ]
+    ]
+   ],
+   "nodes": 94,
+   "orbit_matrices": 1,
+   "orbits": "3 x 33"
+  },
+  "semiregular_Z9": {
+   "note": "the backtracking search does not reach a first solution in minutes for t >= 9; this route is complete in principle but not in practice at this size",
+   "orbit_matrices": "enumeration did not terminate",
+   "orbits": "11 x 9"
+  }
+ },
+ "search_calibration_ceilings": {
+  "_note": "each method was run on parameter sets whose graphs exist; the largest it could rebuild is its ceiling.  All four ceilings are far below n=99, so none of their null results at 99 is evidence of nonexistence.",
+  "cyclic_anneal (Z_m-invariant)": {
+   "fails": "n=45 (45,12,3,3) at t=9",
+   "recovers": "n=27 (27,10,1,5) lam=1 at t=9 in 16s; also 9, 10, 15, 16"
+  },
+  "group_anneal (pair-orbit toggling)": {
+   "fails": "n=243 (BvLS) under an assumed order-3 automorphism",
+   "recovers": "n=9, 16"
+  },
+  "pair_search (propagating, exact)": {
+   "fails": "n=243 (BvLS): 14/220 vertices settled after 120000 nodes",
+   "recovers": "n=9"
+  },
+  "srg_anneal (unrestricted)": {
+   "fails": "n=25 (25,12,5,6), n=36, n=45",
+   "recovers": "n=27 (27,10,1,5) lam=1; also 9, 15, 16"
+  }
+ },
+ "z33_elimination": {
+  "conclusion": "no semiregular Z_33 lift exists",
+  "cross_checks": [
+   "the forcing formula reproduces the true autocorrelations of Paley(9)",
+   "unrealisability re-derived by brute force over all C(32,5)=201376 6-subsets of Z_33 containing 0",
+   "the unique orbit matrix re-derived by direct brute force over all symmetric 3x3 candidates"
+  ],
+  "diagonal_choices": 4096,
+  "distinct_autocorrelations_realised_by_6_subsets_of_Z33": 16778,
+  "killed_by_forced_autocorrelation": 4050,
+  "surviving": 46,
+  "surviving_cases_whose_requirement_is_realisable": 0,
+  "unique_orbit_matrix": [
+   [
+    2,
+    6,
+    6
+   ],
+   [
+    6,
+    2,
+    6
+   ],
+   [
+    6,
+    6,
+    2
+   ]
+  ]
+ }
+}

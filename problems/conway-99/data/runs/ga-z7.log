@@ -1,0 +1,7 @@
+# profile z7: cycle type [1, 7] (15 cycles) on 99 points
+# pair orbits: 693 (from C(99,2) = 4851 pairs)
+    restart 0: best 2730 (overall 2730)
+    restart 1: best 2653 (overall 2653)
+    restart 2: best 2870 (overall 2653)
+    restart 3: best 2681 (overall 2653)
+    restart 4: best 2779 (overall 2653)

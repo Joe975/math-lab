@@ -1,6 +1,6 @@
 {
- "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings \u2014 findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
- "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there \u2014 that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
+ "_comment": "The cross-problem approach taxonomy. Every `mechanism` tag used in any problems/*/prior-art.json must be defined here with a field and a one-line description; tests/test_mechanisms.py enforces the sync. Query it with scripts/mechanisms.py (list / where / gaps / matrix). Descriptions are METHOD-level, never findings — findings live in attempt records and their leak_terms. This file is tier 1: blind agents never see it.",
+ "_fields_comment": "`fields` is the lens vocabulary for cross-pollination. Each mechanism tag belongs to exactly one field. A field with no tags on a given problem is an untried lens there — that is what docs/IDEATE.md sweeps. Fields with zero tags anywhere are deliberately listed: they are the widest-open lenses.",
  "fields": {
   "algebra": "Group actions, symmetry, invariants, polynomial and ring structure.",
   "analysis": "Real/complex analysis, generating functions, asymptotics, inequalities over the reals.",
@@ -20,9 +20,17 @@
    "field": "logic-methodology",
    "description": "Skeptic pass whose default stance is refute: attack each claim of an existing record independently."
   },
+  "assumed-symmetry-construction": {
+   "field": "algebra",
+   "description": "Assume a nontrivial automorphism group up front and search only for objects invariant under it, shrinking the search to the quotient."
+  },
   "aut-normalization": {
    "field": "algebra",
    "description": "Quotient counts or searches by the automorphism group so symmetric objects are not over-weighted."
+  },
+  "automorphism-order-restriction": {
+   "field": "algebra",
+   "description": "Case-split on the possible orders of an automorphism and derive fixed-point/orbit constraints per case."
   },
   "barrier-analysis": {
    "field": "logic-methodology",
@@ -40,6 +48,10 @@
    "field": "probability",
    "description": "Couplings whose joint law is chosen per structural block of the instance rather than globally."
   },
+  "branch-and-bound": {
+   "field": "computation",
+   "description": "Depth-first search with a bound that prunes any branch whose best completion cannot beat the incumbent."
+  },
   "bridge-block-analysis": {
    "field": "graph-theory",
    "description": "Decompose near-counterexamples by bridges/2-connected blocks to locate where the required structure lives."
@@ -51,6 +63,14 @@
   "canonical-cell-enumeration": {
    "field": "computation",
    "description": "Partition the search domain into canonical cells enumerated exactly once, giving a completeness guarantee."
+  },
+  "carmichael-pairwise-constraint": {
+   "field": "number-theory",
+   "description": "Use pairwise divisibility conditions of Carmichael/Giuga type (p | prod(others) - 1) as a filter while building prime sets."
+  },
+  "cayley-graph-ball-search": {
+   "field": "algebra",
+   "description": "Search a group's Cayley graph by growing balls around the identity and testing the induced structure at each radius."
   },
   "certified-box-coverage": {
    "field": "computation",
@@ -68,6 +88,10 @@
    "field": "information-theory",
    "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
   },
+  "chromatic-number-search": {
+   "field": "graph-theory",
+   "description": "Compute or bound the chromatic number of a finite graph exactly, typically with backtracking and symmetry-aware ordering."
+  },
   "class-enrichment": {
    "field": "probability",
    "description": "Test whether a distinguished class of instances is statistically enriched or impoverished for a property."
@@ -76,9 +100,17 @@
    "field": "extremal-combinatorics",
    "description": "Track extremal values within structural subclasses, not just globally, to see which class carries the extremum."
   },
+  "closed-form-last-two": {
+   "field": "number-theory",
+   "description": "Solve for the final two entries of a multiplicative-constraint sequence in closed form once the prefix is fixed, instead of searching them."
+  },
   "collision-search": {
    "field": "computation",
    "description": "Hash or sort a generated set to find repeated values (coincidences) rather than testing pairs."
+  },
+  "compass-closure": {
+   "field": "geometry-topology",
+   "description": "Close a point set under unit-distance constructions (intersections of unit circles) to generate candidate rigid configurations."
   },
   "completeness-argument": {
    "field": "logic-methodology",
@@ -88,13 +120,25 @@
    "field": "probability",
    "description": "Model dependent pairs as iid conditional on a latent variable, to interpolate between iid and adversarial."
   },
+  "constraint-propagation-search": {
+   "field": "computation",
+   "description": "Search with forced-assignment propagation after each choice so local contradictions surface before branching."
+  },
   "coupling": {
    "field": "probability",
    "description": "Construct a joint distribution with prescribed marginals so a quantity of interest becomes comparable pathwise."
   },
+  "critical-subgraph-extraction": {
+   "field": "graph-theory",
+   "description": "Strip vertices from a witness while a property is preserved, to isolate a minimal certificate."
+  },
   "cycle-spectrum": {
    "field": "graph-theory",
    "description": "Compute the full set of cycle lengths per graph and reason about which spectra are realizable."
+  },
+  "difference-set-autocorrelation": {
+   "field": "algebra",
+   "description": "Encode a graph on a group by a connection set and test regularity conditions through the set's autocorrelation counts."
   },
   "entropy-functional-reweighting": {
    "field": "information-theory",
@@ -103,6 +147,14 @@
   "entropy-method": {
    "field": "information-theory",
    "description": "Gilmer-style argument: bound the entropy of a combined random object against the entropies of its parts."
+  },
+  "exact-feasibility-arithmetic": {
+   "field": "computation",
+   "description": "Decide feasibility of a combinatorial configuration in exact integer/rational arithmetic rather than floating point."
+  },
+  "exact-field-arithmetic": {
+   "field": "computation",
+   "description": "Represent coordinates in an explicit number field so distance equalities are decided exactly."
   },
   "exact-rational-arithmetic": {
    "field": "computation",
@@ -132,6 +184,10 @@
    "field": "logic-methodology",
    "description": "Cross-field ideation sweep: apply untried field lenses to one problem in parallel to generate candidate attack routes; output is a MAP of triaged leads and recorded no-purchase verdicts (docs/IDEATE.md)."
   },
+  "forcing-gadget-search": {
+   "field": "graph-theory",
+   "description": "Look for small subgraphs whose colourings are forced, to be glued into larger graphs that push the chromatic number."
+  },
   "formal-parameter-specialization": {
    "field": "algebra",
    "description": "Prove an infinite family of identities at one stroke by moving the family parameters into the exponent lattice: adjoin e^{i a alpha}, e^{i b beta} (or analogous parameter-indexed units) as independent formal Laurent variables, verify the identity once by exact polynomial subtraction in the enlarged ring, and specialize by ring homomorphism to every integer parameter value. Turns a hand geometric-series computation into a finite machine check; needs a short hand derivation that the geometric quantities equal the formal closed forms."
@@ -144,9 +200,17 @@
    "field": "graph-theory",
    "description": "Restrict the search to high-girth instances, where short-cycle escapes are unavailable and structure is forced."
   },
+  "giuga-sequences": {
+   "field": "number-theory",
+   "description": "Study the integer sequences built by the defining Giuga-type recurrence rather than only their prime realisations."
+  },
   "gram-mass-pairing": {
    "field": "analysis",
    "description": "Recast an averaged inequality as a Frobenius pairing of a PSD Gram mass matrix against a deficit matrix, so spectral conditions on the deficit decide the bound and their failure modes locate counterexamples."
+  },
+  "group-homomorphism-barrier": {
+   "field": "algebra",
+   "description": "Show a construction family cannot succeed by exhibiting a homomorphism to a small group that colours or caps it."
   },
   "group-orbit-enumeration": {
    "field": "algebra",
@@ -164,9 +228,17 @@
    "field": "number-theory",
    "description": "Prove an existence statement by covering the target interval with an overlapping chain of parametric rational intervals, reducing the claim to elementary endpoint inequalities with a constructive floor-formula witness."
   },
+  "isomorph-rejection": {
+   "field": "computation",
+   "description": "Canonical-form or invariant-based rejection of isomorphic copies during enumeration."
+  },
   "k-wise-union": {
    "field": "extremal-combinatorics",
    "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
+  },
+  "local-structure-reduction": {
+   "field": "graph-theory",
+   "description": "Derive forced local structure (neighbourhood shape, partner counts) from the parameters and encode it before searching."
   },
   "machine-checked-formalization": {
    "field": "logic-methodology",
@@ -188,9 +260,17 @@
    "field": "analysis",
    "description": "Locally maximize a nonsmooth (norm/eigenvalue/max-type) objective with derivative-free methods, using an explicit escape-probe test to separate genuine local maxima from optimizer stalls."
   },
+  "odd-giuga-number": {
+   "field": "number-theory",
+   "description": "Restrict the search to the odd case and exploit the parity and size constraints specific to it."
+  },
   "optimization-landscape-census": {
    "field": "computation",
    "description": "Map the local-maximum landscape of an objective by multi-start local optimization from designed start families, classifying every endpoint rather than reporting only the best value."
+  },
+  "orbit-matrix-search": {
+   "field": "algebra",
+   "description": "Enumerate quotient (orbit) matrices of a presumed automorphism and try to lift each to a full object."
   },
   "out-of-sample-prediction": {
    "field": "logic-methodology",
@@ -200,6 +280,14 @@
    "field": "probability",
    "description": "Bias a joint distribution toward structurally overlapping pairs while preserving the marginals."
   },
+  "parity-argument": {
+   "field": "number-theory",
+   "description": "Derive constraints from parity or 2-adic valuation of the defining conditions."
+  },
+  "periodic-colouring-cap": {
+   "field": "geometry-topology",
+   "description": "Bound the chromatic number of a lattice-generated set from above by an explicit periodic colouring."
+  },
   "perturbative-expansion": {
    "field": "analysis",
    "description": "Expand a functional around an exactly-solved point (product measure, equality case) and control the remainder with explicit second-order budgets."
@@ -208,9 +296,29 @@
    "field": "probability",
    "description": "Plackett-family copulas: one-parameter odds-ratio control of dependence with fixed marginals."
   },
+  "pollard-rho-factorisation": {
+   "field": "number-theory",
+   "description": "Factor auxiliary integers with a deterministic Pollard-rho/Brent routine with an explicit give-up bound."
+  },
   "polynomial-identities": {
    "field": "number-theory",
    "description": "Parametric algebraic identities that settle every instance in a residue class at once."
+  },
+  "positive-control-calibration": {
+   "field": "logic-methodology",
+   "description": "Run the search on a known instance with the same parameters to check it can find what is known before trusting a negative."
+  },
+  "prime-set-enumeration": {
+   "field": "number-theory",
+   "description": "Enumerate sets of primes satisfying a divisibility/reciprocal-sum constraint by ordered extension."
+  },
+  "randomised-construction": {
+   "field": "probability",
+   "description": "Sample constructions at random from a constrained family and keep those passing an exact check."
+  },
+  "reciprocal-sum-relaxation": {
+   "field": "number-theory",
+   "description": "Relax the exact divisibility conditions to the reciprocal-sum inequality and bound the object through the relaxation."
   },
   "representation-count-mining": {
    "field": "number-theory",
@@ -232,6 +340,10 @@
    "field": "analysis",
    "description": "Exclude higher rotation branches by pigeonhole: if every term of an arithmetic progression of angles (step < half-period) has the same sinusoid sign, all terms lie in one sign component, bounding the progression's total span by the component length; a hypothesis forcing endpoints into different components is contradictory. Turns families of trig-margin inequalities with a lattice structure into one span bound, replacing per-case interval estimates."
   },
+  "simulated-annealing-construction": {
+   "field": "computation",
+   "description": "Local search with an annealing schedule on a penalty counting violated regularity conditions."
+  },
   "sinkhorn": {
    "field": "probability",
    "description": "Sinkhorn/IPF scaling to construct or normalize couplings with prescribed marginals numerically."
@@ -252,6 +364,10 @@
    "field": "analysis",
    "description": "Examine the set of achieved objective values for gaps and accumulation points, not just the extremum."
   },
+  "structural-reduction": {
+   "field": "number-theory",
+   "description": "Reduce the problem to a smaller structured one by fixing forced components before searching."
+  },
   "structure-class-design-search": {
    "field": "dynamics",
    "description": "Invert a proven structural mechanism into a design tool: parametrize the structure class the mechanism applies to, enumerate the class, derive each member's governing invariant (symbolically where the mechanism factors, numerically where it does not), and hunt for members whose invariant lands in a target range."
@@ -268,9 +384,17 @@
    "field": "probability",
    "description": "TP2/MTP2 and log-supermodularity structure: four-function and Cauchy-Schwarz cross-ratio inequalities, closure under conditioning and marginalization."
   },
+  "triangular-lattice-rotation": {
+   "field": "geometry-topology",
+   "description": "Build unit-distance point sets as unions of rotated copies of the triangular lattice."
+  },
   "unfolding-word-census": {
    "field": "dynamics",
    "description": "Enumerate symbolic bounce words, reduce them by symmetry, and certify periodic billiard orbits by unfolding each word to a translation and intersecting the resulting corridor over a parameter box."
+  },
+  "unit-distance-graph-census": {
+   "field": "geometry-topology",
+   "description": "Enumerate unit-distance graphs on a structured point set and tabulate their invariants against a parameter."
   },
   "up-sets": {
    "field": "extremal-combinatorics",

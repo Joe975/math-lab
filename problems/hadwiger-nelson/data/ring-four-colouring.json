@@ -1,0 +1,409 @@
+{
+  "rule": "c(Z, W) = (lambda Z + W) mod 2E, lambda = 1 + zeta",
+  "lemma": [
+    {
+      "level": 0,
+      "unit_vectors": 18,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "unit_vectors": 42,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          9
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          12,
+          27
+        ],
+        [
+          25,
+          9
+        ],
+        [
+          27,
+          12
+        ],
+        [
+          27,
+          27
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "unit_vectors": 66,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          81
+        ],
+        [
+          3,
+          108
+        ],
+        [
+          81,
+          0
+        ],
+        [
+          81,
+          225
+        ],
+        [
+          108,
+          3
+        ],
+        [
+          108,
+          243
+        ],
+        [
+          225,
+          81
+        ],
+        [
+          225,
+          256
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "unit_vectors": 90,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          729
+        ],
+        [
+          27,
+          507
+        ],
+        [
+          27,
+          972
+        ],
+        [
+          507,
+          27
+        ],
+        [
+          729,
+          0
+        ],
+        [
+          729,
+          2025
+        ],
+        [
+          972,
+          27
+        ],
+        [
+          972,
+          2187
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "unit_vectors": 114,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          6561
+        ],
+        [
+          243,
+          4563
+        ],
+        [
+          243,
+          8748
+        ],
+        [
+          961,
+          11025
+        ],
+        [
+          4563,
+          243
+        ],
+        [
+          4563,
+          16428
+        ],
+        [
+          6561,
+          0
+        ],
+        [
+          6561,
+          18225
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "unit_vectors": 138,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          59049
+        ],
+        [
+          2187,
+          41067
+        ],
+        [
+          2187,
+          78732
+        ],
+        [
+          8649,
+          25600
+        ],
+        [
+          8649,
+          99225
+        ],
+        [
+          25600,
+          8649
+        ],
+        [
+          41067,
+          2187
+        ],
+        [
+          41067,
+          147852
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "unit_vectors": 162,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          531441
+        ],
+        [
+          19683,
+          369603
+        ],
+        [
+          19683,
+          708588
+        ],
+        [
+          77841,
+          230400
+        ],
+        [
+          77841,
+          893025
+        ],
+        [
+          230400,
+          77841
+        ],
+        [
+          230400,
+          1164241
+        ],
+        [
+          369603,
+          19683
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "unit_vectors": 186,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          4782969
+        ],
+        [
+          177147,
+          3326427
+        ],
+        [
+          177147,
+          6377292
+        ],
+        [
+          700569,
+          2073600
+        ],
+        [
+          700569,
+          8037225
+        ],
+        [
+          1546572,
+          9687627
+        ],
+        [
+          2073600,
+          700569
+        ],
+        [
+          2073600,
+          10478169
+        ]
+      ]
+    },
+    {
+      "level": 8,
+      "unit_vectors": 210,
+      "with_lambda_Z_plus_W_zero_mod_2": 0,
+      "non_parallel_unit_vectors": 0,
+      "norms_seen": [
+        [
+          0,
+          43046721
+        ],
+        [
+          1594323,
+          29937843
+        ],
+        [
+          1594323,
+          57395628
+        ],
+        [
+          6305121,
+          18662400
+        ],
+        [
+          6305121,
+          72335025
+        ],
+        [
+          9730803,
+          13919148
+        ],
+        [
+          13919148,
+          9730803
+        ],
+        [
+          13919148,
+          87188643
+        ]
+      ]
+    }
+  ],
+  "balls": [
+    {
+      "level": 0,
+      "unit_vectors": 18,
+      "unit_vectors_with_colour_zero": 0,
+      "depth": 4,
+      "vertices": 2113,
+      "edges": 13296,
+      "monochromatic_edges": 0,
+      "colours_used": 4,
+      "proper": true
+    },
+    {
+      "level": 1,
+      "unit_vectors": 42,
+      "unit_vectors_with_colour_zero": 0,
+      "depth": 3,
+      "vertices": 10315,
+      "edges": 77016,
+      "monochromatic_edges": 0,
+      "colours_used": 4,
+      "proper": true
+    },
+    {
+      "level": 2,
+      "unit_vectors": 66,
+      "unit_vectors_with_colour_zero": 0,
+      "depth": 2,
+      "vertices": 2179,
+      "edges": 9192,
+      "monochromatic_edges": 0,
+      "colours_used": 4,
+      "proper": true
+    },
+    {
+      "level": 3,
+      "unit_vectors": 90,
+      "unit_vectors_with_colour_zero": 0,
+      "depth": 2,
+      "vertices": 4051,
+      "edges": 16920,
+      "monochromatic_edges": 0,
+      "colours_used": 4,
+      "proper": true
+    },
+    {
+      "level": 4,
+      "unit_vectors": 114,
+      "unit_vectors_with_colour_zero": 0,
+      "depth": 2,
+      "vertices": 6499,
+      "edges": 26952,
+      "monochromatic_edges": 0,
+      "colours_used": 4,
+      "proper": true
+    },
+    {
+      "level": 5,
+      "unit_vectors": 138,
+      "unit_vectors_with_colour_zero": 0,
+      "depth": 2,
+      "vertices": 9523,
+      "edges": 39288,
+      "monochromatic_edges": 0,
+      "colours_used": 4,
+      "proper": true
+    }
+  ]
+}

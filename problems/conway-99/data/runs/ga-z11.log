@@ -1,0 +1,5 @@
+# profile z11: cycle type [11] (9 cycles) on 99 points
+# pair orbits: 441 (from C(99,2) = 4851 pairs)
+    restart 0: best 2508 (overall 2508)
+    restart 1: best 2882 (overall 2508)
+    restart 2: best 2772 (overall 2508)

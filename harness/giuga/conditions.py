@@ -146,6 +146,23 @@ def counterexample_conditions(primes) -> bool:
     return True
 
 
+def giuga_parity_ok(m: int, k: int, odd: bool) -> bool:
+    """Necessary parity relation between factor count and k for odd n.
+
+    If n is odd and squarefree with m prime factors, every n/p_i is odd, so
+    sum_i n/p_i == m (mod 2).  The Giuga condition is sum_i n/p_i - 1 = k*n, and
+    n odd gives k*n == k (mod 2).  Hence
+
+        m == 1 + k   (mod 2),
+
+    so for k = 1 an odd Giuga number has an EVEN number of prime factors.  The
+    relation says nothing when n is even, since then n/p_i need not be odd.
+    """
+    if not odd:
+        return True
+    return (m - 1 - k) % 2 == 0
+
+
 def giuga_sum_condition(primes) -> bool:
     """sum 1/p - 1/prod(p) is a positive integer (Giuga condition, rational form)."""
     ps = list(primes)

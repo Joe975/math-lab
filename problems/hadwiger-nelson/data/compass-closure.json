@@ -1,0 +1,33 @@
+{
+  "bound_sq": 13,
+  "closure_points": 55,
+  "rounds_to_fixpoint": 9,
+  "squared_distances_used": [
+    "1",
+    "3"
+  ],
+  "field_escapes": [],
+  "all_points_are_lattice_points": true,
+  "unit_distance_graph": {
+    "vertices": 55,
+    "pairs_tested": 1485,
+    "edges": 138
+  },
+  "chi": 3,
+  "explicit_colouring_rule": "(a - b) mod 3 on the lattice coordinates",
+  "explicit_colouring_proper": true,
+  "lemma": {
+    "patch_norm": 21,
+    "patch_size": 85,
+    "pairs_with_intersections": 420,
+    "squared_distances_below_4": [
+      "1",
+      "3"
+    ],
+    "non_lattice_results": []
+  },
+  "lattice_norms_strictly_between_0_and_4": [
+    1,
+    3
+  ]
+}
