@@ -3,7 +3,28 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-08-19)
+## TL;DR (updated 2026-08-25)
+
+**2026-08-25 HEADLINE (conway-99 003, informed): the order-7 and order-11
+automorphism cases of Conway's 99-graph have NO orbit matrix** — exhaustive
+in 26 s and 0.2 s respectively once the orbit-matrix enumerator prunes by
+row inner products and breaks symmetry correctly (`explore/orbit7.py`).
+Resting on 001's L3 / L2, that says no SRG(99,14,1,2) has an automorphism
+of order 7 or 11 — `LIVE`, not `VERIFIED`: calibrated against real graphs
+of the same shape (including BvLS(243) under its order-11 shift, which
+carries the identical forced seed) and against two independent
+enumerators on smaller profiles, but the two instances themselves have not
+been re-run by a different implementation. Order 9 (eleven orbits) has
+**exactly one** orbit matrix, R = 3I + J, lifting it is the next lead. A
+character-block multiplicity lemma (mult_A(θ) = a_θ + (p−1)r_θ) constrains
+the orbit matrix's trace for any prime order and pins it for Z₁₁. Same
+cycle: `scripts/swarm.py --provider local` (llama-server, Qwen3.8-27B) is
+a third, free worker family — calibrated at 1 correct enumerator in 3
+drafts, a lifter that fails its own control, 4 confirmations and 2 false
+refutations on lemma-skeptic briefs, and thinking mode unusable at this
+card's 6 tokens/s per slot. Full swarm calibration table in the record.
+
+## Previous TL;DR (2026-08-19)
 
 **2026-08-19 HEADLINE (union-closed 020/021): GAP 1 CLOSES — every
 odds-ratio-control candidate is REFUTED, certified, and the whole
@@ -471,7 +492,7 @@ problems with no attempts (queue 18–19; run blind).
 | Three-phase conductivity | onboarded, no attempts | medium | dual-route laminate harness ready; first attempt is the two-phase ground-truth self-test (run blind) |
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
-| Conway 99-graph | added 2026-07-27 | low (long shot) | SRG checker + calibration battery; where a canonical extension search explodes |
+| Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -499,6 +520,9 @@ problems with no attempts (queue 18–19; run blind).
 22. [hadwiger-nelson] Skeptic pass on the first attempt once it lands: re-derive the exact-arithmetic certification with an independent implementation, and check that "unit distance" was decided in the field rather than by tolerance anywhere.
 23. [giuga] Skeptic pass on the first attempt once it lands: re-implement the enumeration independently (the Agoh/Bernoulli side is the natural second implementation) and audit every pruning rule for soundness — a pruning bug produces a stronger-looking result and leaves no trace.
 24. [conway-99] Skeptic pass on the first attempt once it lands: check the case split is exhaustive and that the canonical form was validated against parameter sets with published verdicts.
+25. [conway-99] **Reproduce 003's order-7 and order-11 eliminations with an independent implementation** (seed rows 0–2 and each of the 33 row-3 completions for Z₇; the bare 9-orbit profile for Z₁₁; a different enumerator, e.g. the Qwen enum-3 draft or a fresh column-wise one). Definite outcome; upgrades both to VERIFIED. Also a skeptic pass on the character-block lemma (§4 of 003) and the projector argument (§5).
+26. [conway-99] **Lift the unique Z₉ orbit matrix** R = 3I + J (eleven orbits of 9, `data/order7-011/z9-orbit-matrix.json`): connection sets S_ii (symmetric 4-subsets of Z₉∖0, 6 choices each) and singletons S_ij, with the group-ring λ/μ equations as propagation. Either a 99-vertex graph or the elimination of order 9.
+27. [conway-99] Order 3 with the same machine: profiles (3³³) and (1³, 3³²) by L5; seed the fixed triangle first.
 
 ## Verified results
 

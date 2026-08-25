@@ -265,6 +265,17 @@ def enumerate_orbit_matrices(sizes, k, lam, mu, seed=None, odd_diag_even=True,
             sum_sufmax[p] = sum_sufmax[p + 1] + ub[p]
 
         lin_acc = [0] * len(lin)
+        # In-row form of the lex-max rule: if columns j-1 and j are
+        # interchangeable and agree in every completed row, the transposition
+        # (j-1 j) fixes rows < i, so lex-max needs R[i][j-1] >= R[i][j].
+        # Only when the row being filled is above both columns.
+        tie_cap = [False] * nfree
+        if symmetry:
+            for p_ in range(1, nfree):
+                j = free[p_]
+                if free[p_ - 1] == j - 1 and prev_same[j] == j - 1 and i < j - 1 \
+                        and all(R[a][j - 1] == R[a][j] for a in range(i)):
+                    tie_cap[p_] = True
 
         def rec(p, rem_sum, sq_acc):
             stats["nodes"] += 1
@@ -294,6 +305,8 @@ def enumerate_orbit_matrices(sizes, k, lam, mu, seed=None, odd_diag_even=True,
                 return
             j = free[p]
             hi = min(ub[p], rem_sum)
+            if tie_cap[p]:
+                hi = min(hi, R[i][j - 1])
             if j == i and R[i][i] is not None:
                 hi = min(hi, R[i][i])
             for v in range(hi + 1):

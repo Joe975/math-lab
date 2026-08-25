@@ -128,6 +128,25 @@ def test_character_block_multiplicity_lemma_on_real_graphs(capsys):
     assert "MISMATCH" not in capsys.readouterr().out
 
 
+def test_bvls_order11_control_seed_and_deep_completion():
+    """BvLS(243) under its order-11 shift has the same shape as the order-7
+    case at 99 (one fixed point, N(v0) two orbits joined by the matching).
+    Its real orbit matrix must carry the forced seed, and the enumerator
+    seeded with its first 14 rows must complete to exactly that matrix."""
+    import bvls_control  # noqa: E402  (slow import: builds the 243-graph)
+    adj, perm, orbs, R = bvls_control.build()
+    sizes = [len(o) for o in orbs]
+    ok, why = orbit7.check_orbit_matrix(R, sizes, 22, 1, 2)
+    assert ok, why
+    for (i, j), v in bvls_control.seed_for(len(sizes)).items():
+        assert R[i][j] == v, (i, j, R[i][j], v)
+    seed = {(i, j): R[i][j] for i in range(14) for j in range(len(sizes))}
+    found, stats = orbit7.enumerate_orbit_matrices(sizes, 22, 1, 2, seed=seed,
+                                                   symmetry=False)
+    assert stats["exhausted"]
+    assert found == [R]
+
+
 def test_order7_profile_has_no_orbit_matrix_within_budget():
     """The headline computation, budget-capped for the suite: no solution in
     the first 2M nodes and the row-completion profile is the recorded one.

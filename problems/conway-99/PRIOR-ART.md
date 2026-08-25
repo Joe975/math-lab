@@ -6,9 +6,21 @@ Machine-readable index: `prior-art.json`.
 
 ## Attempts
 
-**None yet.** Added 2026-07-27; the first attempts are in flight. Until one
-lands there is no prior art to be informed by, so `blind` and `informed` mode
-are equivalent here.
+- **001** (blind, 2026-07-27, `MAP`) — exact feasibility (corrects PROBLEM.md's
+  multiplicities to 54/44), the forced pair model and partner-regular split,
+  lemmas L1–L4 on automorphisms (unreviewed), and the finding that the
+  propagating search fails its own positive control.
+- **002** (blind, same cycle, `MAP`) — orbit matrices under assumed symmetry:
+  no *semiregular* order-33 automorphism (`VERIFIED`, two derivations); L5
+  (order-3 automorphisms fix 0 or 3 points, unreviewed); four construction
+  engines, all topping out below n = 45 on known graphs.
+- **003** (informed, 2026-08-25, `LIVE`) — the order-7 profile (one fixed
+  vertex, fourteen 7-orbits) admits **no orbit matrix**: exhaustive in 26 s
+  once the enumerator prunes by row inner products and breaks symmetry
+  correctly; the fixed-point-free order-11 profile likewise (0.2 s). Hence
+  no automorphism of order 7 or 11, resting on 001's L3/L2 and awaiting an
+  independent re-run. Order 9 has exactly one orbit matrix, R = 3I + J. Also: the character-block multiplicity
+  lemma (54 = a + 6r) and a calibrated local-model worker family.
 
 ## Editorial view of the attack surface
 
