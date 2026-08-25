@@ -88,6 +88,10 @@
    "field": "information-theory",
    "description": "Assemble a per-coordinate entropy chain-rule sum into a family-level certificate, tracking the conditional mutual-information terms the assembly must pay."
   },
+  "character-block-decomposition": {
+   "field": "algebra",
+   "description": "Decompose the adjacency action over the characters of a cyclic automorphism group so eigenvalue multiplicities of the graph split into quotient and character-block parts, constraining the orbit matrix's spectrum and trace."
+  },
   "chromatic-number-search": {
    "field": "graph-theory",
    "description": "Compute or bound the chromatic number of a finite graph exactly, typically with backtracking and symmetry-aware ordering."
@@ -139,6 +143,10 @@
   "difference-set-autocorrelation": {
    "field": "algebra",
    "description": "Encode a graph on a group by a connection set and test regularity conditions through the set's autocorrelation counts."
+  },
+  "eigenvalue-projector-prune": {
+   "field": "algebra",
+   "description": "Prune an equitable-quotient search by requiring the leading blocks of the eigenvalue projectors (congruent integer forms) to be PSD with bounded rank."
   },
   "entropy-functional-reweighting": {
    "field": "information-theory",
@@ -236,6 +244,14 @@
    "field": "extremal-combinatorics",
    "description": "Generalize a two-element union/combination argument to k-wise combinations and track how constants move."
   },
+  "lex-leader-symmetry-breaking": {
+   "field": "computation",
+   "description": "Keep only the lex-maximal representative under adjacent transpositions of interchangeable objects, checked on decided positions during the search."
+  },
+  "local-model-swarm": {
+   "field": "logic-methodology",
+   "description": "Farm drafts, skeptic passes and ideation to a locally served open-weight model as a third worker family, calibrating every return before use."
+  },
   "local-structure-reduction": {
    "field": "graph-theory",
    "description": "Derive forced local structure (neighbourhood shape, partner counts) from the parameters and encode it before searching."
@@ -331,6 +347,10 @@
   "residue-class-covering": {
    "field": "number-theory",
    "description": "Cover all instances by congruence classes, each settled by its own identity or argument."
+  },
+  "row-inner-product-pruning": {
+   "field": "computation",
+   "description": "Fill a symmetric constrained matrix row by row and bound each partial row against the linear equations its inner products with completed rows must satisfy."
   },
   "sensitivity-kernel-design": {
    "field": "analysis",

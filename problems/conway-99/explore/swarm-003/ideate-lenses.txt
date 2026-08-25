@@ -1,0 +1,18 @@
+Group rings and character theory: view the connection sets S_ij as elements of Z[Z_7] and the SRG equation as a matrix equation over the group ring; use the 7 characters of Z_7 (the Fourier transform over Z_7) to diagonalise.
+Linear algebra and rank: set up the full system of diagonal and off-diagonal equations in the unknown autocorrelation functions and determine its rank; what is forced and what is free.
+Spectral graph theory and eigenvalue interlacing: the quotient (orbit) matrix's eigenvalues interlace those of the graph (3, -4, 14); use this to prune orbit matrices.
+Coding theory: linear codes spanned by the adjacency matrix mod 2 or mod 7; dimensions and weight constraints.
+Design theory and partial geometries: the unique triangle per edge and unique 4-cycle per non-edge as a partial linear space; the 33 lines (triangles) as a configuration.
+SAT and symmetry breaking: encode the order-7 lifted graph (14 orbits over Z_7 plus a fixed point) as a SAT instance with the symmetry already quotiented out; estimate the variable count and what symmetry breaking remains.
+Difference sets and cyclotomy in Z_7: which subsets of Z_7 have which autocorrelation vectors; the multiplier group of Z_7 (units 1..6) acting on connection sets.
+Association schemes and coherent configurations: refine the orbit partition under Z_7 into a coherent configuration and apply the intersection-number constraints beyond the orbit-matrix level.
+Extremal and probabilistic combinatorics: counting arguments on the number of triangles and 4-cycles through orbits; second-moment estimates for whether a random lift could exist.
+Voltage graphs and covering-graph theory: the graph is a Z_7-voltage graph over the 15-vertex quotient; constrain lifts.
+Semidefinite programming and the Lovasz theta function: SDP relaxations of the existence question restricted to Z_7-invariant matrices.
+Finite geometry: interpret 99 = 1 + 14 + 84 and the 7K2 neighbourhoods as points and lines of a known geometry (generalized quadrangles, partial geometries, polar spaces) and ask what the order-7 symmetry would have to be there.
+Integer programming: formulate the orbit-matrix enumeration as an integer quadratic program and identify valid inequalities (cuts) that make it small.
+Fixed-point theory for group actions on graphs (Burnside-type counting): count fixed edges, fixed triangles and fixed 4-cycles of an involution or an order-3 element to derive fixed-point lemmas (target T3).
+Number theory: divisibility and congruence conditions (mod 7, mod 3, mod 2) on entries of the orbit matrix and on the counts of orbits of triangles and 4-cycles under the group.
+Local search and heuristics literature for strongly regular graphs (tabu, annealing, genetic): what move sets and energy functions have succeeded for SRGs near 100 vertices, and how to exploit Z_7 invariance.
+Polynomial methods: encode the connection sets as 0/1 polynomials in Z[x]/(x^7-1) and use Groebner bases or resultants over the small system.
+Structural graph theory: forced local structure two steps from the fixed vertex v0 (the 84 vertices at distance 2 and their 7-orbits) and what the unique-4-cycle condition forces about how orbits O3..O14 attach to O1 and O2.
