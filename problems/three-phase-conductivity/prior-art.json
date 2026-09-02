@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "LIVE",
-  "route_summary": "Two attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly and censused bounded-rank laminates in the region where the classical assemblage fails, reaching 5.46e-4 above HS_lo at rank 4. 002 asks what attainment DEMANDS: uniform target fields in phases of nonvanishing polarization, plus a precisely determined nonzero field variance in the comparison-medium phase; this kills the two natural obstruction conjectures and re-scopes the rank search as parameter-starved rather than floored. Read 001 for the constructions and the screen-then-certify pipeline, 002 for the field diagnostics before designing any new search.",
+  "route_summary": "Three attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly and censused bounded-rank laminates where the classical assemblage fails. 002 derived what attainment demands of the fields (uniform target fields off the comparison medium, plus a precisely determined nonzero variance in it) and killed two natural obstruction conjectures. 003 PROVED that coating with the comparison-medium phase preserves HS-optimality, so attainability is upward closed in f1 and the problem collapses to the bottom of each f2:f3 ray; it also explains 001's rank-3 floor as a leaf-volume degeneration and establishes that the literature (Cherkaev 2009 Thm 8.1) claims attainment throughout the open interval. Live: build Cherkaev's L13,2,13,1,1 in the harness and check it in Q (003 lead 1); resolve the geometric-decay vs finite-rank-attainment tension (003 lead 3).",
   "attempts": [
     {
       "id": "001",
@@ -75,6 +75,43 @@
         "No claim either way on attainability of HS in the gap region."
       ],
       "note": "Uses no new search: the two refutations come out of 001's own certified data once the field diagnostics exist."
+    },
+    {
+      "id": "003",
+      "file": "attempts/003-coating-monotonicity-and-variance-floor.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "hierarchical-laminate-construction",
+        "coated-assemblage-attainability",
+        "field-equality-analysis",
+        "literature-reconciliation"
+      ],
+      "one_line": "Coating an HS-optimal structure with extra comparison-medium phase preserves HS-optimality exactly (proved, 12 instances), so attainability is upward closed in f1 along fixed f2:f3 and the construction problem collapses to the bottom of each ray; 001's rank-3 feasibility floor is explained as a phase-1 leaf-volume degeneration against a diverging required variance; and the literature (Cherkaev 2009 Thm 8.1) claims HS IS attained on the whole open interval.",
+      "leak_terms": [
+        "coating preserves HS-optimality",
+        "upward closed",
+        "bottom of the ray",
+        "rho=1/2",
+        "leaf-volume degeneration",
+        "L13,2,13,1,1",
+        "m11 = 0.114277",
+        "gap ratio 35",
+        "1.6e-5"
+      ],
+      "target_shape": "proof",
+      "push_rounds": 3,
+      "range": "Lemma proved in general and verified exactly in Q on 12 instances (3 base structures x 4 coating fractions), isotropy exact and rho=1/2 every time. Variance-collapse mechanism computed exactly along the f2:f3=1:6 ray at sigma=(1,2,5) for 001's rank-3 family down to its floor, and the rank-4 family down to f1=1/96. Rank-5 gap 1.6e-5 is the best found in a still-running axis-normal sweep, hence an upper bound on the rank-5 optimum.",
+      "gaps": [
+        "No HS-attaining structure below Milton's threshold has been built or verified here; the rank-5 number is a small gap, not an attainment.",
+        "Tension unresolved: a near-constant per-rank gap ratio looks like geometric convergence, which sits oddly beside the literature's finite-rank attainment claim.",
+        "Cherkaev's Remark 8.2 credits Gibiansky-Sigmund 2000, an elasticity paper; the conductivity reading is a reinterpretation, flagged not smoothed.",
+        "The T^2-structure's isotropic member could not be reconstructed from the transcribed formulas, so no ready-to-verify exact tree is in hand.",
+        "Nothing established about attainability BELOW m11."
+      ],
+      "note": "The coating lemma was proved and verified here independently, then found to be exactly the outer part of Cherkaev's published L13,2,13,1,1 construction; the agreement is convergent, not derived."
     }
   ]
 }

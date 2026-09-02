@@ -107,3 +107,32 @@ def test_gap_decomposition_is_exact():
     # (gap_decomposition asserts the identity internally)
     d2 = TF.gap_decomposition(TREE, PHASES, E0)
     assert d2["gap"] > 0
+
+
+def test_coating_with_comparison_medium_preserves_hs_optimality():
+    """Coating an HS-optimal core with extra phase 1 stays HS-optimal, exactly.
+
+    Proof: the coating is a two-phase HS-optimal laminate of core value v0
+    (fraction F) in matrix s1, so 1/(value+s1) = F/(v0+s1) + (1-F)/(2 s1).
+    The core's own HS identity is 1/(v0+s1) = (1/F) sum_inner f_i/(s_i+s1),
+    and the outer phase-1 contributes (1-F)/(2 s1), so the right side is the
+    sum over ALL phases, i.e. 1/(HS_lo+s1) at the new fractions.
+
+    Coating scales f2 and f3 equally, so their ratio is preserved while f1
+    rises: attainability along a fixed f2:f3 ray is upward closed in f1.
+    """
+    for base in [[Fr(3, 8), Fr(2, 8), Fr(3, 8)], [Fr(5, 8), Fr(2, 8), Fr(1, 8)]]:
+        core, phc, _ = TC.milton(base, SIGMA, 0)
+        assert core is not None
+        v0 = L.effective(core, phc)[0]
+        for Fv in [Fr(9, 10), Fr(1, 2), Fr(1, 4)]:
+            tree, rho = TC.iso_coat(core, L.iso(v0), "p1", SIGMA[0], Fv)
+            assert tree is not None and rho == Fr(1, 2)
+            fr = L.fractions_of(tree)
+            names = sorted(fr)
+            lo, _ = L.hs_bounds([fr[n] for n in names], [PHASES[n] for n in names])
+            val = L.effective(tree, PHASES)
+            assert val[1] == 0 and val[0] == val[2]
+            assert val[0] == lo
+            # the f2:f3 ratio survives the coating
+            assert fr["p2"] / fr["p3"] == Fr(base[1], 1) / Fr(base[2], 1)

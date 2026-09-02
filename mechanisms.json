@@ -268,6 +268,10 @@
    "field": "computation",
    "description": "Keep only the lex-maximal representative under adjacent transpositions of interchangeable objects, checked on decided positions during the search."
   },
+  "literature-reconciliation": {
+   "field": "logic-methodology",
+   "description": "Reconcile an internal finding with the published record: locate the corresponding published claim, check whether it agrees, and record attribution chains and transcription caveats rather than smoothing them."
+  },
   "local-model-swarm": {
    "field": "logic-methodology",
    "description": "Farm drafts, skeptic passes and ideation to a locally served open-weight model as a third worker family, calibrating every return before use."
