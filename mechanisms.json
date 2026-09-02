@@ -112,6 +112,10 @@
    "field": "number-theory",
    "description": "Solve for the final two entries of a multiplicative-constraint sequence in closed form once the prefix is fixed, instead of searching them."
   },
+  "closed-form-parameterization": {
+   "field": "algebra",
+   "description": "Turn a numerically located optimum into exact closed-form parameters by imposing the constraints symbolically, solving the residual freedom exactly, then pattern-matching the solved values across instances and re-checking exactly."
+  },
   "coated-assemblage-attainability": {
    "field": "analysis",
    "description": "Coat each inclusion phase separately by a matrix phase with core fractions tuned to a common effective value, and read off the parameter region where the construction is feasible."

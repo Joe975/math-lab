@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "LIVE",
-  "route_summary": "Three attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly and censused bounded-rank laminates where the classical assemblage fails. 002 derived what attainment demands of the fields (uniform target fields off the comparison medium, plus a precisely determined nonzero variance in it) and killed two natural obstruction conjectures. 003 PROVED that coating with the comparison-medium phase preserves HS-optimality, so attainability is upward closed in f1 and the problem collapses to the bottom of each f2:f3 ray; it also explains 001's rank-3 floor as a leaf-volume degeneration and establishes that the literature (Cherkaev 2009 Thm 8.1) claims attainment throughout the open interval. Live: build Cherkaev's L13,2,13,1,1 in the harness and check it in Q (003 lead 1); resolve the geometric-decay vs finite-rank-attainment tension (003 lead 3).",
+  "route_summary": "Four attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly and censused bounded-rank laminates. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1 (coating with the comparison medium preserves HS-optimality), collapsing the problem to the bottom of each f2:f3 ray, and established that the literature claims attainment throughout. 004 BUILDS the object: an explicit closed-form rank-5 laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma this covers all f1 >= m11. Status LIVE pending an independent third implementation. Frontier question is now whether m11 is the true threshold (004 lead 1). Read 004 for the construction, 003 for the lemma, 002 for the diagnostics.",
   "attempts": [
     {
       "id": "001",
@@ -112,6 +112,43 @@
         "Nothing established about attainability BELOW m11."
       ],
       "note": "The coating lemma was proved and verified here independently, then found to be exactly the outer part of Cherkaev's published L13,2,13,1,1 construction; the agreement is convergent, not derived."
+    },
+    {
+      "id": "004",
+      "file": "attempts/004-closed-form-attainment-at-m11.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "LIVE",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "hierarchical-laminate-construction",
+        "bounded-rank-laminate-screen",
+        "field-equality-analysis",
+        "closed-form-parameterization"
+      ],
+      "one_line": "An explicit closed-form rank-5 laminate that attains the 2D three-phase Hashin-Shtrikman LOWER bound exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold 2*Theta*(1-m2) at every m2, with a3 a genuinely free parameter; with 003's coating lemma it gives attainment for all f1 >= m11.",
+      "leak_terms": [
+        "a0 = 1-r",
+        "a1 = r*Theta",
+        "a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1))",
+        "a4 = (a3-(1-r))/a3",
+        "f1 = 2*Theta*r*(1-r)",
+        "one-parameter family",
+        "(1/2,1/8,4/5,3/8,3/4)",
+        "mirror pair (10/3,2/3)",
+        "1055 instances"
+      ],
+      "target_shape": "object",
+      "push_rounds": 4,
+      "range": "Exact attainment on 1055 random (sigma, r, a3) instances with zero failures (1099 skipped outside the stated domain a3 > 1-r, f3 > 0); both harness routes agree and Keller-Dykhne holds on every tree; the written record passes verify_laminate.py; 002's field diagnostics come out exactly (phases 2,3 uniform on target, var_term == var_required == 2/9 at sigma=(1,2,5), r=1/2).",
+      "gaps": [
+        "NOT YET VERIFIED to the repo's bar: both agreeing routes live in the harness this attempt used; a third independent implementation is commissioned but not yet returned.",
+        "The identities a1 = r*Theta and a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1)) were found by pattern-matching exact numerics and checked widely, not derived.",
+        "Nothing established about f1 < m11: whether m11 is the true attainability threshold is open and is now the frontier question.",
+        "Novelty not settled: this reproduces what Cherkaev 2009 Thm 8.1 asserts and should be recorded as an independent constructive rediscovery unless the skeptic's literature check says otherwise.",
+        "Minimal rank for attainment at m11 is not established; rank 4 was not searched at exactly f1 = m11."
+      ],
+      "note": "Seeded by a delegated rank-5 sweep, then solved exactly rather than by rounding floats (rounding provably fails, since it moves the volume fractions and hence the target). The attaining set is a one-parameter family, which is why float optimizers wander instead of converging."
     }
   ]
 }
