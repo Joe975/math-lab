@@ -77,3 +77,33 @@ def test_duality_reduces_upper_side_to_lower_side():
     dual = L.effective(tree, {k: 1 / v for k, v in ph.items()})
     assert sig[1] == 0 and sig[0] == sig[2]
     assert dual == (1 / sig[0], Fr(0), 1 / sig[0])
+
+
+def test_required_phase1_variance_closed_form():
+    """Var_1 = (c^2 S2 - 1)/f1 matches energy bookkeeping, and is positive."""
+    n0 = Fr(2)
+    cases = [
+        ([Fr(3, 8), Fr(2, 8), Fr(3, 8)], [Fr(1), Fr(2), Fr(5)]),
+        ([Fr(3, 4), Fr(1, 8), Fr(1, 8)], [Fr(1), Fr(2), Fr(5)]),
+        ([Fr(2, 5), Fr(1, 5), Fr(2, 5)], [Fr(1), Fr(7, 2), Fr(11)]),
+    ]
+    for f, s in cases:
+        hs_lo, tg = TF.hs_target_fields(f, s, E0)
+        bracket = sum(f[i] * s[i] * (tg[i][0] ** 2 + tg[i][1] ** 2)
+                      for i in range(3)) / n0
+        assert TF.required_variance(f, s) == (hs_lo - bracket) / (f[0] * s[0])
+        assert TF.required_variance(f, s) > 0
+
+
+def test_gap_decomposition_is_exact():
+    """The mean/variance split of the HS gap reproduces the gap in Q."""
+    f = [Fr(3, 8), Fr(2, 8), Fr(3, 8)]
+    tree, ph, _ = TC.milton(f, SIGMA, 0)
+    d = TF.gap_decomposition(tree, ph, E0)
+    assert d["gap"] == 0
+    assert d["mean_term"] == 0
+    assert d["var_term"] == d["var_required"]
+    # a structure that does NOT attain the bound still decomposes exactly
+    # (gap_decomposition asserts the identity internally)
+    d2 = TF.gap_decomposition(TREE, PHASES, E0)
+    assert d2["gap"] > 0

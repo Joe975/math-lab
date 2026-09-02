@@ -221,3 +221,75 @@ if __name__ == "__main__":
         selftest()
     if a.report:
         report()
+
+
+# ---------------------------------------------------------------------------
+# Exact decomposition of the HS gap
+# ---------------------------------------------------------------------------
+
+
+def required_variance(fracs, sigs):
+    """The phase-1 field variance that attaining HS_lo forces, per |E0|^2.
+
+    With c = 1/sum_i f_i/(s_i+s1) and S2 = sum_i f_i/(s_i+s1)^2,
+
+        Var_1 = (c^2 S2 - 1) / f_1,
+
+    which is STRICTLY POSITIVE unless all phases coincide: Cauchy-Schwarz on
+    (sum f_i/(s_i+s1))^2 <= (sum f_i)(sum f_i/(s_i+s1)^2) gives c^2 S2 >= 1.
+    So attaining the bound does not merely permit field fluctuation in the
+    comparison-medium phase, it requires a precisely determined amount of it.
+    """
+    s1 = min(sigs)
+    c = 1 / sum(f / (s + s1) for f, s in zip(fracs, sigs))
+    S2 = sum(f / (s + s1) ** 2 for f, s in zip(fracs, sigs))
+    f1 = fracs[list(sigs).index(s1)]
+    return (c * c * S2 - 1) / f1
+
+
+def moments(entries, E0):
+    """(volume, mean field, variance per |E0|^2) of one phase, exact."""
+    n0 = E0[0] * E0[0] + E0[1] * E0[1]
+    tot = sum(v for v, _ in entries)
+    mean = tuple(sum(v * E[k] for v, E in entries) / tot for k in (0, 1))
+    var = sum(v * ((E[0] - mean[0]) ** 2 + (E[1] - mean[1]) ** 2)
+              for v, E in entries) / tot / n0
+    return tot, mean, var
+
+
+def gap_decomposition(tree, phases, E0):
+    """Exact split of sigma* - HS_lo into mean-deviation and variance parts.
+
+        E0.sigma* E0/|E0|^2 - HS_lo = sum_i f_i s_i (|mean_i|^2 - |E_i^tgt|^2)/|E0|^2
+                         + sum_i f_i s_i Var_i/|E0|^2
+                         - f_1 s_1 Var_req
+
+    Both sides are computed independently here and asserted equal, so this is
+    a checked identity rather than an assertion.
+    """
+    n0 = E0[0] * E0[0] + E0[1] * E0[1]
+    fr = L.fractions_of(tree)
+    names = sorted(fr)
+    fracs = [fr[n] for n in names]
+    sigs = [phases[n] for n in names]
+    hs_lo, targets = hs_target_fields(fracs, sigs, E0)
+    got = per_phase(tree, phases, E0)
+    s1 = min(sigs)
+    mean_term = Fr(0)
+    var_term = Fr(0)
+    for i, nm in enumerate(names):
+        vol, mean, var = moments(got[nm], E0)
+        tg = targets[i]
+        mean_term += fracs[i] * sigs[i] * (
+            (mean[0] ** 2 + mean[1] ** 2) - (tg[0] ** 2 + tg[1] ** 2)) / n0
+        var_term += fracs[i] * sigs[i] * var
+    f1 = fracs[list(sigs).index(s1)]
+    total = mean_term + var_term - f1 * s1 * required_variance(fracs, sigs)
+    sig = L.effective(tree, phases)
+    # use the quadratic form E0.sigma* E0/|E0|^2, exact for any tensor, so the
+    # identity does not need the tree to be exactly isotropic (certified
+    # records carry a tiny rationalisation residual).
+    eff = (E0[0] * mv(sig, E0)[0] + E0[1] * mv(sig, E0)[1]) / n0
+    assert total == eff - hs_lo, (total, eff - hs_lo)
+    return {"gap": eff - hs_lo, "mean_term": mean_term,
+            "var_term": var_term, "var_required": f1 * s1 * required_variance(fracs, sigs)}
