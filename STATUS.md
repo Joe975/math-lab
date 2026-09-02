@@ -3,6 +3,33 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
+## OPEN ESCALATION (2026-09-03, three-phase-conductivity)
+
+**An exactly-verified laminate of ours sits strictly BELOW the transcribed
+Cherkaev 2009 B2 lower bound at m₁ just under m₁₁.** At σ = (1,2,5),
+m₂ = 1/4 (so √m₂ = 1/2 is rational and everything is exact in ℚ):
+
+| m₁ | our structure | HS_lo | transcribed B2 | ours − B2 |
+|---|---|---|---|---|
+| 0.124 | 3.0053470065 | 3.0053404539 | 3.0053523724 | −5.4e−06 |
+| 0.120 | 3.0270098722 | 3.0268456376 | 3.0271504085 | −1.4e−04 |
+| 0.110 | 3.0831692377 | 3.0816326531 | 3.0845383760 | −1.4e−03 |
+
+The structures are real: exact rational fractions hitting the target, isotropy
+residual < 1e−61, both harness routes agreeing, Keller–Dykhne passing, and
+`verify_laminate.py` passing on the saved record
+(`data/attained/below-m11-f1-0.12.json`). A structure below a valid lower bound
+is impossible, so something is wrong. **Per the PROBLEM.md contract the leading
+hypothesis is a TRANSCRIPTION ERROR** — the bound is marked [T] and was never
+re-derived. Complication: the transcribed B2 passes its most natural internal
+test, meeting HS_lo exactly (difference 0 in ℚ) at the boundary m₁ = m₁₁.
+
+**Do not cite this as a discrepancy with Cherkaev's published bound.** An
+adjudication is running (`data/bound-adjudication.md`): independent
+re-transcription, re-derivation of the underlying translation family, a
+from-scratch audit of our own structures, and a scope check. Until it returns,
+nothing below m₁₁ is claimed in either direction.
+
 ## TL;DR (updated 2026-09-03, later)
 
 **HEADLINE (three-phase-conductivity 004): we have an explicit closed-form
