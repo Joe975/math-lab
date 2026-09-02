@@ -96,3 +96,68 @@ def test_attaining_structure_satisfies_the_002_field_conditions():
     assert d["gap"] == 0
     assert d["mean_term"] == 0
     assert d["var_term"] == d["var_required"]
+
+
+def test_family_attains_at_m11_and_not_below():
+    """Within this rank-5 family m11 is exactly the threshold: the ISOTROPIC
+    member attains at f1 = m11 and lies strictly above the bound just below it.
+    EVIDENCE about this family and parametrisation only, not all microstructures.
+    """
+    r = Fr(1, 2)
+    f2 = r * r
+    m11 = 2 * A.theta_of(SIG) * r * (1 - r)
+    assert m11 == Fr(1, 8)
+    ok, _, _ = A.attains(SIG, r, Fr(4, 5))
+    assert ok
+
+    a0, _, a3, a4, _ = A.params(SIG, r, Fr(4, 5))
+    Q = (1 - a0) - f2
+
+    def build(f1, a5):
+        a1 = (f1 - Q * (1 - a5)) / a0
+        if not all(0 < x < 1 for x in (a0, a1, a3, a4, a5)):
+            return None
+        return {"fraction": str(a0), "normal": [1, 0], "layers": [
+            {"fraction": str(a1), "normal": [0, 1],
+             "layers": [{"phase": "p1"}, {"phase": "p3"}]},
+            {"fraction": str(a3), "normal": [0, 1], "layers": [
+                {"fraction": str(a4), "normal": [0, 1], "layers": [
+                    {"phase": "p2"},
+                    {"fraction": str(a5), "normal": [1, 0],
+                     "layers": [{"phase": "p3"}, {"phase": "p1"}]}]},
+                {"phase": "p2"}]}]}
+
+    def isotropic_member(f1, iters=90):
+        """Bisect a5 for sigma11 == sigma22; returns the exact tree or None."""
+        def aniso(x):
+            t = build(f1, x)
+            if t is None:
+                return None
+            e = L.effective(t, PHASES)
+            return e[0] - e[2]
+        lo, hi = max(Fr(0), 1 - f1 / Q) + Fr(1, 10 ** 6), 1 - Fr(1, 10 ** 6)
+        glo, ghi = aniso(lo), aniso(hi)
+        if glo is None or ghi is None or (glo > 0) == (ghi > 0):
+            return None
+        for _ in range(iters):
+            mid = (lo + hi) / 2
+            g = aniso(mid)
+            if g is None:
+                return None
+            if (g > 0) == (glo > 0):
+                lo = mid
+            else:
+                hi = mid
+        return build(f1, (lo + hi) / 2)
+
+    for f1 in [Fr(3, 25), Fr(11, 100)]:      # 0.12 and 0.11, both below m11
+        t = isotropic_member(f1)
+        assert t is not None, f1
+        fr = L.fractions_of(t)
+        assert fr["p1"] == f1
+        names = sorted(fr)
+        lo_b, _ = L.hs_bounds([fr[n] for n in names], [PHASES[n] for n in names])
+        e = L.effective(t, PHASES)
+        # near-isotropic by construction; compare the quadratic form
+        val = (e[0] + e[2]) / 2
+        assert val > lo_b, (f1, val, lo_b)

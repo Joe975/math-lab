@@ -3,7 +3,32 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## TL;DR (updated 2026-09-03)
+## TL;DR (updated 2026-09-03, later)
+
+**HEADLINE (three-phase-conductivity 004): we have an explicit closed-form
+rank-5 laminate that ATTAINS the 2D three-phase Hashin-Shtrikman lower bound
+EXACTLY in ℚ, at volume fractions the classical construction cannot reach.**
+With Θ = σ₁(σ₃−σ₂)/((σ₂+σ₁)(σ₃−σ₁)) and r = √m₂, at f₂ = r² and
+**f₁ = m₁₁ = 2Θr(1−r)** the tree with a₀ = 1−r, a₁ = rΘ, a₃ free in
+(1−r, 1), a₄ = (a₃−(1−r))/a₃, a₅ = (σ₂σ₃−σ₁²)/((σ₂+σ₁)(σ₃−σ₁)) is
+isotropic with σ* = HS_lo exactly. m₁₁ < 2Θ(1−m₂) at every m₂, so it beats
+Milton's threshold everywhere; with 003's coating lemma it covers all
+f₁ ≥ m₁₁. Exact on 1055 random instances, zero failures; both harness routes
+agree; Keller-Dykhne holds; `verify_laminate.py` passes; and 002's field
+diagnostics come out exactly right (phases 2 and 3 uniform on target, phase 1
+carrying the mirror pair (10/3,2/3) and (2/3,10/3), variance term exactly the
+required 2/9). **Status LIVE, not VERIFIED** — both agreeing routes live in
+the harness 004 used, so a third independent implementation is required and is
+commissioned (queue 30). This reproduces what Cherkaev 2009 Thm 8.1 asserts for
+L13,2,13,1,1, reached without his formulas, so record it as an independent
+constructive rediscovery unless the skeptic finds otherwise. Within this family
+m₁₁ is exactly the threshold (gap 0 at m₁₁, strictly positive below), which
+also resolves 003's geometric-decay tension in favour of attainment: the
+wandering optimizer was failing to land on a **one-parameter family** (a₃ free),
+not converging to an unattainable bound. **Frontier: is m₁₁ the true threshold
+for all microstructures?**
+
+## Previous TL;DR (2026-09-03, earlier)
 
 **2026-09-03 (three-phase-conductivity 002 + 003): attainability of the HS
 lower bound is UPWARD CLOSED in f₁, proved and exactly verified, and the
@@ -537,7 +562,7 @@ problems with no attempts (queue 18–19; run blind).
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 | Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
-| Three-phase conductivity | 001 Milton's rule rediscovered exactly; 002 attainment field mechanism; **003 attainability PROVED upward closed in f₁; literature says HS IS attained on the open interval** | medium | next: build Cherkaev's L13,2,13,1,1 and check it in ℚ (003 lead 1); resolve geometric-decay vs finite-rank attainment (003 lead 3); skeptic pass (queue 28) |
+| Three-phase conductivity | **004: an explicit closed-form rank-5 laminate ATTAINS HS_lo exactly in ℚ at f₁ = m₁₁, below Milton's threshold at every m₂** (LIVE, skeptic pending); 003 attainability upward closed; 002 field mechanism; 001 Milton's rule | medium | next: is m₁₁ the true threshold (004 lead 1)? derive the two parameter identities (lead 2); skeptic pass (queue 30) |
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
@@ -573,6 +598,7 @@ problems with no attempts (queue 18–19; run blind).
 27. [conway-99] Order 3 with the same machine: profiles (3³³) and (1³, 3³²) by L5; seed the fixed triangle first.
 28. [three-phase-conductivity] **Skeptic pass on 001**: re-implement `milton()` from the coated-cylinder picture rather than from the coating identity; re-derive the rank-3 quadratic 2917x² − 3374x + 520 by hand; re-run one rank-3 screen with a different optimiser and seed and check the same topology wins; audit the Cherkaev Thm 7.1 transcription against the paper. Note for the reviewer: the certified exact HS hit at f = (3,2,3)/8 sits exactly on Milton's boundary (HS_lo = σ₂ = 2), so it is expected, not a new attainment.
 29. [three-phase-conductivity] **Skeptic pass on 002/003**: re-derive the attainment-field condition (*) independently or supply a citation with a page — it is the one load-bearing SPECULATION the diagnostics rest on; re-derive the coating lemma and the Var₁ closed form by hand; re-implement the field propagator from the interface conditions rather than the layer-frame route; and audit the Cherkaev/ACN transcriptions in `data/structures-check.md`, especially the Gibiansky-Sigmund attribution, which runs through an elasticity paper.
+30. [three-phase-conductivity] **Skeptic pass on 004's attaining construction** (commissioned, `data/skeptic-attain.md`): re-implement the effective tensor by a THIRD route (both current routes live in the harness 004 used, so the repo's bar is not yet met); derive a₁ = rΘ and a₅ = (σ₂σ₃−σ₁²)/((σ₂+σ₁)(σ₃−σ₁)) rather than pattern-matching them; hunt failing instances at extreme ratios and at the endpoints of a₃ ∈ (1−r, 1); and settle novelty against Cherkaev's L13,2,13,1,1.
 
 ## Verified results
 
