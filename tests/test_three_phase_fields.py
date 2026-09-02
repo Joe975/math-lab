@@ -136,3 +136,44 @@ def test_coating_with_comparison_medium_preserves_hs_optimality():
             assert val[0] == lo
             # the f2:f3 ratio survives the coating
             assert fr["p2"] / fr["p3"] == Fr(base[1], 1) / Fr(base[2], 1)
+
+
+def test_equal_value_grains_compose_to_an_hs_optimal_mixture():
+    """Grains each HS-optimal at their own fractions, sharing a common value v,
+    mix to an HS-optimal composite at the aggregate fractions.
+
+    Reciprocal-form proof: each grain has 1/(v+s1) = sum_i g_i/(s_i+s1); the
+    aggregate fractions are f_i = sum_g w_g g_i^(g), so
+    sum_i f_i/(s_i+s1) = sum_g w_g/(v+s1) = 1/(v+s1). This generalises both the
+    Milton assemblage and the coating lemma.
+    """
+    s1, s2, s3 = SIGMA
+    for v in [Fr(3, 2), Fr(7, 4), Fr(19, 10)]:
+        def phi_for(si, v=v):
+            return (1 / (v + s1) - 1 / (2 * s1)) / (1 / (si + s1) - 1 / (2 * s1))
+        p2, p3 = phi_for(s2), phi_for(s3)
+        assert 0 < p2 <= 1 and 0 < p3 <= 1
+        g2, _ = TC.iso_coat(TC.leaf("p2"), L.iso(s2), "p1", s1, p2)
+        g3, _ = TC.iso_coat(TC.leaf("p3"), L.iso(s3), "p1", s1, p3)
+        assert L.effective(g2, PHASES) == L.iso(v)
+        assert L.effective(g3, PHASES) == L.iso(v)
+        for w in [Fr(1, 3), Fr(1, 2), Fr(3, 4)]:
+            tree = TC.node(w, (1, 1), g2, g3)
+            fr = L.fractions_of(tree)
+            names = sorted(fr)
+            lo, _ = L.hs_bounds([fr[n] for n in names], [PHASES[n] for n in names])
+            val = L.effective(tree, PHASES)
+            assert val[1] == 0 and val[0] == val[2]
+            assert val[0] == lo
+
+
+def test_no_phase1_free_structure_attains_the_bound():
+    """With f1 = 0 the best {2,3} structure strictly exceeds the sigma1-
+    comparison value, so the attainability threshold f1* is strictly positive.
+    """
+    s1, s2, s3 = SIGMA
+    for f2 in [Fr(1, 4), Fr(1, 2), Fr(3, 4), Fr(9, 10)]:
+        f3 = 1 - f2
+        target = 1 / (f2 / (s2 + s1) + f3 / (s3 + s1)) - s1
+        best23 = 1 / (f2 / (2 * s2) + f3 / (s3 + s2)) - s2
+        assert best23 > target
