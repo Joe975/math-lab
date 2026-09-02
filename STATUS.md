@@ -17,16 +17,25 @@ f₁ ≥ m₁₁. Exact on 1055 random instances, zero failures; both harness ro
 agree; Keller-Dykhne holds; `verify_laminate.py` passes; and 002's field
 diagnostics come out exactly right (phases 2 and 3 uniform on target, phase 1
 carrying the mirror pair (10/3,2/3) and (2/3,10/3), variance term exactly the
-required 2/9). **Status LIVE, not VERIFIED** — both agreeing routes live in
-the harness 004 used, so a third independent implementation is required and is
-commissioned (queue 30). This reproduces what Cherkaev 2009 Thm 8.1 asserts for
+required 2/9). **Now VERIFIED** — 005's skeptic pass supplied the third
+independent implementation (590+ instances, zero mismatches) and an adversarial
+sweep of 3 575+ instances with zero failures, and proved the algebraic side
+claims by hand. It also corrected three things, recorded in 005 rather than by
+editing 004: **a₅ = 1 − Θ is an exact identity**, so the parameters are just
+a₀ = 1−r, a₁ = rΘ, a₅ = 1−Θ; the object is really **rank 4, not rank 5**,
+because two consecutive same-normal laminations collapse with combined weight
+1−r independent of a₃ — which is why a₃ looked free, a redundant encoding
+rather than geometric freedom; and σ₁ < σ₂ < σ₃ was an unchecked precondition
+that could have produced a false attainment for an unordered triple. This reproduces what Cherkaev 2009 Thm 8.1 asserts for
 L13,2,13,1,1, reached without his formulas, so record it as an independent
 constructive rediscovery unless the skeptic finds otherwise. Within this family
 m₁₁ is exactly the threshold (gap 0 at m₁₁, strictly positive below), which
 also resolves 003's geometric-decay tension in favour of attainment: the
 wandering optimizer was failing to land on a **one-parameter family** (a₃ free),
-not converging to an unattainable bound. **Frontier: is m₁₁ the true threshold
-for all microstructures?**
+not converging to an unattainable bound (though 005 shows the flat direction was
+the redundant encoding, not an exact family — both readings predict flatness and
+only the algebra separates them). **Frontier: is m₁₁ the true threshold for all
+microstructures, and does rank 3 suffice at m₁₁?**
 
 ## Previous TL;DR (2026-09-03, earlier)
 
@@ -562,7 +571,7 @@ problems with no attempts (queue 18–19; run blind).
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 | Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
-| Three-phase conductivity | **004: an explicit closed-form rank-5 laminate ATTAINS HS_lo exactly in ℚ at f₁ = m₁₁, below Milton's threshold at every m₂** (LIVE, skeptic pending); 003 attainability upward closed; 002 field mechanism; 001 Milton's rule | medium | next: is m₁₁ the true threshold (004 lead 1)? derive the two parameter identities (lead 2); skeptic pass (queue 30) |
+| Three-phase conductivity | **VERIFIED: an explicit closed-form RANK-4 laminate attains HS_lo exactly in ℚ at f₁ = m₁₁, below Milton's threshold at every m₂** (004, skeptic-confirmed in 005 by a third implementation); 003 attainability upward closed; 002 field mechanism; 001 Milton's rule | medium | next: is m₁₁ the true threshold for ALL microstructures? does rank 3 suffice at m₁₁? derive a₁ = rΘ and a₅ = 1−Θ from 002's field conditions |
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
@@ -598,7 +607,7 @@ problems with no attempts (queue 18–19; run blind).
 27. [conway-99] Order 3 with the same machine: profiles (3³³) and (1³, 3³²) by L5; seed the fixed triangle first.
 28. [three-phase-conductivity] **Skeptic pass on 001**: re-implement `milton()` from the coated-cylinder picture rather than from the coating identity; re-derive the rank-3 quadratic 2917x² − 3374x + 520 by hand; re-run one rank-3 screen with a different optimiser and seed and check the same topology wins; audit the Cherkaev Thm 7.1 transcription against the paper. Note for the reviewer: the certified exact HS hit at f = (3,2,3)/8 sits exactly on Milton's boundary (HS_lo = σ₂ = 2), so it is expected, not a new attainment.
 29. [three-phase-conductivity] **Skeptic pass on 002/003**: re-derive the attainment-field condition (*) independently or supply a citation with a page — it is the one load-bearing SPECULATION the diagnostics rest on; re-derive the coating lemma and the Var₁ closed form by hand; re-implement the field propagator from the interface conditions rather than the layer-frame route; and audit the Cherkaev/ACN transcriptions in `data/structures-check.md`, especially the Gibiansky-Sigmund attribution, which runs through an elasticity paper.
-30. [three-phase-conductivity] **Skeptic pass on 004's attaining construction** (commissioned, `data/skeptic-attain.md`): re-implement the effective tensor by a THIRD route (both current routes live in the harness 004 used, so the repo's bar is not yet met); derive a₁ = rΘ and a₅ = (σ₂σ₃−σ₁²)/((σ₂+σ₁)(σ₃−σ₁)) rather than pattern-matching them; hunt failing instances at extreme ratios and at the endpoints of a₃ ∈ (1−r, 1); and settle novelty against Cherkaev's L13,2,13,1,1.
+30. [three-phase-conductivity] ~~Skeptic pass on 004's attaining construction~~ **DONE in 005 — CONFIRMED with three corrections.** Third independent implementation agrees on 590+ instances, zero mismatches; adversarial sweep of 3 575+ instances, zero failures; m₁₁ < Milton's threshold and the domain claims proved algebraically; novelty settled as an independent rediscovery of Cherkaev 2009 §8.1. Corrections: a₅ = 1−Θ exactly; the object is really RANK 4 (a₃'s freedom is a redundant encoding); σ₁<σ₂<σ₃ was unchecked, now asserted. Replacements: (a) **derive a₁ = rΘ and a₅ = 1−Θ from 002's field conditions** via the path-product rule, turning the construction into a proof; (b) **does rank 3 suffice at f₁ = m₁₁?** exhaustive and cheap, definite either way; (c) **is m₁₁ the true threshold for all microstructures?** — the frontier; within 004's family the gap is 0 at m₁₁ and strictly positive below, but that is one family; (d) audit `tp_coated.py` and `tp_shapes.py` for the same unchecked-ordering hazard.
 
 ## Verified results
 

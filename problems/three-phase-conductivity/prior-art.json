@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
-  "route_status": "LIVE",
-  "route_summary": "Four attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly and censused bounded-rank laminates. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1 (coating with the comparison medium preserves HS-optimality), collapsing the problem to the bottom of each f2:f3 ray, and established that the literature claims attainment throughout. 004 BUILDS the object: an explicit closed-form rank-5 laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma this covers all f1 >= m11. Status LIVE pending an independent third implementation. Frontier question is now whether m11 is the true threshold (004 lead 1). Read 004 for the construction, 003 for the lemma, 002 for the diagnostics.",
+  "route_status": "VERIFIED",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. Frontier: is m11 the true threshold for all microstructures, and does rank 3 suffice at m11?",
   "attempts": [
     {
       "id": "001",
@@ -118,7 +118,7 @@
       "file": "attempts/004-closed-form-attainment-at-m11.md",
       "date": "2026-09-03",
       "mode": "informed",
-      "status": "LIVE",
+      "status": "VERIFIED",
       "mechanism": [
         "exact-rational-arithmetic",
         "hierarchical-laminate-construction",
@@ -142,13 +142,45 @@
       "push_rounds": 4,
       "range": "Exact attainment on 1055 random (sigma, r, a3) instances with zero failures (1099 skipped outside the stated domain a3 > 1-r, f3 > 0); both harness routes agree and Keller-Dykhne holds on every tree; the written record passes verify_laminate.py; 002's field diagnostics come out exactly (phases 2,3 uniform on target, var_term == var_required == 2/9 at sigma=(1,2,5), r=1/2).",
       "gaps": [
-        "NOT YET VERIFIED to the repo's bar: both agreeing routes live in the harness this attempt used; a third independent implementation is commissioned but not yet returned.",
+        "Corrected by 005: a5 = 1 - Theta is an exact identity, the object is really RANK 4 (a3's freedom is a redundant encoding, not geometric freedom), and sigma1<sigma2<sigma3 was an unchecked precondition. The record is left as written per the repo's hard rule.",
         "The identities a1 = r*Theta and a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1)) were found by pattern-matching exact numerics and checked widely, not derived.",
         "Nothing established about f1 < m11: whether m11 is the true attainability threshold is open and is now the frontier question.",
         "Novelty not settled: this reproduces what Cherkaev 2009 Thm 8.1 asserts and should be recorded as an independent constructive rediscovery unless the skeptic's literature check says otherwise.",
         "Minimal rank for attainment at m11 is not established; rank 4 was not searched at exactly f1 = m11."
       ],
       "note": "Seeded by a delegated rank-5 sweep, then solved exactly rather than by rounding floats (rounding provably fails, since it moves the volume fractions and hence the target). The attaining set is a one-parameter family, which is why float optimizers wander instead of converging."
+    },
+    {
+      "id": "005",
+      "file": "attempts/005-skeptic-pass-on-004.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "exact-rational-arithmetic",
+        "literature-reconciliation"
+      ],
+      "one_line": "Skeptic pass on 004: a third independent implementation agrees on 590+ instances with zero mismatches and an adversarial sweep of 3575+ finds no failure, so the attaining construction is VERIFIED; three corrections follow -- a5 = 1 - Theta is an exact identity, the object is really RANK 4 (two consecutive same-normal laminations collapse, which is why a3 was free), and sigma1<sigma2<sigma3 is an unchecked precondition.",
+      "leak_terms": [
+        "a5 = 1 - Theta",
+        "really rank 4",
+        "w = a3(1-a4) = 1-r",
+        "redundant encoding",
+        "590 instances",
+        "3575 instances",
+        "check_ordering"
+      ],
+      "verifies": "004",
+      "target_shape": "proof",
+      "push_rounds": 1,
+      "range": "Third implementation agrees on 590+ instances including extreme conductivity ratios; adversarial hunt over 3575+ instances plus an exact perturbation test, probing a3 at both endpoints of (1-r,1), r near 0 and 1, and near-degenerate phases; m11 < Milton threshold and the domain claims a0,a1,a4,a5 in (0,1) proved algebraically and unconditionally.",
+      "gaps": [
+        "a1 = r*Theta and a5 = 1-Theta are corroborated by a second independent derivation (tp_cherkaev.py) but still not derived from first principles via 002's field conditions.",
+        "Nothing established about f1 < m11.",
+        "Minimal rank for attainment at m11 is open; since the object is really rank 4, the sharp question is now whether rank 3 suffices."
+      ],
+      "note": "Corrects 004's headline rank and its framing of a3 as a genuine geometric freedom. Per the repo's hard rule, 004 is left exactly as written."
     }
   ]
 }

@@ -24,7 +24,7 @@ with
     a1 = r * Theta
     a3 free in (1 - r, 1)                      <-- a ONE-PARAMETER FAMILY
     a4 = (a3 - (1 - r)) / a3
-    a5 = (s2 s3 - s1^2) / ((s2 + s1)(s3 - s1))
+    a5 = (s2 s3 - s1^2) / ((s2 + s1)(s3 - s1))  =  1 - Theta   (an identity)
 
 Then sigma* is isotropic and equals HS_lo EXACTLY, in Q.
 
@@ -64,7 +64,20 @@ import laminate as L  # noqa: E402
 import verify_laminate as V  # noqa: E402
 
 
+def check_ordering(sig) -> None:
+    """s1 < s2 < s3 is a PRECONDITION, not a convention.
+
+    hs_bounds() independently takes min/max of the conductivities, so an
+    unordered triple would silently compare this construction against a bound
+    built from a different comparison medium. Flagged by the skeptic pass.
+    """
+    s1, s2, s3 = sig
+    if not (s1 < s2 < s3):
+        raise ValueError(f"phases must satisfy s1 < s2 < s3; got {sig}")
+
+
 def theta_of(sig):
+    check_ordering(sig)
     s1, s2, s3 = sig
     return s1 * (s3 - s2) / ((s2 + s1) * (s3 - s1))
 
@@ -76,6 +89,7 @@ def params(sig, r: Fr, a3: Fr):
     a0 = 1 - r
     a1 = r * th
     a5 = (s2 * s3 - s1 * s1) / ((s2 + s1) * (s3 - s1))
+    assert a5 == 1 - th, "a5 = 1 - Theta is an algebraic identity"
     a4 = (a3 - (1 - r)) / a3
     return a0, a1, a3, a4, a5
 
