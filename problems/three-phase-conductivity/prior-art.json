@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "LIVE",
-  "route_summary": "One attempt (001, effectively blind). Two-phase HS attainment and Milton's 1981 attainability rule (HS_lo <= sigma2, equivalently m1 >= 2*Theta*(1-m2)) re-derived exactly in Q; the classical assemblage is infeasible on m11 <= m1 < 2*Theta*(1-m2), where Cherkaev's 2009 bound is plain HS. A bounded-rank census there finds a rank-4 laminate 5.5e-4 above HS at f=(1,1,6)/8, sigma=(1,2,5). Open: does some finite rank attain HS on that interval (001 leads 1-2). Read 001 for the constructions and the screen-then-certify pipeline.",
+  "route_summary": "Two attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly and censused bounded-rank laminates in the region where the classical assemblage fails, reaching 5.46e-4 above HS_lo at rank 4. 002 asks what attainment DEMANDS: uniform target fields in phases of nonvanishing polarization, plus a precisely determined nonzero field variance in the comparison-medium phase; this kills the two natural obstruction conjectures and re-scopes the rank search as parameter-starved rather than floored. Read 001 for the constructions and the screen-then-certify pipeline, 002 for the field diagnostics before designing any new search.",
   "attempts": [
     {
       "id": "001",
@@ -40,6 +40,41 @@
         "Screens at fixed rank are evidence about that rank and normal set, not about all microstructures."
       ],
       "note": "Mode is informed only because the director read STATUS.md and docs/CYCLE.md; the problem had no attempts, so the attempt is effectively blind. Work was delegated to four Sonnet subagents (certifier, screener, shape analyst, literature skeptic) briefed on tier-0 material and this attempt's own scripts; the director verified the Milton-equivalence algebra and the exactness checks itself."
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-hs-attainment-field-mechanism.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "field-equality-analysis",
+        "variational-equality-case",
+        "duality-reduction"
+      ],
+      "one_line": "Attaining the HS lower bound forces uniform target fields in every phase of nonvanishing polarization and a precisely determined NONZERO field variance in the comparison-medium phase, Var1=(c^2 S2-1)/f1; the gap then decomposes exactly into mean and variance defects, which kills two natural obstruction conjectures and shows rank 5 is parameter-starved rather than floored.",
+      "leak_terms": [
+        "attainment fields",
+        "(sigma_HS+sigma1)/(sigma_i+sigma1)",
+        "E_2 <= E_0",
+        "required variance",
+        "(c^2 S2 - 1)/f1",
+        "gap decomposition",
+        "path-product rule",
+        "parameter starvation",
+        "rank 7-8"
+      ],
+      "target_shape": "proof",
+      "push_rounds": 3,
+      "range": "Exact in Q: the assemblage realises the attainment fields at every feasible point tried; the equivalence of E2<=E0, HS_lo<=sigma2 and Milton's threshold on the whole k/8 grid at sigma=(1,2,5); the Var_req closed form on 3 instances incl. an unrelated triple; the gap decomposition on all 12 certified lower-side records at sigma=(1,2,5) plus the assemblage; the Keller-Dykhne reduction on all 27 certified records; the path-product rule on 3 axis-normal trees at 3 applied directions each.",
+      "gaps": [
+        "Necessity of the attainment-field condition (*) is assumed, not proved here: it is the classical HS equality analysis but was not re-derived or cited to a page. Everything that would RULE OUT a structure leans on it.",
+        "The rank 7-8 parameter count is heuristic; the conditions are not shown independent.",
+        "Whether Var1 = Var_req is automatic given (*), correct fractions and isotropy is open, and would change the count.",
+        "No claim either way on attainability of HS in the gap region."
+      ],
+      "note": "Uses no new search: the two refutations come out of 001's own certified data once the field diagnostics exist."
     }
   ]
 }

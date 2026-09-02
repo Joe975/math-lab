@@ -152,6 +152,10 @@
    "field": "algebra",
    "description": "Encode a graph on a group by a connection set and test regularity conditions through the set's autocorrelation counts."
   },
+  "duality-reduction": {
+   "field": "analysis",
+   "description": "Use an exact duality (here Keller-Dykhne) to map one side of a two-sided problem onto the other at transformed parameters, halving what a census must compute."
+  },
   "eigenvalue-projector-prune": {
    "field": "algebra",
    "description": "Prune an equitable-quotient search by requiring the leading blocks of the eigenvalue projectors (congruent integer forms) to be PSD with bounded rank."
@@ -195,6 +199,10 @@
   "exhaustive-speed-tuple-scan": {
    "field": "computation",
    "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
+  },
+  "field-equality-analysis": {
+   "field": "analysis",
+   "description": "Read off what a variational bound's equality case demands of the pointwise fields, then measure those demands on candidate structures as independent defect channels."
   },
   "field-lens-sweep": {
    "field": "logic-methodology",
@@ -431,6 +439,10 @@
   "up-sets": {
    "field": "extremal-combinatorics",
    "description": "Reduce to monotone (upward-closed) families and exploit correlation/shifting structure available there."
+  },
+  "variational-equality-case": {
+   "field": "analysis",
+   "description": "Turn the slack in a variational bound into an exact identity in the trial-field deviations, so the gap decomposes into named, separately measurable terms."
   },
   "volume-product-census": {
    "field": "geometry-topology",
