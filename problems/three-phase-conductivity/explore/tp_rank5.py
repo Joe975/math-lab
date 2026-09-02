@@ -334,7 +334,8 @@ def write_screen(out_path, f_target, sigma, rank, side, total_topologies, best, 
         f_str = ",".join(str(Fr(x).limit_denominator(10**6)) for x in f_target)
         s_str = ",".join(str(Fr(x).limit_denominator(10**6)) for x in sigma)
         fh.write(f"f={f_str} sigma={s_str} rank={rank} side={side} "
-                  f"topologies={total_topologies} (axis-normal-only, rank5 screen)\n")
+                  f"topologies={total_topologies}\n")
+        fh.write("# axis-normal-only rank5 screen (tp_rank5.py)\n")
     return out_path
 
 

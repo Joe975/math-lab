@@ -1,0 +1,88 @@
+{
+ "tree": {
+  "fraction": "1/2",
+  "normal": [
+   1,
+   0
+  ],
+  "layers": [
+   {
+    "fraction": "1/8",
+    "normal": [
+     0,
+     1
+    ],
+    "layers": [
+     {
+      "phase": "p1"
+     },
+     {
+      "phase": "p3"
+     }
+    ]
+   },
+   {
+    "fraction": "4/5",
+    "normal": [
+     0,
+     1
+    ],
+    "layers": [
+     {
+      "fraction": "3/8",
+      "normal": [
+       0,
+       1
+      ],
+      "layers": [
+       {
+        "phase": "p2"
+       },
+       {
+        "fraction": "3/4",
+        "normal": [
+         1,
+         0
+        ],
+        "layers": [
+         {
+          "phase": "p3"
+         },
+         {
+          "phase": "p1"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "phase": "p2"
+     }
+    ]
+   }
+  ]
+ },
+ "phases": {
+  "p1": "1",
+  "p2": "2",
+  "p3": "5"
+ },
+ "tensor": [
+  "3",
+  "0",
+  "3"
+ ],
+ "fractions": {
+  "p1": "1/8",
+  "p3": "5/8",
+  "p2": "1/4"
+ },
+ "wiener": [
+  "8/3",
+  "15/4"
+ ],
+ "hs": [
+  "3",
+  "17/5"
+ ]
+}
