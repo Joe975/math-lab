@@ -2,14 +2,26 @@
 """The Cherkaev (2009) three-material lower bound, TRANSCRIBED [T], plus the
 internal consistency tests it passes and the discrepancy it currently shows.
 
-TRANSCRIPTION NOTICE.  Every formula below is [T] -- taken from a machine
-transcription of Cherkaev 2009 (Mech. Mater. 41, 411-433; preprint
-arXiv:1009.3060) Theorem 7.1 and eqs 7.5-7.18, recorded in
-`data/literature-check.md`.  The PDF was NOT read directly by this repo.  Per
-`PROBLEM.md`'s verification contract a transcribed bound must be re-derived or
-cross-checked before anything is killed against it, so nothing here kills
-anything: this module exists to make the transcription reproducible and to
-record precisely what it does and does not survive.
+TRANSCRIPTION NOTICE.  Every formula below is [T], from Cherkaev, "Bounds for
+effective properties of multimaterial two-dimensional conducting composites,
+and fields in optimal composites" (preprint dated May 6 2008 of Mech. Mater. 41
+(2009) 411-433), Theorem 7.1 and eqs 7.5-7.18.
+
+PROVENANCE CORRECTION.  An earlier worker report, `data/literature-check.md`,
+attributes its transcription to "Cherkaev2009-preprint arXiv:1009.3060".  That
+arXiv id is a DIFFERENT paper -- Cherkaev and Zhang, "Optimal anisotropic
+three-phase conducting composites: Plane problem" -- whose abstract assumes
+"the conductivity of one of the materials is infinite", a hypothesis our
+instances violate.  The correct source is
+http://www.math.utah.edu/~cherk/publ/newbounds7.pdf; its text WAS extracted and
+read here, and the formulas below match it.  Excerpts are in
+`data/cherkaev-primary-excerpts.md`.  So the transcription is NOT the
+explanation of the discrepancy below.
+
+Theorem 7.1 as printed carries no restriction beyond k1 < k2 < k3 and an
+isotropic composite, so our instances are in scope.  The k3 = infinity case is
+his separate Theorem 7.2.  Per `PROBLEM.md`'s contract nothing here kills
+anything; this module makes the bound reproducible and records what survives.
 
 The bound is piecewise in m1, with B1 equal to the Hashin-Shtrikman lower
 bound:
@@ -33,6 +45,15 @@ B2 passes three independent internal tests (all reproduced by --selftest):
   A. continuity at the upper boundary: B2(m11) == HS_lo(m11) EXACTLY in Q;
   B. continuity at the lower boundary: B2(m12) - B3(m12) ~ 1e-34, i.e. zero;
   C. B2 >= HS_lo throughout its own region, as a tighter bound must be.
+  D. maximising the paper's OWN variational form (7.1)-(7.2),
+     kL = max over t in [k1,k2] of (-t + H1(t)), over 400001 values of t
+     reproduces the closed-form B2 to 8 decimals, and reduces to HS_lo exactly
+     at t = k1.  So the closed form is a faithful simplification.
+
+Also tested and NOT the explanation: the field-ordering condition (4.2), which
+the paper requires of optimal structures.  Our below-m11 structure satisfies it
+cleanly -- field norm ranges p1 [2.438891, 2.439933], p2 [1.334483, 1.334483],
+p3 [0.669500, 0.673043], ordered and non-overlapping.
 
 An adjudication is running (`data/bound-adjudication.md`).  Until it returns,
 NOTHING is claimed below m11 in either direction.
