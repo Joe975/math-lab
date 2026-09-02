@@ -1,0 +1,47 @@
+{
+ "source_screen_file": "data\\screen\\r3_5-8_2-8_1-8_upper.json",
+ "candidate_index": 0,
+ "target_fractions": {
+  "p1": "5/8",
+  "p2": "1/4",
+  "p3": "1/8"
+ },
+ "side": "upper",
+ "denominator_limit": 1000000,
+ "exact_fraction_match": true,
+ "fraction_error": {
+  "p1": "0",
+  "p3": "0",
+  "p2": "0"
+ },
+ "solve_method": "solved cherry ('p1', 'p3') via ancestor: phase p2 (ancestor's fraction) then phase p1 (cherry's fraction); 1 other node(s) rationalized to denominator<=1000000",
+ "eigenvalue_enclosure": {
+  "lambda_min": [
+   "71601195856481007243032457/46014761639931634266406912",
+   "260483633088377/167400727659448"
+  ],
+  "lambda_max": [
+   "260483633088377/167400727659448",
+   "71601195856522857424947319/46014761639931634266406912"
+  ],
+  "tol": "1/1000000000000"
+ },
+ "isotropy_residual_bound": {
+  "lambda_max_minus_lambda_min": [
+   "0",
+   "1/1099511627776"
+  ]
+ },
+ "hs_bounds": {
+  "lo": "7/5",
+  "hi": "25/16"
+ },
+ "gap_to_hs": {
+  "side": "upper",
+  "enclosure": [
+   "2160007759021/334801455318896",
+   "296869205912171298228343/46014761639931634266406912"
+  ]
+ },
+ "command_line": "problems/three-phase-conductivity/explore/tp_certify.py --all"
+}

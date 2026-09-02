@@ -48,6 +48,10 @@
    "field": "probability",
    "description": "Couplings whose joint law is chosen per structural block of the instance rather than globally."
   },
+  "bounded-rank-laminate-screen": {
+   "field": "computation",
+   "description": "Enumerate every laminate tree topology up to a fixed rank over a finite normal set, optimise fractions in floating point as a screen, then certify winners exactly."
+  },
   "branch-and-bound": {
    "field": "computation",
    "description": "Depth-first search with a bound that prunes any branch whose best completion cannot beat the incumbent."
@@ -107,6 +111,10 @@
   "closed-form-last-two": {
    "field": "number-theory",
    "description": "Solve for the final two entries of a multiplicative-constraint sequence in closed form once the prefix is fixed, instead of searching them."
+  },
+  "coated-assemblage-attainability": {
+   "field": "analysis",
+   "description": "Coat each inclusion phase separately by a matrix phase with core fractions tuned to a common effective value, and read off the parameter region where the construction is feasible."
   },
   "collision-search": {
    "field": "computation",
@@ -223,6 +231,10 @@
   "group-orbit-enumeration": {
    "field": "algebra",
    "description": "Reduce a combinatorial search universe by a finite symmetry group: enumerate canonical orbit representatives and verify completeness against Burnside counts."
+  },
+  "hierarchical-laminate-construction": {
+   "field": "analysis",
+   "description": "Build effective tensors of iterated (multi-rank) laminates as exact rational functions of fractions, directions and phase constants; attainment of a bound becomes an equality in Q."
   },
   "implicit-function-theorem": {
    "field": "analysis",

@@ -1,6 +1,45 @@
 {
   "problem": "three-phase-conductivity",
-  "route_status": "NOT_ATTEMPTED",
-  "route_summary": "Onboarded 2026-08-04, never worked. Exact laminate algebra harness with two independent routes and a duality cross-check is in place; no attempts recorded, so blind and informed mode are currently equivalent for this problem.",
-  "attempts": []
+  "route_status": "LIVE",
+  "route_summary": "One attempt (001, effectively blind). Two-phase HS attainment and Milton's 1981 attainability rule (HS_lo <= sigma2, equivalently m1 >= 2*Theta*(1-m2)) re-derived exactly in Q; the classical assemblage is infeasible on m11 <= m1 < 2*Theta*(1-m2), where Cherkaev's 2009 bound is plain HS. A bounded-rank census there finds a rank-4 laminate 5.5e-4 above HS at f=(1,1,6)/8, sigma=(1,2,5). Open: does some finite rank attain HS on that interval (001 leads 1-2). Read 001 for the constructions and the screen-then-certify pipeline.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-coated-laminate-census.md",
+      "date": "2026-09-02",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "hierarchical-laminate-construction",
+        "coated-assemblage-attainability",
+        "bounded-rank-laminate-screen"
+      ],
+      "one_line": "Exact two-phase HS attainment and the Milton (1981) three-phase attainability rule rediscovered and certified in Q; in the region where the assemblage fails and Cherkaev's bound is plain HS, an exhaustive rank-3/rank-4 laminate screen gets within 5.5e-4 of HS_lo, with every winner certified exactly and verified by the second implementation.",
+      "leak_terms": [
+        "Milton assemblage",
+        "HS_lo <= sigma2",
+        "2*Theta*(1-m2)",
+        "m11",
+        "split the worst phase",
+        "3.3641819563",
+        "5.456e-4",
+        "2917x^2 - 3374x + 520",
+        "16409",
+        "f1* ~ 0.0301",
+        "rank-4 laminate"
+      ],
+      "target_shape": "mixed",
+      "push_rounds": 2,
+      "range": "Two-phase: 3 conductivity pairs x 5 fractions, exact. Milton rule: grids k/8 at sigma=(1,2,5), k/40 at (1,3,20), k/30 at (1/7,5/3,101/2), plus 19924 random exact instances for the equivalence with m1 >= 2 Theta (1-m2). Screen: rank 3 over four normals (11520 topologies) at the k/8 grid for sigma=(1,2,5) both sides and gap-region points for (1,3,20); rank 4 with axis normals (33600 topologies) at five gap points; seed 1, 2 restarts. 27 certified records.",
+      "gaps": [
+        "Nesi 1995's bound was not transcribed (paywalled); which published bound is tightest at the census points is unresolved.",
+        "Whether Albin-Cherkaev-Nesi 2007 or Cherkaev 2009 exhibit a structure attaining HS on m11 <= m1 < 2 Theta (1-m2) was not settled.",
+        "Rank-4 screen used axis normals and two restarts only; its value is an upper estimate of the rank-4 optimum.",
+        "The Milton attribution rests on two secondary sources; the 1981 paper itself was not reached.",
+        "Screens at fixed rank are evidence about that rank and normal set, not about all microstructures."
+      ],
+      "note": "Mode is informed only because the director read STATUS.md and docs/CYCLE.md; the problem had no attempts, so the attempt is effectively blind. Work was delegated to four Sonnet subagents (certifier, screener, shape analyst, literature skeptic) briefed on tier-0 material and this attempt's own scripts; the director verified the Milton-equivalence algebra and the exactness checks itself."
+    }
+  ]
 }
