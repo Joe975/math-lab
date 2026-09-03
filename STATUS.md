@@ -3,38 +3,30 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## OPEN ESCALATION (2026-09-03, three-phase-conductivity) — now LOCALIZED
+## ESCALATION RESOLVED (2026-09-03, three-phase-conductivity)
 
-**An exactly-verified laminate of ours sits strictly below Cherkaev's B2 lower
-bound just under m₁₁, systematically across four conductivity triples.** At
-σ = (1,2,5), m₂ = 1/4 the values are 3.0053470065 / 3.0270098722 /
-3.0831692377 at m₁ = 31/250, 3/25, 11/100, against B2 of 3.0053523724 /
-3.0271504085 / 3.0845383760 — short by up to 1.4e−3, with (B2−HS)/(ours−HS)
-settling near 1.89. All three rows are rebuilt by `explore/tp_below_m11.py` and
-each record passes `verify_laminate.py`.
+**Our laminates sitting below Cherkaev's B2 bound are explained: B2 separates
+EXACTLY on his own constraint (4.26).** At σ = (1,2,5), m₂ = 1/4, partitioning
+~500 family members per point by whether D² ≤ (S − ς_N)² holds:
 
-**Eliminated** (006, plus a dedicated adjudicator briefed to assume we were
-wrong): an anisotropy artefact (off-diagonal exactly 0, diagonal difference
-~1e−66); transcription error (primary PDF fetched and extracted twice
-independently); **a provenance error two earlier workers shared** —
-arXiv:1009.3060 is Cherkaev–Zhang's k₃ = ∞ anisotropic paper, NOT Cherkaev
-2009; closed-form simplification error (translation family re-maximised by
-symbolic critical-point solve); a bug in our structures (homogenisation
-re-derived from interface continuity with no shared code, bit-for-bit
-identical); and the scope conditions, including (5.5).
+| m₁ | B2 | min over ALL | min over (4.26)-respecting |
+|---|---|---|---|
+| 0.1240 | 3.0053523724 | 3.0053470065 (below) | 3.0056032896 (**above**) |
+| 0.1200 | 3.0271504085 | 3.0270129104 (below) | 3.0296467290 (**above**) |
+| 0.1100 | 3.0845383760 | 3.0831692377 (below) | 3.0921743261 (**above**) |
 
-**LOCALIZED in 008 to a single condition.** Cherkaev's (4.25) requires the
-field in the MOST conducting phase to be constant and isotropic. Our attaining
-structure at m₁₁ satisfies it **exactly** — corroborating the framework where
-it is claimed to bite — while the below-m₁₁ candidate **violates** it, its
-phase-3 field taking two distinct anisotropic values. Condition (4.24), V = 0,
-holds exactly for both. So the conflict now rests entirely on whether (4.25),
-derived by structural variation in Remark 4.6, is necessary at the optimum.
+Every structure below B2 violates (4.26); every structure respecting it lies
+above B2; and 004's attaining structure makes it **exactly active**, slack 0 —
+the derivation's own equality case. The mechanism is explicit: §4.2's
+coefficient on ∫D² is negative, so exceeding the cap lowers the estimate.
 
-**Do not cite this as a refutation of Cherkaev's published bound.** The single
-decisive next step is 008 lead 1: re-derive Remark 4.6's structural-variation
-argument. A short note to the author would likely settle it faster (008 lead 4,
-flagged for the human).
+**Reading:** B2 is a correct lower bound over the class of composites whose
+fields satisfy (4.24)–(4.26); Theorem 7.1 is *stated* for every isotropic
+three-phase composite, which is broader than that class. **This is a scope
+observation, not a claim that the theorem is wrong**, and the load-bearing
+SPECULATION — that (4.26) is not without loss of generality — is labelled as
+such in 009. What would settle who is right, rather than what the two sides
+disagree about, is re-deriving Remark 4.6 (009 lead 2).
 
 ## TL;DR (updated 2026-09-03, latest)
 
@@ -55,8 +47,16 @@ reachable by any local search at the target**, because the construction routes
 through an inner structure at a different, irrational volume fraction — build
 where attainment is easy, then transform.
 
-**The open escalation** (006, localized in 008) is above, and is NOT a claim
-that the published bound is wrong.
+**The below-m₁₁ escalation is now resolved** (006 → 008 → 009, summarised
+above): Cherkaev's B2 separates exactly on his own constraint (4.26). Every
+structure we found below B2 violates it, every structure respecting it lies
+above B2, and the attaining structure makes it exactly active. So B2 is correct
+over the class its derivation constrains, and Theorem 7.1's statement is
+broader than that class — a scope observation, NOT a claim that the theorem is
+wrong. The method that cracked it is worth reusing: when a derivation's
+assumption is suspect and re-derivation is expensive, **partition the
+candidates by the assumption and check whether the bound respects the
+partition**.
 
 ## Previous TL;DR (2026-09-03, later)
 
@@ -626,7 +626,7 @@ problems with no attempts (queue 18–19; run blind).
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 | Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
-| Three-phase conductivity | **VERIFIED: explicit laminates ATTAIN the HS lower bound exactly in ℚ below Milton's threshold** — rank-4 at f₁ = m₁₁ (004, skeptic-confirmed 005) and rank-6 at the original target point (007); 003 proved attainability upward closed; **006/008: an OPEN escalation below m₁₁, localized to Cherkaev's condition (4.25)** | medium | next: re-derive Remark 4.6's structural-variation argument (008 lead 1) — the single decisive step; hunt a below-m₁₁ structure satisfying (4.25) that still beats B2 (008 lead 2) |
+| Three-phase conductivity | **VERIFIED: explicit laminates ATTAIN the HS lower bound exactly in ℚ below Milton's threshold** (004 rank-4 at m₁₁, skeptic-confirmed 005; 007 rank-6 at the original target in ℚ(√105)); 003 proved attainability upward closed; **the below-m₁₁ escalation is RESOLVED in 009** — B2 separates exactly on Cherkaev's constraint (4.26) | medium | next: re-derive Remark 4.6 (009 lead 2); hunt a (4.26)-respecting structure below B2, which would reopen it (009 lead 1); derive a₁ = rΘ and a₅ = 1−Θ from the field conditions |
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |

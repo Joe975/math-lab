@@ -228,3 +228,45 @@ def test_below_m11_structure_violates_condition_4_25():
     p3 = {(S, Ds, Dss) for S, Ds, Dss, _ in inv["p3"]}
     assert len(p3) > 1                       # (4.25) constancy fails
     assert any(Ds != 0 or Dss != 0 for S, Ds, Dss in p3)   # and isotropy fails
+
+
+def _slack_4_26(tree, phases):
+    """min over phases 1,2 of (S - varsigma_N)^2 - D^2. Negative violates (4.26)."""
+    inv = _field_matrix_invariants(tree, phases)
+    p3 = inv["p3"]
+    # varsigma_N is the S value in the most conducting phase; volume-weight it
+    # when it is not constant (which is itself a violation of (4.25)).
+    a = TF.leaf_fields(tree, phases, (Fr(1), Fr(0)))
+    vols = {}
+    for name, vol, _ in a:
+        vols.setdefault(name, []).append(vol)
+    tot = sum(vols["p3"])
+    sN = sum(v * row[0] for v, row in zip(vols["p3"], p3)) / tot
+    return min((S - sN) ** 2 - (Ds * Ds + Dss * Dss)
+               for nm in ("p1", "p2") for S, Ds, Dss, _ in inv[nm])
+
+
+def test_attaining_structure_makes_4_26_exactly_active():
+    """At the attaining structure the constraint is tight: slack exactly 0.
+
+    That is the derivation's own equality case, where the minimiser takes
+    D = +/- Sigma_1^(1/2)(S).
+    """
+    import tp_attain as A
+    _, tree, _ = A.attains(SIGMA, Fr(1, 2), Fr(4, 5))
+    assert _slack_4_26(tree, PHASES) == 0
+
+
+def test_structure_below_the_bound_violates_4_26():
+    """The candidate counterexample exceeds the cap the bound's estimate uses.
+
+    Section 4.2's coefficient on the D^2 integral is negative, so exceeding the
+    cap is exactly what lets a structure land under B2. This pins the mechanism
+    of the escalation recorded in attempts 006/008/009.
+    """
+    import json
+    path = (ROOT / "problems" / "three-phase-conductivity" / "data"
+            / "attained" / "below-m11-m1-3_25.json")
+    rec = json.loads(path.read_text(encoding="utf-8"))
+    phases = {k: Fr(v) for k, v in rec["phases"].items()}
+    assert _slack_4_26(rec["tree"], phases) < 0

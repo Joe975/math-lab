@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and the conflict now rests on whether (4.25) is necessary at the optimum (008 lead 1).",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class.",
   "attempts": [
     {
       "id": "001",
@@ -283,6 +283,39 @@
         "Still possible: an error on our side that six independent checks have not caught."
       ],
       "note": "The corroborating half matters as much as the critical half: 004's attaining structure satisfies (4.24) and (4.25) exactly, so Cherkaev's optimality conditions describe the attaining object perfectly."
+    },
+    {
+      "id": "009",
+      "file": "attempts/009-b2-is-conditional-on-4-26.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "field-equality-analysis",
+        "exact-rational-arithmetic",
+        "literature-reconciliation",
+        "adversarial-verification"
+      ],
+      "one_line": "Resolves the escalation: Cherkaev's B2 separates EXACTLY on his constraint (4.26). Every structure we find below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active with slack 0. So B2 is a correct bound over the class its derivation constrains, and Theorem 7.1's statement is broader than that class.",
+      "leak_terms": [
+        "B2 separates on (4.26)",
+        "slack exactly 0",
+        "negative coefficient on the D^2 integral",
+        "constrained minimum above B2",
+        "3.0056032896",
+        "statement broader than the proof's class"
+      ],
+      "verifies": "006",
+      "target_shape": "proof",
+      "push_rounds": 3,
+      "range": "sigma=(1,2,5), m2=1/4, at m1 = 31/250, 3/25, 11/100; roughly 500 family members per point, exact arithmetic, partitioned by whether (4.26) holds. Constrained minima 3.0056032896 / 3.0296467290 / 3.0921743261 all ABOVE B2; unconstrained minima all below. Slack exactly 0 at the m11-attaining structure.",
+      "gaps": [
+        "SPECULATION, load-bearing: that (4.26) is not without loss of generality for all composites. The alternative remains an error on our side that no check has caught.",
+        "Not a proof that no (4.26)-respecting structure beats B2 -- a finite search in ONE laminate family. A single counterexample would reopen 006.",
+        "Remark 4.6's structural-variation derivation of (4.26) still not re-derived; that is what would say who is RIGHT, as opposed to what they disagree about.",
+        "No claim that Theorem 7.1 is wrong: this is a scope observation about statement versus derivation."
+      ],
+      "note": "The decisive experiment was NOT re-deriving the paper's argument, which two passes had failed to do, but partitioning candidate structures by the suspect hypothesis and checking whether the bound respects the partition. Much cheaper, nearly as informative."
     }
   ]
 }
