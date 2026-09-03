@@ -270,3 +270,52 @@ def test_structure_below_the_bound_violates_4_26():
     rec = json.loads(path.read_text(encoding="utf-8"))
     phases = {k: Fr(v) for k, v in rec["phases"].items()}
     assert _slack_4_26(rec["tree"], phases) < 0
+
+
+def test_attainment_field_pattern_is_forced_and_makes_4_26_active():
+    """Two algebraic identities behind the attaining construction.
+
+    With c = sigma* + s1 and rho_i = c/(s_i+s1), normal-flux continuity across a
+    p1|p3 interface forces phase 1's larger component y = s3*rho_3/s1. Then:
+
+      (a) the phase-1 mean rho_1 = c/(2 s1) forces the smaller component
+          2*rho_1 - y to equal rho_3 -- an identity, not a fitted value;
+      (b) S_1 - varsigma_N = (y + rho_3) - 2*rho_3 = y - rho_3 = D_1, so
+          D_1^2 = (S_1 - varsigma_N)^2 EXACTLY.
+
+    (b) explains attempt 009's observation that the attaining structure makes
+    Cherkaev's (4.26) exactly active: it is forced, not a coincidence.
+    """
+    cases = [((Fr(1), Fr(2), Fr(5)), Fr(4)),
+             ((Fr(1), Fr(3), Fr(7)), Fr(9, 2)),
+             ((Fr(2), Fr(5), Fr(11)), Fr(77, 10)),
+             ((Fr(1, 3), Fr(5, 2), Fr(9)), Fr(3))]
+    for (s1, s2, s3), c in cases:
+        rho3 = c / (s3 + s1)
+        rho1 = c / (2 * s1)
+        y = s3 * rho3 / s1
+        assert 2 * rho1 - y == rho3                      # (a)
+        S1, D1, sN = y + rho3, y - rho3, 2 * rho3
+        assert D1 * D1 == (S1 - sN) ** 2                 # (b)
+
+
+def test_derived_field_pattern_matches_the_built_structure():
+    """The forced pattern is what tp_attain actually produces."""
+    import tp_attain as A
+    for sig, r in [((Fr(1), Fr(2), Fr(5)), Fr(1, 2)),
+                   ((Fr(1), Fr(3), Fr(7)), Fr(1, 2)),
+                   ((Fr(1), Fr(4), Fr(9)), Fr(1, 3))]:
+        ok, tree, hs = A.attains(sig, r, (1 - r + 1) / 2)
+        assert ok
+        phases = {"p1": sig[0], "p2": sig[1], "p3": sig[2]}
+        c = hs + sig[0]
+        rho2, rho3 = c / (sig[1] + sig[0]), c / (sig[2] + sig[0])
+        y = sig[2] * rho3 / sig[0]
+        a = TF.leaf_fields(tree, phases, (Fr(1), Fr(0)))
+        b = TF.leaf_fields(tree, phases, (Fr(0), Fr(1)))
+        seen = {}
+        for (na, _, Ea), (nb, _, Eb) in zip(a, b):
+            seen.setdefault(na, set()).add((Ea[0], Eb[1]))
+        assert seen["p2"] == {(rho2, rho2)}
+        assert seen["p3"] == {(rho3, rho3)}
+        assert seen["p1"] == {(rho3, y), (y, rho3)}
