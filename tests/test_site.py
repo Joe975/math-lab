@@ -134,7 +134,11 @@ def test_every_attempt_appears_on_its_page(site):
             if f"Attempt {attempt['id']}" not in page:
                 missing.append(f"{slug}/{attempt['id']}")
             # Compare against escaped text: summaries contain <= and >=.
-            snippet = html.escape(attempt["one_line"])[:40]
+            # Match build_site.py's inline(), which uses quote=False. With the
+            # default quote=True an apostrophe in the first 40 characters
+            # escapes to &#x27; here but not on the page, so correct content
+            # would fail.
+            snippet = html.escape(attempt["one_line"], quote=False)[:40]
             if snippet not in page:
                 missing.append(f"{slug}/{attempt['id']} (summary)")
     assert not missing, f"attempts absent from their page: {missing}"
