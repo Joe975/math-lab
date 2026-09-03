@@ -1,7 +1,8 @@
-"""The below-m11 curve as a ratio of curvatures at m11 (attempt 017).
+"""The below-m11 curve as a ratio of curvatures at m11 (attempts 017, 018).
 
 These fail if the second-order tangency at m11 breaks, if the closed forms for
-beta, gamma and c stop reproducing the jet expansion, or if c leaves (0, 1).
+beta, gamma and c stop reproducing the jet expansion, if c leaves (0, 1), or if
+any normal-tilt direction starts coupling to m1 in the gap's Hessian.
 """
 
 from __future__ import annotations
@@ -15,6 +16,7 @@ sys.path.insert(0, str(ROOT / "harness" / "three-phase-conductivity"))
 sys.path.insert(0, str(ROOT / "problems" / "three-phase-conductivity" / "explore"))
 
 import tp_curvature as TC  # noqa: E402
+import tp_enrich as TE  # noqa: E402
 
 SIG = (Fr(1), Fr(2), Fr(5))
 HALF = Fr(1, 2)
@@ -73,3 +75,27 @@ def test_c_approaches_one_only_at_infinite_contrast():
           for y in (10, 100, 1000, 10 ** 5)]
     assert all(a < b for a, b in zip(cs, cs[1:]))
     assert cs[-1] < 1 and float(cs[-1]) > 0.999
+
+
+def test_tilting_the_normals_cannot_move_gamma():
+    """The gap Hessian's m1-row vanishes on every tilt direction, so the
+    six-parameter Schur complement equals the one-parameter gamma."""
+    for trip in [(1, 2, 5), (1, 3, 7), (2, 5, 11)]:
+        sig = tuple(Fr(x) for x in trip)
+        g1, _, _ = TE.schur(sig, HALF, ["a0"])
+        gf, _, _ = TE.schur(sig, HALF, TE.ALL)
+        assert g1 == TC.closed_forms(sig, HALF)["gamma"]
+        assert gf == g1, trip
+        g, _, idx, _ = TE.gap_jet(sig, HALF, TE.ALL)
+        for nm in ("tA", "tD", "tC", "tB", "a3"):
+            assert g.hess(0, idx[nm]) == 0, (trip, nm)
+        assert g.hess(0, idx["a0"]) != 0
+
+
+def test_a_tilt_really_perturbs_the_structure():
+    """Guards the previous test: tilts are not being silently ignored."""
+    bp = TC.base_point(SIG, HALF)
+    a3 = (1 + (1 - bp["r"])) / 2
+    t, _, _ = TE.tilted_tensor(SIG, bp["m2"], bp["m11"], bp["a0"], a3,
+                               bp["a5"], Fr(0), Fr(1, 10), Fr(0), Fr(0), Fr(0))
+    assert t[1] != 0 and t[0] != t[2]
