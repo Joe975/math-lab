@@ -20,9 +20,18 @@ above B2; and 004's attaining structure makes it **exactly active**, slack 0 —
 the derivation's own equality case. The mechanism is explicit: §4.2's
 coefficient on ∫D² is negative, so exceeding the cap lowers the estimate.
 
+**Falsification attempted and failed (013).** Across three searches totalling
+over 22 000 structures — exhaustive axis-normal rank 3 and rank 4, plus dense
+sweeps of the 006 family at all three grid points — not one structure both
+respects (4.26) and lies below B2, while all 274 below-B2 structures found
+violate it. So the separation is not an artefact of one family.
+
 **Reading:** B2 is a correct lower bound over the class of composites whose
 fields satisfy (4.24)–(4.26); Theorem 7.1 is *stated* for every isotropic
-three-phase composite, which is broader than that class. **This is a scope
+three-phase composite, which is broader than that class. Equivalently: our
+structures put the true minimum below B2, Cherkaev's derivation puts the
+minimum over (4.26)-respecting structures above it, and both hold only if the
+true minimiser violates (4.26). **This is a scope
 observation, not a claim that the theorem is wrong**, and the load-bearing
 SPECULATION — that (4.26) is not without loss of generality — is labelled as
 such in 009. What would settle who is right, rather than what the two sides

@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted.",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted. 013 then tried to falsify that reading across 22000+ structures and failed, so the separation is not an artefact of one family.",
   "attempts": [
     {
       "id": "001",
@@ -400,6 +400,36 @@
         "Nothing new about the 006/009 escalation."
       ],
       "note": "Method note: the reduction collapsed once the terms were paired against the pieces of f3 = 1 - f1 - f2 rather than expanded independently. The grouping was the whole difficulty."
+    },
+    {
+      "id": "013",
+      "file": "attempts/013-separation-survives-wider-search.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "bounded-rank-laminate-screen",
+        "field-equality-analysis",
+        "exact-rational-arithmetic",
+        "adversarial-verification"
+      ],
+      "one_line": "Tried hard to falsify 009's separation and failed: across three searches totalling over 22000 structures -- exhaustive axis-normal rank 3 and rank 4, plus dense sweeps of the 006 family at three grid points -- not one structure both respects Cherkaev's (4.26) and lies below B2, while all 274 below-B2 structures found violate it.",
+      "leak_terms": [
+        "22000 structures",
+        "zero both",
+        "12273 respecting",
+        "margins +2.5e-4 / +2.5e-3 / +7.6e-3"
+      ],
+      "verifies": "009",
+      "target_shape": "object",
+      "push_rounds": 2,
+      "range": "sigma=(1,2,5), m2=1/4. Exhaustive axis-normal rank 3 (621 survivors) and rank 4 (18859 survivors) at m1=3/25; dense 006-family sweeps at m1 = 31/250, 3/25, 11/100 (981/992/1035 members, containing 19/58/197 below-B2 structures). Float screen then exact classification by the sign of (S - varsigma_N)^2 - D^2.",
+      "gaps": [
+        "A finite search, not a proof: axis-normal topologies to rank 4 and one family at rank 5 only, no non-axis normals, no higher ranks.",
+        "All of it at a single conductivity triple; the separation has not been tested at a second one.",
+        "Nothing about whether (4.26) is necessary at the optimum, which searching cannot settle."
+      ],
+      "note": "The dense family sweeps carry the weight: they are the only searches containing below-B2 structures at all, and every one of those violates the constraint."
     }
   ]
 }

@@ -1,0 +1,7 @@
+m1=3/25 rank=4  HS_lo=3.0268456376  B2=3.0271504085
+  screened survivors: 18859
+  below B2:                       0
+  respecting (4.26):              12273
+  BOTH below B2 and respecting:   0   <-- would REOPEN 006
+  min value among respecting: 3.0417489528  (B2 3.0271504085, margin +1.460e-02)
+  written to ../data/hunt_r4_m1_3_25.json
