@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted. 013 then tried to falsify that reading across 22000+ structures and failed, so the separation is not an artefact of one family. 014 reproduced the separation at a second conductivity triple, so it is not an artefact of one triple; only re-deriving Cherkaev's Remark 4.6 can move the question further.",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted. 013 then tried to falsify that reading across 22000+ structures and failed, so the separation is not an artefact of one family. 014 reproduced the separation at a second conductivity triple, so it is not an artefact of one triple; only re-deriving Cherkaev's Remark 4.6 can move the question further. 015 then measured rather than classified: below m11 the family minimum tracks a nearly m1-independent fraction c(sigma) of the way from HS to B2, between 0.532 and 0.690 on five triples, suggesting a genuine intermediate bound.",
   "attempts": [
     {
       "id": "001",
@@ -459,6 +459,35 @@
         "One family per point; no exhaustive topology sweep at this triple."
       ],
       "note": "Retire further searching on this line: 013 and 014 together give strongly diminishing returns. Only re-deriving Remark 4.6, or asking the author, can move it."
+    },
+    {
+      "id": "015",
+      "file": "attempts/015-family-minimum-ratio.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "EVIDENCE",
+      "mechanism": [
+        "bounded-rank-laminate-screen",
+        "exact-rational-arithmetic",
+        "closed-form-parameterization"
+      ],
+      "one_line": "Below m11 the 006 family's minimum sits at a nearly m1-independent fraction of the way from HS_lo to B2, approaching a sigma-dependent limit c(sigma) measured between 0.532 and 0.690 on five conductivity triples -- so the structures realise only about half to two thirds of B2's claimed improvement, which turns the escalation from a qualitative oddity into a quantitative one.",
+      "leak_terms": [
+        "ratio 0.5324",
+        "c(sigma)",
+        "0.532369 / 0.576304 / 0.598509 / 0.690125",
+        "not monotone in Theta",
+        "half to two thirds of the claimed improvement"
+      ],
+      "target_shape": "mixed",
+      "push_rounds": 2,
+      "range": "006 family, m2=1/4, exact arithmetic with the two-parameter minimisation refined to 1e-9. Eight m1 values at sigma=(1,2,5) from 0.098 to 0.1249, plus the limiting ratio at five triples: (1,2,5) 0.532369, (2,5,11) 0.532696, (1,3,7) 0.576304, (1,4,9) 0.598509, (1,2,9) 0.690125.",
+      "gaps": [
+        "One family at rank 5: 013's exhaustive rank-4 sweep could not even reach B2, so a richer class could sit lower and change c.",
+        "No closed form for c(sigma); five data points, and it is provably not a function of Theta alone since (1,2,9) has the largest Theta and the largest c while (1,2,5) and (2,5,11) differ in Theta but agree in c to three decimals.",
+        "The conjecture that the sharp bound is HS + c(sigma)(B2 - HS) is labelled SPECULATION and rests on one family."
+      ],
+      "note": "Method note: three records classified 23000 structures without once asking how far below the bound the best one sits. Classification is not measurement."
     }
   ]
 }

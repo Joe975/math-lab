@@ -28,7 +28,15 @@ violate it. **014** reproduced the same pattern at a second conductivity
 triple, σ = (1,3,7): 248 below-B2 structures, all violating (4.26); 945
 respecting, all above B2; zero exceptions. So the separation is an artefact of
 neither one family nor one triple, and further searching is retired — only
-re-deriving Remark 4.6, or asking the author, can move it.
+re-deriving Remark 4.6, or asking the author, can move the attainability
+question. **015** then measured rather than classified: below m₁₁ the family's
+minimum sits at a nearly m₁-independent fraction of the way from HS_lo to B2,
+approaching a σ-dependent limit c(σ) measured at 0.532 (σ = (1,2,5) and
+(2,5,11)), 0.576 ((1,3,7)), 0.599 ((1,4,9)) and 0.690 ((1,2,9)). So the
+structures realise only about half to two thirds of B2's claimed improvement,
+on a stable curve — consistent with a genuine intermediate bound sitting
+between HS and B2 in this region (SPECULATION, one family). Next computation:
+push a richer class below that curve (015 lead 2).
 
 **Reading:** B2 is a correct lower bound over the class of composites whose
 fields satisfy (4.24)–(4.26); Theorem 7.1 is *stated* for every isotropic
