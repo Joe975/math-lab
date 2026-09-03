@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1).",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it.",
   "attempts": [
     {
       "id": "001",
@@ -217,6 +217,39 @@
         "The search is within one laminate family, so the true minimum below m11 may be lower still."
       ],
       "note": "Provenance correction of record: two earlier workers cited 'Cherkaev 2009' while one was quoting arXiv:1009.3060, the anisotropic k3=infinity paper, whose hypothesis our instances violate. Fetching the actual PDF changed the conclusion. Prefer the primary document over agreeing secondary quotations."
+    },
+    {
+      "id": "007",
+      "file": "attempts/007-coated-t2-attainment-at-target.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "exact-rational-arithmetic",
+        "hierarchical-laminate-construction",
+        "coated-assemblage-attainability",
+        "closed-form-parameterization"
+      ],
+      "one_line": "A rank-6 coated T-squared laminate attains the HS lower bound EXACTLY at the original target point sigma=(1,2,5), f=(1/8,1/8,3/4) where every earlier search stalled at 5.46e-4; the construction lives in Q(sqrt(105)) with irrational node fractions but exactly rational volume fractions and value 37/11, and it works by building the inner structure at ITS OWN threshold and then applying 003's coating lemma.",
+      "leak_terms": [
+        "Q(sqrt(105))",
+        "13x^2+x-2=0",
+        "a=c=1-u, d=Theta, b=1-u/4",
+        "rank 6",
+        "rational snap",
+        "37/11",
+        "inner m2 differs from target m2"
+      ],
+      "target_shape": "object",
+      "push_rounds": 3,
+      "range": "Exact field arithmetic in Q(sqrt(105)) with two independent lamination algorithms agreeing; the T-squared closed form verified at 5 values of m2; two rational-snap witnesses at sqrt(105) precision 2^-190 rebuilt as plain Fractions and passing the real laminate.py and verify_laminate.py, residuals 7.8e-58 and -7.7e-60 from 37/11.",
+      "gaps": [
+        "Rank 6 is not shown minimal at this point.",
+        "The target-hitting step was solved for this specific ratio f2:f3 = 1:6; whether the analogous condition always has a physical solution, and of what algebraic degree, is open.",
+        "Nothing below m11: 006's escalation is untouched by this.",
+        "Novelty: an independent constructive confirmation of Cherkaev 2009 Thm 8.1, not a new theorem."
+      ],
+      "note": "Explains why 001's and 003's searches missed it: fixing f1=1/8 and searching node parameters is structurally incapable of finding this object, because the construction routes through an inner structure at a different, irrational volume fraction. Newton-solving the same topology at fixed f1=1/8 confirms no valid solution exists there."
     }
   ]
 }
