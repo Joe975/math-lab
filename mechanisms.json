@@ -360,6 +360,10 @@
    "field": "probability",
    "description": "Sample constructions at random from a constrained family and keep those passing an exact check."
   },
+  "rational-function-reconstruction": {
+   "field": "computation",
+   "description": "Recover a symbolic rational function from exactly-computed samples: solve the homogeneous linear system num(x_i) - y_i den(x_i) = 0 over Q at the smallest total degree with a one-dimensional null space, validate on points not used in the fit, factor the denominator by exact deflation of conjectured roots, then fit the remaining shape numbers against the other variables and re-verify the assembled formula as an identity."
+  },
   "reciprocal-sum-relaxation": {
    "field": "number-theory",
    "description": "Relax the exact divisibility conditions to the reciprocal-sum inequality and bound the object through the relaxation."
@@ -379,6 +383,10 @@
   "row-inner-product-pruning": {
    "field": "computation",
    "description": "Fill a symmetric constrained matrix row by row and bound each partial row against the linear equations its inner products with completed rows must satisfy."
+  },
+  "schur-complement-sharpness": {
+   "field": "analysis",
+   "description": "At an equality point of a bound the gap's gradient vanishes, so the leading gap over a parameterised class is the Schur complement of the gap's Hessian with respect to the free parameters. Enlarging the class can only lower it, and a direction with zero coupling to the constraint variable cannot move it at all -- so 'does a richer class do better?' becomes finite exact linear algebra at one point."
   },
   "sensitivity-kernel-design": {
    "field": "analysis",
@@ -423,6 +431,10 @@
   "symbolic-trig-closed-form": {
    "field": "algebra",
    "description": "Recast an iterated geometric construction in an exact division-free symbolic domain (here Laurent polynomials in half-angle exponentials over Q(i)) so that the quantities of interest become closed-form trigonometric polynomials whose factorizations expose the law being sought."
+  },
+  "tangency-curvature-ratio": {
+   "field": "analysis",
+   "description": "When a bound is met exactly at a boundary point of the region where it is disputed, replace the search over the region by a ratio of second derivatives at that point: check the meeting is first-order tangential, then compare curvatures. Turns 'how far below does the family sit?' into two exactly computable numbers."
   },
   "tightness-census": {
    "field": "extremal-combinatorics",

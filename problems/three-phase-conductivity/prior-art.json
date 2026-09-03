@@ -1,519 +1,561 @@
 {
-  "problem": "three-phase-conductivity",
-  "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted. 013 then tried to falsify that reading across 22000+ structures and failed, so the separation is not an artefact of one family. 014 reproduced the separation at a second conductivity triple, so it is not an artefact of one triple; only re-deriving Cherkaev's Remark 4.6 can move the question further. 015 then measured rather than classified: below m11 the family minimum tracks a nearly m1-independent fraction c(sigma) of the way from HS to B2, between 0.532 and 0.690 on five triples, suggesting a genuine intermediate bound. 016 tested the first enrichment of that family and REFUTED it: breaking the C/B collapse loses by one to two orders of magnitude, so the collapse is the right structure rather than wasted freedom.",
-  "attempts": [
-    {
-      "id": "001",
-      "file": "attempts/001-coated-laminate-census.md",
-      "date": "2026-09-02",
-      "mode": "informed",
-      "status": "EVIDENCE",
-      "mechanism": [
-        "exact-rational-arithmetic",
-        "hierarchical-laminate-construction",
-        "coated-assemblage-attainability",
-        "bounded-rank-laminate-screen"
-      ],
-      "one_line": "Exact two-phase HS attainment and the Milton (1981) three-phase attainability rule rediscovered and certified in Q; in the region where the assemblage fails and Cherkaev's bound is plain HS, an exhaustive rank-3/rank-4 laminate screen gets within 5.5e-4 of HS_lo, with every winner certified exactly and verified by the second implementation.",
-      "leak_terms": [
-        "Milton assemblage",
-        "HS_lo <= sigma2",
-        "2*Theta*(1-m2)",
-        "m11",
-        "split the worst phase",
-        "3.3641819563",
-        "5.456e-4",
-        "2917x^2 - 3374x + 520",
-        "16409",
-        "f1* ~ 0.0301",
-        "rank-4 laminate"
-      ],
-      "target_shape": "mixed",
-      "push_rounds": 2,
-      "range": "Two-phase: 3 conductivity pairs x 5 fractions, exact. Milton rule: grids k/8 at sigma=(1,2,5), k/40 at (1,3,20), k/30 at (1/7,5/3,101/2), plus 19924 random exact instances for the equivalence with m1 >= 2 Theta (1-m2). Screen: rank 3 over four normals (11520 topologies) at the k/8 grid for sigma=(1,2,5) both sides and gap-region points for (1,3,20); rank 4 with axis normals (33600 topologies) at five gap points; seed 1, 2 restarts. 27 certified records.",
-      "gaps": [
-        "Nesi 1995's bound was not transcribed (paywalled); which published bound is tightest at the census points is unresolved.",
-        "Whether Albin-Cherkaev-Nesi 2007 or Cherkaev 2009 exhibit a structure attaining HS on m11 <= m1 < 2 Theta (1-m2) was not settled.",
-        "Rank-4 screen used axis normals and two restarts only; its value is an upper estimate of the rank-4 optimum.",
-        "The Milton attribution rests on two secondary sources; the 1981 paper itself was not reached.",
-        "Screens at fixed rank are evidence about that rank and normal set, not about all microstructures."
-      ],
-      "note": "Mode is informed only because the director read STATUS.md and docs/CYCLE.md; the problem had no attempts, so the attempt is effectively blind. Work was delegated to four Sonnet subagents (certifier, screener, shape analyst, literature skeptic) briefed on tier-0 material and this attempt's own scripts; the director verified the Milton-equivalence algebra and the exactness checks itself."
-    },
-    {
-      "id": "002",
-      "file": "attempts/002-hs-attainment-field-mechanism.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "MAP",
-      "mechanism": [
-        "exact-rational-arithmetic",
-        "field-equality-analysis",
-        "variational-equality-case",
-        "duality-reduction"
-      ],
-      "one_line": "Attaining the HS lower bound forces uniform target fields in every phase of nonvanishing polarization and a precisely determined NONZERO field variance in the comparison-medium phase, Var1=(c^2 S2-1)/f1; the gap then decomposes exactly into mean and variance defects, which kills two natural obstruction conjectures and shows rank 5 is parameter-starved rather than floored.",
-      "leak_terms": [
-        "attainment fields",
-        "(sigma_HS+sigma1)/(sigma_i+sigma1)",
-        "E_2 <= E_0",
-        "required variance",
-        "(c^2 S2 - 1)/f1",
-        "gap decomposition",
-        "path-product rule",
-        "parameter starvation",
-        "rank 7-8"
-      ],
-      "target_shape": "proof",
-      "push_rounds": 3,
-      "range": "Exact in Q: the assemblage realises the attainment fields at every feasible point tried; the equivalence of E2<=E0, HS_lo<=sigma2 and Milton's threshold on the whole k/8 grid at sigma=(1,2,5); the Var_req closed form on 3 instances incl. an unrelated triple; the gap decomposition on all 12 certified lower-side records at sigma=(1,2,5) plus the assemblage; the Keller-Dykhne reduction on all 27 certified records; the path-product rule on 3 axis-normal trees at 3 applied directions each.",
-      "gaps": [
-        "Necessity of the attainment-field condition (*) is assumed, not proved here: it is the classical HS equality analysis but was not re-derived or cited to a page. Everything that would RULE OUT a structure leans on it.",
-        "The rank 7-8 parameter count is heuristic; the conditions are not shown independent.",
-        "Whether Var1 = Var_req is automatic given (*), correct fractions and isotropy is open, and would change the count.",
-        "No claim either way on attainability of HS in the gap region."
-      ],
-      "note": "Uses no new search: the two refutations come out of 001's own certified data once the field diagnostics exist."
-    },
-    {
-      "id": "003",
-      "file": "attempts/003-coating-monotonicity-and-variance-floor.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "exact-rational-arithmetic",
-        "hierarchical-laminate-construction",
-        "coated-assemblage-attainability",
-        "field-equality-analysis",
-        "literature-reconciliation"
-      ],
-      "one_line": "Coating an HS-optimal structure with extra comparison-medium phase preserves HS-optimality exactly (proved, 12 instances), so attainability is upward closed in f1 along fixed f2:f3 and the construction problem collapses to the bottom of each ray; 001's rank-3 feasibility floor is explained as a phase-1 leaf-volume degeneration against a diverging required variance; and the literature (Cherkaev 2009 Thm 8.1) claims HS IS attained on the whole open interval.",
-      "leak_terms": [
-        "coating preserves HS-optimality",
-        "upward closed",
-        "bottom of the ray",
-        "rho=1/2",
-        "leaf-volume degeneration",
-        "L13,2,13,1,1",
-        "m11 = 0.114277",
-        "gap ratio 35",
-        "1.6e-5"
-      ],
-      "target_shape": "proof",
-      "push_rounds": 3,
-      "range": "Lemma proved in general and verified exactly in Q on 12 instances (3 base structures x 4 coating fractions), isotropy exact and rho=1/2 every time. Variance-collapse mechanism computed exactly along the f2:f3=1:6 ray at sigma=(1,2,5) for 001's rank-3 family down to its floor, and the rank-4 family down to f1=1/96. Rank-5 gap 1.6e-5 is the best found in a still-running axis-normal sweep, hence an upper bound on the rank-5 optimum.",
-      "gaps": [
-        "No HS-attaining structure below Milton's threshold has been built or verified here; the rank-5 number is a small gap, not an attainment.",
-        "Tension unresolved: a near-constant per-rank gap ratio looks like geometric convergence, which sits oddly beside the literature's finite-rank attainment claim.",
-        "Cherkaev's Remark 8.2 credits Gibiansky-Sigmund 2000, an elasticity paper; the conductivity reading is a reinterpretation, flagged not smoothed.",
-        "The T^2-structure's isotropic member could not be reconstructed from the transcribed formulas, so no ready-to-verify exact tree is in hand.",
-        "Nothing established about attainability BELOW m11."
-      ],
-      "note": "The coating lemma was proved and verified here independently, then found to be exactly the outer part of Cherkaev's published L13,2,13,1,1 construction; the agreement is convergent, not derived."
-    },
-    {
-      "id": "004",
-      "file": "attempts/004-closed-form-attainment-at-m11.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "exact-rational-arithmetic",
-        "hierarchical-laminate-construction",
-        "bounded-rank-laminate-screen",
-        "field-equality-analysis",
-        "closed-form-parameterization"
-      ],
-      "one_line": "An explicit closed-form rank-5 laminate that attains the 2D three-phase Hashin-Shtrikman LOWER bound exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold 2*Theta*(1-m2) at every m2, with a3 a genuinely free parameter; with 003's coating lemma it gives attainment for all f1 >= m11.",
-      "leak_terms": [
-        "a0 = 1-r",
-        "a1 = r*Theta",
-        "a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1))",
-        "a4 = (a3-(1-r))/a3",
-        "f1 = 2*Theta*r*(1-r)",
-        "one-parameter family",
-        "(1/2,1/8,4/5,3/8,3/4)",
-        "mirror pair (10/3,2/3)",
-        "1055 instances"
-      ],
-      "target_shape": "object",
-      "push_rounds": 4,
-      "range": "Exact attainment on 1055 random (sigma, r, a3) instances with zero failures (1099 skipped outside the stated domain a3 > 1-r, f3 > 0); both harness routes agree and Keller-Dykhne holds on every tree; the written record passes verify_laminate.py; 002's field diagnostics come out exactly (phases 2,3 uniform on target, var_term == var_required == 2/9 at sigma=(1,2,5), r=1/2).",
-      "gaps": [
-        "Corrected by 005: a5 = 1 - Theta is an exact identity, the object is really RANK 4 (a3's freedom is a redundant encoding, not geometric freedom), and sigma1<sigma2<sigma3 was an unchecked precondition. The record is left as written per the repo's hard rule.",
-        "The identities a1 = r*Theta and a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1)) were found by pattern-matching exact numerics and checked widely, not derived.",
-        "Nothing established about f1 < m11: whether m11 is the true attainability threshold is open and is now the frontier question.",
-        "Novelty not settled: this reproduces what Cherkaev 2009 Thm 8.1 asserts and should be recorded as an independent constructive rediscovery unless the skeptic's literature check says otherwise.",
-        "Minimal rank for attainment at m11 is not established; rank 4 was not searched at exactly f1 = m11."
-      ],
-      "note": "Seeded by a delegated rank-5 sweep, then solved exactly rather than by rounding floats (rounding provably fails, since it moves the volume fractions and hence the target). The attaining set is a one-parameter family, which is why float optimizers wander instead of converging."
-    },
-    {
-      "id": "005",
-      "file": "attempts/005-skeptic-pass-on-004.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "adversarial-verification",
-        "exact-rational-arithmetic",
-        "literature-reconciliation"
-      ],
-      "one_line": "Skeptic pass on 004: a third independent implementation agrees on 590+ instances with zero mismatches and an adversarial sweep of 3575+ finds no failure, so the attaining construction is VERIFIED; three corrections follow -- a5 = 1 - Theta is an exact identity, the object is really RANK 4 (two consecutive same-normal laminations collapse, which is why a3 was free), and sigma1<sigma2<sigma3 is an unchecked precondition.",
-      "leak_terms": [
-        "a5 = 1 - Theta",
-        "really rank 4",
-        "w = a3(1-a4) = 1-r",
-        "redundant encoding",
-        "590 instances",
-        "3575 instances",
-        "check_ordering"
-      ],
-      "verifies": "004",
-      "target_shape": "proof",
-      "push_rounds": 1,
-      "range": "Third implementation agrees on 590+ instances including extreme conductivity ratios; adversarial hunt over 3575+ instances plus an exact perturbation test, probing a3 at both endpoints of (1-r,1), r near 0 and 1, and near-degenerate phases; m11 < Milton threshold and the domain claims a0,a1,a4,a5 in (0,1) proved algebraically and unconditionally.",
-      "gaps": [
-        "a1 = r*Theta and a5 = 1-Theta are corroborated by a second independent derivation (tp_cherkaev.py) but still not derived from first principles via 002's field conditions.",
-        "Nothing established about f1 < m11.",
-        "Minimal rank for attainment at m11 is open; since the object is really rank 4, the sharp question is now whether rank 3 suffices."
-      ],
-      "note": "Corrects 004's headline rank and its framing of a3 as a genuine geometric freedom. Per the repo's hard rule, 004 is left exactly as written."
-    },
-    {
-      "id": "006",
-      "file": "attempts/006-below-m11-bound-discrepancy.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "EVIDENCE",
-      "mechanism": [
-        "exact-rational-arithmetic",
-        "hierarchical-laminate-construction",
-        "literature-reconciliation",
-        "adversarial-verification"
-      ],
-      "one_line": "Laminates from 004's family with f1 just below m11 sit STRICTLY BELOW Cherkaev's B2 lower bound, systematically across four conductivity triples (ratio (B2-HS)/(ours-HS) near 1.89); the transcription was checked against the primary PDF and is correct, the theorem's hypotheses are satisfied, the closed form matches the paper's own variational statement, and the one field condition we could identify does not exclude us -- reported as REQUIRING ESCALATION, not as a refutation.",
-      "leak_terms": [
-        "below B2",
-        "ratio 1.89",
-        "newbounds7.pdf",
-        "arXiv:1009.3060 is a different paper",
-        "Theorem 7.1",
-        "(7.1)-(7.2) max over t",
-        "field-ordering (4.2) satisfied",
-        "admissible-field certificate"
-      ],
-      "target_shape": "object",
-      "push_rounds": 5,
-      "range": "sigma=(1,2,5) at m1 = 31/250, 3/25, 11/100 with m2 = 1/4 exact in Q; plus (1,3,7), (1,4,9), (2,5,11) at three fractions of m11 each. Our structures: exact fractions, off-diagonal exactly 0, diagonal difference < 1e-61, both harness routes agreeing, Keller-Dykhne holding, verify_laminate.py passing, and an explicit admissible-field certificate (average field, average flux, energy identity all exact).",
-      "gaps": [
-        "UNRESOLVED, and recorded as under active adjudication rather than as a win or a kill. We do NOT claim the published theorem is wrong. The adjudication pass independently ruled out transcription error, closed-form simplification error, a bug in our structure (re-derived from interface continuity with no shared code, bit-for-bit identical), and the obvious scope conditions.",
-        "The one step nobody re-derived: B2's improvement over plain translation rests on a localized-polyconvexity field constraint from Remark 4.1, argued by structural variation for OPTIMAL configurations. That multi-page derivation is where a hidden restriction on microstructure topology could live.",
-        "A naive grid maximization over the translation parameter t can report a spurious maximum near t=k2 from a sign flip outside the formula's valid domain; the critical-point solve is the trustworthy route. My own scan was of the naive kind and its agreement was partly luck.",
-        "No fourth implementation independent of laminate algebra (e.g. a direct numerical solve on an explicit finite-scale realisation).",
-        "No search for errata or independent reproductions of the B2 branch in citing work.",
-        "The search is within one laminate family, so the true minimum below m11 may be lower still."
-      ],
-      "note": "Provenance correction of record: two earlier workers cited 'Cherkaev 2009' while one was quoting arXiv:1009.3060, the anisotropic k3=infinity paper, whose hypothesis our instances violate. Fetching the actual PDF changed the conclusion. Prefer the primary document over agreeing secondary quotations."
-    },
-    {
-      "id": "007",
-      "file": "attempts/007-coated-t2-attainment-at-target.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "exact-rational-arithmetic",
-        "hierarchical-laminate-construction",
-        "coated-assemblage-attainability",
-        "closed-form-parameterization"
-      ],
-      "one_line": "A rank-6 coated T-squared laminate attains the HS lower bound EXACTLY at the original target point sigma=(1,2,5), f=(1/8,1/8,3/4) where every earlier search stalled at 5.46e-4; the construction lives in Q(sqrt(105)) with irrational node fractions but exactly rational volume fractions and value 37/11, and it works by building the inner structure at ITS OWN threshold and then applying 003's coating lemma.",
-      "leak_terms": [
-        "Q(sqrt(105))",
-        "13x^2+x-2=0",
-        "a=c=1-u, d=Theta, b=1-u/4",
-        "rank 6",
-        "rational snap",
-        "37/11",
-        "inner m2 differs from target m2"
-      ],
-      "target_shape": "object",
-      "push_rounds": 3,
-      "range": "Exact field arithmetic in Q(sqrt(105)) with two independent lamination algorithms agreeing; the T-squared closed form verified at 5 values of m2; two rational-snap witnesses at sqrt(105) precision 2^-190 rebuilt as plain Fractions and passing the real laminate.py and verify_laminate.py, residuals 7.8e-58 and -7.7e-60 from 37/11.",
-      "gaps": [
-        "Rank 6 is not shown minimal at this point.",
-        "The target-hitting step was solved for this specific ratio f2:f3 = 1:6; whether the analogous condition always has a physical solution, and of what algebraic degree, is open.",
-        "Nothing below m11: 006's escalation is untouched by this.",
-        "Novelty: an independent constructive confirmation of Cherkaev 2009 Thm 8.1, not a new theorem."
-      ],
-      "note": "Explains why 001's and 003's searches missed it: fixing f1=1/8 and searching node parameters is structurally incapable of finding this object, because the construction routes through an inner structure at a different, irrational volume fraction. Newton-solving the same topology at fixed f1=1/8 confirms no valid solution exists there."
-    },
-    {
-      "id": "008",
-      "file": "attempts/008-localizing-the-b2-discrepancy.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "MAP",
-      "mechanism": [
-        "field-equality-analysis",
-        "exact-rational-arithmetic",
-        "literature-reconciliation"
-      ],
-      "one_line": "Localizes 006's escalation to a single named condition: Cherkaev's (4.25), which requires the field in the MOST conducting phase to be constant and isotropic. Our attaining structure satisfies it exactly, corroborating the framework; our below-m11 candidate violates it, its phase-3 field taking two distinct anisotropic values. The conflict now rests entirely on whether (4.25) is necessary at the optimum.",
-      "leak_terms": [
-        "(4.25)",
-        "constant and isotropic in Omega_N",
-        "V=0 (4.24)",
-        "D^2 <= (S - varsigma_N)^2",
-        "structural variation Remark 4.6",
-        "phase 3 two values",
-        "1.3389 and 1.3461"
-      ],
-      "verifies": "006",
-      "target_shape": "proof",
-      "push_rounds": 2,
-      "range": "Two structures at sigma=(1,2,5), m2=1/4, computed exactly by applying both orthogonal fields and assembling the field matrix per leaf. Condition (4.24) V=0 verified as exact rational equality in every leaf of both. Constraint statements are [T] from the primary preprint, sections 2.3 and 4.4.",
-      "gaps": [
-        "Does NOT dissolve the conflict: (4.25) constrains the derivation's admissible fields, not the theorem's stated hypotheses, and the theorem is stated for every isotropic three-phase composite. A legitimate composite may violate an optimality condition.",
-        "Remark 4.6's structural-variation derivation of (4.25) was not re-derived; that is now the single decisive step.",
-        "No search yet for a below-m11 structure that SATISFIES (4.25) and still beats B2, which would move the conflict off (4.25) entirely.",
-        "Still possible: an error on our side that six independent checks have not caught."
-      ],
-      "note": "The corroborating half matters as much as the critical half: 004's attaining structure satisfies (4.24) and (4.25) exactly, so Cherkaev's optimality conditions describe the attaining object perfectly."
-    },
-    {
-      "id": "009",
-      "file": "attempts/009-b2-is-conditional-on-4-26.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "EVIDENCE",
-      "mechanism": [
-        "field-equality-analysis",
-        "exact-rational-arithmetic",
-        "literature-reconciliation",
-        "adversarial-verification"
-      ],
-      "one_line": "Resolves the escalation: Cherkaev's B2 separates EXACTLY on his constraint (4.26). Every structure we find below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active with slack 0. So B2 is a correct bound over the class its derivation constrains, and Theorem 7.1's statement is broader than that class.",
-      "leak_terms": [
-        "B2 separates on (4.26)",
-        "slack exactly 0",
-        "negative coefficient on the D^2 integral",
-        "constrained minimum above B2",
-        "3.0056032896",
-        "statement broader than the proof's class"
-      ],
-      "verifies": "006",
-      "target_shape": "proof",
-      "push_rounds": 3,
-      "range": "sigma=(1,2,5), m2=1/4, at m1 = 31/250, 3/25, 11/100; roughly 500 family members per point, exact arithmetic, partitioned by whether (4.26) holds. Constrained minima 3.0056032896 / 3.0296467290 / 3.0921743261 all ABOVE B2; unconstrained minima all below. Slack exactly 0 at the m11-attaining structure.",
-      "gaps": [
-        "SPECULATION, load-bearing: that (4.26) is not without loss of generality for all composites. The alternative remains an error on our side that no check has caught.",
-        "Not a proof that no (4.26)-respecting structure beats B2 -- a finite search in ONE laminate family. A single counterexample would reopen 006.",
-        "Remark 4.6's structural-variation derivation of (4.26) still not re-derived; that is what would say who is RIGHT, as opposed to what they disagree about.",
-        "No claim that Theorem 7.1 is wrong: this is a scope observation about statement versus derivation."
-      ],
-      "note": "The decisive experiment was NOT re-deriving the paper's argument, which two passes had failed to do, but partitioning candidate structures by the suspect hypothesis and checking whether the bound respects the partition. Much cheaper, nearly as informative."
-    },
-    {
-      "id": "010",
-      "file": "attempts/010-attainment-fields-forced.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "field-equality-analysis",
-        "exact-rational-arithmetic",
-        "closed-form-parameterization"
-      ],
-      "one_line": "The attainment field pattern is FORCED by interface continuity: phases 2 and 3 isotropic at rho_i, and phase 1 carrying the mirror pair with y = s3*rho_3/s1, with 2*rho_1 - y = rho_3 an identity. That pattern makes Cherkaev's constraint (4.26) exactly active by two-line algebra, so 009's slack-of-zero is an identity rather than a coincidence, and 004's parameters were never magic numbers.",
-      "leak_terms": [
-        "y = s3*rho_3/s1",
-        "mirror pair",
-        "2*rho_1 - y = rho_3",
-        "D_1 = S_1 - varsigma_N",
-        "(4.26) active by algebra",
-        "621 survivors, zero both"
-      ],
-      "target_shape": "proof",
-      "push_rounds": 2,
-      "range": "Field pattern matched exactly against the built structures at five (sigma, r) instances in Q; the two underlying identities checked on 19623 random exact (sigma, c) instances with zero failures; falsification sweep of 009's reading at axis-normal rank 3, sigma=(1,2,5), m2=1/4, m1=3/25: 621 screened survivors, 432 respecting (4.26), zero both respecting and below B2.",
-      "gaps": [
-        "Derives the FIELD PATTERN, not the lamination fractions: a1 = r*Theta and a5 = 1-Theta still rest on verified but underived bookkeeping, so 005's open item is narrowed not closed.",
-        "Nothing new on whether (4.26) is necessary at the optimum, which remains decisive for 009's reading.",
-        "The falsification sweep covers rank 3 at one grid point only; rank 4 was launched but is not in the record."
-      ],
-      "note": "The two loose ends turned out to be one calculation, needing nothing beyond tangential and normal-flux continuity at a single p1|p3 interface."
-    },
-    {
-      "id": "011",
-      "file": "attempts/011-parameters-derived.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "field-equality-analysis",
-        "closed-form-parameterization",
-        "exact-rational-arithmetic"
-      ],
-      "one_line": "Closes the item three records carried open: given 010's forced field pattern, both non-trivial parameters of the attaining construction follow from tangential continuity at two interfaces -- a5 = (y - rho_2)/(y - rho_3), which reduces algebraically to 1 - Theta, and a1 = (1 - rho_3)/(y - rho_3), which equals r*Theta. No fitting, no search.",
-      "leak_terms": [
-        "a5 = (y - rho_2)/(y - rho_3)",
-        "a1 = (1 - rho_3)/(y - rho_3)",
-        "tangential component is shared",
-        "1 - Theta derived"
-      ],
-      "target_shape": "proof",
-      "push_rounds": 1,
-      "range": "Both derived expressions equal the built parameters exactly in Q at six (sigma, r) instances spanning integer and rational conductivities; the a5 reduction checked additionally on 19471 random exact (sigma, c) instances, zero failures.",
-      "gaps": [
-        "a1 = r*Theta as a function of r is verified instance-wise, not reduced by hand: the remaining step is showing (s3+s1)/c = 1 + r(s3-s2)/(s2+s1) at f1 = m11, f2 = r^2.",
-        "Applies to the topology of 004/005; 007's coated-T^2 parameters were solved rather than derived and are untouched.",
-        "Nothing new about the 006/009 escalation."
-      ],
-      "note": "General lesson, reinforcing 010: when a construction's parameters look fitted, ask what the interfaces force."
-    },
-    {
-      "id": "012",
-      "file": "attempts/012-a1-reduction-closed.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "VERIFIED",
-      "mechanism": [
-        "closed-form-parameterization",
-        "exact-rational-arithmetic"
-      ],
-      "one_line": "Closes the last reduction by hand: (s3+s1)/c = 1 + r*K at the attaining fractions, in four lines, giving a1 = r*Theta. With 010 and 011 the attaining construction of 004 is now DERIVED END TO END rather than fitted -- fields forced by attainment plus interface continuity, a5 = 1-Theta and a1 = r*Theta following, a3 a redundant encoding.",
-      "leak_terms": [
-        "(s3+s1)/c = 1 + r*K",
-        "pair against f3 = 1 - f1 - f2",
-        "derived end to end"
-      ],
-      "target_shape": "proof",
-      "push_rounds": 1,
-      "range": "The identity (s3+s1)/c = 1 + r*K verified on 15571 random exact (sigma, r) instances with zero failures; a1 = r*Theta exact at every attaining instance tried.",
-      "gaps": [
-        "No claim of optimality or minimal rank for the construction.",
-        "007's coated-T^2 parameters are still solved rather than derived.",
-        "Nothing new about the 006/009 escalation."
-      ],
-      "note": "Method note: the reduction collapsed once the terms were paired against the pieces of f3 = 1 - f1 - f2 rather than expanded independently. The grouping was the whole difficulty."
-    },
-    {
-      "id": "013",
-      "file": "attempts/013-separation-survives-wider-search.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "EVIDENCE",
-      "mechanism": [
-        "bounded-rank-laminate-screen",
-        "field-equality-analysis",
-        "exact-rational-arithmetic",
-        "adversarial-verification"
-      ],
-      "one_line": "Tried hard to falsify 009's separation and failed: across three searches totalling over 22000 structures -- exhaustive axis-normal rank 3 and rank 4, plus dense sweeps of the 006 family at three grid points -- not one structure both respects Cherkaev's (4.26) and lies below B2, while all 274 below-B2 structures found violate it.",
-      "leak_terms": [
-        "22000 structures",
-        "zero both",
-        "12273 respecting",
-        "margins +2.5e-4 / +2.5e-3 / +7.6e-3"
-      ],
-      "verifies": "009",
-      "target_shape": "object",
-      "push_rounds": 2,
-      "range": "sigma=(1,2,5), m2=1/4. Exhaustive axis-normal rank 3 (621 survivors) and rank 4 (18859 survivors) at m1=3/25; dense 006-family sweeps at m1 = 31/250, 3/25, 11/100 (981/992/1035 members, containing 19/58/197 below-B2 structures). Float screen then exact classification by the sign of (S - varsigma_N)^2 - D^2.",
-      "gaps": [
-        "A finite search, not a proof: axis-normal topologies to rank 4 and one family at rank 5 only, no non-axis normals, no higher ranks.",
-        "All of it at a single conductivity triple; the separation has not been tested at a second one.",
-        "Nothing about whether (4.26) is necessary at the optimum, which searching cannot settle."
-      ],
-      "note": "The dense family sweeps carry the weight: they are the only searches containing below-B2 structures at all, and every one of those violates the constraint."
-    },
-    {
-      "id": "014",
-      "file": "attempts/014-separation-at-a-second-triple.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "EVIDENCE",
-      "mechanism": [
-        "bounded-rank-laminate-screen",
-        "field-equality-analysis",
-        "exact-rational-arithmetic"
-      ],
-      "one_line": "The (4.26) separation reproduces at a second conductivity triple sigma=(1,3,7): 248 structures below B2, every one violating the constraint, 945 respecting structures, every one above B2, zero exceptions -- so it is not an artefact of sigma=(1,2,5), and the remaining disagreement is entirely about Cherkaev's structural-variation argument.",
-      "leak_terms": [
-        "sigma=(1,3,7)",
-        "m11 = 1/12",
-        "248 below B2",
-        "zero exceptions",
-        "margins +5.4e-4 / +5.1e-3 / +1.7e-2"
-      ],
-      "verifies": "009",
-      "target_shape": "object",
-      "push_rounds": 1,
-      "range": "sigma=(1,3,7), m2=1/4 (sqrt(m2)=1/2 exact), Theta=1/6, m11=1/12; dense 006-family sweeps at m1 = 0.082, 0.078, 0.070 (785/793/825 members). Float screen then exact classification by the sign of (S - varsigma_N)^2 - D^2.",
-      "gaps": [
-        "Still a finite search, and still silent on whether (4.26) is necessary at the optimum -- the one question no search can answer.",
-        "One family per point; no exhaustive topology sweep at this triple."
-      ],
-      "note": "Retire further searching on this line: 013 and 014 together give strongly diminishing returns. Only re-deriving Remark 4.6, or asking the author, can move it."
-    },
-    {
-      "id": "015",
-      "file": "attempts/015-family-minimum-ratio.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "EVIDENCE",
-      "mechanism": [
-        "bounded-rank-laminate-screen",
-        "exact-rational-arithmetic",
-        "closed-form-parameterization"
-      ],
-      "one_line": "Below m11 the 006 family's minimum sits at a nearly m1-independent fraction of the way from HS_lo to B2, approaching a sigma-dependent limit c(sigma) measured between 0.532 and 0.690 on five conductivity triples -- so the structures realise only about half to two thirds of B2's claimed improvement, which turns the escalation from a qualitative oddity into a quantitative one.",
-      "leak_terms": [
-        "ratio 0.5324",
-        "c(sigma)",
-        "0.532369 / 0.576304 / 0.598509 / 0.690125",
-        "not monotone in Theta",
-        "half to two thirds of the claimed improvement"
-      ],
-      "target_shape": "mixed",
-      "push_rounds": 2,
-      "range": "006 family, m2=1/4, exact arithmetic with the two-parameter minimisation refined to 1e-9. Eight m1 values at sigma=(1,2,5) from 0.098 to 0.1249, plus the limiting ratio at five triples: (1,2,5) 0.532369, (2,5,11) 0.532696, (1,3,7) 0.576304, (1,4,9) 0.598509, (1,2,9) 0.690125.",
-      "gaps": [
-        "One family at rank 5: 013's exhaustive rank-4 sweep could not even reach B2, so a richer class could sit lower and change c.",
-        "No closed form for c(sigma); five data points, and it is provably not a function of Theta alone since (1,2,9) has the largest Theta and the largest c while (1,2,5) and (2,5,11) differ in Theta but agree in c to three decimals.",
-        "The conjecture that the sharp bound is HS + c(sigma)(B2 - HS) is labelled SPECULATION and rests on one family."
-      ],
-      "note": "Method note: three records classified 23000 structures without once asking how far below the bound the best one sits. Classification is not measurement."
-    },
-    {
-      "id": "016",
-      "file": "attempts/016-enrichment-dead-end.md",
-      "date": "2026-09-03",
-      "mode": "informed",
-      "status": "REFUTED",
-      "mechanism": [
-        "bounded-rank-laminate-screen",
-        "exact-rational-arithmetic"
-      ],
-      "one_line": "Breaking the C/B collapse -- giving node B the orthogonal normal, which turns 005's redundant a3 into a genuine degree of freedom -- makes the structure dramatically WORSE, landing far above B2 (ratio 66 and 6.7 versus 0.53 for the original family). The collapse is the right structure, not wasted freedom, so 015's curve survives its first enrichment.",
-      "leak_terms": [
-        "ratio 65.87",
-        "ratio 6.71",
-        "collapse is the right structure",
-        "orthogonal normal destroys it"
-      ],
-      "target_shape": "object",
-      "push_rounds": 1,
-      "range": "sigma=(1,2,5), m2=1/4, m1 = 0.12 and 0.11; same volume constraints re-solved for the altered topology, exact isotropy bisection, minimisation over the two remaining free parameters refined to 1e-8.",
-      "gaps": [
-        "One enrichment out of many: non-axis normals, rank 6 and other topologies are untested, so 015 lead 2 stays open.",
-        "No explanation yet for WHY same-normal stacking is required; 016 lead 2 proposes deriving it from the field conditions as 010 did for the attainment fields."
-      ],
-      "note": "Search heuristic worth carrying: an apparent redundancy in a good structure can signal that the structure has found the right subspace, and recovering the freedom is a way of leaving it."
-    }
-  ]
+ "problem": "three-phase-conductivity",
+ "route_status": "VERIFIED",
+ "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted. 013 then tried to falsify that reading across 22000+ structures and failed, so the separation is not an artefact of one family. 014 reproduced the separation at a second conductivity triple, so it is not an artefact of one triple; only re-deriving Cherkaev's Remark 4.6 can move the question further. 015 then measured rather than classified: below m11 the family minimum tracks a nearly m1-independent fraction c(sigma) of the way from HS to B2, between 0.532 and 0.690 on five triples, suggesting a genuine intermediate bound. 016 tested the first enrichment of that family and REFUTED it: breaking the C/B collapse loses by one to two orders of magnitude, so the collapse is the right structure rather than wasted freedom. 017 then replaced the search with a derivative: B2 and the family both meet HS_lo at m11 to FIRST order, so 015's constant is a ratio of curvatures, c = gamma/beta, exactly rational at every rational (sigma, m2) and given in closed form -- verified as an identity at 2610 instances. It also corrects 015 (its five values are ~4e-5 low, and c varies with m2 as much as with sigma) and finds 0 < c < 1 at 76038 admissible points with c -> 1 only as sigma3/sigma1 -> infinity, the infinite-contrast case Cherkaev treats separately.",
+ "attempts": [
+  {
+   "id": "001",
+   "file": "attempts/001-coated-laminate-census.md",
+   "date": "2026-09-02",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "hierarchical-laminate-construction",
+    "coated-assemblage-attainability",
+    "bounded-rank-laminate-screen"
+   ],
+   "one_line": "Exact two-phase HS attainment and the Milton (1981) three-phase attainability rule rediscovered and certified in Q; in the region where the assemblage fails and Cherkaev's bound is plain HS, an exhaustive rank-3/rank-4 laminate screen gets within 5.5e-4 of HS_lo, with every winner certified exactly and verified by the second implementation.",
+   "leak_terms": [
+    "Milton assemblage",
+    "HS_lo <= sigma2",
+    "2*Theta*(1-m2)",
+    "m11",
+    "split the worst phase",
+    "3.3641819563",
+    "5.456e-4",
+    "2917x^2 - 3374x + 520",
+    "16409",
+    "f1* ~ 0.0301",
+    "rank-4 laminate"
+   ],
+   "target_shape": "mixed",
+   "push_rounds": 2,
+   "range": "Two-phase: 3 conductivity pairs x 5 fractions, exact. Milton rule: grids k/8 at sigma=(1,2,5), k/40 at (1,3,20), k/30 at (1/7,5/3,101/2), plus 19924 random exact instances for the equivalence with m1 >= 2 Theta (1-m2). Screen: rank 3 over four normals (11520 topologies) at the k/8 grid for sigma=(1,2,5) both sides and gap-region points for (1,3,20); rank 4 with axis normals (33600 topologies) at five gap points; seed 1, 2 restarts. 27 certified records.",
+   "gaps": [
+    "Nesi 1995's bound was not transcribed (paywalled); which published bound is tightest at the census points is unresolved.",
+    "Whether Albin-Cherkaev-Nesi 2007 or Cherkaev 2009 exhibit a structure attaining HS on m11 <= m1 < 2 Theta (1-m2) was not settled.",
+    "Rank-4 screen used axis normals and two restarts only; its value is an upper estimate of the rank-4 optimum.",
+    "The Milton attribution rests on two secondary sources; the 1981 paper itself was not reached.",
+    "Screens at fixed rank are evidence about that rank and normal set, not about all microstructures."
+   ],
+   "note": "Mode is informed only because the director read STATUS.md and docs/CYCLE.md; the problem had no attempts, so the attempt is effectively blind. Work was delegated to four Sonnet subagents (certifier, screener, shape analyst, literature skeptic) briefed on tier-0 material and this attempt's own scripts; the director verified the Milton-equivalence algebra and the exactness checks itself."
+  },
+  {
+   "id": "002",
+   "file": "attempts/002-hs-attainment-field-mechanism.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "MAP",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "field-equality-analysis",
+    "variational-equality-case",
+    "duality-reduction"
+   ],
+   "one_line": "Attaining the HS lower bound forces uniform target fields in every phase of nonvanishing polarization and a precisely determined NONZERO field variance in the comparison-medium phase, Var1=(c^2 S2-1)/f1; the gap then decomposes exactly into mean and variance defects, which kills two natural obstruction conjectures and shows rank 5 is parameter-starved rather than floored.",
+   "leak_terms": [
+    "attainment fields",
+    "(sigma_HS+sigma1)/(sigma_i+sigma1)",
+    "E_2 <= E_0",
+    "required variance",
+    "(c^2 S2 - 1)/f1",
+    "gap decomposition",
+    "path-product rule",
+    "parameter starvation",
+    "rank 7-8"
+   ],
+   "target_shape": "proof",
+   "push_rounds": 3,
+   "range": "Exact in Q: the assemblage realises the attainment fields at every feasible point tried; the equivalence of E2<=E0, HS_lo<=sigma2 and Milton's threshold on the whole k/8 grid at sigma=(1,2,5); the Var_req closed form on 3 instances incl. an unrelated triple; the gap decomposition on all 12 certified lower-side records at sigma=(1,2,5) plus the assemblage; the Keller-Dykhne reduction on all 27 certified records; the path-product rule on 3 axis-normal trees at 3 applied directions each.",
+   "gaps": [
+    "Necessity of the attainment-field condition (*) is assumed, not proved here: it is the classical HS equality analysis but was not re-derived or cited to a page. Everything that would RULE OUT a structure leans on it.",
+    "The rank 7-8 parameter count is heuristic; the conditions are not shown independent.",
+    "Whether Var1 = Var_req is automatic given (*), correct fractions and isotropy is open, and would change the count.",
+    "No claim either way on attainability of HS in the gap region."
+   ],
+   "note": "Uses no new search: the two refutations come out of 001's own certified data once the field diagnostics exist."
+  },
+  {
+   "id": "003",
+   "file": "attempts/003-coating-monotonicity-and-variance-floor.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "hierarchical-laminate-construction",
+    "coated-assemblage-attainability",
+    "field-equality-analysis",
+    "literature-reconciliation"
+   ],
+   "one_line": "Coating an HS-optimal structure with extra comparison-medium phase preserves HS-optimality exactly (proved, 12 instances), so attainability is upward closed in f1 along fixed f2:f3 and the construction problem collapses to the bottom of each ray; 001's rank-3 feasibility floor is explained as a phase-1 leaf-volume degeneration against a diverging required variance; and the literature (Cherkaev 2009 Thm 8.1) claims HS IS attained on the whole open interval.",
+   "leak_terms": [
+    "coating preserves HS-optimality",
+    "upward closed",
+    "bottom of the ray",
+    "rho=1/2",
+    "leaf-volume degeneration",
+    "L13,2,13,1,1",
+    "m11 = 0.114277",
+    "gap ratio 35",
+    "1.6e-5"
+   ],
+   "target_shape": "proof",
+   "push_rounds": 3,
+   "range": "Lemma proved in general and verified exactly in Q on 12 instances (3 base structures x 4 coating fractions), isotropy exact and rho=1/2 every time. Variance-collapse mechanism computed exactly along the f2:f3=1:6 ray at sigma=(1,2,5) for 001's rank-3 family down to its floor, and the rank-4 family down to f1=1/96. Rank-5 gap 1.6e-5 is the best found in a still-running axis-normal sweep, hence an upper bound on the rank-5 optimum.",
+   "gaps": [
+    "No HS-attaining structure below Milton's threshold has been built or verified here; the rank-5 number is a small gap, not an attainment.",
+    "Tension unresolved: a near-constant per-rank gap ratio looks like geometric convergence, which sits oddly beside the literature's finite-rank attainment claim.",
+    "Cherkaev's Remark 8.2 credits Gibiansky-Sigmund 2000, an elasticity paper; the conductivity reading is a reinterpretation, flagged not smoothed.",
+    "The T^2-structure's isotropic member could not be reconstructed from the transcribed formulas, so no ready-to-verify exact tree is in hand.",
+    "Nothing established about attainability BELOW m11."
+   ],
+   "note": "The coating lemma was proved and verified here independently, then found to be exactly the outer part of Cherkaev's published L13,2,13,1,1 construction; the agreement is convergent, not derived."
+  },
+  {
+   "id": "004",
+   "file": "attempts/004-closed-form-attainment-at-m11.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "hierarchical-laminate-construction",
+    "bounded-rank-laminate-screen",
+    "field-equality-analysis",
+    "closed-form-parameterization"
+   ],
+   "one_line": "An explicit closed-form rank-5 laminate that attains the 2D three-phase Hashin-Shtrikman LOWER bound exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold 2*Theta*(1-m2) at every m2, with a3 a genuinely free parameter; with 003's coating lemma it gives attainment for all f1 >= m11.",
+   "leak_terms": [
+    "a0 = 1-r",
+    "a1 = r*Theta",
+    "a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1))",
+    "a4 = (a3-(1-r))/a3",
+    "f1 = 2*Theta*r*(1-r)",
+    "one-parameter family",
+    "(1/2,1/8,4/5,3/8,3/4)",
+    "mirror pair (10/3,2/3)",
+    "1055 instances"
+   ],
+   "target_shape": "object",
+   "push_rounds": 4,
+   "range": "Exact attainment on 1055 random (sigma, r, a3) instances with zero failures (1099 skipped outside the stated domain a3 > 1-r, f3 > 0); both harness routes agree and Keller-Dykhne holds on every tree; the written record passes verify_laminate.py; 002's field diagnostics come out exactly (phases 2,3 uniform on target, var_term == var_required == 2/9 at sigma=(1,2,5), r=1/2).",
+   "gaps": [
+    "Corrected by 005: a5 = 1 - Theta is an exact identity, the object is really RANK 4 (a3's freedom is a redundant encoding, not geometric freedom), and sigma1<sigma2<sigma3 was an unchecked precondition. The record is left as written per the repo's hard rule.",
+    "The identities a1 = r*Theta and a5 = (s2 s3 - s1^2)/((s2+s1)(s3-s1)) were found by pattern-matching exact numerics and checked widely, not derived.",
+    "Nothing established about f1 < m11: whether m11 is the true attainability threshold is open and is now the frontier question.",
+    "Novelty not settled: this reproduces what Cherkaev 2009 Thm 8.1 asserts and should be recorded as an independent constructive rediscovery unless the skeptic's literature check says otherwise.",
+    "Minimal rank for attainment at m11 is not established; rank 4 was not searched at exactly f1 = m11."
+   ],
+   "note": "Seeded by a delegated rank-5 sweep, then solved exactly rather than by rounding floats (rounding provably fails, since it moves the volume fractions and hence the target). The attaining set is a one-parameter family, which is why float optimizers wander instead of converging."
+  },
+  {
+   "id": "005",
+   "file": "attempts/005-skeptic-pass-on-004.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "adversarial-verification",
+    "exact-rational-arithmetic",
+    "literature-reconciliation"
+   ],
+   "one_line": "Skeptic pass on 004: a third independent implementation agrees on 590+ instances with zero mismatches and an adversarial sweep of 3575+ finds no failure, so the attaining construction is VERIFIED; three corrections follow -- a5 = 1 - Theta is an exact identity, the object is really RANK 4 (two consecutive same-normal laminations collapse, which is why a3 was free), and sigma1<sigma2<sigma3 is an unchecked precondition.",
+   "leak_terms": [
+    "a5 = 1 - Theta",
+    "really rank 4",
+    "w = a3(1-a4) = 1-r",
+    "redundant encoding",
+    "590 instances",
+    "3575 instances",
+    "check_ordering"
+   ],
+   "verifies": "004",
+   "target_shape": "proof",
+   "push_rounds": 1,
+   "range": "Third implementation agrees on 590+ instances including extreme conductivity ratios; adversarial hunt over 3575+ instances plus an exact perturbation test, probing a3 at both endpoints of (1-r,1), r near 0 and 1, and near-degenerate phases; m11 < Milton threshold and the domain claims a0,a1,a4,a5 in (0,1) proved algebraically and unconditionally.",
+   "gaps": [
+    "a1 = r*Theta and a5 = 1-Theta are corroborated by a second independent derivation (tp_cherkaev.py) but still not derived from first principles via 002's field conditions.",
+    "Nothing established about f1 < m11.",
+    "Minimal rank for attainment at m11 is open; since the object is really rank 4, the sharp question is now whether rank 3 suffices."
+   ],
+   "note": "Corrects 004's headline rank and its framing of a3 as a genuine geometric freedom. Per the repo's hard rule, 004 is left exactly as written."
+  },
+  {
+   "id": "006",
+   "file": "attempts/006-below-m11-bound-discrepancy.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "hierarchical-laminate-construction",
+    "literature-reconciliation",
+    "adversarial-verification"
+   ],
+   "one_line": "Laminates from 004's family with f1 just below m11 sit STRICTLY BELOW Cherkaev's B2 lower bound, systematically across four conductivity triples (ratio (B2-HS)/(ours-HS) near 1.89); the transcription was checked against the primary PDF and is correct, the theorem's hypotheses are satisfied, the closed form matches the paper's own variational statement, and the one field condition we could identify does not exclude us -- reported as REQUIRING ESCALATION, not as a refutation.",
+   "leak_terms": [
+    "below B2",
+    "ratio 1.89",
+    "newbounds7.pdf",
+    "arXiv:1009.3060 is a different paper",
+    "Theorem 7.1",
+    "(7.1)-(7.2) max over t",
+    "field-ordering (4.2) satisfied",
+    "admissible-field certificate"
+   ],
+   "target_shape": "object",
+   "push_rounds": 5,
+   "range": "sigma=(1,2,5) at m1 = 31/250, 3/25, 11/100 with m2 = 1/4 exact in Q; plus (1,3,7), (1,4,9), (2,5,11) at three fractions of m11 each. Our structures: exact fractions, off-diagonal exactly 0, diagonal difference < 1e-61, both harness routes agreeing, Keller-Dykhne holding, verify_laminate.py passing, and an explicit admissible-field certificate (average field, average flux, energy identity all exact).",
+   "gaps": [
+    "UNRESOLVED, and recorded as under active adjudication rather than as a win or a kill. We do NOT claim the published theorem is wrong. The adjudication pass independently ruled out transcription error, closed-form simplification error, a bug in our structure (re-derived from interface continuity with no shared code, bit-for-bit identical), and the obvious scope conditions.",
+    "The one step nobody re-derived: B2's improvement over plain translation rests on a localized-polyconvexity field constraint from Remark 4.1, argued by structural variation for OPTIMAL configurations. That multi-page derivation is where a hidden restriction on microstructure topology could live.",
+    "A naive grid maximization over the translation parameter t can report a spurious maximum near t=k2 from a sign flip outside the formula's valid domain; the critical-point solve is the trustworthy route. My own scan was of the naive kind and its agreement was partly luck.",
+    "No fourth implementation independent of laminate algebra (e.g. a direct numerical solve on an explicit finite-scale realisation).",
+    "No search for errata or independent reproductions of the B2 branch in citing work.",
+    "The search is within one laminate family, so the true minimum below m11 may be lower still."
+   ],
+   "note": "Provenance correction of record: two earlier workers cited 'Cherkaev 2009' while one was quoting arXiv:1009.3060, the anisotropic k3=infinity paper, whose hypothesis our instances violate. Fetching the actual PDF changed the conclusion. Prefer the primary document over agreeing secondary quotations."
+  },
+  {
+   "id": "007",
+   "file": "attempts/007-coated-t2-attainment-at-target.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "exact-rational-arithmetic",
+    "hierarchical-laminate-construction",
+    "coated-assemblage-attainability",
+    "closed-form-parameterization"
+   ],
+   "one_line": "A rank-6 coated T-squared laminate attains the HS lower bound EXACTLY at the original target point sigma=(1,2,5), f=(1/8,1/8,3/4) where every earlier search stalled at 5.46e-4; the construction lives in Q(sqrt(105)) with irrational node fractions but exactly rational volume fractions and value 37/11, and it works by building the inner structure at ITS OWN threshold and then applying 003's coating lemma.",
+   "leak_terms": [
+    "Q(sqrt(105))",
+    "13x^2+x-2=0",
+    "a=c=1-u, d=Theta, b=1-u/4",
+    "rank 6",
+    "rational snap",
+    "37/11",
+    "inner m2 differs from target m2"
+   ],
+   "target_shape": "object",
+   "push_rounds": 3,
+   "range": "Exact field arithmetic in Q(sqrt(105)) with two independent lamination algorithms agreeing; the T-squared closed form verified at 5 values of m2; two rational-snap witnesses at sqrt(105) precision 2^-190 rebuilt as plain Fractions and passing the real laminate.py and verify_laminate.py, residuals 7.8e-58 and -7.7e-60 from 37/11.",
+   "gaps": [
+    "Rank 6 is not shown minimal at this point.",
+    "The target-hitting step was solved for this specific ratio f2:f3 = 1:6; whether the analogous condition always has a physical solution, and of what algebraic degree, is open.",
+    "Nothing below m11: 006's escalation is untouched by this.",
+    "Novelty: an independent constructive confirmation of Cherkaev 2009 Thm 8.1, not a new theorem."
+   ],
+   "note": "Explains why 001's and 003's searches missed it: fixing f1=1/8 and searching node parameters is structurally incapable of finding this object, because the construction routes through an inner structure at a different, irrational volume fraction. Newton-solving the same topology at fixed f1=1/8 confirms no valid solution exists there."
+  },
+  {
+   "id": "008",
+   "file": "attempts/008-localizing-the-b2-discrepancy.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "MAP",
+   "mechanism": [
+    "field-equality-analysis",
+    "exact-rational-arithmetic",
+    "literature-reconciliation"
+   ],
+   "one_line": "Localizes 006's escalation to a single named condition: Cherkaev's (4.25), which requires the field in the MOST conducting phase to be constant and isotropic. Our attaining structure satisfies it exactly, corroborating the framework; our below-m11 candidate violates it, its phase-3 field taking two distinct anisotropic values. The conflict now rests entirely on whether (4.25) is necessary at the optimum.",
+   "leak_terms": [
+    "(4.25)",
+    "constant and isotropic in Omega_N",
+    "V=0 (4.24)",
+    "D^2 <= (S - varsigma_N)^2",
+    "structural variation Remark 4.6",
+    "phase 3 two values",
+    "1.3389 and 1.3461"
+   ],
+   "verifies": "006",
+   "target_shape": "proof",
+   "push_rounds": 2,
+   "range": "Two structures at sigma=(1,2,5), m2=1/4, computed exactly by applying both orthogonal fields and assembling the field matrix per leaf. Condition (4.24) V=0 verified as exact rational equality in every leaf of both. Constraint statements are [T] from the primary preprint, sections 2.3 and 4.4.",
+   "gaps": [
+    "Does NOT dissolve the conflict: (4.25) constrains the derivation's admissible fields, not the theorem's stated hypotheses, and the theorem is stated for every isotropic three-phase composite. A legitimate composite may violate an optimality condition.",
+    "Remark 4.6's structural-variation derivation of (4.25) was not re-derived; that is now the single decisive step.",
+    "No search yet for a below-m11 structure that SATISFIES (4.25) and still beats B2, which would move the conflict off (4.25) entirely.",
+    "Still possible: an error on our side that six independent checks have not caught."
+   ],
+   "note": "The corroborating half matters as much as the critical half: 004's attaining structure satisfies (4.24) and (4.25) exactly, so Cherkaev's optimality conditions describe the attaining object perfectly."
+  },
+  {
+   "id": "009",
+   "file": "attempts/009-b2-is-conditional-on-4-26.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "field-equality-analysis",
+    "exact-rational-arithmetic",
+    "literature-reconciliation",
+    "adversarial-verification"
+   ],
+   "one_line": "Resolves the escalation: Cherkaev's B2 separates EXACTLY on his constraint (4.26). Every structure we find below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active with slack 0. So B2 is a correct bound over the class its derivation constrains, and Theorem 7.1's statement is broader than that class.",
+   "leak_terms": [
+    "B2 separates on (4.26)",
+    "slack exactly 0",
+    "negative coefficient on the D^2 integral",
+    "constrained minimum above B2",
+    "3.0056032896",
+    "statement broader than the proof's class"
+   ],
+   "verifies": "006",
+   "target_shape": "proof",
+   "push_rounds": 3,
+   "range": "sigma=(1,2,5), m2=1/4, at m1 = 31/250, 3/25, 11/100; roughly 500 family members per point, exact arithmetic, partitioned by whether (4.26) holds. Constrained minima 3.0056032896 / 3.0296467290 / 3.0921743261 all ABOVE B2; unconstrained minima all below. Slack exactly 0 at the m11-attaining structure.",
+   "gaps": [
+    "SPECULATION, load-bearing: that (4.26) is not without loss of generality for all composites. The alternative remains an error on our side that no check has caught.",
+    "Not a proof that no (4.26)-respecting structure beats B2 -- a finite search in ONE laminate family. A single counterexample would reopen 006.",
+    "Remark 4.6's structural-variation derivation of (4.26) still not re-derived; that is what would say who is RIGHT, as opposed to what they disagree about.",
+    "No claim that Theorem 7.1 is wrong: this is a scope observation about statement versus derivation."
+   ],
+   "note": "The decisive experiment was NOT re-deriving the paper's argument, which two passes had failed to do, but partitioning candidate structures by the suspect hypothesis and checking whether the bound respects the partition. Much cheaper, nearly as informative."
+  },
+  {
+   "id": "010",
+   "file": "attempts/010-attainment-fields-forced.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "field-equality-analysis",
+    "exact-rational-arithmetic",
+    "closed-form-parameterization"
+   ],
+   "one_line": "The attainment field pattern is FORCED by interface continuity: phases 2 and 3 isotropic at rho_i, and phase 1 carrying the mirror pair with y = s3*rho_3/s1, with 2*rho_1 - y = rho_3 an identity. That pattern makes Cherkaev's constraint (4.26) exactly active by two-line algebra, so 009's slack-of-zero is an identity rather than a coincidence, and 004's parameters were never magic numbers.",
+   "leak_terms": [
+    "y = s3*rho_3/s1",
+    "mirror pair",
+    "2*rho_1 - y = rho_3",
+    "D_1 = S_1 - varsigma_N",
+    "(4.26) active by algebra",
+    "621 survivors, zero both"
+   ],
+   "target_shape": "proof",
+   "push_rounds": 2,
+   "range": "Field pattern matched exactly against the built structures at five (sigma, r) instances in Q; the two underlying identities checked on 19623 random exact (sigma, c) instances with zero failures; falsification sweep of 009's reading at axis-normal rank 3, sigma=(1,2,5), m2=1/4, m1=3/25: 621 screened survivors, 432 respecting (4.26), zero both respecting and below B2.",
+   "gaps": [
+    "Derives the FIELD PATTERN, not the lamination fractions: a1 = r*Theta and a5 = 1-Theta still rest on verified but underived bookkeeping, so 005's open item is narrowed not closed.",
+    "Nothing new on whether (4.26) is necessary at the optimum, which remains decisive for 009's reading.",
+    "The falsification sweep covers rank 3 at one grid point only; rank 4 was launched but is not in the record."
+   ],
+   "note": "The two loose ends turned out to be one calculation, needing nothing beyond tangential and normal-flux continuity at a single p1|p3 interface."
+  },
+  {
+   "id": "011",
+   "file": "attempts/011-parameters-derived.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "field-equality-analysis",
+    "closed-form-parameterization",
+    "exact-rational-arithmetic"
+   ],
+   "one_line": "Closes the item three records carried open: given 010's forced field pattern, both non-trivial parameters of the attaining construction follow from tangential continuity at two interfaces -- a5 = (y - rho_2)/(y - rho_3), which reduces algebraically to 1 - Theta, and a1 = (1 - rho_3)/(y - rho_3), which equals r*Theta. No fitting, no search.",
+   "leak_terms": [
+    "a5 = (y - rho_2)/(y - rho_3)",
+    "a1 = (1 - rho_3)/(y - rho_3)",
+    "tangential component is shared",
+    "1 - Theta derived"
+   ],
+   "target_shape": "proof",
+   "push_rounds": 1,
+   "range": "Both derived expressions equal the built parameters exactly in Q at six (sigma, r) instances spanning integer and rational conductivities; the a5 reduction checked additionally on 19471 random exact (sigma, c) instances, zero failures.",
+   "gaps": [
+    "a1 = r*Theta as a function of r is verified instance-wise, not reduced by hand: the remaining step is showing (s3+s1)/c = 1 + r(s3-s2)/(s2+s1) at f1 = m11, f2 = r^2.",
+    "Applies to the topology of 004/005; 007's coated-T^2 parameters were solved rather than derived and are untouched.",
+    "Nothing new about the 006/009 escalation."
+   ],
+   "note": "General lesson, reinforcing 010: when a construction's parameters look fitted, ask what the interfaces force."
+  },
+  {
+   "id": "012",
+   "file": "attempts/012-a1-reduction-closed.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "closed-form-parameterization",
+    "exact-rational-arithmetic"
+   ],
+   "one_line": "Closes the last reduction by hand: (s3+s1)/c = 1 + r*K at the attaining fractions, in four lines, giving a1 = r*Theta. With 010 and 011 the attaining construction of 004 is now DERIVED END TO END rather than fitted -- fields forced by attainment plus interface continuity, a5 = 1-Theta and a1 = r*Theta following, a3 a redundant encoding.",
+   "leak_terms": [
+    "(s3+s1)/c = 1 + r*K",
+    "pair against f3 = 1 - f1 - f2",
+    "derived end to end"
+   ],
+   "target_shape": "proof",
+   "push_rounds": 1,
+   "range": "The identity (s3+s1)/c = 1 + r*K verified on 15571 random exact (sigma, r) instances with zero failures; a1 = r*Theta exact at every attaining instance tried.",
+   "gaps": [
+    "No claim of optimality or minimal rank for the construction.",
+    "007's coated-T^2 parameters are still solved rather than derived.",
+    "Nothing new about the 006/009 escalation."
+   ],
+   "note": "Method note: the reduction collapsed once the terms were paired against the pieces of f3 = 1 - f1 - f2 rather than expanded independently. The grouping was the whole difficulty."
+  },
+  {
+   "id": "013",
+   "file": "attempts/013-separation-survives-wider-search.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "bounded-rank-laminate-screen",
+    "field-equality-analysis",
+    "exact-rational-arithmetic",
+    "adversarial-verification"
+   ],
+   "one_line": "Tried hard to falsify 009's separation and failed: across three searches totalling over 22000 structures -- exhaustive axis-normal rank 3 and rank 4, plus dense sweeps of the 006 family at three grid points -- not one structure both respects Cherkaev's (4.26) and lies below B2, while all 274 below-B2 structures found violate it.",
+   "leak_terms": [
+    "22000 structures",
+    "zero both",
+    "12273 respecting",
+    "margins +2.5e-4 / +2.5e-3 / +7.6e-3"
+   ],
+   "verifies": "009",
+   "target_shape": "object",
+   "push_rounds": 2,
+   "range": "sigma=(1,2,5), m2=1/4. Exhaustive axis-normal rank 3 (621 survivors) and rank 4 (18859 survivors) at m1=3/25; dense 006-family sweeps at m1 = 31/250, 3/25, 11/100 (981/992/1035 members, containing 19/58/197 below-B2 structures). Float screen then exact classification by the sign of (S - varsigma_N)^2 - D^2.",
+   "gaps": [
+    "A finite search, not a proof: axis-normal topologies to rank 4 and one family at rank 5 only, no non-axis normals, no higher ranks.",
+    "All of it at a single conductivity triple; the separation has not been tested at a second one.",
+    "Nothing about whether (4.26) is necessary at the optimum, which searching cannot settle."
+   ],
+   "note": "The dense family sweeps carry the weight: they are the only searches containing below-B2 structures at all, and every one of those violates the constraint."
+  },
+  {
+   "id": "014",
+   "file": "attempts/014-separation-at-a-second-triple.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "bounded-rank-laminate-screen",
+    "field-equality-analysis",
+    "exact-rational-arithmetic"
+   ],
+   "one_line": "The (4.26) separation reproduces at a second conductivity triple sigma=(1,3,7): 248 structures below B2, every one violating the constraint, 945 respecting structures, every one above B2, zero exceptions -- so it is not an artefact of sigma=(1,2,5), and the remaining disagreement is entirely about Cherkaev's structural-variation argument.",
+   "leak_terms": [
+    "sigma=(1,3,7)",
+    "m11 = 1/12",
+    "248 below B2",
+    "zero exceptions",
+    "margins +5.4e-4 / +5.1e-3 / +1.7e-2"
+   ],
+   "verifies": "009",
+   "target_shape": "object",
+   "push_rounds": 1,
+   "range": "sigma=(1,3,7), m2=1/4 (sqrt(m2)=1/2 exact), Theta=1/6, m11=1/12; dense 006-family sweeps at m1 = 0.082, 0.078, 0.070 (785/793/825 members). Float screen then exact classification by the sign of (S - varsigma_N)^2 - D^2.",
+   "gaps": [
+    "Still a finite search, and still silent on whether (4.26) is necessary at the optimum -- the one question no search can answer.",
+    "One family per point; no exhaustive topology sweep at this triple."
+   ],
+   "note": "Retire further searching on this line: 013 and 014 together give strongly diminishing returns. Only re-deriving Remark 4.6, or asking the author, can move it."
+  },
+  {
+   "id": "015",
+   "file": "attempts/015-family-minimum-ratio.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "EVIDENCE",
+   "mechanism": [
+    "bounded-rank-laminate-screen",
+    "exact-rational-arithmetic",
+    "closed-form-parameterization"
+   ],
+   "one_line": "Below m11 the 006 family's minimum sits at a nearly m1-independent fraction of the way from HS_lo to B2, approaching a sigma-dependent limit c(sigma) measured between 0.532 and 0.690 on five conductivity triples -- so the structures realise only about half to two thirds of B2's claimed improvement, which turns the escalation from a qualitative oddity into a quantitative one.",
+   "leak_terms": [
+    "ratio 0.5324",
+    "c(sigma)",
+    "0.532369 / 0.576304 / 0.598509 / 0.690125",
+    "not monotone in Theta",
+    "half to two thirds of the claimed improvement"
+   ],
+   "target_shape": "mixed",
+   "push_rounds": 2,
+   "range": "006 family, m2=1/4, exact arithmetic with the two-parameter minimisation refined to 1e-9. Eight m1 values at sigma=(1,2,5) from 0.098 to 0.1249, plus the limiting ratio at five triples: (1,2,5) 0.532369, (2,5,11) 0.532696, (1,3,7) 0.576304, (1,4,9) 0.598509, (1,2,9) 0.690125.",
+   "gaps": [
+    "One family at rank 5: 013's exhaustive rank-4 sweep could not even reach B2, so a richer class could sit lower and change c.",
+    "No closed form for c(sigma); five data points, and it is provably not a function of Theta alone since (1,2,9) has the largest Theta and the largest c while (1,2,5) and (2,5,11) differ in Theta but agree in c to three decimals.",
+    "The conjecture that the sharp bound is HS + c(sigma)(B2 - HS) is labelled SPECULATION and rests on one family."
+   ],
+   "note": "Method note: three records classified 23000 structures without once asking how far below the bound the best one sits. Classification is not measurement."
+  },
+  {
+   "id": "016",
+   "file": "attempts/016-enrichment-dead-end.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "REFUTED",
+   "mechanism": [
+    "bounded-rank-laminate-screen",
+    "exact-rational-arithmetic"
+   ],
+   "one_line": "Breaking the C/B collapse -- giving node B the orthogonal normal, which turns 005's redundant a3 into a genuine degree of freedom -- makes the structure dramatically WORSE, landing far above B2 (ratio 66 and 6.7 versus 0.53 for the original family). The collapse is the right structure, not wasted freedom, so 015's curve survives its first enrichment.",
+   "leak_terms": [
+    "ratio 65.87",
+    "ratio 6.71",
+    "collapse is the right structure",
+    "orthogonal normal destroys it"
+   ],
+   "target_shape": "object",
+   "push_rounds": 1,
+   "range": "sigma=(1,2,5), m2=1/4, m1 = 0.12 and 0.11; same volume constraints re-solved for the altered topology, exact isotropy bisection, minimisation over the two remaining free parameters refined to 1e-8.",
+   "gaps": [
+    "One enrichment out of many: non-axis normals, rank 6 and other topologies are untested, so 015 lead 2 stays open.",
+    "No explanation yet for WHY same-normal stacking is required; 016 lead 2 proposes deriving it from the field conditions as 010 did for the attainment fields."
+   ],
+   "note": "Search heuristic worth carrying: an apparent redundancy in a good structure can signal that the structure has found the right subspace, and recovering the freedom is a way of leaving it."
+  },
+  {
+   "id": "017",
+   "file": "attempts/017-curvature-ratio-closed-form.md",
+   "date": "2026-09-03",
+   "mode": "informed",
+   "status": "VERIFIED",
+   "mechanism": [
+    "tangency-curvature-ratio",
+    "schur-complement-sharpness",
+    "rational-function-reconstruction",
+    "perturbative-expansion",
+    "hierarchical-laminate-construction",
+    "exact-rational-arithmetic",
+    "independent-reimplementation"
+   ],
+   "one_line": "015's constant is a ratio of curvatures at m11: B2 and the family both meet HS_lo there to FIRST order, so c = gamma/beta is exactly rational at every rational (sigma, m2), given here in closed form and verified as an identity at 2610 instances -- and c depends on m2 as much as on sigma, is strictly inside (0,1) at 76038 admissible points, and approaches 1 only as sigma3/sigma1 -> infinity, the case Cherkaev treats separately.",
+   "leak_terms": [
+    "c = gamma/beta",
+    "189/355",
+    "385/668",
+    "665/1111",
+    "1209312/2270015",
+    "curvature ratio at m11",
+    "second-order tangency at m11",
+    "c depends on m2 not only sigma",
+    "c -> 1 at infinite contrast",
+    "Schur complement of the gap Hessian"
+   ],
+   "target_shape": "object",
+   "push_rounds": 3,
+   "range": "Second-order coefficient at m1 = m11 for the 006/004 rank-4 axis-normal family and the transcribed Cherkaev B2 [T]. Closed forms verified as identities against the jet expansion at 2610 (sigma, r) instances (199 triples including non-integer sigma and sigma1 != 1, ten r values), zero mismatches. 0 < c < 1 checked at 76038 admissible (sigma, m2) points by closed form. Independent numeric route (direct minimisation over a0 with a5 by bisection) agrees to 6-8 digits at h = 1e-5 on five triples; one exact point rebuilt and checked through harness/laminate.py.",
+   "corrections": [
+    "015's five reported c values are each 2.5e-5 to 4.6e-5 too LOW: they were read off at a finite m1 rather than extrapolated, and 015's own ratio table increases past its quoted limit. Exact values: 189/355, 385/668, 665/1111, 191675/277733, 1209312/2270015.",
+    "015 records the constant as c(sigma). It varies with m2 by more than the sigma-spread 015 reported (0.378 to 0.600 at sigma = (1,2,5) as r runs 1/4 to 3/4), so it is c(sigma, m2)."
+   ],
+   "gaps": [
+    "0 < c < 1 is EVIDENCE from 76038 exact points, not a proof; the closed form makes it a polynomial inequality in (x, y, r) that is now attackable.",
+    "gamma is the family's curvature, not proven sharp over all microstructures; 018 tests one large enrichment, higher rank and other topologies remain open.",
+    "Nothing is established about m1 far below m11; the record is a statement about the second-order behaviour at m11."
+   ],
+   "note": "Method lesson: when a bound is met exactly at a boundary point of the region where it is disputed, the disagreement just inside is a derivative comparison at the point, not a search over the region. 013+014+015 spent 23000+ structure evaluations on what is one Hessian at one point."
+  }
+ ]
 }
