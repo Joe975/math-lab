@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it.",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and the conflict now rests on whether (4.25) is necessary at the optimum (008 lead 1).",
   "attempts": [
     {
       "id": "001",
@@ -250,6 +250,39 @@
         "Novelty: an independent constructive confirmation of Cherkaev 2009 Thm 8.1, not a new theorem."
       ],
       "note": "Explains why 001's and 003's searches missed it: fixing f1=1/8 and searching node parameters is structurally incapable of finding this object, because the construction routes through an inner structure at a different, irrational volume fraction. Newton-solving the same topology at fixed f1=1/8 confirms no valid solution exists there."
+    },
+    {
+      "id": "008",
+      "file": "attempts/008-localizing-the-b2-discrepancy.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "MAP",
+      "mechanism": [
+        "field-equality-analysis",
+        "exact-rational-arithmetic",
+        "literature-reconciliation"
+      ],
+      "one_line": "Localizes 006's escalation to a single named condition: Cherkaev's (4.25), which requires the field in the MOST conducting phase to be constant and isotropic. Our attaining structure satisfies it exactly, corroborating the framework; our below-m11 candidate violates it, its phase-3 field taking two distinct anisotropic values. The conflict now rests entirely on whether (4.25) is necessary at the optimum.",
+      "leak_terms": [
+        "(4.25)",
+        "constant and isotropic in Omega_N",
+        "V=0 (4.24)",
+        "D^2 <= (S - varsigma_N)^2",
+        "structural variation Remark 4.6",
+        "phase 3 two values",
+        "1.3389 and 1.3461"
+      ],
+      "verifies": "006",
+      "target_shape": "proof",
+      "push_rounds": 2,
+      "range": "Two structures at sigma=(1,2,5), m2=1/4, computed exactly by applying both orthogonal fields and assembling the field matrix per leaf. Condition (4.24) V=0 verified as exact rational equality in every leaf of both. Constraint statements are [T] from the primary preprint, sections 2.3 and 4.4.",
+      "gaps": [
+        "Does NOT dissolve the conflict: (4.25) constrains the derivation's admissible fields, not the theorem's stated hypotheses, and the theorem is stated for every isotropic three-phase composite. A legitimate composite may violate an optimality condition.",
+        "Remark 4.6's structural-variation derivation of (4.25) was not re-derived; that is now the single decisive step.",
+        "No search yet for a below-m11 structure that SATISFIES (4.25) and still beats B2, which would move the conflict off (4.25) entirely.",
+        "Still possible: an error on our side that six independent checks have not caught."
+      ],
+      "note": "The corroborating half matters as much as the critical half: 004's attaining structure satisfies (4.24) and (4.25) exactly, so Cherkaev's optimality conditions describe the attaining object perfectly."
     }
   ]
 }

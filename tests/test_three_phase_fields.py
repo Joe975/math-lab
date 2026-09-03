@@ -177,3 +177,54 @@ def test_no_phase1_free_structure_attains_the_bound():
         target = 1 / (f2 / (s2 + s1) + f3 / (s3 + s1)) - s1
         best23 = 1 / (f2 / (2 * s2) + f3 / (s3 + s2)) - s2
         assert best23 > target
+
+
+def _field_matrix_invariants(tree, phases):
+    """(S, D*, D**, V) per leaf, from the two orthogonal applied fields.
+
+    Cherkaev's field variable is Z = grad u for a PAIR of potentials; row i is
+    the field for potential i. Common factor 1/sqrt(2) dropped throughout.
+    """
+    a = TF.leaf_fields(tree, phases, (Fr(1), Fr(0)))
+    b = TF.leaf_fields(tree, phases, (Fr(0), Fr(1)))
+    out = {}
+    for (na, va, Ea), (nb, vb, Eb) in zip(a, b):
+        assert na == nb and va == vb
+        Z11, Z12, Z21, Z22 = Ea[0], Ea[1], Eb[0], Eb[1]
+        out.setdefault(na, []).append(
+            (Z11 + Z22, Z11 - Z22, Z12 + Z21, Z12 - Z21))
+    return out
+
+
+def test_attaining_structure_meets_cherkaevs_optimality_conditions():
+    """The structure that attains HS_lo satisfies (4.24) and (4.25) exactly:
+    V vanishes everywhere, and the field in the MOST conducting phase is a
+    single isotropic value. Corroborates the published framework."""
+    import tp_attain as A
+    _, tree, _ = A.attains(SIGMA, Fr(1, 2), Fr(4, 5))
+    inv = _field_matrix_invariants(tree, PHASES)
+    for name, rows in inv.items():
+        for _, _, _, V in rows:
+            assert V == 0, name              # (4.24)
+    p3 = {(S, Ds, Dss) for S, Ds, Dss, _ in inv["p3"]}
+    assert len(p3) == 1                      # (4.25) constant
+    (S, Ds, Dss), = p3
+    assert Ds == 0 and Dss == 0              # (4.25) isotropic
+
+
+def test_below_m11_structure_violates_condition_4_25():
+    """The candidate counterexample of attempt 006 satisfies V=0 but its most
+    conducting phase carries two distinct, anisotropic field values. This is
+    the named localization of the open escalation, not a claim either way."""
+    import json
+    path = (ROOT / "problems" / "three-phase-conductivity" / "data"
+            / "attained" / "below-m11-m1-3_25.json")
+    rec = json.loads(path.read_text(encoding="utf-8"))
+    phases = {k: Fr(v) for k, v in rec["phases"].items()}
+    inv = _field_matrix_invariants(rec["tree"], phases)
+    for name, rows in inv.items():
+        for _, _, _, V in rows:
+            assert V == 0, name              # (4.24) still holds
+    p3 = {(S, Ds, Dss) for S, Ds, Dss, _ in inv["p3"]}
+    assert len(p3) > 1                       # (4.25) constancy fails
+    assert any(Ds != 0 or Dss != 0 for S, Ds, Dss in p3)   # and isotropy fails

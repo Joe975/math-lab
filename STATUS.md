@@ -3,32 +3,38 @@
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 
-## OPEN ESCALATION (2026-09-03, three-phase-conductivity)
+## OPEN ESCALATION (2026-09-03, three-phase-conductivity) — now LOCALIZED
 
-**An exactly-verified laminate of ours sits strictly BELOW the transcribed
-Cherkaev 2009 B2 lower bound at m₁ just under m₁₁.** At σ = (1,2,5),
-m₂ = 1/4 (so √m₂ = 1/2 is rational and everything is exact in ℚ):
+**An exactly-verified laminate of ours sits strictly below Cherkaev's B2 lower
+bound just under m₁₁, systematically across four conductivity triples.** At
+σ = (1,2,5), m₂ = 1/4 the values are 3.0053470065 / 3.0270098722 /
+3.0831692377 at m₁ = 31/250, 3/25, 11/100, against B2 of 3.0053523724 /
+3.0271504085 / 3.0845383760 — short by up to 1.4e−3, with (B2−HS)/(ours−HS)
+settling near 1.89. All three rows are rebuilt by `explore/tp_below_m11.py` and
+each record passes `verify_laminate.py`.
 
-| m₁ | our structure | HS_lo | transcribed B2 | ours − B2 |
-|---|---|---|---|---|
-| 0.124 | 3.0053470065 | 3.0053404539 | 3.0053523724 | −5.4e−06 |
-| 0.120 | 3.0270098722 | 3.0268456376 | 3.0271504085 | −1.4e−04 |
-| 0.110 | 3.0831692377 | 3.0816326531 | 3.0845383760 | −1.4e−03 |
+**Eliminated** (006, plus a dedicated adjudicator briefed to assume we were
+wrong): an anisotropy artefact (off-diagonal exactly 0, diagonal difference
+~1e−66); transcription error (primary PDF fetched and extracted twice
+independently); **a provenance error two earlier workers shared** —
+arXiv:1009.3060 is Cherkaev–Zhang's k₃ = ∞ anisotropic paper, NOT Cherkaev
+2009; closed-form simplification error (translation family re-maximised by
+symbolic critical-point solve); a bug in our structures (homogenisation
+re-derived from interface continuity with no shared code, bit-for-bit
+identical); and the scope conditions, including (5.5).
 
-The structures are real: exact rational fractions hitting the target, isotropy
-residual < 1e−61, both harness routes agreeing, Keller–Dykhne passing, and
-`verify_laminate.py` passing on the saved record
-(`data/attained/below-m11-f1-0.12.json`). A structure below a valid lower bound
-is impossible, so something is wrong. **Per the PROBLEM.md contract the leading
-hypothesis is a TRANSCRIPTION ERROR** — the bound is marked [T] and was never
-re-derived. Complication: the transcribed B2 passes its most natural internal
-test, meeting HS_lo exactly (difference 0 in ℚ) at the boundary m₁ = m₁₁.
+**LOCALIZED in 008 to a single condition.** Cherkaev's (4.25) requires the
+field in the MOST conducting phase to be constant and isotropic. Our attaining
+structure at m₁₁ satisfies it **exactly** — corroborating the framework where
+it is claimed to bite — while the below-m₁₁ candidate **violates** it, its
+phase-3 field taking two distinct anisotropic values. Condition (4.24), V = 0,
+holds exactly for both. So the conflict now rests entirely on whether (4.25),
+derived by structural variation in Remark 4.6, is necessary at the optimum.
 
-**Do not cite this as a discrepancy with Cherkaev's published bound.** An
-adjudication is running (`data/bound-adjudication.md`): independent
-re-transcription, re-derivation of the underlying translation family, a
-from-scratch audit of our own structures, and a scope check. Until it returns,
-nothing below m₁₁ is claimed in either direction.
+**Do not cite this as a refutation of Cherkaev's published bound.** The single
+decisive next step is 008 lead 1: re-derive Remark 4.6's structural-variation
+argument. A short note to the author would likely settle it faster (008 lead 4,
+flagged for the human).
 
 ## TL;DR (updated 2026-09-03, later)
 
