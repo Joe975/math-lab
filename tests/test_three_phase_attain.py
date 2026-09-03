@@ -161,3 +161,49 @@ def test_family_attains_at_m11_and_not_below():
         # near-isotropic by construction; compare the quadratic form
         val = (e[0] + e[2]) / 2
         assert val > lo_b, (f1, val, lo_b)
+
+
+def test_parameters_are_derived_from_the_forced_fields():
+    """a5 and a1 follow from tangential continuity, not from pattern-matching.
+
+    From attempt 010 the attainment fields are forced: phases 2 and 3 isotropic
+    at rho_i = c/(s_i+s1), phase 1 carrying the mirror pair with y = s3*rho_3/s1.
+    Then:
+      In Y = lam(D at w, p2; e2) the e1 components are tangential and equal, so
+      D's e1 component a5*rho_3 + (1-a5)*y must equal rho_2, giving
+          a5 = (y - rho_2)/(y - rho_3).
+      At the root lam(A at a0, Y; e1) the e2 components are tangential and equal,
+      and the applied field is Z0 = I so that shared value is 1, giving
+          a1 = (1 - rho_3)/(y - rho_3).
+    """
+    cases = [((Fr(1), Fr(2), Fr(5)), Fr(1, 2)),
+             ((Fr(1), Fr(3), Fr(7)), Fr(1, 2)),
+             ((Fr(2), Fr(5), Fr(11)), Fr(1, 2)),
+             ((Fr(1), Fr(4), Fr(9)), Fr(1, 3)),
+             ((Fr(1, 3), Fr(5, 2), Fr(9)), Fr(2, 5))]
+    for sig, r in cases:
+        a3 = (1 - r + 1) / 2
+        ok, _, hs = A.attains(sig, r, a3)
+        assert ok, (sig, r)
+        s1, s2, s3 = sig
+        c = hs + s1
+        rho2, rho3 = c / (s2 + s1), c / (s3 + s1)
+        y = s3 * rho3 / s1
+        _, a1_built, _, _, a5_built = A.params(sig, r, a3)
+        assert (y - rho2) / (y - rho3) == a5_built, (sig, r)
+        assert (1 - rho3) / (y - rho3) == a1_built, (sig, r)
+
+
+def test_a5_reduction_is_an_identity():
+    """(y - rho_2)/(y - rho_3) reduces to (s2 s3 - s1^2)/((s2+s1)(s3-s1)) = 1-Theta."""
+    for sig in [(Fr(1), Fr(2), Fr(5)), (Fr(1), Fr(3), Fr(7)),
+                (Fr(2), Fr(5), Fr(11)), (Fr(1, 3), Fr(5, 2), Fr(9))]:
+        s1, s2, s3 = sig
+        for c in [Fr(3), Fr(9, 2), Fr(77, 10), Fr(1, 2)]:
+            rho2, rho3 = c / (s2 + s1), c / (s3 + s1)
+            y = s3 * rho3 / s1
+            if y == rho3:
+                continue
+            assert ((y - rho2) / (y - rho3)
+                    == (s2 * s3 - s1 * s1) / ((s2 + s1) * (s3 - s1))
+                    == 1 - A.theta_of(sig))
