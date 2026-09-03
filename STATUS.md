@@ -36,7 +36,29 @@ decisive next step is 008 lead 1: re-derive Remark 4.6's structural-variation
 argument. A short note to the author would likely settle it faster (008 lead 4,
 flagged for the human).
 
-## TL;DR (updated 2026-09-03, later)
+## TL;DR (updated 2026-09-03, latest)
+
+**Three-phase conductivity now has explicit laminates ATTAINING the
+Hashin-Shtrikman lower bound exactly in ℚ at volume fractions the classical
+construction cannot reach, and one open escalation, sharply localized.**
+004 gives a closed-form structure attaining at f₁ = m₁₁ = 2Θ√m₂(1−√m₂) for
+arbitrary phases (005's skeptic pass confirmed it by a third implementation and
+corrected it: a₅ = 1−Θ exactly, and the object is really **rank 4**, a₃'s
+apparent freedom being a redundant encoding). 007 attains at the **original
+target point** f = (1/8,1/8,3/4), where every earlier search stalled at
+5.46e−4, with a rank-6 coated T² laminate living in ℚ(√105) — irrational node
+fractions, exactly rational answer. 003's coating lemma (proved) makes
+attainability **upward closed in f₁**, so these cover everything above m₁₁.
+Together they independently confirm, without his formulas, what Cherkaev 2009
+Thm 8.1 asserts. The method lesson from 007: the attaining object was **not
+reachable by any local search at the target**, because the construction routes
+through an inner structure at a different, irrational volume fraction — build
+where attainment is easy, then transform.
+
+**The open escalation** (006, localized in 008) is above, and is NOT a claim
+that the published bound is wrong.
+
+## Previous TL;DR (2026-09-03, later)
 
 **HEADLINE (three-phase-conductivity 004): we have an explicit closed-form
 rank-5 laminate that ATTAINS the 2D three-phase Hashin-Shtrikman lower bound
@@ -604,7 +626,7 @@ problems with no attempts (queue 18–19; run blind).
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 | Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
-| Three-phase conductivity | **VERIFIED: an explicit closed-form RANK-4 laminate attains HS_lo exactly in ℚ at f₁ = m₁₁, below Milton's threshold at every m₂** (004, skeptic-confirmed in 005 by a third implementation); 003 attainability upward closed; 002 field mechanism; 001 Milton's rule | medium | next: is m₁₁ the true threshold for ALL microstructures? does rank 3 suffice at m₁₁? derive a₁ = rΘ and a₅ = 1−Θ from 002's field conditions |
+| Three-phase conductivity | **VERIFIED: explicit laminates ATTAIN the HS lower bound exactly in ℚ below Milton's threshold** — rank-4 at f₁ = m₁₁ (004, skeptic-confirmed 005) and rank-6 at the original target point (007); 003 proved attainability upward closed; **006/008: an OPEN escalation below m₁₁, localized to Cherkaev's condition (4.25)** | medium | next: re-derive Remark 4.6's structural-variation argument (008 lead 1) — the single decisive step; hunt a below-m₁₁ structure satisfying (4.25) that still beats B2 (008 lead 2) |
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
