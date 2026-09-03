@@ -24,7 +24,11 @@ coefficient on ∫D² is negative, so exceeding the cap lowers the estimate.
 over 22 000 structures — exhaustive axis-normal rank 3 and rank 4, plus dense
 sweeps of the 006 family at all three grid points — not one structure both
 respects (4.26) and lies below B2, while all 274 below-B2 structures found
-violate it. So the separation is not an artefact of one family.
+violate it. **014** reproduced the same pattern at a second conductivity
+triple, σ = (1,3,7): 248 below-B2 structures, all violating (4.26); 945
+respecting, all above B2; zero exceptions. So the separation is an artefact of
+neither one family nor one triple, and further searching is retired — only
+re-deriving Remark 4.6, or asking the author, can move it.
 
 **Reading:** B2 is a correct lower bound over the class of composites whose
 fields satisfy (4.24)–(4.26); Theorem 7.1 is *stated* for every isotropic
