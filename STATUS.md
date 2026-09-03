@@ -51,6 +51,50 @@ disagree about, is re-deriving Remark 4.6 (009 lead 2).
 
 ## TL;DR (updated 2026-09-03, latest)
 
+**The below-m₁₁ story is now a derivative, not a search: 015's constant is the
+ratio of two curvatures at m₁₁ and has an exact closed form.** B2 and the 006
+family both meet HS_lo at m₁₁ to *first* order (checked exactly in ℚ), so
+
+    c = lim (family min − HS_lo)/(B2 − HS_lo) = γ/β,
+
+with β and γ the u² coefficients of B2 − HS_lo and of the family's minimum at
+m₁ = m₁₁ + u; γ is the Schur complement of the gap's Hessian at 004's attaining
+point. 017 gives all three in closed form in (x, y, r) = (σ₂/σ₁, σ₃/σ₁, √m₂) and
+verifies them as identities at **2610** exact instances. Consequences:
+
+- exact values where 015 had four-decimal ones — c = 189/355 at σ = (1,2,5),
+  385/668 at (1,3,7), 665/1111 at (1,4,9), 1209312/2270015 at (2,5,11) — and
+  **015's five values are each 2.5e−5 to 4.6e−5 too low**, read off at a finite
+  m₁ rather than extrapolated;
+- **c depends on m₂ as much as on σ** (0.378 → 0.600 at σ = (1,2,5) as r runs
+  1/4 → 3/4), so 015's c(σ) is really c(σ, m₂);
+- **0 < c < 1 at all 76 038 admissible points swept**, with c → 1 *only* as
+  σ₃/σ₁ → ∞ — precisely the infinite-contrast case Cherkaev treats separately
+  (Thm 7.2, and the Cherkaev–Zhang paper's standing hypothesis). So B2's
+  curvature is asymptotically right at infinite contrast and increasingly
+  over-optimistic as contrast falls.
+
+**018 then settled 015 lead 2 for the largest fixed-topology enrichment.**
+Tilting all five internal normals (with a₅ and t₀ eliminated from the two
+isotropy conditions, a₃ free) leaves the gap's Hessian **block-diagonal**: every
+tilt direction has exactly zero coupling to m₁, so the six-parameter Schur
+complement *equals* the one-parameter γ on all five triples. No tilt of this
+topology can move the curve. 018 also **corrects 016**: its altered class does
+not lose by two orders of magnitude, it **ties** — its infimum decreases
+monotonically as a₃ → 1, where node B's p₂ layer has vanishing weight and B's
+normal stops mattering, and converges to the original family's minimum. 016's
+65.87 and 6.71 were an interior local minimum, and its moral ("the collapse is
+the right structure, recovering the freedom costs orders of magnitude") should
+be read as the milder true statement: the extra freedom is **inert at the
+optimum, not punished**.
+
+**Frontier:** prove 0 < c < 1 from the closed form (a polynomial inequality in
+(x, y, r), and a `FORMALIZED` candidate); run the half-line Schur argument for
+rank-increasing classes, which meet the rank-4 base only on their boundary; and
+explain structurally why the u-row vanishes on every tilt.
+
+## Previous TL;DR (2026-09-03, latest before 017)
+
 **Three-phase conductivity now has explicit laminates ATTAINING the
 Hashin-Shtrikman lower bound exactly in ℚ at volume fractions the classical
 construction cannot reach, and one open escalation, sharply localized.**
@@ -647,7 +691,7 @@ problems with no attempts (queue 18–19; run blind).
 | Crouzeix | dim-3 census done (blind, skeptic-confirmed) | medium | next: hunt the published intermediate-maxima basins (informed; seed at Overton's ≈1.185/≈1.433 configurations) — the census's recorded gap |
 | Maxwell equilibria | 24-equilibria witness SETTLED: skeptic-confirmed, escalation discharged, fold brackets 12/16 certified, centroid degeneracy exact (001+002) | high | next: harden verifier tiling check (queue 16, tier-0 fix); blind 3-charge strata map (queue 15); n=3 census hunting 4-vs-6 (queue 17); certified window edges + q\* sliver (002 leads 3-4) |
 | Almost Mathieu (critical) | onboarded, no attempts | low (long shot) | harness exact to q ≈ 34 in seconds; first attempt is the rational-flux gap census (run blind) |
-| Three-phase conductivity | **VERIFIED: explicit laminates ATTAIN the HS lower bound exactly in ℚ below Milton's threshold** (004 rank-4 at m₁₁, skeptic-confirmed 005; 007 rank-6 at the original target in ℚ(√105)); 003 proved attainability upward closed; **the below-m₁₁ escalation is RESOLVED in 009** — B2 separates exactly on Cherkaev's constraint (4.26) | medium | next: re-derive Remark 4.6 (009 lead 2); hunt a (4.26)-respecting structure below B2, which would reopen it (009 lead 1); derive a₁ = rΘ and a₅ = 1−Θ from the field conditions |
+| Three-phase conductivity | **VERIFIED: explicit laminates ATTAIN the HS lower bound exactly in ℚ below Milton's threshold** (004 rank-4 at m₁₁, skeptic-confirmed 005; 007 rank-6 at the original target in ℚ(√105)); 003 proved attainability upward closed; **the below-m₁₁ escalation is RESOLVED in 009** — B2 separates exactly on Cherkaev's constraint (4.26); **017: the below-m₁₁ curve is a curvature ratio c = γ/β with a closed form**, 0 < c < 1 at 76 038 points, c → 1 only at infinite contrast; **018: no normal-tilt can move it, and 016's enrichment ties rather than loses** | medium | next: prove 0 < c < 1 from 017's closed form (polynomial inequality, `FORMALIZED` candidate); half-line Schur test for rank-increasing classes (018 lead 1); re-derive Remark 4.6 (009 lead 2) |
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
@@ -685,7 +729,51 @@ problems with no attempts (queue 18–19; run blind).
 29. [three-phase-conductivity] **Skeptic pass on 002/003**: re-derive the attainment-field condition (*) independently or supply a citation with a page — it is the one load-bearing SPECULATION the diagnostics rest on; re-derive the coating lemma and the Var₁ closed form by hand; re-implement the field propagator from the interface conditions rather than the layer-frame route; and audit the Cherkaev/ACN transcriptions in `data/structures-check.md`, especially the Gibiansky-Sigmund attribution, which runs through an elasticity paper.
 30. [three-phase-conductivity] ~~Skeptic pass on 004's attaining construction~~ **DONE in 005 — CONFIRMED with three corrections.** Third independent implementation agrees on 590+ instances, zero mismatches; adversarial sweep of 3 575+ instances, zero failures; m₁₁ < Milton's threshold and the domain claims proved algebraically; novelty settled as an independent rediscovery of Cherkaev 2009 §8.1. Corrections: a₅ = 1−Θ exactly; the object is really RANK 4 (a₃'s freedom is a redundant encoding); σ₁<σ₂<σ₃ was unchecked, now asserted. Replacements: (a) **derive a₁ = rΘ and a₅ = 1−Θ from 002's field conditions** via the path-product rule, turning the construction into a proof; (b) **does rank 3 suffice at f₁ = m₁₁?** exhaustive and cheap, definite either way; (c) **is m₁₁ the true threshold for all microstructures?** — the frontier; within 004's family the gap is 0 at m₁₁ and strictly positive below, but that is one family; (d) audit `tp_coated.py` and `tp_shapes.py` for the same unchecked-ordering hazard.
 
+31. [three-phase-conductivity] **Prove 0 < c < 1 from 017's closed form.** With c = r(A−r)(r+pq)/[(r+n₁)q₂(r)] in (x, y, r) = (σ₂/σ₁, σ₃/σ₁, √m₂), the claim is the sign of one explicit polynomial over the admissible region {1 < x < y, 0 < r < 1, m₁₁ > 0, m₃ > 0}. Definite outcome either way; `FORMALIZED` candidate if it holds, and a very sharp refutation if it does not. c < 1 is exactly the statement that the family undercuts B2 near m₁₁ at *every* instance, so this converts 013/014's two-triple `EVIDENCE` into a theorem. Note c → 1 as σ₃/σ₁ → ∞, so the inequality is tight in that limit and any proof must see it.
+32. [three-phase-conductivity] **Half-line Schur test for rank-increasing classes** (018 lead 1). A higher-rank class contains the rank-4 base only on its boundary, so its extra directions are one-sided; run the same Hessian with the minimisation over a half-line and check whether any direction has a nonzero u-row entry *of the right sign*. This is the sharpest surviving form of 015 lead 2, and `tp_enrich.py` already does everything but the sign restriction.
+33. [three-phase-conductivity] **Explain the tilt decoupling structurally** (018 lead 3). The gap Hessian's m₁-row vanishing on all five normal tilts, at every triple, is too clean to be accidental. 010 derived the attainment fields from interface continuity; the same argument should say why rotating an interface is second-order neutral in the volume-fraction direction. Would upgrade a computed identity at five triples to a structural fact — and would predict, for free, which enrichments of *any* attaining structure are inert.
+34. [three-phase-conductivity] **Same expansion at m₁₂** (017 lead 3), the other breakpoint of the transcribed piecewise bound, where B2 meets B3. Same machinery, different point; m₁₂ is irrational so the arithmetic moves to ℚ(√Z₂). Cheap, and it tests whether the first-order tangency at m₁₁ is special or generic to the piecewise construction.
+
 ## Verified results
+
+- **[three-phase-conductivity] The below-m₁₁ gap is a ratio of curvatures at
+  m₁₁, in closed form** (017). Statement: at m₁ = m₁₁ the transcribed
+  Cherkaev B2 and the 006 family's minimum both equal HS_lo *and* have the same
+  first derivative, so with u = m₁ − m₁₁,
+
+      B2 − HS_lo = β u² + O(u³),   family min − HS_lo = γ u² + O(u³),
+
+  and 015's constant is c = γ/β. γ is the Schur complement
+  A₂₀ − A₁₁²/(4A₀₂) of the gap's Hessian at 004's attaining point (the
+  gradient vanishes there automatically because the gap is ≥ 0 and = 0). With
+  x = σ₂/σ₁, y = σ₃/σ₁, r = √m₂, p = (1+x)/(y−x), q = (y−1)/(x−1),
+  A = p(y−1), n₁ = (1+x)(y−1)/((x−1)(y+1)), K = σ₁p³(y−1)²(y+1)/4 and
+  q₂(r) = C₂ + B₂r − r² (C₂, B₂ as printed in 017 §3):
+
+      β = K(r+n₁)/[(1−r)(r+p)²(r+pq)],
+      γ = K r(A−r)/[(1−r)(r+p)² q₂(r)],
+      c = r(A−r)(r+pq)/[(r+n₁) q₂(r)].
+
+  Verified as identities against the independent jet expansion at 2610
+  (σ, r) instances — 199 triples including non-integer σ and σ₁ ≠ 1, ten r
+  values — zero mismatches, plus a direct numerical minimisation agreeing to
+  6–8 digits at h = 10⁻⁵ on five triples and one point rebuilt exactly through
+  `harness/laminate.py`. Scope: this family, this topology, the second-order
+  coefficient at m₁₁, the transcribed B2 [T]. Reproduce:
+  `python tp_curvature.py --selftest --table --verify --closed-form`.
+
+- **[three-phase-conductivity] Tilting the normals cannot move the below-m₁₁
+  curve** (018). At 004's attaining point the gap's Hessian block-diagonalises:
+  each of the five normal-tilt directions, and the redundant a₃, has **exactly
+  zero** second-order coupling to m₁, while the tilt block itself is PSD. So the
+  Schur complement over (a₀, a₃, t_A, t_D, t_C, t_B) *equals* the one-parameter
+  γ, at σ = (1,2,5), (1,3,7), (1,4,9), (1,2,9), (2,5,11), m₂ = 1/4. A flat
+  direction cannot be exploited at higher order either: with no quadratic
+  dependence, every contribution enters at cubic order and cannot change the
+  u² coefficient. Guarded against the obvious bug — a tilt of 1/10 at node A
+  provably breaks isotropy before the (a₅, t₀) re-solve, and re-solving raises
+  the value by 1.2506e−2 against the Hessian's 1.2963e−2. Reproduce:
+  `python tp_enrich.py --selftest --report`.
 
 - **[three-phase-conductivity] An explicit rank-4 laminate attains the 2D
   three-phase Hashin-Shtrikman LOWER bound exactly, below Milton's threshold**
@@ -1229,6 +1317,35 @@ problems with no attempts (queue 18–19; run blind).
   after review close (not covered by 019); runtime understated.
 
 ## Insights / cross-problem notes
+
+- **Meet the bound at the boundary, then differentiate** (2026-09-03,
+  three-phase 017/018). When a disputed bound is met *exactly* at a boundary
+  point of the region where it is in question, the disagreement just inside
+  that region is a derivative comparison at the point, not a search over the
+  region — provided you first check the order of tangency, which is one exact
+  computation and decides whether the whole exercise is meaningful. Here 013,
+  014 and 015 spent 23 000+ structure evaluations establishing and measuring
+  what turned out to be one Hessian at one point, and the point version
+  generalises to every σ and m₂ at once instead of the handful a search can
+  afford. The follow-on is stronger still: because the gap is ≥ 0 with equality
+  at that point, its gradient vanishes, so "does a **richer class** do better?"
+  is the Schur complement of the same Hessian over more parameters — finite
+  exact linear algebra, and a direction whose coupling to the constraint
+  variable is zero cannot help at any order. New mechanism tags
+  `tangency-curvature-ratio`, `schur-complement-sharpness`,
+  `rational-function-reconstruction`. Candidate reuse: any problem where a
+  construction attains a bound at a threshold and the question is what happens
+  just past it — mahler-4d's Hanner boundary, crouzeix's equality
+  configurations, the union-closed λ-window endpoints.
+
+- **Two search-hygiene rules that 016 cost us** (2026-09-03, three-phase 018).
+  (i) A parameter whose limit *degenerates the topology* needs an explicit
+  boundary check: that limit is exactly where a richer class re-contains the
+  poorer one, and an interior grid will report a local minimum as the class
+  minimum. (ii) "Strictly richer" has to be argued on **closures** — two
+  laminate classes differing in one node's normal always meet where that node's
+  minority layer vanishes. 016 fell into both and reported a rout (ratio 65.87)
+  where the truth is a tie.
 
 - Prove the lattice, not the inequalities (2026-08-16, billiards 015):
   when a family of trig-margin conditions shares a lattice structure
