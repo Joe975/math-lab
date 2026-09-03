@@ -666,6 +666,30 @@ problems with no attempts (queue 18–19; run blind).
 
 ## Verified results
 
+- **[three-phase-conductivity] An explicit rank-4 laminate attains the 2D
+  three-phase Hashin-Shtrikman LOWER bound exactly, below Milton's threshold**
+  (004; skeptic-confirmed by a third independent implementation in 005;
+  derived end to end in 010-012). Statement: let s1 < s2 < s3,
+  Theta = s1(s3-s2)/((s2+s1)(s3-s1)) and r in (0,1). At volume fractions
+  f2 = r^2, **f1 = 2*Theta*r(1-r)**, f3 = 1-f1-f2, the tree
+
+      A = lam(p1 at a1, p3; e2),  D = lam(p3 at a5, p1; e1),
+      Y = lam(D at 1-r, p2; e2),  root = lam(A at 1-r, Y; e1)
+
+  with **a1 = r*Theta** and **a5 = 1-Theta** is isotropic with effective
+  conductivity exactly HS_lo, in Q. Since 2*Theta*r(1-r) < 2*Theta*(1-r^2) for
+  every r, this beats Milton's classical threshold at every m2. With 003's
+  coating lemma (coating with the comparison medium preserves optimality, so
+  attainability is upward closed in f1) it covers all f1 >= m11. Nothing rests
+  on fitting: the attainment fields are forced by interface continuity (010),
+  both parameters follow from tangential continuity (011), and the last
+  reduction closes in four lines (012). Verified on 1055 random (sigma, r, a3)
+  instances with zero failures, both harness routes agreeing, Keller-Dykhne
+  holding, verify_laminate.py passing. An independent constructive
+  rediscovery of Cherkaev 2009 Thm 8.1, reached without his formulas; 007
+  additionally attains at f = (1/8,1/8,3/4) with a rank-6 coated T-squared
+  laminate in Q(sqrt(105)).
+
 - **[union-closed] Gap 1 fully closed: both surviving candidates REFUTED
   and the per-history-weighting family ruled out (skeptic-confirmed:
   022 cross-family implementation pass + 024 fresh-session reviewer
