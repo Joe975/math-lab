@@ -207,3 +207,27 @@ def test_a5_reduction_is_an_identity():
             assert ((y - rho2) / (y - rho3)
                     == (s2 * s3 - s1 * s1) / ((s2 + s1) * (s3 - s1))
                     == 1 - A.theta_of(sig))
+
+
+def test_the_closing_identity_for_a1():
+    """(s3+s1)/c = 1 + r*K with K = (s3-s2)/(s2+s1), at f1 = m11, f2 = r^2.
+
+    Hand proof: expand (s3+s1)/c = (s3+s1) * sum_i f_i/(s_i+s1) and group,
+      m11 term + (-m11)  ->  K r(1-r) * [(s3+s1) - 2 s1]/(s3-s1) = K r (1-r)
+      r^2 term + (-r^2)  ->  r^2 * [(s3+s1)-(s2+s1)]/(s2+s1)     = K r^2
+    summing to K r (1-r) + K r^2 = K r. With a1 = (1 - rho_3)/(y - rho_3) =
+    s1(s3+s1-c)/(c(s3-s1)) from attempt 011, this gives a1 = r*Theta exactly.
+    """
+    for sig in [(Fr(1), Fr(2), Fr(5)), (Fr(1), Fr(3), Fr(7)),
+                (Fr(2), Fr(5), Fr(11)), (Fr(1, 3), Fr(5, 2), Fr(9))]:
+        s1, s2, s3 = sig
+        K = (s3 - s2) / (s2 + s1)
+        for r in [Fr(1, 4), Fr(1, 3), Fr(1, 2), Fr(2, 5), Fr(3, 5)]:
+            f1, f2, f3 = A.fractions_for(sig, r)
+            if f1 <= 0 or f3 <= 0:
+                continue
+            hs, _ = L.hs_bounds([f1, f2, f3], list(sig))
+            c = hs + s1
+            assert (s3 + s1) / c == 1 + r * K, (sig, r)
+            # and hence the field-derived a1 equals r*Theta
+            assert s1 * (s3 + s1 - c) / (c * (s3 - s1)) == r * A.theta_of(sig)

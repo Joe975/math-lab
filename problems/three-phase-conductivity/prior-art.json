@@ -1,7 +1,7 @@
 {
   "problem": "three-phase-conductivity",
   "route_status": "VERIFIED",
-  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces.",
+  "route_summary": "Five attempts. 001 (effectively blind) rediscovered Milton 1981's attainability rule exactly. 002 derived what attainment demands of the fields and killed two obstruction conjectures. 003 PROVED attainability is upward closed in f1, collapsing the problem to the bottom of each f2:f3 ray. 004 BUILT an explicit closed-form laminate attaining HS_lo exactly in Q at f1 = m11 = 2*Theta*sqrt(m2)(1-sqrt(m2)), strictly below Milton's threshold at every m2; with 003's lemma that covers all f1 >= m11. 005 VERIFIED it by a third independent implementation (590+ instances, zero mismatches; 3575+ adversarial, zero failures), correcting three things: a5 = 1-Theta exactly, the object is really RANK 4, and the phase ordering is an unchecked precondition. Recorded as an independent rediscovery of Cherkaev 2009 section 8.1. 006 then found that laminates from the same family just BELOW m11 sit strictly below Cherkaev's B2 bound, systematically across four conductivity triples, with the transcription verified against the primary PDF and the theorem's hypotheses satisfied -- an UNRESOLVED conflict reported as requiring escalation, not a refutation. Frontier: enumerate the remaining constraints in Cherkaev's derivation and test them against our fields (006 lead 1). 007 then attained HS_lo EXACTLY at the original target point f=(1/8,1/8,3/4) with a rank-6 coated T-squared laminate in Q(sqrt(105)), resolving 003's decay-vs-attainment tension there in favour of attainment and showing why local searches at a fixed target could never have found it. 008 then localized 006's escalation to one named condition, Cherkaev's (4.25) requiring the field in the most conducting phase to be constant and isotropic: the attaining structure satisfies it exactly, the below-m11 candidate violates it, and 009 then RESOLVED it: B2 separates exactly on Cherkaev's constraint (4.26) -- every structure below B2 violates it, every structure respecting it lies above B2, and the attaining structure makes it exactly active -- so B2 is correct over the class its derivation constrains while Theorem 7.1 is stated more broadly than that class. 010 then DERIVED the attainment field pattern from interface continuity, showing it is forced and that it makes Cherkaev's (4.26) exactly active by algebra, so 009's key observation is an identity. 011 closed the last loose end, deriving both construction parameters from tangential continuity at two interfaces. 012 closed the final reduction, so the attaining construction is now derived end to end rather than fitted.",
   "attempts": [
     {
       "id": "001",
@@ -374,6 +374,32 @@
         "Nothing new about the 006/009 escalation."
       ],
       "note": "General lesson, reinforcing 010: when a construction's parameters look fitted, ask what the interfaces force."
+    },
+    {
+      "id": "012",
+      "file": "attempts/012-a1-reduction-closed.md",
+      "date": "2026-09-03",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "closed-form-parameterization",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Closes the last reduction by hand: (s3+s1)/c = 1 + r*K at the attaining fractions, in four lines, giving a1 = r*Theta. With 010 and 011 the attaining construction of 004 is now DERIVED END TO END rather than fitted -- fields forced by attainment plus interface continuity, a5 = 1-Theta and a1 = r*Theta following, a3 a redundant encoding.",
+      "leak_terms": [
+        "(s3+s1)/c = 1 + r*K",
+        "pair against f3 = 1 - f1 - f2",
+        "derived end to end"
+      ],
+      "target_shape": "proof",
+      "push_rounds": 1,
+      "range": "The identity (s3+s1)/c = 1 + r*K verified on 15571 random exact (sigma, r) instances with zero failures; a1 = r*Theta exact at every attaining instance tried.",
+      "gaps": [
+        "No claim of optimality or minimal rank for the construction.",
+        "007's coated-T^2 parameters are still solved rather than derived.",
+        "Nothing new about the 006/009 escalation."
+      ],
+      "note": "Method note: the reduction collapsed once the terms were paired against the pieces of f3 = 1 - f1 - f2 rather than expanded independently. The grouping was the whole difficulty."
     }
   ]
 }
