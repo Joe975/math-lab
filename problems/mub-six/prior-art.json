@@ -1,7 +1,7 @@
 {
   "problem": "mub-six",
   "route_status": "EVIDENCE",
-  "route_summary": "22,000 + 3,000 random starts by two independent implementations found no four MU bases in C^6; ~71% converge to L = 0.0512492189962838 (ASD 0.99829169), a rediscovery of the published Raynal-Lu-Englert optimum. Controls: d=2 floor 2/3 proved; known MU sets in d=3,4,5,7 and three bases in d=6 are all found.",
+  "route_summary": "Four MU bases in C^6 not found in 25,000 starts by two implementations; the dominant floor L* (ASD 0.99829169) is a nondegenerate local minimum modulo gauge (two independent Hessians) with exact cubic-field overlap values, rediscovering Raynal-Lu-Englert's optimum. With three bases the same floor is a one-parameter valley.",
   "attempts": [
     {
       "id": "001",
@@ -54,6 +54,60 @@
       ],
       "target_shape": "object",
       "push_rounds": 0
+    },
+    {
+      "id": "003",
+      "file": "attempts/003-floor-hessian-and-closed-form.md",
+      "date": "2026-10-02",
+      "mode": "blind",
+      "status": "EVIDENCE",
+      "range": "one four-basis floor configuration (float Hessian, 108 coordinates; 50-digit Decimal polish) and one three-basis floor valley followed to t = 0.6",
+      "mechanism": [
+        "unitary-manifold-descent",
+        "integer-relation-detection",
+        "exact-pattern-algebra"
+      ],
+      "one_line": "The four-basis floor is a nondegenerate local minimum modulo 23 gauge directions; its overlaps are 4c^2/3, (2c-1)^2, c(3-4c)/3 with c the root of 112c^3-144c^2+63c-9 (RLE's cubic, rediscovered blind); with three bases the same floor is a one-parameter valley.",
+      "refuted_by": null,
+      "gaps": [
+        "Second-order claim is float evidence, not an interval certificate.",
+        "k = 3 valley not identified with RLE's family; not independently re-implemented."
+      ],
+      "leak_terms": [
+        "448c^4",
+        "112c^3 - 144c^2 + 63c - 9",
+        "nondegenerate local minimum modulo",
+        "one-parameter valley",
+        "(2c − 1)²"
+      ],
+      "target_shape": "mixed",
+      "push_rounds": 2,
+      "superseded_by": "004"
+    },
+    {
+      "id": "004",
+      "file": "attempts/004-skeptic-hessian-review-of-003.md",
+      "date": "2026-10-02",
+      "mode": "blind",
+      "status": "VERIFIED_WITH_CORRECTIONS",
+      "range": "003 claims 1-2 (critical point, 23 gauge zero modes, 85 positive directions, overlap values to 18 digits) via exact AD Hessian in a Cayley chart; not the k = 3 valley or the closed forms",
+      "mechanism": [
+        "adversarial-verification",
+        "unitary-manifold-descent"
+      ],
+      "one_line": "Independent exact-AD Hessian confirms 003's signature (23 gauge zeros, 85 positive) and overlap values; corrects 003's eigenvalue magnitudes as dependent on generator normalisation and which basis is fixed.",
+      "verifies": "003",
+      "refuted_by": null,
+      "corrections": [
+        "003's quoted eigenvalue range (min 0.215, max 10.26) is specific to its non-orthonormal generators and hub-fixed gauge; Frobenius-normalised it is 0.107-5.13 (hub fixed) or 0.0916-4.72 (non-hub fixed). Only the signature is invariant."
+      ],
+      "leak_terms": [
+        "0.0916047112",
+        "hub fixed"
+      ],
+      "target_shape": "object",
+      "push_rounds": 0,
+      "methodological_lesson": "For a Hessian at a quotient, claim the signature; quote magnitudes only with gauge fixing and generator normalisation stated."
     }
   ]
 }

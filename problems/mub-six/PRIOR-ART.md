@@ -40,3 +40,30 @@ the three-value overlap pattern, and all controls. No corrections. One
 precision: the hub is *some* basis, not necessarily the fixed one. New: the
 same value is also a 3-basis local minimum in d = 6 (about 10% of k = 3
 starts, in both implementations).
+
+### 003 — Floor Hessian and closed forms · `EVIDENCE` (+ exact algebra)
+
+- **Second order.** The four-basis floor is a nondegenerate local minimum
+  modulo the 23-dimensional gauge orbit (float Hessian, 108 coordinates).
+- **Closed forms.** Polished to 50 digits, the three overlap values are
+  4c²/3, (2c − 1)² and c(3 − 4c)/3, with c = cos²θ the root of
+  112c³ − 144c² + 63c − 9 in [0, 1].
+  - LLL found these at 13 digits; they were confirmed at 50.
+  - Along this pattern, L(c) = 448c⁴ − 768c³ + 504c² − 144c + 15 exactly,
+    and L′ is 16 × that cubic.
+  - The cubic is RLE's Eq. 20, rediscovered blind and matched to their radical
+    to about 1e-51.
+- **Three bases.** The same L* is a one-parameter valley of
+  gauge-inequivalent configurations: equal overlap moduli, varying
+  triple-product phases. The fourth "hub" basis isolates one point of it.
+
+### 004 — Skeptic Hessian review of 003 · `VERIFIED_WITH_CORRECTIONS`
+
+- An exact automatic-differentiation Hessian in a Cayley chart (long double)
+  confirms the signature: 23 gauge zeros and 85 positive eigenvalues. It also
+  confirms the overlap values to 18 digits.
+- Correction: 003's eigenvalue magnitudes depend on the generator
+  normalisation and on which basis is fixed. Two correct implementations
+  disagreed until both were pinned down; only the signature is invariant.
+- Not reviewed: the k = 3 valley, and the closed forms (which are exact
+  arithmetic).

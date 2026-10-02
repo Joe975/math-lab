@@ -695,7 +695,7 @@ problems with no attempts (queue 18–19; run blind).
 | Hadwiger–Nelson | added 2026-07-27 | medium | exact-field unit-distance harness; recover the classical small graphs before anything else |
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
-| MUBs in d = 6 (mub-six) | added 2026-10-02; 001 calibrated multi-start census (blind, EVIDENCE, rediscovers RLE optimum) | low (long shot) | next: certify the 0.0512 floor as a local minimum via Hessian + intervals (001 lead 1); structured Hadamard-family seeds (001 lead 3) |
+| MUBs in d = 6 (mub-six) | 001–004: blind census + skeptic; floor is a nondegenerate local min (two independent Hessians) with exact cubic-field overlaps (RLE optimum rediscovered); k = 3 floor is a one-parameter valley | low (long shot) | next: interval certificate of the floor in Q(c*) (003 lead 1); identify the k = 3 valley with RLE's family (003 lead 3); closed forms for the next local minima (003 lead 2) |
 
 ## Attempt queue (next cycles pull from the top)
 
