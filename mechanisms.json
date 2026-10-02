@@ -220,6 +220,10 @@
    "field": "algebra",
    "description": "Prove an infinite family of identities at one stroke by moving the family parameters into the exponent lattice: adjoin e^{i a alpha}, e^{i b beta} (or analogous parameter-indexed units) as independent formal Laurent variables, verify the identity once by exact polynomial subtraction in the enlarged ring, and specialize by ring homomorphism to every integer parameter value. Turns a hand geometric-series computation into a finite machine check; needs a short hand derivation that the geometric quantities equal the formal closed forms."
   },
+  "frame-potential-bound": {
+   "field": "analysis",
+   "description": "Lower-bound sums of powers of overlaps among unit vectors via the frame potential / Welch bound, used to compute or certify the minimum of a defect function."
+  },
   "functional-graph-invariants": {
    "field": "graph-theory",
    "description": "Compute unlabelled structural invariants -- dominator tree, minimum directed cuts, treewidth -- on the digraph of an iterated map, and test whether any carries information the map does not already give. On a functional graph (out-degree one everywhere) the answer is usually no, and the collapse is provable rather than measured: unique forward orbits force the dominator tree to be the orbit tree, and one cycle plus a forest forces constant treewidth. Prices a graph-theoretic route before the machinery is built; the collapse is the deliverable."
@@ -455,6 +459,10 @@
   "unit-distance-graph-census": {
    "field": "geometry-topology",
    "description": "Enumerate unit-distance graphs on a structured point set and tabulate their invariants against a parameter."
+  },
+  "unitary-manifold-descent": {
+   "field": "computation",
+   "description": "Local optimisation over unitary or orthogonal matrices by tangent-space projected gradient with a retraction (QR/Gram-Schmidt, Cayley or exponential map), keeping orthonormality exact up to roundoff."
   },
   "up-sets": {
    "field": "extremal-combinatorics",
