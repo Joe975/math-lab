@@ -1,7 +1,7 @@
 {
   "problem": "mub-six",
   "route_status": "EVIDENCE",
-  "route_summary": "20,000-start calibrated local search for four MU bases in C^6 found none; 70.7% of starts converge to L = 0.0512492189962838 (ASD 0.99829169), a rediscovery of the published Raynal-Lu-Englert optimum. Controls: d=2 floor 2/3 proved; known MU sets in d=3,4,5,7 and three bases in d=6 are all found.",
+  "route_summary": "22,000 + 3,000 random starts by two independent implementations found no four MU bases in C^6; ~71% converge to L = 0.0512492189962838 (ASD 0.99829169), a rediscovery of the published Raynal-Lu-Englert optimum. Controls: d=2 floor 2/3 proved; known MU sets in d=3,4,5,7 and three bases in d=6 are all found.",
   "attempts": [
     {
       "id": "001",
@@ -31,6 +31,29 @@
       ],
       "target_shape": "object",
       "push_rounds": 2
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-skeptic-reimplementation-of-001.md",
+      "date": "2026-10-02",
+      "mode": "blind",
+      "status": "VERIFIED",
+      "range": "001's claims about the d=6, k=4 floor value, its share of starts, its basis structure and overlap pattern, and the d=2,3,5 and d=6,k=3 controls; checked by an independent exponential-map L-BFGS implementation over 3,000 d=6,k=4 starts",
+      "mechanism": [
+        "adversarial-verification",
+        "unitary-manifold-descent",
+        "optimization-landscape-census"
+      ],
+      "one_line": "Independent exponential-map L-BFGS code reproduces 001's floor L = 0.0512492189962838 (71.6% of starts), its structure and its controls, with no corrections; the same value is also a 3-basis local minimum.",
+      "verifies": "001",
+      "refuted_by": null,
+      "corrections": [],
+      "leak_terms": [
+        "1431/2000",
+        "3-basis local minimum"
+      ],
+      "target_shape": "object",
+      "push_rounds": 0
     }
   ]
 }

@@ -30,3 +30,13 @@ MU sets are found in d = 3, 4, 5, 7 and for three bases in d = 6. The d = 7
 hit rate is only 0.7%, which is the main caveat on reading the d = 6 null.
 Leads: certify the floor; closed forms for the three overlap values;
 Hadamard-family seeds; equal-sample controls.
+
+### 002 — Skeptic re-implementation of 001 · `VERIFIED` (001's claims, range only)
+
+Independent code (exponential map + L-BFGS, different RNG and stopping rule;
+written without seeing 001) reproduces the floor 0.0512492189962838 in
+1431/2000 and 717/1000 starts, the secondary minima, the hub-basis structure,
+the three-value overlap pattern, and all controls. No corrections. One
+precision: the hub is *some* basis, not necessarily the fixed one. New: the
+same value is also a 3-basis local minimum in d = 6 (about 10% of k = 3
+starts, in both implementations).
