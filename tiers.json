@@ -25,6 +25,7 @@
     "docs/PLAN-physics-problems.md",
     "docs/PLAN-em-problems.md",
     "docs/PLAN-conductance-problems.md",
+    "docs/PLAN-physics-shortlist-2026-09.md",
     ".claude/**/*",
     "problems/*/PRIOR-ART.md",
     "problems/*/prior-art.json",
