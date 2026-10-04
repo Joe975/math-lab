@@ -1,0 +1,4 @@
+null eigenvalue used: -8.68e-11
+t = 0.1: relaxed L - L* = 6.94e-17; max change in sorted triple products: Re 2.620e-04, Im 3.634e-03
+t = 0.3: relaxed L - L* = 3.47e-17; max change in sorted triple products: Re 3.970e-03, Im 1.808e-02
+t = 0.6: relaxed L - L* = 1.39e-17; max change in sorted triple products: Re 2.144e-02, Im 2.457e-02

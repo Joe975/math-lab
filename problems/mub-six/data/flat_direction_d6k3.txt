@@ -1,0 +1,6 @@
+L* = 0.051249218996283825; gauge rank 17; non-gauge null directions: 1
+  t = 0.001  raw L - L* = 4.554e-14   relaxed L - L* = -6.939e-18
+  t = 0.01   raw L - L* = 4.551e-10   relaxed L - L* = -2.082e-17
+  t = 0.03   raw L - L* = 3.687e-08   relaxed L - L* = 6.939e-18
+  t = 0.1    raw L - L* = 4.553e-06   relaxed L - L* = -6.939e-18
+  t = 0.3    raw L - L* = 3.701e-04   relaxed L - L* = -6.939e-18
