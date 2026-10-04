@@ -13,6 +13,7 @@ SPEC.loader.exec_module(checker)
 
 @pytest.fixture(scope='module')
 def cert():
+    pytest.importorskip('numpy')
     # Two equal masses have 2a=(2)^(1/3) at lambda=1.
     a = 2**(-2/3)
     return checker.certify([[a, 0], [-a, 0]])
@@ -52,6 +53,7 @@ def test_reject_malformed():
 
 
 def test_reject_proposal_collision():
+    pytest.importorskip('numpy')
     with pytest.raises(ValueError, match='Collision'):
         checker.certify([[1, 0], [1, 0]])
 
@@ -59,6 +61,7 @@ def test_reject_proposal_collision():
 def test_eight_body_polygon_and_pure_stdlib_verification(monkeypatch):
     import builtins
     import math
+    pytest.importorskip('numpy')
     radius = (sum(1/math.sin(math.pi*k/8) for k in range(1, 8))/4)**(1/3)
     points = [[radius*math.cos(math.pi*k/4), radius*math.sin(math.pi*k/4)]
               for k in range(8)]
