@@ -1,5 +1,23 @@
 # Status
 
+## Late merges (2026-10-04): three branches that never reached main
+
+Housekeeping, no new mathematics. Three remote branches held attempt records
+that had never been merged, so neither this ledger nor the site showed them:
+
+- **union-closed 036–065** (29 records, written 2026-08-20/21). Their ledger
+  text is where that branch wrote it, inside "Previous TL;DR (2026-08-19)"
+  below, newest first. The union-closed row under "Problem status" and the
+  sections above that one were written without these records in view and
+  have **not** been reconciled with them; read
+  `problems/union-closed/prior-art.json` before relying on either.
+- **zaremba 001** (new problem, written 2026-07-27). Its queue items were 5
+  and 6 on the branch and are appended here as 35 and 36.
+- **mub-six 001–004** (new problem, written 2026-10-02).
+
+Numbering gaps at union-closed 032 and 049 are in the records as written;
+no file is missing.
+
 ## Eight-body onboarding and first attempt (2026-09-06)
 
 `central-configurations-8` is now available. Attempts 001/002 independently
