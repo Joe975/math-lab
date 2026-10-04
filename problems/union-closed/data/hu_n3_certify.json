@@ -1,0 +1,35 @@
+{
+ "n": 3,
+ "max_marginal": 0.48499999999998805,
+ "best_seq": [
+  1,
+  2,
+  0
+ ],
+ "kits": {
+  "N1_identity:A_digit_extraction": {
+   "CR_lo": -0.010053001427112428,
+   "CR_hi": -0.010053001427112428,
+   "H_lo": 1.5940209969807477,
+   "certifies": true
+  },
+  "N1_identity:B_atanh_series": {
+   "CR_lo": -0.010053001427118633,
+   "CR_hi": -0.010053001427112376,
+   "H_lo": 1.5940209969807475,
+   "certifies": true
+  },
+  "N2_best:A_digit_extraction": {
+   "CR_lo": 0.27755184565995467,
+   "CR_hi": 0.27755184565995467,
+   "H_lo": 1.5940209969807477,
+   "certifies": true
+  },
+  "N2_best:B_atanh_series": {
+   "CR_lo": 0.27755184565994845,
+   "CR_hi": 0.2775518456599547,
+   "H_lo": 1.5940209969807475,
+   "certifies": true
+  }
+ }
+}

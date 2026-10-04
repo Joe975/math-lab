@@ -1,0 +1,44 @@
+{
+ "witness": "ownconst-kill-D497-windowkill",
+ "n": 4,
+ "roll_seq": [
+  1,
+  0,
+  2,
+  3
+ ],
+ "best_seq": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "max_marginal": 0.49499665133570425,
+ "fixed_point_60dig": true,
+ "kits": {
+  "K1_roll:A_digit_extraction": {
+   "CR_lo": -0.0009596936656816684,
+   "CR_hi": -0.0009596936656816684,
+   "H_lo": 3.1373367156258767,
+   "certifies": true
+  },
+  "K1_roll:B_atanh_series": {
+   "CR_lo": -0.0009596936656864298,
+   "CR_hi": -0.0009596936656816013,
+   "H_lo": 3.1373367156258767,
+   "certifies": true
+  },
+  "K4_best:A_digit_extraction": {
+   "CR_lo": 0.01610189393146184,
+   "CR_hi": 0.01610189393146184,
+   "H_lo": 3.1373367156258767,
+   "certifies": true
+  },
+  "K4_best:B_atanh_series": {
+   "CR_lo": 0.016101893931457074,
+   "CR_hi": 0.016101893931462715,
+   "H_lo": 3.1373367156258767,
+   "certifies": true
+  }
+ }
+}
