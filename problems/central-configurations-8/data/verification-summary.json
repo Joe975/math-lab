@@ -1,0 +1,1537 @@
+{
+  "polynomial_count": 39,
+  "all_valid_n8": true,
+  "catalogue_count": 20,
+  "pair_count": 190,
+  "all_pairs_separated": true,
+  "scope": "Local roots and inequivalence only; not completeness or novelty.",
+  "certificates": [
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-01-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-02-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-03-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-04-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-05-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-06-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-07-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-08-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-09-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-10-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-11-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-12-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-13-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-14-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-15-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-16-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-17-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-18-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-19-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/catalogue-001/published-20-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-001-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-002-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-003-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-004-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-005-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-006-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-007-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-008-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-009-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-010-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-011-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-012-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-013-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-014-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-015-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-016-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-017-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-018-polynomial.json",
+      "n": 8,
+      "valid": true
+    },
+    {
+      "path": "problems/central-configurations-8/data/run-001/cc-019-polynomial.json",
+      "n": 8,
+      "valid": true
+    }
+  ],
+  "pairwise_distance_witnesses": [
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-02-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "28961208026256418495326117056079/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-03-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "61641535428321369941172086856063/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-04-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "18111248877858497259295321016725617869546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-05-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "79354261238218542366328490330484720541885423334593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-06-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "39788518942199800973614549695035501791885423334593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-07-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "212213570525161158162880389316947/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "71236617292401389524128316117263/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "11458884098557378540052714569474062158653000209593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 19,
+      "positive_gap": "206646083938034103278999422848039/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "12070753520492468496025958369900087549278000209593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "2373464578529233182942733599848139409/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "18976503877704129245679951719310230795791673334593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "15638091719451700307373141428881652490684250209593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "204631664655892035897908045372433/80000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "21137961602580218944649830690349/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "32839389293062186713008082846829996420791673334593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "942844451739419171854290938918129/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "57427476224361150979064444464740701987197923334593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-01-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "29571612712475455047397564114176126791885423334593584203071/6103515625000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-03-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "56844281016286377631892537882823/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-04-polynomial.json",
+      "order_index": 14,
+      "positive_gap": "999019108778203727655766517697243408351927173192165152567679/390625000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-05-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "55238830646131281835519320947779/4000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-06-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "29309025775012439476390312812931/4000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-07-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "27962107071912178144268458779003343809500204249523896192631/10000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "68838133346386402110587824459323/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "26753625045212336023980373901487/12500000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 19,
+      "positive_gap": "22461418667366740214260123468255727775055500910476103807369/10000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "21351194716345049693273672868899762798906788609523896192631/10000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 14,
+      "positive_gap": "21416377750085855760625860220341759394364959789523896192631/10000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "2448384934741336883245483544306201/625000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "27195921621519855092984897592735158798906788609523896192631/10000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "317934459613236097630796328784507/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "11277899981746058921184247384659/6250000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "154717776050960078715995366870569/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "155233849911888348195337357705649/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "8173778563889940363192391169841/800000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-02-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "22613274108300292130184749142659/4000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-04-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "16401725830091610913099843474351/5000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-05-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1608347920418346809806849648420331/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-06-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "960102798640375750828624445049131/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-07-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "506998220963998422344941074376559/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 13,
+      "positive_gap": "17590799894380609212691495464235498165910002586197319705841931583/10000000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "57173770938029333732503415894433/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "69171421569430072479366824049019/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 21,
+      "positive_gap": "469025498449456521747157943553/200000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "31991753796059793400700023085265969/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "3869492148897991657738399948842801/625000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 21,
+      "positive_gap": "280060632210235109703806144561239/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "502131430285026104870839214206719/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "394040109078740275636322485721487/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "211562064617226269695712023052033/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "17751158414205602498730000013543/4000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1249099474751307309317915520955981/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-03-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "792709006972572067173485353292331/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-05-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "320078344108513962256456975881636670377190413483743751319423391/25000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-06-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "158017063664021197511900675038836670377190413483743751319423391/25000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-07-polynomial.json",
+      "order_index": 10,
+      "positive_gap": "203100241941062293742847368987808611764641611237697132598023158401561/100000000000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "376009925922232452559505732881131/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "26815776476598555838906382673544180369546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "21814931035359708328971189804564117869546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "20174268824085420260010893660213367869546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "5217436672478827692136032657361180369546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "72771049959846926114280561730265960377190413483743751319423391/25000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "23827222949536242455716350058191805369546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "33309867679819643928840966271832367869546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "24716863935738446748100443107459680369546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "129553428621153529500456586828586920377190413483743751319423391/25000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "32843195192978431351333365436006805369546785947198414635971111/6250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "230266232691754087134223444015549170377190413483743751319423391/25000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-04-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "116168615747070276598115902099636670377190413483743751319423391/25000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-06-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "25322073742290839239858171084733209098076433353995024807113977079/3906250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-07-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "110134967005475965856836636467398671197761448195803113710189984511/10000000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1656323329738746907721630794726331/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "661239515996689530786049484474083/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "266332441122885959828520470444851/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "5917104192341214424329258626972867/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "12884303544206915507417250249900560591/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "24730728608627775177428087415137071/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "33622714151128453511164285606061131/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "276554114455335099764181008553403/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "121430778319635465605071264269882551/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "762099625756309708861328356212199/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "291142231998367089195482512020439/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "7184968137188887124152242549287/2000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-05-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "101954859686973304761296536891/12500000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-07-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "45310454827678859959014116130278671197761448195803113710189984511/10000000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1008078207960775848743405591355131/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "337116955107704001296936882788483/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "136683416767291748032875429770611/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "3324123705229330188416357813488067/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "6401852326427204917634998216188560591/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "8524600564178498702972457330857071/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "17416586106679177036708655521781131/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "114492834010842335019624707710603/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "56606266141838359707248743932762551/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "7456599138899775785209200786780883524391540284607366833743686027/1953125000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "129080951553874324450926211177639/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "11288931333422108752009181730657037223076433353995024807113977079/3906250000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-06-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "7110148309185616814294861218939146948219665284607366833743686027/1953125000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-08-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "554973630284398835661233462961111/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1443160782563396582176847827475331523010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "365168224405491025436622283738167/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "94481587418078581619301714554639/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "18708065516034123578116590722669531/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "10814866213013494426547522638425891/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1251893356831408525652685740092779523010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1858782619569546219932661177765775523010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1308830379948349600365267695245923523010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1660580547769133454705395008801120963010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1828915580411708614972174724272939523010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "74210122438772015807943223720963671197761448195803113710189984511/10000000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-07-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "1574456341400761033263632739615579523010616454505828758459097159/400000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-09-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "66768852802109353315459645155633/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "81165273899530096958062110625519/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "6755946163105274538647628605147455967089647981631100470217109191/2500000000000000000000000000000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "36789294728099803192178137715865969/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "4169338457150492269705782113255301/625000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "311414733022833988969737440763093/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "550106839605426202785620360512719/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "442015518399140373551103632027487/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "223555916947326294174407309628533/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "19670174787021606415321245865783/4000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1297074884071707407232696667261981/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-08-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "840684416292972165088266499598331/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-10-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "30933582603774073261180035561789/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "627187929428413859751928351180203/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "4319667639009214492639786834581537/1250000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "8331246384967772925084832808567079/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "1711802679712132541167706841613349/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "108131270930029178318044267367277/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "176164713946786899729044542678739/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "560379370043937330548097412735967/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "15791007193017231423349932086641/10000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "120403823290792445135395605185477/12500000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-09-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "253420059273802159469367336910083/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-11-polynomial.json",
+      "order_index": 10,
+      "positive_gap": "17638132904919809739734002319031289/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "28659119138943065510368446610304811/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1070103215686755170543427173808663/312500000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "3267090525948807280732910118089871/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "225445715481109094206591918010643/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 19,
+      "positive_gap": "76903814476358445974360528383527/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "71195317958123508514825099501507/12500000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "705808785160094008297736959335221/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "194482751989478059730733644951981/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-10-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "103204658433731011301847611419251/20000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-12-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "31394424786246396845042315389044411/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "49004687149063546151360900013773391/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 23,
+      "positive_gap": "3950916937774640114401377312774771/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1492238231807931604585216890118419/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1059872946982788287647149976177491/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "2868705544543447500233252402124071/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "1258828352088387434974860034645843/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "4480110409673056422373522117115467/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-11-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "2654548538558115453795801446460867/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-13-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "2992011778260234061730193683845732191/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "232622309098444374955260193296307/78125000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "11236971759306864221253407108478349/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "3899885130837192674478598921364637/1250000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "5263306924712498197177234687778570591/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 25,
+      "positive_gap": "2762575691142594797562591693537031/625000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "9291819087536520502527908975257060591/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-12-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "4727914409749168081083607298620560591/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-14-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "444599236813087494847332209546203/125000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "26395708829008250560852518361868289/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "22507860660168651148200698609334267/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "177444908121616621932126515932253/78125000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "24387862040507225369971286163267389/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "15749517466951787665204734228528321/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-13-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 16,
+      "positive_gap": "1836071593852247629748577890838673809/1000000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-14-polynomial.json",
+      "b": "published-15-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "5967301897795435887764024750720831/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-14-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "95561270159187292017508756384091/39062500000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-14-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "3642555650598102558891061675189039/625000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-14-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 24,
+      "positive_gap": "5214228370220122580217498883472849/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-14-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "24641503009452465998940932419452381/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-14-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "13231741314984084945330178227861131/2500000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-15-polynomial.json",
+      "b": "published-16-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "120079796071141334532633105530577/80000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-15-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "344116795871898668032722478001413/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-15-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 15,
+      "positive_gap": "10367699670927296630178316296592463/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-15-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "373484006077150449283894953374631/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-15-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "72644386093891414105839934771403/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-16-polynomial.json",
+      "b": "published-17-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "45220812124691292502671108648662651/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-16-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 26,
+      "positive_gap": "520085108815665665027916239708849/400000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-16-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "85505933752931515556177851523447551/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-16-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "39866886975057991341734834757082551/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-17-polynomial.json",
+      "b": "published-18-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "402469266044026625757928491869557/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-17-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "402851180089270208372394228747849/100000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-17-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 5,
+      "positive_gap": "11308862892220333571053872228457927/10000000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-18-polynomial.json",
+      "b": "published-19-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "402660241163214428146497960308703/50000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-18-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "87232503636923403537141438238439/25000000000000000000000000000000",
+      "separated": true
+    },
+    {
+      "a": "published-19-polynomial.json",
+      "b": "published-20-polynomial.json",
+      "order_index": 27,
+      "positive_gap": "9127808636574938752028763353273/2000000000000000000000000000000",
+      "separated": true
+    }
+  ]
+}

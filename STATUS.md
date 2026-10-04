@@ -1,5 +1,21 @@
 # Status
 
+## Eight-body onboarding and first attempt (2026-09-06)
+
+`central-configurations-8` is now available. Attempts 001/002 independently
+certify 20 published configurations and all 190 pairwise inequivalences; no new
+shape or complete classification is claimed. The seed search recovered 19,
+including asymmetric configurations, while fixed-mass and pseudo-arclength
+continuation added none. The aligned concentric-square family has a complete
+verified uniqueness argument, recorded as a rediscovery. The coarse coverage
+pilot leaves all 4096 boxes unresolved. Standing is EVIDENCE for the global
+problem; VERIFIED is confined to the stated local objects and restricted family.
+
+Next leads: measure the missed catalogue entry's basin; test exact force/cluster
+exclusions on the stored partition; prove a safe permutation/gauge reduction.
+Read `problems/central-configurations-8/prior-art.json`, then
+`problems/central-configurations-8/attempts/001-three-route-certified-pilot.md`.
+
 The live ledger: where every problem stands, what is queued next, and what has
 already been ruled out. Read this before starting work.
 

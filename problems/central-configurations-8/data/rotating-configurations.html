@@ -1,0 +1,163 @@
+<div id="cc8-rotating-shapes">
+  <style>
+    #cc8-rotating-shapes .orbit-stage { width: 100%; display: block; }
+    #cc8-rotating-shapes .orbit-guide { fill: none; stroke: var(--border); stroke-width: 1; }
+    #cc8-rotating-shapes .mass { fill: var(--viz-series-1); }
+    #cc8-rotating-shapes .mass-label { fill: var(--foreground); font-size: 12px; }
+    #cc8-rotating-shapes .center-mark { stroke: var(--muted-foreground); stroke-width: 1.5; }
+    #cc8-rotating-shapes .trail { fill: none; stroke: var(--viz-series-1); stroke-width: 2; opacity: .28; }
+    #cc8-rotating-shapes .status-line { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  </style>
+  <div class="viz-controls">
+    <label class="form-label">Configuration
+      <select class="form-select" id="cc8-choice" aria-label="Configuration"></select>
+    </label>
+    <label class="form-label">Speed <span id="cc8-speed-value" class="tabular-nums">1×</span>
+      <input class="form-range" id="cc8-speed" type="range" min="0.25" max="2" step="0.25" value="1" aria-label="Playback speed">
+    </label>
+    <button type="button" class="btn" id="cc8-play">Pause</button>
+  </div>
+  <svg class="orbit-stage" id="cc8-stage" role="img" aria-labelledby="cc8-title cc8-desc">
+    <title id="cc8-title">Eight equal masses rotating in a fixed shape</title>
+    <desc id="cc8-desc">Eight numbered bodies rotate around their common center of mass. Their relative distances stay fixed. Thin circles trace their orbits.</desc>
+    <g id="cc8-guides"></g>
+    <path id="cc8-center" class="center-mark"></path>
+    <g id="cc8-trails"></g>
+    <g id="cc8-bodies"></g>
+  </svg>
+  <div class="status-line text-small">
+    <span id="cc8-status" aria-live="polite"></span>
+    <span class="text-muted">Cross: center of mass · 1×: 10 s per turn</span>
+  </div>
+  <script type="application/json" id="cc8-data">[{"id": 1, "name": "Configuration 1", "points": [[1.6968604595, 0.0], [-0.7127300003, -1.3443436307], [-1.6968604595, 0.0], [0.7127300003, -1.3443436307], [-0.5470723307, -0.0], [-0.7127300003, 1.3443436307], [0.7127300003, 1.3443436307], [0.5470723307, 0.0]]}, {"id": 2, "name": "Configuration 2", "points": [[1.6362331848, 0.0], [-0.8098868143, -1.2134396236], [0.6277229339, -1.5110337367], [0.4716790781, -0.3148130805], [-0.4716790781, 0.3148130805], [-0.6277229339, 1.5110337367], [-1.6362331848, -0.0], [0.8098868143, 1.2134396236]]}, {"id": 3, "name": "Heptagon and center", "points": [[1.4895217706, 0.0], [0.9287016336, 1.1645550141], [-0.0, -0.0], [-1.3420127434, -0.6462792753], [-0.3314497755, 1.45217635], [-0.3314497755, -1.45217635], [-1.3420127434, 0.6462792753], [0.9287016336, -1.1645550141]]}, {"id": 4, "name": "Twisted squares", "points": [[1.7114036689, 0.0], [-0.0, 1.7114036689], [0.7093419404, 0.7093419404], [-0.7093419404, -0.7093419404], [-0.7093419404, 0.7093419404], [0.0, -1.7114036689], [-1.7114036689, -0.0], [0.7093419404, -0.7093419404]]}, {"id": 5, "name": "Collinear", "points": [[2.4758202768, 0.0], [-0.9670076382, 0.0], [0.3180214153, 0.0], [-1.6620616352, -0.0], [1.6620616352, 0.0], [-2.4758202768, -0.0], [-0.3180214153, 0.0], [0.9670076382, 0.0]]}, {"id": 6, "name": "Configuration 6", "points": [[2.1234578478, 0.0], [-0.408598693, 0.0], [-2.1234578478, -0.0], [1.2256733668, -0.0], [-0.0, 1.4969775028], [-1.2256733668, -0.0], [0.408598693, 0.0], [-0.0, -1.4969775028]]}, {"id": 7, "name": "Aligned squares", "points": [[1.8374742941, 0.0], [-0.0, 1.8374742941], [-1.8374742941, -0.0], [-0.8169178382, 0.0], [-0.0, 0.8169178382], [0.8169178382, 0.0], [-0.0, -1.8374742941], [0.0, -0.8169178382]]}, {"id": 8, "name": "Regular octagon", "points": [[1.410275728, 0.0], [-0.9972155306, 0.9972155306], [0.9972155306, 0.9972155306], [-1.410275728, -0.0], [0.0, -1.410275728], [-0.0, 1.410275728], [-0.9972155306, -0.9972155306], [0.9972155306, -0.9972155306]]}, {"id": 9, "name": "Configuration 9", "points": [[1.8317797082, 0.0], [0.649117221, -1.4257592992], [0.0036753919, 0.805092868], [0.8098550264, 0.127211292], [-0.3631726059, 1.7788035088], [-1.2102260927, -1.1831739126], [-0.2877856242, -0.5150746371], [-1.4332430247, 0.4129001801]]}, {"id": 10, "name": "Configuration 10", "points": [[1.693922291, 0.0], [0.6567310704, 0.4064875152], [0.9394937456, -1.3091912306], [-1.6126407767, 0.5184230447], [-1.2950894141, -0.958839708], [-0.1402732758, -0.8946794282], [0.2586696571, 1.6498254538], [-0.5008132975, 0.5879743531]]}, {"id": 11, "name": "Configuration 11", "points": [[1.8070715234, 0.0], [0.8138318629, 0.4171366788], [0.8626167139, -0.9897281277], [-0.8195073338, 1.6105636344], [0.0027027073, 0.9145042402], [-1.1997112282, -0.8277927456], [-1.2732981644, 0.3199705397], [-0.193706081, -1.4446542199]]}, {"id": 12, "name": "Configuration 12", "points": [[1.7175945341, 0.0], [-0.8480376952, 0.7845359574], [0.0133493726, 1.6964105807], [0.6784672369, 0.716649255], [0.1334156883, -1.7124051033], [-1.6902482293, -0.1450792455], [-0.6617834684, -0.7320837296], [0.657242561, -0.6080277147]]}, {"id": 13, "name": "Configuration 13", "points": [[1.9269552109, 0.0], [0.1932147941, -1.5537793095], [-0.8566556338, 1.1961651177], [0.5376058915, 1.3695436354], [0.025816007, -0.207605105], [0.9483600287, -0.0508311476], [-0.9070277578, -0.2815514094], [-1.8682685405, -0.4719417816]]}, {"id": 14, "name": "Configuration 14", "points": [[1.8256602705, 0.0], [-0.0177375996, 0.8121727067], [-1.4791187689, 0.3848293728], [-0.3598987916, -0.4348601165], [0.8011661551, 0.1344318412], [-0.3413542629, 1.7934638805], [-1.0833191192, -1.3089576552], [0.6546021166, -1.3810800294]]}, {"id": 15, "name": "Configuration 15", "points": [[1.9990767203, 0.0], [-0.7120109563, 0.4306073996], [0.1831302784, -0.2161508591], [0.4076455338, 1.4294971177], [-0.9514724714, -1.7282979682], [1.0594768163, -0.0494707966], [-0.468846271, -0.9120272294], [-1.51699965, 1.0458423359]]}, {"id": 16, "name": "Configuration 16", "points": [[1.8761888402, 0.0], [-0.2767732917, -1.7589532399], [-0.2767732917, 1.7589532399], [-1.2735709218, 0.6299898638], [-1.2735709218, -0.6299898638], [0.1823263538, -0.7935295847], [0.1823263538, 0.7935295847], [0.8598468792, -0.0]]}, {"id": 17, "name": "Configuration 17", "points": [[2.1428203835, 0.0], [-1.0295447164, 0.7098546466], [-1.0487576545, -1.0055241835], [1.2499722523, 0.0377532882], [0.3354771227, -1.4136571726], [0.451837209, 0.1434254208], [-1.8000550121, 1.1625322144], [-0.3017495846, 0.365615786]]}, {"id": 18, "name": "Configuration 18", "points": [[1.9709906677, 0.0], [0.6909437297, -1.2843037717], [0.1928910842, 0.423847539], [-1.2946398458, 1.4861735706], [-1.4222399181, -0.3226035198], [1.0137131944, 0.1197141046], [-0.5760714303, -1.2658255254], [-0.5755874819, 0.8429976026]]}, {"id": 19, "name": "Configuration 19", "points": [[2.3102663897, 0.0], [-0.6848179808, -0.2360118267], [-1.4017995598, -0.418551305], [-0.2056745591, 1.4465172744], [-2.2187047722, -0.6439564623], [1.4629084359, -0.0112298272], [0.0143599076, -0.100993796], [0.7234621386, -0.0357740571]]}, {"id": 20, "name": "Configuration 20", "points": [[2.1537162474, 0.0], [-0.6478281613, 1.7701095005], [-1.6449167057, -1.3902311698], [-0.9612436148, -0.8291177134], [1.2693552236, -0.0127587572], [-0.3233886469, -0.3405746809], [0.4668325858, -0.0513679578], [-0.312526928, 0.8539407786]]}]</script>
+  <script>
+/* Rigid relative equilibrium: q(t) = R(t)q(0), lambda = omega^2 = 1.
+   Playback rate only maps wall-clock seconds to dimensionless physical time.
+   This prescribes the relative equilibrium; it does not integrate perturbations. */
+function rotateConfiguration(points, angle) {
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return points.map(([x, y]) => [c * x - s * y, s * x + c * y]);
+}
+function advanceRotation(angle, elapsedSeconds, speed, playing) {
+  if (!playing) return angle;
+  return (angle + Math.max(0, elapsedSeconds) * speed * (2 * Math.PI / 10)) % (2 * Math.PI);
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { rotateConfiguration, advanceRotation };
+}
+
+(() => {
+  const root = document.getElementById('cc8-rotating-shapes');
+  const configurations = JSON.parse(root.querySelector('#cc8-data').textContent);
+  const select = root.querySelector('#cc8-choice');
+  const speedInput = root.querySelector('#cc8-speed');
+  const speedValue = root.querySelector('#cc8-speed-value');
+  const play = root.querySelector('#cc8-play');
+  const svg = root.querySelector('#cc8-stage');
+  const guides = root.querySelector('#cc8-guides');
+  const trails = root.querySelector('#cc8-trails');
+  const bodies = root.querySelector('#cc8-bodies');
+  const center = root.querySelector('#cc8-center');
+  const status = root.querySelector('#cc8-status');
+  const ns = 'http://www.w3.org/2000/svg';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let playing = !reduced.matches, speed = 1, angle = 0, previous = null;
+  let selected = configurations.find(c => c.id === 20), width = 0, height = 0, scale = 1;
+  let dots = [], labels = [], paths = [];
+  const extent = Math.max(...configurations.flatMap(c => c.points.map(p => Math.hypot(...p))));
+
+  function element(tag, attrs, parent) {
+    const el = document.createElementNS(ns, tag);
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+    parent.appendChild(el);
+    return el;
+  }
+  configurations.forEach(config => {
+    const option = document.createElement('option');
+    option.value = config.id;
+    option.textContent = `${config.id} · ${config.name}`;
+    select.appendChild(option);
+  });
+  select.value = selected.id;
+
+  function paint() {
+    const rotated = rotateConfiguration(selected.points, angle);
+    rotated.forEach(([x, y], i) => {
+      const px = width / 2 + x * scale, py = height / 2 - y * scale;
+      dots[i].setAttribute('cx', px);
+      dots[i].setAttribute('cy', py);
+      labels[i].setAttribute('x', px + 11);
+      labels[i].setAttribute('y', py - 10);
+      const segment = [];
+      for (let k = 0; k <= 18; k++) {
+        const a = angle - .65 * (1 - k / 18);
+        const p = rotateConfiguration([selected.points[i]], a)[0];
+        segment.push(`${k ? 'L' : 'M'}${width / 2 + scale * p[0]},${height / 2 - scale * p[1]}`);
+      }
+      paths[i].setAttribute('d', segment.join(' '));
+    });
+    svg.dataset.angle = String(angle);
+  }
+  function layout() {
+    width = Math.max(260, svg.getBoundingClientRect().width);
+    height = Math.min(440, width * .85);
+    scale = (Math.min(width, height) / 2 - 32) / extent;
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.style.height = `${height}px`;
+    guides.replaceChildren();
+    trails.replaceChildren();
+    bodies.replaceChildren();
+    dots = []; labels = []; paths = [];
+    const radii = [];
+    selected.points.forEach(p => {
+      const r = Math.hypot(...p);
+      if (r > 1e-6 && !radii.some(old => Math.abs(old-r) < 1e-6)) radii.push(r);
+    });
+    radii.forEach(r => element('circle', {cx: width/2, cy: height/2, r: r*scale, class: 'orbit-guide'}, guides));
+    center.setAttribute('d', `M${width/2-5},${height/2}h10 M${width/2},${height/2-5}v10`);
+    selected.points.forEach((_, i) => {
+      paths.push(element('path', {class: 'trail'}, trails));
+      dots.push(element('circle', {r: 6, class: 'mass'}, bodies));
+      const label = element('text', {class: 'mass-label'}, bodies);
+      label.textContent = i+1;
+      labels.push(label);
+    });
+    status.textContent = `${selected.name} · 8 equal masses`;
+    root.querySelector('#cc8-title').textContent = `${selected.name}: eight equal masses in rigid rotation`;
+    svg.dataset.configuration = String(selected.id);
+    paint();
+  }
+  select.addEventListener('change', () => {
+    selected = configurations.find(c => c.id === Number(select.value));
+    angle = 0;
+    layout();
+  });
+  speedInput.addEventListener('input', () => {
+    speed = Number(speedInput.value);
+    speedValue.textContent = `${speed}×`;
+  });
+  function updatePlay() {
+    play.textContent = playing ? 'Pause' : 'Play';
+    play.setAttribute('aria-label', playing ? 'Pause rotation' : 'Play rotation');
+  }
+  play.addEventListener('click', () => { playing = !playing; previous = null; updatePlay(); });
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) { playing = false; previous = null; updatePlay(); }
+  });
+  document.addEventListener('visibilitychange', () => { previous = null; });
+  function tick(now) {
+    if (!root.isConnected) return;
+    if (previous !== null && !document.hidden) {
+      angle = advanceRotation(angle, Math.min((now-previous)/1000, .1), speed, playing);
+      if (playing) paint();
+    }
+    previous = now;
+    requestAnimationFrame(tick);
+  }
+  new ResizeObserver(layout).observe(svg);
+  updatePlay();
+  layout();
+  requestAnimationFrame(tick);
+})();
+  </script>
+</div>

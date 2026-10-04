@@ -1,0 +1,45 @@
+{
+  "problem": "central-configurations-8",
+  "route_status": "EVIDENCE",
+  "route_summary": "Twenty published eight-body configurations independently certified and pairwise separated; nineteen recovered by the seed search. The aligned two-square family is completely classified as a rediscovery. Global completeness remains open: the depth-12 geometric coverage pilot leaves every box unresolved.",
+  "attempts": [
+    {
+      "id": "001",
+      "file": "attempts/001-three-route-certified-pilot.md",
+      "date": "2026-09-06",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "assumed-symmetry-construction",
+        "exact-rational-arithmetic",
+        "certified-enclosure",
+        "pseudo-arclength-continuation",
+        "barrier-analysis"
+      ],
+      "one_line": "Twenty known shapes certified; full eight-body classification remains open.",
+      "leak_terms": ["cc8-depth12-zero-exclusion"],
+      "range": "39 local certificates: 19 discovered and 20 catalogue roots; all 190 catalogue pairs separated; one complete aligned-square family proof. Numerical search: 424 starts, 38 fixed-mass paths, 38 arclength paths/3984 accepted steps. Coverage: 4096 unresolved leaves.",
+      "target_shape": "mixed",
+      "push_rounds": 3,
+      "gaps": ["No exhaustive exclusion outside the local root boxes.", "The seed design misses one known catalogue entry.", "Continuation is numerical and sampled, not certified over entire paths."],
+      "note": "VERIFIED applies only to local existence/inequivalence and the rediscovered restricted family. No new configuration or full classification is claimed. Independently audited by 002."
+    },
+    {
+      "id": "002",
+      "file": "attempts/002-independent-certificate-audit.md",
+      "date": "2026-09-06",
+      "mode": "informed",
+      "status": "VERIFIED",
+      "mechanism": [
+        "adversarial-verification",
+        "exact-rational-arithmetic"
+      ],
+      "one_line": "Independent polynomial audit accepts 39 certificates and separates 190 catalogue pairs.",
+      "leak_terms": [],
+      "verifies": "001",
+      "range": "Every saved polynomial certificate and every pair of the 20 published configurations; independent gauge and aligned-square proof review.",
+      "target_shape": "proof",
+      "push_rounds": 0
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+<div id="cc8-rotating-shapes">
+  <style>
+    #cc8-rotating-shapes .orbit-stage { width: 100%; display: block; }
+    #cc8-rotating-shapes .orbit-guide { fill: none; stroke: var(--border); stroke-width: 1; }
+    #cc8-rotating-shapes .mass { fill: var(--viz-series-1); }
+    #cc8-rotating-shapes .mass-label { fill: var(--foreground); font-size: 12px; }
+    #cc8-rotating-shapes .center-mark { stroke: var(--muted-foreground); stroke-width: 1.5; }
+    #cc8-rotating-shapes .trail { fill: none; stroke: var(--viz-series-1); stroke-width: 2; opacity: .28; }
+    #cc8-rotating-shapes .status-line { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  </style>
+  <div class="viz-controls">
+    <label class="form-label">Configuration
+      <select class="form-select" id="cc8-choice" aria-label="Configuration"></select>
+    </label>
+    <label class="form-label">Speed <span id="cc8-speed-value" class="tabular-nums">1×</span>
+      <input class="form-range" id="cc8-speed" type="range" min="0.25" max="2" step="0.25" value="1" aria-label="Playback speed">
+    </label>
+    <button type="button" class="btn" id="cc8-play">Pause</button>
+  </div>
+  <svg class="orbit-stage" id="cc8-stage" role="img" aria-labelledby="cc8-title cc8-desc">
+    <title id="cc8-title">Eight equal masses rotating in a fixed shape</title>
+    <desc id="cc8-desc">Eight numbered bodies rotate around their common center of mass. Their relative distances stay fixed. Thin circles trace their orbits.</desc>
+    <g id="cc8-guides"></g>
+    <path id="cc8-center" class="center-mark"></path>
+    <g id="cc8-trails"></g>
+    <g id="cc8-bodies"></g>
+  </svg>
+  <div class="status-line text-small">
+    <span id="cc8-status" aria-live="polite"></span>
+    <span class="text-muted">Cross: center of mass · 1×: 10 s per turn</span>
+  </div>
+  <script type="application/json" id="cc8-data">__CONFIGURATION_DATA__</script>
+  <script>
+__ROTATION_MATH__
+(() => {
+  const root = document.getElementById('cc8-rotating-shapes');
+  const configurations = JSON.parse(root.querySelector('#cc8-data').textContent);
+  const select = root.querySelector('#cc8-choice');
+  const speedInput = root.querySelector('#cc8-speed');
+  const speedValue = root.querySelector('#cc8-speed-value');
+  const play = root.querySelector('#cc8-play');
+  const svg = root.querySelector('#cc8-stage');
+  const guides = root.querySelector('#cc8-guides');
+  const trails = root.querySelector('#cc8-trails');
+  const bodies = root.querySelector('#cc8-bodies');
+  const center = root.querySelector('#cc8-center');
+  const status = root.querySelector('#cc8-status');
+  const ns = 'http://www.w3.org/2000/svg';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let playing = !reduced.matches, speed = 1, angle = 0, previous = null;
+  let selected = configurations.find(c => c.id === 20), width = 0, height = 0, scale = 1;
+  let dots = [], labels = [], paths = [];
+  const extent = Math.max(...configurations.flatMap(c => c.points.map(p => Math.hypot(...p))));
+
+  function element(tag, attrs, parent) {
+    const el = document.createElementNS(ns, tag);
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+    parent.appendChild(el);
+    return el;
+  }
+  configurations.forEach(config => {
+    const option = document.createElement('option');
+    option.value = config.id;
+    option.textContent = `${config.id} · ${config.name}`;
+    select.appendChild(option);
+  });
+  select.value = selected.id;
+
+  function paint() {
+    const rotated = rotateConfiguration(selected.points, angle);
+    rotated.forEach(([x, y], i) => {
+      const px = width / 2 + x * scale, py = height / 2 - y * scale;
+      dots[i].setAttribute('cx', px);
+      dots[i].setAttribute('cy', py);
+      labels[i].setAttribute('x', px + 11);
+      labels[i].setAttribute('y', py - 10);
+      const segment = [];
+      for (let k = 0; k <= 18; k++) {
+        const a = angle - .65 * (1 - k / 18);
+        const p = rotateConfiguration([selected.points[i]], a)[0];
+        segment.push(`${k ? 'L' : 'M'}${width / 2 + scale * p[0]},${height / 2 - scale * p[1]}`);
+      }
+      paths[i].setAttribute('d', segment.join(' '));
+    });
+    svg.dataset.angle = String(angle);
+  }
+  function layout() {
+    width = Math.max(260, svg.getBoundingClientRect().width);
+    height = Math.min(440, width * .85);
+    scale = (Math.min(width, height) / 2 - 32) / extent;
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.style.height = `${height}px`;
+    guides.replaceChildren();
+    trails.replaceChildren();
+    bodies.replaceChildren();
+    dots = []; labels = []; paths = [];
+    const radii = [];
+    selected.points.forEach(p => {
+      const r = Math.hypot(...p);
+      if (r > 1e-6 && !radii.some(old => Math.abs(old-r) < 1e-6)) radii.push(r);
+    });
+    radii.forEach(r => element('circle', {cx: width/2, cy: height/2, r: r*scale, class: 'orbit-guide'}, guides));
+    center.setAttribute('d', `M${width/2-5},${height/2}h10 M${width/2},${height/2-5}v10`);
+    selected.points.forEach((_, i) => {
+      paths.push(element('path', {class: 'trail'}, trails));
+      dots.push(element('circle', {r: 6, class: 'mass'}, bodies));
+      const label = element('text', {class: 'mass-label'}, bodies);
+      label.textContent = i+1;
+      labels.push(label);
+    });
+    status.textContent = `${selected.name} · 8 equal masses`;
+    root.querySelector('#cc8-title').textContent = `${selected.name}: eight equal masses in rigid rotation`;
+    svg.dataset.configuration = String(selected.id);
+    paint();
+  }
+  select.addEventListener('change', () => {
+    selected = configurations.find(c => c.id === Number(select.value));
+    angle = 0;
+    layout();
+  });
+  speedInput.addEventListener('input', () => {
+    speed = Number(speedInput.value);
+    speedValue.textContent = `${speed}×`;
+  });
+  function updatePlay() {
+    play.textContent = playing ? 'Pause' : 'Play';
+    play.setAttribute('aria-label', playing ? 'Pause rotation' : 'Play rotation');
+  }
+  play.addEventListener('click', () => { playing = !playing; previous = null; updatePlay(); });
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) { playing = false; previous = null; updatePlay(); }
+  });
+  document.addEventListener('visibilitychange', () => { previous = null; });
+  function tick(now) {
+    if (!root.isConnected) return;
+    if (previous !== null && !document.hidden) {
+      angle = advanceRotation(angle, Math.min((now-previous)/1000, .1), speed, playing);
+      if (playing) paint();
+    }
+    previous = now;
+    requestAnimationFrame(tick);
+  }
+  new ResizeObserver(layout).observe(svg);
+  updatePlay();
+  layout();
+  requestAnimationFrame(tick);
+})();
+  </script>
+</div>

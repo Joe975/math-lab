@@ -356,6 +356,10 @@
    "field": "number-theory",
    "description": "Enumerate sets of primes satisfying a divisibility/reciprocal-sum constraint by ordered extension."
   },
+  "pseudo-arclength-continuation": {
+   "field": "dynamics",
+   "description": "Follow a parameterized root branch with a tangent predictor and a transverse corrector equation so folds in the physical parameter do not stop continuation; certify target-parameter endpoints separately."
+  },
   "randomised-construction": {
    "field": "probability",
    "description": "Sample constructions at random from a constrained family and keep those passing an exact check."
