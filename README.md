@@ -29,6 +29,7 @@ recorded dead ends. The headline standing, in the lab's own vocabulary:
 | [Hadwiger–Nelson](problems/hadwiger-nelson/) | Added 2026-07-27. The chromatic number of the plane, where the frontier moves in small independently-checkable steps. |
 | [Giuga](problems/giuga/) | Added 2026-07-27. A primality congruence whose counterexample bound is a search this lab's tooling can recover and extend. |
 | [Conway 99-graph](problems/conway-99/) | Added 2026-07-27. One finite existence question, every standard obstruction already checked and passed. |
+| [Zaremba](problems/zaremba/) | Baseline census `VERIFIED`: z(n) ≤ 5 to 10⁷ with every certificate independently re-checked (10⁸ single-pass); the exceptional set stops at 6234 — is it finite? |
 
 **No conjecture here is solved, and none is close to solved.** That is the
 expected outcome and the honest framing: the deliverables are the approach

@@ -712,6 +712,7 @@ problems with no attempts (queue 18–19; run blind).
 | Giuga | added 2026-07-27 | medium | prime-chain enumerator; recover the published factor-count bound from scratch |
 | Conway 99-graph | orders 7 and 11 have no orbit matrix (003, LIVE); order 9 has exactly one | low (long shot) | next: independent re-run of the Z7/Z11 enumerations (upgrade to VERIFIED), then lift the unique Z9 orbit matrix R = 3I + J |
 | MUBs in d = 6 (mub-six) | 001–004: blind census + skeptic; floor is a nondegenerate local min (two independent Hessians) with exact cubic-field overlaps (RLE optimum rediscovered); k = 3 floor is a one-parameter valley | low (long shot) | next: interval certificate of the floor in Q(c*) (003 lead 1); identify the k = 3 valley with RLE's family (003 lead 3); closed forms for the next local minima (003 lead 2) |
+| Zaremba | baseline done | medium | next: exact census to 10^6 (does {z≥4} grow past 6234?); bitmap mark-all scan to 10^9 |
 
 ## Attempt queue (next cycles pull from the top)
 
@@ -750,6 +751,8 @@ problems with no attempts (queue 18–19; run blind).
 32. [three-phase-conductivity] **Half-line Schur test for rank-increasing classes** (018 lead 1). A higher-rank class contains the rank-4 base only on its boundary, so its extra directions are one-sided; run the same Hessian with the minimisation over a half-line and check whether any direction has a nonzero u-row entry *of the right sign*. This is the sharpest surviving form of 015 lead 2, and `tp_enrich.py` already does everything but the sign restriction.
 33. [three-phase-conductivity] **Explain the tilt decoupling structurally** (018 lead 3). The gap Hessian's m₁-row vanishing on all five normal tilts, at every triple, is too clean to be accidental. 010 derived the attainment fields from interface continuity; the same argument should say why rotating an interface is second-order neutral in the volume-fraction direction. Would upgrade a computed identity at five triples to a structural fact — and would predict, for free, which enrichments of *any* attaining structure are inert.
 34. [three-phase-conductivity] **Same expansion at m₁₂** (017 lead 3), the other breakpoint of the transcribed piecewise bound, where B2 meets B3. Same machinery, different point; m₁₂ is irrational so the arithmetic moves to ℚ(√Z₂). Cheap, and it tests whether the first-order tangency at m₁₁ is special or generic to the piecewise construction.
+35. [zaremba] Exact census to 10^6 (zscan exact, sliced): any member of {z ≥ 4} above 6234 kills the finiteness speculation in 001; none extends the empty gap by a decade. Cheap and decisive either way.
+36. [zaremba] Bitmap mark-all scan to 10^9: port explore/crosscheck_tree.py's generation to C with a 125 MB bitmap; decides z ≤ 5 coverage at 10^9 in one output-linear pass and yields the z ≤ 3 density curve for free. Leads 3-5 of 001 (odd exceptional members, z=2 residues mod 8/12/16, hard-n divisibility anatomy) ride on its output.
 
 ## Verified results
 
@@ -947,6 +950,16 @@ problems with no attempts (queue 18–19; run blind).
   prediction rows), but certified box width collapses exponentially in ℓ:
   length buys angle reach, not area. Negatives are sample-bounded; says
   nothing about unstable orbits.
+- **[zaremba] Baseline z(n) census** (2026-07-27, attempt 001): z(n) ≤ 5
+  for all n ≤ 10^7 with a witness certificate per n, every one of the
+  9,999,999 certificates re-verified by an independent implementation
+  (10^8 checked single-implementation, zero failures). Exact z(n) for
+  n ≤ 10^5 computed by exhaustive Euclid scan AND independently by
+  forward continuant generation (no Euclid, no gcd) — 99,999-line tables
+  identical. Exceptional set {z ≥ 4}: exactly 38 members, z = 5 only for
+  {6, 54, 150}, largest member 6234, 37 of 38 even (odd one: 1155).
+  First witnesses concentrate at the K ≤ 5 Cantor-set edge (3√5−5)/10:
+  min m/n over 10^7 denominators matches it to 9 decimals.
 - **[lonely-runner] k=8 tightness census to V=72** (2026-07-25, attempt
   001): among all 1,473,109,704 speed 7-tuples with max speed ≤ 72,
   exactly 3 primitives have ML < 13/100, all with ML = 1/8 exactly — (1..7)
@@ -1520,6 +1533,13 @@ problems with no attempts (queue 18–19; run blind).
   index fields `target_shape` and `push_rounds` make persistence measurable
   alongside blind-vs-informed. Under-reaching is the failure mode nothing else
   here detects — an abandoned line and a dead one produce identical records.
+- Zaremba: know the support of your search space before scanning it. The
+  witness scan sped up ~60× at 10^7 by starting at the *infimum of the
+  bounded-quotient Cantor set* ((3√5−5)/10) instead of the naive feasibility
+  bound n/6 — the dead zone between the two is where all the wasted work
+  lived, and mean tries dropped from ~0.004·n (linear!) to ~34 (near-flat).
+  The same "compute the attractor's edge first" trick likely applies to any
+  scan whose targets live on a fractal.
 - Ops: parallel subagents can die to 529 Overloaded during API load spikes;
   resume via SendMessage, and don't record a queue item as done until its
   files exist on disk.

@@ -68,6 +68,10 @@
    "field": "computation",
    "description": "Partition the search domain into canonical cells enumerated exactly once, giving a completeness guarantee."
   },
+  "cantor-infimum-pruning": {
+   "field": "number-theory",
+   "description": "Start a scan for fractions with bounded continued-fraction quotients at the infimum of the bounded-quotient Cantor set rather than at the naive feasibility bound, skipping the interval that cannot contain a witness."
+  },
   "carmichael-pairwise-constraint": {
    "field": "number-theory",
    "description": "Use pairwise divisibility conditions of Carmichael/Giuga type (p | prod(others) - 1) as a filter while building prime sets."
@@ -140,6 +144,10 @@
    "field": "computation",
    "description": "Search with forced-assignment propagation after each choice so local contradictions surface before branching."
   },
+  "continuant-generation-crosscheck": {
+   "field": "number-theory",
+   "description": "Recompute a continued-fraction table by forward generation of continuants with bounded partial quotients, using no Euclidean algorithm or gcd, as an algorithmically independent check on a Euclid-based scan."
+  },
   "coupling": {
    "field": "probability",
    "description": "Construct a joint distribution with prescribed marginals so a quantity of interest becomes comparable pathwise."
@@ -192,6 +200,10 @@
    "field": "computation",
    "description": "Exact rational arithmetic for extremal quantities, so ties and strict inequalities are decided without float error."
   },
+  "exact-z-census": {
+   "field": "number-theory",
+   "description": "Compute for every denominator to a bound the exact minimum over coprime numerators of the largest continued-fraction partial quotient, and tabulate the exceptional set where it exceeds a threshold."
+  },
   "exhaustive-enumeration": {
    "field": "computation",
    "description": "Generate every object in a finite range and test the property directly."
@@ -207,6 +219,10 @@
   "exhaustive-speed-tuple-scan": {
    "field": "computation",
    "description": "Enumerate all parameter tuples to a bound, with symmetry reduction, and evaluate the objective on each."
+  },
+  "exhaustive-witness-scan": {
+   "field": "computation",
+   "description": "For every instance in a range, search candidates in order until one satisfies the target property and store it as a per-instance certificate that an independent checker can re-verify."
   },
   "field-equality-analysis": {
    "field": "analysis",
